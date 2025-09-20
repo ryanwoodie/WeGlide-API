@@ -5,6 +5,7 @@
 
 # HTML reports
 *.html
+!australian_leaderboard.html
 
 # JSON data files
 all_flights_*.json
