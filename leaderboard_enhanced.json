@@ -1,0 +1,4589 @@
+[
+  {
+    "pilot": "Ryan Wood",
+    "pilotId": 20723,
+    "totalPoints": 3595.6800000000003,
+    "totalDistance": 2544.99,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 601581,
+        "date": "2025-06-04",
+        "distance": 507.96,
+        "speed": 77.72,
+        "points": 881.16,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": true,
+        "contestType": "declaration"
+      },
+      {
+        "id": 601791,
+        "date": "2025-06-05",
+        "distance": 506.53,
+        "speed": 74.22,
+        "points": 878.67,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": true,
+        "contestType": "declaration"
+      },
+      {
+        "id": 589610,
+        "date": "2025-05-23",
+        "distance": 632.8,
+        "speed": 96.87,
+        "points": 799.29,
+        "takeoff": "Birch Hills Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 568423,
+        "date": "2025-05-05",
+        "distance": 552.56,
+        "speed": 96.63,
+        "points": 593.07,
+        "takeoff": "Birch Hills Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 571838,
+        "date": "2025-05-09",
+        "distance": 345.14,
+        "speed": 83.98,
+        "points": 443.49,
+        "takeoff": "Birch Hills Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Milán Kmetovics",
+    "pilotId": 16518,
+    "totalPoints": 3530.25,
+    "totalDistance": 3369.78,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 611157,
+        "date": "2025-06-16",
+        "distance": 826.8,
+        "speed": 99.66,
+        "points": 955.65,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 605365,
+        "date": "2025-06-09",
+        "distance": 825.6,
+        "speed": 97.05,
+        "points": 811.65,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 603385,
+        "date": "2025-06-07",
+        "distance": 692.54,
+        "speed": 91.27,
+        "points": 684.19,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 601786,
+        "date": "2025-06-05",
+        "distance": 520.25,
+        "speed": 96.87,
+        "points": 554.84,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 609679,
+        "date": "2025-06-15",
+        "distance": 504.59,
+        "speed": 80.99,
+        "points": 523.92,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Chester Fitchett",
+    "pilotId": 15929,
+    "totalPoints": 3483.10997,
+    "totalDistance": 3677.08,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 528639,
+        "date": "2025-03-08",
+        "distance": 1642.54,
+        "speed": 169.56,
+        "points": 1488.92,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 494606,
+        "date": "2024-11-11",
+        "distance": 666.67,
+        "speed": 147.72,
+        "points": 634.58997,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 568422,
+        "date": "2025-05-05",
+        "distance": 557.56,
+        "speed": 102.39,
+        "points": 599.64,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 544115,
+        "date": "2025-04-11",
+        "distance": 456.53,
+        "speed": 87.94,
+        "points": 407.53,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 566167,
+        "date": "2025-05-03",
+        "distance": 353.78,
+        "speed": 93.99,
+        "points": 352.43,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Bruce Friesen",
+    "pilotId": 34934,
+    "totalPoints": 3276.63,
+    "totalDistance": 2787.41,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 696222,
+        "date": "2025-05-05",
+        "distance": 648.58,
+        "speed": 96.26,
+        "points": 782.35,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 781799,
+        "date": "2025-05-13",
+        "distance": 582.6,
+        "speed": 83.69,
+        "points": 691.87,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 781798,
+        "date": "2025-06-16",
+        "distance": 536.73,
+        "speed": 81.26,
+        "points": 619.76,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 781789,
+        "date": "2025-06-04",
+        "distance": 518.88,
+        "speed": 80.91,
+        "points": 595.46,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 696226,
+        "date": "2025-06-05",
+        "distance": 500.62,
+        "speed": 84.58,
+        "points": 587.19,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Martin Dennis",
+    "pilotId": 21011,
+    "totalPoints": 2736.0299999999997,
+    "totalDistance": 2863.91,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 628532,
+        "date": "2025-07-01",
+        "distance": 611.24,
+        "speed": 96.37,
+        "points": 625.05,
+        "takeoff": "Fairmont Hot Springs",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 693538,
+        "date": "2025-08-26",
+        "distance": 607.5,
+        "speed": 122.04,
+        "points": 568.21,
+        "takeoff": "Fairmont Hot Springs",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 626486,
+        "date": "2025-06-29",
+        "distance": 564.34,
+        "speed": 92.71,
+        "points": 530.73,
+        "takeoff": "Fairmont Hot Springs",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 676080,
+        "date": "2025-08-11",
+        "distance": 542.4,
+        "speed": 97.59,
+        "points": 509.03,
+        "takeoff": "Fairmont Hot Springs",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 661507,
+        "date": "2025-07-31",
+        "distance": 538.43,
+        "speed": 102.18,
+        "points": 503.01,
+        "takeoff": "Fairmont Hot Springs",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Jesse Miller",
+    "pilotId": 23829,
+    "totalPoints": 2689.68,
+    "totalDistance": 2412.73,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 653827,
+        "date": "2025-07-22",
+        "distance": 548.17,
+        "speed": 91.34,
+        "points": 624.05,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 662235,
+        "date": "2025-08-01",
+        "distance": 568.36,
+        "speed": 94.64,
+        "points": 622.88,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 694874,
+        "date": "2025-08-27",
+        "distance": 501.64,
+        "speed": 80.34,
+        "points": 551.71,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702336,
+        "date": "2025-08-30",
+        "distance": 426.56,
+        "speed": 77.98,
+        "points": 480.52,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 593396,
+        "date": "2025-05-26",
+        "distance": 368,
+        "speed": 81.42,
+        "points": 410.52,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Luke Szczepaniak",
+    "pilotId": 4806,
+    "totalPoints": 2674.28,
+    "totalDistance": 2543.77,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 710433,
+        "date": "2025-09-01",
+        "distance": 603.98,
+        "speed": 94.97,
+        "points": 640.3,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 694888,
+        "date": "2025-08-27",
+        "distance": 591.24,
+        "speed": 87.99,
+        "points": 627.74,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 701870,
+        "date": "2025-08-30",
+        "distance": 559.38,
+        "speed": 95.77,
+        "points": 591.65,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 687921,
+        "date": "2025-08-22",
+        "distance": 484.23,
+        "speed": 71.76,
+        "points": 480.88,
+        "takeoff": "Grand Valley North",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 664434,
+        "date": "2025-08-03",
+        "distance": 304.94,
+        "speed": 86.28,
+        "points": 333.71,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Jay Allardyce",
+    "pilotId": 5582,
+    "totalPoints": 2458.5699999999997,
+    "totalDistance": 2049.69,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 591793,
+        "date": "2025-05-24",
+        "distance": 548.54,
+        "speed": 93.24,
+        "points": 652.47,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 589571,
+        "date": "2025-05-23",
+        "distance": 552.5,
+        "speed": 96.11,
+        "points": 647,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 592580,
+        "date": "2025-05-25",
+        "distance": 465.06,
+        "speed": 99.25,
+        "points": 578.74,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 626466,
+        "date": "2025-06-29",
+        "distance": 324.07,
+        "speed": 68.37,
+        "points": 390.64,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702075,
+        "date": "2025-08-30",
+        "distance": 159.52,
+        "speed": 63.92,
+        "points": 189.72,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Tom Weiher",
+    "pilotId": 35001,
+    "totalPoints": 2429.03,
+    "totalDistance": 2015.25,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 711148,
+        "date": "2025-05-26",
+        "distance": 576.48,
+        "speed": 95.09,
+        "points": 661.59,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 711149,
+        "date": "2025-05-25",
+        "distance": 332.41,
+        "speed": 102.75,
+        "points": 533.11,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": true,
+        "contestType": "declaration"
+      },
+      {
+        "id": 711150,
+        "date": "2025-05-24",
+        "distance": 425.06,
+        "speed": 92.6,
+        "points": 479.45,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 711151,
+        "date": "2025-05-23",
+        "distance": 381.5,
+        "speed": 70.08,
+        "points": 401.04,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 711090,
+        "date": "2025-08-28",
+        "distance": 299.8,
+        "speed": 64.84,
+        "points": 353.84,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ulrich Werneburg",
+    "pilotId": 35126,
+    "totalPoints": 2417.8399999999997,
+    "totalDistance": 2296.92,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 720431,
+        "date": "2025-07-21",
+        "distance": 561.08,
+        "speed": 88.86,
+        "points": 593.13,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 720414,
+        "date": "2025-08-01",
+        "distance": 499.3,
+        "speed": 84.58,
+        "points": 487.42,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 720432,
+        "date": "2025-07-18",
+        "distance": 410.25,
+        "speed": 81.82,
+        "points": 454.59,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 779001,
+        "date": "2025-09-08",
+        "distance": 425.65,
+        "speed": 80.01,
+        "points": 443.49,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 720429,
+        "date": "2025-08-22",
+        "distance": 400.64,
+        "speed": 85.68,
+        "points": 439.21,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Mark A. Schneider",
+    "pilotId": 27586,
+    "totalPoints": 2324.89,
+    "totalDistance": 2339.4,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 724861,
+        "date": "2025-08-01",
+        "distance": 541.84,
+        "speed": 87.5,
+        "points": 544.45,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 605782,
+        "date": "2025-05-27",
+        "distance": 538.85,
+        "speed": 90.83,
+        "points": 542.1,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 605778,
+        "date": "2025-05-28",
+        "distance": 425.97,
+        "speed": 83.76,
+        "points": 422.81,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 779155,
+        "date": "2025-09-08",
+        "distance": 423.15,
+        "speed": 83.97,
+        "points": 419.35,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 605783,
+        "date": "2025-06-02",
+        "distance": 409.59,
+        "speed": 81.57,
+        "points": 396.18,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Frederic Bourgault",
+    "pilotId": 22746,
+    "totalPoints": 2265.97302,
+    "totalDistance": 2020.5,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 488184,
+        "date": "2024-10-08",
+        "distance": 532.86,
+        "speed": 84.81,
+        "points": 592.7612,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 487925,
+        "date": "2024-10-07",
+        "distance": 424.59,
+        "speed": 86.41,
+        "points": 469.8153,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 487212,
+        "date": "2024-10-06",
+        "distance": 388.17,
+        "speed": 110.37,
+        "points": 421.02652,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 780104,
+        "date": "2024-10-11",
+        "distance": 368.29,
+        "speed": 83.43,
+        "points": 415.16,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 694879,
+        "date": "2025-08-27",
+        "distance": 306.59,
+        "speed": 60.07,
+        "points": 367.21,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Patrick McMahon",
+    "pilotId": 2074,
+    "totalPoints": 2133.8190999999997,
+    "totalDistance": 1996.08,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 568414,
+        "date": "2025-05-05",
+        "distance": 568.93,
+        "speed": 109.69,
+        "points": 661.3,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 488324,
+        "date": "2024-10-09",
+        "distance": 479.38,
+        "speed": 117.5,
+        "points": 480.3291,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 566177,
+        "date": "2025-05-03",
+        "distance": 396.47,
+        "speed": 108.9,
+        "points": 430.49,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 659652,
+        "date": "2025-07-29",
+        "distance": 304.07,
+        "speed": 81.64,
+        "points": 296.08,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 594017,
+        "date": "2025-05-27",
+        "distance": 247.23,
+        "speed": 72.15,
+        "points": 265.62,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Gabriel Duford",
+    "pilotId": 24793,
+    "totalPoints": 2095.6800000000003,
+    "totalDistance": 2087.85,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 662226,
+        "date": "2025-08-01",
+        "distance": 479.25,
+        "speed": 96.76,
+        "points": 490.92,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 609622,
+        "date": "2025-06-15",
+        "distance": 484.82,
+        "speed": 104.55,
+        "points": 470.22,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 608036,
+        "date": "2025-06-13",
+        "distance": 405.49,
+        "speed": 84.19,
+        "points": 410.89,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 603234,
+        "date": "2025-06-08",
+        "distance": 363.47,
+        "speed": 81.7,
+        "points": 363.95,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 709969,
+        "date": "2025-09-01",
+        "distance": 354.82,
+        "speed": 94.84,
+        "points": 359.7,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Gregory Zak",
+    "pilotId": 22232,
+    "totalPoints": 1855.97,
+    "totalDistance": 1764.85,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 751760,
+        "date": "2025-08-01",
+        "distance": 413.15,
+        "speed": 68.36,
+        "points": 462.67,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 735626,
+        "date": "2025-08-27",
+        "distance": 343.12,
+        "speed": 65.77,
+        "points": 375.38,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 735628,
+        "date": "2025-09-01",
+        "distance": 387.72,
+        "speed": 72.37,
+        "points": 361.19,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 751751,
+        "date": "2025-07-21",
+        "distance": 326.82,
+        "speed": 77.23,
+        "points": 351.16,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 735627,
+        "date": "2025-08-31",
+        "distance": 294.04,
+        "speed": 68.31,
+        "points": 305.57,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "François Proulx",
+    "pilotId": 35326,
+    "totalPoints": 1771.1699999999998,
+    "totalDistance": 1930.79,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 763446,
+        "date": "2025-05-27",
+        "distance": 562.1,
+        "speed": 93.59,
+        "points": 496.2,
+        "takeoff": "St Raymond/Paquet",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 763439,
+        "date": "2025-05-28",
+        "distance": 456.85,
+        "speed": 90.8,
+        "points": 413.05,
+        "takeoff": "St Raymond/Paquet",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 763443,
+        "date": "2025-06-08",
+        "distance": 355.65,
+        "speed": 69.83,
+        "points": 344.35,
+        "takeoff": "St Raymond/Paquet",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 763456,
+        "date": "2025-08-22",
+        "distance": 284.82,
+        "speed": 61.6,
+        "points": 261.79,
+        "takeoff": "St Raymond/Paquet",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 763445,
+        "date": "2025-07-18",
+        "distance": 271.37,
+        "speed": 49.47,
+        "points": 255.78,
+        "takeoff": "St Raymond/Paquet",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Pavan K",
+    "pilotId": 20675,
+    "totalPoints": 1746.9677000000001,
+    "totalDistance": 1528.57,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 599791,
+        "date": "2025-06-01",
+        "distance": 473.09,
+        "speed": 75.66,
+        "points": 558.38,
+        "takeoff": "Lethbridge County Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 601796,
+        "date": "2025-06-05",
+        "distance": 368.44,
+        "speed": 79.96,
+        "points": 437.3,
+        "takeoff": "Lethbridge County Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 488328,
+        "date": "2024-10-09",
+        "distance": 314.32,
+        "speed": 71.6,
+        "points": 337.52017,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 559678,
+        "date": "2025-04-30",
+        "distance": 232.78,
+        "speed": 82.64,
+        "points": 263.24,
+        "takeoff": "Lethbridge County Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 488192,
+        "date": "2024-10-08",
+        "distance": 139.94,
+        "speed": 94.36,
+        "points": 150.52753,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Kelvin Cole",
+    "pilotId": 6303,
+    "totalPoints": 1681.21423,
+    "totalDistance": 1643.26,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 488325,
+        "date": "2024-10-09",
+        "distance": 473.77,
+        "speed": 89.68,
+        "points": 464.92,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 577181,
+        "date": "2025-05-11",
+        "distance": 277.36,
+        "speed": 77.7,
+        "points": 350.93,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 487928,
+        "date": "2024-10-07",
+        "distance": 358.92,
+        "speed": 95.59,
+        "points": 349.33,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 487228,
+        "date": "2024-10-06",
+        "distance": 322.05,
+        "speed": 101.54,
+        "points": 313.19098,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 489497,
+        "date": "2024-10-13",
+        "distance": 211.16,
+        "speed": 81.57,
+        "points": 202.84325,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Christopher Michael Gough",
+    "pilotId": 2070,
+    "totalPoints": 1653.1599999999999,
+    "totalDistance": 1641.2299999999998,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 487199,
+        "date": "2024-10-06",
+        "distance": 577.52,
+        "speed": 120.32,
+        "points": 564.11,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 488180,
+        "date": "2024-10-08",
+        "distance": 360.83,
+        "speed": 106.66,
+        "points": 365.45,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 647347,
+        "date": "2025-07-16",
+        "distance": 328.33,
+        "speed": 79.08,
+        "points": 337.23,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 559665,
+        "date": "2025-04-30",
+        "distance": 243.1,
+        "speed": 84.23,
+        "points": 247.3,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 586984,
+        "date": "2025-05-19",
+        "distance": 131.45,
+        "speed": 50.64,
+        "points": 139.07,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ronald M.B. Smith",
+    "pilotId": 27904,
+    "totalPoints": 1595.6499999999999,
+    "totalDistance": 1584.1,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 655954,
+        "date": "2025-07-22",
+        "distance": 370.83,
+        "speed": 58.34,
+        "points": 375.12,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 706533,
+        "date": "2025-08-22",
+        "distance": 330.92,
+        "speed": 55.7,
+        "points": 346.72,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 656285,
+        "date": "2025-07-04",
+        "distance": 319.79,
+        "speed": 47.35,
+        "points": 311.01,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797709,
+        "date": "2025-09-08",
+        "distance": 294.76,
+        "speed": 49.27,
+        "points": 291.57,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 706531,
+        "date": "2025-08-31",
+        "distance": 267.8,
+        "speed": 56.77,
+        "points": 271.23,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Jean Lapierre",
+    "pilotId": 34953,
+    "totalPoints": 1521.55,
+    "totalDistance": 1424.07,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 697491,
+        "date": "2025-08-01",
+        "distance": 380.32,
+        "speed": 84.39,
+        "points": 412.59,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 697492,
+        "date": "2025-07-22",
+        "distance": 295.15,
+        "speed": 64.15,
+        "points": 315.58,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 697485,
+        "date": "2025-08-27",
+        "distance": 273.01,
+        "speed": 75.99,
+        "points": 277.01,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 697488,
+        "date": "2025-08-22",
+        "distance": 240.34,
+        "speed": 84.1,
+        "points": 262.54,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 697504,
+        "date": "2025-05-28",
+        "distance": 235.25,
+        "speed": 96.39,
+        "points": 253.83,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Gord Lendrum",
+    "pilotId": 35124,
+    "totalPoints": 1491.5299999999997,
+    "totalDistance": 1308.69,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 719720,
+        "date": "2025-09-01",
+        "distance": 305.72,
+        "speed": 64.23,
+        "points": 363.99,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 719965,
+        "date": "2025-05-27",
+        "distance": 305.77,
+        "speed": 57.55,
+        "points": 334.75,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 719963,
+        "date": "2025-08-01",
+        "distance": 265.38,
+        "speed": 53.18,
+        "points": 296.15,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 719962,
+        "date": "2025-08-22",
+        "distance": 237.46,
+        "speed": 63.02,
+        "points": 271.25,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 719967,
+        "date": "2025-07-18",
+        "distance": 194.36,
+        "speed": 45.89,
+        "points": 225.39,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Sergey Skobkarev",
+    "pilotId": 24930,
+    "totalPoints": 1484.67,
+    "totalDistance": 1346.41,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 789904,
+        "date": "2025-06-19",
+        "distance": 316.85,
+        "speed": 68.79,
+        "points": 350.81,
+        "takeoff": "Merritt",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789906,
+        "date": "2025-06-15",
+        "distance": 290.76,
+        "speed": 72.81,
+        "points": 319.46,
+        "takeoff": "Merritt",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789902,
+        "date": "2025-07-13",
+        "distance": 259.99,
+        "speed": 56.83,
+        "points": 280.95,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789907,
+        "date": "2025-06-14",
+        "distance": 250.38,
+        "speed": 66.11,
+        "points": 280.39,
+        "takeoff": "Merritt",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789913,
+        "date": "2025-04-27",
+        "distance": 228.43,
+        "speed": 55.9,
+        "points": 253.06,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "François Tanguay",
+    "pilotId": 35091,
+    "totalPoints": 1457.71,
+    "totalDistance": 1387.01,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 714520,
+        "date": "2025-08-01",
+        "distance": 382.83,
+        "speed": 75.18,
+        "points": 417.8,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 714515,
+        "date": "2025-06-08",
+        "distance": 279.25,
+        "speed": 63.11,
+        "points": 295.39,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 714523,
+        "date": "2025-08-27",
+        "distance": 251.95,
+        "speed": 68.8,
+        "points": 269.55,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 714514,
+        "date": "2025-05-27",
+        "distance": 253.83,
+        "speed": 66.73,
+        "points": 252.64,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 714517,
+        "date": "2025-07-04",
+        "distance": 219.15,
+        "speed": 49.34,
+        "points": 222.33,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Gary Hill",
+    "pilotId": 35152,
+    "totalPoints": 1389.5400000000002,
+    "totalDistance": 1063.03,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 724162,
+        "date": "2025-05-05",
+        "distance": 506.53,
+        "speed": 89.53,
+        "points": 782.82,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": true,
+        "contestType": "declaration"
+      },
+      {
+        "id": 724160,
+        "date": "2025-06-02",
+        "distance": 289.62,
+        "speed": 66.31,
+        "points": 302.69,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 724159,
+        "date": "2025-06-15",
+        "distance": 131.47,
+        "speed": 48.84,
+        "points": 151.47,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 724163,
+        "date": "2025-05-03",
+        "distance": 75.31,
+        "speed": 75.39,
+        "points": 85.89,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 724161,
+        "date": "2025-05-10",
+        "distance": 60.1,
+        "speed": 58.94,
+        "points": 66.67,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Mark Luscher",
+    "pilotId": 13284,
+    "totalPoints": 1287.93546,
+    "totalDistance": 1196.02,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 653910,
+        "date": "2025-07-22",
+        "distance": 311.37,
+        "speed": 55.01,
+        "points": 345.23,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 710889,
+        "date": "2025-09-01",
+        "distance": 272.01,
+        "speed": 69.12,
+        "points": 295.87,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 707671,
+        "date": "2025-08-31",
+        "distance": 228.61,
+        "speed": 65.28,
+        "points": 239.03,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 673277,
+        "date": "2025-08-09",
+        "distance": 220.36,
+        "speed": 56.97,
+        "points": 231.15,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 489748,
+        "date": "2024-10-14",
+        "distance": 163.67,
+        "speed": 54.52,
+        "points": 176.65546,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Daniel Nazarko",
+    "pilotId": 15888,
+    "totalPoints": 1254.94596,
+    "totalDistance": 1122.27,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 489740,
+        "date": "2024-10-14",
+        "distance": 265.83,
+        "speed": 82.71,
+        "points": 279.34,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 687938,
+        "date": "2025-08-22",
+        "distance": 216.66,
+        "speed": 66.41,
+        "points": 258.45,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 689240,
+        "date": "2025-08-23",
+        "distance": 223.3,
+        "speed": 52.33,
+        "points": 256.01,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 488194,
+        "date": "2024-10-08",
+        "distance": 216.98,
+        "speed": 89.99,
+        "points": 238.77596,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 661521,
+        "date": "2025-07-31",
+        "distance": 199.5,
+        "speed": 32.71,
+        "points": 222.37,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Rafael Bravo",
+    "pilotId": 34958,
+    "totalPoints": 1207.79,
+    "totalDistance": 1105.74,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 725214,
+        "date": "2025-06-16",
+        "distance": 255.35,
+        "speed": 80.59,
+        "points": 293.36,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 725219,
+        "date": "2025-07-03",
+        "distance": 236.88,
+        "speed": 76.39,
+        "points": 264.88,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 725217,
+        "date": "2024-10-05",
+        "distance": 235.88,
+        "speed": 66.26,
+        "points": 243.1,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 725229,
+        "date": "2024-10-26",
+        "distance": 216.98,
+        "speed": 61.04,
+        "points": 232.09,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 725225,
+        "date": "2025-06-23",
+        "distance": 160.65,
+        "speed": 44.97,
+        "points": 174.36,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Brandon Davies",
+    "pilotId": 35272,
+    "totalPoints": 1181.16,
+    "totalDistance": 905.3399999999999,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 735850,
+        "date": "2025-07-22",
+        "distance": 288.44,
+        "speed": 88.64,
+        "points": 328.68,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 735849,
+        "date": "2025-08-01",
+        "distance": 218.95,
+        "speed": 50.37,
+        "points": 308.47,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 735848,
+        "date": "2025-07-21",
+        "distance": 184.26,
+        "speed": 48.2,
+        "points": 248.51,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789972,
+        "date": "2025-09-09",
+        "distance": 124.41,
+        "speed": 63.61,
+        "points": 175.86,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 735846,
+        "date": "2025-05-10",
+        "distance": 89.28,
+        "speed": 38.68,
+        "points": 119.64,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Rob Russell",
+    "pilotId": 5342,
+    "totalPoints": 1123.02,
+    "totalDistance": 1042.52,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 726118,
+        "date": "2025-08-01",
+        "distance": 272.91,
+        "speed": 64.25,
+        "points": 299.34,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 726112,
+        "date": "2025-07-21",
+        "distance": 156.5,
+        "speed": 50.24,
+        "points": 220.31,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 726122,
+        "date": "2025-08-27",
+        "distance": 198.04,
+        "speed": 44.11,
+        "points": 204.41,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 726125,
+        "date": "2025-08-30",
+        "distance": 196.52,
+        "speed": 66.27,
+        "points": 201.32,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 726121,
+        "date": "2025-08-02",
+        "distance": 218.55,
+        "speed": 53.37,
+        "points": 197.64,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ben Hornett",
+    "pilotId": 6074,
+    "totalPoints": 1116.31712,
+    "totalDistance": 1142.54,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 488320,
+        "date": "2024-10-09",
+        "distance": 375.61,
+        "speed": 75.97,
+        "points": 371.51712,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 689250,
+        "date": "2025-08-23",
+        "distance": 297.04,
+        "speed": 104.97,
+        "points": 291.1,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 559674,
+        "date": "2025-04-30",
+        "distance": 202.99,
+        "speed": 67.93,
+        "points": 185.46,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 591794,
+        "date": "2025-05-24",
+        "distance": 129.3,
+        "speed": 51.81,
+        "points": 135.03,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 691729,
+        "date": "2025-08-24",
+        "distance": 137.6,
+        "speed": 60.53,
+        "points": 133.21,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ward Clapham",
+    "pilotId": 16605,
+    "totalPoints": 1109.4,
+    "totalDistance": 1051.26,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 648217,
+        "date": "2025-07-17",
+        "distance": 236.58,
+        "speed": 69.58,
+        "points": 243.96,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 628542,
+        "date": "2025-06-30",
+        "distance": 215.13,
+        "speed": 52.83,
+        "points": 226.76,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 635579,
+        "date": "2025-07-06",
+        "distance": 202.99,
+        "speed": 70.84,
+        "points": 217.51,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 567229,
+        "date": "2025-05-04",
+        "distance": 194.32,
+        "speed": 70.95,
+        "points": 211.14,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 686260,
+        "date": "2025-08-20",
+        "distance": 202.24,
+        "speed": 64.98,
+        "points": 210.03,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Predrag Kupcevic",
+    "pilotId": 22081,
+    "totalPoints": 1097.74,
+    "totalDistance": 1004.77,
+    "flightCount": 4,
+    "bestFlights": [
+      {
+        "id": 778192,
+        "date": "2025-09-08",
+        "distance": 265.6,
+        "speed": 93.93,
+        "points": 303.33,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 694853,
+        "date": "2025-08-27",
+        "distance": 269.08,
+        "speed": 66.87,
+        "points": 280.25,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 694854,
+        "date": "2025-08-22",
+        "distance": 240.16,
+        "speed": 77.58,
+        "points": 257.22,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797692,
+        "date": "2025-09-10",
+        "distance": 229.93,
+        "speed": 68.98,
+        "points": 256.94,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Joseph Tam",
+    "pilotId": 35296,
+    "totalPoints": 1086.47,
+    "totalDistance": 855.92,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 747403,
+        "date": "2025-08-01",
+        "distance": 185.07,
+        "speed": 67.29,
+        "points": 291.31,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": true,
+        "contestType": "declaration"
+      },
+      {
+        "id": 747393,
+        "date": "2025-07-21",
+        "distance": 206.95,
+        "speed": 71.98,
+        "points": 250.97,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 747394,
+        "date": "2025-07-22",
+        "distance": 186.67,
+        "speed": 58.77,
+        "points": 209.4,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 747401,
+        "date": "2025-08-30",
+        "distance": 153.26,
+        "speed": 51.91,
+        "points": 208.23,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 747397,
+        "date": "2025-07-19",
+        "distance": 123.97,
+        "speed": 59.95,
+        "points": 126.56,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ronak Patel",
+    "pilotId": 35081,
+    "totalPoints": 1059.71,
+    "totalDistance": 913.83,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 713793,
+        "date": "2025-09-01",
+        "distance": 284.86,
+        "speed": 70.92,
+        "points": 334.53,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 713799,
+        "date": "2025-08-30",
+        "distance": 211.51,
+        "speed": 59.32,
+        "points": 244.56,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 713802,
+        "date": "2025-08-10",
+        "distance": 187.51,
+        "speed": 61.34,
+        "points": 222.53,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 713806,
+        "date": "2025-07-20",
+        "distance": 111.85,
+        "speed": 39.45,
+        "points": 131.18,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 713800,
+        "date": "2025-08-24",
+        "distance": 118.1,
+        "speed": 40.59,
+        "points": 126.91,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Sean Christie",
+    "pilotId": 25002,
+    "totalPoints": 1042.6799999999998,
+    "totalDistance": 1074.69,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 718981,
+        "date": "2025-09-01",
+        "distance": 356.55,
+        "speed": 71.15,
+        "points": 326.15,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 680793,
+        "date": "2025-08-15",
+        "distance": 236.99,
+        "speed": 73.42,
+        "points": 258.03,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 678963,
+        "date": "2025-08-14",
+        "distance": 259.19,
+        "speed": 76.23,
+        "points": 228.68,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 664820,
+        "date": "2025-08-03",
+        "distance": 134.5,
+        "speed": 45.81,
+        "points": 139.7,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 665491,
+        "date": "2025-07-02",
+        "distance": 87.46,
+        "speed": 34.44,
+        "points": 90.12,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ionel Anton",
+    "pilotId": 35400,
+    "totalPoints": 1005.06,
+    "totalDistance": 999.4399999999999,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 797848,
+        "date": "2025-07-22",
+        "distance": 303.17,
+        "speed": 61.51,
+        "points": 273.98,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797849,
+        "date": "2025-08-22",
+        "distance": 216.67,
+        "speed": 66.99,
+        "points": 232.5,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797841,
+        "date": "2024-10-05",
+        "distance": 171.15,
+        "speed": 51.16,
+        "points": 179.79,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797802,
+        "date": "2025-08-31",
+        "distance": 157.8,
+        "speed": 51.1,
+        "points": 165.29,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797843,
+        "date": "2025-05-11",
+        "distance": 150.65,
+        "speed": 42.3,
+        "points": 153.5,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Herrie ten Cate",
+    "pilotId": 1168,
+    "totalPoints": 996.09645,
+    "totalDistance": 1019.8000000000001,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 487917,
+        "date": "2024-10-07",
+        "distance": 279.68,
+        "speed": 90.57,
+        "points": 243.75645,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 706423,
+        "date": "2025-08-31",
+        "distance": 205.86,
+        "speed": 90.06,
+        "points": 198.49,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 606531,
+        "date": "2025-06-10",
+        "distance": 177.15,
+        "speed": 59.9,
+        "points": 190.27,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 488146,
+        "date": "2024-10-06",
+        "distance": 199.72,
+        "speed": 70.43,
+        "points": 183.25,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 627735,
+        "date": "2025-06-30",
+        "distance": 157.39,
+        "speed": 46.54,
+        "points": 180.33,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "James Kingdon",
+    "pilotId": 35423,
+    "totalPoints": 980.6300000000001,
+    "totalDistance": 952.1,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 797780,
+        "date": "2025-09-01",
+        "distance": 241.63,
+        "speed": 56.7,
+        "points": 249,
+        "takeoff": "Arthur",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797784,
+        "date": "2025-08-11",
+        "distance": 209,
+        "speed": 63.22,
+        "points": 217.24,
+        "takeoff": "Arthur",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797788,
+        "date": "2025-07-21",
+        "distance": 165.62,
+        "speed": 45.09,
+        "points": 172.96,
+        "takeoff": "Arthur",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797781,
+        "date": "2025-08-31",
+        "distance": 174.47,
+        "speed": 48.68,
+        "points": 172.59,
+        "takeoff": "Arthur",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 797785,
+        "date": "2025-08-10",
+        "distance": 161.38,
+        "speed": 46.97,
+        "points": 168.84,
+        "takeoff": "Arthur",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Patrice gravel",
+    "pilotId": 18113,
+    "totalPoints": 959.51,
+    "totalDistance": 939.9200000000001,
+    "flightCount": 2,
+    "bestFlights": [
+      {
+        "id": 778399,
+        "date": "2025-09-08",
+        "distance": 494.47,
+        "speed": 84.87,
+        "points": 508.47,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 724252,
+        "date": "2025-08-31",
+        "distance": 445.45,
+        "speed": 76.82,
+        "points": 451.04,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Tyson Whitehead",
+    "pilotId": 16813,
+    "totalPoints": 927.3699999999999,
+    "totalDistance": 740.16,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 602603,
+        "date": "2025-06-07",
+        "distance": 289.85,
+        "speed": 56.72,
+        "points": 359.31,
+        "takeoff": "Woodstock Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 663499,
+        "date": "2025-08-02",
+        "distance": 195.64,
+        "speed": 50.38,
+        "points": 252.73,
+        "takeoff": "Woodstock Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 630623,
+        "date": "2025-07-03",
+        "distance": 133.61,
+        "speed": 40.52,
+        "points": 157.3,
+        "takeoff": "Arthur",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 664522,
+        "date": "2025-08-03",
+        "distance": 57.54,
+        "speed": 42.77,
+        "points": 81.27,
+        "takeoff": "Woodstock Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 644973,
+        "date": "2025-07-13",
+        "distance": 63.52,
+        "speed": 52.62,
+        "points": 76.76,
+        "takeoff": "Woodstock Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Brian Pirie",
+    "pilotId": 21317,
+    "totalPoints": 896.84,
+    "totalDistance": 725.51,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 770864,
+        "date": "2025-08-01",
+        "distance": 170.47,
+        "speed": 55.23,
+        "points": 210.87,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 770861,
+        "date": "2025-05-27",
+        "distance": 154.9,
+        "speed": 30.06,
+        "points": 209,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 770872,
+        "date": "2025-09-01",
+        "distance": 131.65,
+        "speed": 44.14,
+        "points": 162.51,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 770868,
+        "date": "2025-08-22",
+        "distance": 138.01,
+        "speed": 32.37,
+        "points": 161.46,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 770871,
+        "date": "2025-08-31",
+        "distance": 130.48,
+        "speed": 39.53,
+        "points": 153,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Joshua Peace",
+    "pilotId": 25114,
+    "totalPoints": 886.87337,
+    "totalDistance": 790.1600000000001,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 687936,
+        "date": "2025-08-22",
+        "distance": 174.25,
+        "speed": 47.19,
+        "points": 212.26,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 689254,
+        "date": "2025-08-23",
+        "distance": 157.86,
+        "speed": 32.31,
+        "points": 189.25,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 489738,
+        "date": "2024-10-14",
+        "distance": 181.6,
+        "speed": 66.24,
+        "points": 173.33875,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 595385,
+        "date": "2025-05-29",
+        "distance": 126.99,
+        "speed": 51.31,
+        "points": 160.34,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 489487,
+        "date": "2024-10-13",
+        "distance": 149.46,
+        "speed": 72.13,
+        "points": 151.68462,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "James Wood",
+    "pilotId": 26583,
+    "totalPoints": 833.61,
+    "totalDistance": 724.02,
+    "flightCount": 4,
+    "bestFlights": [
+      {
+        "id": 794193,
+        "date": "2025-07-22",
+        "distance": 325.89,
+        "speed": 70.64,
+        "points": 387.79,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 794190,
+        "date": "2025-07-21",
+        "distance": 278.36,
+        "speed": 71.31,
+        "points": 310.84,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 794189,
+        "date": "2025-07-05",
+        "distance": 85.14,
+        "speed": 41.45,
+        "points": 89.53,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 794188,
+        "date": "2024-10-14",
+        "distance": 34.63,
+        "speed": 38.02,
+        "points": 45.45,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ireneusz Sek",
+    "pilotId": 10170,
+    "totalPoints": 796.3700000000001,
+    "totalDistance": 691.09,
+    "flightCount": 3,
+    "bestFlights": [
+      {
+        "id": 593470,
+        "date": "2025-05-26",
+        "distance": 300.81,
+        "speed": 70.2,
+        "points": 354.47,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 602626,
+        "date": "2025-06-07",
+        "distance": 213.53,
+        "speed": 67.42,
+        "points": 236.68,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 719043,
+        "date": "2025-09-02",
+        "distance": 176.75,
+        "speed": 62.16,
+        "points": 205.22,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Tim Daniel",
+    "pilotId": 35092,
+    "totalPoints": 793.0500000000001,
+    "totalDistance": 570.01,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 715534,
+        "date": "2025-07-08",
+        "distance": 146.56,
+        "speed": 42.28,
+        "points": 207.11,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 715533,
+        "date": "2025-07-07",
+        "distance": 150.89,
+        "speed": 42.31,
+        "points": 204.34,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 715531,
+        "date": "2025-06-19",
+        "distance": 101.87,
+        "speed": 41.65,
+        "points": 139.03,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 715538,
+        "date": "2025-07-27",
+        "distance": 96.02,
+        "speed": 42.76,
+        "points": 134.23,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 715530,
+        "date": "2025-06-15",
+        "distance": 74.67,
+        "speed": 51.69,
+        "points": 108.34,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Warwick Patterson",
+    "pilotId": 21574,
+    "totalPoints": 777.54,
+    "totalDistance": 583.54,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 648640,
+        "date": "2025-07-17",
+        "distance": 145.41,
+        "speed": 53.22,
+        "points": 186.64,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 595383,
+        "date": "2025-05-29",
+        "distance": 122.94,
+        "speed": 42.03,
+        "points": 164.15,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 570283,
+        "date": "2025-05-08",
+        "distance": 117.52,
+        "speed": 56.83,
+        "points": 156.34,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 663318,
+        "date": "2025-07-27",
+        "distance": 102.79,
+        "speed": 53.45,
+        "points": 142.25,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 566166,
+        "date": "2025-05-03",
+        "distance": 94.88,
+        "speed": 59,
+        "points": 128.16,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Mohammad Reza Darvish",
+    "pilotId": 13987,
+    "totalPoints": 758.3100000000001,
+    "totalDistance": 730.9499999999999,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 705890,
+        "date": "2025-08-31",
+        "distance": 183.08,
+        "speed": 56.26,
+        "points": 201.1,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 663484,
+        "date": "2025-08-02",
+        "distance": 218.54,
+        "speed": 53.36,
+        "points": 197.63,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 710289,
+        "date": "2025-09-01",
+        "distance": 132.54,
+        "speed": 60.87,
+        "points": 153.65,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 664598,
+        "date": "2025-08-03",
+        "distance": 101.16,
+        "speed": 41.13,
+        "points": 103.32,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 682301,
+        "date": "2025-08-16",
+        "distance": 95.63,
+        "speed": 55.27,
+        "points": 102.61,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "John Mulder",
+    "pilotId": 22923,
+    "totalPoints": 717.98,
+    "totalDistance": 647.24,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 577168,
+        "date": "2025-05-11",
+        "distance": 228.11,
+        "speed": 74.12,
+        "points": 255.68,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 573814,
+        "date": "2025-05-10",
+        "distance": 139.88,
+        "speed": 46.69,
+        "points": 155.86,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 556141,
+        "date": "2025-04-26",
+        "distance": 124.56,
+        "speed": 87.36,
+        "points": 136.32,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 628538,
+        "date": "2025-07-01",
+        "distance": 85.34,
+        "speed": 27.23,
+        "points": 91.98,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 549858,
+        "date": "2025-04-18",
+        "distance": 69.35,
+        "speed": 45.58,
+        "points": 78.14,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Artur Siwic",
+    "pilotId": 12276,
+    "totalPoints": 623.46,
+    "totalDistance": 570.8999999999999,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 609666,
+        "date": "2025-06-15",
+        "distance": 125.66,
+        "speed": 64.79,
+        "points": 149.75,
+        "takeoff": "Merritt",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 690411,
+        "date": "2025-08-23",
+        "distance": 141.89,
+        "speed": 59.79,
+        "points": 134.87,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 613091,
+        "date": "2025-06-17",
+        "distance": 114.94,
+        "speed": 59.75,
+        "points": 126.82,
+        "takeoff": "Merritt",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 555012,
+        "date": "2025-04-26",
+        "distance": 109.47,
+        "speed": 29.85,
+        "points": 125.06,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 657894,
+        "date": "2025-07-26",
+        "distance": 78.94,
+        "speed": 38.97,
+        "points": 86.96,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Csaba Balazs",
+    "pilotId": 35431,
+    "totalPoints": 615.51,
+    "totalDistance": 551.34,
+    "flightCount": 2,
+    "bestFlights": [
+      {
+        "id": 797855,
+        "date": "2025-08-22",
+        "distance": 355.76,
+        "speed": 82.29,
+        "points": 413.57,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 803481,
+        "date": "2025-09-01",
+        "distance": 195.58,
+        "speed": 57.48,
+        "points": 201.94,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Christian Boulay",
+    "pilotId": 35367,
+    "totalPoints": 607.64,
+    "totalDistance": 554.48,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 787293,
+        "date": "2025-06-13",
+        "distance": 136.86,
+        "speed": 29.59,
+        "points": 150.95,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 787290,
+        "date": "2025-06-08",
+        "distance": 136.61,
+        "speed": 42.09,
+        "points": 150.53,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 787295,
+        "date": "2025-07-04",
+        "distance": 112.01,
+        "speed": 29.49,
+        "points": 121.9,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 787291,
+        "date": "2025-09-01",
+        "distance": 87.26,
+        "speed": 37.08,
+        "points": 96.66,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 787292,
+        "date": "2025-05-11",
+        "distance": 81.74,
+        "speed": 34.04,
+        "points": 87.6,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Allen Paul",
+    "pilotId": 34993,
+    "totalPoints": 573.37,
+    "totalDistance": 435.61,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 702462,
+        "date": "2025-07-06",
+        "distance": 122.11,
+        "speed": 55.22,
+        "points": 161.89,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702463,
+        "date": "2025-07-04",
+        "distance": 91.75,
+        "speed": 51.06,
+        "points": 121.97,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702464,
+        "date": "2025-07-01",
+        "distance": 88.56,
+        "speed": 34.87,
+        "points": 109.53,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702468,
+        "date": "2025-06-29",
+        "distance": 67.17,
+        "speed": 31.32,
+        "points": 91.47,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702471,
+        "date": "2025-05-30",
+        "distance": 66.02,
+        "speed": 51.4,
+        "points": 88.51,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Melanie Paradis",
+    "pilotId": 6085,
+    "totalPoints": 550.41,
+    "totalDistance": 494.63,
+    "flightCount": 2,
+    "bestFlights": [
+      {
+        "id": 701688,
+        "date": "2025-06-05",
+        "distance": 336.65,
+        "speed": 59.71,
+        "points": 389.49,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 701687,
+        "date": "2025-05-13",
+        "distance": 157.98,
+        "speed": 82.02,
+        "points": 160.92,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "David Villeneuve",
+    "pilotId": 23363,
+    "totalPoints": 512.73,
+    "totalDistance": 432.62,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 720434,
+        "date": "2025-08-22",
+        "distance": 116.21,
+        "speed": 61.13,
+        "points": 122.12,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 778826,
+        "date": "2025-09-08",
+        "distance": 84.22,
+        "speed": 45.5,
+        "points": 107.84,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 720437,
+        "date": "2025-08-01",
+        "distance": 80.93,
+        "speed": 48.45,
+        "points": 104.54,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 720438,
+        "date": "2025-07-21",
+        "distance": 84.77,
+        "speed": 48.23,
+        "points": 100.69,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 720436,
+        "date": "2025-08-31",
+        "distance": 66.49,
+        "speed": 37.75,
+        "points": 77.54,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Nick Bonniere",
+    "pilotId": 35436,
+    "totalPoints": 489.85,
+    "totalDistance": 514.09,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 797854,
+        "date": "2025-09-08",
+        "distance": 514.09,
+        "speed": 85.3,
+        "points": 489.85,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Tyler Paradis",
+    "pilotId": 6084,
+    "totalPoints": 486.55,
+    "totalDistance": 479.43999999999994,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 703828,
+        "date": "2025-08-01",
+        "distance": 124.51,
+        "speed": 70.47,
+        "points": 127.57,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 703825,
+        "date": "2025-06-04",
+        "distance": 122.81,
+        "speed": 74.72,
+        "points": 122.81,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 704412,
+        "date": "2025-07-31",
+        "distance": 86.72,
+        "speed": 50.46,
+        "points": 96.14,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 703831,
+        "date": "2025-05-10",
+        "distance": 82.64,
+        "speed": 56.12,
+        "points": 81.55,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 703823,
+        "date": "2025-05-17",
+        "distance": 62.76,
+        "speed": 58.64,
+        "points": 58.48,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Charlie Pastuszka",
+    "pilotId": 33962,
+    "totalPoints": 462.38,
+    "totalDistance": 462.47,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 659661,
+        "date": "2025-07-29",
+        "distance": 462.47,
+        "speed": 105.24,
+        "points": 462.38,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Amanda Vella",
+    "pilotId": 32676,
+    "totalPoints": 456.23,
+    "totalDistance": 425.75,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 616997,
+        "date": "2025-05-11",
+        "distance": 187.95,
+        "speed": 57.45,
+        "points": 206.34,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 662237,
+        "date": "2025-08-01",
+        "distance": 150.92,
+        "speed": 57.03,
+        "points": 144.35,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 617021,
+        "date": "2025-05-10",
+        "distance": 49.32,
+        "speed": 39.57,
+        "points": 65.07,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702233,
+        "date": "2025-08-30",
+        "distance": 19.87,
+        "speed": 44.68,
+        "points": 20.62,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 634447,
+        "date": "2025-07-05",
+        "distance": 17.69,
+        "speed": 47.03,
+        "points": 19.85,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Sasha Pejic",
+    "pilotId": 22077,
+    "totalPoints": 451.72299999999996,
+    "totalDistance": 418.27,
+    "flightCount": 2,
+    "bestFlights": [
+      {
+        "id": 488201,
+        "date": "2024-10-08",
+        "distance": 208.37,
+        "speed": 50.96,
+        "points": 238.433,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 609669,
+        "date": "2025-06-14",
+        "distance": 209.9,
+        "speed": 70.79,
+        "points": 213.29,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Kevin Klock",
+    "pilotId": 35433,
+    "totalPoints": 446.14,
+    "totalDistance": 315.60999999999996,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 803889,
+        "date": "2025-06-06",
+        "distance": 96.14,
+        "speed": 17.93,
+        "points": 140.1,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 803885,
+        "date": "2025-07-26",
+        "distance": 71.52,
+        "speed": 22.33,
+        "points": 106.15,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 803881,
+        "date": "2025-06-14",
+        "distance": 54.48,
+        "speed": 21.32,
+        "points": 70.37,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 803886,
+        "date": "2025-07-27",
+        "distance": 44.14,
+        "speed": 24.28,
+        "points": 66.7,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 803882,
+        "date": "2025-06-15",
+        "distance": 49.33,
+        "speed": 21.67,
+        "points": 62.82,
+        "takeoff": "Hope",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Victor Andrucson",
+    "pilotId": 12189,
+    "totalPoints": 418.6,
+    "totalDistance": 275.27,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 592480,
+        "date": "2025-05-24",
+        "distance": 275.27,
+        "speed": 69.52,
+        "points": 418.6,
+        "takeoff": "Birch Hills Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Marco Solo",
+    "pilotId": 35395,
+    "totalPoints": 380.69000000000005,
+    "totalDistance": 294.76,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 789879,
+        "date": "2025-09-01",
+        "distance": 79.89,
+        "speed": 21.86,
+        "points": 100.94,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789878,
+        "date": "2025-08-09",
+        "distance": 59.93,
+        "speed": 29.12,
+        "points": 77.11,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789880,
+        "date": "2025-09-07",
+        "distance": 57.58,
+        "speed": 33.24,
+        "points": 76.64,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789877,
+        "date": "2025-08-01",
+        "distance": 54.73,
+        "speed": 28.93,
+        "points": 71.41,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 789876,
+        "date": "2025-08-22",
+        "distance": 42.63,
+        "speed": 14.54,
+        "points": 54.59,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Denis Nolan",
+    "pilotId": 10764,
+    "totalPoints": 364.86,
+    "totalDistance": 308.4200000000001,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 678061,
+        "date": "2025-08-13",
+        "distance": 103.81,
+        "speed": 66.71,
+        "points": 119.07,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 702190,
+        "date": "2025-08-30",
+        "distance": 67.23,
+        "speed": 54.61,
+        "points": 79.05,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 705639,
+        "date": "2025-08-31",
+        "distance": 62.17,
+        "speed": 61.64,
+        "points": 67.09,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 664412,
+        "date": "2025-08-03",
+        "distance": 44.72,
+        "speed": 49.83,
+        "points": 58.06,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 663394,
+        "date": "2025-08-02",
+        "distance": 30.49,
+        "speed": 61.42,
+        "points": 41.59,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Éric Raissac",
+    "pilotId": 35351,
+    "totalPoints": 319.8,
+    "totalDistance": 279.61,
+    "flightCount": 3,
+    "bestFlights": [
+      {
+        "id": 779851,
+        "date": "2025-07-22",
+        "distance": 148.5,
+        "speed": 55.38,
+        "points": 165.52,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 779853,
+        "date": "2025-07-04",
+        "distance": 90.62,
+        "speed": 46.08,
+        "points": 100.11,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 779849,
+        "date": "2025-05-11",
+        "distance": 40.49,
+        "speed": 32.36,
+        "points": 54.17,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Guy Gauthier",
+    "pilotId": 23330,
+    "totalPoints": 246.86630100000002,
+    "totalDistance": 199.42000000000002,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 662208,
+        "date": "2025-08-01",
+        "distance": 72.51,
+        "speed": 48.9,
+        "points": 85.37,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 492029,
+        "date": "2024-10-26",
+        "distance": 49.97,
+        "speed": 45.94,
+        "points": 65.29456,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 489048,
+        "date": "2024-10-12",
+        "distance": 33.56,
+        "speed": 45.56,
+        "points": 42.47174,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 545579,
+        "date": "2025-04-13",
+        "distance": 23.49,
+        "speed": 47.3,
+        "points": 30.18,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 489413,
+        "date": "2024-10-13",
+        "distance": 19.89,
+        "speed": 80.82,
+        "points": 23.550001,
+        "takeoff": "St-Dominique CVVC",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Jason Acker",
+    "pilotId": 24130,
+    "totalPoints": 187.33999999999997,
+    "totalDistance": 139.13,
+    "flightCount": 4,
+    "bestFlights": [
+      {
+        "id": 628482,
+        "date": "2025-06-30",
+        "distance": 55.65,
+        "speed": 74.09,
+        "points": 77.18,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 628481,
+        "date": "2025-06-30",
+        "distance": 40.42,
+        "speed": 55.12,
+        "points": 54.79,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 689271,
+        "date": "2025-08-23",
+        "distance": 20.9,
+        "speed": 22.66,
+        "points": 28.95,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 689226,
+        "date": "2025-08-23",
+        "distance": 22.16,
+        "speed": 27.85,
+        "points": 26.42,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Paulo Matioli",
+    "pilotId": 13388,
+    "totalPoints": 181.33,
+    "totalDistance": 133.7,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 706430,
+        "date": "2025-08-31",
+        "distance": 41.78,
+        "speed": 27.29,
+        "points": 54.95,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 779829,
+        "date": "2025-09-08",
+        "distance": 36.97,
+        "speed": 25.97,
+        "points": 46.51,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 649326,
+        "date": "2025-07-18",
+        "distance": 20.07,
+        "speed": 56.31,
+        "points": 30.93,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 649327,
+        "date": "2025-07-18",
+        "distance": 17.23,
+        "speed": 81.83,
+        "points": 25.93,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 779854,
+        "date": "2025-09-08",
+        "distance": 17.65,
+        "speed": 46.82,
+        "points": 23.01,
+        "takeoff": "Pendleton GATGC",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Pascal Mourgues",
+    "pilotId": 8109,
+    "totalPoints": 178.3,
+    "totalDistance": 101.62,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 662229,
+        "date": "2025-07-31",
+        "distance": 101.62,
+        "speed": 47.01,
+        "points": 178.3,
+        "takeoff": "Chicoutimi / St-Honore",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ian Newby-Clark",
+    "pilotId": 35023,
+    "totalPoints": 155.57999999999998,
+    "totalDistance": 122.11,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 704449,
+        "date": "2025-07-03",
+        "distance": 28.29,
+        "speed": 48.5,
+        "points": 37.01,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 704450,
+        "date": "2025-07-21",
+        "distance": 28.18,
+        "speed": 13.13,
+        "points": 36.33,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 704444,
+        "date": "2025-05-26",
+        "distance": 25.71,
+        "speed": 27.05,
+        "points": 32.44,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 704445,
+        "date": "2025-05-26",
+        "distance": 22.91,
+        "speed": 29.54,
+        "points": 27.97,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 704447,
+        "date": "2025-06-02",
+        "distance": 17.02,
+        "speed": 30.96,
+        "points": 21.83,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Susan Snell",
+    "pilotId": 35430,
+    "totalPoints": 153.89,
+    "totalDistance": 111.83,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 797764,
+        "date": "2025-05-24",
+        "distance": 111.83,
+        "speed": 56.19,
+        "points": 153.89,
+        "takeoff": "Starbuck",
+        "region": "CA-MB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Ali Askari",
+    "pilotId": 35437,
+    "totalPoints": 147.78,
+    "totalDistance": 100.28,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 797860,
+        "date": "2025-09-10",
+        "distance": 100.28,
+        "speed": 42.73,
+        "points": 147.78,
+        "takeoff": "Grand Valley North",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "T. Link",
+    "pilotId": 23352,
+    "totalPoints": 146.43,
+    "totalDistance": 105.02,
+    "flightCount": 5,
+    "bestFlights": [
+      {
+        "id": 600367,
+        "date": "2025-05-31",
+        "distance": 28.19,
+        "speed": 40.71,
+        "points": 37.63,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 547732,
+        "date": "2025-04-18",
+        "distance": 23.47,
+        "speed": 34.4,
+        "points": 34.79,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 604306,
+        "date": "2025-06-08",
+        "distance": 20.12,
+        "speed": 45.3,
+        "points": 29.64,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 627576,
+        "date": "2025-06-29",
+        "distance": 21.07,
+        "speed": 36.41,
+        "points": 28.41,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 627588,
+        "date": "2025-06-29",
+        "distance": 12.17,
+        "speed": 85.57,
+        "points": 15.96,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Leo Deschamps",
+    "pilotId": 35175,
+    "totalPoints": 141.64999999999998,
+    "totalDistance": 124.82999999999998,
+    "flightCount": 3,
+    "bestFlights": [
+      {
+        "id": 724793,
+        "date": "2025-08-17",
+        "distance": 41.4,
+        "speed": 34.66,
+        "points": 55.91,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 724796,
+        "date": "2025-07-01",
+        "distance": 47.2,
+        "speed": 41.65,
+        "points": 48.35,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 724780,
+        "date": "2025-08-31",
+        "distance": 36.23,
+        "speed": 29.67,
+        "points": 37.39,
+        "takeoff": "Innisfail",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Peter Szmidt",
+    "pilotId": 35150,
+    "totalPoints": 136.1,
+    "totalDistance": 119.09,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 722967,
+        "date": "2025-09-01",
+        "distance": 119.09,
+        "speed": 52.49,
+        "points": 136.1,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Zachary Collins",
+    "pilotId": 35438,
+    "totalPoints": 135.05,
+    "totalDistance": 119.47,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 797864,
+        "date": "2025-09-08",
+        "distance": 119.47,
+        "speed": 30.9,
+        "points": 135.05,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Thomas Johnston",
+    "pilotId": 35140,
+    "totalPoints": 117.41,
+    "totalDistance": 101.08000000000001,
+    "flightCount": 3,
+    "bestFlights": [
+      {
+        "id": 722564,
+        "date": "2025-07-21",
+        "distance": 59.86,
+        "speed": 29.8,
+        "points": 69.61,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 722561,
+        "date": "2025-08-09",
+        "distance": 22.35,
+        "speed": 42.24,
+        "points": 25.68,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 722570,
+        "date": "2025-08-09",
+        "distance": 18.87,
+        "speed": 54.17,
+        "points": 22.12,
+        "takeoff": "Kars/Rideau Valley Air Park",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "David Giroux",
+    "pilotId": 35307,
+    "totalPoints": 110.72,
+    "totalDistance": 83.13,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 752802,
+        "date": "2025-08-01",
+        "distance": 83.13,
+        "speed": 46.98,
+        "points": 110.72,
+        "takeoff": "St Raymond/Paquet",
+        "region": "CA-QC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Steve Godreau",
+    "pilotId": 5450,
+    "totalPoints": 99.30000000000001,
+    "totalDistance": 80.37,
+    "flightCount": 2,
+    "bestFlights": [
+      {
+        "id": 705019,
+        "date": "2025-05-10",
+        "distance": 54.63,
+        "speed": 52.31,
+        "points": 65.59,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 704919,
+        "date": "2025-08-30",
+        "distance": 25.74,
+        "speed": 43.18,
+        "points": 33.71,
+        "takeoff": "Chipman",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Sarah Thompson",
+    "pilotId": 8873,
+    "totalPoints": 95.56,
+    "totalDistance": 89.8,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 598913,
+        "date": "2025-05-31",
+        "distance": 89.8,
+        "speed": 61.75,
+        "points": 95.56,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Matthew Line",
+    "pilotId": 22211,
+    "totalPoints": 83.73,
+    "totalDistance": 61.89,
+    "flightCount": 4,
+    "bestFlights": [
+      {
+        "id": 663056,
+        "date": "2025-07-28",
+        "distance": 36.28,
+        "speed": 46.88,
+        "points": 51.46,
+        "takeoff": "Invermere",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 736023,
+        "date": "2025-09-06",
+        "distance": 9.55,
+        "speed": 108.8,
+        "points": 12.18,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 736058,
+        "date": "2025-09-06",
+        "distance": 8.49,
+        "speed": 96.42,
+        "points": 10.65,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      },
+      {
+        "id": 736055,
+        "date": "2025-09-06",
+        "distance": 7.57,
+        "speed": 105.22,
+        "points": 9.44,
+        "takeoff": "Cowley",
+        "region": "CA-AB",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Will Nyland",
+    "pilotId": 35353,
+    "totalPoints": 74.43,
+    "totalDistance": 60.2,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 779868,
+        "date": "2025-09-08",
+        "distance": 60.2,
+        "speed": 41.87,
+        "points": 74.43,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Kaylee Ainsworth",
+    "pilotId": 35349,
+    "totalPoints": 65.9,
+    "totalDistance": 50.91,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 779005,
+        "date": "2025-09-08",
+        "distance": 50.91,
+        "speed": 34.97,
+        "points": 65.9,
+        "takeoff": "Rockton SOSA On",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Roland Gerok",
+    "pilotId": 4622,
+    "totalPoints": 59.87,
+    "totalDistance": 42.65,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 702347,
+        "date": "2025-08-30",
+        "distance": 42.65,
+        "speed": 62.04,
+        "points": 59.87,
+        "takeoff": "Port Alberni",
+        "region": "CA-BC",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Axel Herrmann",
+    "pilotId": 6449,
+    "totalPoints": 36.81,
+    "totalDistance": 36.55,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 689100,
+        "date": "2025-08-23",
+        "distance": 36.55,
+        "speed": 57.11,
+        "points": 36.81,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Stefan Schumann",
+    "pilotId": 402,
+    "totalPoints": 26.42,
+    "totalDistance": 25.41,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 689085,
+        "date": "2025-08-23",
+        "distance": 25.41,
+        "speed": 66.24,
+        "points": 26.42,
+        "takeoff": "Hawkesbury",
+        "region": "CA-ON",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "Mircea Pereni",
+    "pilotId": 12230,
+    "totalPoints": 25.894117,
+    "totalDistance": 19.16,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 492101,
+        "date": "2024-10-26",
+        "distance": 19.16,
+        "speed": 36.53,
+        "points": 25.894117,
+        "takeoff": "Cu Nim Airport",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  },
+  {
+    "pilot": "John West",
+    "pilotId": 28441,
+    "totalPoints": 3.78,
+    "totalDistance": 3.08,
+    "flightCount": 1,
+    "bestFlights": [
+      {
+        "id": 508349,
+        "date": "2024-10-13",
+        "distance": 3.08,
+        "speed": 26.27,
+        "points": 3.78,
+        "takeoff": "Rowenas - Harrison Mills",
+        "region": "CA",
+        "declared": false,
+        "contestType": "free"
+      }
+    ]
+  }
+]

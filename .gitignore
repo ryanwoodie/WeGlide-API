@@ -1,0 +1,30 @@
+# Large data files
+*.csv
+*.jsonl
+*.xlsx
+
+# HTML reports
+*.html
+
+# JSON data files
+all_flights_*.json
+australian_flights_*.json
+canada_*.json
+canadian_flights_*.json
+declared_flights_*.json
+leaderboard_*.json
+batch_*.json
+flight_*.json
+user_*.json
+working_proxies.json
+downloaded_flight_ids.json
+recovered_flights.json
+
+# Log files
+*.txt
+
+# Images
+*.png
+
+# Claude conversation logs
+claude-conversation-*.md
