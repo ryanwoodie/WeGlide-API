@@ -1,3 +1,21 @@
+# Logs and temporary files
+*.log
+*.tmp
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary processing files
+enhancement_log.txt
+
 # Large data files
 *.csv
 *.jsonl
