@@ -1116,9 +1116,9 @@ async function processAustralianFlights() {
 
 
         // Write the Australian leaderboard HTML
-        fs.writeFileSync('australian_leaderboard_2025_proper.html', australianHTML);
+        fs.writeFileSync('australian_leaderboard.html', australianHTML);
 
-        console.log('✅ Created australian_leaderboard_2025_proper.html');
+        console.log('✅ Created australian_leaderboard.html');
         console.log(`📊 Top 10 pilots (Mixed Scoring):`);
         mixedLeaderboard.slice(0, 10).forEach((pilot, index) => {
             console.log(`${index + 1}. ${pilot.pilot}: ${pilot.totalPoints.toFixed(1)} points (${pilot.flightCount} flights, ${pilot.totalDistance.toFixed(0)} km)`);
