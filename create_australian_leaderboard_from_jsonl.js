@@ -1061,10 +1061,10 @@ async function processAustralianFlights() {
                         newScriptContent +
                         australianHTML.substring(scriptEnd);
 
-        // Add task statistics section and toggle buttons after the stats section
+        // Add scoring toggle buttons after the stats section (Task Analysis removed)
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="task-stats-section"><h3>Task Analysis</h3><div class="task-stats-grid"><div class="task-stat"><span class="task-kind">FR4</span><span class="task-desc">4 Turnpoint</span><span class="task-count">3,072 (383 completed - 12.5%)</span></div><div class="task-stat"><span class="task-kind">TR</span><span class="task-desc">Triangle</span><span class="task-count">1,183 (221 completed - 18.7%)</span></div><div class="task-stat"><span class="task-kind">FR</span><span class="task-desc">Free Distance</span><span class="task-count">733 (63 completed - 8.6%)</span></div><div class="task-stat"><span class="task-kind">OR</span><span class="task-desc">Out & Return</span><span class="task-count">441 (74 completed - 16.8%)</span></div><div class="task-stat"><span class="task-kind">GL</span><span class="task-desc">Goal</span><span class="task-count">127 (46 completed - 36.2%)</span></div><div class="task-stat"><span class="task-kind">RT</span><span class="task-desc">Rectangle</span><span class="task-count">25 (4 completed - 16.0%)</span></div><div class="task-stat"><span class="task-kind">MTR</span><span class="task-desc">Multi-Lap</span><span class="task-count">14 (0 completed - 0.0%)</span></div></div></div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button></div>'
         );
 
         // Add CSS for toggle buttons and award badges

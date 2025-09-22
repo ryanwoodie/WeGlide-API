@@ -131,6 +131,20 @@
             padding: 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            position: relative; /* enable scroll cue overlay positioning */
+        }
+        /* Subtle right-edge fade as a horizontal scroll cue on mobile */
+        @media (max-width: 768px) {
+            .leaderboard::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 28px;
+                height: 100%;
+                pointer-events: none;
+                background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+            }
         }
         
         .leaderboard table {
@@ -169,7 +183,7 @@
         .pilot-name {
             font-weight: 600;
             color: #2c3e50;
-            min-width: 150px;
+            min-width: 130px;
         }
         
         .total-points {
@@ -269,11 +283,38 @@
                 min-width: 150px;
                 font-size: 0.8em;
             }
+            /* Make pilot column narrower and truncatable on mobile */
+            .pilot-name {
+                min-width: 110px;
+                max-width: 140px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .pilot-name .pilot-link {
+                display: inline-block;
+                max-width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
             
             .leaderboard th,
             .leaderboard td {
                 padding: 8px 6px;
             }
+        }
+
+        /* Mobile scroll hint text */
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            font-size: 0.9em;
+            color: #6c757d;
+            padding: 8px 10px;
+        }
+        @media (max-width: 768px) {
+            .scroll-hint { display: block; }
         }
     </style>
 </head>
@@ -308,6 +349,7 @@
         </div>
         
         <div class="leaderboard">
+            <div class="scroll-hint">Swipe to see more →</div>
             <div id="loading" class="loading">
                 <h3>Loading leaderboard data...</h3>
                 <p>Processing flight data and calculating rankings</p>
