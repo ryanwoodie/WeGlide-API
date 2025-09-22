@@ -133,19 +133,7 @@
             -webkit-overflow-scrolling: touch;
             position: relative; /* enable scroll cue overlay positioning */
         }
-        /* Subtle right-edge fade as a horizontal scroll cue on mobile */
-        @media (max-width: 768px) {
-            .leaderboard::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 28px;
-                height: 100%;
-                pointer-events: none;
-                background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-            }
-        }
+        /* Removed mobile right-edge fade scroll cue */
         
         .leaderboard table {
             width: 100%;
@@ -190,7 +178,7 @@
             font-weight: bold;
             color: #27ae60;
             text-align: right;
-            min-width: 100px;
+            min-width: 80px;
         }
         
         .flight-cell {
@@ -283,10 +271,10 @@
                 min-width: 150px;
                 font-size: 0.8em;
             }
-            /* Make pilot column even narrower and truncatable on mobile */
+            /* Widen pilot column on mobile to show more characters */
             .pilot-name {
-                min-width: 90px;
-                max-width: 120px;
+                min-width: 120px;
+                max-width: 180px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -302,6 +290,10 @@
             .leaderboard th,
             .leaderboard td {
                 padding: 8px 6px;
+            }
+            /* Tighter points column on mobile */
+            .total-points {
+                min-width: 70px;
             }
         }
 
