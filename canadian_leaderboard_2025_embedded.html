@@ -308,6 +308,31 @@
         @media (max-width: 768px) {
             .scroll-hint { display: block; }
         }
+
+        /* Filter toggle buttons */
+        .scoring-toggle {
+            margin: 10px 0;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 0 10px;
+        }
+        .toggle-btn {
+            padding: 6px 12px;
+            border: 1px solid #ced4da;
+            background: #f8f9fa;
+            color: #2c3e50;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9em;
+        }
+        .toggle-btn:hover { background: #e9ecef; }
+        .toggle-btn.active {
+            background: #2c5aa0;
+            color: #fff;
+            border-color: #2c5aa0;
+        }
     </style>
 </head>
 <body>
@@ -342,6 +367,9 @@
         
         <div class="leaderboard">
             <div class="scroll-hint">Swipe to see more →</div>
+            <div class="scoring-toggle" id="filtersBar" style="display:none;">
+                <button class="toggle-btn" id="under200Btn">< 200 hrs</button>
+            </div>
             <div id="loading" class="loading">
                 <h3>Loading leaderboard data...</h3>
                 <p>Processing flight data and calculating rankings</p>
@@ -377,6 +405,48 @@
     </div>
 
     <script>
+        const HOURS_200_SEC = 200 * 3600;
+        let originalLeaderboard = [];
+        let durationsByPilotId = new Map();
+        let under200Enabled = false;
+
+        async function fetchPilotDurations(pilotIds) {
+            // Fetch in batches of 100 using id_in
+            const chunk = 100;
+            const results = new Map();
+            for (let i = 0; i < pilotIds.length; i += chunk) {
+                const slice = pilotIds.slice(i, i + chunk);
+                const url = `https://api.weglide.org/v1/user?id_in=${slice.join(',')}`;
+                const resp = await fetch(url);
+                if (!resp.ok) continue;
+                const arr = await resp.json();
+                arr.forEach(u => {
+                    if (u && typeof u.id === 'number' && typeof u.total_flight_duration === 'number') {
+                        results.set(u.id, u.total_flight_duration);
+                    }
+                });
+            }
+            return results;
+        }
+
+        function applyUnder200Filter(list) {
+            if (!under200Enabled) return list;
+            return list.filter(p => (durationsByPilotId.get(p.pilotId) || 0) < HOURS_200_SEC);
+        }
+
+        function setUnder200Active(active) {
+            under200Enabled = active;
+            const btn = document.getElementById('under200Btn');
+            if (btn) btn.classList.toggle('active', active);
+        }
+        function updateStatsFrom(list) {
+            document.getElementById('pilotCount').textContent = list.length;
+            const totalFlights = list.reduce((sum, pilot) => sum + (pilot.flightCount || 0), 0);
+            document.getElementById('flightCount').textContent = totalFlights;
+            const totalKilometers = list.reduce((sum, pilot) => sum + (pilot.totalDistance || 0), 0);
+            document.getElementById('totalKms').textContent = Math.round(totalKilometers).toLocaleString();
+        }
+
         async function loadLeaderboard() {
             try {
                 // Embedded leaderboard data
@@ -4969,19 +5039,27 @@
                     ]
           }
 ];
-                
-                // Update stats
-                document.getElementById('pilotCount').textContent = leaderboard.length;
-                const totalFlights = leaderboard.reduce((sum, pilot) => sum + pilot.flightCount, 0);
-                document.getElementById('flightCount').textContent = totalFlights;
-                const totalKilometers = leaderboard.reduce((sum, pilot) => sum + (pilot.totalDistance || 0), 0);
-                document.getElementById('totalKms').textContent = Math.round(totalKilometers).toLocaleString();
+                originalLeaderboard = leaderboard;
+
+                // Fetch durations for all pilots (show filter bar when ready)
+                const pilotIds = Array.from(new Set(originalLeaderboard.map(p => p.pilotId)));
+                try {
+                    durationsByPilotId = await fetchPilotDurations(pilotIds);
+                    document.getElementById('filtersBar').style.display = 'flex';
+                } catch (e) {
+                    // Leave filter hidden if fetch fails
+                    console.warn('Duration fetch failed:', e);
+                }
+
+                // Update stats based on current visibility
+                const initialVisible = applyUnder200Filter(originalLeaderboard);
+                updateStatsFrom(initialVisible);
                 
                 // Build leaderboard table
                 const tbody = document.getElementById('leaderboardBody');
                 tbody.innerHTML = '';
-                
-                leaderboard.forEach((pilot, index) => {
+                const visible = applyUnder200Filter(originalLeaderboard);
+                visible.forEach((pilot, index) => {
                     const row = document.createElement('tr');
                     
                     // Rank with medal for top 3
@@ -5038,7 +5116,35 @@
         }
         
         // Load data when page loads
-        document.addEventListener('DOMContentLoaded', loadLeaderboard);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLeaderboard();
+            const btn = document.getElementById('under200Btn');
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    setUnder200Active(!under200Enabled);
+                    // Rebuild with filter state
+                    const tbody = document.getElementById('leaderboardBody');
+                    tbody.innerHTML = '';
+                    const visible = applyUnder200Filter(originalLeaderboard);
+                    updateStatsFrom(visible);
+                    visible.forEach((pilot, index) => {
+                        const row = document.createElement('tr');
+                        let rankDisplay = index + 1;
+                        if (index === 0) rankDisplay = '<span class="medal gold">🥇</span>' + rankDisplay;
+                        else if (index === 1) rankDisplay = '<span class="medal silver">🥈</span>' + rankDisplay;
+                        else if (index === 2) rankDisplay = '<span class="medal bronze">🥉</span>' + rankDisplay;
+                        row.innerHTML = `
+                            <td class="rank">${rankDisplay}</td>
+                            <td class="pilot-name">${pilot.pilot}</td>
+                            <td class="total-points">${pilot.totalPoints.toFixed(1)}</td>
+                            ${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}
+                            ${Array(5 - pilot.bestFlights.length).fill('<td class="flight-cell">-</td>').join('')}
+                        `;
+                        tbody.appendChild(row);
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>
