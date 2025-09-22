@@ -99,16 +99,16 @@
             }
             
             .container {
-                margin: 10px;
-                border-radius: 8px;
+                margin: 0; /* remove outer margin on mobile */
+                border-radius: 0; /* flush edges on mobile */
             }
             
             body {
-                padding: 10px;
+                padding: 0; /* remove background padding on mobile */
             }
             
             .leaderboard {
-                border-radius: 0 0 8px 8px;
+                border-radius: 0; /* no rounded corners around table on mobile */
             }
         }
         
@@ -283,10 +283,10 @@
                 min-width: 150px;
                 font-size: 0.8em;
             }
-            /* Make pilot column narrower and truncatable on mobile */
+            /* Make pilot column even narrower and truncatable on mobile */
             .pilot-name {
-                min-width: 110px;
-                max-width: 140px;
+                min-width: 90px;
+                max-width: 120px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
