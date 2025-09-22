@@ -134,6 +134,7 @@ async function processAustralianFlights() {
                     if (mixedScoringData.score > 0) {
                         pilotFlightsMixed[pilotName].push({
                             id: flight.id,
+                            userId: flight.user?.id,
                             date: flight.scoring_date,
                             distance: mixedScoringData.distance,
                             speed: mixedScoringData.speed,
@@ -152,6 +153,7 @@ async function processAustralianFlights() {
                     if (freeScoringData.score > 0) {
                         pilotFlightsFree[pilotName].push({
                             id: flight.id,
+                            userId: flight.user?.id,
                             date: flight.scoring_date,
                             distance: freeScoringData.distance,
                             speed: freeScoringData.speed,
@@ -306,7 +308,7 @@ async function processAustralianFlights() {
 
                     leaderboard.push({
                         pilot: pilotName,
-                        pilotId: bestFlights[0].id,
+                        pilotId: bestFlights[0].userId || bestFlights[0].id,
                         totalPoints: totalPoints,
                         totalDistance: totalDistance,
                         flightCount: bestFlights.length,
@@ -478,6 +480,54 @@ async function processAustralianFlights() {
             return;
         }
 
+        // Helper: server-side fetch of pilot durations (no CORS in Node)
+        async function fetchUserDurationsServer(pilotIds) {
+            const out = {};
+            const chunk = 100;
+            for (let i = 0; i < pilotIds.length; i += chunk) {
+                const slice = pilotIds.slice(i, i + chunk);
+                const url = `https://api.weglide.org/v1/user?id_in=${slice.join(',')}`;
+                try {
+                    const resp = await fetch(url);
+                    if (!resp.ok) continue;
+                    const arr = await resp.json();
+                    arr.forEach(u => {
+                        if (u && typeof u.id === 'number' && typeof u.total_flight_duration === 'number') {
+                            out[u.id] = u.total_flight_duration;
+                        }
+                    });
+                } catch (e) {
+                    console.warn('Server-side duration fetch failed for batch:', e.message || e);
+                }
+            }
+            return out;
+        }
+
+        // Compute unique pilot IDs and prefetch durations server-side
+        const allPilotIds = Array.from(new Set([...mixedLeaderboard, ...freeLeaderboard].map(p => p.pilotId)));
+        let pilotDurationsEmbedded = {};
+        try {
+            const cachePath = 'australian_user_durations.json';
+            let loaded = false;
+            if (fs.existsSync(cachePath)) {
+                pilotDurationsEmbedded = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+                if (pilotDurationsEmbedded && Object.keys(pilotDurationsEmbedded).length > 0) {
+                    console.log('ℹ️ Loaded cached australian_user_durations.json');
+                    loaded = true;
+                } else {
+                    console.log('ℹ️ Cache exists but empty, refetching durations...');
+                }
+            }
+            if (!loaded) {
+                console.log('⏬ Fetching pilot durations from WeGlide...');
+                pilotDurationsEmbedded = await fetchUserDurationsServer(allPilotIds);
+                fs.writeFileSync(cachePath, JSON.stringify(pilotDurationsEmbedded, null, 2));
+                console.log('💾 Saved pilot durations to australian_user_durations.json');
+            }
+        } catch (e) {
+            console.warn('⚠️ Could not load/save australian_user_durations.json:', e.message || e);
+        }
+
         // Read the Canadian HTML template
         const canadianHTML = fs.readFileSync('canadian_leaderboard_2025_embedded.html', 'utf-8');
 
@@ -514,12 +564,24 @@ async function processAustralianFlights() {
         const scriptStart = australianHTML.indexOf('<script>');
         const scriptEnd = australianHTML.indexOf('</script>') + 9;
 
+        // Build script content with embedded durations
         const newScriptContent = `<script>
         // Global variables for leaderboard data
         let mixedLeaderboard = [];
         let freeLeaderboard = [];
         let fullFlightData = [];
         let leaderboard = [];
+        const HOURS_200_SEC = 200 * 3600;
+        let under200Enabled = false;
+        // Embedded pilot durations (seconds), keyed by pilotId
+        const pilotDurations = __PILOT_DURATIONS_PLACEHOLDER__;
+
+        // Durations embedded at build time; no client-side fetch required
+
+        function applyUnder200Filter(list) {
+            if (!under200Enabled) return list;
+            return list.filter(p => (typeof pilotDurations[p.pilotId] === 'number') && pilotDurations[p.pilotId] < HOURS_200_SEC);
+        }
 
         async function loadLeaderboard() {
             try {
@@ -1003,10 +1065,10 @@ async function processAustralianFlights() {
         function buildLeaderboard() {
             const tbody = document.getElementById('leaderboardBody');
             tbody.innerHTML = '';
-
-            leaderboard.forEach((pilot, index) => {
+            const isFreeMode = leaderboard === freeLeaderboard;
+            const visible = applyUnder200Filter(leaderboard);
+            visible.forEach((pilot, index) => {
                 const row = document.createElement('tr');
-                const isFreeMode = leaderboard === freeLeaderboard;
 
                 let rankDisplay = index + 1;
                 if (!isFreeMode) {
@@ -1042,29 +1104,47 @@ async function processAustralianFlights() {
                 tbody.appendChild(row);
             });
 
-            // Update stats - always show ALL flight stats, not just leaderboard stats
-            document.getElementById('pilotCount').textContent = ` + totalPilots + `;
-            document.getElementById('flightCount').textContent = ` + totalFlights + `;
-            document.getElementById('totalKms').textContent = ` + totalKms + `;
+            // Update stats based on current visibility
+            const visibleStatsList = visible;
+            document.getElementById('pilotCount').textContent = visibleStatsList.length;
+            const totalFlightsVisible = visibleStatsList.reduce((sum, p) => sum + (p.flightCount || 0), 0);
+            document.getElementById('flightCount').textContent = totalFlightsVisible;
+            const totalKmsVisible = Math.round(visibleStatsList.reduce((sum, p) => sum + (p.totalDistance || 0), 0));
+            document.getElementById('totalKms').textContent = totalKmsVisible.toLocaleString();
 
-            // Task stats are handled by updateTaskStats function
+            // Task stats are handled by updateTaskStats function (remain overall)
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            loadLeaderboard();
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadLeaderboard();
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
+            const underBtn = document.getElementById('under200Btn');
+            if (underBtn) {
+                underBtn.addEventListener('click', () => {
+                    under200Enabled = !under200Enabled;
+                    underBtn.classList.toggle('active', under200Enabled);
+                    buildLeaderboard();
+                });
+            }
         });
-    </script>`;
+        </script>`
+        .replace('__PILOT_DURATIONS_PLACEHOLDER__', JSON.stringify(pilotDurationsEmbedded));
 
         australianHTML = australianHTML.substring(0, scriptStart) +
                         newScriptContent +
                         australianHTML.substring(scriptEnd);
 
+        // Inject embedded pilot durations JSON into the script
+        australianHTML = australianHTML.replace('__PILOT_DURATIONS_PLACEHOLDER__', JSON.stringify(pilotDurationsEmbedded));
+
+        // Remove Canadian-specific under-table filter bar to avoid duplicate buttons
+        australianHTML = australianHTML.replace(/<div class="scoring-toggle" id="filtersBar"[\s\S]*?<\/div>\s*/g, '');
+
         // Add scoring toggle buttons after the stats section (Task Analysis removed)
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs</button></div>'
         );
 
         // Add CSS for toggle buttons and award badges
