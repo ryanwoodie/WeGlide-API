@@ -88,6 +88,7 @@ async function processAustralianFlights() {
     let totalProcessed = 0;
     let australianCount = 0;
     let australianFlights = []; // Store all flight data for detailed tooltips
+    let allFlightData = []; // Store all original flight data for statistics
 
     try {
         const fileStream = fs.createReadStream('australian_flights_2025_details.jsonl');
@@ -106,6 +107,9 @@ async function processAustralianFlights() {
                     // All flights in this file are Australian
                     australianCount++;
                     const pilotName = flight.user?.name;
+
+                    // Store original flight data for statistics
+                    allFlightData.push(flight);
 
                     // Skip invalid pilot names or club names
                     if (!pilotName || pilotName.toLowerCase().includes('soaring club') ||
@@ -137,7 +141,10 @@ async function processAustralianFlights() {
                             takeoff: flight.takeoff_airport?.name || '',
                             region: flight.takeoff_airport?.region || '',
                             declared: mixedScoringData.declared,
-                            contestType: mixedScoringData.contestType
+                            contestType: mixedScoringData.contestType,
+                            aircraftKind: flight.aircraft?.kind || 'unknown',
+                            aircraftName: flight.aircraft?.name || '',
+                            dmstIndex: flight.dmst_index || null
                         });
                     }
 
@@ -153,7 +160,9 @@ async function processAustralianFlights() {
                             region: flight.takeoff_airport?.region || '',
                             declared: freeScoringData.declared,
                             contestType: freeScoringData.contestType,
-                            aircraftKind: flight.aircraft?.kind || 'unknown'  // Track aircraft type
+                            aircraftKind: flight.aircraft?.kind || 'unknown',  // Track aircraft type
+                            aircraftName: flight.aircraft?.name || '',
+                            dmstIndex: flight.dmst_index || null
                         });
                     }
 
@@ -187,6 +196,7 @@ async function processAustralianFlights() {
                                     thermal_gain: freeContest.score.thermal_gain,
                                     thermal_radius: freeContest.score.thermal_radius,
                                     thermal_start_agl: freeContest.score.thermal_start_agl,
+                                    thermal_bank: freeContest.score.thermal_bank,
                                     glide_percentage: freeContest.score.glide_percentage,
                                     glide_percentage_lift: freeContest.score.glide_percentage_lift,
                                     duration: freeContest.score.duration,
@@ -229,6 +239,7 @@ async function processAustralianFlights() {
                                     thermal_gain: auContest.score.thermal_gain,
                                     thermal_radius: auContest.score.thermal_radius,
                                     thermal_start_agl: auContest.score.thermal_start_agl,
+                                    thermal_bank: auContest.score.thermal_bank,
                                     glide_percentage: auContest.score.glide_percentage,
                                     glide_percentage_lift: auContest.score.glide_percentage_lift,
                                     duration: auContest.score.duration,
@@ -389,27 +400,76 @@ async function processAustralianFlights() {
         console.log(`📊 Storing ${australianFlights.length} flight details for tooltips`);
 
         // Calculate statistics from ALL flights (not just top 5 used for leaderboard)
-        function calculateAllFlightStats(pilotFlights) {
-            const totalPilots = Object.keys(pilotFlights).length;
+        // Note: Need to access original flight data to check actual task objects
+        function calculateAllFlightStats(originalFlightData) {
+            const pilotSet = new Set();
             let totalFlights = 0;
             let totalKms = 0;
+            let totalTasksDeclared = 0;
+            let totalTasksCompleted = 0;
+            let totalTasksHigherThanFree = 0;
 
-            Object.keys(pilotFlights).forEach(pilotName => {
-                const flights = pilotFlights[pilotName];
-                totalFlights += flights.length;
-                totalKms += flights.reduce((sum, flight) => sum + flight.distance, 0);
+            originalFlightData.forEach(flight => {
+                const pilotName = flight.user?.name;
+
+                // Skip invalid pilot names or club names
+                if (!pilotName || pilotName.toLowerCase().includes('soaring club') ||
+                    pilotName.toLowerCase().includes('gliding club') ||
+                    pilotName.toLowerCase().includes('club')) {
+                    return;
+                }
+
+                pilotSet.add(pilotName);
+                totalFlights++;
+
+                // Calculate distance from contest data
+                const mixedScoringData = calculateBestScore(flight);
+                if (mixedScoringData.score > 0) {
+                    totalKms += mixedScoringData.distance;
+                }
+
+                // Check for task declaration and completion using actual flight task data
+                if (flight.task) {
+                    totalTasksDeclared++;
+
+                    // Task is completed if task_achieved is true
+                    if (flight.task_achieved === true) {
+                        totalTasksCompleted++;
+                    }
+                }
+
+                // Count completed tasks that scored higher than free scoring
+                if (flight.task && flight.task_achieved === true && flight.contest && Array.isArray(flight.contest)) {
+                    const auContest = flight.contest.find(contest => contest.name === 'au' && contest.points > 0);
+                    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
+
+                    if (auContest && freeContest && auContest.points > freeContest.points) {
+                        totalTasksHigherThanFree++;
+                    }
+                }
             });
 
-            return { totalPilots, totalFlights, totalKms: Math.round(totalKms) };
+            return {
+                totalPilots: pilotSet.size,
+                totalFlights,
+                totalKms: Math.round(totalKms),
+                totalTasksDeclared,
+                totalTasksCompleted,
+                totalTasksHigherThanFree
+            };
         }
 
         // Use ALL flights for meta statistics
-        const allFlightStats = calculateAllFlightStats(pilotFlightsMixed);
+        const allFlightStats = calculateAllFlightStats(allFlightData);
         const totalPilots = allFlightStats.totalPilots;
         const totalFlights = allFlightStats.totalFlights;
         const totalKms = allFlightStats.totalKms;
+        const totalTasksDeclared = allFlightStats.totalTasksDeclared;
+        const totalTasksCompleted = allFlightStats.totalTasksCompleted;
+        const totalTasksHigherThanFree = allFlightStats.totalTasksHigherThanFree;
 
-        console.log(`Mixed Leaderboard: ${totalPilots} pilots, ${totalFlights} flights, ${totalKms} km total`);
+        console.log(`Combined Leaderboard: ${totalPilots} pilots, ${totalFlights} flights, ${totalKms} km total`);
+        console.log(`Tasks: ${totalTasksDeclared} declared, ${totalTasksCompleted} completed, ${totalTasksHigherThanFree} > free score`);
         console.log(`Free Leaderboard: ${freeLeaderboard.length} pilots, ${freeLeaderboard.reduce((sum, pilot) => sum + pilot.flightCount, 0)} flights`);
 
         if (mixedLeaderboard.length === 0) {
@@ -428,12 +488,26 @@ async function processAustralianFlights() {
             .replace(/sac_logo\.png/g, 'gfa_logo.png')
             .replace(/Canadian gliding season runs October 1, 2024 to September 30, 2025/g, 'Australian gliding season runs October 1, 2024 to September 30, 2025')
             .replace(/Oct 2024 - Sep 2025/g, 'Oct 2024 - Sep 2025')
-            .replace(/Best 5 flights per pilot • Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of Australian Task or Free scoring')
-            .replace(/Scoring uses the higher of Free flight or Task \(declared\) scoring for each flight/g, 'Scoring uses the higher of Free flight or Australian Task scoring for each flight')
+            .replace(/Best 5 flights per pilot • Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025')
+            .replace(/Scoring uses the higher of Free flight or Task \(declared\) scoring for each flight/g, 'Scoring uses the higher of Free flight or WeGlide Task scoring for each flight')
             // Remove the logo image
             .replace(/<img src="[^"]*logo[^"]*"[^>]*>/g, '')
             // Add ID to scoring description for dynamic updates
-            .replace(/<p>Best 5 flights per pilot • Higher of Australian Task or Free scoring<\/p>/g, '<p id="scoringDescription">Best 5 flights per pilot • Higher of Australian Task or Free scoring</p>');
+            .replace(/<p>Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025<\/p>/g, '<p id="scoringDescription">Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025</p>')
+            // Replace season period with task stats
+            .replace(/<div class="stat">\s*<span class="stat-number" id="seasonPeriod">Oct 2024 - Sep 2025<\/span>\s*<span class="stat-label">Season Period<\/span>\s*<\/div>/g,
+                `<div class="stat">
+                    <span class="stat-number" id="tasksDeclared">${totalTasksDeclared.toLocaleString()}</span>
+                    <span class="stat-label">Tasks Declared</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="tasksCompleted">${totalTasksCompleted.toLocaleString()}</span>
+                    <span class="stat-label">Tasks Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="tasksHigherThanFree">${totalTasksHigherThanFree.toLocaleString()}</span>
+                    <span class="stat-label">Task Score > Free</span>
+                </div>`);
 
         // Replace the script section with our custom implementation
         const scriptStart = australianHTML.indexOf('<script>');
@@ -455,17 +529,29 @@ async function processAustralianFlights() {
 
                 // ALL flight statistics (not just top 5 used for leaderboard)
                 const allFlightStats = {
-                    totalPilots: ${totalPilots},
-                    totalFlights: ${totalFlights},
-                    totalKms: ${totalKms}
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
                 };
 
                 leaderboard = mixedLeaderboard; // Default to mixed scoring
 
                 // Update stats - use ALL flight stats, not just leaderboard stats
-                document.getElementById('pilotCount').textContent = allFlightStats.totalPilots;
-                document.getElementById('flightCount').textContent = allFlightStats.totalFlights.toLocaleString();
-                document.getElementById('totalKms').textContent = allFlightStats.totalKms.toLocaleString();
+                document.getElementById('pilotCount').textContent = ` + totalPilots + `;
+                document.getElementById('flightCount').textContent = ` + totalFlights + `;
+                document.getElementById('totalKms').textContent = ` + totalKms + `;
+
+                // Show task stats only in Combined mode
+                updateTaskStats('mixed', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `
+                });
 
                 // Build leaderboard table
                 const tbody = document.getElementById('leaderboardBody');
@@ -507,6 +593,19 @@ async function processAustralianFlights() {
             const declaredBadge = flight.declared ? '<span class="declared-task">TASK</span>' : '';
             const flightUrl = \`https://www.weglide.org/flight/\${flight.id}\`;
 
+            // Create aircraft display with name and index if available
+            let aircraftDisplay = '';
+            if (flight.aircraftName && flight.dmstIndex) {
+                aircraftDisplay = \`\${flight.aircraftName} - index \${flight.dmstIndex}\`;
+            } else if (flight.aircraftName) {
+                aircraftDisplay = flight.aircraftName;
+            } else if (flight.aircraftKind) {
+                aircraftDisplay = flight.aircraftKind === 'GL' ? 'Glider' :
+                                flight.aircraftKind === 'MG' ? 'Motor Glider' : flight.aircraftKind;
+            } else {
+                aircraftDisplay = 'N/A';
+            }
+
             return \`
                 <td class="flight-cell" onmouseover="showFlightPreview(\${flight.id}, event)" onmouseout="hideFlightPreview()">
                     <div class="flight-details">
@@ -514,6 +613,7 @@ async function processAustralianFlights() {
                         <div class="flight-distance">\${flight.distance.toFixed(1)} km</div>
                         <div class="flight-speed">\${flight.speed.toFixed(1)} km/h</div>
                         <div class="flight-date">\${formatDate(flight.date)}</div>
+                        <div class="flight-aircraft">\${aircraftDisplay}</div>
                         <div class="flight-location">\${flight.takeoff} • <a href="\${flightUrl}" target="_blank" class="weglide-link">View on WeGlide →</a></div>
                     </div>
                 </td>
@@ -528,18 +628,40 @@ async function processAustralianFlights() {
             });
         }
 
+        // Update task stats visibility (now always visible in main stats)
+        function updateTaskStats(mode, stats) {
+            // Task stats are now always visible in the main stats area
+            // Just update the values - no need to show/hide
+            if (document.getElementById('tasksDeclared') && stats && stats.totalTasksDeclared !== undefined) {
+                document.getElementById('tasksDeclared').textContent = stats.totalTasksDeclared.toLocaleString();
+            }
+            if (document.getElementById('tasksCompleted') && stats && stats.totalTasksCompleted !== undefined) {
+                document.getElementById('tasksCompleted').textContent = stats.totalTasksCompleted.toLocaleString();
+            }
+            if (document.getElementById('tasksHigherThanFree') && stats && stats.totalTasksHigherThanFree !== undefined) {
+                document.getElementById('tasksHigherThanFree').textContent = stats.totalTasksHigherThanFree.toLocaleString();
+            }
+        }
+
         // Switch between scoring modes
         function switchScoringMode(mode) {
             if (mode === 'mixed') {
                 leaderboard = mixedLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Higher of Australian Task or Free scoring';
+                document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025';
             } else {
                 leaderboard = freeLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Free scoring only';
+                document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Free scoring only • Oct 2024 - Sep 2025';
             }
 
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(mode === 'mixed' ? 'mixedBtn' : 'freeBtn').classList.add('active');
+            document.getElementById(mode === 'mixed' ? 'combinedBtn' : 'freeBtn').classList.add('active');
+            updateTaskStats(mode, {
+                totalPilots: ` + totalPilots + `,
+                totalFlights: ` + totalFlights + `,
+                totalKms: ` + totalKms + `,
+                totalTasksDeclared: ` + totalTasksDeclared + `,
+                totalTasksCompleted: ` + totalTasksCompleted + `
+            });
             buildLeaderboard();
         }
 
@@ -673,6 +795,10 @@ async function processAustralianFlights() {
                                 <span class="stat-value">\${stats.thermal_radius ? metersToFeet(stats.thermal_radius) + ' ft' : 'N/A'}</span>
                             </div>
                             <div class="stat-item">
+                                <span class="stat-label">Thermal Bank:</span>
+                                <span class="stat-value">\${stats.thermal_bank ? stats.thermal_bank.toFixed(1) + '°' : 'N/A'}</span>
+                            </div>
+                            <div class="stat-item">
                                 <span class="stat-label">Start AGL:</span>
                                 <span class="stat-value">\${stats.thermal_start_agl ? metersToFeet(stats.thermal_start_agl) + ' ft' : 'N/A'}</span>
                             </div>
@@ -685,7 +811,7 @@ async function processAustralianFlights() {
                                 <span class="stat-value">\${stats.glide_distance ? stats.glide_distance.toFixed(1) + ' km' : 'N/A'}</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-label">% in Lift:</span>
+                                <span class="stat-label">Glide % in Lift:</span>
                                 <span class="stat-value">\${stats.glide_percentage_lift ? Math.round(stats.glide_percentage_lift * 100) + '%' : 'N/A'}</span>
                             </div>
                         </div>
@@ -742,8 +868,12 @@ async function processAustralianFlights() {
                                 <span class="stat-value">\${stats.attempt_avg ? msToKnots(stats.attempt_avg) + ' kts' : 'N/A'}</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-label">Speed Loss from Attempts:</span>
+                                <span class="stat-label">Attempt Loss:</span>
                                 <span class="stat-value">\${stats.attempt_speed_loss ? stats.attempt_speed_loss.toFixed(1) + ' km/h' : 'N/A'}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Avg Th. Start AGL:</span>
+                                <span class="stat-value">\${stats.thermal_start_agl ? metersToFeet(stats.thermal_start_agl) + ' ft' : 'N/A'}</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">Avg AGL:</span>
@@ -769,6 +899,14 @@ async function processAustralianFlights() {
                                 <span class="stat-label">Below 1312ft:</span>
                                 <span class="stat-value">\${stats.below_400_agl ? Math.round(stats.below_400_agl * 100) + '%' : 'N/A'}</span>
                             </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Below 656ft:</span>
+                                <span class="stat-value">\${stats.below_200_agl ? Math.round(stats.below_200_agl * 100) + '%' : 'N/A'}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Below 328ft:</span>
+                                <span class="stat-value">\${stats.below_100_agl ? Math.round(stats.below_100_agl * 100) + '%' : 'N/A'}</span>
+                            </div>
                         </div>
                     </div>
                 \`;
@@ -776,35 +914,36 @@ async function processAustralianFlights() {
                 console.log('No detailed flight found for ID:', flightData.id);
             }
 
+            // Create aircraft display for tooltip header
+            let aircraftHeaderDisplay = '';
+            if (flightData.aircraftName && flightData.dmstIndex) {
+                aircraftHeaderDisplay = \`\${flightData.aircraftName} - index \${flightData.dmstIndex}\`;
+            } else if (flightData.aircraftName) {
+                aircraftHeaderDisplay = flightData.aircraftName;
+            } else if (flightData.aircraftKind) {
+                aircraftHeaderDisplay = flightData.aircraftKind === 'GL' ? 'Glider' :
+                                      flightData.aircraftKind === 'MG' ? 'Motor Glider' : flightData.aircraftKind;
+            }
+
             previewElement.innerHTML = \`
+                <button class="tooltip-close-btn" onclick="this.parentElement.remove()">&times;</button>
                 <div class="flight-tooltip-header">
                     <strong>\${flightData.pilot}</strong>
+                    \${aircraftHeaderDisplay ? \`<span class="aircraft-info">\${aircraftHeaderDisplay}</span>\` : ''}
                     <span class="flight-type \${typeClass}">\${declaredText}</span>
                 </div>
                 <div class="flight-tooltip-content">
                     \${flightImageHtml}
                     \${detailedStatsHtml}
-                    <div class="flight-tooltip-link">
-                        <a href="https://www.weglide.org/flight/\${flightData.id}" target="_blank">View Flight →</a>
-                    </div>
                 </div>
             \`;
 
             document.body.appendChild(previewElement);
 
-            // Position the tooltip near the mouse cursor
-            const rect = event.target.closest('.flight-cell').getBoundingClientRect();
-            previewElement.style.left = (rect.right + 10) + 'px';
-            previewElement.style.top = rect.top + 'px';
-
-            // Adjust position if tooltip would go off screen
-            const previewRect = previewElement.getBoundingClientRect();
-            if (previewRect.right > window.innerWidth) {
-                previewElement.style.left = (rect.left - previewElement.offsetWidth - 10) + 'px';
-            }
-            if (previewRect.bottom > window.innerHeight) {
-                previewElement.style.top = (window.innerHeight - previewElement.offsetHeight - 10) + 'px';
-            }
+            // Center the tooltip in the viewport
+            previewElement.style.left = '50%';
+            previewElement.style.top = '50%';
+            previewElement.style.transform = 'translate(-50%, -50%)';
 
             // Fade in the tooltip
             setTimeout(() => {
@@ -870,14 +1009,16 @@ async function processAustralianFlights() {
             });
 
             // Update stats - always show ALL flight stats, not just leaderboard stats
-            document.getElementById('pilotCount').textContent = allFlightStats.totalPilots;
-            document.getElementById('flightCount').textContent = allFlightStats.totalFlights.toLocaleString();
-            document.getElementById('totalKms').textContent = allFlightStats.totalKms.toLocaleString();
+            document.getElementById('pilotCount').textContent = ` + totalPilots + `;
+            document.getElementById('flightCount').textContent = ` + totalFlights + `;
+            document.getElementById('totalKms').textContent = ` + totalKms + `;
+
+            // Task stats are handled by updateTaskStats function
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             loadLeaderboard();
-            document.getElementById('mixedBtn').addEventListener('click', () => switchScoringMode('mixed'));
+            document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
         });
     </script>`;
@@ -886,20 +1027,21 @@ async function processAustralianFlights() {
                         newScriptContent +
                         australianHTML.substring(scriptEnd);
 
-        // Add toggle buttons to the header
+        // Add toggle buttons after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1<div class="scoring-toggle"><button class="toggle-btn active" id="mixedBtn">Mixed Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button></div>'
         );
 
         // Add CSS for toggle buttons and award badges
         const toggleCSS = `
         /* Scoring toggle buttons */
         .scoring-toggle {
-            margin-top: 15px;
+            margin: 20px 0;
             display: flex;
             gap: 10px;
             justify-content: center;
+            padding: 0 20px;
         }
 
         .toggle-btn {
@@ -927,10 +1069,11 @@ async function processAustralianFlights() {
 
         /* Award badges */
         .award-badge {
-            font-size: 1.1em;
-            margin-left: 8px;
-            opacity: 0.9;
-            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+            font-size: 0.85em;
+            margin-left: 6px;
+            opacity: 0.7;
+            display: inline;
+            white-space: nowrap;
         }
 
         .award-badge.glider {
@@ -939,6 +1082,68 @@ async function processAustralianFlights() {
 
         .award-badge.motor-glider {
             color: #f39c12;
+        }
+
+        /* Aircraft info styling */
+        .aircraft-info {
+            font-size: 0.85em;
+            opacity: 0.8;
+            margin: 0 8px;
+        }
+
+        .flight-aircraft {
+            font-size: 0.8em;
+            color: #888;
+            font-style: italic;
+        }
+
+
+        /* Close button for mobile */
+        .tooltip-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 1;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        .tooltip-close-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Mobile responsive tooltip */
+        @media (max-width: 768px) {
+            .flight-preview {
+                width: 95vw !important;
+                height: 95vh !important;
+                max-width: none !important;
+                max-height: none !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                border-radius: 8px;
+                overflow-y: auto;
+            }
+
+            .tooltip-close-btn {
+                display: flex;
+            }
+
+            .flight-tooltip-content {
+                padding: 15px;
+                padding-top: 50px;
+            }
         }
 
         /* Flight preview tooltip */
