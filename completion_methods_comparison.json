@@ -1,0 +1,169 @@
+{
+  "totalAnalyzed": 5595,
+  "taskAchievedTrue": 791,
+  "contestBasedTrue": 512,
+  "bothTrue": 512,
+  "discrepancyCount": 279,
+  "discrepancyExamples": [
+    {
+      "flightId": 485718,
+      "pilotName": "Ian Steventon",
+      "taskType": "FR4",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 486261,
+      "pilotName": "Max  Scutchings",
+      "taskType": "FR4",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 486279,
+      "pilotName": "Pavel Kalenov",
+      "taskType": "GL",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 486886,
+      "pilotName": "Pavel Kalenov",
+      "taskType": "GL",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 486887,
+      "pilotName": "Pavel Kalenov",
+      "taskType": "GL",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 486888,
+      "pilotName": "Pavel Kalenov",
+      "taskType": "GL",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 488767,
+      "pilotName": "Greg Beeroft",
+      "taskType": "FR4",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 489112,
+      "pilotName": "Pavel Kalenov",
+      "taskType": "GL",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 489766,
+      "pilotName": "Greg Beeroft",
+      "taskType": "TR",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    },
+    {
+      "flightId": 490630,
+      "pilotName": "Pavel Kalenov",
+      "taskType": "GL",
+      "taskAchieved": true,
+      "method1": true,
+      "method2": false,
+      "contestTypes": [
+        "free",
+        "sprint",
+        "triangle",
+        "out_return",
+        "au"
+      ],
+      "declaredContests": []
+    }
+  ]
+}

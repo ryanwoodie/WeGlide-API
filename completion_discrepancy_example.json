@@ -1,0 +1,2039 @@
+{
+  "id": 485718,
+  "user": {
+    "id": 9267,
+    "name": "Ian Steventon",
+    "image": "9267/profile/9YkgFrdEd1eEPglkUMhAZaVK.jpg",
+    "badge": false,
+    "open_in_seeyou": false,
+    "comments_allowed": true
+  },
+  "co_user": {
+    "id": 15491,
+    "name": "Andy Aveling"
+  },
+  "takeoff_airport": {
+    "id": 140980,
+    "name": "Lake Keepit",
+    "region": "AU-NSW"
+  },
+  "aircraft": {
+    "id": 339,
+    "name": "Arcus M",
+    "wingarea": 15.6,
+    "double_seater": true,
+    "kind": "MG",
+    "sc_class": "DO",
+    "encoded_coeffs": [
+      -0.0009528483889859998,
+      -0.00020811328418607472,
+      0.000060948656201127934
+    ],
+    "min_speed_m_s": 21.67,
+    "reference_mass": 702,
+    "empty_mass": 510,
+    "mtow": 850
+  },
+  "club": {
+    "id": 1075,
+    "name": "Hunter Valley Gliding Club"
+  },
+  "media_info": "I",
+  "takeoff_time": "2024-10-03T00:52:34+00:00",
+  "landing_time": "2024-10-03T07:12:28+00:00",
+  "scoring_date": "2024-10-03",
+  "bbox": [
+    148.26513,
+    -30.93427,
+    150.55557,
+    -29.72045
+  ],
+  "junior": false,
+  "dmst_index": 120,
+  "igc_file": {
+    "id": 481756,
+    "file": "9267/igcfiles/EczmPTCqlmAw2dYrnkIwgNVq.igc",
+    "valid": 4,
+    "errors": []
+  },
+  "landing_airport": {
+    "id": 140980,
+    "name": "Lake Keepit"
+  },
+  "airspace_violation": [
+    {
+      "id": 2566790,
+      "violation": true,
+      "airspace_openaip_id": "64a67a70cdb296dccb6baa90",
+      "airspace_style": "danger",
+      "airspace_name": "D531B GUNNEDAH",
+      "airspace_max_alt": 1524,
+      "airspace_min_alt": 0,
+      "intervals": [
+        "2024-10-03T01:48:03+00:00",
+        "2024-10-03T01:51:57+00:00"
+      ],
+      "display_intervals": [
+        "2024-10-03T01:48:03+00:00",
+        "2024-10-03T01:51:57+00:00"
+      ],
+      "total_seconds": 234
+    },
+    {
+      "id": 2566791,
+      "violation": true,
+      "airspace_openaip_id": "64a67a85cdb296dccb6bbd8c",
+      "airspace_style": "rmz",
+      "airspace_name": "NARRABRI NSW (YNBR) CERT",
+      "airspace_max_alt": 30659,
+      "airspace_min_alt": 0,
+      "intervals": [
+        "2024-10-03T05:53:35+00:00",
+        "2024-10-03T06:16:14+00:00"
+      ],
+      "display_intervals": [
+        "2024-10-03T05:53:35+00:00",
+        "2024-10-03T06:16:14+00:00"
+      ],
+      "total_seconds": 1359
+    },
+    {
+      "id": 2566792,
+      "violation": true,
+      "airspace_openaip_id": "64a67a89cdb296dccb6bc3b0",
+      "airspace_style": "rmz",
+      "airspace_name": "WALGETT NSW (YWLG) CERT",
+      "airspace_max_alt": 30659,
+      "airspace_min_alt": 0,
+      "intervals": [
+        "2024-10-03T04:14:03+00:00",
+        "2024-10-03T04:18:04+00:00"
+      ],
+      "display_intervals": [
+        "2024-10-03T04:14:03+00:00",
+        "2024-10-03T04:18:04+00:00"
+      ],
+      "total_seconds": 241
+    }
+  ],
+  "contest": [
+    {
+      "name": "free",
+      "points": 616.30914,
+      "distance": 576.62,
+      "speed": 94.87,
+      "valid": true,
+      "bonus_points": 135.79251,
+      "bonus_score_name": "triangle",
+      "score": {
+        "name": "free6",
+        "declared": false,
+        "geom": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 0
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    150.51198,
+                    -30.87865
+                  ],
+                  [
+                    150.53703,
+                    -30.9339
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 1
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    150.53703,
+                    -30.9339
+                  ],
+                  [
+                    149.79942,
+                    -29.72063
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 2
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    149.79942,
+                    -29.72063
+                  ],
+                  [
+                    148.26513,
+                    -30.08895
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 3
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    148.26513,
+                    -30.08895
+                  ],
+                  [
+                    149.7427,
+                    -30.10177
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 4
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    149.7427,
+                    -30.10177
+                  ],
+                  [
+                    150.5509,
+                    -30.90343
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 5
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    150.5509,
+                    -30.90343
+                  ],
+                  [
+                    150.52153,
+                    -30.87935
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "start_time": "2024-10-03T01:06:43+00:00",
+        "end_time": "2024-10-03T07:11:23+00:00",
+        "distance": 576.62,
+        "track_distance": 643.66,
+        "speed": 94.87,
+        "glide_count": 56,
+        "glide_ratio": 49.04,
+        "glide_detour": 1.12,
+        "glide_speed": 154.28,
+        "glide_gain": -11758,
+        "glide_percentage": 0.69,
+        "thermal_count": 34,
+        "thermal_avg": 1.81,
+        "thermal_gain": 10980,
+        "thermal_percentage": 0.277,
+        "thermal_radius": 148.19,
+        "thermal_speed": 118.65,
+        "thermal_bank": 36.78,
+        "thermal_direction": 0.59,
+        "attempt_percentage": 0.037,
+        "attempt_speed_loss": 3.64,
+        "attempt_count": 22,
+        "attempt_time": 807,
+        "attempt_gain": 169,
+        "attempt_avg": 0.21,
+        "thermal_start_agl": 1147,
+        "glide_distance": 10.15,
+        "glide_percentage_lift": 0.4,
+        "glide_alt_avg": 1751,
+        "glide_speed_lift": 150.04,
+        "glide_speed_sink": 157.17,
+        "altitude_avg": 1734,
+        "agl_avg": 1310,
+        "below_1000_agl": 0.2543,
+        "below_800_agl": 0.1921,
+        "below_600_agl": 0.1217,
+        "below_400_agl": 0.0551,
+        "below_200_agl": 0.0232,
+        "below_100_agl": 0.0081,
+        "total_seconds": 21880,
+        "thermal_time": 6054,
+        "glide_time": 15019,
+        "wind_speed": 13.63,
+        "wind_direction": 98,
+        "duration": 21880,
+        "leg": [
+          {
+            "number": 0,
+            "start_time": "2024-10-03T01:06:43+00:00",
+            "end_time": "2024-10-03T01:20:25+00:00",
+            "start_alt": 1099,
+            "end_alt": 949,
+            "distance": 6.58,
+            "track_distance": 13.3,
+            "speed": 28.82,
+            "glide_count": 3,
+            "glide_ratio": 16.66,
+            "glide_detour": 2.02,
+            "glide_speed": 118.81,
+            "glide_gain": -395,
+            "glide_percentage": 0.49,
+            "thermal_count": 2,
+            "thermal_avg": 0.78,
+            "thermal_gain": 298,
+            "thermal_percentage": 0.462,
+            "thermal_radius": 153.29,
+            "thermal_speed": 111.5,
+            "thermal_bank": 32.54,
+            "thermal_direction": 0.36,
+            "attempt_percentage": 0.047,
+            "attempt_speed_loss": 1.43,
+            "attempt_count": 1,
+            "attempt_time": 39,
+            "attempt_gain": -53,
+            "attempt_avg": -1.36,
+            "thermal_start_agl": 537,
+            "glide_distance": 2.94,
+            "glide_percentage_lift": 0.32,
+            "glide_alt_avg": 1126,
+            "glide_speed_lift": 115.81,
+            "glide_speed_sink": 120.13,
+            "altitude_avg": 1158,
+            "agl_avg": 688,
+            "below_1000_agl": 1,
+            "below_800_agl": 0.8564,
+            "below_600_agl": 0.2372,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 822,
+            "thermal_time": 380,
+            "glide_time": 403,
+            "wind_speed": 12.53,
+            "wind_direction": 98,
+            "duration": 822
+          },
+          {
+            "number": 1,
+            "start_time": "2024-10-03T01:20:25+00:00",
+            "end_time": "2024-10-03T03:03:35+00:00",
+            "start_alt": 949,
+            "end_alt": 1844,
+            "distance": 152.06,
+            "track_distance": 165.7,
+            "speed": 88.44,
+            "glide_count": 20,
+            "glide_ratio": 69.24,
+            "glide_detour": 1.09,
+            "glide_speed": 156.77,
+            "glide_gain": -2196,
+            "glide_percentage": 0.61,
+            "thermal_count": 11,
+            "thermal_avg": 1.47,
+            "thermal_gain": 3034,
+            "thermal_percentage": 0.334,
+            "thermal_radius": 143.07,
+            "thermal_speed": 118.34,
+            "thermal_bank": 37.6,
+            "thermal_direction": 0.68,
+            "attempt_percentage": 0.051,
+            "attempt_speed_loss": 4.77,
+            "attempt_count": 8,
+            "attempt_time": 317,
+            "attempt_gain": 57,
+            "attempt_avg": 0.18,
+            "thermal_start_agl": 630,
+            "glide_distance": 7.46,
+            "glide_percentage_lift": 0.43,
+            "glide_alt_avg": 1572,
+            "glide_speed_lift": 152.88,
+            "glide_speed_sink": 159.75,
+            "altitude_avg": 1488,
+            "agl_avg": 909,
+            "below_1000_agl": 0.578,
+            "below_800_agl": 0.4286,
+            "below_600_agl": 0.2932,
+            "below_400_agl": 0.131,
+            "below_200_agl": 0.0507,
+            "below_100_agl": 0.0165,
+            "total_seconds": 6190,
+            "thermal_time": 2068,
+            "glide_time": 3805,
+            "wind_speed": 13.16,
+            "wind_direction": 114,
+            "duration": 6190
+          },
+          {
+            "number": 2,
+            "start_time": "2024-10-03T03:03:35+00:00",
+            "end_time": "2024-10-03T04:15:55+00:00",
+            "start_alt": 1844,
+            "end_alt": 2003,
+            "distance": 153.7,
+            "track_distance": 164.41,
+            "speed": 127.49,
+            "glide_count": 9,
+            "glide_ratio": 61.8,
+            "glide_detour": 1.07,
+            "glide_speed": 175.47,
+            "glide_gain": -2487,
+            "glide_percentage": 0.78,
+            "thermal_count": 7,
+            "thermal_avg": 2.76,
+            "thermal_gain": 2590,
+            "thermal_percentage": 0.216,
+            "thermal_radius": 162.28,
+            "thermal_speed": 123.03,
+            "thermal_bank": 36.27,
+            "thermal_direction": 0.56,
+            "attempt_percentage": 0.006,
+            "attempt_speed_loss": 0.83,
+            "attempt_count": 2,
+            "attempt_time": 28,
+            "attempt_gain": 56,
+            "attempt_avg": 2,
+            "thermal_start_agl": 1354,
+            "glide_distance": 17.04,
+            "glide_percentage_lift": 0.42,
+            "glide_alt_avg": 1862,
+            "glide_speed_lift": 168.35,
+            "glide_speed_sink": 180.57,
+            "altitude_avg": 1864,
+            "agl_avg": 1573,
+            "below_1000_agl": 0,
+            "below_800_agl": 0,
+            "below_600_agl": 0,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 4340,
+            "thermal_time": 939,
+            "glide_time": 3373,
+            "wind_speed": 18.62,
+            "wind_direction": 94,
+            "duration": 4340
+          },
+          {
+            "number": 3,
+            "start_time": "2024-10-03T04:15:55+00:00",
+            "end_time": "2024-10-03T05:49:48+00:00",
+            "start_alt": 2003,
+            "end_alt": 1747,
+            "distance": 142.43,
+            "track_distance": 166.16,
+            "speed": 91.03,
+            "glide_count": 18,
+            "glide_ratio": 42.84,
+            "glide_detour": 1.17,
+            "glide_speed": 146.65,
+            "glide_gain": -3325,
+            "glide_percentage": 0.72,
+            "thermal_count": 10,
+            "thermal_avg": 2.34,
+            "thermal_gain": 3013,
+            "thermal_percentage": 0.228,
+            "thermal_radius": 165.02,
+            "thermal_speed": 123.26,
+            "thermal_bank": 35.92,
+            "thermal_direction": 0.57,
+            "attempt_percentage": 0.048,
+            "attempt_speed_loss": 4.54,
+            "attempt_count": 8,
+            "attempt_time": 268,
+            "attempt_gain": 56,
+            "attempt_avg": 0.21,
+            "thermal_start_agl": 1596,
+            "glide_distance": 8.49,
+            "glide_percentage_lift": 0.4,
+            "glide_alt_avg": 1963,
+            "glide_speed_lift": 140.91,
+            "glide_speed_sink": 150.52,
+            "altitude_avg": 1971,
+            "agl_avg": 1674,
+            "below_1000_agl": 0,
+            "below_800_agl": 0,
+            "below_600_agl": 0,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 5633,
+            "thermal_time": 1286,
+            "glide_time": 4079,
+            "wind_speed": 12.3,
+            "wind_direction": 92,
+            "duration": 5633
+          },
+          {
+            "number": 4,
+            "start_time": "2024-10-03T05:49:48+00:00",
+            "end_time": "2024-10-03T07:09:16+00:00",
+            "start_alt": 1747,
+            "end_alt": 617,
+            "distance": 117.97,
+            "track_distance": 129.45,
+            "speed": 89.07,
+            "glide_count": 9,
+            "glide_ratio": 36.55,
+            "glide_detour": 1.1,
+            "glide_speed": 144.19,
+            "glide_gain": -3228,
+            "glide_percentage": 0.68,
+            "thermal_count": 4,
+            "thermal_avg": 1.48,
+            "thermal_gain": 2045,
+            "thermal_percentage": 0.29,
+            "thermal_radius": 135.65,
+            "thermal_speed": 115.77,
+            "thermal_bank": 37.86,
+            "thermal_direction": 0.55,
+            "attempt_percentage": 0.033,
+            "attempt_speed_loss": 2.99,
+            "attempt_count": 4,
+            "attempt_time": 155,
+            "attempt_gain": 53,
+            "attempt_avg": 0.34,
+            "thermal_start_agl": 1238,
+            "glide_distance": 13.28,
+            "glide_percentage_lift": 0.37,
+            "glide_alt_avg": 1706,
+            "glide_speed_lift": 141.31,
+            "glide_speed_sink": 145.93,
+            "altitude_avg": 1788,
+            "agl_avg": 1301,
+            "below_1000_agl": 0.2175,
+            "below_800_agl": 0.1508,
+            "below_600_agl": 0.1103,
+            "below_400_agl": 0.0562,
+            "below_200_agl": 0.0141,
+            "below_100_agl": 0,
+            "total_seconds": 4768,
+            "thermal_time": 1381,
+            "glide_time": 3232,
+            "wind_speed": 12.69,
+            "wind_direction": 54,
+            "duration": 4768
+          },
+          {
+            "number": 5,
+            "start_time": "2024-10-03T07:09:16+00:00",
+            "end_time": "2024-10-03T07:11:23+00:00",
+            "start_alt": 617,
+            "end_alt": 490,
+            "distance": 3.87,
+            "track_distance": 4.63,
+            "speed": 109.7,
+            "glide_count": 1,
+            "glide_ratio": 30.47,
+            "glide_detour": 1.2,
+            "glide_speed": 131.24,
+            "glide_gain": -127,
+            "glide_percentage": 1,
+            "thermal_count": 0,
+            "thermal_avg": 0,
+            "thermal_gain": 0,
+            "thermal_percentage": 0,
+            "attempt_count": 0,
+            "attempt_time": 0,
+            "attempt_gain": 0,
+            "attempt_avg": 0,
+            "glide_distance": 3.87,
+            "glide_percentage_lift": 0.24,
+            "glide_alt_avg": 558,
+            "glide_speed_lift": 132.44,
+            "glide_speed_sink": 131,
+            "altitude_avg": 557,
+            "agl_avg": 92,
+            "below_1000_agl": 1,
+            "below_800_agl": 1,
+            "below_600_agl": 1,
+            "below_400_agl": 1,
+            "below_200_agl": 1,
+            "below_100_agl": 0.5984,
+            "total_seconds": 127,
+            "thermal_time": 0,
+            "glide_time": 127,
+            "wind_speed": 13.4,
+            "wind_direction": 18,
+            "duration": 127
+          }
+        ]
+      }
+    },
+    {
+      "name": "sprint",
+      "points": 106.76957,
+      "distance": 245.57,
+      "speed": 122.78,
+      "valid": true,
+      "score": {
+        "name": "speed",
+        "declared": false,
+        "geom": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 0
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    150.171,
+                    -30.38775
+                  ],
+                  [
+                    149.79942,
+                    -29.72063
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 1
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    149.79942,
+                    -29.72063
+                  ],
+                  [
+                    148.2652,
+                    -30.08923
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 2
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    148.2652,
+                    -30.08923
+                  ],
+                  [
+                    148.36423,
+                    -30.07412
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "start_time": "2024-10-03T02:20:49+00:00",
+        "end_time": "2024-10-03T04:20:37+00:00",
+        "distance": 245.57,
+        "track_distance": 264.5,
+        "speed": 122.99,
+        "glide_count": 17,
+        "glide_ratio": 73.33,
+        "glide_detour": 1.08,
+        "glide_speed": 168.83,
+        "glide_gain": -3349,
+        "glide_percentage": 0.78,
+        "thermal_count": 13,
+        "thermal_avg": 2.4,
+        "thermal_gain": 3302,
+        "thermal_percentage": 0.192,
+        "thermal_radius": 166.49,
+        "thermal_speed": 122.64,
+        "thermal_bank": 35.4,
+        "thermal_direction": 0.58,
+        "attempt_percentage": 0.024,
+        "attempt_speed_loss": 3,
+        "attempt_count": 5,
+        "attempt_time": 171,
+        "attempt_gain": 107,
+        "attempt_avg": 0.63,
+        "thermal_start_agl": 1242,
+        "glide_distance": 14.06,
+        "glide_percentage_lift": 0.44,
+        "glide_alt_avg": 1873,
+        "glide_speed_lift": 162.25,
+        "glide_speed_sink": 173.95,
+        "altitude_avg": 1875,
+        "agl_avg": 1467,
+        "below_1000_agl": 0.0796,
+        "below_800_agl": 0.0424,
+        "below_600_agl": 0.0063,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "total_seconds": 7188,
+        "thermal_time": 1377,
+        "glide_time": 5640,
+        "wind_speed": 14.3,
+        "wind_direction": 97,
+        "duration": 7188,
+        "leg": [
+          {
+            "number": 0,
+            "start_time": "2024-10-03T02:20:49+00:00",
+            "end_time": "2024-10-03T03:03:35+00:00",
+            "start_alt": 1761,
+            "end_alt": 1844,
+            "distance": 82.18,
+            "track_distance": 90.62,
+            "speed": 115.3,
+            "glide_count": 8,
+            "glide_ratio": 121.03,
+            "glide_detour": 1.1,
+            "glide_speed": 161.42,
+            "glide_gain": -679,
+            "glide_percentage": 0.79,
+            "thermal_count": 5,
+            "thermal_avg": 1.64,
+            "thermal_gain": 712,
+            "thermal_percentage": 0.17,
+            "thermal_radius": 174.5,
+            "thermal_speed": 122.64,
+            "thermal_bank": 34.14,
+            "thermal_direction": 0.63,
+            "attempt_percentage": 0.043,
+            "attempt_speed_loss": 5.16,
+            "attempt_count": 3,
+            "attempt_time": 110,
+            "attempt_gain": 50,
+            "attempt_avg": 0.45,
+            "thermal_start_agl": 969,
+            "glide_distance": 10.32,
+            "glide_percentage_lift": 0.47,
+            "glide_alt_avg": 1890,
+            "glide_speed_lift": 156.22,
+            "glide_speed_sink": 166.08,
+            "altitude_avg": 1890,
+            "agl_avg": 1268,
+            "below_1000_agl": 0.2229,
+            "below_800_agl": 0.1189,
+            "below_600_agl": 0.0175,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 2566,
+            "thermal_time": 435,
+            "glide_time": 2021,
+            "wind_speed": 8.49,
+            "wind_direction": 105,
+            "duration": 2566
+          },
+          {
+            "number": 1,
+            "start_time": "2024-10-03T03:03:35+00:00",
+            "end_time": "2024-10-03T04:15:56+00:00",
+            "start_alt": 1844,
+            "end_alt": 2003,
+            "distance": 153.7,
+            "track_distance": 164.41,
+            "speed": 127.46,
+            "glide_count": 9,
+            "glide_ratio": 61.8,
+            "glide_detour": 1.07,
+            "glide_speed": 175.47,
+            "glide_gain": -2487,
+            "glide_percentage": 0.78,
+            "thermal_count": 7,
+            "thermal_avg": 2.76,
+            "thermal_gain": 2590,
+            "thermal_percentage": 0.216,
+            "thermal_radius": 162.28,
+            "thermal_speed": 123.03,
+            "thermal_bank": 36.27,
+            "thermal_direction": 0.56,
+            "attempt_percentage": 0.007,
+            "attempt_speed_loss": 0.86,
+            "attempt_count": 2,
+            "attempt_time": 29,
+            "attempt_gain": 56,
+            "attempt_avg": 1.93,
+            "thermal_start_agl": 1354,
+            "glide_distance": 17.04,
+            "glide_percentage_lift": 0.42,
+            "glide_alt_avg": 1862,
+            "glide_speed_lift": 168.35,
+            "glide_speed_sink": 180.57,
+            "altitude_avg": 1864,
+            "agl_avg": 1573,
+            "below_1000_agl": 0,
+            "below_800_agl": 0,
+            "below_600_agl": 0,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 4341,
+            "thermal_time": 939,
+            "glide_time": 3373,
+            "wind_speed": 18.62,
+            "wind_direction": 94,
+            "duration": 4341
+          },
+          {
+            "number": 2,
+            "start_time": "2024-10-03T04:15:56+00:00",
+            "end_time": "2024-10-03T04:20:37+00:00",
+            "start_alt": 2003,
+            "end_alt": 1821,
+            "distance": 9.69,
+            "track_distance": 9.46,
+            "speed": 124.14,
+            "glide_count": 1,
+            "glide_ratio": 52.95,
+            "glide_detour": 0.98,
+            "glide_speed": 138.44,
+            "glide_gain": -183,
+            "glide_percentage": 0.88,
+            "thermal_count": 1,
+            "thermal_avg": 0,
+            "thermal_gain": 0,
+            "thermal_percentage": 0.011,
+            "thermal_radius": 200.5,
+            "thermal_speed": 113.48,
+            "thermal_bank": 26.81,
+            "thermal_direction": 0.45,
+            "attempt_percentage": 0.114,
+            "attempt_speed_loss": 15.96,
+            "attempt_count": 1,
+            "attempt_time": 32,
+            "attempt_gain": 1,
+            "attempt_avg": 0.03,
+            "thermal_start_agl": 1556,
+            "glide_distance": 9.1,
+            "glide_percentage_lift": 0.46,
+            "glide_alt_avg": 1884,
+            "glide_speed_lift": 136.85,
+            "glide_speed_sink": 139.93,
+            "altitude_avg": 1897,
+            "agl_avg": 1631,
+            "below_1000_agl": 0,
+            "below_800_agl": 0,
+            "below_600_agl": 0,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 281,
+            "thermal_time": 3,
+            "glide_time": 246,
+            "wind_speed": 18.77,
+            "wind_direction": 70,
+            "duration": 281
+          }
+        ]
+      }
+    },
+    {
+      "name": "triangle",
+      "points": 452.64166,
+      "distance": 543.17,
+      "speed": 87,
+      "valid": true,
+      "score": {
+        "name": "triangle",
+        "declared": false,
+        "geom": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 0
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    150.53888,
+                    -30.93267
+                  ],
+                  [
+                    149.79942,
+                    -29.72063
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 1
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    149.79942,
+                    -29.72063
+                  ],
+                  [
+                    148.26515,
+                    -30.08863
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 2
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    148.26515,
+                    -30.08863
+                  ],
+                  [
+                    150.53888,
+                    -30.93267
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "start_time": "2024-10-03T00:55:49+00:00",
+        "end_time": "2024-10-03T07:10:26+00:00",
+        "distance": 543.17,
+        "track_distance": 642.24,
+        "speed": 87,
+        "glide_count": 57,
+        "glide_ratio": 46.46,
+        "glide_detour": 1.18,
+        "glide_speed": 154.32,
+        "glide_gain": -11692,
+        "glide_percentage": 0.67,
+        "thermal_count": 34,
+        "thermal_avg": 1.71,
+        "thermal_gain": 11391,
+        "thermal_percentage": 0.297,
+        "thermal_radius": 146.83,
+        "thermal_speed": 117.93,
+        "thermal_bank": 36.69,
+        "thermal_direction": 0.6,
+        "attempt_percentage": 0.037,
+        "attempt_speed_loss": 3.31,
+        "attempt_count": 23,
+        "attempt_time": 825,
+        "attempt_gain": 126,
+        "attempt_avg": 0.15,
+        "thermal_start_agl": 1120,
+        "glide_distance": 10,
+        "glide_percentage_lift": 0.4,
+        "glide_alt_avg": 1755,
+        "glide_speed_lift": 149.98,
+        "glide_speed_sink": 157.29,
+        "altitude_avg": 1715,
+        "agl_avg": 1289,
+        "below_1000_agl": 0.2737,
+        "below_800_agl": 0.2131,
+        "below_600_agl": 0.1369,
+        "below_400_agl": 0.0606,
+        "below_200_agl": 0.0213,
+        "below_100_agl": 0.0054,
+        "total_seconds": 22477,
+        "thermal_time": 6670,
+        "glide_time": 14982,
+        "wind_speed": 13.56,
+        "wind_direction": 99,
+        "duration": 22477,
+        "leg": [
+          {
+            "number": 0,
+            "start_time": "2024-10-03T00:55:49+00:00",
+            "end_time": "2024-10-03T01:20:19+00:00",
+            "start_alt": 733,
+            "end_alt": 963,
+            "distance": 4.25,
+            "track_distance": 13.72,
+            "speed": 10.41,
+            "glide_count": 4,
+            "glide_ratio": 11.1,
+            "glide_detour": 3.23,
+            "glide_speed": 118.45,
+            "glide_gain": -383,
+            "glide_percentage": 0.28,
+            "thermal_count": 2,
+            "thermal_avg": 0.71,
+            "thermal_gain": 709,
+            "thermal_percentage": 0.678,
+            "thermal_radius": 141.79,
+            "thermal_speed": 110.98,
+            "thermal_bank": 34.35,
+            "thermal_direction": 0.64,
+            "attempt_percentage": 0.039,
+            "attempt_speed_loss": 0.42,
+            "attempt_count": 2,
+            "attempt_time": 57,
+            "attempt_gain": -96,
+            "attempt_avg": -1.68,
+            "thermal_start_agl": 369,
+            "glide_distance": 2.32,
+            "glide_percentage_lift": 0.34,
+            "glide_alt_avg": 1107,
+            "glide_speed_lift": 115.58,
+            "glide_speed_sink": 119.97,
+            "altitude_avg": 1064,
+            "agl_avg": 595,
+            "below_1000_agl": 1,
+            "below_800_agl": 0.9191,
+            "below_600_agl": 0.452,
+            "below_400_agl": 0.1454,
+            "below_200_agl": 0.0192,
+            "below_100_agl": 0,
+            "total_seconds": 1470,
+            "thermal_time": 996,
+            "glide_time": 417,
+            "wind_speed": 11.86,
+            "wind_direction": 117,
+            "duration": 1470
+          },
+          {
+            "number": 1,
+            "start_time": "2024-10-03T01:20:19+00:00",
+            "end_time": "2024-10-03T03:03:35+00:00",
+            "start_alt": 963,
+            "end_alt": 1844,
+            "distance": 152.02,
+            "track_distance": 165.93,
+            "speed": 88.33,
+            "glide_count": 20,
+            "glide_ratio": 68.79,
+            "glide_detour": 1.09,
+            "glide_speed": 156.74,
+            "glide_gain": -2210,
+            "glide_percentage": 0.62,
+            "thermal_count": 11,
+            "thermal_avg": 1.47,
+            "thermal_gain": 3034,
+            "thermal_percentage": 0.334,
+            "thermal_radius": 143.07,
+            "thermal_speed": 118.34,
+            "thermal_bank": 37.6,
+            "thermal_direction": 0.68,
+            "attempt_percentage": 0.051,
+            "attempt_speed_loss": 4.76,
+            "attempt_count": 8,
+            "attempt_time": 317,
+            "attempt_gain": 57,
+            "attempt_avg": 0.18,
+            "thermal_start_agl": 630,
+            "glide_distance": 7.46,
+            "glide_percentage_lift": 0.43,
+            "glide_alt_avg": 1571,
+            "glide_speed_lift": 152.88,
+            "glide_speed_sink": 159.68,
+            "altitude_avg": 1487,
+            "agl_avg": 908,
+            "below_1000_agl": 0.5784,
+            "below_800_agl": 0.4291,
+            "below_600_agl": 0.2939,
+            "below_400_agl": 0.1309,
+            "below_200_agl": 0.0507,
+            "below_100_agl": 0.0165,
+            "total_seconds": 6196,
+            "thermal_time": 2068,
+            "glide_time": 3811,
+            "wind_speed": 13.16,
+            "wind_direction": 114,
+            "duration": 6196
+          },
+          {
+            "number": 2,
+            "start_time": "2024-10-03T03:03:35+00:00",
+            "end_time": "2024-10-03T04:15:54+00:00",
+            "start_alt": 1844,
+            "end_alt": 2000,
+            "distance": 153.69,
+            "track_distance": 164.41,
+            "speed": 127.51,
+            "glide_count": 9,
+            "glide_ratio": 61.8,
+            "glide_detour": 1.07,
+            "glide_speed": 175.47,
+            "glide_gain": -2487,
+            "glide_percentage": 0.78,
+            "thermal_count": 7,
+            "thermal_avg": 2.76,
+            "thermal_gain": 2590,
+            "thermal_percentage": 0.216,
+            "thermal_radius": 162.28,
+            "thermal_speed": 123.03,
+            "thermal_bank": 36.27,
+            "thermal_direction": 0.56,
+            "attempt_percentage": 0.006,
+            "attempt_speed_loss": 0.8,
+            "attempt_count": 2,
+            "attempt_time": 27,
+            "attempt_gain": 53,
+            "attempt_avg": 1.96,
+            "thermal_start_agl": 1354,
+            "glide_distance": 17.04,
+            "glide_percentage_lift": 0.42,
+            "glide_alt_avg": 1862,
+            "glide_speed_lift": 168.35,
+            "glide_speed_sink": 180.57,
+            "altitude_avg": 1864,
+            "agl_avg": 1573,
+            "below_1000_agl": 0,
+            "below_800_agl": 0,
+            "below_600_agl": 0,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 4339,
+            "thermal_time": 939,
+            "glide_time": 3373,
+            "wind_speed": 18.62,
+            "wind_direction": 94,
+            "duration": 4339
+          },
+          {
+            "number": 3,
+            "start_time": "2024-10-03T04:15:54+00:00",
+            "end_time": "2024-10-03T07:10:26+00:00",
+            "start_alt": 2000,
+            "end_alt": 558,
+            "distance": 235.43,
+            "track_distance": 298.18,
+            "speed": 80.93,
+            "glide_count": 26,
+            "glide_ratio": 35.61,
+            "glide_detour": 1.27,
+            "glide_speed": 145.43,
+            "glide_gain": -6612,
+            "glide_percentage": 0.7,
+            "thermal_count": 14,
+            "thermal_avg": 1.9,
+            "thermal_gain": 5058,
+            "thermal_percentage": 0.255,
+            "thermal_radius": 147.06,
+            "thermal_speed": 119.23,
+            "thermal_bank": 37.26,
+            "thermal_direction": 0.56,
+            "attempt_percentage": 0.04,
+            "attempt_speed_loss": 3.42,
+            "attempt_count": 12,
+            "attempt_time": 424,
+            "attempt_gain": 112,
+            "attempt_avg": 0.26,
+            "thermal_start_agl": 1494,
+            "glide_distance": 10.37,
+            "glide_percentage_lift": 0.39,
+            "glide_alt_avg": 1837,
+            "glide_speed_lift": 141.02,
+            "glide_speed_sink": 148.27,
+            "altitude_avg": 1878,
+            "agl_avg": 1494,
+            "below_1000_agl": 0.1057,
+            "below_800_agl": 0.0754,
+            "below_600_agl": 0.0569,
+            "below_400_agl": 0.0323,
+            "below_200_agl": 0.0131,
+            "below_100_agl": 0.0018,
+            "total_seconds": 10472,
+            "thermal_time": 2667,
+            "glide_time": 7381,
+            "wind_speed": 12.37,
+            "wind_direction": 83,
+            "duration": 10472
+          }
+        ]
+      }
+    },
+    {
+      "name": "out_return",
+      "points": 396.69165,
+      "distance": 476.03,
+      "speed": 81.55,
+      "valid": true,
+      "score": {
+        "name": "out_return",
+        "declared": false,
+        "geom": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 0
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    150.55527,
+                    -30.91138
+                  ],
+                  [
+                    148.26525,
+                    -30.08833
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "start_time": "2024-10-03T01:19:02+00:00",
+        "end_time": "2024-10-03T07:09:15+00:00",
+        "distance": 476.03,
+        "track_distance": 628.83,
+        "speed": 81.55,
+        "glide_count": 54,
+        "glide_ratio": 41.87,
+        "glide_detour": 1.32,
+        "glide_speed": 155.36,
+        "glide_gain": -11370,
+        "glide_percentage": 0.69,
+        "thermal_count": 32,
+        "thermal_avg": 1.88,
+        "thermal_gain": 10682,
+        "thermal_percentage": 0.27,
+        "thermal_radius": 147.92,
+        "thermal_speed": 119.52,
+        "thermal_bank": 37.23,
+        "thermal_direction": 0.6,
+        "attempt_percentage": 0.037,
+        "attempt_speed_loss": 3.1,
+        "attempt_count": 21,
+        "attempt_time": 768,
+        "attempt_gain": 222,
+        "attempt_avg": 0.29,
+        "thermal_start_agl": 1166,
+        "glide_distance": 10.52,
+        "glide_percentage_lift": 0.4,
+        "glide_alt_avg": 1775,
+        "glide_speed_lift": 150.83,
+        "glide_speed_sink": 158.48,
+        "altitude_avg": 1761,
+        "agl_avg": 1339,
+        "below_1000_agl": 0.2235,
+        "below_800_agl": 0.1644,
+        "below_600_agl": 0.1144,
+        "below_400_agl": 0.0513,
+        "below_200_agl": 0.0181,
+        "below_100_agl": 0.0049,
+        "total_seconds": 21013,
+        "thermal_time": 5674,
+        "glide_time": 14571,
+        "wind_speed": 13.69,
+        "wind_direction": 98,
+        "duration": 21013,
+        "leg": [
+          {
+            "number": 0,
+            "start_time": "2024-10-03T01:19:02+00:00",
+            "end_time": "2024-10-03T04:15:53+00:00",
+            "start_alt": 1086,
+            "end_alt": 1996,
+            "distance": 238.02,
+            "track_distance": 333.26,
+            "speed": 80.75,
+            "glide_count": 28,
+            "glide_ratio": 49.38,
+            "glide_detour": 1.4,
+            "glide_speed": 165.23,
+            "glide_gain": -4820,
+            "glide_percentage": 0.68,
+            "thermal_count": 18,
+            "thermal_avg": 1.87,
+            "thermal_gain": 5624,
+            "thermal_percentage": 0.283,
+            "thermal_radius": 148.83,
+            "thermal_speed": 119.88,
+            "thermal_bank": 37.23,
+            "thermal_direction": 0.63,
+            "attempt_percentage": 0.032,
+            "attempt_speed_loss": 2.7,
+            "attempt_count": 10,
+            "attempt_time": 343,
+            "attempt_gain": 106,
+            "attempt_avg": 0.31,
+            "thermal_start_agl": 912,
+            "glide_distance": 10.57,
+            "glide_percentage_lift": 0.42,
+            "glide_alt_avg": 1700,
+            "glide_speed_lift": 159.92,
+            "glide_speed_sink": 169.1,
+            "altitude_avg": 1638,
+            "agl_avg": 1178,
+            "below_1000_agl": 0.345,
+            "below_800_agl": 0.2578,
+            "below_600_agl": 0.177,
+            "below_400_agl": 0.0764,
+            "below_200_agl": 0.0296,
+            "below_100_agl": 0.0096,
+            "total_seconds": 10611,
+            "thermal_time": 3007,
+            "glide_time": 7261,
+            "wind_speed": 14.97,
+            "wind_direction": 108,
+            "duration": 10611
+          },
+          {
+            "number": 1,
+            "start_time": "2024-10-03T04:15:53+00:00",
+            "end_time": "2024-10-03T07:09:15+00:00",
+            "start_alt": 1996,
+            "end_alt": 620,
+            "distance": 237.31,
+            "track_distance": 295.57,
+            "speed": 82.13,
+            "glide_count": 26,
+            "glide_ratio": 36.23,
+            "glide_detour": 1.25,
+            "glide_speed": 145.56,
+            "glide_gain": -6550,
+            "glide_percentage": 0.7,
+            "thermal_count": 14,
+            "thermal_avg": 1.9,
+            "thermal_gain": 5058,
+            "thermal_percentage": 0.256,
+            "thermal_radius": 147.06,
+            "thermal_speed": 119.23,
+            "thermal_bank": 37.26,
+            "thermal_direction": 0.56,
+            "attempt_percentage": 0.041,
+            "attempt_speed_loss": 3.5,
+            "attempt_count": 12,
+            "attempt_time": 425,
+            "attempt_gain": 116,
+            "attempt_avg": 0.27,
+            "thermal_start_agl": 1494,
+            "glide_distance": 10.46,
+            "glide_percentage_lift": 0.39,
+            "glide_alt_avg": 1849,
+            "glide_speed_lift": 141.08,
+            "glide_speed_sink": 148.45,
+            "altitude_avg": 1887,
+            "agl_avg": 1503,
+            "below_1000_agl": 0.0996,
+            "below_800_agl": 0.069,
+            "below_600_agl": 0.0505,
+            "below_400_agl": 0.0257,
+            "below_200_agl": 0.0063,
+            "below_100_agl": 0,
+            "total_seconds": 10402,
+            "thermal_time": 2667,
+            "glide_time": 7310,
+            "wind_speed": 12.37,
+            "wind_direction": 83,
+            "duration": 10402
+          }
+        ]
+      }
+    },
+    {
+      "name": "au",
+      "points": 633.6983,
+      "distance": 543.17,
+      "speed": 87,
+      "valid": true,
+      "score": {
+        "name": "triangle",
+        "declared": false,
+        "geom": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 0
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    150.53888,
+                    -30.93267
+                  ],
+                  [
+                    149.79942,
+                    -29.72063
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 1
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    149.79942,
+                    -29.72063
+                  ],
+                  [
+                    148.26515,
+                    -30.08863
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "idx": 2
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    148.26515,
+                    -30.08863
+                  ],
+                  [
+                    150.53888,
+                    -30.93267
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "start_time": "2024-10-03T00:55:49+00:00",
+        "end_time": "2024-10-03T07:10:26+00:00",
+        "distance": 543.17,
+        "track_distance": 642.24,
+        "speed": 87,
+        "glide_count": 57,
+        "glide_ratio": 46.46,
+        "glide_detour": 1.18,
+        "glide_speed": 154.32,
+        "glide_gain": -11692,
+        "glide_percentage": 0.67,
+        "thermal_count": 34,
+        "thermal_avg": 1.71,
+        "thermal_gain": 11391,
+        "thermal_percentage": 0.297,
+        "thermal_radius": 146.83,
+        "thermal_speed": 117.93,
+        "thermal_bank": 36.69,
+        "thermal_direction": 0.6,
+        "attempt_percentage": 0.037,
+        "attempt_speed_loss": 3.31,
+        "attempt_count": 23,
+        "attempt_time": 825,
+        "attempt_gain": 126,
+        "attempt_avg": 0.15,
+        "thermal_start_agl": 1120,
+        "glide_distance": 10,
+        "glide_percentage_lift": 0.4,
+        "glide_alt_avg": 1755,
+        "glide_speed_lift": 149.98,
+        "glide_speed_sink": 157.29,
+        "altitude_avg": 1715,
+        "agl_avg": 1289,
+        "below_1000_agl": 0.2737,
+        "below_800_agl": 0.2131,
+        "below_600_agl": 0.1369,
+        "below_400_agl": 0.0606,
+        "below_200_agl": 0.0213,
+        "below_100_agl": 0.0054,
+        "total_seconds": 22477,
+        "thermal_time": 6670,
+        "glide_time": 14982,
+        "wind_speed": 13.56,
+        "wind_direction": 99,
+        "duration": 22477,
+        "leg": [
+          {
+            "number": 0,
+            "start_time": "2024-10-03T00:55:49+00:00",
+            "end_time": "2024-10-03T01:20:19+00:00",
+            "start_alt": 733,
+            "end_alt": 963,
+            "distance": 4.25,
+            "track_distance": 13.72,
+            "speed": 10.41,
+            "glide_count": 4,
+            "glide_ratio": 11.1,
+            "glide_detour": 3.23,
+            "glide_speed": 118.45,
+            "glide_gain": -383,
+            "glide_percentage": 0.28,
+            "thermal_count": 2,
+            "thermal_avg": 0.71,
+            "thermal_gain": 709,
+            "thermal_percentage": 0.678,
+            "thermal_radius": 141.79,
+            "thermal_speed": 110.98,
+            "thermal_bank": 34.35,
+            "thermal_direction": 0.64,
+            "attempt_percentage": 0.039,
+            "attempt_speed_loss": 0.42,
+            "attempt_count": 2,
+            "attempt_time": 57,
+            "attempt_gain": -96,
+            "attempt_avg": -1.68,
+            "thermal_start_agl": 369,
+            "glide_distance": 2.32,
+            "glide_percentage_lift": 0.34,
+            "glide_alt_avg": 1107,
+            "glide_speed_lift": 115.58,
+            "glide_speed_sink": 119.97,
+            "altitude_avg": 1064,
+            "agl_avg": 595,
+            "below_1000_agl": 1,
+            "below_800_agl": 0.9191,
+            "below_600_agl": 0.452,
+            "below_400_agl": 0.1454,
+            "below_200_agl": 0.0192,
+            "below_100_agl": 0,
+            "total_seconds": 1470,
+            "thermal_time": 996,
+            "glide_time": 417,
+            "wind_speed": 11.86,
+            "wind_direction": 117,
+            "duration": 1470
+          },
+          {
+            "number": 1,
+            "start_time": "2024-10-03T01:20:19+00:00",
+            "end_time": "2024-10-03T03:03:35+00:00",
+            "start_alt": 963,
+            "end_alt": 1844,
+            "distance": 152.02,
+            "track_distance": 165.93,
+            "speed": 88.33,
+            "glide_count": 20,
+            "glide_ratio": 68.79,
+            "glide_detour": 1.09,
+            "glide_speed": 156.74,
+            "glide_gain": -2210,
+            "glide_percentage": 0.62,
+            "thermal_count": 11,
+            "thermal_avg": 1.47,
+            "thermal_gain": 3034,
+            "thermal_percentage": 0.334,
+            "thermal_radius": 143.07,
+            "thermal_speed": 118.34,
+            "thermal_bank": 37.6,
+            "thermal_direction": 0.68,
+            "attempt_percentage": 0.051,
+            "attempt_speed_loss": 4.76,
+            "attempt_count": 8,
+            "attempt_time": 317,
+            "attempt_gain": 57,
+            "attempt_avg": 0.18,
+            "thermal_start_agl": 630,
+            "glide_distance": 7.46,
+            "glide_percentage_lift": 0.43,
+            "glide_alt_avg": 1571,
+            "glide_speed_lift": 152.88,
+            "glide_speed_sink": 159.68,
+            "altitude_avg": 1487,
+            "agl_avg": 908,
+            "below_1000_agl": 0.5784,
+            "below_800_agl": 0.4291,
+            "below_600_agl": 0.2939,
+            "below_400_agl": 0.1309,
+            "below_200_agl": 0.0507,
+            "below_100_agl": 0.0165,
+            "total_seconds": 6196,
+            "thermal_time": 2068,
+            "glide_time": 3811,
+            "wind_speed": 13.16,
+            "wind_direction": 114,
+            "duration": 6196
+          },
+          {
+            "number": 2,
+            "start_time": "2024-10-03T03:03:35+00:00",
+            "end_time": "2024-10-03T04:15:54+00:00",
+            "start_alt": 1844,
+            "end_alt": 2000,
+            "distance": 153.69,
+            "track_distance": 164.41,
+            "speed": 127.51,
+            "glide_count": 9,
+            "glide_ratio": 61.8,
+            "glide_detour": 1.07,
+            "glide_speed": 175.47,
+            "glide_gain": -2487,
+            "glide_percentage": 0.78,
+            "thermal_count": 7,
+            "thermal_avg": 2.76,
+            "thermal_gain": 2590,
+            "thermal_percentage": 0.216,
+            "thermal_radius": 162.28,
+            "thermal_speed": 123.03,
+            "thermal_bank": 36.27,
+            "thermal_direction": 0.56,
+            "attempt_percentage": 0.006,
+            "attempt_speed_loss": 0.8,
+            "attempt_count": 2,
+            "attempt_time": 27,
+            "attempt_gain": 53,
+            "attempt_avg": 1.96,
+            "thermal_start_agl": 1354,
+            "glide_distance": 17.04,
+            "glide_percentage_lift": 0.42,
+            "glide_alt_avg": 1862,
+            "glide_speed_lift": 168.35,
+            "glide_speed_sink": 180.57,
+            "altitude_avg": 1864,
+            "agl_avg": 1573,
+            "below_1000_agl": 0,
+            "below_800_agl": 0,
+            "below_600_agl": 0,
+            "below_400_agl": 0,
+            "below_200_agl": 0,
+            "below_100_agl": 0,
+            "total_seconds": 4339,
+            "thermal_time": 939,
+            "glide_time": 3373,
+            "wind_speed": 18.62,
+            "wind_direction": 94,
+            "duration": 4339
+          },
+          {
+            "number": 3,
+            "start_time": "2024-10-03T04:15:54+00:00",
+            "end_time": "2024-10-03T07:10:26+00:00",
+            "start_alt": 2000,
+            "end_alt": 558,
+            "distance": 235.43,
+            "track_distance": 298.18,
+            "speed": 80.93,
+            "glide_count": 26,
+            "glide_ratio": 35.61,
+            "glide_detour": 1.27,
+            "glide_speed": 145.43,
+            "glide_gain": -6612,
+            "glide_percentage": 0.7,
+            "thermal_count": 14,
+            "thermal_avg": 1.9,
+            "thermal_gain": 5058,
+            "thermal_percentage": 0.255,
+            "thermal_radius": 147.06,
+            "thermal_speed": 119.23,
+            "thermal_bank": 37.26,
+            "thermal_direction": 0.56,
+            "attempt_percentage": 0.04,
+            "attempt_speed_loss": 3.42,
+            "attempt_count": 12,
+            "attempt_time": 424,
+            "attempt_gain": 112,
+            "attempt_avg": 0.26,
+            "thermal_start_agl": 1494,
+            "glide_distance": 10.37,
+            "glide_percentage_lift": 0.39,
+            "glide_alt_avg": 1837,
+            "glide_speed_lift": 141.02,
+            "glide_speed_sink": 148.27,
+            "altitude_avg": 1878,
+            "agl_avg": 1494,
+            "below_1000_agl": 0.1057,
+            "below_800_agl": 0.0754,
+            "below_600_agl": 0.0569,
+            "below_400_agl": 0.0323,
+            "below_200_agl": 0.0131,
+            "below_100_agl": 0.0018,
+            "total_seconds": 10472,
+            "thermal_time": 2667,
+            "glide_time": 7381,
+            "wind_speed": 12.37,
+            "wind_direction": 83,
+            "duration": 10472
+          }
+        ]
+      }
+    }
+  ],
+  "segment_score": [
+    {
+      "id": 91560,
+      "segment": {
+        "id": 16,
+        "name": "Cap Kaputar",
+        "distance": 74.751035,
+        "start_point": [
+          150.518,
+          -30.878
+        ],
+        "end_point": [
+          150.098,
+          -30.31
+        ]
+      },
+      "points": 76.42,
+      "raw_speed": 82.93,
+      "corrected_speed": 91.71,
+      "start_time": "2024-10-03T01:32:10+00:00",
+      "end_time": "2024-10-03T02:26:15+00:00",
+      "start_alt": 1262,
+      "end_alt": 1691,
+      "upside_down": false,
+      "direction": 327,
+      "rank": 518,
+      "personal_rank": 6,
+      "min_alt": 774,
+      "max_alt": 1764,
+      "wind_speed": 15.79,
+      "wind_direction": 119
+    },
+    {
+      "id": 91561,
+      "segment": {
+        "id": 16,
+        "name": "Cap Kaputar",
+        "distance": 74.751035,
+        "start_point": [
+          150.518,
+          -30.878
+        ],
+        "end_point": [
+          150.098,
+          -30.31
+        ]
+      },
+      "points": 41.38,
+      "raw_speed": 103.54,
+      "corrected_speed": 49.66,
+      "start_time": "2024-10-03T06:23:44+00:00",
+      "end_time": "2024-10-03T07:07:03+00:00",
+      "start_alt": 2123,
+      "end_alt": 726,
+      "upside_down": true,
+      "direction": 147,
+      "rank": 950,
+      "personal_rank": 9,
+      "min_alt": 728,
+      "max_alt": 2185,
+      "wind_speed": 14.17,
+      "wind_direction": 79
+    }
+  ],
+  "task_score": [
+    {
+      "id": 18546,
+      "flight_id": 485718,
+      "distance": 476.69,
+      "points": 71.17,
+      "c_points": 831,
+      "gp_points": 1,
+      "speed": 85.4,
+      "start_time": "2024-10-03T01:31:33+00:00",
+      "end_time": "2024-10-03T07:06:28+00:00",
+      "start_alt": 1313,
+      "end_alt": 762,
+      "declared": false,
+      "rank": 3,
+      "personal_rank": 1,
+      "wind_speed": 13.68,
+      "wind_direction": 97,
+      "path": [
+        "2024-10-03T01:31:33+00:00",
+        "2024-10-03T03:03:35+00:00",
+        "2024-10-03T03:56:05+00:00",
+        "2024-10-03T05:49:48+00:00",
+        "2024-10-03T07:06:28+00:00"
+      ],
+      "task": {
+        "id": 355199,
+        "name": "Lake Keepit 400+",
+        "distance": 461.96,
+        "point_features": [
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "001_Lake Keepit AF",
+              "elevation": 348,
+              "radius": 5
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                150.5258,
+                -30.890683
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "110_Gurley Silo TP",
+              "elevation": 220,
+              "radius": 10
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                149.8,
+                -29.7333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "071_Cryon AG",
+              "elevation": 151,
+              "radius": 10
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                148.760433,
+                -29.9765
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "084_Edgeroi Silo TP",
+              "elevation": 241,
+              "radius": 10
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                149.7965,
+                -30.116283
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "001_Lake Keepit AF",
+              "elevation": 348,
+              "radius": 3
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                150.5258,
+                -30.890683
+              ]
+            }
+          }
+        ],
+        "ruleset": "AA",
+        "scoring_date": "2024-10-03"
+      }
+    }
+  ],
+  "meeting": [
+    {
+      "user": {
+        "id": 15924,
+        "name": "David Fagan",
+        "image": "15924/profile/P97AFudeL0a1ibSDnvKL5zqd.jpg"
+      },
+      "flight": {
+        "id": 485722,
+        "competition_id": "UWH",
+        "aircraft": {
+          "id": 398,
+          "name": "JS1C 21m"
+        }
+      },
+      "start_time": "2024-10-03T01:05:32+00:00",
+      "end_time": "2024-10-03T01:32:04+00:00",
+      "intervals": [
+        "2024-10-03T01:05:32+00:00",
+        "2024-10-03T01:05:57+00:00",
+        "2024-10-03T01:06:04+00:00",
+        "2024-10-03T01:16:20+00:00",
+        "2024-10-03T01:25:55+00:00",
+        "2024-10-03T01:32:04+00:00"
+      ],
+      "total_seconds": 1010,
+      "min_distance": 1.4559037596983444e-7
+    }
+  ],
+  "achievement": [
+    {
+      "id": 116416,
+      "badge_id": "aeronaut",
+      "points": 1,
+      "flight_id": 485718,
+      "value": 165.022,
+      "user_id": 9267,
+      "badge": {
+        "id": "aeronaut",
+        "name": "Aeronaut",
+        "logo": "badge/aeronaut.webp",
+        "description": {
+          "en": "Achieve x hours in total airtime",
+          "de": "Erreiche x Gesamtflugstunden"
+        },
+        "points": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "values": [
+          50,
+          200,
+          500,
+          1000,
+          3000
+        ]
+      }
+    }
+  ],
+  "task": {
+    "id": 355210,
+    "kind": "FR4",
+    "distance": 436.17,
+    "start_on_leg": false,
+    "closed": true,
+    "bbox": [
+      148.83417,
+      -30.88945,
+      150.52528,
+      -29.74028
+    ],
+    "from_igcfile": true,
+    "user": {
+      "id": 9267,
+      "name": "Ian Steventon"
+    },
+    "ruleset": "F",
+    "private": false,
+    "point_features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Lake Keepit",
+          "elevation": 344
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            150.52528,
+            -30.88945
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Gurley Rs",
+          "elevation": 222
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            149.8,
+            -29.74028
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Rowena Windella",
+          "elevation": 152
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            148.83417,
+            -29.90388
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Lake Keepit",
+          "elevation": 344
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            150.52528,
+            -30.88945
+          ]
+        }
+      }
+    ]
+  },
+  "task_ruleset": "F",
+  "edit_allowed_until": "2024-10-05T02:00:00+00:00",
+  "created": "2024-10-03T08:09:21.888270+00:00",
+  "valid": true,
+  "sc_class": "DO",
+  "score_club_class": false,
+  "analysed": true,
+  "active_errors": [],
+  "registration": "VH-UHM",
+  "competition_id": "UHM",
+  "total_seconds": 22794,
+  "scoring_times": [
+    "2024-10-03T00:55:49+00:00",
+    "2024-10-03T07:12:28+00:00"
+  ],
+  "engine_scoring_times": [
+    "2024-10-03T00:55:49+00:00",
+    "2024-10-03T07:12:28+00:00"
+  ],
+  "fes_scoring_times": [
+    "2024-10-03T00:55:49+00:00",
+    "2024-10-03T07:12:28+00:00"
+  ],
+  "mass": 750,
+  "launch_kind": "T",
+  "launch_gain": 381,
+  "launch_time": 195,
+  "launch_vario": 2.08,
+  "takeoff_distance": 1174,
+  "ground_roll_distance": 301,
+  "task_achieved": true,
+  "takeoff_point": {
+    "type": "Point",
+    "coordinates": [
+      150.52862,
+      -30.89518
+    ]
+  },
+  "task_result": 4
+}

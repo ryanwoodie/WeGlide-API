@@ -1988,9 +1988,7 @@ async function processAustralianFlights() {
                 if (!flight.task) return;
 
                 const taskType = flight.task.kind || 'unknown';
-                const isFinished = flight.contest && flight.contest.some(c =>
-                    (c.name === 'au' || c.name === 'declaration') && c.score && c.score.declared
-                );
+                const isFinished = flight.task_achieved === true;
                 const isIgcTask = flight.task.from_igcfile === true;
 
                 if (!taskStats[taskType]) {
