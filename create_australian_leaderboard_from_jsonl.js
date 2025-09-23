@@ -746,7 +746,7 @@ async function processAustralianFlights() {
                 // Update stats - use ALL flight stats, not just leaderboard stats
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
                 document.getElementById('flightCount').textContent = ` + totalFlights + `;
-                document.getElementById('totalKms').textContent = ` + totalKms + `;
+                document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
 
                 // Show task stats only in Combined mode
                 updateTaskStats('mixed', {
@@ -856,11 +856,19 @@ async function processAustralianFlights() {
                 // Update main stats for Combined mode (all flights)
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
                 document.getElementById('flightCount').textContent = ` + totalFlights + `;
-                document.getElementById('totalKms').textContent = ` + totalKms + `;
+                document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
 
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
+
+                // Clear the <200 filter when switching to Silver C-Gull mode
+                under200Enabled = false;
+                const underBtn = document.getElementById('under200Btn');
+                if (underBtn) {
+                    underBtn.classList.remove('active');
+                    updateUnder200ButtonLabel();
+                }
 
                 // Update main stats for Silver C-Gull mode
                 document.getElementById('pilotCount').textContent = silverCGullLeaderboard.length;
@@ -878,7 +886,7 @@ async function processAustralianFlights() {
                 // Update main stats for Free mode (use total dataset stats, not leaderboard stats)
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
                 document.getElementById('flightCount').textContent = ` + totalFlights + `;
-                document.getElementById('totalKms').textContent = ` + totalKms + `;
+                document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
             }
 
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
@@ -1073,10 +1081,6 @@ async function processAustralianFlights() {
                             <div class="stat-item">
                                 <span class="stat-label">Thermal Bank:</span>
                                 <span class="stat-value">\${stats.thermal_bank ? stats.thermal_bank.toFixed(1) + '°' : 'N/A'}</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Start AGL:</span>
-                                <span class="stat-value">\${stats.thermal_start_agl ? metersToFeet(stats.thermal_start_agl) + ' ft' : 'N/A'}</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">Gliding %:</span>
@@ -1400,7 +1404,7 @@ async function processAustralianFlights() {
                 // When <200 filter is off, restore original dataset stats for Combined/Free modes
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
                 document.getElementById('flightCount').textContent = ` + totalFlights + `;
-                document.getElementById('totalKms').textContent = ` + totalKms + `;
+                document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
             }
 
             // Recompute task stats for visible pilots using embedded fullFlightData (only when filtering)
@@ -1990,15 +1994,24 @@ async function processAustralianFlights() {
                 const isIgcTask = flight.task.from_igcfile === true;
 
                 if (!taskStats[taskType]) {
-                    taskStats[taskType] = { count: 0, finished: 0, igcCount: 0, weglideCount: 0 };
+                    taskStats[taskType] = {
+                        count: 0,
+                        finished: 0,
+                        igcCount: 0,
+                        weglideCount: 0,
+                        igcFinished: 0,
+                        weglideFinished: 0
+                    };
                 }
 
                 taskStats[taskType].count++;
                 if (isFinished) taskStats[taskType].finished++;
                 if (isIgcTask) {
                     taskStats[taskType].igcCount++;
+                    if (isFinished) taskStats[taskType].igcFinished++;
                 } else {
                     taskStats[taskType].weglideCount++;
+                    if (isFinished) taskStats[taskType].weglideFinished++;
                 }
             });
 
@@ -2008,6 +2021,9 @@ async function processAustralianFlights() {
                 .sort(([,a], [,b]) => b.count - a.count) // Sort by count descending
                 .forEach(([taskType, stats]) => {
                     const taskInfo = taskDescriptions[taskType] || { name: taskType, desc: 'Unknown' };
+                    const igcCompletionRate = stats.igcCount > 0 ? Math.round((stats.igcFinished / stats.igcCount) * 100) : 0;
+                    const weglideCompletionRate = stats.weglideCount > 0 ? Math.round((stats.weglideFinished / stats.weglideCount) * 100) : 0;
+
                     tableHtml += \`
                         <tr>
                             <td class="task-code">\${taskType}</td>
@@ -2015,7 +2031,9 @@ async function processAustralianFlights() {
                             <td class="task-count">\${stats.count}</td>
                             <td class="task-finished">\${stats.finished}</td>
                             <td class="task-igc">\${stats.igcCount}</td>
+                            <td class="task-igc-completed">\${stats.igcFinished} (\${igcCompletionRate}%)</td>
                             <td class="task-weglide">\${stats.weglideCount}</td>
+                            <td class="task-weglide-completed">\${stats.weglideFinished} (\${weglideCompletionRate}%)</td>
                         </tr>
                     \`;
                 });
@@ -2060,7 +2078,7 @@ async function processAustralianFlights() {
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div><div class="silver-cgull-section"><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Candidates</button></div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>WeGlide Task</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div><div class="silver-cgull-section"><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Candidates</button></div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
