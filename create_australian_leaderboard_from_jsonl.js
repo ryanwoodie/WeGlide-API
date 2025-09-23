@@ -1473,10 +1473,9 @@ async function processAustralianFlights() {
                         scoreToUse = bestCandidate.score;
                     }
                 } else {
-                    // For other task types (like GL), only use au/declaration if declared
+                    // For other task types (like GL/Goal), only use au/declaration if declared
                     const auContest = flight.contest.find(c => c.name === 'au' && c.points > 0);
                     const declarationContest = flight.contest.find(c => c.name === 'declaration' && c.points > 0);
-
 
                     if (auContest?.score?.declared) {
                         contestToUse = auContest;
@@ -1490,20 +1489,44 @@ async function processAustralianFlights() {
                 if (contestToUse && scoreToUse > bestScore) {
                     bestScore = scoreToUse;
 
+                    // Ensure distance and speed are present. Some contests (au/declaration) omit them.
+                    // Fall back to task distance or free contest metrics for display only.
+                    const freeContestFallback = flight.contest.find(c => c.name === 'free' && c.points > 0);
 
-                    // SPECIAL FIX: Ensure distance and speed are correctly extracted
-                    const distance = contestToUse.distance != null ? contestToUse.distance : 0;
-                    const speed = contestToUse.speed != null ? contestToUse.speed : 0;
+                    const rawDistance = contestToUse.distance;
+                    const rawSpeed = contestToUse.speed;
+                    const distance = (typeof rawDistance === 'number') ? rawDistance
+                                   : (typeof flight.task?.distance === 'number') ? flight.task.distance
+                                   : (typeof freeContestFallback?.distance === 'number') ? freeContestFallback.distance
+                                   : 0;
+                    const speed = (typeof rawSpeed === 'number') ? rawSpeed
+                                : (typeof freeContestFallback?.speed === 'number') ? freeContestFallback.speed
+                                : 0;
+
+                    // Derive a sensible task display name if missing (e.g., "1029km Goal")
+                    let taskName = flight.task?.name;
+                    const taskKind = flight.task?.kind;
+                    if ((!taskName || taskName.trim().length === 0) && taskKind) {
+                        const kindLabel = taskKind === 'TR' ? 'Triangle'
+                                        : taskKind === 'OR' ? 'Out & Return'
+                                        : taskKind === 'GL' ? 'Goal'
+                                        : null;
+                        if (kindLabel && distance > 0) {
+                            taskName = String(Math.round(distance)) + 'km ' + kindLabel;
+                        } else if (kindLabel) {
+                            taskName = kindLabel;
+                        }
+                    }
 
                     bestFlight = {
                         id: flight.id,
                         pilot: flight.user?.name,
                         pilotId: flight.user?.id,
                         points: scoreToUse,
-                        distance: distance,
-                        speed: speed,
-                        taskName: flight.task?.name,
-                        taskKind: flight.task?.kind,
+                        distance,
+                        speed,
+                        taskName,
+                        taskKind: taskKind,
                         declared: contestToUse.score?.declared || false,
                         contestType: contestToUse.name
                     };
