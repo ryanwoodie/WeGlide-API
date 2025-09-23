@@ -516,6 +516,8 @@ async function processAustralianFlights() {
             contest: f.contest ? f.contest.map(c => ({
                 name: c.name,
                 points: c.points,
+                distance: c.distance,
+                speed: c.speed,
                 score: c.score ? { declared: c.score.declared } : null
             })) : null
         }));
@@ -850,24 +852,49 @@ async function processAustralianFlights() {
             if (mode === 'mixed') {
                 leaderboard = mixedLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025';
+
+                // Update main stats for Combined mode (all flights)
+                document.getElementById('pilotCount').textContent = ` + totalPilots + `;
+                document.getElementById('flightCount').textContent = ` + totalFlights + `;
+                document.getElementById('totalKms').textContent = ` + totalKms + `;
+
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
+
+                // Update main stats for Silver C-Gull mode
+                document.getElementById('pilotCount').textContent = silverCGullLeaderboard.length;
+                document.getElementById('flightCount').textContent = silverCGullLeaderboard.length; // 1 flight per pilot
+                const silverKms = silverCGullLeaderboard.reduce((sum, pilot) => {
+                    const distance = parseFloat(pilot.distance) || 0;
+                    return sum + distance;
+                }, 0);
+                document.getElementById('totalKms').textContent = Math.round(silverKms).toLocaleString();
+
             } else {
                 leaderboard = freeLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Free scoring only • Oct 2024 - Sep 2025';
+
+                // Update main stats for Free mode (use total dataset stats, not leaderboard stats)
+                document.getElementById('pilotCount').textContent = ` + totalPilots + `;
+                document.getElementById('flightCount').textContent = ` + totalFlights + `;
+                document.getElementById('totalKms').textContent = ` + totalKms + `;
             }
 
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = mode === 'mixed' ? 'combinedBtn' : mode === 'silverCGull' ? 'silverCGullBtn' : 'freeBtn';
             document.getElementById(activeBtn).classList.add('active');
-            updateTaskStats(mode, {
-                totalPilots: ` + totalPilots + `,
-                totalFlights: ` + totalFlights + `,
-                totalKms: ` + totalKms + `,
-                totalTasksDeclared: ` + totalTasksDeclared + `,
-                totalTasksCompleted: ` + totalTasksCompleted + `
-            });
+
+            // Update task stats (only relevant for mixed/free modes)
+            if (mode !== 'silverCGull') {
+                updateTaskStats(mode, {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `
+                });
+            }
             // Keep the 200hrs toggle visual state consistent across modes
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
@@ -1338,17 +1365,49 @@ async function processAustralianFlights() {
                 tbody.appendChild(row);
             });
 
-            // Update stats based on current visibility
-            const visibleStatsList = visible;
-            document.getElementById('pilotCount').textContent = visibleStatsList.length;
-            const totalFlightsVisible = visibleStatsList.reduce((sum, p) => sum + (p.flightCount || 0), 0);
-            document.getElementById('flightCount').textContent = totalFlightsVisible;
-            const totalKmsVisible = Math.round(visibleStatsList.reduce((sum, p) => sum + (p.totalDistance || 0), 0));
-            document.getElementById('totalKms').textContent = totalKmsVisible.toLocaleString();
+            // Update stats based on current visibility (only for <200 hour filter or Silver C-Gull mode)
+            if (under200Enabled || isSilverCGull) {
+                const visibleStatsList = visible;
+                document.getElementById('pilotCount').textContent = visibleStatsList.length;
+                if (isSilverCGull) {
+                    // Silver C-Gull shows 1 flight per pilot
+                    document.getElementById('flightCount').textContent = visibleStatsList.length;
+                } else {
+                    // For <200 hour filter, show ALL flights in database from visible pilots
+                    const visiblePilotIds = new Set(visibleStatsList.map(p => p.pilotId));
+                    const totalFlightsVisible = (fullFlightData || []).filter(f =>
+                        f && f.user && visiblePilotIds.has(f.user.id)
+                    ).length;
+                    document.getElementById('flightCount').textContent = totalFlightsVisible;
+                }
+                if (isSilverCGull) {
+                    // For Silver C-Gull, use the distance from the Silver Badge flights
+                    const totalKmsVisible = Math.round(visibleStatsList.reduce((sum, p) => sum + (p.totalDistance || 0), 0));
+                    document.getElementById('totalKms').textContent = totalKmsVisible.toLocaleString();
+                } else {
+                    // For <200 hour filter, calculate total km from ALL flights in database from visible pilots
+                    const visiblePilotIds = new Set(visibleStatsList.map(p => p.pilotId));
+                    const totalKmsVisible = (fullFlightData || []).filter(f =>
+                        f && f.user && visiblePilotIds.has(f.user.id)
+                    ).reduce((sum, flight) => {
+                        // Use the same logic as main stats calculation
+                        const bestScore = calculateBestScoreForFlight(flight);
+                        return sum + (bestScore.distance || 0);
+                    }, 0);
+                    document.getElementById('totalKms').textContent = Math.round(totalKmsVisible).toLocaleString();
+                }
+            } else if (!isSilverCGull) {
+                // When <200 filter is off, restore original dataset stats for Combined/Free modes
+                document.getElementById('pilotCount').textContent = ` + totalPilots + `;
+                document.getElementById('flightCount').textContent = ` + totalFlights + `;
+                document.getElementById('totalKms').textContent = ` + totalKms + `;
+            }
 
-            // Recompute task stats for visible pilots using embedded fullFlightData
-            try {
-                const pilotIdSet = new Set(visibleStatsList.map(p => p.pilotId));
+            // Recompute task stats for visible pilots using embedded fullFlightData (only when filtering)
+            if (under200Enabled && !isSilverCGull) {
+                try {
+                    const visibleStatsList = visible;
+                    const pilotIdSet = new Set(visibleStatsList.map(p => p.pilotId));
                 let tasksDeclared = 0;
                 let tasksCompleted = 0;
                 let tasksHigherThanFree = 0;
@@ -1377,13 +1436,40 @@ async function processAustralianFlights() {
                         }
                     }
                 });
+                // Get the filtered totals we just calculated
+                const filteredPilots = visibleStatsList.length;
+                const filteredFlights = (fullFlightData || []).filter(f =>
+                    f && f.user && pilotIdSet.has(f.user.id)
+                ).length;
+                const filteredKms = Math.round((fullFlightData || []).filter(f =>
+                    f && f.user && pilotIdSet.has(f.user.id)
+                ).reduce((sum, flight) => {
+                    const bestScore = calculateBestScoreForFlight(flight);
+                    return sum + (bestScore.distance || 0);
+                }, 0));
+
                 updateTaskStats(isFreeMode ? 'free' : 'mixed', {
+                    totalPilots: filteredPilots,
+                    totalFlights: filteredFlights,
+                    totalKms: filteredKms,
                     totalTasksDeclared: tasksDeclared,
                     totalTasksCompleted: tasksCompleted,
                     totalTasksHigherThanFree: tasksHigherThanFree
                 });
-            } catch (e) {
-                console.warn('Task stats recompute failed:', e);
+                } catch (e) {
+                    console.warn('Task stats recompute failed:', e);
+                }
+            } else if (!isSilverCGull) {
+                // When filter is off, restore original stats for Combined/Free modes
+                const currentMode = leaderboard === mixedLeaderboard ? 'mixed' : 'free';
+                updateTaskStats(currentMode, {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
             }
         }
 
@@ -1864,9 +1950,84 @@ async function processAustralianFlights() {
             }
         }
 
+        function toggleTaskStatsSection() {
+            const content = document.getElementById('taskStatsContent');
+            const arrow = document.getElementById('taskStatsArrow');
+
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                arrow.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                arrow.textContent = '▶';
+            }
+        }
+
+        function calculateTaskTypeStats() {
+            const taskStats = {};
+            const taskDescriptions = {
+                'FR4': { name: 'FR4', desc: 'Start, 2-3 TP, Finish' },
+                'Triangle': { name: 'Triangle', desc: 'FAI Triangle' },
+                'TR': { name: 'Triangle', desc: 'FAI Triangle' },
+                'OR': { name: 'Out & Return', desc: 'Out & Return' },
+                'GL': { name: 'Goal', desc: 'Goal Flight' },
+                'RT': { name: 'Rectangle', desc: 'Rectangle' },
+                'MTR': { name: 'MTR', desc: 'Multi-Lap Triangle/Rectangle' },
+                'SP': { name: 'Speed', desc: 'Speed Task' },
+                'OL': { name: 'Optimized', desc: 'Optimized Task' },
+                'FR': { name: 'Free', desc: 'Start, 4+ TP, Finish' },
+                'unknown': { name: 'Other', desc: 'Unknown Task Type' }
+            };
+
+            // Count all task types from full flight data
+            fullFlightData.forEach(flight => {
+                if (!flight.task) return;
+
+                const taskType = flight.task.kind || 'unknown';
+                const isFinished = flight.contest && flight.contest.some(c =>
+                    (c.name === 'au' || c.name === 'declaration') && c.score && c.score.declared
+                );
+                const isIgcTask = flight.task.from_igcfile === true;
+
+                if (!taskStats[taskType]) {
+                    taskStats[taskType] = { count: 0, finished: 0, igcCount: 0, weglideCount: 0 };
+                }
+
+                taskStats[taskType].count++;
+                if (isFinished) taskStats[taskType].finished++;
+                if (isIgcTask) {
+                    taskStats[taskType].igcCount++;
+                } else {
+                    taskStats[taskType].weglideCount++;
+                }
+            });
+
+            // Generate HTML for table rows
+            let tableHtml = '';
+            Object.entries(taskStats)
+                .sort(([,a], [,b]) => b.count - a.count) // Sort by count descending
+                .forEach(([taskType, stats]) => {
+                    const taskInfo = taskDescriptions[taskType] || { name: taskType, desc: 'Unknown' };
+                    tableHtml += \`
+                        <tr>
+                            <td class="task-code">\${taskType}</td>
+                            <td class="task-description">\${taskInfo.desc}</td>
+                            <td class="task-count">\${stats.count}</td>
+                            <td class="task-finished">\${stats.finished}</td>
+                            <td class="task-igc">\${stats.igcCount}</td>
+                            <td class="task-weglide">\${stats.weglideCount}</td>
+                        </tr>
+                    \`;
+                });
+
+            // Update the display
+            document.getElementById('taskStatsTableBody').innerHTML = tableHtml;
+        }
+
         document.addEventListener('DOMContentLoaded', async function() {
             await loadLeaderboard();
             calculateTrophyWinners();
+            calculateTaskTypeStats();
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
@@ -1899,7 +2060,7 @@ async function processAustralianFlights() {
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs</button><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Trophy</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Winners <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs</button><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Trophy</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Winners <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>WeGlide Task</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -2292,7 +2453,7 @@ async function processAustralianFlights() {
 
         .flight-details span {
             margin-right: 12px;
-            color: #aaa;
+            color: white;
         }
 
         .flight-distance {
@@ -2365,6 +2526,98 @@ async function processAustralianFlights() {
             .trophy-content {
                 padding: 15px;
             }
+        }
+
+        /* Task stats section styling */
+        .task-stats-section {
+            margin: 10px auto;
+            max-width: 800px;
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            overflow: hidden;
+            font-size: 0.85em;
+        }
+
+        .task-stats-header {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            cursor: pointer;
+            user-select: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .task-stats-header:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .task-stats-header h5 {
+            margin: 0;
+            font-size: 0.9em;
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .task-stats-content {
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.98);
+        }
+
+        .task-stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8em;
+        }
+
+        .task-stats-table th {
+            background: #f8f9fa;
+            padding: 6px 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .task-stats-table td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #f1f3f4;
+            color: #333;
+        }
+
+        .task-stats-table .task-code {
+            font-family: monospace;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .task-stats-table .task-count {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .task-stats-table .task-finished {
+            text-align: center;
+            font-weight: 600;
+            color: #28a745;
+        }
+
+        .task-stats-table .task-igc {
+            text-align: center;
+            font-weight: 600;
+            color: #6c757d;
+        }
+
+        .task-stats-table .task-weglide {
+            text-align: center;
+            font-weight: 600;
+            color: #007bff;
+        }
+
+        .task-description {
+            color: #666;
         }`;
 
         australianHTML = australianHTML.replace('</style>', toggleCSS + '\n    </style>');
