@@ -332,6 +332,95 @@ async function processAustralianFlights() {
         const mixedLeaderboard = generateLeaderboard(pilotFlightsMixed);
         const freeLeaderboard = generateLeaderboard(pilotFlightsFree);
 
+        // Function to generate Silver C-Gull Trophy leaderboard (juniors with silver badge)
+        function generateSilverCGullLeaderboard() {
+            const silverBadgeJuniors = [];
+
+            // Re-read the file to find silver badge achievements
+            const fileStream = fs.createReadStream('/Users/ryanwood/GitHub/WeGlide-API/australian_flights_2025_details.jsonl');
+
+            return new Promise((resolve) => {
+                const rl = readline.createInterface({
+                    input: fileStream,
+                    crlfDelay: Infinity
+                });
+
+                rl.on('line', (line) => {
+                    if (line.trim().length > 0) {
+                        try {
+                            const flight = JSON.parse(line);
+
+                            // Check for silver badge achievement in junior pilots
+                            if (flight.junior && flight.achievement && Array.isArray(flight.achievement)) {
+                                const silverBadge = flight.achievement.find(a => a.badge_id === 'silver');
+                                if (silverBadge) {
+                                    // Check if we already have this pilot
+                                    const existingPilot = silverBadgeJuniors.find(p => p.userId === flight.user.id);
+                                    if (!existingPilot) {
+                                        silverBadgeJuniors.push({
+                                            pilot: flight.user.name,
+                                            flightId: flight.id,
+                                            date: flight.scoring_date,
+                                            distance: getBestDistance(flight),
+                                            duration: formatDuration(flight.total_seconds),
+                                            points: getBestPoints(flight),
+                                            takeoff: flight.takeoff_airport?.name || 'Unknown',
+                                            club: flight.club?.name || 'Unknown',
+                                            userId: flight.user.id
+                                        });
+                                    }
+                                }
+                            }
+                        } catch (e) {
+                            // Skip invalid JSON lines
+                        }
+                    }
+                });
+
+                rl.on('close', () => {
+                    // Sort by pilot name
+                    silverBadgeJuniors.sort((a, b) => a.pilot.localeCompare(b.pilot));
+                    resolve(silverBadgeJuniors);
+                });
+            });
+        }
+
+        function getBestDistance(flight) {
+            if (!flight.contest || !Array.isArray(flight.contest)) return 'Unknown';
+
+            let bestDistance = 0;
+            flight.contest.forEach(contest => {
+                if (contest.distance && contest.distance > bestDistance) {
+                    bestDistance = contest.distance;
+                }
+            });
+
+            return bestDistance > 0 ? `${bestDistance.toFixed(1)} km` : 'Unknown';
+        }
+
+        function getBestPoints(flight) {
+            if (!flight.contest || !Array.isArray(flight.contest)) return 'Unknown';
+
+            let bestPoints = 0;
+            flight.contest.forEach(contest => {
+                if (contest.points && contest.points > bestPoints) {
+                    bestPoints = contest.points;
+                }
+            });
+
+            return bestPoints > 0 ? `${bestPoints.toFixed(1)} pts` : 'Unknown';
+        }
+
+        function formatDuration(seconds) {
+            if (!seconds) return 'Unknown';
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            return `${hours}h ${minutes}m`;
+        }
+
+        // Generate Silver C-Gull leaderboard
+        const silverCGullLeaderboard = await generateSilverCGullLeaderboard();
+
         // Calculate aircraft type awards for free leaderboard
         function calculateAircraftAwards(pilotFlights) {
             let bestGliderScore = 0;
@@ -632,6 +721,7 @@ async function processAustralianFlights() {
                 // Embedded leaderboard data
                 mixedLeaderboard = ${JSON.stringify(mixedLeaderboard)};
                 freeLeaderboard = ${JSON.stringify(freeLeaderboard)};
+                silverCGullLeaderboard = ${JSON.stringify(silverCGullLeaderboard)};
 
                 // Embedded detailed flight data for tooltips (compressed)
                 detailedFlightData = ${JSON.stringify(australianFlights)};
@@ -760,13 +850,17 @@ async function processAustralianFlights() {
             if (mode === 'mixed') {
                 leaderboard = mixedLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025';
+            } else if (mode === 'silverCGull') {
+                leaderboard = silverCGullLeaderboard;
+                document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
             } else {
                 leaderboard = freeLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Free scoring only • Oct 2024 - Sep 2025';
             }
 
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(mode === 'mixed' ? 'combinedBtn' : 'freeBtn').classList.add('active');
+            const activeBtn = mode === 'mixed' ? 'combinedBtn' : mode === 'silverCGull' ? 'silverCGullBtn' : 'freeBtn';
+            document.getElementById(activeBtn).classList.add('active');
             updateTaskStats(mode, {
                 totalPilots: ` + totalPilots + `,
                 totalFlights: ` + totalFlights + `,
@@ -1161,6 +1255,7 @@ async function processAustralianFlights() {
             const tbody = document.getElementById('leaderboardBody');
             tbody.innerHTML = '';
             const isFreeMode = leaderboard === freeLeaderboard;
+            const isSilverCGull = leaderboard === silverCGullLeaderboard;
             const visible = applyUnder200Filter(leaderboard);
 
             // Calculate aircraft awards for visible pilots in free mode
@@ -1170,14 +1265,24 @@ async function processAustralianFlights() {
                 const row = document.createElement('tr');
 
                 let rankDisplay = index + 1;
-                if (!isFreeMode) {
+                if (!isFreeMode && !isSilverCGull) {
                     if (index === 0) rankDisplay = '<span class="medal gold">🥇</span>' + rankDisplay;
                     else if (index === 1) rankDisplay = '<span class="medal silver">🥈</span>' + rankDisplay;
                     else if (index === 2) rankDisplay = '<span class="medal bronze">🥉</span>' + rankDisplay;
                 }
 
                 // Create pilot name with link to WeGlide profile
-                let pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link">\${pilot.pilot}</a>\`;
+                let pilotName;
+                if (isSilverCGull) {
+                    // For Silver C-Gull, check if pilotId is available
+                    if (pilot.userId) {
+                        pilotName = \`<a href="https://www.weglide.org/user/\${pilot.userId}" target="_blank" class="pilot-link">\${pilot.pilot}</a>\`;
+                    } else {
+                        pilotName = pilot.pilot;
+                    }
+                } else {
+                    pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link">\${pilot.pilot}</a>\`;
+                }
 
                 // Add aircraft award badges in free mode (calculated for visible pilots)
                 if (isFreeMode && visibleAwards) {
@@ -1195,13 +1300,40 @@ async function processAustralianFlights() {
                     }
                 }
 
-                row.innerHTML = \`
-                    <td class="rank">\${rankDisplay}</td>
-                    <td class="pilot-name">\${pilotName}</td>
-                    <td class="total-points">\${pilot.totalPoints.toFixed(1)}</td>
-                    \${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}
-                    \${Array(5 - pilot.bestFlights.length).fill('<td class="flight-cell">-</td>').join('')}
-                \`;
+                // Handle different data structures
+                if (isSilverCGull) {
+                    // Silver C-Gull candidates have a different structure
+                    const flightUrl = \`https://www.weglide.org/flight/\${pilot.flightId}\`;
+                    const pointsDisplay = pilot.points === 'Unknown' ? 'Unknown' : pilot.points;
+                    row.innerHTML = \`
+                        <td class="rank">\${rankDisplay}</td>
+                        <td class="pilot-name">\${pilotName}</td>
+                        <td class="total-points">\${pointsDisplay}</td>
+                        <td class="flight-cell">
+                            <div class="flight-details">
+                                <div class="flight-points">\${pointsDisplay}</div>
+                                <div class="flight-distance">\${pilot.distance}</div>
+                                <div class="flight-speed">\${pilot.duration}</div>
+                                <div class="flight-date">\${pilot.date}</div>
+                                <div class="flight-aircraft">\${pilot.club}</div>
+                                <div class="flight-location">\${pilot.takeoff} • <a href="\${flightUrl}" target="_blank" class="weglide-link">View on WeGlide →</a></div>
+                            </div>
+                        </td>
+                        <td class="flight-cell">-</td>
+                        <td class="flight-cell">-</td>
+                        <td class="flight-cell">-</td>
+                        <td class="flight-cell">-</td>
+                    \`;
+                } else {
+                    // Regular leaderboard structure
+                    row.innerHTML = \`
+                        <td class="rank">\${rankDisplay}</td>
+                        <td class="pilot-name">\${pilotName}</td>
+                        <td class="total-points">\${pilot.totalPoints.toFixed(1)}</td>
+                        \${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}
+                        \${Array(5 - pilot.bestFlights.length).fill('<td class="flight-cell">-</td>').join('')}
+                    \`;
+                }
 
                 tbody.appendChild(row);
             });
@@ -1738,6 +1870,7 @@ async function processAustralianFlights() {
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
+            document.getElementById('silverCGullBtn').addEventListener('click', () => switchScoringMode('silverCGull'));
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
                 underBtn.addEventListener('click', () => {
@@ -1766,7 +1899,7 @@ async function processAustralianFlights() {
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Winners <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs</button><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Trophy</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Winners <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges

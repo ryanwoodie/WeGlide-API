@@ -85,6 +85,22 @@ async function analyzeSilverCGull() {
         console.log('');
     });
 
+    // Output JSON format for HTML file
+    console.log('');
+    console.log('JSON FORMAT FOR HTML:');
+    console.log('====================');
+    const htmlFormat = silverBadgeJuniors.map(pilot => ({
+        pilot: pilot.pilotName,
+        flightId: pilot.flightId,
+        date: pilot.flightDate,
+        distance: pilot.distance,
+        duration: pilot.duration,
+        points: pilot.points,
+        takeoff: pilot.takeoffAirport || 'Unknown',
+        club: pilot.club || 'Unknown'
+    }));
+    console.log(JSON.stringify(htmlFormat, null, 4));
+
     return silverBadgeJuniors;
 }
 
