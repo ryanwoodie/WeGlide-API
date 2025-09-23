@@ -1476,7 +1476,7 @@ async function processAustralianFlights() {
         function updateUnder200ButtonLabel() {
             const btn = document.getElementById('under200Btn');
             if (!btn) return;
-            btn.textContent = under200Enabled ? '< 200 hrs (ON)' : '< 200 hrs';
+            btn.textContent = under200Enabled ? '< 200 hrs PIC (ON)' : '< 200 hrs PIC';
         }
 
         // Trophy calculation functions
@@ -1899,7 +1899,7 @@ async function processAustralianFlights() {
             html += \`
                 <div class="trophy-item">
                     <h4>🏆 BAIC Trophy</h4>
-                    <p class="trophy-desc">Single Highest Flight</p>
+                    <p class="trophy-desc">Single Best Flight</p>
                     \${formatTrophyWinner(trophies.baic, 'flight')}
                     <p class="calculation-note">\${trophies.baic.explanation}</p>
                 </div>
@@ -2060,7 +2060,7 @@ async function processAustralianFlights() {
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs</button><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Trophy</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Winners <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>WeGlide Task</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div><div class="silver-cgull-section"><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Candidates</button></div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>WeGlide Task</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -2399,6 +2399,13 @@ async function processAustralianFlights() {
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
+        .silver-cgull-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+            text-align: center;
+        }
+
         .trophy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -2451,9 +2458,13 @@ async function processAustralianFlights() {
             font-size: 0.9em;
         }
 
-        .flight-details span {
+        .flight-details .task-badge {
             margin-right: 12px;
             color: white;
+        }
+
+        .flight-details span {
+            margin-right: 12px;
         }
 
         .flight-distance {
