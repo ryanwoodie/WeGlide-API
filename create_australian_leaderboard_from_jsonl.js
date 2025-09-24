@@ -2116,11 +2116,11 @@ No maximum distance bonus\`
                 const score = trophy.combined.totalPoints || trophy.combined.points || 0;
                 html += \`
                     <div class="winner combined-winner">
-                        <strong>Combined Scoring:</strong>
-                        <a href="https://www.weglide.org/user/\${trophy.combined.pilotId}" target="_blank" class="pilot-link">
-                            \${trophy.combined.pilot}
-                        </a>
-                        <span class="trophy-score">\${score.toFixed(1)} pts</span>
+                        <div class="winner-info">
+                            <span class="winner-name">🥇 \${trophy.combined.pilot}</span>
+                            <span class="winner-score">\${score.toFixed(1)} pts</span>
+                        </div>
+                        <span class="winner-type">Combined</span>
                         \${type === 'flight' && trophy.combined.id ?
                             \`<a href="https://www.weglide.org/flight/\${trophy.combined.id}" target="_blank" class="flight-link">View Flight →</a>\` : ''}
                     </div>
@@ -2131,11 +2131,11 @@ No maximum distance bonus\`
                 const score = trophy.free.totalPoints || trophy.free.points || 0;
                 html += \`
                     <div class="winner free-winner">
-                        <strong>Free Scoring:</strong>
-                        <a href="https://www.weglide.org/user/\${trophy.free.pilotId}" target="_blank" class="pilot-link">
-                            \${trophy.free.pilot}
-                        </a>
-                        <span class="trophy-score">\${score.toFixed(1)} pts</span>
+                        <div class="winner-info">
+                            <span class="winner-name">🥈 \${trophy.free.pilot}</span>
+                            <span class="winner-score">\${score.toFixed(1)} pts</span>
+                        </div>
+                        <span class="winner-type">Free</span>
                         \${type === 'flight' && trophy.free.id ?
                             \`<a href="https://www.weglide.org/flight/\${trophy.free.id}" target="_blank" class="flight-link">View Flight →</a>\` : ''}
                     </div>
@@ -2218,11 +2218,11 @@ No maximum distance bonus\`
                 html += '<div class="unverified-leaders">';
 
                 if (totalUnverified === 1) {
-                    html += '<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">1 higher scoring pilot needs verification:</h5>';
+                    html += '<h6 style="margin: 12px 0 6px 0; font-size: 0.75em; color: #ccc; opacity: 0.8;">1 higher scoring pilot needs verification:</h6>';
                 } else if (totalUnverified <= maxShow) {
-                    html += \`<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">\${totalUnverified} higher scoring pilots need verification:</h5>\`;
+                    html += \`<h6 style="margin: 12px 0 6px 0; font-size: 0.75em; color: #ccc; opacity: 0.8;">\${totalUnverified} higher scoring pilots need verification:</h6>\`;
                 } else {
-                    html += \`<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">Top \${maxShow} of \${totalUnverified} higher scoring pilots need verification:</h5>\`;
+                    html += \`<h6 style="margin: 12px 0 6px 0; font-size: 0.75em; color: #ccc; opacity: 0.8;">Top \${maxShow} of \${totalUnverified} higher scoring pilots need verification:</h6>\`;
                 }
 
                 pilotsToShow.forEach((pilot, index) => {
@@ -2283,7 +2283,7 @@ No maximum distance bonus\`
             // Show unverified candidates if any (limit to 3)
             if (trophy.unverifiedCandidates && trophy.unverifiedCandidates.length > 0) {
                 html += '<div class="unverified-leaders">';
-                html += \`<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">Candidates need verification (\${trophy.totalUnverified} total):</h5>\`;
+                html += \`<h6 style="margin: 12px 0 6px 0; font-size: 0.75em; color: #ccc; opacity: 0.8;">Candidates need verification (\${trophy.totalUnverified} total):</h6>\`;
 
                 const maxShow = 3;
                 trophy.unverifiedCandidates.slice(0, maxShow).forEach((pilot) => {
@@ -3473,11 +3473,12 @@ No maximum distance bonus\`
         }
 
         .unverified-leaders {
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            border-left: 3px solid #dc3545;
+            margin-top: 8px;
+            padding: 6px 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 3px;
+            border-left: 2px solid rgba(220, 53, 69, 0.6);
+            opacity: 0.85;
         }
 
         .unverified-pilot {
@@ -3655,10 +3656,11 @@ No maximum distance bonus\`
         }
 
         .calculation-note {
-            color: #ffffff;
-            font-size: 0.7em;
-            margin: 8px 0 0 0;
+            color: #aaa;
+            font-size: 0.65em;
+            margin: 4px 0 0 0;
             font-style: italic;
+            opacity: 0.8;
         }
 
         .no-winner {
