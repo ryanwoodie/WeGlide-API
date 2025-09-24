@@ -1049,7 +1049,7 @@ No maximum distance bonus\`
                 document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
             }
 
-            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.toggle-btn, .filter-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = mode === 'mixed' ? 'combinedBtn' : mode === 'silverCGull' ? null : 'freeBtn';
             if (activeBtn) {
                 const btnElement = document.getElementById(activeBtn);
@@ -1075,6 +1075,17 @@ No maximum distance bonus\`
                 if (typeof updateUnder200ButtonLabel === 'function') updateUnder200ButtonLabel();
             }
             buildLeaderboard();
+
+            // For Silver C-Gull mode, scroll to the leaderboard table
+            if (mode === 'silverCGull') {
+                setTimeout(() => {
+                    const leaderboardElement = document.querySelector('.leaderboard-table');
+                    if (leaderboardElement) {
+                        leaderboardElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+
             // Re-add tooltip listeners after mode switch - use setTimeout to ensure DOM is updated
             setTimeout(() => {
                 if (typeof addTooltipListeners === 'function') addTooltipListeners();
@@ -2919,7 +2930,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -2954,6 +2965,37 @@ No maximum distance bonus\`
             background: rgba(255,255,255,0.9);
             color: #2c5aa0;
             border-color: rgba(255,255,255,0.9);
+        }
+
+        /* Filter button - visually distinct from scoring buttons */
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid rgba(255,193,7,0.5);
+            background: rgba(255,193,7,0.1);
+            color: #ffc107;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .filter-btn::before {
+            content: "🔍";
+            margin-right: 6px;
+            font-size: 0.8em;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255,193,7,0.2);
+            border-color: rgba(255,193,7,0.7);
+        }
+
+        .filter-btn.active {
+            background: rgba(255,193,7,0.9);
+            color: #333;
+            border-color: rgba(255,193,7,0.9);
         }
 
         /* Award badges */
