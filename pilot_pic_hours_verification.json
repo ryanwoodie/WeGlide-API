@@ -1,4 +1,5 @@
 {
-  "description": "Pilot PIC hours verification data for <200hrs eligibility",
-  "verifications": {}
+  "description": "Pilot verification data for eligibility",
+  "picHoursVerifications": {},
+  "dobVerifications": {}
 }

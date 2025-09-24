@@ -713,7 +713,7 @@ async function processAustralianFlights() {
 
         // Replace the script section with our custom implementation
         const scriptStart = australianHTML.indexOf('<script>');
-        const scriptEnd = australianHTML.indexOf('</script>') + 9;
+        const scriptEnd = australianHTML.lastIndexOf('</script>') + 9;
 
         // Build script content with embedded durations
         const newScriptContent = `<script>
@@ -1486,13 +1486,27 @@ No maximum distance bonus\`
 
                 if (under200Enabled && !isSilverCGull) {
                     const pilotId = pilot.pilotId;
-                    const isVerified = pilotVerifications.verifications && pilotVerifications.verifications[pilotId];
+                    const isVerified = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
 
                     if (isVerified) {
                         verificationBadge = '<div class="verification-badge verified">✓ <200hrs PIC Verified</div>';
                         rowClass = 'verified-row';
                     } else {
                         verificationButton = \`<div><button class="verify-btn unverified" onclick="showVerificationForm('\${pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify PIC hours">Verify PIC hours</button></div>\`;
+                        rowClass = 'unverified-row';
+                    }
+
+                    // Add verification elements underneath pilot name
+                    pilotName = \`\${pilotName}\${verificationBadge}\${verificationButton}\`;
+                } else if (isSilverCGull) {
+                    const pilotId = pilot.userId || pilot.pilotId;
+                    const isVerified = pilotVerifications.dobVerifications && pilotVerifications.dobVerifications[pilotId];
+
+                    if (isVerified) {
+                        verificationBadge = '<div class="verification-badge verified">✓ DOB Verified</div>';
+                        rowClass = 'verified-row';
+                    } else {
+                        verificationButton = \`<div><button class="verify-btn unverified" onclick="showDOBVerificationForm('\${pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify date of birth">Verify DOB</button></div>\`;
                         rowClass = 'unverified-row';
                     }
 
@@ -1678,6 +1692,7 @@ No maximum distance bonus\`
             const trophies = {
                 canadair: calculateCanadairTrophy(),
                 trophy200: calculateTrophy200(),
+                silverCGull: calculateSilverCGullTrophy(),
                 baic: calculateBAICTrophy(),
                 dow: calculateDowTrophies()
             };
@@ -1719,24 +1734,101 @@ No maximum distance bonus\`
                 pilotDurations[p.pilotId] < HOURS_200_SEC
             );
 
-            const result = {
-                combined: mixed200[0] || null,
-                free: null,
-                sameWinner: false,
-                explanation: ''
+            // Find verified and unverified pilots
+            const getVerificationStatus = (pilot) => {
+                return pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilot.pilotId];
             };
 
-            if (mixed200[0] && free200[0] && mixed200[0].pilot === free200[0].pilot) {
+            // Get top verified pilot and any higher unverified pilots
+            let topVerifiedCombined = null;
+            let topVerifiedFree = null;
+            let higherUnverifiedCombined = [];
+            let higherUnverifiedFree = [];
+
+            // For combined scoring
+            for (let i = 0; i < mixed200.length; i++) {
+                const pilot = mixed200[i];
+                if (getVerificationStatus(pilot)) {
+                    topVerifiedCombined = pilot;
+                    // Get all unverified pilots that scored higher
+                    higherUnverifiedCombined = mixed200.slice(0, i).filter(p => !getVerificationStatus(p));
+                    break;
+                }
+            }
+
+            // For free scoring
+            for (let i = 0; i < free200.length; i++) {
+                const pilot = free200[i];
+                if (getVerificationStatus(pilot)) {
+                    topVerifiedFree = pilot;
+                    // Get all unverified pilots that scored higher
+                    higherUnverifiedFree = free200.slice(0, i).filter(p => !getVerificationStatus(p));
+                    break;
+                }
+            }
+
+            const result = {
+                combined: topVerifiedCombined,
+                free: null,
+                sameWinner: false,
+                explanation: '',
+                higherUnverifiedCombined: higherUnverifiedCombined,
+                higherUnverifiedFree: higherUnverifiedFree
+            };
+
+            if (topVerifiedCombined && topVerifiedFree && topVerifiedCombined.pilot === topVerifiedFree.pilot) {
                 result.sameWinner = true;
                 result.explanation = 'Combined and Free score same person - 1 award';
-            } else if (free200[0]) {
-                result.free = free200[0];
+            } else if (topVerifiedFree && topVerifiedFree !== topVerifiedCombined) {
+                result.free = topVerifiedFree;
                 result.explanation = 'Different winners in Combined vs Free scoring - 2 awards';
-            } else if (!mixed200[0]) {
-                result.explanation = 'No pilots found with <200 hours';
+            } else if (!topVerifiedCombined) {
+                result.explanation = 'No verified pilots found with <200 hours';
             }
 
             return result;
+        }
+
+        function calculateSilverCGullTrophy() {
+            // Find verified and unverified pilots in Silver C-Gull candidates
+            const getDOBVerificationStatus = (pilot) => {
+                return pilotVerifications.dobVerifications && pilotVerifications.dobVerifications[pilot.userId || pilot.pilotId];
+            };
+
+            let youngestVerified = null;
+            let youngestAge = Infinity;
+            let unverifiedCandidates = [];
+
+            silverCGullLeaderboard.forEach(pilot => {
+                const verification = getDOBVerificationStatus(pilot);
+
+                if (verification && verification.dateOfBirth) {
+                    // Calculate age at time of achievement
+                    const dob = new Date(verification.dateOfBirth);
+                    const achievementDate = new Date(pilot.date);
+                    const ageAtAchievement = (achievementDate - dob) / (365.25 * 24 * 60 * 60 * 1000);
+
+                    if (ageAtAchievement < youngestAge) {
+                        youngestAge = ageAtAchievement;
+                        youngestVerified = {
+                            ...pilot,
+                            ageAtAchievement: Math.floor(ageAtAchievement),
+                            dateOfBirth: verification.dateOfBirth
+                        };
+                    }
+                } else {
+                    unverifiedCandidates.push(pilot);
+                }
+            });
+
+            return {
+                winner: youngestVerified,
+                unverifiedCandidates: unverifiedCandidates.slice(0, 10), // Limit to 10
+                totalUnverified: unverifiedCandidates.length,
+                explanation: youngestVerified ?
+                    \`Youngest verified pilot to achieve Silver C badge (age \${youngestVerified.ageAtAchievement})\` :
+                    'No verified pilots found'
+            };
         }
 
         function calculateBAICTrophy() {
@@ -2064,6 +2156,141 @@ No maximum distance bonus\`
             \`;
         }
 
+        function formatTrophy200Winner(trophy) {
+            if (!trophy || (!trophy.combined && !trophy.free)) {
+                return '<p class="no-winner">No eligible winner found</p>';
+            }
+
+            let html = '';
+
+            // Show current verified winner
+            if (trophy.combined) {
+                const score = trophy.combined.totalPoints || trophy.combined.points || 0;
+                html += \`
+                    <div class="winner combined-winner">
+                        <div class="winner-info">
+                            <span class="winner-name">🥇 \${trophy.combined.pilot}</span>
+                            <span class="winner-score">\${score.toFixed(1)} pts</span>
+                        </div>
+                        <span class="winner-type">Combined</span>
+                        <span class="verification-status verified">✓ <200hrs PIC Verified</span>
+                    </div>
+                \`;
+            }
+
+            if (!trophy.sameWinner && trophy.free) {
+                const score = trophy.free.totalPoints || trophy.free.points || 0;
+                html += \`
+                    <div class="winner free-winner">
+                        <div class="winner-info">
+                            <span class="winner-name">🥇 \${trophy.free.pilot}</span>
+                            <span class="winner-score">\${score.toFixed(1)} pts</span>
+                        </div>
+                        <span class="winner-type">Free</span>
+                        <span class="verification-status verified">✓ <200hrs PIC Verified</span>
+                    </div>
+                \`;
+            }
+
+            // Show higher unverified pilots that need verification (limit to top 5)
+            if (trophy.higherUnverifiedCombined && trophy.higherUnverifiedCombined.length > 0) {
+                const maxShow = 5;
+                const totalUnverified = trophy.higherUnverifiedCombined.length;
+                const pilotsToShow = trophy.higherUnverifiedCombined.slice(0, maxShow);
+
+                html += '<div class="unverified-leaders">';
+
+                if (totalUnverified === 1) {
+                    html += '<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">1 higher scoring pilot needs verification:</h5>';
+                } else if (totalUnverified <= maxShow) {
+                    html += \`<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">\${totalUnverified} higher scoring pilots need verification:</h5>\`;
+                } else {
+                    html += \`<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">Top \${maxShow} of \${totalUnverified} higher scoring pilots need verification:</h5>\`;
+                }
+
+                pilotsToShow.forEach((pilot, index) => {
+                    const score = pilot.totalPoints || pilot.points || 0;
+                    html += \`
+                        <div class="unverified-pilot">
+                            <div class="winner-info">
+                                <span class="winner-name">\${pilot.pilot}</span>
+                                <span class="winner-score">\${score.toFixed(1)} pts</span>
+                            </div>
+                            <button class="verify-btn unverified small" onclick="showVerificationForm('\${pilot.pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify to claim trophy position">Verify PIC hours</button>
+                        </div>
+                    \`;
+                });
+
+                if (totalUnverified > maxShow) {
+                    html += \`<p style="font-size: 0.8em; color: #cccccc; margin: 8px 0 0 0; font-style: italic;">...and \${totalUnverified - maxShow} more. Switch to "<200 hrs PIC" view to see all eligible pilots.</p>\`;
+                }
+
+                html += '</div>';
+            }
+
+            return html;
+        }
+
+        function formatSilverCGullTrophyWinner(trophy) {
+            if (!trophy.winner) {
+                let html = '<p class="no-winner">No verified pilots found</p>';
+
+                // Add button to view candidates
+                html += \`
+                    <div style="margin-top: 10px;">
+                        <button class="toggle-btn" onclick="switchScoringMode('silverCGull')" title="View Silver C-Gull candidates">View Candidates</button>
+                    </div>
+                \`;
+
+                if (trophy.totalUnverified > 0) {
+                    html += \`<p style="font-size: 0.8em; color: #cccccc; margin: 8px 0 0 0; font-style: italic;">\${trophy.totalUnverified} candidates need date of birth verification</p>\`;
+                }
+
+                return html;
+            }
+
+            let html = '';
+
+            // Show verified winner
+            html += \`
+                <div class="winner combined-winner">
+                    <div class="winner-info">
+                        <span class="winner-name">🥇 \${trophy.winner.pilot}</span>
+                        <span class="winner-score">Age \${trophy.winner.ageAtAchievement} on \${new Date(trophy.winner.date).toLocaleDateString()}</span>
+                    </div>
+                    <span class="winner-type">Silver C Achievement</span>
+                    <span class="verification-status verified">✓ DOB Verified</span>
+                </div>
+            \`;
+
+            // Show unverified candidates if any
+            if (trophy.unverifiedCandidates && trophy.unverifiedCandidates.length > 0) {
+                html += '<div class="unverified-leaders">';
+                html += \`<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">Candidates need verification (\${trophy.totalUnverified} total):</h5>\`;
+
+                trophy.unverifiedCandidates.forEach((pilot) => {
+                    html += \`
+                        <div class="unverified-pilot">
+                            <div class="winner-info">
+                                <span class="winner-name">\${pilot.pilot}</span>
+                                <span class="winner-score">Achieved \${new Date(pilot.date).toLocaleDateString()}</span>
+                            </div>
+                            <button class="verify-btn unverified small" onclick="showDOBVerificationForm('\${pilot.userId || pilot.pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify date of birth">Verify DOB</button>
+                        </div>
+                    \`;
+                });
+
+                if (trophy.totalUnverified > trophy.unverifiedCandidates.length) {
+                    const remaining = trophy.totalUnverified - trophy.unverifiedCandidates.length;
+                    html += \`<p style="font-size: 0.8em; color: #cccccc; margin: 8px 0 0 0; font-style: italic;">...and \${remaining} more candidates. View Silver C-Gull candidates list.</p>\`;
+                }
+
+                html += '</div>';
+            }
+
+            return html;
+        }
+
         function displayTrophyWinners(trophies) {
             const container = document.getElementById('trophyWinners');
 
@@ -2084,8 +2311,18 @@ No maximum distance bonus\`
                 <div class="trophy-item">
                     <h4>🏆 200 Trophy</h4>
                     <p class="trophy-desc">Under 200 Hours Champion</p>
-                    \${formatTrophyWinner(trophies.trophy200, 'leaderboard')}
+                    \${formatTrophy200Winner(trophies.trophy200)}
                     <p class="calculation-note">\${trophies.trophy200.explanation}</p>
+                </div>
+            \`;
+
+            // Silver C-Gull Trophy
+            html += \`
+                <div class="trophy-item">
+                    <h4>🏆 Silver C-Gull Trophy</h4>
+                    <p class="trophy-desc">Youngest to Achieve Silver C Badge</p>
+                    \${formatSilverCGullTrophyWinner(trophies.silverCGull)}
+                    <p class="calculation-note">\${trophies.silverCGull.explanation}</p>
                 </div>
             \`;
 
@@ -2289,6 +2526,83 @@ No maximum distance bonus\`
             }
         });
 
+        // DOB Verification form
+        function showDOBVerificationForm(pilotId, pilotName) {
+            const overlay = document.createElement('div');
+            overlay.className = 'verification-overlay';
+            overlay.innerHTML = \`
+                <div class="verification-form">
+                    <h3>Date of Birth Verification</h3>
+                    <p><strong>\${pilotName}</strong></p>
+                    <p>To be eligible for the Silver C-Gull trophy (youngest to achieve Silver C), please confirm your date of birth:</p>
+                    <div>
+                        <input type="date" id="dobInput" max="2010-12-31" />
+                        <label for="dobInput">Date of Birth</label>
+                    </div>
+                    <p style="font-size: 0.9em; color: #888;">This is a self-declaration system. Your age at the time of achieving Silver C will be calculated.</p>
+                    <div class="form-buttons">
+                        <button class="submit-btn" onclick="submitDOBVerification('\${pilotId}', '\${pilotName}')">Verify</button>
+                        <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
+                    </div>
+                </div>
+            \`;
+            document.body.appendChild(overlay);
+        }
+
+        async function submitDOBVerification(pilotId, pilotName) {
+            const dobInput = document.getElementById('dobInput');
+            const dateOfBirth = dobInput.value;
+
+            if (!dateOfBirth) {
+                alert('Please enter your date of birth');
+                return;
+            }
+
+            const dob = new Date(dateOfBirth);
+            const today = new Date();
+            const age = (today - dob) / (365.25 * 24 * 60 * 60 * 1000);
+
+            if (age < 14 || age > 100) {
+                alert('Please enter a valid date of birth');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Saving...';
+            submitBtn.disabled = true;
+
+            try {
+                // Save to database
+                await saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth);
+
+                // Update local data for immediate UI update
+                pilotVerifications.dobVerifications = pilotVerifications.dobVerifications || {};
+                pilotVerifications.dobVerifications[pilotId] = {
+                    pilotName: pilotName,
+                    dateOfBirth: dateOfBirth,
+                    verifiedDate: new Date().toISOString(),
+                    age: Math.floor(age)
+                };
+
+                // Close form and rebuild leaderboard
+                closeVerificationForm();
+                buildLeaderboard();
+                calculateTrophyWinners(); // Recalculate trophies
+
+                // Show confirmation
+                alert(\`Thank you \${pilotName}! Your date of birth has been verified.\`);
+            } catch (error) {
+                console.error('Failed to save DOB verification:', error);
+                alert('Failed to save verification. Please try again or contact support.');
+
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
         // Verification system functions
         function showVerificationForm(pilotId, pilotName) {
             const overlay = document.createElement('div');
@@ -2339,8 +2653,8 @@ No maximum distance bonus\`
                 await saveVerificationToDatabase(pilotId, pilotName, hours);
 
                 // Update local data for immediate UI update
-                pilotVerifications.verifications = pilotVerifications.verifications || {};
-                pilotVerifications.verifications[pilotId] = {
+                pilotVerifications.picHoursVerifications = pilotVerifications.picHoursVerifications || {};
+                pilotVerifications.picHoursVerifications[pilotId] = {
                     pilotName: pilotName,
                     picHours: hours,
                     verifiedDate: new Date().toISOString(),
@@ -2414,8 +2728,9 @@ No maximum distance bonus\`
             }
 
             // Fallback to localStorage
-            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"verifications": {}}');
-            localData.verifications[pilotId] = {
+            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"picHoursVerifications": {}, "dobVerifications": {}}');
+            localData.picHoursVerifications = localData.picHoursVerifications || {};
+            localData.picHoursVerifications[pilotId] = {
                 pilotName: pilotName,
                 picHours: hours,
                 verifiedDate: new Date().toISOString(),
@@ -2425,14 +2740,48 @@ No maximum distance bonus\`
             console.log('Verification saved to localStorage (fallback)');
         }
 
+        async function saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth) {
+            const verificationData = {
+                pilotId: pilotId,
+                pilotName: pilotName,
+                dateOfBirth: dateOfBirth,
+                verifiedDate: new Date().toISOString(),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            if (db) {
+                try {
+                    // Save to Firebase Firestore
+                    await db.collection('dob_verifications').doc(pilotId).set(verificationData);
+                    console.log('DOB verification saved to Firebase');
+                    return;
+                } catch (error) {
+                    console.error('Firebase DOB save failed:', error);
+                    // Fall back to localStorage
+                }
+            }
+
+            // Fallback to localStorage
+            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"picHoursVerifications": {}, "dobVerifications": {}}');
+            localData.dobVerifications = localData.dobVerifications || {};
+            localData.dobVerifications[pilotId] = {
+                pilotName: pilotName,
+                dateOfBirth: dateOfBirth,
+                verifiedDate: new Date().toISOString()
+            };
+            localStorage.setItem('pilot_verifications', JSON.stringify(localData));
+            console.log('DOB verification saved to localStorage (fallback)');
+        }
+
         async function loadVerificationsFromDatabase() {
             if (db) {
                 try {
-                    const snapshot = await db.collection('pilot_verifications').get();
-                    const verifications = {};
-                    snapshot.forEach(doc => {
+                    // Load PIC hours verifications
+                    const picSnapshot = await db.collection('pilot_verifications').get();
+                    const picVerifications = {};
+                    picSnapshot.forEach(doc => {
                         const data = doc.data();
-                        verifications[doc.id] = {
+                        picVerifications[doc.id] = {
                             pilotName: data.pilotName,
                             picHours: data.picHours,
                             verifiedDate: data.verifiedDate,
@@ -2440,12 +2789,30 @@ No maximum distance bonus\`
                         };
                     });
 
+                    // Load DOB verifications
+                    const dobSnapshot = await db.collection('dob_verifications').get();
+                    const dobVerifications = {};
+                    dobSnapshot.forEach(doc => {
+                        const data = doc.data();
+                        dobVerifications[doc.id] = {
+                            pilotName: data.pilotName,
+                            dateOfBirth: data.dateOfBirth,
+                            verifiedDate: data.verifiedDate
+                        };
+                    });
+
                     // Merge with embedded data and update pilotVerifications
-                    pilotVerifications.verifications = {
-                        ...pilotVerifications.verifications,
-                        ...verifications
+                    pilotVerifications.picHoursVerifications = {
+                        ...pilotVerifications.picHoursVerifications,
+                        ...picVerifications
                     };
-                    console.log(\`Loaded \${Object.keys(verifications).length} verifications from Firebase\`);
+                    pilotVerifications.dobVerifications = {
+                        ...pilotVerifications.dobVerifications,
+                        ...dobVerifications
+                    };
+
+                    console.log(\`Loaded \${Object.keys(picVerifications).length} PIC hour verifications from Firebase\`);
+                    console.log(\`Loaded \${Object.keys(dobVerifications).length} DOB verifications from Firebase\`);
                     return;
                 } catch (error) {
                     console.error('Failed to load verifications from Firebase:', error);
@@ -2457,12 +2824,30 @@ No maximum distance bonus\`
             if (localData) {
                 try {
                     const parsed = JSON.parse(localData);
-                    if (parsed.verifications) {
-                        pilotVerifications.verifications = {
-                            ...pilotVerifications.verifications,
+
+                    if (parsed.picHoursVerifications) {
+                        pilotVerifications.picHoursVerifications = {
+                            ...pilotVerifications.picHoursVerifications,
+                            ...parsed.picHoursVerifications
+                        };
+                        console.log(\`Loaded \${Object.keys(parsed.picHoursVerifications).length} PIC hour verifications from localStorage\`);
+                    }
+
+                    if (parsed.dobVerifications) {
+                        pilotVerifications.dobVerifications = {
+                            ...pilotVerifications.dobVerifications,
+                            ...parsed.dobVerifications
+                        };
+                        console.log(\`Loaded \${Object.keys(parsed.dobVerifications).length} DOB verifications from localStorage\`);
+                    }
+
+                    // Handle old format for backward compatibility
+                    if (parsed.verifications && !parsed.picHoursVerifications) {
+                        pilotVerifications.picHoursVerifications = {
+                            ...pilotVerifications.picHoursVerifications,
                             ...parsed.verifications
                         };
-                        console.log(\`Loaded \${Object.keys(parsed.verifications).length} verifications from localStorage\`);
+                        console.log(\`Migrated \${Object.keys(parsed.verifications).length} old format verifications\`);
                     }
                 } catch (e) {
                     console.warn('Failed to parse localStorage verification data:', e);
@@ -3011,6 +3396,46 @@ No maximum distance bonus\`
 
         .verify-btn.unverified:hover {
             background-color: #c82333;
+        }
+
+        .verify-btn.small {
+            font-size: 0.6em;
+            padding: 1px 4px;
+        }
+
+        .verification-status {
+            font-size: 0.65em;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-weight: normal;
+            opacity: 0.8;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .verification-status.verified {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .unverified-leaders {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            border-left: 3px solid #dc3545;
+        }
+
+        .unverified-pilot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .unverified-pilot:last-child {
+            border-bottom: none;
         }
 
         /* Verification Form Overlay */

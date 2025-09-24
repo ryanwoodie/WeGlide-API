@@ -405,10 +405,8 @@
     </div>
 
     <script>
-        const HOURS_200_SEC = 200 * 3600;
         let originalLeaderboard = [];
         let durationsByPilotId = new Map();
-        let under200Enabled = false;
 
         async function fetchPilotDurations(pilotIds) {
             // Fetch in batches of 100 using id_in
