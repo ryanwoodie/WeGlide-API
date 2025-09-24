@@ -1019,21 +1019,22 @@ No maximum distance bonus\`
                 document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
 
             } else if (mode === 'silverCGull') {
-                leaderboard = silverCGullLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
-
-                // Clear the <200 filter when switching to Silver C-Gull mode
-                under200Enabled = false;
-                const underBtn = document.getElementById('under200Btn');
-                if (underBtn) {
-                    underBtn.classList.remove('active');
-                    updateUnder200ButtonLabel();
+                // Apply 200-hour filter if enabled
+                if (under200Enabled) {
+                    leaderboard = silverCGullLeaderboard.filter(p =>
+                        (typeof pilotDurations[p.pilotId] === 'number') &&
+                        pilotDurations[p.pilotId] < HOURS_200_SEC
+                    );
+                    document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement (< 200 hrs PIC) • Single qualifying flight • Sorted by last name';
+                } else {
+                    leaderboard = silverCGullLeaderboard;
+                    document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
                 }
 
                 // Update main stats for Silver C-Gull mode
-                document.getElementById('pilotCount').textContent = silverCGullLeaderboard.length;
-                document.getElementById('flightCount').textContent = silverCGullLeaderboard.length; // 1 flight per pilot
-                const silverKms = silverCGullLeaderboard.reduce((sum, pilot) => {
+                document.getElementById('pilotCount').textContent = leaderboard.length;
+                document.getElementById('flightCount').textContent = leaderboard.length; // 1 flight per pilot
+                const silverKms = leaderboard.reduce((sum, pilot) => {
                     const distance = parseFloat(pilot.distance) || 0;
                     return sum + distance;
                 }, 0);
@@ -1079,7 +1080,7 @@ No maximum distance bonus\`
             // For Silver C-Gull mode, scroll to the leaderboard table
             if (mode === 'silverCGull') {
                 setTimeout(() => {
-                    const leaderboardElement = document.querySelector('.leaderboard-table');
+                    const leaderboardElement = document.getElementById('leaderboardTable');
                     if (leaderboardElement) {
                         leaderboardElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
@@ -2290,7 +2291,6 @@ No maximum distance bonus\`
                         <div class="unverified-pilot">
                             <div class="winner-info">
                                 <span class="winner-name">\${pilot.pilot}</span>
-                                <span class="winner-score">Achieved \${new Date(pilot.date).toLocaleDateString()}</span>
                             </div>
                             <button class="verify-btn unverified small" onclick="showDOBVerificationForm('\${pilot.userId || pilot.pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify date of birth">Verify DOB</button>
                         </div>
