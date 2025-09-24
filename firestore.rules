@@ -4,22 +4,13 @@ service cloud.firestore {
     // Allow read access to pilot verifications for everyone
     match /pilot_verifications/{pilotId} {
       allow read: if true;
-      allow write: if request.auth == null &&
-                      resource == null && // Only allow creating new documents
-                      request.resource.data.keys().hasAll(['pilotId', 'pilotName', 'picHours', 'verifiedDate', 'eligible']) &&
-                      request.resource.data.picHours is number &&
-                      request.resource.data.picHours >= 0 &&
-                      request.resource.data.picHours < 200;
+      allow write: if request.auth == null;
     }
 
     // Allow read/write access to DOB verifications for everyone
     match /dob_verifications/{pilotId} {
       allow read: if true;
-      allow write: if request.auth == null &&
-                      resource == null && // Only allow creating new documents
-                      request.resource.data.keys().hasAll(['pilotId', 'pilotName', 'dateOfBirth', 'verifiedDate']) &&
-                      request.resource.data.dateOfBirth is string &&
-                      request.resource.data.dateOfBirth.matches('[0-9]{4}-[0-9]{2}-[0-9]{2}');
+      allow write: if request.auth == null;
     }
   }
 }
