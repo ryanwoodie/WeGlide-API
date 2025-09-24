@@ -1050,8 +1050,13 @@ No maximum distance bonus\`
             }
 
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = mode === 'mixed' ? 'combinedBtn' : mode === 'silverCGull' ? 'silverCGullBtn' : 'freeBtn';
-            document.getElementById(activeBtn).classList.add('active');
+            const activeBtn = mode === 'mixed' ? 'combinedBtn' : mode === 'silverCGull' ? null : 'freeBtn';
+            if (activeBtn) {
+                const btnElement = document.getElementById(activeBtn);
+                if (btnElement) {
+                    btnElement.classList.add('active');
+                }
+            }
 
             // Update task stats (only relevant for mixed/free modes)
             if (mode !== 'silverCGull') {
