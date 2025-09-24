@@ -2263,12 +2263,13 @@ No maximum distance bonus\`
                 </div>
             \`;
 
-            // Show unverified candidates if any
+            // Show unverified candidates if any (limit to 3)
             if (trophy.unverifiedCandidates && trophy.unverifiedCandidates.length > 0) {
                 html += '<div class="unverified-leaders">';
                 html += \`<h5 style="margin: 15px 0 8px 0; font-size: 0.9em; color: #ffffff;">Candidates need verification (\${trophy.totalUnverified} total):</h5>\`;
 
-                trophy.unverifiedCandidates.forEach((pilot) => {
+                const maxShow = 3;
+                trophy.unverifiedCandidates.slice(0, maxShow).forEach((pilot) => {
                     html += \`
                         <div class="unverified-pilot">
                             <div class="winner-info">
@@ -2280,13 +2281,20 @@ No maximum distance bonus\`
                     \`;
                 });
 
-                if (trophy.totalUnverified > trophy.unverifiedCandidates.length) {
-                    const remaining = trophy.totalUnverified - trophy.unverifiedCandidates.length;
+                if (trophy.totalUnverified > maxShow) {
+                    const remaining = trophy.totalUnverified - maxShow;
                     html += \`<p style="font-size: 0.8em; color: #cccccc; margin: 8px 0 0 0; font-style: italic;">...and \${remaining} more candidates. View Silver C-Gull candidates list.</p>\`;
                 }
 
                 html += '</div>';
             }
+
+            // Always add Silver C candidates link
+            html += \`
+                <div style="margin-top: 10px;">
+                    <button class="toggle-btn" onclick="switchScoringMode('silverCGull')" title="View Silver C-Gull candidates">View Silver C-Gull Candidates</button>
+                </div>
+            \`;
 
             return html;
         }
@@ -2306,6 +2314,16 @@ No maximum distance bonus\`
                 </div>
             \`;
 
+            // BAIC Trophy (moved to top right)
+            html += \`
+                <div class="trophy-item">
+                    <h4>🏆 BAIC Trophy</h4>
+                    <p class="trophy-desc">Single Best Flight</p>
+                    \${formatTrophyWinner(trophies.baic, 'flight')}
+                    <p class="calculation-note">\${trophies.baic.explanation}</p>
+                </div>
+            \`;
+
             // 200 Trophy
             html += \`
                 <div class="trophy-item">
@@ -2313,26 +2331,6 @@ No maximum distance bonus\`
                     <p class="trophy-desc">Under 200 Hours Champion</p>
                     \${formatTrophy200Winner(trophies.trophy200)}
                     <p class="calculation-note">\${trophies.trophy200.explanation}</p>
-                </div>
-            \`;
-
-            // Silver C-Gull Trophy
-            html += \`
-                <div class="trophy-item">
-                    <h4>🏆 Silver C-Gull Trophy</h4>
-                    <p class="trophy-desc">Youngest to Achieve Silver C Badge</p>
-                    \${formatSilverCGullTrophyWinner(trophies.silverCGull)}
-                    <p class="calculation-note">\${trophies.silverCGull.explanation}</p>
-                </div>
-            \`;
-
-            // BAIC Trophy
-            html += \`
-                <div class="trophy-item">
-                    <h4>🏆 BAIC Trophy</h4>
-                    <p class="trophy-desc">Single Best Flight</p>
-                    \${formatTrophyWinner(trophies.baic, 'flight')}
-                    <p class="calculation-note">\${trophies.baic.explanation}</p>
                 </div>
             \`;
 
@@ -2360,6 +2358,16 @@ No maximum distance bonus\`
                     <h4>🏆 Dow Trophy - Goal</h4>
                     <p class="trophy-desc">Best Goal Flight (Declared Tasks Only)</p>
                     \${formatSingleFlightWinner(trophies.dow.goal)}
+                </div>
+            \`;
+
+            // Silver C-Gull Trophy (moved to last position)
+            html += \`
+                <div class="trophy-item">
+                    <h4>🏆 Silver C-Gull Trophy</h4>
+                    <p class="trophy-desc">Youngest to Achieve Silver C Badge</p>
+                    \${formatSilverCGullTrophyWinner(trophies.silverCGull)}
+                    <p class="calculation-note">\${trophies.silverCGull.explanation}</p>
                 </div>
             \`;
 
@@ -2868,7 +2876,6 @@ No maximum distance bonus\`
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
-            document.getElementById('silverCGullBtn').addEventListener('click', () => switchScoringMode('silverCGull'));
 
             // Initialize tooltips
             addTooltipListeners();
@@ -2907,7 +2914,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div><div class="silver-cgull-section"><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Candidates</button></div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
