@@ -1,6 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 
+
 // Function to calculate best score from flight contest data (Mixed scoring)
 function calculateBestScore(flight) {
     if (!flight.contest || !Array.isArray(flight.contest)) {
@@ -1503,9 +1504,10 @@ No maximum distance bonus\`
 
                 if (under200Enabled && !isSilverCGull) {
                     const pilotId = pilot.pilotId;
-                    const isVerified = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
+                    const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
+                    const isUserVerified = verificationData && verificationData.dataSource === 'user-entered';
 
-                    if (isVerified) {
+                    if (isUserVerified) {
                         verificationBadge = '<div class="verification-badge verified">✓ <200hrs PIC Verified</div>';
                         rowClass = 'verified-row';
                     } else {
@@ -1517,9 +1519,10 @@ No maximum distance bonus\`
                     pilotName = \`\${pilotName}\${verificationBadge}\${verificationButton}\`;
                 } else if (isSilverCGull) {
                     const pilotId = pilot.userId || pilot.pilotId;
-                    const isVerified = pilotVerifications.dobVerifications && pilotVerifications.dobVerifications[pilotId];
+                    const verificationData = pilotVerifications.dobVerifications && pilotVerifications.dobVerifications[pilotId];
+                    const isUserVerified = verificationData && verificationData.dataSource === 'user-entered';
 
-                    if (isVerified) {
+                    if (isUserVerified) {
                         verificationBadge = '<div class="verification-badge verified">✓ DOB Verified</div>';
                         rowClass = 'verified-row';
                     } else {
@@ -2607,6 +2610,7 @@ No maximum distance bonus\`
                     pilotName: pilotName,
                     dateOfBirth: dateOfBirth,
                     verifiedDate: new Date().toISOString(),
+                    dataSource: 'user-entered',
                     age: Math.floor(age)
                 };
 
@@ -2628,19 +2632,128 @@ No maximum distance bonus\`
         }
 
         // Verification system functions
+        function calculateWeGlideHoursSinceStart(pilotId) {
+            const startDate = new Date('2024-10-01');
+            let totalHours = 0;
+
+            // Look through all flight data for this pilot since Oct 1, 2024
+            const allFlightData = [...mixedLeaderboard, ...freeLeaderboard, ...silverCGullLeaderboard];
+            const pilotFlights = allFlightData.filter(p => p.pilotId == pilotId);
+
+            pilotFlights.forEach(pilot => {
+                if (pilot.bestFlights) {
+                    pilot.bestFlights.forEach(flight => {
+                        if (flight.date && new Date(flight.date) >= startDate) {
+                            // Extract duration from flight data (this would need to be added to flight data structure)
+                            // For now, we'll estimate based on distance and speed
+                            if (flight.distance && flight.speed) {
+                                const estimatedHours = flight.distance / flight.speed;
+                                totalHours += estimatedHours;
+                            }
+                        }
+                    });
+                } else if (pilot.date && new Date(pilot.date) >= startDate) {
+                    // Silver C-Gull structure
+                    if (pilot.distance && pilot.speed) {
+                        const estimatedHours = pilot.distance / pilot.speed;
+                        totalHours += estimatedHours;
+                    }
+                }
+            });
+
+            return totalHours;
+        }
+
+        async function runAutomaticVerificationWorkflow() {
+            console.log('Running automatic verification workflow...');
+
+            // Get all pilots from the mixed leaderboard (most comprehensive)
+            const allPilots = mixedLeaderboard.map(p => ({ pilotId: p.pilotId, pilot: p.pilot }));
+            let updatedCount = 0;
+
+            for (const pilot of allPilots) {
+                const pilotId = pilot.pilotId;
+
+                // Skip if user has already entered data (highest priority)
+                const existingVerification = pilotVerifications.picHoursVerifications &&
+                                           pilotVerifications.picHoursVerifications[pilotId];
+
+                if (existingVerification && existingVerification.dataSource === 'user-entered') {
+                    continue; // Don't overwrite user data
+                }
+
+                // Calculate WeGlide-based hours
+                const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
+                const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
+                const estimatedOct1Hours = Math.max(0, totalWeGlideHours - weglideHoursSinceStart);
+
+                // Only update if we have meaningful WeGlide data
+                if (totalWeGlideHours > 0) {
+                    pilotVerifications.picHoursVerifications = pilotVerifications.picHoursVerifications || {};
+
+                    // Create/update automatic verification entry
+                    pilotVerifications.picHoursVerifications[pilotId] = {
+                        pilotName: pilot.pilot,
+                        picHours: estimatedOct1Hours,
+                        verifiedDate: new Date().toISOString(),
+                        dataSource: 'weglide-calculated', // Lower priority than user data
+                        eligible: estimatedOct1Hours < 200,
+                        calculation: {
+                            totalWeGlideHours: totalWeGlideHours,
+                            hoursSinceOct1: weglideHoursSinceStart,
+                            estimatedOct1Hours: estimatedOct1Hours
+                        }
+                    };
+                    updatedCount++;
+
+                    // Save to database if pilot is over 200 hours (important for eligibility)
+                    if (estimatedOct1Hours >= 200) {
+                        try {
+                            await saveVerificationToDatabase(pilotId, pilot.pilot, estimatedOct1Hours, 'weglide-calculated');
+                        } catch (error) {
+                            console.warn(\`Failed to save auto-verification for \${pilot.pilot}:\`, error);
+                        }
+                    }
+                }
+            }
+
+            if (updatedCount > 0) {
+                console.log(\`Updated \${updatedCount} pilot verifications automatically\`);
+            }
+        }
+
+
         function showVerificationForm(pilotId, pilotName) {
+            // Calculate WeGlide hours since Oct 1, 2024
+            const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
+            const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
+            const estimatedOct1Hours = Math.max(0, totalWeGlideHours - weglideHoursSinceStart);
+
             const overlay = document.createElement('div');
             overlay.className = 'verification-overlay';
             overlay.innerHTML = \`
                 <div class="verification-form">
                     <h3>PIC Hours Verification</h3>
                     <p><strong>\${pilotName}</strong></p>
-                    <p>To be eligible for the Under 200 Hours PIC trophy, please confirm your total Pilot-in-Command hours as of <strong>October 1, 2024</strong>:</p>
+                    <p>Please confirm your total Pilot-in-Command hours as of <strong>October 1, 2024</strong>:</p>
+
+                    \${weglideHoursSinceStart > 0 ? \`
+                    <div class="weglide-calculation" style="background: rgba(0,123,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
+                        <strong>WeGlide Calculation:</strong><br>
+                        Total WeGlide hours: \${totalWeGlideHours.toFixed(1)}h<br>
+                        Hours since Oct 1, 2024: \${weglideHoursSinceStart.toFixed(1)}h<br>
+                        <strong>Estimated Oct 1, 2024 hours: \${estimatedOct1Hours.toFixed(1)}h</strong>
+                    </div>
+                    \` : ''}
+
                     <div>
-                        <input type="number" id="picHours" min="0" max="199" step="0.1" placeholder="Hours" />
+                        <input type="number" id="picHours" min="0" step="0.1" placeholder="Hours" value="\${estimatedOct1Hours > 0 ? estimatedOct1Hours.toFixed(1) : ''}" />
                         <label for="picHours">hours PIC</label>
                     </div>
-                    <p style="font-size: 0.9em; color: #888;">This is a self-declaration system. Please be honest about your hours for fair competition.</p>
+                    <p style="font-size: 0.9em; color: #888;">
+                        Self-declaration system. If you enter ≥200 hours, you'll be removed from the Under 200 Hours eligibility list.
+                        \${weglideHoursSinceStart > 0 ? 'Pre-filled with WeGlide calculation - please verify or correct.' : ''}
+                    </p>
                     <div class="form-buttons">
                         <button class="submit-btn" onclick="submitVerification('\${pilotId}', '\${pilotName}')">Verify</button>
                         <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
@@ -2661,8 +2774,8 @@ No maximum distance bonus\`
             const hoursInput = document.getElementById('picHours');
             const hours = parseFloat(hoursInput.value);
 
-            if (isNaN(hours) || hours < 0 || hours >= 200) {
-                alert('Please enter valid PIC hours between 0 and 199.9');
+            if (isNaN(hours) || hours < 0) {
+                alert('Please enter valid PIC hours (0 or greater)');
                 return;
             }
 
@@ -2682,6 +2795,7 @@ No maximum distance bonus\`
                     pilotName: pilotName,
                     picHours: hours,
                     verifiedDate: new Date().toISOString(),
+                    dataSource: 'user-entered', // Mark as user data (highest priority)
                     eligible: hours < 200
                 };
 
@@ -2729,24 +2843,28 @@ No maximum distance bonus\`
             }
         }
 
-        async function saveVerificationToDatabase(pilotId, pilotName, hours) {
+        async function saveVerificationToDatabase(pilotId, pilotName, hours, dataSource = 'user-entered') {
             const verificationData = {
                 pilotId: pilotId,
                 pilotName: pilotName,
                 picHours: hours,
                 verifiedDate: new Date().toISOString(),
                 eligible: hours < 200,
+                dataSource: dataSource,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             };
 
             if (db) {
                 try {
+                    console.log('Attempting to save verification data:', JSON.stringify(verificationData, null, 2));
                     // Save to Firebase Firestore
                     await db.collection('pilot_verifications').doc(pilotId).set(verificationData);
                     console.log('Verification saved to Firebase');
                     return;
                 } catch (error) {
                     console.error('Firebase save failed:', error);
+                    console.error('Error details:', error.code, error.message);
+                    console.error('Data that failed:', JSON.stringify(verificationData, null, 2));
                     // Fall back to localStorage
                 }
             }
@@ -2764,12 +2882,97 @@ No maximum distance bonus\`
             console.log('Verification saved to localStorage (fallback)');
         }
 
+        // Mass Firebase sync function - triggered by URL parameter
+        async function massFirebaseSync() {
+            if (!db) {
+                console.log('⚠️ Firebase not initialized - cannot perform mass sync');
+                return;
+            }
+
+            console.log('🔄 Starting mass Firebase sync of all WeGlide verification data...');
+
+            let successCount = 0;
+            let skipCount = 0;
+            let errorCount = 0;
+
+            // Get all WeGlide-calculated verifications
+            const allVerifications = Object.entries(pilotVerifications.picHoursVerifications || {})
+                .filter(([pilotId, data]) => data.dataSource === 'weglide-calculated');
+
+            console.log('📊 Found ' + allVerifications.length + ' WeGlide verifications to sync');
+
+            for (const [pilotId, verificationData] of allVerifications) {
+                try {
+                    // Check if this pilot already exists in Firebase
+                    const existingDoc = await db.collection('pilot_verifications').doc(pilotId).get();
+
+                    if (existingDoc.exists) {
+                        const existingData = existingDoc.data();
+                        // Don't overwrite user-entered data
+                        if (existingData.dataSource === 'user-entered') {
+                            skipCount++;
+                            continue;
+                        }
+                    }
+
+                    // Push to Firebase
+                    const firebaseData = {
+                        pilotId: pilotId,
+                        pilotName: verificationData.pilotName,
+                        picHours: verificationData.picHours,
+                        verifiedDate: verificationData.verifiedDate,
+                        eligible: verificationData.eligible,
+                        dataSource: verificationData.dataSource,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    };
+
+                    // Only include calculation if it exists and has no undefined values
+                    if (verificationData.calculation &&
+                        typeof verificationData.calculation === 'object' &&
+                        Object.values(verificationData.calculation).every(val => val !== undefined)) {
+                        firebaseData.calculation = verificationData.calculation;
+                    }
+
+                    await db.collection('pilot_verifications').doc(pilotId).set(firebaseData);
+                    successCount++;
+
+                    // Progress update and throttle
+                    if (successCount % 25 === 0) {
+                        console.log('   📤 Synced ' + successCount + ' verifications...');
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                    }
+
+                } catch (error) {
+                    console.error('❌ Failed to sync pilot ' + pilotId + ' (' + verificationData.pilotName + '):', error.message);
+                    errorCount++;
+                }
+            }
+
+            console.log('📊 Mass Firebase Sync Complete:');
+            if (successCount > 0) {
+                console.log('✅ Successfully synced ' + successCount + ' WeGlide verifications');
+            }
+            if (skipCount > 0) {
+                console.log('⏭️ Skipped ' + skipCount + ' pilots (user data preserved)');
+            }
+            if (errorCount > 0) {
+                console.log('⚠️ Failed to sync ' + errorCount + ' verifications');
+            }
+
+            // Update URL to remove the parameter so sync doesn't run again on refresh
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.delete('sync_firebase');
+            window.history.replaceState({}, '', newUrl);
+            console.log('🔧 Removed sync_firebase parameter from URL');
+        }
+
         async function saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth) {
             const verificationData = {
                 pilotId: pilotId,
                 pilotName: pilotName,
                 dateOfBirth: dateOfBirth,
                 verifiedDate: new Date().toISOString(),
+                dataSource: 'user-entered',
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             };
 
@@ -2809,7 +3012,8 @@ No maximum distance bonus\`
                             pilotName: data.pilotName,
                             picHours: data.picHours,
                             verifiedDate: data.verifiedDate,
-                            eligible: data.eligible
+                            eligible: data.eligible,
+                            dataSource: data.dataSource || 'user-entered' // Default to user-entered for backward compatibility
                         };
                     });
 
@@ -2821,7 +3025,8 @@ No maximum distance bonus\`
                         dobVerifications[doc.id] = {
                             pilotName: data.pilotName,
                             dateOfBirth: data.dateOfBirth,
-                            verifiedDate: data.verifiedDate
+                            verifiedDate: data.verifiedDate,
+                            dataSource: data.dataSource || 'user-entered' // Default to user-entered for backward compatibility
                         };
                     });
 
@@ -2895,6 +3100,16 @@ No maximum distance bonus\`
 
             // Initialize tooltips
             addTooltipListeners();
+
+            // Check for mass Firebase sync URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('sync_firebase') === 'true' && db) {
+                console.log('🔄 Mass Firebase sync triggered by URL parameter...');
+                setTimeout(() => {
+                    massFirebaseSync();
+                }, 2000); // Give Firebase extra time to initialize
+            }
+
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
                 underBtn.addEventListener('click', () => {
@@ -3803,6 +4018,87 @@ No maximum distance bonus\`
         fs.writeFileSync('australian_leaderboard.html', australianHTML);
 
         console.log('✅ Created australian_leaderboard.html');
+
+        // Run server-side WeGlide verification calculation
+        console.log('🔄 Running WeGlide verification calculations...');
+
+        // Server-side WeGlide verification calculation function
+        async function runServerSideVerificationCalculations() {
+            const startDate = new Date('2024-10-01');
+            let calculatedCount = 0;
+            let updatedCount = 0;
+
+            // Initialize verification data if not exists
+            if (!pilotVerificationData.picHoursVerifications) {
+                pilotVerificationData.picHoursVerifications = {};
+            }
+
+            // Process all pilots from mixed leaderboard (most comprehensive)
+            for (const pilot of mixedLeaderboard) {
+                const pilotId = pilot.pilotId;
+                const existingVerification = pilotVerificationData.picHoursVerifications[pilotId];
+
+                // Skip if user has already entered data (never overwrite user data)
+                if (existingVerification && existingVerification.dataSource === 'user-entered') {
+                    continue;
+                }
+
+                // Calculate WeGlide hours since Oct 1, 2024
+                let hoursSinceStart = 0;
+                if (pilot.bestFlights) {
+                    pilot.bestFlights.forEach(flight => {
+                        if (flight.date && new Date(flight.date) >= startDate) {
+                            if (flight.distance && flight.speed) {
+                                hoursSinceStart += flight.distance / flight.speed;
+                            }
+                        }
+                    });
+                }
+
+                // Get total WeGlide hours for this pilot
+                const totalWeGlideHours = pilotDurationsEmbedded[pilotId] ?
+                    (pilotDurationsEmbedded[pilotId] / 3600) : 0;
+
+                const estimatedOct1Hours = Math.max(0, totalWeGlideHours - hoursSinceStart);
+
+                // Only process if we have meaningful WeGlide data
+                if (totalWeGlideHours > 0) {
+                    calculatedCount++;
+
+                    // Update or create verification entry (only if no user data exists)
+                    pilotVerificationData.picHoursVerifications[pilotId] = {
+                        pilotName: pilot.pilot,
+                        picHours: parseFloat(estimatedOct1Hours.toFixed(1)),
+                        verifiedDate: new Date().toISOString(),
+                        dataSource: 'weglide-calculated',
+                        eligible: estimatedOct1Hours < 200,
+                        calculation: {
+                            totalWeGlideHours: parseFloat(totalWeGlideHours.toFixed(1)),
+                            hoursSinceOct1: parseFloat(hoursSinceStart.toFixed(1)),
+                            estimatedOct1Hours: parseFloat(estimatedOct1Hours.toFixed(1))
+                        }
+                    };
+                    updatedCount++;
+                }
+            }
+
+            // Save updated verification data back to file
+            if (updatedCount > 0) {
+                try {
+                    fs.writeFileSync('pilot_pic_hours_verification.json',
+                        JSON.stringify(pilotVerificationData, null, 2));
+                    console.log(`✅ Updated ${updatedCount}/${calculatedCount} pilot verifications with WeGlide data`);
+
+                } catch (error) {
+                    console.error('❌ Failed to save verification calculations:', error);
+                }
+            } else {
+                console.log('ℹ️ No verification updates needed');
+            }
+
+        }
+
+        await runServerSideVerificationCalculations();
         console.log(`📊 Top 10 pilots (Mixed Scoring):`);
         mixedLeaderboard.slice(0, 10).forEach((pilot, index) => {
             console.log(`${index + 1}. ${pilot.pilot}: ${pilot.totalPoints.toFixed(1)} points (${pilot.flightCount} flights, ${pilot.totalDistance.toFixed(0)} km)`);
@@ -3812,5 +4108,6 @@ No maximum distance bonus\`
         console.error('❌ Error processing flights:', error.message);
     }
 }
+
 
 processAustralianFlights();
