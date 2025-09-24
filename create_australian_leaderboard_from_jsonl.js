@@ -659,6 +659,20 @@ async function processAustralianFlights() {
             console.warn('⚠️ Could not load/save australian_user_durations.json:', e.message || e);
         }
 
+        // Load pilot verification data
+        let pilotVerificationData = { verifications: {} };
+        try {
+            const verificationPath = 'pilot_pic_hours_verification.json';
+            if (fs.existsSync(verificationPath)) {
+                pilotVerificationData = JSON.parse(fs.readFileSync(verificationPath, 'utf-8'));
+                console.log('ℹ️ Loaded pilot_pic_hours_verification.json');
+            } else {
+                console.log('ℹ️ No pilot verification data found - will create empty verification system');
+            }
+        } catch (e) {
+            console.warn('⚠️ Could not load pilot_pic_hours_verification.json:', e.message || e);
+        }
+
         // Read the Canadian HTML template
         const canadianHTML = fs.readFileSync('canadian_leaderboard_2025_embedded.html', 'utf-8');
 
@@ -667,6 +681,12 @@ async function processAustralianFlights() {
             .replace(/Canadian Gliding Leaderboard 2025/g, 'Australian Gliding Leaderboard 2025')
             .replace(/🏆 Canadian Gliding Leaderboard 2025/g, '🇦🇺 Australian Gliding Leaderboard 2025')
             .replace(/Soaring Association of Canada/g, 'Gliding Federation of Australia')
+            // Add Firebase CDN scripts before closing head tag
+            .replace('</head>', `
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>`)
             .replace(/sac_logo\.png/g, 'gfa_logo.png')
             .replace(/Canadian gliding season runs October 1, 2024 to September 30, 2025/g, 'Australian gliding season runs October 1, 2024 to September 30, 2025')
             .replace(/Oct 2024 - Sep 2025/g, 'Oct 2024 - Sep 2025')
@@ -675,7 +695,7 @@ async function processAustralianFlights() {
             // Remove the logo image
             .replace(/<img src="[^"]*logo[^"]*"[^>]*>/g, '')
             // Add ID to scoring description for dynamic updates
-            .replace(/<p>Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025<\/p>/g, '<p id="scoringDescription">Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025</p>')
+            .replace(/<p>Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025<\/p>/g, '<p id="scoringDescription">Best 5 flights per pilot • Higher of <span class="scoring-tooltip" data-tooltip="task">WeGlide Task</span> or <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> • Oct 2024 - Sep 2025</p>')
             // Replace season period with task stats
             .replace(/<div class="stat">\s*<span class="stat-number" id="seasonPeriod">Oct 2024 - Sep 2025<\/span>\s*<span class="stat-label">Season Period<\/span>\s*<\/div>/g,
                 `<div class="stat">
@@ -705,8 +725,148 @@ async function processAustralianFlights() {
         let leaderboard = [];
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
+
+        // Tooltip functionality
+        const tooltipTexts = {
+            task: \`WeGlide Task
+For declared tasks only
+
+Formula: (task distance + bonuses) ÷ (index/100)
+
+Bonuses:
+Declared and completed +30%, plus one of (if applicable):
+• FAI Triangle +40%
+• Rectangle +40%
+• Out & Return +30%
+• Straight Out +30% (if declared)
+• FAI/Rectangle with Multi-Laps +20% (if declared)
+
+Max 3 turnpoints (4 for rectangles)
+Points only for declared task distance\`,
+            free: \`WeGlide Free
+1.0 point per km, up to 6 legs
+
+Formula: (distance + bonuses) ÷ (index/100)
+
+Bonuses:
+• FAI Triangle +30%
+• Out & Return +20%
+
+Distance and bonuses optimized/maximized
+for legs/shape flown
+No maximum distance bonus\`
+        };
+
+        function addTooltipListeners() {
+            // Remove any existing tooltips
+            const existingTooltip = document.getElementById('active-tooltip');
+            if (existingTooltip) {
+                existingTooltip.remove();
+            }
+
+            document.querySelectorAll('.scoring-tooltip').forEach(element => {
+                const tooltipType = element.getAttribute('data-tooltip');
+                let touchTimeout;
+
+                function showTooltip(e) {
+                    // Remove any existing tooltip first
+                    const existing = document.getElementById('active-tooltip');
+                    if (existing) {
+                        existing.remove();
+                    }
+
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'custom-tooltip';
+                    tooltip.id = 'active-tooltip';
+
+                    // Create tooltip content with close button for mobile
+                    tooltip.innerHTML = \`
+                        <div class="tooltip-content">
+                            \${tooltipTexts[tooltipType]}
+                        </div>
+                        <button class="tooltip-close" onclick="document.getElementById('active-tooltip').remove()" aria-label="Close tooltip">×</button>
+                    \`;
+
+                    document.body.appendChild(tooltip);
+
+                    // Position tooltip responsively
+                    positionTooltip(tooltip, element);
+                }
+
+                function hideTooltip() {
+                    const tooltip = document.getElementById('active-tooltip');
+                    if (tooltip && !tooltip.classList.contains('tooltip-touch-active')) {
+                        tooltip.remove();
+                    }
+                }
+
+                // Mouse events for desktop
+                element.addEventListener('mouseenter', showTooltip);
+                element.addEventListener('mouseleave', hideTooltip);
+
+                // Touch events for mobile
+                element.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent mouse events from firing
+                    clearTimeout(touchTimeout);
+                    showTooltip(e);
+
+                    // Mark tooltip as touch-active to prevent auto-hide
+                    const tooltip = document.getElementById('active-tooltip');
+                    if (tooltip) {
+                        tooltip.classList.add('tooltip-touch-active');
+                    }
+                });
+
+                // Close tooltip when tapping elsewhere on mobile
+                document.addEventListener('touchstart', function(e) {
+                    const tooltip = document.getElementById('active-tooltip');
+                    if (tooltip && !tooltip.contains(e.target) && !element.contains(e.target)) {
+                        tooltip.remove();
+                    }
+                });
+            });
+        }
+
+        function positionTooltip(tooltip, element) {
+            const rect = element.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+
+            // Default positioning
+            let left = rect.left + rect.width / 2;
+            let top = rect.bottom + 10 + scrollY;
+            let transform = 'translateX(-50%)';
+
+            // Check if tooltip would overflow right edge
+            if (left + tooltipRect.width / 2 > viewportWidth - 20) {
+                left = viewportWidth - tooltipRect.width - 20;
+                transform = 'none';
+            }
+
+            // Check if tooltip would overflow left edge
+            if (left - tooltipRect.width / 2 < 20) {
+                left = 20;
+                transform = 'none';
+            }
+
+            // Check if tooltip would overflow bottom of viewport
+            if (top + tooltipRect.height > viewportHeight + scrollY - 20) {
+                // Position above the element instead
+                top = rect.top + scrollY - tooltipRect.height - 10;
+                tooltip.classList.add('tooltip-above');
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+            tooltip.style.transform = transform;
+        }
         // Embedded pilot durations (seconds), keyed by pilotId
         const pilotDurations = __PILOT_DURATIONS_PLACEHOLDER__;
+
+        // Embedded pilot PIC hours verifications
+        const pilotVerifications = __PILOT_VERIFICATIONS_PLACEHOLDER__;
 
         // Embedded aircraft awards data
         const aircraftAwards = ${JSON.stringify(aircraftAwards)};
@@ -851,7 +1011,7 @@ async function processAustralianFlights() {
         function switchScoringMode(mode) {
             if (mode === 'mixed') {
                 leaderboard = mixedLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025';
+                document.getElementById('scoringDescription').innerHTML = 'Best 5 flights per pilot • Higher of <span class="scoring-tooltip" data-tooltip="task">WeGlide Task</span> or <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> • Oct 2024 - Sep 2025';
 
                 // Update main stats for Combined mode (all flights)
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
@@ -881,7 +1041,7 @@ async function processAustralianFlights() {
 
             } else {
                 leaderboard = freeLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Best 5 flights per pilot • Free scoring only • Oct 2024 - Sep 2025';
+                document.getElementById('scoringDescription').innerHTML = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> only • Oct 2024 - Sep 2025';
 
                 // Update main stats for Free mode (use total dataset stats, not leaderboard stats)
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
@@ -910,6 +1070,10 @@ async function processAustralianFlights() {
                 if (typeof updateUnder200ButtonLabel === 'function') updateUnder200ButtonLabel();
             }
             buildLeaderboard();
+            // Re-add tooltip listeners after mode switch - use setTimeout to ensure DOM is updated
+            setTimeout(() => {
+                if (typeof addTooltipListeners === 'function') addTooltipListeners();
+            }, 0);
         }
 
         // Flight preview functionality
@@ -1315,6 +1479,27 @@ async function processAustralianFlights() {
                     pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link">\${pilot.pilot}</a>\`;
                 }
 
+                // Add verification status for under 200 hrs mode
+                let verificationButton = '';
+                let verificationBadge = '';
+                let rowClass = '';
+
+                if (under200Enabled && !isSilverCGull) {
+                    const pilotId = pilot.pilotId;
+                    const isVerified = pilotVerifications.verifications && pilotVerifications.verifications[pilotId];
+
+                    if (isVerified) {
+                        verificationBadge = '<div class="verification-badge verified">✓ <200hrs PIC Verified</div>';
+                        rowClass = 'verified-row';
+                    } else {
+                        verificationButton = \`<div><button class="verify-btn unverified" onclick="showVerificationForm('\${pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify PIC hours">Verify PIC hours</button></div>\`;
+                        rowClass = 'unverified-row';
+                    }
+
+                    // Add verification elements underneath pilot name
+                    pilotName = \`\${pilotName}\${verificationBadge}\${verificationButton}\`;
+                }
+
                 // Add aircraft award badges in free mode (calculated for visible pilots)
                 if (isFreeMode && visibleAwards) {
                     const badges = [];
@@ -1364,6 +1549,11 @@ async function processAustralianFlights() {
                         \${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}
                         \${Array(5 - pilot.bestFlights.length).fill('<td class="flight-cell">-</td>').join('')}
                     \`;
+                }
+
+                // Apply verification row class
+                if (rowClass) {
+                    row.className = rowClass;
                 }
 
                 tbody.appendChild(row);
@@ -2040,7 +2230,253 @@ async function processAustralianFlights() {
             document.getElementById('taskStatsTableBody').innerHTML = tableHtml;
         }
 
+        // Admin functions for verification management
+        function exportVerificationData() {
+            const data = localStorage.getItem('pilot_verifications');
+            if (!data) {
+                alert('No verification data found in localStorage');
+                return;
+            }
+
+            // Create downloadable file
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'pilot_verifications_export.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert('Verification data exported! Save this file and commit it to your repository as pilot_pic_hours_verification.json');
+        }
+
+        function showAdminPanel() {
+            const localData = localStorage.getItem('pilot_verifications');
+            const verificationCount = localData ? Object.keys(JSON.parse(localData).verifications || {}).length : 0;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'verification-overlay';
+            overlay.innerHTML = \`
+                <div class="verification-form" style="max-width: 600px;">
+                    <h3>Admin Panel - Verification Data</h3>
+                    <p><strong>Stored Verifications:</strong> \${verificationCount}</p>
+                    <div style="margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+                        <h4>For GitHub Pages Deployment:</h4>
+                        <p style="font-size: 0.9em; text-align: left; line-height: 1.4; color: #333;">
+                            1. Click "Export Verification Data" to download the JSON file<br>
+                            2. Save it as <code>pilot_pic_hours_verification.json</code> in your repository<br>
+                            3. Commit and push to GitHub<br>
+                            4. Regenerate your HTML with the updated data using the Node.js script<br>
+                            5. Deploy the new HTML to GitHub Pages
+                        </p>
+                    </div>
+                    <div class="form-buttons">
+                        <button class="submit-btn" onclick="exportVerificationData()">Export Verification Data</button>
+                        <button class="cancel-btn" onclick="closeVerificationForm()">Close</button>
+                    </div>
+                </div>
+            \`;
+            document.body.appendChild(overlay);
+        }
+
+        // Add keyboard shortcut for admin panel (Ctrl+Shift+A)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                e.preventDefault();
+                showAdminPanel();
+            }
+        });
+
+        // Verification system functions
+        function showVerificationForm(pilotId, pilotName) {
+            const overlay = document.createElement('div');
+            overlay.className = 'verification-overlay';
+            overlay.innerHTML = \`
+                <div class="verification-form">
+                    <h3>PIC Hours Verification</h3>
+                    <p><strong>\${pilotName}</strong></p>
+                    <p>To be eligible for the Under 200 Hours PIC trophy, please confirm your total Pilot-in-Command hours as of <strong>October 1, 2024</strong>:</p>
+                    <div>
+                        <input type="number" id="picHours" min="0" max="199" step="0.1" placeholder="Hours" />
+                        <label for="picHours">hours PIC</label>
+                    </div>
+                    <p style="font-size: 0.9em; color: #888;">This is a self-declaration system. Please be honest about your hours for fair competition.</p>
+                    <div class="form-buttons">
+                        <button class="submit-btn" onclick="submitVerification('\${pilotId}', '\${pilotName}')">Verify</button>
+                        <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
+                    </div>
+                </div>
+            \`;
+            document.body.appendChild(overlay);
+        }
+
+        function closeVerificationForm() {
+            const overlay = document.querySelector('.verification-overlay');
+            if (overlay) {
+                overlay.remove();
+            }
+        }
+
+        async function submitVerification(pilotId, pilotName) {
+            const hoursInput = document.getElementById('picHours');
+            const hours = parseFloat(hoursInput.value);
+
+            if (isNaN(hours) || hours < 0 || hours >= 200) {
+                alert('Please enter valid PIC hours between 0 and 199.9');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Saving...';
+            submitBtn.disabled = true;
+
+            try {
+                // Save to database (Firebase or localStorage fallback)
+                await saveVerificationToDatabase(pilotId, pilotName, hours);
+
+                // Update local data for immediate UI update
+                pilotVerifications.verifications = pilotVerifications.verifications || {};
+                pilotVerifications.verifications[pilotId] = {
+                    pilotName: pilotName,
+                    picHours: hours,
+                    verifiedDate: new Date().toISOString(),
+                    eligible: hours < 200
+                };
+
+                // Close form and rebuild leaderboard
+                closeVerificationForm();
+                buildLeaderboard();
+
+                // Show confirmation
+                alert(\`Thank you \${pilotName}! Your PIC hours (\${hours}) have been verified and saved.\`);
+            } catch (error) {
+                console.error('Failed to save verification:', error);
+                alert('Failed to save verification. Please try again or contact support.');
+
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCXkPOue3IVoSRCYYYoudxHo_hFl-a_TxY",
+            authDomain: "australian-leaderboard.firebaseapp.com",
+            projectId: "australian-leaderboard",
+            storageBucket: "australian-leaderboard.firebasestorage.app",
+            messagingSenderId: "839850033533",
+            appId: "1:839850033533:web:083b21b92572efff878c14"
+        };
+
+        // Initialize Firebase (loaded from CDN)
+        let db = null;
+
+        async function initializeFirebase() {
+            try {
+                // Firebase is loaded via CDN in the HTML
+                if (typeof firebase !== 'undefined') {
+                    firebase.initializeApp(firebaseConfig);
+                    db = firebase.firestore();
+                    console.log('Firebase initialized successfully');
+                } else {
+                    console.warn('Firebase not loaded - using localStorage fallback');
+                }
+            } catch (error) {
+                console.warn('Firebase initialization failed - using localStorage fallback:', error);
+            }
+        }
+
+        async function saveVerificationToDatabase(pilotId, pilotName, hours) {
+            const verificationData = {
+                pilotId: pilotId,
+                pilotName: pilotName,
+                picHours: hours,
+                verifiedDate: new Date().toISOString(),
+                eligible: hours < 200,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            if (db) {
+                try {
+                    // Save to Firebase Firestore
+                    await db.collection('pilot_verifications').doc(pilotId).set(verificationData);
+                    console.log('Verification saved to Firebase');
+                    return;
+                } catch (error) {
+                    console.error('Firebase save failed:', error);
+                    // Fall back to localStorage
+                }
+            }
+
+            // Fallback to localStorage
+            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"verifications": {}}');
+            localData.verifications[pilotId] = {
+                pilotName: pilotName,
+                picHours: hours,
+                verifiedDate: new Date().toISOString(),
+                eligible: hours < 200
+            };
+            localStorage.setItem('pilot_verifications', JSON.stringify(localData));
+            console.log('Verification saved to localStorage (fallback)');
+        }
+
+        async function loadVerificationsFromDatabase() {
+            if (db) {
+                try {
+                    const snapshot = await db.collection('pilot_verifications').get();
+                    const verifications = {};
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        verifications[doc.id] = {
+                            pilotName: data.pilotName,
+                            picHours: data.picHours,
+                            verifiedDate: data.verifiedDate,
+                            eligible: data.eligible
+                        };
+                    });
+
+                    // Merge with embedded data and update pilotVerifications
+                    pilotVerifications.verifications = {
+                        ...pilotVerifications.verifications,
+                        ...verifications
+                    };
+                    console.log(\`Loaded \${Object.keys(verifications).length} verifications from Firebase\`);
+                    return;
+                } catch (error) {
+                    console.error('Failed to load verifications from Firebase:', error);
+                }
+            }
+
+            // Fallback to localStorage
+            const localData = localStorage.getItem('pilot_verifications');
+            if (localData) {
+                try {
+                    const parsed = JSON.parse(localData);
+                    if (parsed.verifications) {
+                        pilotVerifications.verifications = {
+                            ...pilotVerifications.verifications,
+                            ...parsed.verifications
+                        };
+                        console.log(\`Loaded \${Object.keys(parsed.verifications).length} verifications from localStorage\`);
+                    }
+                } catch (e) {
+                    console.warn('Failed to parse localStorage verification data:', e);
+                }
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', async function() {
+            // Initialize Firebase
+            await initializeFirebase();
+
+            // Load verification data from database
+            await loadVerificationsFromDatabase();
+
             await loadLeaderboard();
             calculateTrophyWinners();
             calculateTaskTypeStats();
@@ -2048,6 +2484,9 @@ async function processAustralianFlights() {
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
             document.getElementById('silverCGullBtn').addEventListener('click', () => switchScoringMode('silverCGull'));
+
+            // Initialize tooltips
+            addTooltipListeners();
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
                 underBtn.addEventListener('click', () => {
@@ -2055,6 +2494,10 @@ async function processAustralianFlights() {
                     underBtn.classList.toggle('active', under200Enabled);
                     updateUnder200ButtonLabel();
                     buildLeaderboard();
+                    // Re-add tooltip listeners after under 200 filter toggle
+                    setTimeout(() => {
+                        if (typeof addTooltipListeners === 'function') addTooltipListeners();
+                    }, 0);
                     // No need to recalculate trophies - 200 Trophy is always <200 list
                 });
                 updateUnder200ButtonLabel();
@@ -2070,13 +2513,16 @@ async function processAustralianFlights() {
         // Inject embedded pilot durations JSON into the script
         australianHTML = australianHTML.replace('__PILOT_DURATIONS_PLACEHOLDER__', JSON.stringify(pilotDurationsEmbedded));
 
+        // Inject embedded pilot verification data into the script
+        australianHTML = australianHTML.replace('__PILOT_VERIFICATIONS_PLACEHOLDER__', JSON.stringify(pilotVerificationData));
+
         // Remove Canadian-specific under-table filter bar to avoid duplicate buttons
         australianHTML = australianHTML.replace(/<div class="scoring-toggle" id="filtersBar"[\s\S]*?<\/div>\s*/g, '');
 
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▼</span></h3></div><div class="trophy-content" id="trophyContent"><div id="trophyWinners">Loading trophy winners...</div><div class="silver-cgull-section"><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Candidates</button></div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div><div class="silver-cgull-section"><button class="toggle-btn" id="silverCGullBtn">Silver C-Gull Candidates</button></div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -2422,6 +2868,228 @@ async function processAustralianFlights() {
             text-align: center;
         }
 
+        /* Scoring tooltips */
+        .scoring-tooltip {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            cursor: help;
+            position: relative;
+            touch-action: manipulation;
+        }
+
+        .custom-tooltip {
+            position: absolute;
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            min-width: 300px;
+            max-width: 450px;
+            box-shadow: 0 6px 20px rgba(0,0,0,1);
+            z-index: 10000;
+            border: 3px solid #ffffff;
+            font-weight: 400;
+            pointer-events: auto;
+            white-space: pre-line;
+        }
+
+        .custom-tooltip .tooltip-content {
+            margin-bottom: 0;
+            padding-right: 20px;
+        }
+
+        .custom-tooltip .tooltip-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            display: none;
+        }
+
+        .custom-tooltip .tooltip-close:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .custom-tooltip::before {
+            content: '';
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #000000;
+        }
+
+        .custom-tooltip.tooltip-above::before {
+            top: auto;
+            bottom: -11px;
+            border-bottom: none;
+            border-top: 8px solid #000000;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .custom-tooltip {
+                min-width: 280px;
+                max-width: calc(100vw - 40px);
+                font-size: 13px;
+                padding: 14px 16px 14px 16px;
+            }
+
+            .custom-tooltip .tooltip-close {
+                display: block;
+            }
+
+            .scoring-tooltip {
+                padding: 2px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .custom-tooltip {
+                min-width: 260px;
+                max-width: calc(100vw - 20px);
+                font-size: 12px;
+                padding: 12px 14px 12px 14px;
+            }
+        }
+
+        /* PIC Hours Verification System */
+        .unverified-row {
+            background-color: rgba(128, 128, 128, 0.1) !important;
+            opacity: 0.8;
+        }
+
+        .verified-row {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .verification-badge {
+            font-size: 0.65em;
+            padding: 1px 4px;
+            border-radius: 2px;
+            margin-top: 2px;
+            font-weight: normal;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .verification-badge.verified {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .verify-btn {
+            font-size: 0.65em;
+            padding: 2px 6px;
+            margin-top: 2px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-weight: normal;
+        }
+
+        .verify-btn.unverified {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .verify-btn.unverified:hover {
+            background-color: #c82333;
+        }
+
+        /* Verification Form Overlay */
+        .verification-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .verification-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .verification-form h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .verification-form p {
+            color: #666;
+            line-height: 1.5;
+            margin: 15px 0;
+        }
+
+        .verification-form input[type="number"] {
+            width: 100px;
+            padding: 8px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .verification-form .form-buttons {
+            margin-top: 20px;
+        }
+
+        .verification-form button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .verification-form .submit-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .verification-form .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .verification-form .cancel-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .verification-form .cancel-btn:hover {
+            background-color: #5a6268;
+        }
+
         .trophy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -2508,8 +3176,8 @@ async function processAustralianFlights() {
         }
 
         .calculation-note {
-            color: #888;
-            font-size: 0.8em;
+            color: #ffffff;
+            font-size: 0.7em;
             margin: 8px 0 0 0;
             font-style: italic;
         }

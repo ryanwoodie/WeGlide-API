@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read access to pilot verifications for everyone
+    match /pilot_verifications/{pilotId} {
+      allow read: if true;
+      allow write: if request.auth == null &&
+                      resource == null && // Only allow creating new documents
+                      request.resource.data.keys().hasAll(['pilotId', 'pilotName', 'picHours', 'verifiedDate', 'eligible']) &&
+                      request.resource.data.picHours is number &&
+                      request.resource.data.picHours >= 0 &&
+                      request.resource.data.picHours < 200;
+    }
+  }
+}
