@@ -2117,7 +2117,7 @@ No maximum distance bonus\`
                 html += \`
                     <div class="winner combined-winner">
                         <div class="winner-info">
-                            <span class="winner-name">🥇 \${trophy.combined.pilot}</span>
+                            <span class="winner-name">🥇 <a href="https://www.weglide.org/user/\${trophy.combined.pilotId}" target="_blank" class="pilot-link">\${trophy.combined.pilot}</a></span>
                             <span class="winner-score">\${score.toFixed(1)} pts</span>
                         </div>
                         <span class="winner-type">Combined</span>
@@ -2132,7 +2132,7 @@ No maximum distance bonus\`
                 html += \`
                     <div class="winner free-winner">
                         <div class="winner-info">
-                            <span class="winner-name">🥈 \${trophy.free.pilot}</span>
+                            <span class="winner-name">🥈 <a href="https://www.weglide.org/user/\${trophy.free.pilotId}" target="_blank" class="pilot-link">\${trophy.free.pilot}</a></span>
                             <span class="winner-score">\${score.toFixed(1)} pts</span>
                         </div>
                         <span class="winner-type">Free</span>
@@ -2186,7 +2186,7 @@ No maximum distance bonus\`
                 html += \`
                     <div class="winner combined-winner">
                         <div class="winner-info">
-                            <span class="winner-name">🥇 \${trophy.combined.pilot}</span>
+                            <span class="winner-name">🥇 <a href="https://www.weglide.org/user/\${trophy.combined.pilotId}" target="_blank" class="pilot-link">\${trophy.combined.pilot}</a></span>
                             <span class="winner-score">\${score.toFixed(1)} pts</span>
                         </div>
                         <span class="winner-type">Combined</span>
@@ -2200,7 +2200,7 @@ No maximum distance bonus\`
                 html += \`
                     <div class="winner free-winner">
                         <div class="winner-info">
-                            <span class="winner-name">🥇 \${trophy.free.pilot}</span>
+                            <span class="winner-name">🥇 <a href="https://www.weglide.org/user/\${trophy.free.pilotId}" target="_blank" class="pilot-link">\${trophy.free.pilot}</a></span>
                             <span class="winner-score">\${score.toFixed(1)} pts</span>
                         </div>
                         <span class="winner-type">Free</span>
@@ -2272,7 +2272,7 @@ No maximum distance bonus\`
             html += \`
                 <div class="winner combined-winner">
                     <div class="winner-info">
-                        <span class="winner-name">🥇 \${trophy.winner.pilot}</span>
+                        <span class="winner-name">🥇 <a href="https://www.weglide.org/user/\${trophy.winner.userId || trophy.winner.pilotId}" target="_blank" class="pilot-link">\${trophy.winner.pilot}</a></span>
                         <span class="winner-score">Age \${trophy.winner.ageAtAchievement} on \${new Date(trophy.winner.date).toLocaleDateString()}</span>
                     </div>
                     <span class="winner-type">Silver C Achievement</span>
