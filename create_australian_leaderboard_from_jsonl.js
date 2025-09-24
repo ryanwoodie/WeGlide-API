@@ -2330,23 +2330,23 @@ No maximum distance bonus\`
                 </div>
             \`;
 
-            // BAIC Trophy (moved to top right)
-            html += \`
-                <div class="trophy-item">
-                    <h4>🏆 BAIC Trophy</h4>
-                    <p class="trophy-desc">Single Best Flight</p>
-                    \${formatTrophyWinner(trophies.baic, 'flight')}
-                    <p class="calculation-note">\${trophies.baic.explanation}</p>
-                </div>
-            \`;
-
-            // 200 Trophy
+            // 200 Trophy (moved beside Canadair)
             html += \`
                 <div class="trophy-item">
                     <h4>🏆 200 Trophy</h4>
                     <p class="trophy-desc">Under 200 Hours Champion</p>
                     \${formatTrophy200Winner(trophies.trophy200)}
                     <p class="calculation-note">\${trophies.trophy200.explanation}</p>
+                </div>
+            \`;
+
+            // BAIC Trophy (moved to third position)
+            html += \`
+                <div class="trophy-item">
+                    <h4>🏆 BAIC Trophy</h4>
+                    <p class="trophy-desc">Single Best Flight</p>
+                    \${formatTrophyWinner(trophies.baic, 'flight')}
+                    <p class="calculation-note">\${trophies.baic.explanation}</p>
                 </div>
             \`;
 
