@@ -3132,6 +3132,155 @@ No maximum distance bonus\`
                 });
                 updateUnder200ButtonLabel();
             }
+
+            // Search overlay functionality
+            let searchMatches = [];
+            let currentMatchIndex = -1;
+
+            const searchOverlay = document.getElementById('searchOverlay');
+            const searchInput = document.getElementById('searchInput');
+            const nextBtn = document.getElementById('nextBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const searchStatus = document.getElementById('searchStatus');
+            const openSearchBtn = document.getElementById('openSearchBtn');
+
+            function highlightMatches(query) {
+                // Clear previous highlights
+                clearHighlights();
+                searchMatches = [];
+
+                if (!query) return;
+
+                const leaderboardTable = document.querySelector('.leaderboard tbody');
+                if (!leaderboardTable) return;
+
+                const rows = leaderboardTable.querySelectorAll('tr');
+                const regex = new RegExp(query, 'gi');
+
+                rows.forEach((row, rowIndex) => {
+                    const pilotCell = row.querySelector('td:nth-child(2)'); // Pilot name column
+                    if (pilotCell && pilotCell.textContent.match(regex)) {
+                        searchMatches.push({ row, cell: pilotCell, rowIndex });
+
+                        // Highlight the matching text
+                        const originalText = pilotCell.textContent;
+                        const highlightedText = originalText.replace(regex, '<mark class="search-highlight">$&</mark>');
+                        pilotCell.innerHTML = highlightedText;
+                    }
+                });
+
+                updateSearchStatus();
+            }
+
+            function clearHighlights() {
+                const highlights = document.querySelectorAll('.search-highlight');
+                highlights.forEach(highlight => {
+                    const parent = highlight.parentNode;
+                    parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
+                    parent.normalize();
+                });
+
+                // Clear current match highlighting
+                const currentHighlights = document.querySelectorAll('.search-current');
+                currentHighlights.forEach(el => el.classList.remove('search-current'));
+            }
+
+            function updateSearchStatus() {
+                if (searchMatches.length === 0) {
+                    searchStatus.textContent = searchInput.value ? 'No matches found' : '';
+                    nextBtn.disabled = true;
+                } else {
+                    if (currentMatchIndex === -1) {
+                        searchStatus.textContent = searchMatches.length + ' matches found';
+                    } else {
+                        searchStatus.textContent = (currentMatchIndex + 1) + ' of ' + searchMatches.length;
+                    }
+                    nextBtn.disabled = false;
+                }
+            }
+
+            function goToNextMatch() {
+                if (searchMatches.length === 0) return;
+
+                // Clear current match highlighting
+                const currentHighlights = document.querySelectorAll('.search-current');
+                currentHighlights.forEach(el => el.classList.remove('search-current'));
+
+                // Move to next match (cycle through)
+                currentMatchIndex = (currentMatchIndex + 1) % searchMatches.length;
+                const match = searchMatches[currentMatchIndex];
+
+                // Highlight current match
+                const highlight = match.cell.querySelector('.search-highlight');
+                if (highlight) {
+                    highlight.classList.add('search-current');
+                }
+
+                // Scroll to match
+                match.row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                updateSearchStatus();
+            }
+
+            function openSearch() {
+                searchOverlay.style.display = 'flex';
+                searchInput.focus();
+            }
+
+            function closeSearch() {
+                searchOverlay.style.display = 'none';
+                clearHighlights();
+                searchInput.value = '';
+                searchMatches = [];
+                currentMatchIndex = -1;
+                updateSearchStatus();
+            }
+
+            // Event listeners for search
+            if (openSearchBtn) {
+                openSearchBtn.addEventListener('click', openSearch);
+            }
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeSearch);
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', goToNextMatch);
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.trim();
+                    currentMatchIndex = -1;
+                    highlightMatches(query);
+
+                    // Auto-jump to first match if there's only one
+                    if (searchMatches.length === 1) {
+                        goToNextMatch();
+                    }
+                });
+
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (searchMatches.length > 0) {
+                            goToNextMatch();
+                        }
+                    } else if (e.key === 'Escape') {
+                        closeSearch();
+                    }
+                });
+            }
+
+            // Close on overlay click
+            if (searchOverlay) {
+                searchOverlay.addEventListener('click', (e) => {
+                    if (e.target === searchOverlay) {
+                        closeSearch();
+                    }
+                });
+            }
         });
         </script>`
         .replace('__PILOT_DURATIONS_PLACEHOLDER__', JSON.stringify(pilotDurationsEmbedded));
@@ -3152,7 +3301,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">< 200 hrs PIC</button></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">< 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -3163,7 +3312,137 @@ No maximum distance bonus\`
             display: flex;
             gap: 10px;
             justify-content: center;
+            align-items: center;
             padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Find button */
+        .find-btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+        }
+
+        .find-btn:hover {
+            background: linear-gradient(135deg, #218838, #1ea080);
+            box-shadow: 0 3px 6px rgba(40, 167, 69, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Floating search overlay */
+        .search-overlay {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+        }
+
+        .search-widget {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 300px;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        #searchInput:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+        }
+
+        #nextBtn {
+            padding: 8px 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        #nextBtn:hover:not(:disabled) {
+            background: #0056b3;
+        }
+
+        #nextBtn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        #closeBtn {
+            padding: 8px 10px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        #closeBtn:hover {
+            background: #c82333;
+        }
+
+        #searchStatus {
+            position: absolute;
+            top: -25px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        /* Search highlight */
+        .search-highlight {
+            background: #ffeb3b !important;
+            font-weight: bold;
+            border-radius: 3px;
+            padding: 2px 4px;
+        }
+
+        .search-current {
+            background: #ff5722 !important;
+            color: white;
+        }
+
+        .pilot-highlight {
+            background: #ffeb3b !important;
+            font-weight: bold;
+            border-radius: 3px;
+            padding: 2px 4px;
+        }
+
+        .pilot-current {
+            background: #ff5722 !important;
+            color: white !important;
         }
 
         .toggle-btn {
