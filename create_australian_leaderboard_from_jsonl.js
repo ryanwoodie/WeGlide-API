@@ -3159,13 +3159,35 @@ No maximum distance bonus\`
 
                 rows.forEach((row, rowIndex) => {
                     const pilotCell = row.querySelector('td:nth-child(2)'); // Pilot name column
-                    if (pilotCell && pilotCell.textContent.match(regex)) {
-                        searchMatches.push({ row, cell: pilotCell, rowIndex });
+                    if (pilotCell) {
+                        // Look for the pilot link first (this preserves the structure)
+                        const pilotLink = pilotCell.querySelector('a.pilot-link');
 
-                        // Highlight the matching text
-                        const originalText = pilotCell.textContent;
-                        const highlightedText = originalText.replace(regex, '<mark class="search-highlight">$&</mark>');
-                        pilotCell.innerHTML = highlightedText;
+                        if (pilotLink && pilotLink.textContent.match(regex)) {
+                            searchMatches.push({ row, cell: pilotCell, rowIndex });
+
+                            // Store original HTML to restore later
+                            if (!pilotCell.dataset.originalHtml) {
+                                pilotCell.dataset.originalHtml = pilotCell.innerHTML;
+                            }
+
+                            // Only highlight within the pilot link, preserving the link structure
+                            const originalText = pilotLink.textContent;
+                            const highlightedText = originalText.replace(regex, '<mark class="search-highlight">$&</mark>');
+                            pilotLink.innerHTML = highlightedText;
+                        } else if (!pilotLink && pilotCell.textContent.match(regex)) {
+                            // Fallback for cells without pilot links
+                            searchMatches.push({ row, cell: pilotCell, rowIndex });
+
+                            // Store original HTML to restore later
+                            if (!pilotCell.dataset.originalHtml) {
+                                pilotCell.dataset.originalHtml = pilotCell.innerHTML;
+                            }
+
+                            const originalText = pilotCell.textContent;
+                            const highlightedText = originalText.replace(regex, '<mark class="search-highlight">$&</mark>');
+                            pilotCell.innerHTML = highlightedText;
+                        }
                     }
                 });
 
@@ -3173,6 +3195,17 @@ No maximum distance bonus\`
             }
 
             function clearHighlights() {
+                // Restore original HTML for cells that were modified during search
+                const leaderboardTable = document.querySelector('.leaderboard tbody');
+                if (leaderboardTable) {
+                    const modifiedCells = leaderboardTable.querySelectorAll('td[data-original-html]');
+                    modifiedCells.forEach(cell => {
+                        cell.innerHTML = cell.dataset.originalHtml;
+                        delete cell.dataset.originalHtml;
+                    });
+                }
+
+                // Fallback: clear any remaining highlights
                 const highlights = document.querySelectorAll('.search-highlight');
                 highlights.forEach(highlight => {
                     const parent = highlight.parentNode;
