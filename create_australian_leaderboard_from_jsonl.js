@@ -3339,7 +3339,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -4281,10 +4281,50 @@ No maximum distance bonus\`
             background: rgba(255,255,255,0.98);
         }
 
+        /* Table wrapper for horizontal scrolling on mobile */
+        .task-stats-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+
         .task-stats-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.8em;
+            min-width: 650px; /* Ensure minimum width to prevent crushing */
+            border: none; /* Remove border since wrapper has it */
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .task-stats-table {
+                font-size: 0.7em;
+                min-width: 600px; /* Slightly smaller on mobile */
+            }
+
+            .task-stats-content {
+                padding: 8px 10px;
+            }
+
+            .task-stats-table-wrapper {
+                /* Add scrollbar hint on mobile */
+                border-left: 3px solid #007bff;
+            }
+
+            .task-stats-table-wrapper::after {
+                content: "← Scroll for more →";
+                display: block;
+                text-align: center;
+                font-size: 0.65em;
+                color: #6c757d;
+                padding: 4px;
+                background: #f8f9fa;
+                border-top: 1px solid #dee2e6;
+                font-style: italic;
+            }
         }
 
         .task-stats-table th {
