@@ -876,6 +876,8 @@ No maximum distance bonus\`
 
         function applyUnder200Filter(list) {
             if (!under200Enabled) return list;
+            // Don't apply 200-hour filter to Silver C-Gull candidates (they have age-based eligibility)
+            if (list === silverCGullLeaderboard) return list;
             return list.filter(p => (typeof pilotDurations[p.pilotId] === 'number') && pilotDurations[p.pilotId] < HOURS_200_SEC);
         }
 
@@ -3113,6 +3115,11 @@ No maximum distance bonus\`
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
                 underBtn.addEventListener('click', () => {
+                    // If currently viewing Silver C-Gull candidates, switch back to default view
+                    if (leaderboard === silverCGullLeaderboard) {
+                        switchScoringMode('mixed'); // Switch back to default mixed view
+                    }
+
                     under200Enabled = !under200Enabled;
                     underBtn.classList.toggle('active', under200Enabled);
                     updateUnder200ButtonLabel();
