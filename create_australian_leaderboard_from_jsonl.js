@@ -1022,17 +1022,9 @@ No maximum distance bonus\`
                 document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
 
             } else if (mode === 'silverCGull') {
-                // Apply 200-hour filter if enabled
-                if (under200Enabled) {
-                    leaderboard = silverCGullLeaderboard.filter(p =>
-                        (typeof pilotDurations[p.pilotId] === 'number') &&
-                        pilotDurations[p.pilotId] < HOURS_200_SEC
-                    );
-                    document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement (< 200 hrs PIC) • Single qualifying flight • Sorted by last name';
-                } else {
-                    leaderboard = silverCGullLeaderboard;
-                    document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
-                }
+                // Silver C-Gull candidates always show ALL candidates (no 200-hour filter applied)
+                leaderboard = silverCGullLeaderboard;
+                document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
 
                 // Update main stats for Silver C-Gull mode
                 document.getElementById('pilotCount').textContent = leaderboard.length;
@@ -1758,7 +1750,9 @@ No maximum distance bonus\`
 
             // Find verified and unverified pilots
             const getVerificationStatus = (pilot) => {
-                return pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilot.pilotId];
+                const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilot.pilotId];
+                // Only consider user-entered verifications, not WeGlide-calculated ones
+                return verificationData && verificationData.dataSource === 'user-entered';
             };
 
             // Get top verified pilot and any higher unverified pilots
@@ -2183,6 +2177,17 @@ No maximum distance bonus\`
                 return '<p class="no-winner">No eligible winner found</p>';
             }
 
+            const getVerificationStatusText = (pilot) => {
+                const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilot.pilotId];
+                // Only consider user-entered verifications, not WeGlide-calculated ones
+                const isVerified = verificationData && verificationData.dataSource === 'user-entered';
+                if (isVerified) {
+                    return '<span class="verification-status verified">✓ <200hrs PIC Verified</span>';
+                } else {
+                    return '<span class="verification-status unverified">⚠ Needs PIC verification</span>';
+                }
+            };
+
             let html = '';
 
             // Show current verified winner
@@ -2195,7 +2200,7 @@ No maximum distance bonus\`
                             <span class="winner-score">\${score.toFixed(1)} pts</span>
                         </div>
                         <span class="winner-type">Combined</span>
-                        <span class="verification-status verified">✓ <200hrs PIC Verified</span>
+                        \${getVerificationStatusText(trophy.combined)}
                     </div>
                 \`;
             }
@@ -2209,7 +2214,7 @@ No maximum distance bonus\`
                             <span class="winner-score">\${score.toFixed(1)} pts</span>
                         </div>
                         <span class="winner-type">Free</span>
-                        <span class="verification-status verified">✓ <200hrs PIC Verified</span>
+                        \${getVerificationStatusText(trophy.free)}
                     </div>
                 \`;
             }
@@ -3334,7 +3339,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">< 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div>'
         );
 
         // Add CSS for toggle buttons and award badges
