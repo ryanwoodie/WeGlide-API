@@ -756,9 +756,9 @@ async function processAustralianFlights() {
 
         // Replace Canadian-specific content with Australian content
         let australianHTML = canadianHTML
-            .replace(/Canadian Gliding Leaderboard 2025/g, 'Australian Gliding Leaderboard 2025')
-            .replace(/🏆 Canadian Gliding Leaderboard 2025/g, '🇦🇺 Australian Gliding Leaderboard 2025')
-            .replace(/Soaring Association of Canada/g, 'Gliding Federation of Australia')
+            .replace(/Canadian Gliding Leaderboard 2025/g, 'Soaring Association of Canada Leaderboard 2025')
+            .replace(/🏆 Canadian Gliding Leaderboard 2025/g, '🏆 Soaring Association of Canada Leaderboard 2025')
+            .replace(/Soaring Association of Canada/g, 'Soaring Association of Canada')
             // Add Firebase CDN scripts before closing head tag
             .replace('</head>', `
     <!-- Firebase CDN -->
@@ -773,7 +773,7 @@ async function processAustralianFlights() {
             // Remove the logo image
             .replace(/<img src="[^"]*logo[^"]*"[^>]*>/g, '')
             // Add ID to scoring description for dynamic updates
-            .replace(/<p>Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025<\/p>/g, '<p id="scoringDescription">Best 5 flights per pilot • Higher of <span class="scoring-tooltip" data-tooltip="task">WeGlide Task</span> or <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> • Oct 2024 - Sep 2025</p>')
+            .replace(/<p>Best 5 flights per pilot • Higher of WeGlide Task or Free scoring • Oct 2024 - Sep 2025<\/p>/g, '<p id="scoringDescription">Best 5 flights per pilot • Higher of <span class="scoring-tooltip" data-tooltip="task">WeGlide Task</span> or <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> • Oct 2024 - Sep 2025</p>\n                ')
             // Replace season period with task stats
             .replace(/<div class="stat">\s*<span class="stat-number" id="seasonPeriod">Oct 2024 - Sep 2025<\/span>\s*<span class="stat-label">Season Period<\/span>\s*<\/div>/g,
                 `<div class="stat">
@@ -1213,7 +1213,7 @@ No maximum distance bonus\`
             }
 
             return \`
-                <td class="flight-cell" onmouseover="showFlightPreview(\${flight.id}, event)" onmouseout="hideFlightPreview()">
+                <td class="flight-cell" onmouseover="showFlightPreview(\${flight.id}, event)" onmouseout="hideFlightPreview(event)">
                     <div class="flight-details">
                         <div class="flight-points">\${flight.points.toFixed(1)} pts\${declaredBadge}</div>
                         <div class="flight-distance">\${flight.distance.toFixed(1)} km</div>
@@ -1330,6 +1330,7 @@ No maximum distance bonus\`
         // Flight preview functionality
         let previewTimeout;
         let previewElement;
+        let flightHideTimeout;
         let pilotPreviewTimeout;
         let pilotPreviewElement;
         let pilotPreviewHideTimeout;
@@ -1477,13 +1478,19 @@ No maximum distance bonus\`
             }
         }
 
+        function cancelFlightHide() {
+            if (flightHideTimeout) {
+                clearTimeout(flightHideTimeout);
+                flightHideTimeout = null;
+            }
+        }
+
         function showFlightPreview(flightId, event) {
-            // Clear any existing timeout
             if (previewTimeout) {
                 clearTimeout(previewTimeout);
             }
+            cancelFlightHide();
 
-            // Delay showing preview by 300ms to avoid showing on quick hovers
             previewTimeout = setTimeout(() => {
                 // Find the flight data in our current leaderboard
                 let basicFlightData = null;
@@ -1507,7 +1514,7 @@ No maximum distance bonus\`
         }
 
         function showFlightTooltip(flightData, detailedFlight, event) {
-            hideFlightPreview(); // Hide any existing preview
+            hideFlightPreview(null, true); // Hide any existing preview
 
             previewElement = document.createElement('div');
             previewElement.className = 'flight-preview';
@@ -1782,6 +1789,9 @@ No maximum distance bonus\`
 
             document.body.appendChild(previewElement);
 
+            previewElement.addEventListener('mouseenter', cancelFlightHide);
+            previewElement.addEventListener('mouseleave', (evt) => hideFlightPreview(evt));
+
             // Center the tooltip in the viewport
             previewElement.style.left = '50%';
             previewElement.style.top = '50%';
@@ -1795,16 +1805,34 @@ No maximum distance bonus\`
             }, 10);
         }
 
-        function hideFlightPreview() {
+        function hideFlightPreview(evt, immediate = false) {
             if (previewTimeout) {
                 clearTimeout(previewTimeout);
                 previewTimeout = null;
             }
 
-            if (previewElement) {
-                previewElement.remove();
-                previewElement = null;
+            if (immediate) {
+                cancelFlightHide();
+                if (previewElement) {
+                    previewElement.remove();
+                    previewElement = null;
+                }
+                return;
             }
+
+            cancelFlightHide();
+
+            const related = evt ? (evt.relatedTarget || evt.toElement || null) : null;
+            if (related && previewElement && previewElement.contains(related)) {
+                return; // Moving into tooltip; keep open
+            }
+
+            flightHideTimeout = setTimeout(() => {
+                if (previewElement && !previewElement.matches(':hover')) {
+                    previewElement.remove();
+                    previewElement = null;
+                }
+            }, 300);
         }
 
         function closeFlightTooltip(event) {
@@ -1812,7 +1840,7 @@ No maximum distance bonus\`
                 event.preventDefault();
                 event.stopPropagation();
             }
-            hideFlightPreview();
+            hideFlightPreview(null, true);
         }
 
         // Function to calculate aircraft awards for visible pilots
@@ -3741,7 +3769,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice">(Mock leaderboard using Australian data for demonstration purposes.)</p>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -4897,15 +4925,39 @@ No maximum distance bonus\`
 
         .task-description {
             color: #666;
+        }
+
+        .mock-notice {
+            font-size: 0.85em;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            margin: 12px 0 0;
+        }
+
+        .mock-notice {
+            font-size: 0.85em;
+            color: rgba(255, 255, 255, 0.8);
         }`;
 
         australianHTML = australianHTML.replace('</style>', toggleCSS + '\n    </style>');
 
 
         // Write the Australian leaderboard HTML
-        fs.writeFileSync('australian_leaderboard.html', australianHTML);
+        fs.writeFileSync('SAC_leaderboard.html', australianHTML);
 
-        console.log('✅ Created australian_leaderboard.html');
+        fs.writeFileSync('australian_leaderboard.html', `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=./SAC_leaderboard.html" />
+  <title>Redirecting…</title>
+</head>
+<body>
+  <p>Redirecting to <a href="./SAC_leaderboard.html">SAC Leaderboard</a>…</p>
+</body>
+</html>`);
+
+        console.log('✅ Created SAC_leaderboard.html and redirecting australian_leaderboard.html');
 
         // Run server-side WeGlide verification calculation
         console.log('🔄 Running WeGlide verification calculations...');
