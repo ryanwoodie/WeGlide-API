@@ -810,6 +810,7 @@ async function processAustralianFlights() {
         let leaderboard = [];
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
+        const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SEASON_START = new Date('${seasonStartIso ? seasonStartIso + 'T00:00:00Z' : ''}');
         const SEASON_END = new Date('${seasonEndIso ? seasonEndIso + 'T23:59:59Z' : ''}');
         const SEASON_LABEL = '${seasonLabel}';
@@ -1040,7 +1041,8 @@ No maximum distance bonus\`
             const currentYear = new Date().getFullYear();
 
             let tooltipContent = \`
-                <div class="pilot-tooltip">
+                <div class="pilot-tooltip" role="dialog" aria-label="\${pilotName} season summary">
+                    <button class="pilot-tooltip-close" type="button" onclick="closePilotTooltip(event)" aria-label="Close profile tooltip">×</button>
                     <div class="pilot-tooltip-header">
                         <h4>\${pilotName}</h4>
                         <a href="https://www.weglide.org/user/\${pilotId}" target="_blank" class="weglide-profile-link">View Full Profile →</a>
@@ -1330,22 +1332,40 @@ No maximum distance bonus\`
         let previewElement;
         let pilotPreviewTimeout;
         let pilotPreviewElement;
+        let pilotPreviewHideTimeout;
+        let pilotPreviewTrigger;
 
-        function showPilotPreview(pilotId, pilotName, _triggerElement) {
-            // Clear any existing timeout
+        function cancelPilotPreviewHide() {
+            if (pilotPreviewHideTimeout) {
+                clearTimeout(pilotPreviewHideTimeout);
+                pilotPreviewHideTimeout = null;
+            }
+        }
+
+        function removePilotPreview() {
+            cancelPilotPreviewHide();
+            if (pilotPreviewElement) {
+                pilotPreviewElement.remove();
+                pilotPreviewElement = null;
+            }
+            pilotPreviewTrigger = null;
+        }
+
+        function showPilotPreview(pilotId, pilotName, triggerElement) {
             if (pilotPreviewTimeout) {
                 clearTimeout(pilotPreviewTimeout);
             }
 
-            // Set timeout for pilot tooltip
+            cancelPilotPreviewHide();
+            pilotPreviewTrigger = triggerElement || null;
+
             pilotPreviewTimeout = setTimeout(() => {
-                // Remove existing pilot preview
+                pilotPreviewTimeout = null;
                 if (pilotPreviewElement) {
                     pilotPreviewElement.remove();
                     pilotPreviewElement = null;
                 }
 
-                // Create pilot tooltip
                 const tooltipContent = createPilotTooltip(pilotId, pilotName);
                 pilotPreviewElement = document.createElement('div');
                 pilotPreviewElement.className = 'flight-preview';
@@ -1354,12 +1374,13 @@ No maximum distance bonus\`
                 pilotPreviewElement.style.pointerEvents = 'auto';
                 pilotPreviewElement.style.zIndex = '10000';
                 pilotPreviewElement.style.opacity = '0';
+                pilotPreviewElement.dataset.pilotId = String(pilotId);
 
                 document.body.appendChild(pilotPreviewElement);
 
-                pilotPreviewElement.addEventListener('mouseleave', hidePilotPreview);
+                pilotPreviewElement.addEventListener('mouseenter', cancelPilotPreviewHide);
+                pilotPreviewElement.addEventListener('mouseleave', () => hidePilotPreview(null));
 
-                // Center tooltip in viewport for consistent positioning
                 pilotPreviewElement.style.left = '50%';
                 pilotPreviewElement.style.top = '50%';
                 pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
@@ -1369,22 +1390,91 @@ No maximum distance bonus\`
                         pilotPreviewElement.style.opacity = '1';
                     }
                 });
-            }, 300);
+            }, 250);
         }
 
-        function hidePilotPreview() {
-            // Clear timeout
+        function hidePilotPreview(evt, immediate = false) {
             if (pilotPreviewTimeout) {
                 clearTimeout(pilotPreviewTimeout);
+                pilotPreviewTimeout = null;
             }
 
-            // Remove preview after delay
-            setTimeout(() => {
-                if (pilotPreviewElement && !pilotPreviewElement.matches(':hover')) {
-                    pilotPreviewElement.remove();
-                    pilotPreviewElement = null;
+            if (immediate) {
+                cancelPilotPreviewHide();
+                removePilotPreview();
+                return;
+            }
+
+            cancelPilotPreviewHide();
+
+            const eventObj = evt || window.event || null;
+
+            if (eventObj) {
+                const related = eventObj.relatedTarget || eventObj.toElement || null;
+                if (related) {
+                    if (pilotPreviewElement && pilotPreviewElement.contains(related)) {
+                        return;
+                    }
+                    if (pilotPreviewTrigger && pilotPreviewTrigger.contains(related)) {
+                        return;
+                    }
                 }
-            }, 700);
+            }
+
+            pilotPreviewHideTimeout = setTimeout(() => {
+                if (!pilotPreviewElement) return;
+                if (pilotPreviewElement.matches(':hover')) return;
+                removePilotPreview();
+            }, 600);
+        }
+
+        function pilotHoverEnter(event, pilotId, pilotName, element) {
+            if (IS_TOUCH_DEVICE) return;
+            showPilotPreview(pilotId, pilotName, element);
+        }
+
+        function pilotHoverLeave(event) {
+            if (IS_TOUCH_DEVICE) return;
+            hidePilotPreview(event);
+        }
+
+        function pilotFocus(event, pilotId, pilotName, element) {
+            showPilotPreview(pilotId, pilotName, element);
+        }
+
+        function pilotBlur(event) {
+            hidePilotPreview(event);
+        }
+
+        function pilotLinkTap(event, pilotId, pilotName, element) {
+            if (!IS_TOUCH_DEVICE) {
+                return true;
+            }
+
+            if (pilotPreviewElement && pilotPreviewElement.dataset && pilotPreviewElement.dataset.pilotId === String(pilotId)) {
+                hidePilotPreview(null, true);
+                return true;
+            }
+
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            showPilotPreview(pilotId, pilotName, element);
+            return false;
+        }
+
+        function closePilotTooltip(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            const trigger = pilotPreviewTrigger;
+            hidePilotPreview(null, true);
+            if (trigger && typeof trigger.focus === 'function') {
+                setTimeout(() => trigger.focus(), 0);
+            }
         }
 
         function showFlightPreview(flightId, event) {
@@ -1421,6 +1511,7 @@ No maximum distance bonus\`
 
             previewElement = document.createElement('div');
             previewElement.className = 'flight-preview';
+            previewElement.style.pointerEvents = 'auto';
 
             // Determine task status and scoring type separately
             let taskStatusBadge = '';
@@ -1677,7 +1768,7 @@ No maximum distance bonus\`
             }
 
             previewElement.innerHTML = \`
-                <button class="tooltip-close-btn" onclick="this.parentElement.remove()">&times;</button>
+                <button class="tooltip-close-btn" onclick="closeFlightTooltip(event)">&times;</button>
                 <div class="flight-tooltip-header">
                     <strong>\${flightData.pilot}</strong>
                     \${aircraftHeaderDisplay ? \`<span class="aircraft-info">\${aircraftHeaderDisplay}</span>\` : ''}
@@ -1714,6 +1805,14 @@ No maximum distance bonus\`
                 previewElement.remove();
                 previewElement = null;
             }
+        }
+
+        function closeFlightTooltip(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            hideFlightPreview();
         }
 
         // Function to calculate aircraft awards for visible pilots
@@ -1779,12 +1878,12 @@ No maximum distance bonus\`
                 if (isSilverCGull) {
                     // For Silver C-Gull, check if pilotId is available
                     if (pilot.userId) {
-                        pilotName = \`<a href="https://www.weglide.org/user/\${pilot.userId}" target="_blank" class="pilot-link" onmouseover="showPilotPreview('\${pilot.userId}', '\${safePilotNameAttr}', this)" onmouseout="hidePilotPreview()" onfocus="showPilotPreview('\${pilot.userId}', '\${safePilotNameAttr}', this)" onblur="hidePilotPreview()">\${pilot.pilot}</a>\`;
+                        pilotName = \`<a href="https://www.weglide.org/user/\${pilot.userId}" target="_blank" class="pilot-link" onmouseenter="pilotHoverEnter(event, '\${pilot.userId}', '\${safePilotNameAttr}', this)" onmouseleave="pilotHoverLeave(event)" onfocus="pilotFocus(event, '\${pilot.userId}', '\${safePilotNameAttr}', this)" onblur="pilotBlur(event)" onclick="return pilotLinkTap(event, '\${pilot.userId}', '\${safePilotNameAttr}', this)">\${pilot.pilot}</a>\`;
                     } else {
                         pilotName = pilot.pilot;
                     }
                 } else {
-                    pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link" onmouseover="showPilotPreview('\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onmouseout="hidePilotPreview()" onfocus="showPilotPreview('\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onblur="hidePilotPreview()">\${pilot.pilot}</a>\`;
+                    pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link" onmouseenter="pilotHoverEnter(event, '\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onmouseleave="pilotHoverLeave(event)" onfocus="pilotFocus(event, '\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onblur="pilotBlur(event)" onclick="return pilotLinkTap(event, '\${pilot.pilotId}', '\${safePilotNameAttr}', this)">\${pilot.pilot}</a>\`;
                 }
 
                 // Add verification status for under 200 hrs mode
@@ -3785,6 +3884,24 @@ No maximum distance bonus\`
             max-width: 400px;
             font-size: 13px;
             line-height: 1.4;
+            position: relative;
+        }
+
+        .pilot-tooltip-close {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            border: none;
+            background: transparent;
+            color: #888;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .pilot-tooltip-close:hover {
+            color: #333;
         }
 
         .pilot-tooltip-header {
