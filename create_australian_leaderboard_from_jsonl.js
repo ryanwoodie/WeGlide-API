@@ -96,6 +96,8 @@ async function processAustralianFlights() {
     let australianCount = 0;
     let australianFlights = []; // Store all flight data for detailed tooltips
     let allFlightData = []; // Store all original flight data for statistics
+    let seasonStartDate = null;
+    let seasonEndDate = null;
 
     try {
         const fileStream = fs.createReadStream('australian_flights_2025_details.jsonl');
@@ -114,6 +116,19 @@ async function processAustralianFlights() {
                     // All flights in this file are Australian
                     australianCount++;
                     const pilotName = flight.user?.name;
+
+                    // Track season date range
+                    if (flight.scoring_date) {
+                        const scoringDate = new Date(flight.scoring_date + 'T00:00:00Z');
+                        if (!Number.isNaN(scoringDate.getTime())) {
+                            if (!seasonStartDate || scoringDate < seasonStartDate) {
+                                seasonStartDate = scoringDate;
+                            }
+                            if (!seasonEndDate || scoringDate > seasonEndDate) {
+                                seasonEndDate = scoringDate;
+                            }
+                        }
+                    }
 
                     // Store original flight data for statistics
                     allFlightData.push(flight);
@@ -509,19 +524,52 @@ async function processAustralianFlights() {
         console.log(`💾 Saved detailed flight data to australian_flight_details.json`);
 
         // Write minimal flight data for task stats to separate file
-        const minimalFlightData = allFlightData.map(f => ({
-            id: f.id,
-            user: f.user ? { id: f.user.id, name: f.user.name } : null,
-            task: f.task,
-            task_achieved: f.task_achieved,
-            contest: f.contest ? f.contest.map(c => ({
-                name: c.name,
-                points: c.points,
-                distance: c.distance,
-                speed: c.speed,
-                score: c.score ? { declared: c.score.declared } : null
-            })) : null
-        }));
+        const minimalFlightData = allFlightData.map(f => {
+            const bestContest = Array.isArray(f.contest) ? f.contest.reduce((best, current) => {
+                if (!current || typeof current.points !== 'number') return best;
+                if (!best || current.points > (best.points || 0)) {
+                    return current;
+                }
+                return best;
+            }, null) : null;
+
+            const primaryDistance = (typeof bestContest?.distance === 'number')
+                ? bestContest.distance
+                : (typeof f.task?.distance === 'number') ? f.task.distance
+                : null;
+
+            const durationSeconds = (typeof f.total_seconds === 'number')
+                ? f.total_seconds
+                : (typeof bestContest?.score?.duration === 'number') ? bestContest.score.duration
+                : null;
+
+            return {
+                id: f.id,
+                user: f.user ? { id: f.user.id, name: f.user.name } : null,
+                date: f.scoring_date || null,
+                distance: typeof primaryDistance === 'number' ? primaryDistance : 0,
+                duration: typeof durationSeconds === 'number' ? durationSeconds : 0,
+                taskDeclared: !!f.task,
+                taskCompleted: f.task_achieved === true,
+                task: f.task ? {
+                    kind: f.task.kind,
+                    from_igcfile: f.task.from_igcfile,
+                    distance: f.task.distance,
+                    laps: f.task.laps,
+                    name: f.task.name,
+                    type: f.task.type
+                } : null,
+                task_achieved: f.task_achieved === true,
+                contest: f.contest ? f.contest.map(c => ({
+                    name: c.name,
+                    points: c.points,
+                    distance: c.distance,
+                    speed: c.speed,
+                    score: c.score ? { declared: c.score.declared } : null
+                })) : null,
+                takeoff_airport: f.takeoff_airport ? { name: f.takeoff_airport.name, region: f.takeoff_airport.region } : null
+            };
+        });
         fs.writeFileSync('australian_flight_stats.json', JSON.stringify(minimalFlightData, null, 2));
         console.log(`💾 Saved flight stats data to australian_flight_stats.json`);
 
@@ -612,9 +660,10 @@ async function processAustralianFlights() {
             return;
         }
 
-        // Helper: server-side fetch of pilot durations (no CORS in Node)
-        async function fetchUserDurationsServer(pilotIds) {
-            const out = {};
+        // Helper: server-side fetch of pilot profile data (no CORS in Node)
+        async function fetchUserProfilesServer(pilotIds) {
+            const durations = {};
+            const profiles = {};
             const chunk = 100;
             for (let i = 0; i < pilotIds.length; i += chunk) {
                 const slice = pilotIds.slice(i, i + chunk);
@@ -624,40 +673,68 @@ async function processAustralianFlights() {
                     if (!resp.ok) continue;
                     const arr = await resp.json();
                     arr.forEach(u => {
-                        if (u && typeof u.id === 'number' && typeof u.total_flight_duration === 'number') {
-                            out[u.id] = u.total_flight_duration;
+                        if (u && typeof u.id === 'number') {
+                            // Store duration for backward compatibility
+                            if (typeof u.total_flight_duration === 'number') {
+                                durations[u.id] = u.total_flight_duration;
+                            }
+                            // Store full profile data for tooltips
+                            profiles[u.id] = {
+                                total_flight_duration: u.total_flight_duration || 0,
+                                total_free_distance: u.total_free_distance || 0,
+                                avg_speed: u.avg_speed || 0,
+                                flight_count: u.flight_count || 0,
+                                avg_glide_speed: u.avg_glide_speed || 0,
+                                avg_glide_detour: u.avg_glide_detour || 0,
+                                achievement_count: u.achievement_count || 0,
+                                name: u.name || '',
+                                gender: u.gender || '',
+                                club: u.club || {},
+                                home_airport: u.home_airport || {}
+                            };
                         }
                     });
                 } catch (e) {
-                    console.warn('Server-side duration fetch failed for batch:', e.message || e);
+                    console.warn('Server-side profile fetch failed for batch:', e.message || e);
                 }
             }
-            return out;
+            return { durations, profiles };
         }
 
-        // Compute unique pilot IDs and prefetch durations server-side
+        // Compute unique pilot IDs and prefetch profile data server-side
         const allPilotIds = Array.from(new Set([...mixedLeaderboard, ...freeLeaderboard].map(p => p.pilotId)));
         let pilotDurationsEmbedded = {};
+        let pilotProfilesEmbedded = {};
         try {
-            const cachePath = 'australian_user_durations.json';
+            const durationsPath = 'australian_user_durations.json';
+            const profilesPath = 'australian_user_profiles.json';
             let loaded = false;
-            if (fs.existsSync(cachePath)) {
-                pilotDurationsEmbedded = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
-                if (pilotDurationsEmbedded && Object.keys(pilotDurationsEmbedded).length > 0) {
-                    console.log('ℹ️ Loaded cached australian_user_durations.json');
+
+            // Try to load both caches
+            if (fs.existsSync(durationsPath) && fs.existsSync(profilesPath)) {
+                pilotDurationsEmbedded = JSON.parse(fs.readFileSync(durationsPath, 'utf-8'));
+                pilotProfilesEmbedded = JSON.parse(fs.readFileSync(profilesPath, 'utf-8'));
+                if (pilotDurationsEmbedded && Object.keys(pilotDurationsEmbedded).length > 0 &&
+                    pilotProfilesEmbedded && Object.keys(pilotProfilesEmbedded).length > 0) {
+                    console.log('ℹ️ Loaded cached australian_user_durations.json and profiles');
                     loaded = true;
                 } else {
-                    console.log('ℹ️ Cache exists but empty, refetching durations...');
+                    console.log('ℹ️ Cache exists but incomplete, refetching data...');
                 }
             }
+
             if (!loaded) {
-                console.log('⏬ Fetching pilot durations from WeGlide...');
-                pilotDurationsEmbedded = await fetchUserDurationsServer(allPilotIds);
-                fs.writeFileSync(cachePath, JSON.stringify(pilotDurationsEmbedded, null, 2));
-                console.log('💾 Saved pilot durations to australian_user_durations.json');
+                console.log('⏬ Fetching pilot profile data from WeGlide...');
+                const { durations, profiles } = await fetchUserProfilesServer(allPilotIds);
+                pilotDurationsEmbedded = durations;
+                pilotProfilesEmbedded = profiles;
+
+                fs.writeFileSync(durationsPath, JSON.stringify(pilotDurationsEmbedded, null, 2));
+                fs.writeFileSync(profilesPath, JSON.stringify(pilotProfilesEmbedded, null, 2));
+                console.log('💾 Saved pilot durations and profiles to cache files');
             }
         } catch (e) {
-            console.warn('⚠️ Could not load/save australian_user_durations.json:', e.message || e);
+            console.warn('⚠️ Could not load/save pilot profile data:', e.message || e);
         }
 
         // Load pilot verification data
@@ -717,6 +794,13 @@ async function processAustralianFlights() {
         const scriptEnd = australianHTML.lastIndexOf('</script>') + 9;
 
         // Build script content with embedded durations
+        const seasonStartIso = seasonStartDate ? seasonStartDate.toISOString().split('T')[0] : '';
+        const seasonEndIso = seasonEndDate ? seasonEndDate.toISOString().split('T')[0] : '';
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const seasonLabel = (seasonStartDate && seasonEndDate)
+            ? `${monthNames[seasonStartDate.getUTCMonth()]} ${seasonStartDate.getUTCFullYear()} - ${monthNames[seasonEndDate.getUTCMonth()]} ${seasonEndDate.getUTCFullYear()}`
+            : 'Current Season';
+
         const newScriptContent = `<script>
         // Global variables for leaderboard data
         let mixedLeaderboard = [];
@@ -726,6 +810,9 @@ async function processAustralianFlights() {
         let leaderboard = [];
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
+        const SEASON_START = new Date('${seasonStartIso ? seasonStartIso + 'T00:00:00Z' : ''}');
+        const SEASON_END = new Date('${seasonEndIso ? seasonEndIso + 'T23:59:59Z' : ''}');
+        const SEASON_LABEL = '${seasonLabel}';
 
         // Tooltip functionality
         const tooltipTexts = {
@@ -757,6 +844,8 @@ Distance and bonuses optimized/maximized
 for legs/shape flown
 No maximum distance bonus\`
         };
+
+        // Pilot tooltip event listeners no longer needed - using inline HTML events like flight tooltips
 
         function addTooltipListeners() {
             // Remove any existing tooltips
@@ -866,8 +955,177 @@ No maximum distance bonus\`
         // Embedded pilot durations (seconds), keyed by pilotId
         const pilotDurations = __PILOT_DURATIONS_PLACEHOLDER__;
 
+        // Embedded pilot profile data, keyed by pilotId
+        const pilotProfiles = __PILOT_PROFILES_PLACEHOLDER__;
+
         // Embedded pilot PIC hours verifications
         const pilotVerifications = __PILOT_VERIFICATIONS_PLACEHOLDER__;
+
+        function isWithinSeason(dateString) {
+            if (!dateString) return false;
+            const normalized = dateString.includes('T') ? dateString : dateString + 'T00:00:00Z';
+            const date = new Date(normalized);
+            if (Number.isNaN(date.getTime())) return false;
+            if (Number.isNaN(SEASON_START.getTime()) || Number.isNaN(SEASON_END.getTime())) return true;
+            return date >= SEASON_START && date <= SEASON_END;
+        }
+
+        // Get pilot profile data from embedded data (no API calls needed)
+        function getPilotProfile(pilotId) {
+            return pilotProfiles[pilotId] || null;
+        }
+
+        // Calculate current year stats for a pilot
+        function calculateCurrentYearStats(pilotId) {
+            let flightCount = 0;
+            let totalDistance = 0;
+            let totalDuration = 0;
+            let tasksDeclared = 0;
+            let tasksCompleted = 0;
+            let speedSum = 0;
+            let speedCount = 0;
+
+            (fullFlightData || []).forEach(flight => {
+                if (!flight || !flight.user || flight.user.id != pilotId) return;
+                if (!flight.date || !isWithinSeason(flight.date)) return;
+
+                flightCount++;
+
+                if (typeof flight.distance === 'number' && flight.distance > 0) {
+                    totalDistance += flight.distance;
+                }
+
+                if (typeof flight.duration === 'number' && flight.duration > 0) {
+                    totalDuration += flight.duration;
+                }
+
+                if (flight.taskDeclared) {
+                    tasksDeclared++;
+                    if (flight.taskCompleted) {
+                        tasksCompleted++;
+                    }
+                }
+
+                if (
+                    typeof flight.distance === 'number' && flight.distance > 0 &&
+                    typeof flight.duration === 'number' && flight.duration > 0
+                ) {
+                    const speed = flight.distance / (flight.duration / 3600);
+                    speedSum += speed;
+                    speedCount++;
+                }
+            });
+
+            return {
+                flights: flightCount,
+                distance: Math.round(totalDistance),
+                duration: totalDuration,
+                tasksDeclared,
+                tasksCompleted,
+                averageSpeed: speedCount > 0 ? Math.round(speedSum / speedCount) : 0
+            };
+        }
+
+        // Format duration from seconds to hours and minutes
+        function formatDuration(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            return \`\${hours}h \${minutes}m\`;
+        }
+
+        // Create pilot profile tooltip
+        function createPilotTooltip(pilotId, pilotName) {
+            const profile = getPilotProfile(pilotId);
+            const currentYearStats = calculateCurrentYearStats(pilotId);
+            const currentYear = new Date().getFullYear();
+
+            let tooltipContent = \`
+                <div class="pilot-tooltip">
+                    <div class="pilot-tooltip-header">
+                        <h4>\${pilotName}</h4>
+                        <a href="https://www.weglide.org/user/\${pilotId}" target="_blank" class="weglide-profile-link">View Full Profile →</a>
+                    </div>
+            \`;
+
+            // WeGlide lifetime stats
+            if (profile) {
+                tooltipContent += \`
+                    <div class="pilot-stats-section">
+                        <h5>📈 Lifetime Stats (WeGlide)</h5>
+                        <div class="pilot-stats-grid">
+                            <div class="pilot-stat">
+                                <span class="stat-label">Airtime</span>
+                                <span class="stat-value">\${formatDuration(profile.total_flight_duration || 0)}</span>
+                            </div>
+                            <div class="pilot-stat">
+                                <span class="stat-label">Distance</span>
+                                <span class="stat-value">\${Math.round(profile.total_free_distance || 0).toLocaleString()} km</span>
+                            </div>
+                            <div class="pilot-stat">
+                                <span class="stat-label">Flights</span>
+                                <span class="stat-value">\${(profile.flight_count || 0).toLocaleString()}</span>
+                            </div>
+                            <div class="pilot-stat">
+                                <span class="stat-label">Achievements</span>
+                                <span class="stat-value">\${(profile.achievement_count || 0).toLocaleString()}</span>
+                            </div>
+                            <div class="pilot-stat">
+                                <span class="stat-label">Ø Speed</span>
+                                <span class="stat-value">\${Math.round(profile.avg_speed || 0)} kph</span>
+                            </div>
+                            <div class="pilot-stat">
+                                <span class="stat-label">Ø Glide Speed</span>
+                                <span class="stat-value">\${Math.round(profile.avg_glide_speed || 0)} kph</span>
+                            </div>
+                            <div class="pilot-stat">
+                                <span class="stat-label">Ø Detour</span>
+                                <span class="stat-value">\${(profile.avg_glide_detour || 0).toFixed(2)}</span>
+                            </div>
+                            <div class="pilot-stat">
+                                <span class="stat-label">Home Base</span>
+                                <span class="stat-value">\${profile.home_airport?.name || 'Unknown'}</span>
+                            </div>
+                        </div>
+                    </div>
+                \`;
+            }
+
+            // Current year stats from flight data
+            tooltipContent += \`
+                <div class="pilot-stats-section">
+                    <h5>🗓️ \${SEASON_LABEL} Stats (Australian Leaderboard)</h5>
+                    <div class="pilot-stats-grid">
+                        <div class="pilot-stat">
+                            <span class="stat-label">Flights</span>
+                            <span class="stat-value">\${currentYearStats.flights}</span>
+                        </div>
+                        <div class="pilot-stat">
+                            <span class="stat-label">Distance</span>
+                            <span class="stat-value">\${currentYearStats.distance.toLocaleString()} km</span>
+                        </div>
+                        <div class="pilot-stat">
+                            <span class="stat-label">Airtime</span>
+                            <span class="stat-value">\${formatDuration(currentYearStats.duration)}</span>
+                        </div>
+                        <div class="pilot-stat">
+                            <span class="stat-label">Tasks Declared</span>
+                            <span class="stat-value">\${currentYearStats.tasksDeclared}</span>
+                        </div>
+                        <div class="pilot-stat">
+                            <span class="stat-label">Tasks Completed</span>
+                            <span class="stat-value">\${currentYearStats.tasksCompleted}</span>
+                        </div>
+                        <div class="pilot-stat">
+                            <span class="stat-label">Avg Speed</span>
+                            <span class="stat-value">\${currentYearStats.averageSpeed} kph</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            \`;
+
+            return tooltipContent;
+        }
 
         // Embedded aircraft awards data
         const aircraftAwards = ${JSON.stringify(aircraftAwards)};
@@ -920,29 +1178,8 @@ No maximum distance bonus\`
                     totalTasksCompleted: ` + totalTasksCompleted + `
                 });
 
-                // Build leaderboard table
-                const tbody = document.getElementById('leaderboardBody');
-                tbody.innerHTML = '';
-
-                leaderboard.forEach((pilot, index) => {
-                    const row = document.createElement('tr');
-
-                    // Rank with medal for top 3
-                    let rankDisplay = index + 1;
-                    if (index === 0) rankDisplay = '<span class="medal gold">🥇</span>' + rankDisplay;
-                    else if (index === 1) rankDisplay = '<span class="medal silver">🥈</span>' + rankDisplay;
-                    else if (index === 2) rankDisplay = '<span class="medal bronze">🥉</span>' + rankDisplay;
-
-                    row.innerHTML = \`
-                        <td class="rank">\${rankDisplay}</td>
-                        <td class="pilot-name"><a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link">\${pilot.pilot}</a></td>
-                        <td class="total-points">\${pilot.totalPoints.toFixed(1)}</td>
-                        \${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}
-                        \${Array(5 - pilot.bestFlights.length).fill('<td class="flight-cell">-</td>').join('')}
-                    \`;
-
-                    tbody.appendChild(row);
-                });
+                // Build leaderboard table using shared renderer
+                buildLeaderboard();
 
                 // Show table and hide loading
                 document.getElementById('loading').style.display = 'none';
@@ -1091,6 +1328,64 @@ No maximum distance bonus\`
         // Flight preview functionality
         let previewTimeout;
         let previewElement;
+        let pilotPreviewTimeout;
+        let pilotPreviewElement;
+
+        function showPilotPreview(pilotId, pilotName, _triggerElement) {
+            // Clear any existing timeout
+            if (pilotPreviewTimeout) {
+                clearTimeout(pilotPreviewTimeout);
+            }
+
+            // Set timeout for pilot tooltip
+            pilotPreviewTimeout = setTimeout(() => {
+                // Remove existing pilot preview
+                if (pilotPreviewElement) {
+                    pilotPreviewElement.remove();
+                    pilotPreviewElement = null;
+                }
+
+                // Create pilot tooltip
+                const tooltipContent = createPilotTooltip(pilotId, pilotName);
+                pilotPreviewElement = document.createElement('div');
+                pilotPreviewElement.className = 'flight-preview';
+                pilotPreviewElement.id = 'pilot-preview';
+                pilotPreviewElement.innerHTML = tooltipContent;
+                pilotPreviewElement.style.pointerEvents = 'auto';
+                pilotPreviewElement.style.zIndex = '10000';
+                pilotPreviewElement.style.opacity = '0';
+
+                document.body.appendChild(pilotPreviewElement);
+
+                pilotPreviewElement.addEventListener('mouseleave', hidePilotPreview);
+
+                // Center tooltip in viewport for consistent positioning
+                pilotPreviewElement.style.left = '50%';
+                pilotPreviewElement.style.top = '50%';
+                pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
+
+                requestAnimationFrame(() => {
+                    if (pilotPreviewElement) {
+                        pilotPreviewElement.style.opacity = '1';
+                    }
+                });
+            }, 300);
+        }
+
+        function hidePilotPreview() {
+            // Clear timeout
+            if (pilotPreviewTimeout) {
+                clearTimeout(pilotPreviewTimeout);
+            }
+
+            // Remove preview after delay
+            setTimeout(() => {
+                if (pilotPreviewElement && !pilotPreviewElement.matches(':hover')) {
+                    pilotPreviewElement.remove();
+                    pilotPreviewElement = null;
+                }
+            }, 700);
+        }
 
         function showFlightPreview(flightId, event) {
             // Clear any existing timeout
@@ -1480,15 +1775,16 @@ No maximum distance bonus\`
 
                 // Create pilot name with link to WeGlide profile
                 let pilotName;
+                const safePilotNameAttr = pilot.pilot ? pilot.pilot.replace(/'/g, "\\'") : '';
                 if (isSilverCGull) {
                     // For Silver C-Gull, check if pilotId is available
                     if (pilot.userId) {
-                        pilotName = \`<a href="https://www.weglide.org/user/\${pilot.userId}" target="_blank" class="pilot-link">\${pilot.pilot}</a>\`;
+                        pilotName = \`<a href="https://www.weglide.org/user/\${pilot.userId}" target="_blank" class="pilot-link" onmouseover="showPilotPreview('\${pilot.userId}', '\${safePilotNameAttr}', this)" onmouseout="hidePilotPreview()" onfocus="showPilotPreview('\${pilot.userId}', '\${safePilotNameAttr}', this)" onblur="hidePilotPreview()">\${pilot.pilot}</a>\`;
                     } else {
                         pilotName = pilot.pilot;
                     }
                 } else {
-                    pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link">\${pilot.pilot}</a>\`;
+                    pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link" onmouseover="showPilotPreview('\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onmouseout="hidePilotPreview()" onfocus="showPilotPreview('\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onblur="hidePilotPreview()">\${pilot.pilot}</a>\`;
                 }
 
                 // Add verification status for under 200 hrs mode
@@ -1693,6 +1989,10 @@ No maximum distance bonus\`
                     totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
                 });
             }
+
+            // Re-add pilot tooltip listeners after leaderboard is built
+            setTimeout(() => {
+            }, 0);
         }
 
         function updateUnder200ButtonLabel() {
@@ -3132,7 +3432,7 @@ No maximum distance bonus\`
                     // Re-add tooltip listeners after under 200 filter toggle
                     setTimeout(() => {
                         if (typeof addTooltipListeners === 'function') addTooltipListeners();
-                    }, 0);
+                            }, 0);
                     // No need to recalculate trophies - 200 Trophy is always <200 list
                 });
                 updateUnder200ButtonLabel();
@@ -3333,6 +3633,9 @@ No maximum distance bonus\`
         // Inject embedded pilot verification data into the script
         australianHTML = australianHTML.replace('__PILOT_VERIFICATIONS_PLACEHOLDER__', JSON.stringify(pilotVerificationData));
 
+        // Inject embedded pilot profiles data into the script
+        australianHTML = australianHTML.replace('__PILOT_PROFILES_PLACEHOLDER__', JSON.stringify(pilotProfilesEmbedded));
+
         // Remove Canadian-specific under-table filter bar to avoid duplicate buttons
         australianHTML = australianHTML.replace(/<div class="scoring-toggle" id="filtersBar"[\s\S]*?<\/div>\s*/g, '');
 
@@ -3469,6 +3772,110 @@ No maximum distance bonus\`
         .search-current {
             background: #ff5722 !important;
             color: white;
+        }
+
+        /* Pilot profile tooltips */
+        .pilot-tooltip {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 0;
+            min-width: 300px;
+            max-width: 400px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .pilot-tooltip-header {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pilot-tooltip-header h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .weglide-profile-link {
+            font-size: 11px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .weglide-profile-link:hover {
+            text-decoration: underline;
+        }
+
+        .pilot-stats-section {
+            padding: 12px 15px;
+        }
+
+        .pilot-stats-section:not(:last-child) {
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .pilot-stats-section h5 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pilot-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 12px;
+        }
+
+        .pilot-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pilot-stat .stat-label {
+            font-size: 11px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .pilot-stat .stat-value {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Mobile responsive pilot tooltips */
+        @media (max-width: 768px) {
+            .pilot-tooltip {
+                min-width: 280px;
+                max-width: 320px;
+                font-size: 12px;
+            }
+
+            .pilot-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .pilot-tooltip-header {
+                padding: 10px 12px;
+            }
+
+            .pilot-stats-section {
+                padding: 10px 12px;
+            }
         }
 
         .pilot-highlight {
