@@ -24,6 +24,7 @@ enhancement_log.txt
 # HTML reports
 *.html
 !australian_leaderboard.html
+!SAC_leaderboard.html
 
 # JSON data files
 all_flights_*.json
