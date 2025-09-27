@@ -87,6 +87,20 @@ function calculateFreeScore(flight) {
     return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
 }
 
+const TASK_KIND_LABELS = {
+    FR4: 'Start, 2-3 Turnpoints, Finish',
+    Triangle: 'FAI Triangle',
+    TR: 'FAI Triangle',
+    OR: 'Out & Return',
+    GL: 'Goal Flight',
+    RT: 'Rectangle',
+    MTR: 'Multi-Lap Triangle/Rectangle',
+    SP: 'Speed Task',
+    OL: 'Optimized Task',
+    FR: 'Free Task',
+    unknown: 'Other Task'
+};
+
 async function processAustralianFlights() {
     console.log('🇦🇺 Processing Australian flights from JSONL...');
 
@@ -194,6 +208,7 @@ async function processAustralianFlights() {
                     if (mixedScoringData.score > 0 || freeScoringData.score > 0) {
                         // Get stats from both contest types
                         const auContest = flight.contest?.find(c => c.name === 'au' && c.points > 0);
+                        const declarationContest = flight.contest?.find(c => c.name === 'declaration' && c.points > 0);
                         const freeContest = flight.contest?.find(c => c.name === 'free' && c.points > 0);
                         const taskAchieved = flight.task_achieved === true;
 
@@ -202,9 +217,11 @@ async function processAustralianFlights() {
                                 id: flight.id,
                                 taskAchieved: taskAchieved,
                                 hasTask: !!flight.task, // Track if a task was declared
+                                bestContestType: mixedScoringData.contestType || 'free',
                                 // Store both free and task stats for dynamic switching
                                 freeStats: null,
-                                taskStats: null
+                                taskStats: null,
+                                taskInfo: null
                             };
 
                             // Extract comprehensive stats from free contest
@@ -295,6 +312,54 @@ async function processAustralianFlights() {
                                     total_duration: freeContest?.score?.duration || auContest.score.duration
                                 };
                             }
+
+                            const taskKind = flight.task?.kind || null;
+                            const normalizedTaskKind = taskKind ? taskKind.toUpperCase() : null;
+                            const taskTypeLabel = taskKind ? (TASK_KIND_LABELS[taskKind]
+                                || (normalizedTaskKind ? TASK_KIND_LABELS[normalizedTaskKind] : undefined)
+                                || taskKind) : 'No task declared';
+                            const taskDistance = typeof flight.task?.distance === 'number'
+                                ? flight.task.distance
+                                : (typeof auContest?.distance === 'number' ? auContest.distance
+                                    : (typeof declarationContest?.distance === 'number' ? declarationContest.distance : null));
+
+                            const taskContestUsed = (mixedScoringData.contestType === 'au' || mixedScoringData.contestType === 'declaration')
+                                ? mixedScoringData.contestType
+                                : (auContest ? 'au' : declarationContest ? 'declaration' : null);
+
+                            const taskContestPoints = taskContestUsed === 'au'
+                                ? auContest?.points
+                                : taskContestUsed === 'declaration'
+                                    ? declarationContest?.points
+                                    : null;
+
+                            flightStats.taskInfo = {
+                                hasTask: !!flight.task,
+                                distanceKm: typeof taskDistance === 'number' ? taskDistance : null,
+                                type: taskKind,
+                                typeLabel: taskTypeLabel,
+                                completed: taskAchieved,
+                                taskContestUsed,
+                                taskContestLabel: (() => {
+                                    if (!taskContestUsed) return 'Task Score';
+                                    if (taskContestUsed === 'declaration') return 'WeGlide/DMSt Task Score';
+                                    if (taskContestUsed === 'au') {
+                                        if (flight.task_achieved !== true) {
+                                            return 'DMST Free Score';
+                                        }
+                                        if (auContest?.score?.declared === false) {
+                                            return 'DMSt Free > Task';
+                                        }
+                                        return 'WeGlide/DMSt Task Score';
+                                    }
+                                    return 'Task Score';
+                                })(),
+                                taskContestPoints: typeof taskContestPoints === 'number' ? taskContestPoints : null,
+                                freePoints: typeof freeContest?.points === 'number' ? freeContest.points : null,
+                                auPoints: typeof auContest?.points === 'number' ? auContest.points : null,
+                                declarationPoints: typeof declarationContest?.points === 'number' ? declarationContest.points : null,
+                                bestContestType: mixedScoringData.contestType || 'free'
+                            };
 
                             australianFlights.push(flightStats);
                         }
@@ -1520,9 +1585,10 @@ No maximum distance bonus\`
             previewElement.className = 'flight-preview';
             previewElement.style.pointerEvents = 'auto';
 
-            // Determine task status and scoring type separately
-            let taskStatusBadge = '';
-            let scoringTypeBadge = '';
+        // Determine task status and scoring type separately
+        let taskStatusBadge = '';
+        let scoringTypeBadge = '';
+        let taskScoreHtml = '';
 
             if (detailedFlight) {
 
@@ -1759,8 +1825,97 @@ No maximum distance bonus\`
                         </div>
                     </div>
                 \`;
+
+                const taskInfo = detailedFlight.taskInfo || null;
+                if (taskInfo) {
+                    const hasDeclaredTask = !!taskInfo.hasTask;
+                    const taskLengthDisplay = hasDeclaredTask
+                        ? (typeof taskInfo.distanceKm === 'number' ? taskInfo.distanceKm.toFixed(1) + ' km' : 'Distance unavailable')
+                        : 'No task declared';
+                    const taskTypeDisplay = hasDeclaredTask ? taskInfo.typeLabel || 'Declared Task' : 'No task declared';
+                    const taskCompletedDisplay = hasDeclaredTask ? (taskInfo.completed ? 'Yes' : 'No') : 'No';
+                    const taskScoreLabel = hasDeclaredTask ? (taskInfo.taskContestLabel || 'Task Score') : 'Task Score';
+                    const formatPoints = (points) => Number.isFinite(points) ? points.toFixed(1) : '—';
+                    const taskPointsValue = formatPoints(taskInfo.taskContestPoints);
+                    const freePointsValue = formatPoints(taskInfo.freePoints);
+                    const bestContestType = taskInfo.bestContestType || flightData.contestType || 'free';
+                    const isTaskBest = bestContestType === 'au' || bestContestType === 'declaration';
+                    const isFreeBest = bestContestType === 'free';
+
+                    taskScoreHtml = \`
+                        <div class="task-score-section">
+                            <div class="task-score-header">Task & Scores</div>
+                            <div class="task-score-grid">
+                                <div class="task-score-item">
+                                    <span class="task-score-label">Task Length</span>
+                                    <span class="task-score-value">\${taskLengthDisplay}</span>
+                                </div>
+                                <div class="task-score-item">
+                                    <span class="task-score-label">Task Type</span>
+                                    <span class="task-score-value">\${taskTypeDisplay}</span>
+                                </div>
+                                <div class="task-score-item">
+                                    <span class="task-score-label">Task Completed</span>
+                                    <span class="task-score-value">\${taskCompletedDisplay}</span>
+                                </div>
+                            </div>
+                            <div class="task-score-table">
+                                <div class="task-score-row">
+                                    <span class="score-label">\${taskScoreLabel}</span>
+                                    <span class="score-value">\${taskPointsValue}</span>
+                                    <span class="score-check \${isTaskBest ? 'active' : ''}">\${isTaskBest ? '✓' : ''}</span>
+                                </div>
+                                <div class="task-score-row">
+                                    <span class="score-label">Free Score</span>
+                                    <span class="score-value">\${freePointsValue}</span>
+                                    <span class="score-check \${isFreeBest ? 'active' : ''}">\${isFreeBest ? '✓' : ''}</span>
+                                </div>
+                            </div>
+                        </div>
+                    \`;
+                }
             } else {
                 console.log('No detailed flight found for ID:', flightData.id);
+            }
+
+            if (!taskScoreHtml) {
+                const hasDeclaredTask = !!flightData.declared;
+                const bestContestType = flightData.contestType || 'free';
+                const isTaskBest = bestContestType === 'au' || bestContestType === 'declaration';
+                const isFreeBest = bestContestType === 'free';
+                const formatPoints = (points) => Number.isFinite(points) ? points.toFixed(1) : '—';
+
+                taskScoreHtml = \`
+                    <div class="task-score-section">
+                        <div class="task-score-header">Task & Scores</div>
+                        <div class="task-score-grid">
+                            <div class="task-score-item">
+                                <span class="task-score-label">Task Length</span>
+                                <span class="task-score-value">\${hasDeclaredTask ? 'Declared' : 'No task declared'}</span>
+                            </div>
+                            <div class="task-score-item">
+                                <span class="task-score-label">Task Type</span>
+                                <span class="task-score-value">\${hasDeclaredTask ? 'Declared Task' : 'No task declared'}</span>
+                            </div>
+                            <div class="task-score-item">
+                                <span class="task-score-label">Task Completed</span>
+                                <span class="task-score-value">\${hasDeclaredTask ? 'Yes' : 'No'}</span>
+                            </div>
+                        </div>
+                        <div class="task-score-table">
+                            <div class="task-score-row">
+                                <span class="score-label">Task Score</span>
+                                <span class="score-value">\${formatPoints(isTaskBest ? flightData.points : NaN)}</span>
+                                <span class="score-check \${isTaskBest ? 'active' : ''}">\${isTaskBest ? '✓' : ''}</span>
+                            </div>
+                            <div class="task-score-row">
+                                <span class="score-label">Free Score</span>
+                                <span class="score-value">\${formatPoints(isFreeBest ? flightData.points : NaN)}</span>
+                                <span class="score-check \${isFreeBest ? 'active' : ''}">\${isFreeBest ? '✓' : ''}</span>
+                            </div>
+                        </div>
+                    </div>
+                \`;
             }
 
             // Create aircraft display for tooltip header
@@ -1784,6 +1939,7 @@ No maximum distance bonus\`
                 <div class="flight-tooltip-content">
                     \${flightImageHtml}
                     \${detailedStatsHtml}
+                    \${taskScoreHtml}
                 </div>
             \`;
 
@@ -4226,6 +4382,82 @@ No maximum distance bonus\`
 
         .flight-tooltip-content {
             padding: 10px 12px;
+        }
+
+        .task-score-section {
+            margin-top: 16px;
+            background: rgba(44, 90, 160, 0.15);
+            border: 1px solid rgba(44, 90, 160, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .task-score-header {
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            color: #f1f5ff;
+        }
+
+        .task-score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px 12px;
+            margin-bottom: 10px;
+        }
+
+        .task-score-item {
+            display: flex;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+            padding: 8px;
+        }
+
+        .task-score-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .task-score-value {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .task-score-table {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 10px;
+            display: grid;
+            gap: 6px;
+        }
+
+        .task-score-row {
+            display: grid;
+            grid-template-columns: 1fr auto 24px;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        .score-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .score-value {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .score-check {
+            text-align: center;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .score-check.active {
+            color: #4caf50;
         }
 
         .tooltip-row {
