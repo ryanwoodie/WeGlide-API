@@ -87,6 +87,33 @@ function calculateFreeScore(flight) {
     return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
 }
 
+function calculateContestScore(flight, contestName) {
+    if (!flight?.contest || !Array.isArray(flight.contest)) {
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
+    }
+
+    const contest = flight.contest.find(c => c && c.name === contestName && typeof c.points === 'number' && c.points > 0);
+    if (!contest) {
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
+    }
+
+    const distance = typeof contest.distance === 'number' ? contest.distance
+        : typeof contest?.score?.distance === 'number' ? contest.score.distance
+        : (typeof flight.distance === 'number' ? flight.distance : 0);
+    const speed = typeof contest.speed === 'number' ? contest.speed
+        : typeof contest?.score?.speed === 'number' ? contest.score.speed
+        : 0;
+    const declared = contest?.score?.declared === true;
+
+    return {
+        score: contest.points,
+        distance,
+        speed,
+        contestType: contest.name,
+        declared
+    };
+}
+
 const TASK_KIND_LABELS = {
     FR4: 'Start, 2-3 Turnpoints, Finish',
     Triangle: 'FAI Triangle',
@@ -136,6 +163,10 @@ async function processAustralianFlights() {
 
     const pilotFlightsMixed = {};  // Mixed scoring (AU/Free)
     const pilotFlightsFree = {};   // Free-only scoring
+    const pilotFlightsSprint = {}; // Sprint contest scoring
+    const pilotFlightsTriangle = {}; // Triangle contest scoring
+    const pilotFlightsOutReturn = {}; // Out & Return contest scoring
+    const pilotFlightsOut = {}; // Straight out (goal) contest scoring
     let totalProcessed = 0;
     let australianCount = 0;
     let australianFlights = []; // Store all flight data for detailed tooltips
@@ -191,6 +222,18 @@ async function processAustralianFlights() {
                     if (!pilotFlightsFree[pilotName]) {
                         pilotFlightsFree[pilotName] = [];
                     }
+                    if (!pilotFlightsSprint[pilotName]) {
+                        pilotFlightsSprint[pilotName] = [];
+                    }
+                    if (!pilotFlightsTriangle[pilotName]) {
+                        pilotFlightsTriangle[pilotName] = [];
+                    }
+                    if (!pilotFlightsOutReturn[pilotName]) {
+                        pilotFlightsOutReturn[pilotName] = [];
+                    }
+                    if (!pilotFlightsOut[pilotName]) {
+                        pilotFlightsOut[pilotName] = [];
+                    }
 
                     // Calculate scores for both modes
                     const mixedScoringData = calculateBestScore(flight);
@@ -229,6 +272,82 @@ async function processAustralianFlights() {
                             declared: freeScoringData.declared,
                             contestType: freeScoringData.contestType,
                             aircraftKind: flight.aircraft?.kind || 'unknown',  // Track aircraft type
+                            aircraftName: flight.aircraft?.name || '',
+                            dmstIndex: flight.dmst_index || null
+                        });
+                    }
+
+                    const sprintScoringData = calculateContestScore(flight, 'sprint');
+                    if (sprintScoringData.score > 0) {
+                        pilotFlightsSprint[pilotName].push({
+                            id: flight.id,
+                            userId: flight.user?.id,
+                            date: flight.scoring_date,
+                            distance: sprintScoringData.distance,
+                            speed: sprintScoringData.speed,
+                            points: sprintScoringData.score,
+                            takeoff: flight.takeoff_airport?.name || '',
+                            region: flight.takeoff_airport?.region || '',
+                            declared: sprintScoringData.declared,
+                            contestType: sprintScoringData.contestType,
+                            aircraftKind: flight.aircraft?.kind || 'unknown',
+                            aircraftName: flight.aircraft?.name || '',
+                            dmstIndex: flight.dmst_index || null
+                        });
+                    }
+
+                    const triangleScoringData = calculateContestScore(flight, 'triangle');
+                    if (triangleScoringData.score > 0) {
+                        pilotFlightsTriangle[pilotName].push({
+                            id: flight.id,
+                            userId: flight.user?.id,
+                            date: flight.scoring_date,
+                            distance: triangleScoringData.distance,
+                            speed: triangleScoringData.speed,
+                            points: triangleScoringData.score,
+                            takeoff: flight.takeoff_airport?.name || '',
+                            region: flight.takeoff_airport?.region || '',
+                            declared: triangleScoringData.declared,
+                            contestType: triangleScoringData.contestType,
+                            aircraftKind: flight.aircraft?.kind || 'unknown',
+                            aircraftName: flight.aircraft?.name || '',
+                            dmstIndex: flight.dmst_index || null
+                        });
+                    }
+
+                    const outReturnScoringData = calculateContestScore(flight, 'out_return');
+                    if (outReturnScoringData.score > 0) {
+                        pilotFlightsOutReturn[pilotName].push({
+                            id: flight.id,
+                            userId: flight.user?.id,
+                            date: flight.scoring_date,
+                            distance: outReturnScoringData.distance,
+                            speed: outReturnScoringData.speed,
+                            points: outReturnScoringData.score,
+                            takeoff: flight.takeoff_airport?.name || '',
+                            region: flight.takeoff_airport?.region || '',
+                            declared: outReturnScoringData.declared,
+                            contestType: outReturnScoringData.contestType,
+                            aircraftKind: flight.aircraft?.kind || 'unknown',
+                            aircraftName: flight.aircraft?.name || '',
+                            dmstIndex: flight.dmst_index || null
+                        });
+                    }
+
+                    const outScoringData = calculateContestScore(flight, 'out');
+                    if (outScoringData.score > 0) {
+                        pilotFlightsOut[pilotName].push({
+                            id: flight.id,
+                            userId: flight.user?.id,
+                            date: flight.scoring_date,
+                            distance: outScoringData.distance,
+                            speed: outScoringData.speed,
+                            points: outScoringData.score,
+                            takeoff: flight.takeoff_airport?.name || '',
+                            region: flight.takeoff_airport?.region || '',
+                            declared: outScoringData.declared,
+                            contestType: outScoringData.contestType,
+                            aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
                             dmstIndex: flight.dmst_index || null
                         });
@@ -456,16 +575,16 @@ async function processAustralianFlights() {
         console.log(`✅ Processed ${totalProcessed} total flights, found ${australianCount} Australian flights`);
 
         // Function to generate leaderboard from pilot flights
-        function generateLeaderboard(pilotFlights) {
+        function generateLeaderboard(pilotFlights, maxFlights = 5) {
             const leaderboard = [];
 
             Object.keys(pilotFlights).forEach(pilotName => {
                 const flights = pilotFlights[pilotName];
 
-                // Sort flights by points (descending) and take top 5
+                // Sort flights by points (descending) and take top N
                 const bestFlights = flights
                     .sort((a, b) => b.points - a.points)
-                    .slice(0, 5);
+                    .slice(0, maxFlights);
 
                 if (bestFlights.length > 0) {
                     const totalPoints = bestFlights.reduce((sum, flight) => sum + flight.points, 0);
@@ -490,6 +609,10 @@ async function processAustralianFlights() {
         // Generate both leaderboards
         const mixedLeaderboard = generateLeaderboard(pilotFlightsMixed);
         const freeLeaderboard = generateLeaderboard(pilotFlightsFree);
+        const sprintLeaderboard = generateLeaderboard(pilotFlightsSprint, 3);
+        const triangleLeaderboard = generateLeaderboard(pilotFlightsTriangle, 3);
+        const outReturnLeaderboard = generateLeaderboard(pilotFlightsOutReturn, 3);
+        const outLeaderboard = generateLeaderboard(pilotFlightsOut, 3);
 
         // Function to generate Silver C-Gull Trophy leaderboard (juniors with silver badge)
         function generateSilverCGullLeaderboard() {
@@ -948,9 +1071,15 @@ async function processAustralianFlights() {
         // Global variables for leaderboard data
         let mixedLeaderboard = [];
         let freeLeaderboard = [];
+        let sprintLeaderboard = [];
+        let triangleLeaderboard = [];
+        let outReturnLeaderboard = [];
+        let outLeaderboard = [];
+        let silverCGullLeaderboard = [];
         let fullFlightData = [];
         let detailedFlightData = [];
         let leaderboard = [];
+        let currentScoringMode = 'mixed';
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
@@ -1289,6 +1418,10 @@ No maximum distance bonus\`
                 // Embedded leaderboard data
                 mixedLeaderboard = ${JSON.stringify(mixedLeaderboard)};
                 freeLeaderboard = ${JSON.stringify(freeLeaderboard)};
+                sprintLeaderboard = ${JSON.stringify(sprintLeaderboard)};
+                triangleLeaderboard = ${JSON.stringify(triangleLeaderboard)};
+                outReturnLeaderboard = ${JSON.stringify(outReturnLeaderboard)};
+                outLeaderboard = ${JSON.stringify(outLeaderboard)};
                 silverCGullLeaderboard = ${JSON.stringify(silverCGullLeaderboard)};
 
                 // Embedded detailed flight data for tooltips (compressed)
@@ -1308,6 +1441,7 @@ No maximum distance bonus\`
                 };
 
                 leaderboard = mixedLeaderboard; // Default to mixed scoring
+                currentScoringMode = 'mixed';
 
                 // Update stats - use ALL flight stats, not just leaderboard stats
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
@@ -1394,41 +1528,138 @@ No maximum distance bonus\`
 
         // Switch between scoring modes
         function switchScoringMode(mode) {
+            currentScoringMode = mode;
+
+            const updateStatsFromLeaderboard = (list) => {
+                if (!Array.isArray(list)) return;
+                const pilotCount = list.length;
+                const flightCount = list.reduce((sum, pilot) => sum + (Array.isArray(pilot.bestFlights) ? pilot.bestFlights.length : 0), 0);
+                const totalDistance = Math.round(list.reduce((sum, pilot) => sum + (pilot.totalDistance || 0), 0));
+                document.getElementById('pilotCount').textContent = pilotCount.toLocaleString();
+                document.getElementById('flightCount').textContent = flightCount.toLocaleString();
+                document.getElementById('totalKms').textContent = totalDistance.toLocaleString();
+            };
+
             if (mode === 'mixed') {
                 leaderboard = mixedLeaderboard;
                 document.getElementById('scoringDescription').innerHTML = 'Best 5 flights per pilot • Higher of <span class="scoring-tooltip" data-tooltip="task">WeGlide Task</span> or <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> • Oct 2024 - Sep 2025';
 
-                // Update main stats for Combined mode (all flights)
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
                 document.getElementById('flightCount').textContent = ` + totalFlights + `;
                 document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
 
+                updateTaskStats('mixed', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
+            } else if (mode === 'free') {
+                leaderboard = freeLeaderboard;
+                document.getElementById('scoringDescription').innerHTML = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> only • Oct 2024 - Sep 2025';
+
+                document.getElementById('pilotCount').textContent = ` + totalPilots + `;
+                document.getElementById('flightCount').textContent = ` + totalFlights + `;
+                document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
+
+                updateTaskStats('free', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
+            } else if (mode === 'sprint') {
+                leaderboard = sprintLeaderboard;
+                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Sprint scoring • Oct 2024 - Sep 2025';
+                updateStatsFromLeaderboard(leaderboard);
+                updateTaskStats('mixed', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
+            } else if (mode === 'triangle') {
+                leaderboard = triangleLeaderboard;
+                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Triangle scoring • Oct 2024 - Sep 2025';
+                updateStatsFromLeaderboard(leaderboard);
+                updateTaskStats('mixed', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
+            } else if (mode === 'out_return') {
+                leaderboard = outReturnLeaderboard;
+                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Out & Return scoring • Oct 2024 - Sep 2025';
+                updateStatsFromLeaderboard(leaderboard);
+                updateTaskStats('mixed', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
+            } else if (mode === 'out') {
+                leaderboard = outLeaderboard;
+                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Out (Goal) scoring • Oct 2024 - Sep 2025';
+                updateStatsFromLeaderboard(leaderboard);
+                updateTaskStats('mixed', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
             } else if (mode === 'silverCGull') {
-                // Silver C-Gull candidates always show ALL candidates (no 200-hour filter applied)
                 leaderboard = silverCGullLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
 
-                // Update main stats for Silver C-Gull mode
                 document.getElementById('pilotCount').textContent = leaderboard.length;
-                document.getElementById('flightCount').textContent = leaderboard.length; // 1 flight per pilot
+                document.getElementById('flightCount').textContent = leaderboard.length;
                 const silverKms = leaderboard.reduce((sum, pilot) => {
                     const distance = parseFloat(pilot.distance) || 0;
                     return sum + distance;
                 }, 0);
                 document.getElementById('totalKms').textContent = Math.round(silverKms).toLocaleString();
-
             } else {
                 leaderboard = freeLeaderboard;
                 document.getElementById('scoringDescription').innerHTML = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> only • Oct 2024 - Sep 2025';
 
-                // Update main stats for Free mode (use total dataset stats, not leaderboard stats)
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
                 document.getElementById('flightCount').textContent = ` + totalFlights + `;
                 document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
+
+                updateTaskStats('free', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `,
+                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
             }
 
             document.querySelectorAll('.toggle-btn, .filter-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = mode === 'mixed' ? 'combinedBtn' : mode === 'silverCGull' ? null : 'freeBtn';
+            const modeToButton = {
+                mixed: 'combinedBtn',
+                free: 'freeBtn',
+                sprint: 'sprintBtn',
+                triangle: 'triangleBtn',
+                out_return: 'outReturnBtn',
+                out: 'outBtn',
+                silverCGull: null
+            };
+            const activeBtn = Object.prototype.hasOwnProperty.call(modeToButton, mode) ? modeToButton[mode] : null;
             if (activeBtn) {
                 const btnElement = document.getElementById(activeBtn);
                 if (btnElement) {
@@ -1436,25 +1667,14 @@ No maximum distance bonus\`
                 }
             }
 
-            // Update task stats (only relevant for mixed/free modes)
-            if (mode !== 'silverCGull') {
-                updateTaskStats(mode, {
-                    totalPilots: ` + totalPilots + `,
-                    totalFlights: ` + totalFlights + `,
-                    totalKms: ` + totalKms + `,
-                    totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `
-                });
-            }
-            // Keep the 200hrs toggle visual state consistent across modes
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
                 underBtn.classList.toggle('active', under200Enabled);
                 if (typeof updateUnder200ButtonLabel === 'function') updateUnder200ButtonLabel();
             }
+
             buildLeaderboard();
 
-            // For Silver C-Gull mode, scroll to the leaderboard table
             if (mode === 'silverCGull') {
                 setTimeout(() => {
                     const leaderboardElement = document.getElementById('leaderboardTable');
@@ -1464,10 +1684,15 @@ No maximum distance bonus\`
                 }, 100);
             }
 
-            // Re-add tooltip listeners after mode switch - use setTimeout to ensure DOM is updated
             setTimeout(() => {
                 if (typeof addTooltipListeners === 'function') addTooltipListeners();
             }, 0);
+        }
+
+        function toggleFlightColumns(maxFlights) {
+            const table = document.getElementById('leaderboardTable');
+            if (!table) return;
+            table.classList.toggle('three-flight-mode', maxFlights === 3);
         }
 
         // Flight preview functionality
@@ -2222,6 +2447,8 @@ No maximum distance bonus\`
             const isFreeMode = leaderboard === freeLeaderboard;
             const isSilverCGull = leaderboard === silverCGullLeaderboard;
             const visible = applyUnder200Filter(leaderboard);
+            const isThreeFlightMode = currentScoringMode === 'sprint' || currentScoringMode === 'triangle' || currentScoringMode === 'out_return' || currentScoringMode === 'out';
+            const maxFlightsToShow = isThreeFlightMode ? 3 : 5;
 
             // Calculate aircraft awards for visible pilots in free mode
             const visibleAwards = isFreeMode ? calculateVisibleAircraftAwards(visible) : null;
@@ -2329,12 +2556,15 @@ No maximum distance bonus\`
                     \`;
                 } else {
                     // Regular leaderboard structure
+                    const flightsToShow = Array.isArray(pilot.bestFlights)
+                        ? pilot.bestFlights.slice(0, maxFlightsToShow)
+                        : [];
                     row.innerHTML = \`
                         <td class="rank">\${rankDisplay}</td>
                         <td class="pilot-name">\${pilotName}</td>
                         <td class="total-points">\${pilot.totalPoints.toFixed(1)}</td>
-                        \${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}
-                        \${Array(5 - pilot.bestFlights.length).fill('<td class="flight-cell">-</td>').join('')}
+                        \${flightsToShow.map(flight => createFlightCell(flight)).join('')}
+                        \${Array(5 - flightsToShow.length).fill('<td class="flight-cell">-</td>').join('')}
                     \`;
                 }
 
@@ -2345,6 +2575,8 @@ No maximum distance bonus\`
 
                 tbody.appendChild(row);
             });
+
+            toggleFlightColumns(maxFlightsToShow);
 
             // Update stats based on current visibility (only for <200 hour filter or Silver C-Gull mode)
             if (under200Enabled || isSilverCGull) {
@@ -2377,7 +2609,7 @@ No maximum distance bonus\`
                     }, 0);
                     document.getElementById('totalKms').textContent = Math.round(totalKmsVisible).toLocaleString();
                 }
-            } else if (!isSilverCGull) {
+            } else if (!isSilverCGull && (currentScoringMode === 'mixed' || currentScoringMode === 'free')) {
                 // When <200 filter is off, restore original dataset stats for Combined/Free modes
                 document.getElementById('pilotCount').textContent = ` + totalPilots + `;
                 document.getElementById('flightCount').textContent = ` + totalFlights + `;
@@ -3867,6 +4099,14 @@ No maximum distance bonus\`
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
+            const sprintBtn = document.getElementById('sprintBtn');
+            if (sprintBtn) sprintBtn.addEventListener('click', () => switchScoringMode('sprint'));
+            const triangleBtn = document.getElementById('triangleBtn');
+            if (triangleBtn) triangleBtn.addEventListener('click', () => switchScoringMode('triangle'));
+            const outReturnBtn = document.getElementById('outReturnBtn');
+            if (outReturnBtn) outReturnBtn.addEventListener('click', () => switchScoringMode('out_return'));
+            const outBtn = document.getElementById('outBtn');
+            if (outBtn) outBtn.addEventListener('click', () => switchScoringMode('out'));
 
             // Initialize tooltips
             addTooltipListeners();
@@ -4105,7 +4345,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice">(Mock leaderboard using Australian data for demonstration purposes.)</p>'
+            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="sprintBtn">Sprint</button><button class="toggle-btn" id="triangleBtn">Triangle</button><button class="toggle-btn" id="outReturnBtn">Out &amp; Return</button><button class="toggle-btn" id="outBtn">Out</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice">(Mock leaderboard using Australian data for demonstration purposes.)</p>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -5353,6 +5593,13 @@ No maximum distance bonus\`
         .mock-notice {
             font-size: 0.85em;
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        #leaderboardTable.three-flight-mode th:nth-child(7),
+        #leaderboardTable.three-flight-mode th:nth-child(8),
+        #leaderboardTable.three-flight-mode td:nth-child(7),
+        #leaderboardTable.three-flight-mode td:nth-child(8) {
+            display: none;
         }`;
 
         australianHTML = australianHTML.replace('</style>', toggleCSS + '\n    </style>');
