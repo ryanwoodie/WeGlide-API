@@ -101,6 +101,36 @@ const TASK_KIND_LABELS = {
     unknown: 'Other Task'
 };
 
+function getDMSTShapeBonus(kind) {
+    if (!kind) return 0;
+    const normalized = String(kind).toUpperCase();
+    switch (normalized) {
+        case 'TR':
+        case 'TRIANGLE':
+        case 'DECLARATION':
+            return 0.40; // FAI Triangle
+        case 'OR':
+        case 'OUT_RETURN':
+            return 0.30; // Out & Return
+        case 'GL':
+        case 'OUT':
+        case 'GOAL':
+            return 0.30; // Straight Out / Goal
+        case 'RT':
+        case 'RECTANGLE':
+            return 0.40; // Rectangle bonus
+        case 'MTR':
+            return 0.20; // Multi-lap triangle/rectangle
+        case 'SP':
+        case 'SPEED':
+        case 'FR':
+        case 'FR4':
+            return 0.0; // No bonus
+        default:
+            return 0.0;
+    }
+}
+
 async function processAustralianFlights() {
     console.log('🇦🇺 Processing Australian flights from JSONL...');
 
@@ -313,6 +343,7 @@ async function processAustralianFlights() {
                                 };
                             }
 
+                            const hasDeclaredTask = !!flight.task;
                             const taskKind = flight.task?.kind || null;
                             const normalizedTaskKind = taskKind ? taskKind.toUpperCase() : null;
                             const taskTypeLabel = taskKind ? (TASK_KIND_LABELS[taskKind]
@@ -333,6 +364,33 @@ async function processAustralianFlights() {
                                     ? declarationContest?.points
                                     : null;
 
+                            const dmstIndex = typeof flight.dmst_index === 'number' && flight.dmst_index > 0
+                                ? flight.dmst_index
+                                : null;
+                            const dmstIndexFactor = dmstIndex ? (dmstIndex / 100) : 1;
+                            const auScoreName = auContest?.score?.name || null;
+                            const dmstFreeDistance = typeof auContest?.score?.distance === 'number'
+                                ? auContest.score.distance
+                                : (typeof auContest?.distance === 'number' ? auContest.distance : null);
+                            const freeShapeBonus = getDMSTShapeBonus(auScoreName || taskKind);
+                            const dmstFreePointsCalc = dmstFreeDistance && dmstIndexFactor
+                                ? (dmstFreeDistance * (1 + freeShapeBonus)) / dmstIndexFactor
+                                : null;
+
+                            const taskDistanceForCalc = typeof flight.task?.distance === 'number'
+                                ? flight.task.distance
+                                : dmstFreeDistance;
+                            const taskShapeBonus = getDMSTShapeBonus(taskKind || auScoreName);
+                            const declarationBonus = hasDeclaredTask ? 0.30 : 0;
+                            const taskMultiplierActual = 1 + taskShapeBonus + (taskAchieved ? declarationBonus : 0);
+                            const taskMultiplierPotential = 1 + taskShapeBonus + declarationBonus;
+                            const dmstTaskActualPoints = taskDistanceForCalc && dmstIndexFactor
+                                ? (taskDistanceForCalc * taskMultiplierActual) / dmstIndexFactor
+                                : null;
+                            const dmstTaskPotentialPoints = taskDistanceForCalc && dmstIndexFactor
+                                ? (taskDistanceForCalc * taskMultiplierPotential) / dmstIndexFactor
+                                : null;
+
                             flightStats.taskInfo = {
                                 hasTask: !!flight.task,
                                 distanceKm: typeof taskDistance === 'number' ? taskDistance : null,
@@ -344,8 +402,8 @@ async function processAustralianFlights() {
                                     if (!taskContestUsed) return 'Task Score';
                                     if (taskContestUsed === 'declaration') return 'WeGlide/DMSt Task Score';
                                     if (taskContestUsed === 'au') {
-                                        if (flight.task_achieved !== true) {
-                                            return 'DMST Free Score';
+                                        if (!taskAchieved) {
+                                            return 'WeGlide/DMSt Task Score (not finished)';
                                         }
                                         if (auContest?.score?.declared === false) {
                                             return 'DMSt Free > Task';
@@ -358,7 +416,14 @@ async function processAustralianFlights() {
                                 freePoints: typeof freeContest?.points === 'number' ? freeContest.points : null,
                                 auPoints: typeof auContest?.points === 'number' ? auContest.points : null,
                                 declarationPoints: typeof declarationContest?.points === 'number' ? declarationContest.points : null,
-                                bestContestType: mixedScoringData.contestType || 'free'
+                                bestContestType: mixedScoringData.contestType || 'free',
+                                dmstFreePoints: dmstFreePointsCalc,
+                                dmstFreeDistance: typeof dmstFreeDistance === 'number' ? dmstFreeDistance : null,
+                                dmstTaskActualPoints: dmstTaskActualPoints,
+                                dmstTaskPotentialPoints: dmstTaskPotentialPoints,
+                                dmstTaskDistance: typeof taskDistanceForCalc === 'number' ? taskDistanceForCalc : null,
+                                weglideFreeDistance: typeof freeContest?.distance === 'number' ? freeContest.distance : null,
+                                dmstIndex: dmstIndex
                             };
 
                             australianFlights.push(flightStats);
@@ -1834,13 +1899,70 @@ No maximum distance bonus\`
                         : 'No task declared';
                     const taskTypeDisplay = hasDeclaredTask ? taskInfo.typeLabel || 'Declared Task' : 'No task declared';
                     const taskCompletedDisplay = hasDeclaredTask ? (taskInfo.completed ? 'Yes' : 'No') : 'No';
-                    const taskScoreLabel = hasDeclaredTask ? (taskInfo.taskContestLabel || 'Task Score') : 'Task Score';
+
                     const formatPoints = (points) => Number.isFinite(points) ? points.toFixed(1) : '—';
-                    const taskPointsValue = formatPoints(taskInfo.taskContestPoints);
-                    const freePointsValue = formatPoints(taskInfo.freePoints);
+                    const dmstFreePoints = Number.isFinite(taskInfo.dmstFreePoints) ? taskInfo.dmstFreePoints : null;
+                    const dmstTaskActualPoints = Number.isFinite(taskInfo.dmstTaskActualPoints) ? taskInfo.dmstTaskActualPoints : null;
+                    const dmstTaskPotentialPoints = Number.isFinite(taskInfo.dmstTaskPotentialPoints) ? taskInfo.dmstTaskPotentialPoints : null;
+                    const dmstUsedPoints = Number.isFinite(taskInfo.auPoints)
+                        ? taskInfo.auPoints
+                        : Number.isFinite(taskInfo.taskContestPoints)
+                            ? taskInfo.taskContestPoints
+                            : (dmstTaskActualPoints ?? dmstFreePoints);
+                    const tolerance = 0.5;
+                    const dmstFreeIsBest = dmstFreePoints != null && dmstUsedPoints != null && Math.abs(dmstFreePoints - dmstUsedPoints) < tolerance;
+                    const dmstTaskIsBest = dmstTaskActualPoints != null && dmstUsedPoints != null && Math.abs(dmstTaskActualPoints - dmstUsedPoints) < tolerance;
+
+                    const weglideFreePointsDetail = Number.isFinite(taskInfo.freePoints) ? taskInfo.freePoints : null;
                     const bestContestType = taskInfo.bestContestType || flightData.contestType || 'free';
-                    const isTaskBest = bestContestType === 'au' || bestContestType === 'declaration';
-                    const isFreeBest = bestContestType === 'free';
+                    const isWeGlideBest = bestContestType === 'free';
+
+                    const dmstTaskDisplayRaw = taskInfo.completed
+                        ? (dmstTaskActualPoints ?? dmstTaskPotentialPoints)
+                        : (dmstTaskPotentialPoints ?? dmstTaskActualPoints);
+
+                    const dmstFreeDistanceDisplay = Number.isFinite(taskInfo.dmstFreeDistance)
+                        ? taskInfo.dmstFreeDistance.toFixed(1) + ' km'
+                        : (Number.isFinite(taskInfo.distanceKm) ? taskInfo.distanceKm.toFixed(1) + ' km' : '—');
+                    const dmstTaskDistanceDisplay = Number.isFinite(taskInfo.dmstTaskDistance)
+                        ? taskInfo.dmstTaskDistance.toFixed(1) + ' km'
+                        : (Number.isFinite(taskInfo.distanceKm) ? taskInfo.distanceKm.toFixed(1) + ' km' : '—');
+                    const weglideFreeDistanceDisplay = Number.isFinite(taskInfo.weglideFreeDistance)
+                        ? taskInfo.weglideFreeDistance.toFixed(1) + ' km'
+                        : '—';
+
+                    const dmstFreeRow = dmstFreePoints != null ? \`
+                                <div class="task-score-row">
+                                    <span class="score-label">DMSt Free Score – \${dmstFreeDistanceDisplay}</span>
+                                    <span class="score-value">\${formatPoints(dmstFreePoints)}</span>
+                                    <span class="score-check \${!isWeGlideBest && dmstFreeIsBest ? 'active' : ''}">\${!isWeGlideBest && dmstFreeIsBest ? '✓' : ''}</span>
+                                </div>\` : '';
+
+                    const dmstTaskLabel = (
+                        hasDeclaredTask
+                            ? (taskInfo.completed ? 'WeGlide/DMSt Task Score' : 'WeGlide/DMSt Task Score (not finished)')
+                            : 'DMSt Task Score'
+                    );
+                    const showTaskCross = hasDeclaredTask && !taskInfo.completed && dmstTaskDisplayRaw != null;
+                    const dmstTaskMarkerClass = showTaskCross
+                        ? 'score-check score-cross active'
+                        : 'score-check ' + (!isWeGlideBest && dmstTaskIsBest ? 'active' : '');
+                    const dmstTaskMarker = showTaskCross
+                        ? '✗'
+                        : (!isWeGlideBest && dmstTaskIsBest ? '✓' : '');
+                    const dmstTaskRow = (hasDeclaredTask && dmstTaskDisplayRaw != null) ? \`
+                                <div class="task-score-row">
+                                    <span class="score-label">\${dmstTaskLabel} – \${dmstTaskDistanceDisplay}</span>
+                                    <span class="score-value">\${formatPoints(dmstTaskDisplayRaw)}</span>
+                                    <span class="\${dmstTaskMarkerClass}">\${dmstTaskMarker}</span>
+                                </div>\` : '';
+
+                    const freeScoreRow = \`
+                                <div class="task-score-row">
+                                    <span class="score-label">WeGlide Free Score – \${weglideFreeDistanceDisplay}</span>
+                                    <span class="score-value">\${formatPoints(weglideFreePointsDetail)}</span>
+                                    <span class="score-check \${isWeGlideBest ? 'active' : ''}">\${isWeGlideBest ? '✓' : ''}</span>
+                                </div>\`;
 
                     taskScoreHtml = \`
                         <div class="task-score-section">
@@ -1860,63 +1982,65 @@ No maximum distance bonus\`
                                 </div>
                             </div>
                             <div class="task-score-table">
-                                <div class="task-score-row">
-                                    <span class="score-label">\${taskScoreLabel}</span>
-                                    <span class="score-value">\${taskPointsValue}</span>
-                                    <span class="score-check \${isTaskBest ? 'active' : ''}">\${isTaskBest ? '✓' : ''}</span>
-                                </div>
-                                <div class="task-score-row">
-                                    <span class="score-label">Free Score</span>
-                                    <span class="score-value">\${freePointsValue}</span>
-                                    <span class="score-check \${isFreeBest ? 'active' : ''}">\${isFreeBest ? '✓' : ''}</span>
-                                </div>
+                                \${dmstFreeRow}
+                                \${dmstTaskRow}
+                                \${freeScoreRow}
                             </div>
                         </div>
                     \`;
                 }
+
             } else {
                 console.log('No detailed flight found for ID:', flightData.id);
             }
 
-            if (!taskScoreHtml) {
-                const hasDeclaredTask = !!flightData.declared;
-                const bestContestType = flightData.contestType || 'free';
-                const isTaskBest = bestContestType === 'au' || bestContestType === 'declaration';
-                const isFreeBest = bestContestType === 'free';
-                const formatPoints = (points) => Number.isFinite(points) ? points.toFixed(1) : '—';
+        if (!taskScoreHtml) {
+            const hasDeclaredTask = flightData.declared !== undefined;
+            const taskFinished = flightData.declared === true;
+            const bestContestType = flightData.contestType || 'free';
+            const isWeGlideBest = bestContestType === 'free';
+            const formatPoints = (points) => Number.isFinite(points) ? points.toFixed(1) : '—';
+            const dmstValueDisplay = !isWeGlideBest ? formatPoints(flightData.points) : '—';
+            const freeValueDisplay = isWeGlideBest ? formatPoints(flightData.points) : '—';
+            const showTaskCrossRow = hasDeclaredTask && !taskFinished;
 
-                taskScoreHtml = \`
-                    <div class="task-score-section">
-                        <div class="task-score-header">Task & Scores</div>
-                        <div class="task-score-grid">
-                            <div class="task-score-item">
-                                <span class="task-score-label">Task Length</span>
-                                <span class="task-score-value">\${hasDeclaredTask ? 'Declared' : 'No task declared'}</span>
-                            </div>
-                            <div class="task-score-item">
-                                <span class="task-score-label">Task Type</span>
-                                <span class="task-score-value">\${hasDeclaredTask ? 'Declared Task' : 'No task declared'}</span>
-                            </div>
-                            <div class="task-score-item">
-                                <span class="task-score-label">Task Completed</span>
-                                <span class="task-score-value">\${hasDeclaredTask ? 'Yes' : 'No'}</span>
-                            </div>
+            taskScoreHtml = \`
+                <div class="task-score-section">
+                    <div class="task-score-header">Task & Scores</div>
+                    <div class="task-score-grid">
+                        <div class="task-score-item">
+                            <span class="task-score-label">Task Length</span>
+                            <span class="task-score-value">\${hasDeclaredTask ? 'Declared' : 'No task declared'}</span>
                         </div>
-                        <div class="task-score-table">
-                            <div class="task-score-row">
-                                <span class="score-label">Task Score</span>
-                                <span class="score-value">\${formatPoints(isTaskBest ? flightData.points : NaN)}</span>
-                                <span class="score-check \${isTaskBest ? 'active' : ''}">\${isTaskBest ? '✓' : ''}</span>
-                            </div>
-                            <div class="task-score-row">
-                                <span class="score-label">Free Score</span>
-                                <span class="score-value">\${formatPoints(isFreeBest ? flightData.points : NaN)}</span>
-                                <span class="score-check \${isFreeBest ? 'active' : ''}">\${isFreeBest ? '✓' : ''}</span>
-                            </div>
+                        <div class="task-score-item">
+                            <span class="task-score-label">Task Type</span>
+                            <span class="task-score-value">\${hasDeclaredTask ? 'Declared Task' : 'No task declared'}</span>
+                        </div>
+                        <div class="task-score-item">
+                            <span class="task-score-label">Task Completed</span>
+                            <span class="task-score-value">\${hasDeclaredTask ? (taskFinished ? 'Yes' : 'No') : 'No'}</span>
                         </div>
                     </div>
-                \`;
-            }
+                    <div class="task-score-table">
+                        <div class="task-score-row">
+                            <span class="score-label">DMSt Free Score</span>
+                            <span class="score-value">\${dmstValueDisplay}</span>
+                            <span class="score-check \${!isWeGlideBest ? 'active' : ''}">\${!isWeGlideBest ? '✓' : ''}</span>
+                        </div>
+                        <div class="task-score-row">
+                            <span class="score-label">WeGlide/DMSt Task Score\${showTaskCrossRow ? ' (not finished)' : ''}</span>
+                            <span class="score-value">—</span>
+                            <span class="\${showTaskCrossRow ? 'score-check score-cross active' : 'score-check'}">\${showTaskCrossRow ? '✗' : ''}</span>
+                        </div>
+                        <div class="task-score-row">
+                            <span class="score-label">WeGlide Free Score</span>
+                            <span class="score-value">\${freeValueDisplay}</span>
+                            <span class="score-check \${isWeGlideBest ? 'active' : ''}">\${isWeGlideBest ? '✓' : ''}</span>
+                        </div>
+                    </div>
+                </div>
+            \`;
+        }
 
             // Create aircraft display for tooltip header
             let aircraftHeaderDisplay = '';
@@ -4458,6 +4582,10 @@ No maximum distance bonus\`
 
         .score-check.active {
             color: #4caf50;
+        }
+
+        .score-check.score-cross {
+            color: #f44336;
         }
 
         .tooltip-row {
