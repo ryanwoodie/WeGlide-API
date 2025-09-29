@@ -775,9 +775,26 @@ async function processAustralianFlights() {
 
         // Collect flight IDs that are actually used in the leaderboards
         const usedFlightIds = new Set();
-        [...mixedLeaderboard, ...freeLeaderboard].forEach(pilot => {
-            pilot.bestFlights.forEach(flight => {
-                usedFlightIds.add(flight.id);
+        const leaderboardsForDetails = [
+            mixedLeaderboard,
+            freeLeaderboard,
+            sprintLeaderboard,
+            triangleLeaderboard,
+            outReturnLeaderboard,
+            outLeaderboard,
+            silverCGullLeaderboard
+        ];
+
+        leaderboardsForDetails.forEach(board => {
+            (board || []).forEach(pilot => {
+                (pilot.bestFlights || []).forEach(flight => {
+                    if (flight && flight.id != null) {
+                        usedFlightIds.add(flight.id);
+                    }
+                });
+                if (pilot.flightId != null) {
+                    usedFlightIds.add(pilot.flightId);
+                }
             });
         });
 
@@ -4345,7 +4362,7 @@ No maximum distance bonus\`
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle"><button class="toggle-btn active" id="combinedBtn">Combined Scoring</button><button class="toggle-btn" id="freeBtn">Free Only</button><button class="toggle-btn" id="sprintBtn">Sprint</button><button class="toggle-btn" id="triangleBtn">Triangle</button><button class="toggle-btn" id="outReturnBtn">Out &amp; Return</button><button class="toggle-btn" id="outBtn">Out</button><button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button><button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button></div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice">(Mock leaderboard using Australian data for demonstration purposes.)</p>'
+            '$1</div><div class="scoring-toggle">\n                    <div class="primary-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Only</button>\n                        <button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                    <div class="secondary-toggle-row">\n                        <span class="secondary-toggle-label">Contest views:</span>\n                        <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                        <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                        <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                        <button class="toggle-btn secondary" id="outBtn">Out</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings (YTD - unofficial) <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section"><div class="task-stats-header" onclick="toggleTaskStatsSection()"><h5>📊 Task Type Statistics <span class="toggle-arrow" id="taskStatsArrow">▶</span></h5></div><div class="task-stats-content" id="taskStatsContent" style="display: none;"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice">(Mock leaderboard using Australian data for demonstration purposes.)</p>'
         );
 
         // Add CSS for toggle buttons and award badges
@@ -4359,6 +4376,40 @@ No maximum distance bonus\`
             align-items: center;
             padding: 0 20px;
             flex-wrap: wrap;
+        }
+
+        .primary-toggle-row,
+        .secondary-toggle-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .secondary-toggle-row {
+            margin-top: 6px;
+            font-size: 0.85em;
+        }
+
+        .secondary-toggle-label {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            margin-right: 6px;
+        }
+
+        .toggle-btn.secondary {
+            padding: 4px 10px;
+            font-size: 0.85em;
+            border-width: 1px;
+            opacity: 0.85;
+            color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .toggle-btn.secondary.active {
+            opacity: 1;
+            border-color: rgba(255, 255, 255, 0.85);
         }
 
         /* Find button */
