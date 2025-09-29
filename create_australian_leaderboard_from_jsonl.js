@@ -105,14 +105,15 @@ function calculateContestScore(flight, contestName) {
         : 0;
     const declared = contest?.score?.declared === true;
 
-    return {
-        score: contest.points,
-        distance,
-        speed,
-        contestType: contest.name,
-        declared
-    };
-}
+        const taskCompleted = flight?.task_achieved === true;
+        return {
+            score: contest.points,
+            distance,
+            speed,
+            contestType: contest.name,
+            declared: declared || taskCompleted
+        };
+    }
 
 const TASK_KIND_LABELS = {
     FR4: 'Start, 2-3 Turnpoints, Finish',
