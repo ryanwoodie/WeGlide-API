@@ -12,6 +12,7 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+.history/
 
 # Temporary processing files
 enhancement_log.txt
@@ -25,6 +26,7 @@ enhancement_log.txt
 *.html
 !australian_leaderboard.html
 !SAC_leaderboard.html
+!SAC_leaderboard_sac_dsc.html
 
 # JSON data files
 all_flights_*.json
