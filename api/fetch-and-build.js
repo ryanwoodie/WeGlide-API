@@ -384,13 +384,74 @@ async function computeSeasonSecondsForPilots(pilotIds) {
 }
 
 async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
-
-    const serialized = JSON.stringify(profiles, null, 2);
-    if (usingBlob()) {
-        fs.writeFileSync(PROFILES_FILE, serialized);
-        return blobPutText(PROFILES_BLOB_KEY, serialized, 'application/json');
+    if (!newProfiles.length) {
+        return { uploaded: 0, skipped: true, reason: 'no new pilots' };
     }
-    fs.writeFileSync(PROFILES_FILE, serialized);
+
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const serviceAccountJSON = process.env.FIREBASE_SERVICE_ACCOUNT || null;
+
+    if (!projectId && !serviceAccountJSON) {
+        return { uploaded: 0, skipped: true, reason: 'Missing Firebase credentials' };
+    }
+
+    let admin;
+    try {
+        admin = require('firebase-admin');
+    } catch (error) {
+        return { uploaded: 0, skipped: true, reason: 'firebase-admin not installed' };
+    }
+
+    if (!admin.apps.length) {
+        if (serviceAccountJSON) {
+            let credentials;
+            try {
+                credentials = JSON.parse(serviceAccountJSON);
+            } catch (error) {
+                return { uploaded: 0, skipped: true, reason: 'Invalid FIREBASE_SERVICE_ACCOUNT JSON' };
+            }
+            admin.initializeApp({
+                credential: admin.credential.cert(credentials),
+                projectId: credentials.project_id || projectId
+            });
+        } else {
+            admin.initializeApp({ projectId });
+        }
+    }
+
+    const db = admin.firestore();
+    let uploaded = 0;
+
+    for (const profile of newProfiles) {
+        if (!profile || typeof profile.id !== 'number') continue;
+        const lifetimeHours = (Number(profile.total_flight_duration) || 0) / 3600;
+        const seasonHours = ((seasonSecondsMap[profile.id] || 0) / 3600);
+        const baselineHours = Math.max(0, lifetimeHours - seasonHours);
+        const eligible = baselineHours < 200;
+
+        const verificationData = {
+            pilotName: profile.name || 'Unknown Pilot',
+            picHours: Number(baselineHours.toFixed(1)),
+            verifiedDate: new Date().toISOString(),
+            dataSource: 'weglide-automatic',
+            eligible,
+            calculation: {
+                totalWeGlideHours: Number(lifetimeHours.toFixed(1)),
+                hoursSinceSeasonStart: Number(seasonHours.toFixed(1)),
+                baselineHours: Number(baselineHours.toFixed(1)),
+                note: 'Baseline = lifetime hours - post-season-start hours'
+            }
+        };
+
+        try {
+            await db.collection('pilot_verifications').doc(String(profile.id)).set(verificationData, { merge: true });
+            uploaded += 1;
+        } catch (error) {
+            log(`Failed to upload verification for pilot ${profile.id}: ${error.message}`);
+        }
+    }
+
+    return { uploaded, skipped: false };
 }
 
 // Import the builder directly to ensure it's bundled and avoids spawn issues
