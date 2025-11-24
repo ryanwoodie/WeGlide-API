@@ -2,14 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
-const INPUT_FILE = process.env.INPUT_FILE || 'canadian_flights_2026_details.jsonl';
-const OUTPUT_DIR = process.env.OUTPUT_DIR || '.';
-const TEMPLATE_FILE = process.env.TEMPLATE_FILE || 'canadian_leaderboard_2025_embedded.html';
-
-// Helper to resolve paths
-const resolvePath = (filename) => path.join(OUTPUT_DIR, filename);
-
-
 // Function to calculate best score from flight contest data (Mixed scoring)
 function calculateBestScore(flight) {
     if (!flight.contest || !Array.isArray(flight.contest)) {
@@ -168,6 +160,11 @@ function getDMSTShapeBonus(kind) {
 }
 
 async function processCanadianFlights() {
+    const INPUT_FILE = process.env.INPUT_FILE || 'canadian_flights_2026_details.jsonl';
+    const OUTPUT_DIR = process.env.OUTPUT_DIR || '.';
+    const TEMPLATE_FILE = process.env.TEMPLATE_FILE || 'canadian_leaderboard_2025_embedded.html';
+    const resolvePath = (filename) => path.join(OUTPUT_DIR, filename);
+
     console.log('🇨🇦 Processing Canadian flights from JSONL...');
 
     const pilotFlightsMixed = {};  // Mixed scoring (AU/Free)
