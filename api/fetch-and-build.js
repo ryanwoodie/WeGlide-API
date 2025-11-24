@@ -10,8 +10,11 @@ const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.
 const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
 const PROFILES_BLOB_KEY = process.env.PROFILES_BLOB_KEY || 'canadian_user_profiles.json';
 
-const DATASET_FILE = path.join(process.cwd(), process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
-const PROFILES_FILE = path.join(process.cwd(), process.env.CANADIAN_PROFILES_FILE || 'canadian_user_profiles.json');
+const usingBlob = () => Boolean(BLOB_TOKEN);
+const TMP_DIR = usingBlob() ? '/tmp' : process.cwd();
+
+const DATASET_FILE = path.join(TMP_DIR, process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
+const PROFILES_FILE = path.join(TMP_DIR, process.env.CANADIAN_PROFILES_FILE || 'canadian_user_profiles.json');
 const LOCK_FILE = path.join('/tmp', 'fetch_and_build.lock');
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
@@ -29,9 +32,6 @@ function log(...args) {
     console.log('[fetch-and-build]', ...args);
 }
 
-function usingBlob() {
-    return Boolean(BLOB_TOKEN);
-}
 
 async function blobFetchText(key) {
     if (!usingBlob()) return null;
@@ -45,13 +45,13 @@ async function blobFetchText(key) {
     return res.text();
 }
 
-async function blobPutText(key, body) {
+async function blobPutText(key, body, contentType = 'application/octet-stream') {
     if (!usingBlob()) return;
     const res = await fetch(`${BLOB_BASE_URL.replace(/\/$/, '')}/${key}`, {
         method: 'PUT',
         headers: {
             Authorization: `Bearer ${BLOB_TOKEN}`,
-            'Content-Type': 'application/octet-stream'
+            'Content-Type': contentType
         },
         body
     });
@@ -248,7 +248,7 @@ async function appendFlightsToDataset(newFlightDetails) {
     if (usingBlob()) {
         const existing = await blobFetchText(DATASET_BLOB_KEY);
         const combined = (existing || '') + payload;
-        await blobPutText(DATASET_BLOB_KEY, combined);
+        await blobPutText(DATASET_BLOB_KEY, combined, 'application/x-jsonlines');
         fs.writeFileSync(DATASET_FILE, combined);
     } else {
         await new Promise((resolve, reject) => {
@@ -261,9 +261,16 @@ async function appendFlightsToDataset(newFlightDetails) {
     }
 }
 
-function loadProfiles() {
+async function loadProfiles() {
     if (usingBlob()) {
-        return {};
+        const text = await blobFetchText(PROFILES_BLOB_KEY);
+        if (!text) return {};
+        try {
+            return JSON.parse(text);
+        } catch (e) {
+            log('Failed to parse blob profiles:', e.message);
+            return {};
+        }
     }
     if (!fs.existsSync(PROFILES_FILE)) {
         return {};
@@ -300,7 +307,7 @@ function persistProfiles(profiles) {
     const serialized = JSON.stringify(profiles, null, 2);
     if (usingBlob()) {
         fs.writeFileSync(PROFILES_FILE, serialized);
-        return blobPutText(PROFILES_BLOB_KEY, serialized);
+        return blobPutText(PROFILES_BLOB_KEY, serialized, 'application/json');
     }
     fs.writeFileSync(PROFILES_FILE, serialized);
 }
@@ -465,8 +472,16 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
 
 async function runLeaderboardBuild() {
     return new Promise((resolve, reject) => {
-        const child = spawn('node', ['create_canadian_leaderboard_from_jsonl.js'], {
-            cwd: process.cwd(),
+        const env = {
+            ...process.env,
+            INPUT_FILE: DATASET_FILE,
+            OUTPUT_DIR: TMP_DIR,
+            TEMPLATE_FILE: path.resolve(__dirname, '../canadian_leaderboard_2025_embedded.html')
+        };
+
+        const child = spawn('node', [path.resolve(__dirname, '../create_canadian_leaderboard_from_jsonl.js')], {
+            cwd: TMP_DIR,
+            env,
             stdio: ['ignore', 'pipe', 'pipe']
         });
 
@@ -555,7 +570,7 @@ async function runFetchAndBuild(options = {}) {
         await appendFlightsToDataset(flightDetails);
         summary.meta.datasetUpdated = true;
 
-        const profiles = loadProfiles();
+        const profiles = await loadProfiles();
         const currentIds = new Set(Object.keys(profiles).map(id => Number(id)));
         const newPilotIds = [];
         const pendingPilotSet = new Set();
@@ -603,6 +618,19 @@ async function runFetchAndBuild(options = {}) {
 
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
+
+        if (usingBlob()) {
+            const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html'];
+            for (const file of htmlFiles) {
+                const filePath = path.join(TMP_DIR, file);
+                if (fs.existsSync(filePath)) {
+                    const content = fs.readFileSync(filePath, 'utf8');
+                    await blobPutText(file, content, 'text/html');
+                    log(`Uploaded ${file} to Blob`);
+                }
+            }
+        }
+
         summary.message = `Processed ${flightDetails.length} new flights and rebuilt leaderboard`;
 
     } catch (error) {

@@ -1,5 +1,13 @@
 const fs = require('fs');
+const path = require('path');
 const readline = require('readline');
+
+const INPUT_FILE = process.env.INPUT_FILE || 'canadian_flights_2026_details.jsonl';
+const OUTPUT_DIR = process.env.OUTPUT_DIR || '.';
+const TEMPLATE_FILE = process.env.TEMPLATE_FILE || 'canadian_leaderboard_2025_embedded.html';
+
+// Helper to resolve paths
+const resolvePath = (filename) => path.join(OUTPUT_DIR, filename);
 
 
 // Function to calculate best score from flight contest data (Mixed scoring)
@@ -177,7 +185,7 @@ async function processCanadianFlights() {
     let seasonEndDate = null;
 
     try {
-        const fileStream = fs.createReadStream('canadian_flights_2026_details.jsonl');
+        const fileStream = fs.createReadStream(INPUT_FILE);
         const rl = readline.createInterface({
             input: fileStream,
             crlfDelay: Infinity
@@ -647,7 +655,7 @@ async function processCanadianFlights() {
             const silverBadgeJuniors = [];
 
             // Re-read the file to find silver badge achievements
-            const fileStream = fs.createReadStream('canadian_flights_2026_details.jsonl');
+            const fileStream = fs.createReadStream(INPUT_FILE);
 
             return new Promise((resolve) => {
                 const rl = readline.createInterface({
@@ -848,7 +856,7 @@ async function processCanadianFlights() {
         console.log(`📊 Storing ${australianFlights.length} flight details for tooltips`);
 
         // Write detailed flight data to separate file to avoid embedding large data
-        fs.writeFileSync('australian_flight_details.json', JSON.stringify(australianFlights, null, 2));
+        fs.writeFileSync(resolvePath('australian_flight_details.json'), JSON.stringify(australianFlights, null, 2));
         console.log(`💾 Saved detailed flight data to australian_flight_details.json`);
 
         // Write minimal flight data for task stats to separate file
@@ -898,7 +906,7 @@ async function processCanadianFlights() {
                 takeoff_airport: f.takeoff_airport ? { name: f.takeoff_airport.name, region: f.takeoff_airport.region } : null
             };
         });
-        fs.writeFileSync('australian_flight_stats.json', JSON.stringify(minimalFlightData, null, 2));
+        fs.writeFileSync(resolvePath('australian_flight_stats.json'), JSON.stringify(minimalFlightData, null, 2));
         console.log(`💾 Saved flight stats data to australian_flight_stats.json`);
 
         // Calculate statistics from ALL flights (not just top 5 used for leaderboard)
@@ -1041,8 +1049,8 @@ async function processCanadianFlights() {
         let pilotDurationsEmbedded = {};
         let pilotProfilesEmbedded = {};
         try {
-            const durationsPath = 'canadian_user_durations.json';
-            const profilesPath = 'canadian_user_profiles.json';
+            const durationsPath = resolvePath('canadian_user_durations.json');
+            const profilesPath = resolvePath('canadian_user_profiles.json');
             let loaded = false;
 
             // Try to load both caches
@@ -1080,7 +1088,7 @@ async function processCanadianFlights() {
         console.log('ℹ️ Using Firebase-only for verifications (no embedded JSON)');
 
         // Read the Canadian HTML template
-        const canadianHTML = fs.readFileSync('canadian_leaderboard_2025_embedded.html', 'utf-8');
+        const canadianHTML = fs.readFileSync(TEMPLATE_FILE, 'utf-8');
 
         // Replace Canadian-specific content with Australian content
         let australianHTML = canadianHTML
@@ -5798,10 +5806,10 @@ No maximum distance bonus\`,
         });
 
         // Write the Canadian SAC leaderboard HTML variants
-        fs.writeFileSync('SAC_leaderboard.html', combinedHTML);
-        fs.writeFileSync('SAC_leaderboard_sac_dsc.html', sacDscHTML);
+        fs.writeFileSync(resolvePath('SAC_leaderboard.html'), combinedHTML);
+        fs.writeFileSync(resolvePath('SAC_leaderboard_sac_dsc.html'), sacDscHTML);
 
-        fs.writeFileSync('australian_leaderboard.html', `<!DOCTYPE html>
+        fs.writeFileSync(resolvePath('australian_leaderboard.html'), `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -5881,7 +5889,7 @@ No maximum distance bonus\`,
             // Save updated verification data back to file
             if (updatedCount > 0) {
                 try {
-                    fs.writeFileSync('pilot_pic_hours_verification.json',
+                    fs.writeFileSync(resolvePath('pilot_pic_hours_verification.json'),
                         JSON.stringify(pilotVerificationData, null, 2));
                     console.log(`✅ Updated ${updatedCount}/${calculatedCount} pilot verifications with WeGlide data`);
 
