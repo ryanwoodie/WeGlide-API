@@ -303,7 +303,79 @@ async function fetchUserProfiles(pilotIds) {
     return result;
 }
 
-function persistProfiles(profiles) {
+async function computeSeasonSecondsForPilots(pilotIds) {
+    const totals = {};
+    if (!pilotIds.length) {
+        return totals;
+    }
+    const pilotSet = new Set(pilotIds.map(id => Number(id)));
+    const baselineTimestamp = Date.parse(`${SEASON_BASELINE_DATE}T00:00:00Z`);
+    const text = usingBlob() ? await blobFetchText(DATASET_BLOB_KEY) : null;
+    if (usingBlob()) {
+        if (!text) return totals;
+        const lines = text.split('\n');
+        for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed) continue;
+            let flight;
+            try {
+                flight = JSON.parse(trimmed);
+            } catch (error) {
+                continue;
+            }
+            const pilotId = flight?.user?.id;
+            if (!pilotSet.has(Number(pilotId))) continue;
+            const dateStr = flight.scoring_date || flight.date;
+            if (!dateStr) continue;
+            const normalizedDate = dateStr.includes('T') ? dateStr : `${dateStr}T00:00:00Z`;
+            const flightTimestamp = Date.parse(normalizedDate);
+            if (Number.isNaN(flightTimestamp) || flightTimestamp < baselineTimestamp) continue;
+            const seconds = Number(flight.total_seconds) || 0;
+            if (seconds > 0) {
+                totals[pilotId] = (totals[pilotId] || 0) + seconds;
+            }
+        }
+        return totals;
+    }
+
+    if (!fs.existsSync(DATASET_FILE)) {
+        return totals;
+    }
+
+    const fileStream = fs.createReadStream(DATASET_FILE);
+    const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity });
+
+    for await (const line of rl) {
+        const trimmed = line.trim();
+        if (!trimmed) continue;
+        let flight;
+        try {
+            flight = JSON.parse(trimmed);
+        } catch (error) {
+            continue;
+        }
+        const pilotId = flight?.user?.id;
+        if (!pilotSet.has(Number(pilotId))) {
+            continue;
+        }
+        const dateStr = flight.scoring_date || flight.date;
+        if (!dateStr) continue;
+        const normalizedDate = dateStr.includes('T') ? dateStr : `${dateStr}T00:00:00Z`;
+        const flightTimestamp = Date.parse(normalizedDate);
+        if (Number.isNaN(flightTimestamp) || flightTimestamp < baselineTimestamp) {
+            continue;
+        }
+        const seconds = Number(flight.total_seconds) || 0;
+        if (seconds > 0) {
+            totals[pilotId] = (totals[pilotId] || 0) + seconds;
+        }
+    }
+
+    return totals;
+}
+
+async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
+
     const serialized = JSON.stringify(profiles, null, 2);
     if (usingBlob()) {
         fs.writeFileSync(PROFILES_FILE, serialized);
