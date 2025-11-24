@@ -312,207 +312,73 @@ function persistProfiles(profiles) {
     fs.writeFileSync(PROFILES_FILE, serialized);
 }
 
+// Import the builder directly to ensure it's bundled and avoids spawn issues
+const builder = require('../create_canadian_leaderboard_from_jsonl.js');
+
 async function ensureLocalCopiesFromBlob() {
     if (!usingBlob()) return;
 
+    // 1. Dataset Bootstrap
     const datasetText = await blobFetchText(DATASET_BLOB_KEY);
     if (datasetText) {
         fs.writeFileSync(DATASET_FILE, datasetText);
-    } else if (!fs.existsSync(DATASET_FILE)) {
-        throw new Error('Dataset blob is empty or missing; cannot build leaderboard');
+    } else {
+        // Bootstrap from local repo file if Blob is empty
+        const localPath = path.join(process.cwd(), 'canadian_flights_2026_details.jsonl');
+        if (fs.existsSync(localPath)) {
+             log('Bootstrapping dataset from local repo file...');
+             const content = fs.readFileSync(localPath, 'utf8');
+             fs.writeFileSync(DATASET_FILE, content);
+             // Upload to Blob so next time it's there
+             await blobPutText(DATASET_BLOB_KEY, content, 'application/x-jsonlines');
+        } else if (!fs.existsSync(DATASET_FILE)) {
+            // If we can't find it in Blob OR local repo, we can't build.
+            // (Note: DATASET_FILE is in /tmp, so checking it here just confirms we failed to write it)
+            throw new Error('Dataset blob is empty and local repo file not found; cannot build leaderboard');
+        }
     }
 
+    // 2. Profiles Bootstrap
     const profilesText = await blobFetchText(PROFILES_BLOB_KEY);
     if (profilesText) {
         fs.writeFileSync(PROFILES_FILE, profilesText);
-    }
-}
-
-async function computeSeasonSecondsForPilots(pilotIds) {
-    const totals = {};
-    if (!pilotIds.length) {
-        return totals;
-    }
-    const pilotSet = new Set(pilotIds.map(id => Number(id)));
-    const baselineTimestamp = Date.parse(`${SEASON_BASELINE_DATE}T00:00:00Z`);
-    const text = usingBlob() ? await blobFetchText(DATASET_BLOB_KEY) : null;
-    if (usingBlob()) {
-        if (!text) return totals;
-        const lines = text.split('\n');
-        for (const line of lines) {
-            const trimmed = line.trim();
-            if (!trimmed) continue;
-            let flight;
-            try {
-                flight = JSON.parse(trimmed);
-            } catch (error) {
-                continue;
-            }
-            const pilotId = flight?.user?.id;
-            if (!pilotSet.has(Number(pilotId))) continue;
-            const dateStr = flight.scoring_date || flight.date;
-            if (!dateStr) continue;
-            const normalizedDate = dateStr.includes('T') ? dateStr : `${dateStr}T00:00:00Z`;
-            const flightTimestamp = Date.parse(normalizedDate);
-            if (Number.isNaN(flightTimestamp) || flightTimestamp < baselineTimestamp) continue;
-            const seconds = Number(flight.total_seconds) || 0;
-            if (seconds > 0) {
-                totals[pilotId] = (totals[pilotId] || 0) + seconds;
-            }
-        }
-        return totals;
-    }
-
-    if (!fs.existsSync(DATASET_FILE)) {
-        return totals;
-    }
-
-    const fileStream = fs.createReadStream(DATASET_FILE);
-    const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity });
-
-    for await (const line of rl) {
-        const trimmed = line.trim();
-        if (!trimmed) continue;
-        let flight;
-        try {
-            flight = JSON.parse(trimmed);
-        } catch (error) {
-            continue;
-        }
-        const pilotId = flight?.user?.id;
-        if (!pilotSet.has(Number(pilotId))) {
-            continue;
-        }
-        const dateStr = flight.scoring_date || flight.date;
-        if (!dateStr) continue;
-        const normalizedDate = dateStr.includes('T') ? dateStr : `${dateStr}T00:00:00Z`;
-        const flightTimestamp = Date.parse(normalizedDate);
-        if (Number.isNaN(flightTimestamp) || flightTimestamp < baselineTimestamp) {
-            continue;
-        }
-        const seconds = Number(flight.total_seconds) || 0;
-        if (seconds > 0) {
-            totals[pilotId] = (totals[pilotId] || 0) + seconds;
+    } else {
+        const localProfiles = path.join(process.cwd(), 'canadian_user_profiles.json');
+        if (fs.existsSync(localProfiles)) {
+             log('Bootstrapping profiles from local repo file...');
+             const content = fs.readFileSync(localProfiles, 'utf8');
+             fs.writeFileSync(PROFILES_FILE, content);
+             await blobPutText(PROFILES_BLOB_KEY, content, 'application/json');
         }
     }
-
-    return totals;
-}
-
-async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
-    if (!newProfiles.length) {
-        return { uploaded: 0, skipped: true, reason: 'no new pilots' };
-    }
-
-    const projectId = process.env.FIREBASE_PROJECT_ID;
-    const serviceAccountJSON = process.env.FIREBASE_SERVICE_ACCOUNT || null;
-
-    if (!projectId && !serviceAccountJSON) {
-        return { uploaded: 0, skipped: true, reason: 'Missing Firebase credentials' };
-    }
-
-    let admin;
-    try {
-        admin = require('firebase-admin');
-    } catch (error) {
-        return { uploaded: 0, skipped: true, reason: 'firebase-admin not installed' };
-    }
-
-    if (!admin.apps.length) {
-        if (serviceAccountJSON) {
-            let credentials;
-            try {
-                credentials = JSON.parse(serviceAccountJSON);
-            } catch (error) {
-                return { uploaded: 0, skipped: true, reason: 'Invalid FIREBASE_SERVICE_ACCOUNT JSON' };
-            }
-            admin.initializeApp({
-                credential: admin.credential.cert(credentials),
-                projectId: credentials.project_id || projectId
-            });
-        } else {
-            admin.initializeApp({ projectId });
-        }
-    }
-
-    const db = admin.firestore();
-    let uploaded = 0;
-
-    for (const profile of newProfiles) {
-        if (!profile || typeof profile.id !== 'number') continue;
-        const lifetimeHours = (Number(profile.total_flight_duration) || 0) / 3600;
-        const seasonHours = ((seasonSecondsMap[profile.id] || 0) / 3600);
-        const baselineHours = Math.max(0, lifetimeHours - seasonHours);
-        const eligible = baselineHours < 200;
-
-        const verificationData = {
-            pilotName: profile.name || 'Unknown Pilot',
-            picHours: Number(baselineHours.toFixed(1)),
-            verifiedDate: new Date().toISOString(),
-            dataSource: 'weglide-automatic',
-            eligible,
-            calculation: {
-                totalWeGlideHours: Number(lifetimeHours.toFixed(1)),
-                hoursSinceSeasonStart: Number(seasonHours.toFixed(1)),
-                baselineHours: Number(baselineHours.toFixed(1)),
-                note: 'Baseline = lifetime hours - post-season-start hours'
-            }
-        };
-
-        try {
-            await db.collection('pilot_verifications').doc(String(profile.id)).set(verificationData, { merge: true });
-            uploaded += 1;
-        } catch (error) {
-            log(`Failed to upload verification for pilot ${profile.id}: ${error.message}`);
-        }
-    }
-
-    return { uploaded, skipped: false };
 }
 
 async function runLeaderboardBuild() {
-    return new Promise((resolve, reject) => {
-        const env = {
-            ...process.env,
-            INPUT_FILE: DATASET_FILE,
-            OUTPUT_DIR: TMP_DIR,
-            TEMPLATE_FILE: path.resolve(__dirname, '../canadian_leaderboard_2025_embedded.html')
-        };
-
-        const child = spawn('node', [path.resolve(__dirname, '../create_canadian_leaderboard_from_jsonl.js')], {
-            cwd: TMP_DIR,
-            env,
-            stdio: ['ignore', 'pipe', 'pipe']
-        });
-
-        let stdout = '';
-        let stderr = '';
-
-        child.stdout.on('data', (chunk) => {
-            const text = chunk.toString();
-            stdout += text;
-            text.split('\n').forEach(line => line && log('[build]', line));
-        });
-
-        child.stderr.on('data', (chunk) => {
-            const text = chunk.toString();
-            stderr += text;
-            text.split('\n').forEach(line => line && log('[build-err]', line));
-        });
-
-        child.on('error', reject);
-
-        child.on('close', (code) => {
-            if (code === 0) {
-                resolve({ success: true, stdout, stderr });
-            } else {
-                const error = new Error(`Leaderboard build failed with exit code ${code}`);
-                error.stdout = stdout;
-                error.stderr = stderr;
-                reject(error);
-            }
-        });
-    });
+    log('Starting leaderboard build (in-process)...');
+    
+    // Set env vars that the builder expects
+    process.env.INPUT_FILE = DATASET_FILE;
+    process.env.OUTPUT_DIR = TMP_DIR;
+    process.env.TEMPLATE_FILE = path.join(__dirname, '../canadian_leaderboard_2025_embedded.html');
+    // Also pass the firebase/verification paths if needed (the script resolves them relative to CWD or OUTPUT_DIR?)
+    // The script uses resolvePath() which joins OUTPUT_DIR. 
+    // But it reads 'canadian_user_durations.json' etc. using resolvePath too? 
+    // No, it uses resolvePath for input/output.
+    
+    // We need to ensure the builder can find the template. 
+    // The builder uses fs.readFileSync(TEMPLATE_FILE).
+    // We set TEMPLATE_FILE above to the absolute path.
+    
+    // Capture console logs from the builder?
+    // The builder logs to console.log, which will show up in Vercel logs automatically.
+    
+    try {
+        await builder.processCanadianFlights();
+        return { success: true, stdout: 'Build completed successfully via module import' };
+    } catch (error) {
+        console.error('Build failed:', error);
+        throw error;
+    }
 }
 
 function acquireLock() {

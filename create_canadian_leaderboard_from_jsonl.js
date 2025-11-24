@@ -5919,4 +5919,10 @@ No maximum distance bonus\`,
 }
 
 
-processCanadianFlights();
+// Export the function for use in other modules
+module.exports = { processCanadianFlights };
+
+// Run immediately if called directly
+if (require.main === module) {
+    processCanadianFlights();
+}
