@@ -50,3 +50,5 @@ recovered_flights.json
 
 # Claude conversation logs
 claude-conversation-*.md
+.vercel
+.env*.local

@@ -14,7 +14,7 @@ const https = require('https');
 // Season configuration
 const FREE_SEASON_START = '2025-09-23';
 const REGULAR_SEASON_START = '2025-10-01';
-const SEASON_END = '2026-09-30';
+const SEASON_END = '2025-11-18'; // Today's date
 
 // Configuration
 const COUNTRY_CODE = 'CA';
@@ -103,7 +103,7 @@ async function fetchCanadianFlights() {
 
     while (hasMore) {
         try {
-            const path = `/v1/flight?country=${COUNTRY_CODE}&scoring_date_from=${FREE_SEASON_START}&scoring_date_to=${SEASON_END}&limit=${BATCH_SIZE}&offset=${offset}`;
+            const path = `/v1/flight?country_id_in=${COUNTRY_CODE}&scoring_date_start=${FREE_SEASON_START}&scoring_date_end=${SEASON_END}&limit=${BATCH_SIZE}&skip=${offset}`;
             console.log(`  Fetching batch at offset ${offset}...`);
 
             const flights = await fetchFromAPI(path);

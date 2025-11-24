@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "sac-leaderboard",
+  "routes": [
+    { "src": "/sac-dsc", "dest": "/SAC_leaderboard_sac_dsc.html" },
+    { "src": "/", "dest": "/SAC_leaderboard_sac_dsc.html" }
+  ],
+  "crons": [
+    {
+      "path": "/api/check-flights",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}
