@@ -634,7 +634,9 @@ async function runFetchAndBuild(options = {}) {
                 if (fs.existsSync(filePath)) {
                     const content = fs.readFileSync(filePath, 'utf8');
                     await blobPutText(file, content, 'text/html');
-                    log(`Uploaded ${file} to Blob`);
+                    log(`Successfully uploaded ${file} to Blob.`);
+                } else {
+                    log(`Warning: ${file} not found at ${filePath}. Not uploaded to Blob.`);
                 }
             }
         }
