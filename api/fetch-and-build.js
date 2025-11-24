@@ -303,6 +303,15 @@ async function fetchUserProfiles(pilotIds) {
     return result;
 }
 
+function persistProfiles(profiles) {
+    const serialized = JSON.stringify(profiles, null, 2);
+    if (usingBlob()) {
+        fs.writeFileSync(PROFILES_FILE, serialized);
+        return blobPutText(PROFILES_BLOB_KEY, serialized, 'application/json');
+    }
+    fs.writeFileSync(PROFILES_FILE, serialized);
+}
+
 async function computeSeasonSecondsForPilots(pilotIds) {
     const totals = {};
     if (!pilotIds.length) {
