@@ -1055,10 +1055,17 @@ async function processCanadianFlights() {
                 pilotProfilesEmbedded = JSON.parse(fs.readFileSync(profilesPath, 'utf-8'));
                 
                 if (fs.existsSync(durationsPath)) {
-                    pilotDurationsEmbedded = JSON.parse(fs.readFileSync(durationsPath, 'utf-8'));
-                } else {
-                    // Derive durations from profiles if missing
-                    console.log('ℹ️ deriving pilotDurations from profiles...');
+                    try {
+                        pilotDurationsEmbedded = JSON.parse(fs.readFileSync(durationsPath, 'utf-8'));
+                    } catch (e) {
+                        console.warn('Error parsing durations file, ignoring:', e);
+                        pilotDurationsEmbedded = {};
+                    }
+                }
+
+                // Derive durations from profiles if missing OR empty
+                if (Object.keys(pilotDurationsEmbedded).length === 0) {
+                    console.log('ℹ️ deriving pilotDurations from profiles (missing or empty file)...');
                     Object.keys(pilotProfilesEmbedded).forEach(id => {
                         if (pilotProfilesEmbedded[id] && typeof pilotProfilesEmbedded[id].total_flight_duration === 'number') {
                             pilotDurationsEmbedded[id] = pilotProfilesEmbedded[id].total_flight_duration;
