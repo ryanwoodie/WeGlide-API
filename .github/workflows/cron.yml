@@ -12,6 +12,7 @@ on:
   # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
 
+# Cron job to keep leaderboard fresh
 jobs:
   trigger-update:
     runs-on: ubuntu-latest
