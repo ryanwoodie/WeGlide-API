@@ -1050,16 +1050,25 @@ async function processCanadianFlights() {
             const profilesPath = resolvePath('canadian_user_profiles.json');
             let loaded = false;
 
-            // Try to load both caches
-            if (fs.existsSync(durationsPath) && fs.existsSync(profilesPath)) {
-                pilotDurationsEmbedded = JSON.parse(fs.readFileSync(durationsPath, 'utf-8'));
+            // Try to load both caches, or derive durations from profiles if durations missing
+            if (fs.existsSync(profilesPath)) {
                 pilotProfilesEmbedded = JSON.parse(fs.readFileSync(profilesPath, 'utf-8'));
-                if (pilotDurationsEmbedded && Object.keys(pilotDurationsEmbedded).length > 0 &&
-                    pilotProfilesEmbedded && Object.keys(pilotProfilesEmbedded).length > 0) {
-                    console.log('ℹ️ Loaded cached canadian_user_durations.json and profiles');
-                    loaded = true;
+                
+                if (fs.existsSync(durationsPath)) {
+                    pilotDurationsEmbedded = JSON.parse(fs.readFileSync(durationsPath, 'utf-8'));
                 } else {
-                    console.log('ℹ️ Cache exists but incomplete, refetching data...');
+                    // Derive durations from profiles if missing
+                    console.log('ℹ️ deriving pilotDurations from profiles...');
+                    Object.keys(pilotProfilesEmbedded).forEach(id => {
+                        if (pilotProfilesEmbedded[id] && typeof pilotProfilesEmbedded[id].total_flight_duration === 'number') {
+                            pilotDurationsEmbedded[id] = pilotProfilesEmbedded[id].total_flight_duration;
+                        }
+                    });
+                }
+
+                if (pilotProfilesEmbedded && Object.keys(pilotProfilesEmbedded).length > 0) {
+                    console.log('ℹ️ Loaded cached profiles (and durations)');
+                    loaded = true;
                 }
             }
 
