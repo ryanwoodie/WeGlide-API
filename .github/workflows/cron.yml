@@ -1,6 +1,9 @@
 name: Trigger Leaderboard Update
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Every 5 minutes from 16:00 UTC to 23:55 UTC
     - cron: '*/5 16-23 * * *'
