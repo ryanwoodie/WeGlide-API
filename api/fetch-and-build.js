@@ -28,8 +28,11 @@ const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
 const FLIGHT_BATCH_SIZE = 100;
 const FLIGHT_DETAIL_DELAY_MS = Number(trimEnv(process.env.FLIGHT_DETAIL_DELAY_MS, 200));
 
+let globalLogBuffer = [];
 function log(...args) {
-    console.log('[fetch-and-build]', ...args);
+    const msg = args.join(' ');
+    console.log('[fetch-and-build]', msg);
+    if (globalLogBuffer) globalLogBuffer.push(msg);
 }
 
 
@@ -39,11 +42,18 @@ async function resolveLatestBlobUrl(key) {
     const response = await fetch(listUrl, {
         headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
     });
-    if (!response.ok) return null;
+    if (!response.ok) {
+        log(`Blob list failed: ${response.status}`);
+        return null;
+    }
     const data = await response.json();
     const matches = (data.blobs || []).filter(b => b.pathname === key);
-    if (matches.length === 0) return null;
+    if (matches.length === 0) {
+        log(`No blob matches for key: ${key}`);
+        return null;
+    }
     matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+    log(`Resolved blob for ${key}: ${matches[0].url}`);
     return matches[0].url;
 }
 
@@ -58,21 +68,6 @@ async function blobFetchText(key) {
         throw new Error(`Blob fetch failed for ${key} (url: ${url}): ${res.status} ${res.statusText}`);
     }
     return res.text();
-}
-
-async function blobPutText(key, body, contentType = 'application/octet-stream') {
-    if (!usingBlob()) return;
-    const res = await fetch(`${BLOB_BASE_URL.replace(/\/$/, '')}/${key}`, {
-        method: 'PUT',
-        headers: {
-            Authorization: `Bearer ${BLOB_TOKEN}`,
-            'Content-Type': contentType
-        },
-        body
-    });
-    if (!res.ok) {
-        throw new Error(`Blob write failed for ${key}: ${res.status} ${res.statusText}`);
-    }
 }
 
 function jsonRequest(url, { method = 'GET', body = null, headers = {} } = {}) {
@@ -554,9 +549,11 @@ function releaseLock() {
 
 async function runFetchAndBuild(options = {}) {
     const startTime = Date.now();
+    globalLogBuffer = [];
     const summary = {
         status: 'ok',
         trigger: options.trigger || 'unknown',
+        logs: globalLogBuffer,
         meta: {
             startTime: new Date(startTime).toISOString()
         }
