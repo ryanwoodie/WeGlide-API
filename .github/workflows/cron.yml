@@ -16,6 +16,10 @@ jobs:
   trigger-update:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Secret
+        run: echo "Token length: ${#SECRET_TOKEN}"
+        env:
+          SECRET_TOKEN: ${{ secrets.UPDATE_TOKEN }}
       - name: Call Vercel Endpoint
         run: |
           curl -X POST https://sac-leaderboard.vercel.app/api/trigger-update \
