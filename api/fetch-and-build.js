@@ -33,14 +33,29 @@ function log(...args) {
 }
 
 
-async function blobFetchText(key) {
+async function resolveLatestBlobUrl(key) {
     if (!usingBlob()) return null;
-    const res = await fetch(`${BLOB_BASE_URL.replace(/\/$/, '')}/${key}`, {
+    const listUrl = `${BLOB_BASE_URL.replace(/\/$/, '')}?limit=500`;
+    const response = await fetch(listUrl, {
         headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
     });
+    if (!response.ok) return null;
+    const data = await response.json();
+    const matches = (data.blobs || []).filter(b => b.pathname === key);
+    if (matches.length === 0) return null;
+    matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+    return matches[0].url;
+}
+
+async function blobFetchText(key) {
+    if (!usingBlob()) return null;
+    const url = await resolveLatestBlobUrl(key);
+    if (!url) return null;
+
+    const res = await fetch(url);
     if (res.status === 404) return null;
     if (!res.ok) {
-        throw new Error(`Blob fetch failed for ${key}: ${res.status} ${res.statusText}`);
+        throw new Error(`Blob fetch failed for ${key} (url: ${url}): ${res.status} ${res.statusText}`);
     }
     return res.text();
 }
