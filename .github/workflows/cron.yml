@@ -23,5 +23,5 @@ jobs:
       - name: Call Vercel Endpoint
         run: |
           curl -X POST https://sac-leaderboard.vercel.app/api/trigger-update \
-          -H "${{ secrets.UPDATE_TOKEN }}" \
+          -H "x-update-token: ${{ secrets.UPDATE_TOKEN }}" \
           --fail
