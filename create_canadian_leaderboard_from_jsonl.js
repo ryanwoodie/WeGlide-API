@@ -1131,10 +1131,6 @@ async function processCanadianFlights() {
                 <div class="stat">
                     <span class="stat-number" id="tasksCompleted">${totalTasksCompleted.toLocaleString()}</span>
                     <span class="stat-label">Tasks Completed</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" id="tasksHigherThanFree">${totalTasksHigherThanFree.toLocaleString()}</span>
-                    <span class="stat-label">Task Score > Free</span>
                 </div>`);
 
         // Replace the script section with our custom implementation
@@ -1540,8 +1536,7 @@ No maximum distance bonus\`,
                     totalFlights: ` + totalFlights + `,
                     totalKms: ` + totalKms + `,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `,
-                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 };
 
                 leaderboard = mixedLeaderboard; // Default to mixed scoring
@@ -1637,9 +1632,6 @@ No maximum distance bonus\`,
             if (document.getElementById('tasksCompleted') && stats && stats.totalTasksCompleted !== undefined) {
                 document.getElementById('tasksCompleted').textContent = stats.totalTasksCompleted.toLocaleString();
             }
-            if (document.getElementById('tasksHigherThanFree') && stats && stats.totalTasksHigherThanFree !== undefined) {
-                document.getElementById('tasksHigherThanFree').textContent = stats.totalTasksHigherThanFree.toLocaleString();
-            }
         }
 
         // Switch between scoring modes
@@ -1667,8 +1659,7 @@ No maximum distance bonus\`,
                     totalFlights: ` + totalFlights + `,
                     totalKms: ` + totalKms + `,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `,
-                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 });
             } else if (mode === 'free') {
                 leaderboard = freeLeaderboard;
@@ -1693,8 +1684,7 @@ No maximum distance bonus\`,
                     totalFlights: ` + totalFlights + `,
                     totalKms: ` + totalKms + `,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `,
-                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 });
             } else if (mode === 'triangle') {
                 leaderboard = triangleLeaderboard;
@@ -1705,8 +1695,7 @@ No maximum distance bonus\`,
                     totalFlights: ` + totalFlights + `,
                     totalKms: ` + totalKms + `,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `,
-                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 });
             } else if (mode === 'out_return') {
                 leaderboard = outReturnLeaderboard;
@@ -1717,8 +1706,7 @@ No maximum distance bonus\`,
                     totalFlights: ` + totalFlights + `,
                     totalKms: ` + totalKms + `,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `,
-                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 });
             } else if (mode === 'out') {
                 leaderboard = outLeaderboard;
@@ -1729,8 +1717,7 @@ No maximum distance bonus\`,
                     totalFlights: ` + totalFlights + `,
                     totalKms: ` + totalKms + `,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `,
-                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 });
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
@@ -2759,29 +2746,12 @@ No maximum distance bonus\`,
                     const pilotIdSet = new Set(visibleStatsList.map(p => p.pilotId));
                 let tasksDeclared = 0;
                 let tasksCompleted = 0;
-                let tasksHigherThanFree = 0;
                 (fullFlightData || []).forEach(f => {
                     if (!f || !f.user || !pilotIdSet.has(f.user.id)) return;
                     if (f.task) {
                         tasksDeclared++;
                         if (f.task_achieved === true) {
                             tasksCompleted++;
-                            if (Array.isArray(f.contest)) {
-                                const au = f.contest.find(c => c && c.name === 'ca' && c.points > 0);
-                                const decl = f.contest.find(c => c && c.name === 'declaration' && c.points > 0);
-                                const fr = f.contest.find(c => c && c.name === 'free' && c.points > 0);
-
-                                const isAuDeclared = au?.score?.declared === true;
-                                const isDeclDeclared = decl?.score?.declared === true;
-
-                                if (fr) {
-                                    if (au && isAuDeclared && au.points > fr.points) {
-                                        tasksHigherThanFree++;
-                                    } else if (decl && isDeclDeclared && decl.points > fr.points) {
-                                        tasksHigherThanFree++;
-                                    }
-                                }
-                            }
                         }
                     }
                 });
@@ -2802,8 +2772,7 @@ No maximum distance bonus\`,
                     totalFlights: filteredFlights,
                     totalKms: filteredKms,
                     totalTasksDeclared: tasksDeclared,
-                    totalTasksCompleted: tasksCompleted,
-                    totalTasksHigherThanFree: tasksHigherThanFree
+                    totalTasksCompleted: tasksCompleted
                 });
                 } catch (e) {
                     console.warn('Task stats recompute failed:', e);
@@ -2816,8 +2785,7 @@ No maximum distance bonus\`,
                     totalFlights: ` + totalFlights + `,
                     totalKms: ` + totalKms + `,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `,
-                    totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 });
             }
 
