@@ -1,0 +1,23 @@
+name: Trigger Leaderboard Update
+
+on:
+  schedule:
+    # Every 5 minutes from 16:00 UTC to 23:55 UTC
+    - cron: '*/5 16-23 * * *'
+    # Every 5 minutes from 00:00 UTC to 06:00 UTC
+    - cron: '*/5 0-6 * * *'
+    # Every 30 minutes from 06:00 UTC to 16:00 UTC (Low activity hours)
+    - cron: '*/30 6-16 * * *'
+  
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  trigger-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Vercel Endpoint
+        run: |
+          curl -X POST https://sac-leaderboard.vercel.app/api/trigger-update \
+          -H "${{ secrets.UPDATE_TOKEN }}" \
+          --fail
