@@ -573,7 +573,7 @@ async function runFetchAndBuild(options = {}) {
         const newFlights = await fetchRecentFlights(existing.ids, options.limitOverride);
         summary.meta.newFlights = newFlights.length;
 
-        if (newFlights.length === 0) {
+        if (newFlights.length === 0 && !options.forceBuild) {
             summary.status = 'no_changes';
             summary.message = 'No new flights detected';
             return summary;
