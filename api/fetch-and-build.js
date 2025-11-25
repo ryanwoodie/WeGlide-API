@@ -628,15 +628,20 @@ async function runFetchAndBuild(options = {}) {
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
 
         if (usingBlob()) {
+            summary.logs = [];
             const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html'];
             for (const file of htmlFiles) {
                 const filePath = path.join(TMP_DIR, file);
                 if (fs.existsSync(filePath)) {
                     const content = fs.readFileSync(filePath, 'utf8');
                     await blobPutText(file, content, 'text/html');
-                    log(`Successfully uploaded ${file} to Blob.`);
+                    const msg = `Successfully uploaded ${file} to Blob.`;
+                    log(msg);
+                    summary.logs.push(msg);
                 } else {
-                    log(`Warning: ${file} not found at ${filePath}. Not uploaded to Blob.`);
+                    const msg = `Warning: ${file} not found at ${filePath}. Not uploaded to Blob.`;
+                    log(msg);
+                    summary.logs.push(msg);
                 }
             }
         }
