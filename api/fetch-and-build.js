@@ -579,22 +579,27 @@ async function runFetchAndBuild(options = {}) {
             return summary;
         }
 
-        const flightDetails = await fetchFlightDetails(newFlights);
-        summary.meta.detailsFetched = flightDetails.length;
+        let flightDetails = [];
+        if (newFlights.length > 0) {
+            flightDetails = await fetchFlightDetails(newFlights);
+            summary.meta.detailsFetched = flightDetails.length;
 
-        if (!flightDetails.length) {
-            summary.status = 'error';
-            summary.message = 'Failed to fetch flight details for new flights';
-            return summary;
+            if (!flightDetails.length) {
+                summary.status = 'error';
+                summary.message = 'Failed to fetch flight details for new flights';
+                return summary;
+            }
+
+            await appendFlightsToDataset(flightDetails);
+            summary.meta.datasetUpdated = true;
         }
-
-        await appendFlightsToDataset(flightDetails);
-        summary.meta.datasetUpdated = true;
 
         const profiles = await loadProfiles();
         const currentIds = new Set(Object.keys(profiles).map(id => Number(id)));
         const newPilotIds = [];
         const pendingPilotSet = new Set();
+        
+        // If no new flights, flightDetails is empty, so no new pilots from this run
         flightDetails.forEach(flight => {
             const pilotId = flight?.user?.id;
             if (typeof pilotId === 'number' && !currentIds.has(pilotId) && !pendingPilotSet.has(pilotId)) {
