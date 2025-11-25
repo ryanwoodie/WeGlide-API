@@ -26,7 +26,12 @@ module.exports = async (req, res) => {
         const matches = (data.blobs || []).filter(b => b.pathname === LEADERBOARD_KEY);
 
         if (matches.length === 0) {
-            return res.status(404).send('Leaderboard not found in storage');
+            return res.status(404).json({
+                error: 'Leaderboard not found in storage',
+                searchedKey: LEADERBOARD_KEY,
+                foundPathnames: (data.blobs || []).map(b => b.pathname).slice(0, 10), // Show first 10 pathnames found
+                totalBlobs: (data.blobs || []).length
+            });
         }
 
         // 3. Sort by uploadedAt desc to get the latest
