@@ -70,6 +70,21 @@ async function blobFetchText(key) {
     return res.text();
 }
 
+async function blobPutText(key, body, contentType = 'application/octet-stream') {
+    if (!usingBlob()) return;
+    const res = await fetch(`${BLOB_BASE_URL.replace(/\/$/, '')}/${key}`, {
+        method: 'PUT',
+        headers: {
+            Authorization: `Bearer ${BLOB_TOKEN}`,
+            'Content-Type': contentType
+        },
+        body
+    });
+    if (!res.ok) {
+        throw new Error(`Blob write failed for ${key}: ${res.status} ${res.statusText}`);
+    }
+}
+
 function jsonRequest(url, { method = 'GET', body = null, headers = {} } = {}) {
     return new Promise((resolve, reject) => {
         const parsedUrl = new URL(url);
