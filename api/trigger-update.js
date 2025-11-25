@@ -18,7 +18,11 @@ module.exports = async (req, res) => {
     }
 
     try {
-        const summary = await fetchAndBuild.runFetchAndBuild({ trigger: req.query?.source || 'manual' });
+        const limitOverride = req.query?.max_flights ? parseInt(req.query.max_flights, 10) : undefined;
+        const summary = await fetchAndBuild.runFetchAndBuild({ 
+            trigger: req.query?.source || 'manual',
+            limitOverride 
+        });
         const statusCode = summary.status === 'error' ? 500 : 200;
         return res.status(statusCode).json(summary);
     } catch (error) {

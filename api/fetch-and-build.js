@@ -186,9 +186,10 @@ function buildFlightListUrl({ limit, skip }) {
     return `${WEGLIDE_API_BASE}/v1/flight?${params.toString()}`;
 }
 
-async function fetchRecentFlights(existingIds) {
+async function fetchRecentFlights(existingIds, limitOverride) {
     const newFlights = [];
-    const maxBatches = Math.ceil(MAX_FLIGHTS_PER_RUN / FLIGHT_BATCH_SIZE) + 1;
+    const effectiveLimit = limitOverride || MAX_FLIGHTS_PER_RUN;
+    const maxBatches = Math.ceil(effectiveLimit / FLIGHT_BATCH_SIZE) + 5; // Add buffer batches
 
     for (let batch = 0; batch < maxBatches; batch++) {
         const skip = batch * FLIGHT_BATCH_SIZE;
@@ -210,7 +211,7 @@ async function fetchRecentFlights(existingIds) {
                 continue;
             }
             newFlights.push(flight);
-            if (newFlights.length >= MAX_FLIGHTS_PER_RUN) {
+            if (newFlights.length >= effectiveLimit) {
                 return newFlights;
             }
         }
@@ -557,7 +558,7 @@ async function runFetchAndBuild(options = {}) {
         summary.meta.latestFlightDate = existing.latestDate;
         summary.meta.persistence = usingBlob() ? 'blob' : 'filesystem';
 
-        const newFlights = await fetchRecentFlights(existing.ids);
+        const newFlights = await fetchRecentFlights(existing.ids, options.limitOverride);
         summary.meta.newFlights = newFlights.length;
 
         if (newFlights.length === 0) {
