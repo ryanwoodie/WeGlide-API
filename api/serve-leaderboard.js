@@ -1,40 +1,54 @@
-const { fetch } = require('undici'); // Vercel Node.js runtimes include fetch, but just in case
-// In Node 18+ fetch is global.
+const { fetch } = require('undici');
 
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
 const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.com';
 const LEADERBOARD_KEY = 'SAC_leaderboard_sac_dsc.html';
 
 module.exports = async (req, res) => {
-    // If no Blob token, we might be in a build where we just want to serve the static file
-    // But this is an API route.
     if (!BLOB_TOKEN) {
         return res.status(500).send('Missing BLOB_READ_WRITE_TOKEN');
     }
 
     try {
-        const blobUrl = `${BLOB_BASE_URL.replace(/\/$/, '')}/${LEADERBOARD_KEY}`;
-        const response = await fetch(blobUrl, {
+        // 1. List blobs to find the latest URL for our key
+        const listUrl = `${BLOB_BASE_URL.replace(/\/$/, '')}?limit=500`; // Fetch enough to find recent uploads
+        const listResponse = await fetch(listUrl, {
             headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
         });
 
-        if (response.status === 404) {
-             // Fallback: if not in blob yet, maybe redirect to the static file?
-             // But we can't easily redirect to "myself" if I'm replacing the route.
-             return res.status(404).send('Leaderboard not found in storage');
+        if (!listResponse.ok) {
+            throw new Error(`Failed to list blobs: ${listResponse.status} ${listResponse.statusText}`);
         }
 
+        const data = await listResponse.json();
+        
+        // 2. Find all matches for our key
+        const matches = (data.blobs || []).filter(b => b.pathname === LEADERBOARD_KEY);
+
+        if (matches.length === 0) {
+            return res.status(404).send('Leaderboard not found in storage');
+        }
+
+        // 3. Sort by uploadedAt desc to get the latest
+        matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+        const latestBlob = matches[0];
+
+        // 4. Fetch the content from the unique URL
+        const response = await fetch(latestBlob.url);
+
         if (!response.ok) {
-            throw new Error(`Failed to fetch leaderboard: ${response.status} ${response.statusText}`);
+            throw new Error(`Failed to fetch blob content: ${response.status} ${response.statusText}`);
         }
 
         const html = await response.text();
+        
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
-        // Cache for 60 seconds
-        res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
+        // Cache for 60 seconds, allow stale-while-revalidate
+        res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
         res.send(html);
+
     } catch (error) {
         console.error('Error serving leaderboard:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send('Internal Server Error: ' + error.message);
     }
 };
