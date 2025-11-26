@@ -53,7 +53,10 @@ async function getLastKnownFlightIdFromBlob() {
 
     try {
         // 1. Resolve latest blob URL
-        const listUrl = `${BLOB_BASE_URL.replace(///$/, '')}?limit=500`;
+        // Fix regex for trailing slash removal: /\/$/
+        const baseUrl = BLOB_BASE_URL.endsWith('/') ? BLOB_BASE_URL.slice(0, -1) : BLOB_BASE_URL;
+        const listUrl = `${baseUrl}?limit=500`;
+        
         const listRes = await fetch(listUrl, {
             headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
         });
@@ -76,21 +79,6 @@ async function getLastKnownFlightIdFromBlob() {
         const lines = text.trim().split('\n');
         if (lines.length === 0) return null;
         
-        // We want the *most recently added* flight. 
-        // fetch-and-build appends new flights to the end.
-        // So the last line is the newest flight we have processed.
-        // HOWEVER: The file is append-only list of details.
-        // Is it guaranteed sorted by creation? 
-        // fetch-and-build fetches recent flights and appends them.
-        // If it fetches batch 0, then batch 1... it appends them in that order.
-        // But fetchRecentFlights returns flights.
-        // Usually it processes them.
-        
-        // To be safe, let's check all IDs in the file and find the one with the highest ID?
-        // No, flight IDs are usually sequential but not guaranteed strictly chronologically by upload if backfilled.
-        // But we want to know if the flight ID we just fetched from WeGlide is *in the set*.
-        
-        // Optimization: Just parse all IDs into a Set. It's robust.
         const ids = new Set();
         for (const line of lines) {
             if (!line.trim()) continue;
