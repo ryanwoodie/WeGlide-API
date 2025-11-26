@@ -1,16 +1,9 @@
 /**
  * Vercel Serverless Function: Check for New Canadian Flights
- *
- * This function is called by Vercel Cron every 5 minutes.
- * It checks if there are new Canadian flights on WeGlide API.
- * If new flights are detected, it triggers the fetch-and-build process.
- *
- * Cron Schedule: every 5 minutes
  */
 
 const https = require('https');
-const fs = require('fs');
-const path = require('path');
+const { fetch } = require('undici');
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
 const WEGLIDE_API_BASE = trimEnv(process.env.WEGLIDE_API_BASE, 'https://api.weglide.org');
@@ -18,86 +11,99 @@ const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
 const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
 const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
 
-// Cache file to store last known flight ID
-const CACHE_FILE = path.join('/tmp', 'last_flight_id.json');
+// Blob config
+const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
+const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.com';
+const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
 
 /**
  * Fetch latest Canadian flight from WeGlide API
  */
 async function fetchLatestFlight() {
-    return new Promise((resolve, reject) => {
-        const params = new URLSearchParams({
-            country_id_in: 'CA',
-            scoring_date_start: SEASON_START,
-            scoring_date_end: SEASON_END,
-            limit: '1',
-            skip: '0',
-            order_by: '-created'
-        });
-        const url = `${WEGLIDE_API_BASE}/v1/flight?${params.toString()}`;
-
-        const headers = {
-            'Accept': 'application/json',
-            'Origin': 'https://www.weglide.org',
-            'Referer': 'https://www.weglide.org/',
-            'User-Agent': process.env.HTTP_USER_AGENT || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-        };
-
-        const req = https.get(url, { headers }, (res) => {
-            let data = '';
-
-            res.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            res.on('end', () => {
-                try {
-                    const json = JSON.parse(data);
-                    if (json && json.length > 0) {
-                        resolve(json[0]);
-                    } else {
-                        resolve(null);
-                    }
-                } catch (err) {
-                    const message = `Failed to parse WeGlide response (status ${res.statusCode}, length ${data.length})`;
-                    reject(new Error(message));
-                }
-            });
-        });
-
-        req.on('error', (err) => {
-            reject(err);
-        });
+    const params = new URLSearchParams({
+        country_id_in: 'CA',
+        scoring_date_start: SEASON_START,
+        scoring_date_end: SEASON_END,
+        limit: '1',
+        skip: '0',
+        order_by: '-created'
     });
-}
+    const url = `${WEGLIDE_API_BASE}/v1/flight?${params.toString()}`;
 
-/**
- * Get last known flight ID from cache
- */
-function getLastKnownFlightId() {
-    try {
-        if (fs.existsSync(CACHE_FILE)) {
-            const data = fs.readFileSync(CACHE_FILE, 'utf8');
-            const cache = JSON.parse(data);
-            return cache.lastFlightId;
-        }
-    } catch (err) {
-        console.error('Error reading cache:', err);
+    const headers = {
+        'Accept': 'application/json',
+        'Origin': 'https://www.weglide.org',
+        'Referer': 'https://www.weglide.org/',
+        'User-Agent': process.env.HTTP_USER_AGENT || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+    };
+
+    const response = await fetch(url, { headers });
+    if (!response.ok) {
+        throw new Error(`WeGlide API error: ${response.status}`);
     }
-    return null;
+    const json = await response.json();
+    return (json && json.length > 0) ? json[0] : null;
 }
 
 /**
- * Save flight ID to cache
+ * Get last known flight ID from Blob storage
  */
-function saveLastFlightId(flightId) {
+async function getLastKnownFlightIdFromBlob() {
+    if (!BLOB_TOKEN) return null;
+
     try {
-        fs.writeFileSync(CACHE_FILE, JSON.stringify({
-            lastFlightId: flightId,
-            timestamp: new Date().toISOString()
-        }));
+        // 1. Resolve latest blob URL
+        const listUrl = `${BLOB_BASE_URL.replace(///$/, '')}?limit=500`;
+        const listRes = await fetch(listUrl, {
+            headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
+        });
+        if (!listRes.ok) return null;
+        
+        const data = await listRes.json();
+        const matches = (data.blobs || []).filter(b => b.pathname === DATASET_BLOB_KEY);
+        if (matches.length === 0) return null;
+        
+        // Sort by uploadedAt desc
+        matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+        const blobUrl = matches[0].url;
+
+        // 2. Fetch content
+        const res = await fetch(blobUrl);
+        if (!res.ok) return null;
+        const text = await res.text();
+
+        // 3. Parse last line
+        const lines = text.trim().split('\n');
+        if (lines.length === 0) return null;
+        
+        // We want the *most recently added* flight. 
+        // fetch-and-build appends new flights to the end.
+        // So the last line is the newest flight we have processed.
+        // HOWEVER: The file is append-only list of details.
+        // Is it guaranteed sorted by creation? 
+        // fetch-and-build fetches recent flights and appends them.
+        // If it fetches batch 0, then batch 1... it appends them in that order.
+        // But fetchRecentFlights returns flights.
+        // Usually it processes them.
+        
+        // To be safe, let's check all IDs in the file and find the one with the highest ID?
+        // No, flight IDs are usually sequential but not guaranteed strictly chronologically by upload if backfilled.
+        // But we want to know if the flight ID we just fetched from WeGlide is *in the set*.
+        
+        // Optimization: Just parse all IDs into a Set. It's robust.
+        const ids = new Set();
+        for (const line of lines) {
+            if (!line.trim()) continue;
+            try {
+                const f = JSON.parse(line);
+                if (f.id) ids.add(f.id);
+            } catch (e) {}
+        }
+        
+        return ids; // Return the Set of all known IDs
     } catch (err) {
-        console.error('Error writing cache:', err);
+        console.error('Error reading blob:', err);
+        return null;
     }
 }
 
@@ -105,44 +111,25 @@ function saveLastFlightId(flightId) {
  * Trigger the fetch-and-build process
  */
 async function triggerBuild() {
-    return new Promise((resolve, reject) => {
-        const base = process.env.VERCEL_URL
-            ? (process.env.VERCEL_URL.startsWith('http') ? process.env.VERCEL_URL : `https://${process.env.VERCEL_URL}`)
-            : 'http://localhost:3000';
-        const url = `${base}/api/fetch-and-build`;
+    const base = process.env.VERCEL_URL
+        ? (process.env.VERCEL_URL.startsWith('http') ? process.env.VERCEL_URL : `https://${process.env.VERCEL_URL}`)
+        : 'http://localhost:3000';
+    const url = `${base}/api/fetch-and-build`;
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    };
 
-        if (UPDATE_TOKEN) {
-            options.headers['x-update-token'] = UPDATE_TOKEN;
-        }
-        if (process.env.VERCEL_AUTOMATION_BYPASS_SECRET) {
-            options.headers['x-vercel-protection-bypass'] = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
-        }
+    if (UPDATE_TOKEN) {
+        options.headers['x-update-token'] = UPDATE_TOKEN;
+    }
+    if (process.env.VERCEL_AUTOMATION_BYPASS_SECRET) {
+        options.headers['x-vercel-protection-bypass'] = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+    }
 
-        const req = https.request(url, options, (res) => {
-            let data = '';
-
-            res.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            res.on('end', () => {
-                resolve({ status: res.statusCode, data });
-            });
-        });
-
-        req.on('error', (err) => {
-            reject(err);
-        });
-
-        req.end();
-    });
+    const res = await fetch(url, options);
+    return { status: res.status };
 }
 
 /**
@@ -150,72 +137,57 @@ async function triggerBuild() {
  */
 module.exports = async (req, res) => {
     try {
-        console.log('[check-flights] Checking for new Canadian flights...');
-
         // Fetch latest flight from WeGlide
         const latestFlight = await fetchLatestFlight();
 
         if (!latestFlight) {
             return res.status(200).json({
                 status: 'no_flights',
-                message: 'No flights found for the season',
-                timestamp: new Date().toISOString()
+                message: 'No flights found for the season'
             });
         }
 
         const latestFlightId = latestFlight.id;
-        const lastKnownId = getLastKnownFlightId();
+        
+        // Get all known IDs from Blob
+        const knownIds = await getLastKnownFlightIdFromBlob();
 
-        console.log(`[check-flights] Latest flight ID: ${latestFlightId}, Last known ID: ${lastKnownId}`);
+        const isNew = !knownIds || !knownIds.has(latestFlightId);
 
-        // Check if there are new flights
-        if (lastKnownId === null || latestFlightId !== lastKnownId) {
-            console.log('[check-flights] New flights detected! Triggering build...');
-
-            // Save the new flight ID
-            saveLastFlightId(latestFlightId);
+        if (isNew) {
+            console.log(`[check-flights] New flight detected: ${latestFlightId}. Triggering build...`);
 
             // Trigger the build process
             try {
                 const buildResult = await triggerBuild();
-                console.log('[check-flights] Build triggered successfully');
-
                 return res.status(200).json({
                     status: 'new_data_available',
-                    message: 'New flights detected, build triggered',
+                    message: 'New flight detected, build triggered',
                     latestFlightId,
-                    previousFlightId: lastKnownId,
-                    buildStatus: buildResult.status,
-                    timestamp: new Date().toISOString()
+                    buildStatus: buildResult.status
                 });
             } catch (buildErr) {
-                console.error('[check-flights] Error triggering build:', buildErr);
                 return res.status(500).json({
                     status: 'error',
-                    message: 'New flights detected but build trigger failed',
-                    error: buildErr.message,
-                    timestamp: new Date().toISOString()
+                    message: 'New flight detected but build trigger failed',
+                    error: buildErr.message
                 });
             }
         } else {
-            console.log('[check-flights] No new flights detected');
-
+            console.log(`[check-flights] Flight ${latestFlightId} already known.`);
             return res.status(200).json({
                 status: 'no_changes',
                 message: 'No new flights since last check',
-                latestFlightId,
-                timestamp: new Date().toISOString()
+                latestFlightId
             });
         }
 
     } catch (error) {
         console.error('[check-flights] Error:', error);
-
         return res.status(500).json({
             status: 'error',
             message: 'Failed to check for new flights',
-            error: error.message,
-            timestamp: new Date().toISOString()
+            error: error.message
         });
     }
 };
