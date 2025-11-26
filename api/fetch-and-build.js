@@ -205,7 +205,8 @@ function buildFlightListUrl({ limit, skip }) {
         scoring_date_start: SEASON_START,
         scoring_date_end: SEASON_END,
         limit: String(limit),
-        skip: String(skip)
+        skip: String(skip),
+        order_by: '-created'
     });
 
     return `${WEGLIDE_API_BASE}/v1/flight?${params.toString()}`;

@@ -31,7 +31,8 @@ async function fetchLatestFlight() {
             scoring_date_start: SEASON_START,
             scoring_date_end: SEASON_END,
             limit: '1',
-            skip: '0'
+            skip: '0',
+            order_by: '-created'
         });
         const url = `${WEGLIDE_API_BASE}/v1/flight?${params.toString()}`;
 
