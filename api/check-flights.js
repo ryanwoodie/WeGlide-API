@@ -124,9 +124,14 @@ async function triggerBuild() {
  * Main handler function
  */
 module.exports = async (req, res) => {
+    return res.status(200).json({ status: 'ok', message: 'Check flights endpoint is reachable' });
+    /*
     try {
         // Fetch latest flight from WeGlide
         const latestFlight = await fetchLatestFlight();
+    ...
+    */
+};
 
         if (!latestFlight) {
             return res.status(200).json({
