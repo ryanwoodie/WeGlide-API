@@ -1,4 +1,4 @@
-const { fetch } = require('undici');
+// fetch is global in Node 18+
 
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
 const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.com';

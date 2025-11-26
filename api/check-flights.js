@@ -3,7 +3,7 @@
  */
 
 const https = require('https');
-const { fetch } = require('undici');
+// fetch is global in Node 18+
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
 const WEGLIDE_API_BASE = trimEnv(process.env.WEGLIDE_API_BASE, 'https://api.weglide.org');
