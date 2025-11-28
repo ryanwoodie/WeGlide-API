@@ -33,15 +33,14 @@ class SACLeaderboard extends HTMLElement {
                 iframe {
                     width: 100%;
                     border: none;
-                    /* Ensure scrolling is possible if resize fails */
-                    overflow-y: auto; 
-                    min-height: 100vh; /* Default to viewport height */
+                    overflow: hidden; 
+                    min-height: 600px; /* Initial height */
                     transition: height 0.2s ease;
                 }
             </style>
             <iframe 
                 src="https://sac-leaderboard.vercel.app/sac-dsc" 
-                scrolling="yes"
+                scrolling="no"
                 title="SAC Leaderboard"
             ></iframe>
         `;
