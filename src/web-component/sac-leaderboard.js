@@ -14,12 +14,10 @@ class SACLeaderboard extends HTMLElement {
     }
 
     handleResize(event) {
-        // Validate origin for security (optional but recommended)
-        // if (event.origin !== "https://sac-leaderboard.vercel.app") return;
-
         if (event.data && event.data.type === 'sac-resize') {
             const iframe = this.shadowRoot.querySelector('iframe');
             if (iframe) {
+                // console.log('Resizing iframe to:', event.data.height);
                 iframe.style.height = `${event.data.height}px`;
             }
         }
@@ -35,14 +33,15 @@ class SACLeaderboard extends HTMLElement {
                 iframe {
                     width: 100%;
                     border: none;
-                    overflow: hidden;
-                    min-height: 600px; /* Initial height before load */
+                    /* Ensure scrolling is possible if resize fails */
+                    overflow-y: auto; 
+                    min-height: 100vh; /* Default to viewport height */
                     transition: height 0.2s ease;
                 }
             </style>
             <iframe 
                 src="https://sac-leaderboard.vercel.app/sac-dsc" 
-                scrolling="no"
+                scrolling="yes"
                 title="SAC Leaderboard"
             ></iframe>
         `;
