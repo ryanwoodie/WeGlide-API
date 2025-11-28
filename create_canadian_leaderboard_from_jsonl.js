@@ -5745,7 +5745,7 @@ No maximum distance bonus\`,
         if (document.readyState === 'complete') sendHeight();
     </script>
         `;
-        australianHTML = australianHTML.replace('</body>', resizeScript + '</body>');
+        australianHTML = australianHTML.replace('</body>', resizeScript + `\n<!-- Generated at ${new Date().toISOString()} -->\n</body>`);
 
         const baseHTML = australianHTML;
         const serializedShared = {
