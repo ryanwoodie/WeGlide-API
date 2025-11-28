@@ -482,7 +482,7 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
 }
 
 // Import the builder directly to ensure it's bundled and avoids spawn issues
-// Re-import to avoid caching issues?
+// Revert to clean state (re-deploy)
 const builder = require('../create_canadian_leaderboard_from_jsonl.js');
 
 async function ensureLocalCopiesFromBlob() {
