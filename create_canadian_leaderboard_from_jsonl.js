@@ -5724,6 +5724,29 @@ No maximum distance bonus\`,
 
         australianHTML = australianHTML.replace('</style>', toggleCSS + '\n    </style>');
 
+        // Inject iframe resizer script for Web Component integration
+        const resizeScript = `
+    <script>
+        function sendHeight() {
+            // Use offsetHeight + margin or scrollHeight? scrollHeight is safer for growing content.
+            // We add a small buffer to prevent flickering scrollbars.
+            const height = document.body.scrollHeight + 20; 
+            window.parent.postMessage({ type: 'sac-resize', height: height }, '*');
+        }
+        
+        window.addEventListener('load', sendHeight);
+        window.addEventListener('resize', sendHeight);
+        
+        // Observe DOM changes to handle dynamic content (like toggles/search)
+        const observer = new MutationObserver(sendHeight);
+        observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+        
+        // Send initial height
+        if (document.readyState === 'complete') sendHeight();
+    </script>
+        `;
+        australianHTML = australianHTML.replace('</body>', resizeScript + '</body>');
+
         const baseHTML = australianHTML;
         const serializedShared = {
             pilotDurations: JSON.stringify(pilotDurationsEmbedded),
