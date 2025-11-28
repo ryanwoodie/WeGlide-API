@@ -2,6 +2,7 @@
   "version": 2,
   "name": "sac-leaderboard",
   "routes": [
+    { "src": "/widget.js", "dest": "/api/serve-widget.js" },
     { "src": "/api/data", "dest": "/api/serve-data.js" },
     { "src": "/debug-blob", "dest": "/api/debug-blob.js" },
     { "src": "/sac-dsc", "dest": "/api/serve-leaderboard" },
