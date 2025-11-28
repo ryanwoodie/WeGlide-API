@@ -663,12 +663,14 @@ async function runFetchAndBuild(options = {}) {
 
         if (usingBlob()) {
             summary.logs = [];
-            const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html'];
+            const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html', 'leaderboard_data.json'];
             for (const file of htmlFiles) {
                 const filePath = path.join(TMP_DIR, file);
                 if (fs.existsSync(filePath)) {
                     const content = fs.readFileSync(filePath, 'utf8');
-                    await blobPutText(file, content, 'text/html');
+                    // Use correct content type for JSON
+                    const contentType = file.endsWith('.json') ? 'application/json' : 'text/html';
+                    await blobPutText(file, content, contentType);
                     const msg = `Successfully uploaded ${file} to Blob.`;
                     log(msg);
                     summary.logs.push(msg);

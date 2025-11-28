@@ -5790,6 +5790,39 @@ No maximum distance bonus\`,
         fs.writeFileSync(resolvePath('SAC_leaderboard.html'), combinedHTML);
         fs.writeFileSync(resolvePath('SAC_leaderboard_sac_dsc.html'), sacDscHTML);
 
+        // Write the consolidated JSON data for the web component
+        const leaderboardData = {
+            ...serializedShared,
+            // Parse the JSON strings back to objects for the JSON file, or keep them as strings?
+            // Better to serve proper JSON objects so the client doesn't have to double-parse.
+            pilotDurations: JSON.parse(serializedShared.pilotDurations),
+            pilotVerifications: JSON.parse(serializedShared.pilotVerifications),
+            pilotProfiles: JSON.parse(serializedShared.pilotProfiles),
+            aircraftAwards: JSON.parse(serializedShared.aircraftAwards),
+            freeLeaderboard: JSON.parse(serializedShared.freeLeaderboard),
+            sprintLeaderboard: JSON.parse(serializedShared.sprintLeaderboard),
+            triangleLeaderboard: JSON.parse(serializedShared.triangleLeaderboard),
+            outReturnLeaderboard: JSON.parse(serializedShared.outReturnLeaderboard),
+            outLeaderboard: JSON.parse(serializedShared.outLeaderboard),
+            silverCgullLeaderboard: JSON.parse(serializedShared.silverCgullLeaderboard),
+            detailedFlights: JSON.parse(serializedShared.detailedFlights),
+            minimalFlights: JSON.parse(serializedShared.minimalFlights),
+            mixedLeaderboard: mixedLeaderboard, // Add mixed data directly (was combinedData)
+            sacDscLeaderboard: sacDscLeaderboardOutput, // Add SAC-DSC data directly
+            meta: {
+                totalPilots,
+                totalFlights,
+                totalKms,
+                totalTasksDeclared,
+                totalTasksCompleted,
+                seasonLabel,
+                freeSeasonLabel,
+                generatedAt: new Date().toISOString()
+            }
+        };
+        fs.writeFileSync(resolvePath('leaderboard_data.json'), JSON.stringify(leaderboardData, null, 2));
+        console.log('✅ Created leaderboard_data.json for API');
+
         fs.writeFileSync(resolvePath('australian_leaderboard.html'), `<!DOCTYPE html>
 <html lang="en">
 <head>
