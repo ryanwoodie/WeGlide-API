@@ -46,51 +46,40 @@ async function fetchLatestFlight() {
 }
 
 /**
- * Get last known flight ID from Blob storage
+ * Get all known flight IDs from the local dataset file
  */
-async function getLastKnownFlightIdFromBlob() {
-    if (!BLOB_TOKEN) return null;
+async function getKnownFlightIds() {
+    const fs = require('fs');
+    const path = require('path');
 
     try {
-        // 1. Resolve latest blob URL
-        // Fix regex for trailing slash removal: /\/$/
-        const baseUrl = BLOB_BASE_URL.endsWith('/') ? BLOB_BASE_URL.slice(0, -1) : BLOB_BASE_URL;
-        const listUrl = `${baseUrl}?limit=500`;
-        
-        const listRes = await fetch(listUrl, {
-            headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
-        });
-        if (!listRes.ok) return null;
-        
-        const data = await listRes.json();
-        const matches = (data.blobs || []).filter(b => b.pathname === DATASET_BLOB_KEY);
-        if (matches.length === 0) return null;
-        
-        // Sort by uploadedAt desc
-        matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
-        const blobUrl = matches[0].url;
+        // Read from the repository dataset file
+        const datasetPath = path.join(process.cwd(), DATASET_BLOB_KEY);
 
-        // 2. Fetch content
-        const res = await fetch(blobUrl);
-        if (!res.ok) return null;
-        const text = await res.text();
+        if (!fs.existsSync(datasetPath)) {
+            console.log('[check-flights] Dataset file not found, assuming no flights known yet');
+            return null;
+        }
 
-        // 3. Parse last line
+        const text = fs.readFileSync(datasetPath, 'utf8');
         const lines = text.trim().split('\n');
+
         if (lines.length === 0) return null;
-        
+
         const ids = new Set();
         for (const line of lines) {
             if (!line.trim()) continue;
             try {
                 const f = JSON.parse(line);
                 if (f.id) ids.add(f.id);
-            } catch (e) {}
+            } catch (e) {
+                // Skip malformed lines
+            }
         }
-        
+
         return ids; // Return the Set of all known IDs
     } catch (err) {
-        console.error('Error reading blob:', err);
+        console.error('[check-flights] Error reading dataset file:', err);
         return null;
     }
 }
@@ -136,9 +125,9 @@ module.exports = async (req, res) => {
         }
 
         const latestFlightId = latestFlight.id;
-        
-        // Get all known IDs from Blob
-        const knownIds = await getLastKnownFlightIdFromBlob();
+
+        // Get all known IDs from local dataset
+        const knownIds = await getKnownFlightIds();
 
         const isNew = !knownIds || !knownIds.has(latestFlightId);
 

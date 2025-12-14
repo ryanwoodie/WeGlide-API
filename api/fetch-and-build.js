@@ -272,20 +272,24 @@ async function fetchFlightDetails(flights) {
 async function appendFlightsToDataset(newFlightDetails) {
     const payload = newFlightDetails.map(flight => JSON.stringify(flight)).join('\n') + '\n';
 
-    if (usingBlob()) {
-        const existing = await blobFetchText(DATASET_BLOB_KEY);
-        const combined = (existing || '') + payload;
-        await blobPutText(DATASET_BLOB_KEY, combined, 'application/x-jsonlines');
-        fs.writeFileSync(DATASET_FILE, combined);
-    } else {
-        await new Promise((resolve, reject) => {
-            const stream = fs.createWriteStream(DATASET_FILE, { flags: 'a' });
-            stream.on('error', reject);
-            stream.on('finish', resolve);
-            stream.write(payload);
-            stream.end();
-        });
-    }
+    // Write to the working dataset file in /tmp or local directory
+    await new Promise((resolve, reject) => {
+        const stream = fs.createWriteStream(DATASET_FILE, { flags: 'a' });
+        stream.on('error', reject);
+        stream.on('finish', resolve);
+        stream.write(payload);
+        stream.end();
+    });
+
+    // Also update the repository file for persistence
+    const repoDatasetPath = path.join(process.cwd(), 'canadian_flights_2026_details.jsonl');
+    await new Promise((resolve, reject) => {
+        const stream = fs.createWriteStream(repoDatasetPath, { flags: 'a' });
+        stream.on('error', reject);
+        stream.on('finish', resolve);
+        stream.write(payload);
+        stream.end();
+    });
 }
 
 async function loadProfiles() {
@@ -332,11 +336,13 @@ async function fetchUserProfiles(pilotIds) {
 
 function persistProfiles(profiles) {
     const serialized = JSON.stringify(profiles, null, 2);
-    if (usingBlob()) {
-        fs.writeFileSync(PROFILES_FILE, serialized);
-        return blobPutText(PROFILES_BLOB_KEY, serialized, 'application/json');
-    }
+
+    // Write to working directory
     fs.writeFileSync(PROFILES_FILE, serialized);
+
+    // Also write to repository for persistence
+    const repoProfilesPath = path.join(process.cwd(), 'canadian_user_profiles.json');
+    fs.writeFileSync(repoProfilesPath, serialized);
 }
 
 async function computeSeasonSecondsForPilots(pilotIds) {
@@ -485,41 +491,25 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
 // Revert to clean state (re-deploy)
 const builder = require('../create_canadian_leaderboard_from_jsonl.js');
 
-async function ensureLocalCopiesFromBlob() {
-    if (!usingBlob()) return;
+async function ensureLocalCopiesFromRepo() {
+    // Bootstrap from local repository files (no longer using blob storage)
 
     // 1. Dataset Bootstrap
-    const datasetText = await blobFetchText(DATASET_BLOB_KEY);
-    if (datasetText) {
-        fs.writeFileSync(DATASET_FILE, datasetText);
-    } else {
-        // Bootstrap from local repo file if Blob is empty
-        const localPath = path.join(process.cwd(), 'canadian_flights_2026_details.jsonl');
-        if (fs.existsSync(localPath)) {
-             log('Bootstrapping dataset from local repo file...');
-             const content = fs.readFileSync(localPath, 'utf8');
-             fs.writeFileSync(DATASET_FILE, content);
-             // Upload to Blob so next time it's there
-             await blobPutText(DATASET_BLOB_KEY, content, 'application/x-jsonlines');
-        } else if (!fs.existsSync(DATASET_FILE)) {
-            // If we can't find it in Blob OR local repo, we can't build.
-            // (Note: DATASET_FILE is in /tmp, so checking it here just confirms we failed to write it)
-            throw new Error('Dataset blob is empty and local repo file not found; cannot build leaderboard');
-        }
+    const localDatasetPath = path.join(process.cwd(), 'canadian_flights_2026_details.jsonl');
+    if (fs.existsSync(localDatasetPath)) {
+        log('Loading dataset from repository file...');
+        const content = fs.readFileSync(localDatasetPath, 'utf8');
+        fs.writeFileSync(DATASET_FILE, content);
+    } else if (!fs.existsSync(DATASET_FILE)) {
+        throw new Error('Dataset file not found in repository; cannot build leaderboard');
     }
 
     // 2. Profiles Bootstrap
-    const profilesText = await blobFetchText(PROFILES_BLOB_KEY);
-    if (profilesText) {
-        fs.writeFileSync(PROFILES_FILE, profilesText);
-    } else {
-        const localProfiles = path.join(process.cwd(), 'canadian_user_profiles.json');
-        if (fs.existsSync(localProfiles)) {
-             log('Bootstrapping profiles from local repo file...');
-             const content = fs.readFileSync(localProfiles, 'utf8');
-             fs.writeFileSync(PROFILES_FILE, content);
-             await blobPutText(PROFILES_BLOB_KEY, content, 'application/json');
-        }
+    const localProfilesPath = path.join(process.cwd(), 'canadian_user_profiles.json');
+    if (fs.existsSync(localProfilesPath)) {
+        log('Loading profiles from repository file...');
+        const content = fs.readFileSync(localProfilesPath, 'utf8');
+        fs.writeFileSync(PROFILES_FILE, content);
     }
 }
 
@@ -656,8 +646,8 @@ async function runFetchAndBuild(options = {}) {
         const firebaseSummary = await uploadPilotVerifications(newProfiles, seasonSecondsMap);
         summary.meta.firebase = firebaseSummary;
 
-        // Ensure local copies exist for the build step when using blob
-        await ensureLocalCopiesFromBlob();
+        // Ensure local copies exist for the build step from repository
+        await ensureLocalCopiesFromRepo();
 
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
@@ -696,15 +686,15 @@ async function runFetchAndBuild(options = {}) {
                 execSync('git config user.name "Vercel Bot"');
                 execSync('git config user.email "bot@vercel.com"');
 
-                // Add files
-                execSync('git add public/');
+                // Add all updated files (leaderboard HTML/JSON + dataset + profiles)
+                execSync('git add public/ canadian_flights_2026_details.jsonl canadian_user_profiles.json');
 
                 // Check if there are changes
                 const status = execSync('git status --porcelain').toString();
                 if (status.trim()) {
                     // Commit with timestamp
                     const timestamp = new Date().toISOString();
-                    execSync(`git commit -m "Auto-update leaderboard files - ${timestamp}"`);
+                    execSync(`git commit -m "Auto-update leaderboard and dataset - ${timestamp}"`);
 
                     // Push using GitHub token
                     const repoUrl = `https://${process.env.GITHUB_TOKEN}@github.com/ryanwoodie/WeGlide-API.git`;
