@@ -72,7 +72,7 @@ async function blobFetchText(key) {
 
 async function blobPutText(key, body, contentType = 'application/octet-stream') {
     if (!usingBlob()) return;
-    const res = await fetch(`${BLOB_BASE_URL.replace(/\/$/, '')}/${key}`, {
+    const res = await fetch(`${BLOB_BASE_URL.replace(/\/$/, '')}/${key}?access=public`, {
         method: 'PUT',
         headers: {
             Authorization: `Bearer ${BLOB_TOKEN}`,

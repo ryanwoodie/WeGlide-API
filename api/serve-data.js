@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
         matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
         const latestBlob = matches[0];
 
-        // 4. Fetch the content from the unique URL
+        // 4. Fetch the content from the public blob URL
         const response = await fetch(latestBlob.url);
 
         if (!response.ok) {
