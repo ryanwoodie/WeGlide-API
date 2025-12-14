@@ -1657,10 +1657,6 @@
                     <span class="stat-number" id="tasksCompleted">2</span>
                     <span class="stat-label">Tasks Completed</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number" id="tasksHigherThanFree">0</span>
-                    <span class="stat-label">Task Score > Free</span>
-                </div>
             </div><div class="scoring-toggle">
                     <div class="primary-toggle-row">
                         <button class="toggle-btn active" id="combinedBtn">SAC-DSC</button>
@@ -2107,8 +2103,7 @@ No maximum distance bonus`,
                     totalFlights: 185,
                     totalKms: 20002,
                     totalTasksDeclared: 63,
-                    totalTasksCompleted: 2,
-                    totalTasksHigherThanFree: 0
+                    totalTasksCompleted: 2
                 };
 
                 leaderboard = mixedLeaderboard; // Default to mixed scoring
@@ -2204,9 +2199,6 @@ No maximum distance bonus`,
             if (document.getElementById('tasksCompleted') && stats && stats.totalTasksCompleted !== undefined) {
                 document.getElementById('tasksCompleted').textContent = stats.totalTasksCompleted.toLocaleString();
             }
-            if (document.getElementById('tasksHigherThanFree') && stats && stats.totalTasksHigherThanFree !== undefined) {
-                document.getElementById('tasksHigherThanFree').textContent = stats.totalTasksHigherThanFree.toLocaleString();
-            }
         }
 
         // Switch between scoring modes
@@ -2234,8 +2226,7 @@ No maximum distance bonus`,
                     totalFlights: 185,
                     totalKms: 20002,
                     totalTasksDeclared: 63,
-                    totalTasksCompleted: 2,
-                    totalTasksHigherThanFree: 0
+                    totalTasksCompleted: 2
                 });
             } else if (mode === 'free') {
                 leaderboard = freeLeaderboard;
@@ -2260,8 +2251,7 @@ No maximum distance bonus`,
                     totalFlights: 185,
                     totalKms: 20002,
                     totalTasksDeclared: 63,
-                    totalTasksCompleted: 2,
-                    totalTasksHigherThanFree: 0
+                    totalTasksCompleted: 2
                 });
             } else if (mode === 'triangle') {
                 leaderboard = triangleLeaderboard;
@@ -2272,8 +2262,7 @@ No maximum distance bonus`,
                     totalFlights: 185,
                     totalKms: 20002,
                     totalTasksDeclared: 63,
-                    totalTasksCompleted: 2,
-                    totalTasksHigherThanFree: 0
+                    totalTasksCompleted: 2
                 });
             } else if (mode === 'out_return') {
                 leaderboard = outReturnLeaderboard;
@@ -2284,8 +2273,7 @@ No maximum distance bonus`,
                     totalFlights: 185,
                     totalKms: 20002,
                     totalTasksDeclared: 63,
-                    totalTasksCompleted: 2,
-                    totalTasksHigherThanFree: 0
+                    totalTasksCompleted: 2
                 });
             } else if (mode === 'out') {
                 leaderboard = outLeaderboard;
@@ -2296,8 +2284,7 @@ No maximum distance bonus`,
                     totalFlights: 185,
                     totalKms: 20002,
                     totalTasksDeclared: 63,
-                    totalTasksCompleted: 2,
-                    totalTasksHigherThanFree: 0
+                    totalTasksCompleted: 2
                 });
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
@@ -3326,29 +3313,12 @@ No maximum distance bonus`,
                     const pilotIdSet = new Set(visibleStatsList.map(p => p.pilotId));
                 let tasksDeclared = 0;
                 let tasksCompleted = 0;
-                let tasksHigherThanFree = 0;
                 (fullFlightData || []).forEach(f => {
                     if (!f || !f.user || !pilotIdSet.has(f.user.id)) return;
                     if (f.task) {
                         tasksDeclared++;
                         if (f.task_achieved === true) {
                             tasksCompleted++;
-                            if (Array.isArray(f.contest)) {
-                                const au = f.contest.find(c => c && c.name === 'ca' && c.points > 0);
-                                const decl = f.contest.find(c => c && c.name === 'declaration' && c.points > 0);
-                                const fr = f.contest.find(c => c && c.name === 'free' && c.points > 0);
-
-                                const isAuDeclared = au?.score?.declared === true;
-                                const isDeclDeclared = decl?.score?.declared === true;
-
-                                if (fr) {
-                                    if (au && isAuDeclared && au.points > fr.points) {
-                                        tasksHigherThanFree++;
-                                    } else if (decl && isDeclDeclared && decl.points > fr.points) {
-                                        tasksHigherThanFree++;
-                                    }
-                                }
-                            }
                         }
                     }
                 });
@@ -3369,8 +3339,7 @@ No maximum distance bonus`,
                     totalFlights: filteredFlights,
                     totalKms: filteredKms,
                     totalTasksDeclared: tasksDeclared,
-                    totalTasksCompleted: tasksCompleted,
-                    totalTasksHigherThanFree: tasksHigherThanFree
+                    totalTasksCompleted: tasksCompleted
                 });
                 } catch (e) {
                     console.warn('Task stats recompute failed:', e);
@@ -3383,8 +3352,7 @@ No maximum distance bonus`,
                     totalFlights: 185,
                     totalKms: 20002,
                     totalTasksDeclared: 63,
-                    totalTasksCompleted: 2,
-                    totalTasksHigherThanFree: 0
+                    totalTasksCompleted: 2
                 });
             }
 
@@ -5015,5 +4983,26 @@ No maximum distance bonus`,
             }
         });
         </script>
+
+    <script>
+        function sendHeight() {
+            // Use offsetHeight + margin or scrollHeight? scrollHeight is safer for growing content.
+            // We add a small buffer to prevent flickering scrollbars.
+            const height = document.body.scrollHeight + 20; 
+            window.parent.postMessage({ type: 'sac-resize', height: height }, '*');
+        }
+        
+        window.addEventListener('load', sendHeight);
+        window.addEventListener('resize', sendHeight);
+        
+        // Observe DOM changes to handle dynamic content (like toggles/search)
+        const observer = new MutationObserver(sendHeight);
+        observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+        
+        // Send initial height
+        if (document.readyState === 'complete') sendHeight();
+    </script>
+        
+<!-- Generated at 2025-12-14T22:29:55.247Z -->
 </body>
 </html>
