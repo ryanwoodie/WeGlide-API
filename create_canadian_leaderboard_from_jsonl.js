@@ -1849,8 +1849,14 @@ No maximum distance bonus\`,
                 pilotPreviewElement.addEventListener('mouseenter', cancelPilotPreviewHide);
                 pilotPreviewElement.addEventListener('mouseleave', () => hidePilotPreview(null));
 
-                pilotPreviewElement.style.left = '50%';
-                pilotPreviewElement.style.top = '50%';
+                // Center the tooltip in the viewport (accounting for scroll with position: absolute)
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                const viewportHeight = window.innerHeight;
+                const viewportWidth = window.innerWidth;
+
+                pilotPreviewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
+                pilotPreviewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
                 pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
 
                 requestAnimationFrame(() => {
@@ -2472,9 +2478,14 @@ No maximum distance bonus\`,
             previewElement.addEventListener('mouseenter', cancelFlightHide);
             previewElement.addEventListener('mouseleave', (evt) => hideFlightPreview(evt));
 
-            // Center the tooltip in the viewport
-            previewElement.style.left = '50%';
-            previewElement.style.top = '50%';
+            // Center the tooltip in the viewport (accounting for scroll with position: absolute)
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
+
+            previewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
+            previewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
             previewElement.style.transform = 'translate(-50%, -50%)';
 
             // Fade in the tooltip
