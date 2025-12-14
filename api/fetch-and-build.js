@@ -662,24 +662,26 @@ async function runFetchAndBuild(options = {}) {
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
 
-        if (usingBlob()) {
-            summary.logs = [];
-            const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html', 'leaderboard_data.json'];
-            for (const file of htmlFiles) {
-                const filePath = path.join(TMP_DIR, file);
-                if (fs.existsSync(filePath)) {
-                    const content = fs.readFileSync(filePath, 'utf8');
-                    // Use correct content type for JSON
-                    const contentType = file.endsWith('.json') ? 'application/json' : 'text/html';
-                    await blobPutText(file, content, contentType);
-                    const msg = `Successfully uploaded ${file} to Blob.`;
-                    log(msg);
-                    summary.logs.push(msg);
-                } else {
-                    const msg = `Warning: ${file} not found at ${filePath}. Not uploaded to Blob.`;
-                    log(msg);
-                    summary.logs.push(msg);
-                }
+        // Copy generated files to public/ directory for static serving
+        const publicDir = path.join(process.cwd(), 'public');
+        if (!fs.existsSync(publicDir)) {
+            fs.mkdirSync(publicDir, { recursive: true });
+        }
+
+        summary.logs = [];
+        const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html', 'leaderboard_data.json'];
+        for (const file of htmlFiles) {
+            const sourcePath = path.join(TMP_DIR, file);
+            const destPath = path.join(publicDir, file);
+            if (fs.existsSync(sourcePath)) {
+                fs.copyFileSync(sourcePath, destPath);
+                const msg = `Successfully copied ${file} to public/ directory.`;
+                log(msg);
+                summary.logs.push(msg);
+            } else {
+                const msg = `Warning: ${file} not found at ${sourcePath}. Not copied.`;
+                log(msg);
+                summary.logs.push(msg);
             }
         }
 

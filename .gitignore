@@ -27,6 +27,7 @@ enhancement_log.txt
 !australian_leaderboard.html
 !SAC_leaderboard.html
 !SAC_leaderboard_sac_dsc.html
+!public/*.html
 
 # JSON data files
 all_flights_*.json
@@ -35,6 +36,7 @@ canada_*.json
 canadian_flights_*.json
 declared_flights_*.json
 leaderboard_*.json
+!public/leaderboard_*.json
 batch_*.json
 flight_*.json
 user_*.json

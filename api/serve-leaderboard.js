@@ -1,52 +1,19 @@
-// fetch is global in Node 18+
+const fs = require('fs');
+const path = require('path');
 
-const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
-const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.com';
-const LEADERBOARD_KEY = 'SAC_leaderboard_sac_dsc.html';
+const LEADERBOARD_FILE = 'SAC_leaderboard_sac_dsc.html';
 
 module.exports = async (req, res) => {
-    if (!BLOB_TOKEN) {
-        return res.status(500).send('Missing BLOB_READ_WRITE_TOKEN');
-    }
-
     try {
-        // 1. List blobs to find the latest URL for our key
-        const listUrl = `${BLOB_BASE_URL.replace(/\/$/, '')}?limit=500`; // Fetch enough to find recent uploads
-        const listResponse = await fetch(listUrl, {
-            headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
-        });
+        // Serve from public/ directory
+        const filePath = path.join(process.cwd(), 'public', LEADERBOARD_FILE);
 
-        if (!listResponse.ok) {
-            throw new Error(`Failed to list blobs: ${listResponse.status} ${listResponse.statusText}`);
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).send('Leaderboard not found. Please wait for the next build.');
         }
 
-        const data = await listResponse.json();
-        
-        // 2. Find all matches for our key
-        const matches = (data.blobs || []).filter(b => b.pathname === LEADERBOARD_KEY);
+        const html = fs.readFileSync(filePath, 'utf8');
 
-        if (matches.length === 0) {
-            return res.status(404).json({
-                error: 'Leaderboard not found in storage',
-                searchedKey: LEADERBOARD_KEY,
-                foundPathnames: (data.blobs || []).map(b => b.pathname).slice(0, 10), // Show first 10 pathnames found
-                totalBlobs: (data.blobs || []).length
-            });
-        }
-
-        // 3. Sort by uploadedAt desc to get the latest
-        matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
-        const latestBlob = matches[0];
-
-        // 4. Fetch the content from the public blob URL
-        const response = await fetch(latestBlob.url);
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch blob content: ${response.status} ${response.statusText}`);
-        }
-
-        const html = await response.text();
-        
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         // Cache for 60 seconds, allow stale-while-revalidate
         res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');

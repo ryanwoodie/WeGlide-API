@@ -1,8 +1,7 @@
-// fetch is global in Node 18+
+const fs = require('fs');
+const path = require('path');
 
-const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
-const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.com';
-const DATA_KEY = 'leaderboard_data.json';
+const DATA_FILE = 'leaderboard_data.json';
 
 module.exports = async (req, res) => {
     // Enable CORS
@@ -14,43 +13,16 @@ module.exports = async (req, res) => {
         return res.status(200).end();
     }
 
-    if (!BLOB_TOKEN) {
-        return res.status(500).json({ error: 'Missing BLOB_READ_WRITE_TOKEN' });
-    }
-
     try {
-        // 1. List blobs to find the latest URL for our key
-        const listUrl = `${BLOB_BASE_URL.replace(/\/$/, '')}?limit=500`; 
-        const listResponse = await fetch(listUrl, {
-            headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
-        });
+        // Serve from public/ directory
+        const filePath = path.join(process.cwd(), 'public', DATA_FILE);
 
-        if (!listResponse.ok) {
-            throw new Error(`Failed to list blobs: ${listResponse.status} ${listResponse.statusText}`);
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).json({ error: 'Data not found. Please wait for the next build.' });
         }
 
-        const data = await listResponse.json();
-        
-        // 2. Find all matches for our key
-        const matches = (data.blobs || []).filter(b => b.pathname === DATA_KEY);
+        const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-        if (matches.length === 0) {
-            return res.status(404).json({ error: 'Data not found in storage' });
-        }
-
-        // 3. Sort by uploadedAt desc to get the latest
-        matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
-        const latestBlob = matches[0];
-
-        // 4. Fetch the content from the public blob URL
-        const response = await fetch(latestBlob.url);
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch blob content: ${response.status} ${response.statusText}`);
-        }
-
-        const jsonData = await response.json();
-        
         // Serve JSON
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
