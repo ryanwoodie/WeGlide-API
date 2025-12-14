@@ -4436,6 +4436,12 @@ No maximum distance bonus\`,
 
         // Add CSS for toggle buttons and award badges
         const toggleCSS = `
+        /* Position context for absolute tooltips in iframe */
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+
         /* Scoring toggle buttons */
         .scoring-toggle {
             margin: 20px 0;
@@ -4503,7 +4509,7 @@ No maximum distance bonus\`,
 
         /* Floating search overlay */
         .search-overlay {
-            position: fixed;
+            position: absolute;
             top: 20px;
             right: 20px;
             z-index: 10000;
@@ -4866,7 +4872,7 @@ No maximum distance bonus\`,
 
         /* Flight preview tooltip */
         .flight-preview {
-            position: fixed;
+            position: absolute;
             z-index: 10000;
             background: #1a1a1a;
             color: white;
@@ -5362,11 +5368,11 @@ No maximum distance bonus\`,
 
         /* Verification Form Overlay */
         .verification-overlay {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             background-color: rgba(0, 0, 0, 0.7);
             z-index: 10000;
             display: flex;
