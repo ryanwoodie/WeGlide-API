@@ -686,15 +686,15 @@ async function runFetchAndBuild(options = {}) {
                 execSync('git config user.name "Vercel Bot"');
                 execSync('git config user.email "bot@vercel.com"');
 
-                // Add all updated files (leaderboard HTML/JSON + dataset + profiles)
-                execSync('git add public/ canadian_flights_2026_details.jsonl canadian_user_profiles.json');
+                // Only commit the public/ directory (not the large dataset files)
+                execSync('git add public/');
 
                 // Check if there are changes
                 const status = execSync('git status --porcelain').toString();
                 if (status.trim()) {
                     // Commit with timestamp
                     const timestamp = new Date().toISOString();
-                    execSync(`git commit -m "Auto-update leaderboard and dataset - ${timestamp}"`);
+                    execSync(`git commit -m "Auto-update leaderboard - ${timestamp}"`);
 
                     // Push using GitHub token
                     const repoUrl = `https://${process.env.GITHUB_TOKEN}@github.com/ryanwoodie/WeGlide-API.git`;

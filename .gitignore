@@ -17,10 +17,14 @@ Thumbs.db
 # Temporary processing files
 enhancement_log.txt
 
-# Large data files
+# Large data files (exclude from daily commits)
 *.csv
 *.jsonl
 *.xlsx
+canadian_flights_2026_details.jsonl
+canadian_user_profiles.json
+# But allow compressed backups
+!backups/*.gz
 
 # HTML reports
 *.html
