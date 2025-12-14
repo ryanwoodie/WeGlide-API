@@ -670,11 +670,13 @@ async function runFetchAndBuild(options = {}) {
 
         summary.logs = [];
         const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html', 'leaderboard_data.json'];
+        let filesUpdated = false;
         for (const file of htmlFiles) {
             const sourcePath = path.join(TMP_DIR, file);
             const destPath = path.join(publicDir, file);
             if (fs.existsSync(sourcePath)) {
                 fs.copyFileSync(sourcePath, destPath);
+                filesUpdated = true;
                 const msg = `Successfully copied ${file} to public/ directory.`;
                 log(msg);
                 summary.logs.push(msg);
@@ -683,6 +685,49 @@ async function runFetchAndBuild(options = {}) {
                 log(msg);
                 summary.logs.push(msg);
             }
+        }
+
+        // Auto-commit updated files to repository if GITHUB_TOKEN is available
+        if (filesUpdated && process.env.GITHUB_TOKEN) {
+            try {
+                const { execSync } = require('child_process');
+
+                // Configure git
+                execSync('git config user.name "Vercel Bot"');
+                execSync('git config user.email "bot@vercel.com"');
+
+                // Add files
+                execSync('git add public/');
+
+                // Check if there are changes
+                const status = execSync('git status --porcelain').toString();
+                if (status.trim()) {
+                    // Commit with timestamp
+                    const timestamp = new Date().toISOString();
+                    execSync(`git commit -m "Auto-update leaderboard files - ${timestamp}"`);
+
+                    // Push using GitHub token
+                    const repoUrl = `https://${process.env.GITHUB_TOKEN}@github.com/ryanwoodie/WeGlide-API.git`;
+                    execSync(`git push ${repoUrl} HEAD:main`);
+
+                    const msg = 'Successfully committed and pushed updated files to repository.';
+                    log(msg);
+                    summary.logs.push(msg);
+                } else {
+                    const msg = 'No changes to commit.';
+                    log(msg);
+                    summary.logs.push(msg);
+                }
+            } catch (error) {
+                const msg = `Git commit failed: ${error.message}`;
+                log(msg);
+                summary.logs.push(msg);
+                // Don't fail the entire build if git commit fails
+            }
+        } else if (filesUpdated && !process.env.GITHUB_TOKEN) {
+            const msg = 'GITHUB_TOKEN not set - skipping auto-commit. Files updated locally only.';
+            log(msg);
+            summary.logs.push(msg);
         }
 
         summary.message = `Processed ${flightDetails.length} new flights and rebuilt leaderboard`;
