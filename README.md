@@ -11,21 +11,6 @@ A comprehensive leaderboard for Canadian gliding pilots during the 2025 season (
 - **Direct WeGlide links** - Click any flight to view full details
 - **Task flight identification** - "TASK" badges for declared flights
 
-## 📊 Statistics
-
-- **88 pilots** competing
-- **345 best flights** included in rankings  
-- **82,000 km** total distance flown
-- **238 km** average flight distance
-
-## 🥇 Current Top 5
-
-1. **Ryan Wood** - 3,595.7 points, 2,545 km (2 task flights)
-2. **Milán Kmetovics** - 3,530.3 points, 3,370 km 
-3. **Chester Fitchett** - 3,483.1 points, 3,677 km
-4. **Bruce Friesen** - 3,276.6 points, 2,787 km
-5. **Martin Dennis** - 2,736.0 points, 2,864 km
-
 ## 🚀 View Leaderboard
 
 **Live Leaderboard:** [canadian_leaderboard_2025_embedded.html](./canadian_leaderboard_2025_embedded.html)
