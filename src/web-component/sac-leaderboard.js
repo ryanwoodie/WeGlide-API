@@ -2,23 +2,44 @@ class SACLeaderboard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        this.boundHandleMessage = this.handleMessage.bind(this);
     }
 
     connectedCallback() {
         this.render();
-        window.addEventListener('message', this.handleResize.bind(this));
+        window.addEventListener('message', this.boundHandleMessage);
     }
 
     disconnectedCallback() {
-        window.removeEventListener('message', this.handleResize.bind(this));
+        window.removeEventListener('message', this.boundHandleMessage);
     }
 
-    handleResize(event) {
-        if (event.data && event.data.type === 'sac-resize') {
-            const iframe = this.shadowRoot.querySelector('iframe');
-            if (iframe) {
-                // console.log('Resizing iframe to:', event.data.height);
-                iframe.style.height = `${event.data.height}px`;
+    handleMessage(event) {
+        const iframe = this.shadowRoot.querySelector('iframe');
+        if (!iframe || !event || !event.data) return;
+
+        if (event.data.type === 'sac-resize') {
+            iframe.style.height = `${event.data.height}px`;
+            return;
+        }
+
+        if (event.data.type === 'sac-request-parent-viewport') {
+            if (event.source !== iframe.contentWindow) return;
+
+            const rect = iframe.getBoundingClientRect();
+            if (typeof event.source.postMessage === 'function') {
+                event.source.postMessage({
+                    type: 'sac-parent-viewport',
+                    requestId: event.data.requestId,
+                    parentViewportWidth: window.innerWidth,
+                    parentViewportHeight: window.innerHeight,
+                    iframeRect: {
+                        left: rect.left,
+                        top: rect.top,
+                        width: rect.width,
+                        height: rect.height
+                    }
+                }, '*');
             }
         }
     }

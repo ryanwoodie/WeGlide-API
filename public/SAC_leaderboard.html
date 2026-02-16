@@ -2171,7 +2171,7 @@ No maximum distance bonus`,
             }
 
             return `
-                <td class="flight-cell" onmouseover="showFlightPreview(${flight.id}, event)" onmouseout="hideFlightPreview(event)">
+                <td class="flight-cell" onmouseenter="showFlightPreview(${flight.id}, event)" onmouseleave="hideFlightPreview(event)">
                     <div class="flight-details">
                         <div class="flight-points">${flight.points.toFixed(1)} pts${declaredBadge}</div>
                         <div class="flight-distance">${flight.distance.toFixed(1)} km</div>
@@ -3051,15 +3051,100 @@ No maximum distance bonus`,
             previewElement.addEventListener('mouseenter', cancelFlightHide);
             previewElement.addEventListener('mouseleave', (evt) => hideFlightPreview(evt));
 
-            // Center the tooltip in the viewport (accounting for scroll with position: absolute)
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
+            const positionCenteredInChildViewport = () => {
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                const viewportHeight = window.innerHeight;
+                const viewportWidth = window.innerWidth;
+                previewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
+                previewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
+                previewElement.style.transform = 'translate(-50%, -50%)';
+            };
 
-            previewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
-            previewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
-            previewElement.style.transform = 'translate(-50%, -50%)';
+            const positionNearPointer = () => {
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                const viewportHeight = window.innerHeight;
+                const viewportWidth = window.innerWidth;
+                const pointerX = event && typeof event.clientX === 'number' ? event.clientX : viewportWidth / 2;
+                const pointerY = event && typeof event.clientY === 'number' ? event.clientY : viewportHeight / 2;
+                const tooltipRect = previewElement.getBoundingClientRect();
+                const margin = 12;
+                const desiredLeft = scrollX + pointerX;
+                const desiredTop = scrollY + pointerY + 16;
+                const minLeft = scrollX + (tooltipRect.width / 2) + margin;
+                const maxLeft = scrollX + viewportWidth - (tooltipRect.width / 2) - margin;
+                const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), maxLeft);
+                const maxTop = scrollY + viewportHeight - tooltipRect.height - margin;
+                const clampedTop = Math.min(
+                    Math.max(desiredTop, scrollY + margin),
+                    Math.max(scrollY + margin, maxTop)
+                );
+
+                previewElement.style.left = clampedLeft + 'px';
+                previewElement.style.top = clampedTop + 'px';
+                previewElement.style.transform = 'translate(-50%, 0)';
+            };
+
+            const positionCenteredFromParentViewport = (payload) => {
+                if (!payload || !payload.iframeRect) return;
+                const iframeLeft = Number(payload.iframeRect.left);
+                const iframeTop = Number(payload.iframeRect.top);
+                const parentViewportWidth = Number(payload.parentViewportWidth);
+                const parentViewportHeight = Number(payload.parentViewportHeight);
+                if (!Number.isFinite(iframeLeft) || !Number.isFinite(iframeTop) ||
+                    !Number.isFinite(parentViewportWidth) || !Number.isFinite(parentViewportHeight)) {
+                    return;
+                }
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                const viewportHeight = window.innerHeight;
+                const viewportWidth = window.innerWidth;
+                const tooltipRect = previewElement.getBoundingClientRect();
+                const margin = 12;
+
+                const centerXInChild = (parentViewportWidth / 2) - iframeLeft;
+                const centerYInChild = (parentViewportHeight / 2) - iframeTop;
+                const desiredLeft = scrollX + centerXInChild;
+                const desiredTop = scrollY + centerYInChild;
+                const minLeft = scrollX + (tooltipRect.width / 2) + margin;
+                const maxLeft = scrollX + viewportWidth - (tooltipRect.width / 2) - margin;
+                const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), maxLeft);
+                const minTop = scrollY + (tooltipRect.height / 2) + margin;
+                const maxTop = scrollY + viewportHeight - (tooltipRect.height / 2) - margin;
+                const clampedTop = Math.min(Math.max(desiredTop, minTop), maxTop);
+
+                previewElement.style.left = clampedLeft + 'px';
+                previewElement.style.top = clampedTop + 'px';
+                previewElement.style.transform = 'translate(-50%, -50%)';
+            };
+
+            if (window.parent === window) {
+                positionCenteredInChildViewport();
+            } else {
+                const activePreview = previewElement;
+                positionNearPointer();
+
+                const requestId = 'sac-vp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+                let timeoutId;
+                const handleViewportResponse = (messageEvent) => {
+                    const data = messageEvent && messageEvent.data;
+                    if (!data || data.type !== 'sac-parent-viewport' || data.requestId !== requestId) {
+                        return;
+                    }
+                    window.removeEventListener('message', handleViewportResponse);
+                    if (timeoutId) clearTimeout(timeoutId);
+                    if (!previewElement || previewElement !== activePreview) return;
+                    positionCenteredFromParentViewport(data);
+                };
+
+                window.addEventListener('message', handleViewportResponse);
+                timeoutId = setTimeout(() => {
+                    window.removeEventListener('message', handleViewportResponse);
+                }, 150);
+
+                window.parent.postMessage({ type: 'sac-request-parent-viewport', requestId }, '*');
+            }
 
             // Fade in the tooltip
             setTimeout(() => {
