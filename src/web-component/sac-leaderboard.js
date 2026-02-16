@@ -50,6 +50,8 @@ class SACLeaderboard extends HTMLElement {
                 :host {
                     display: block;
                     width: 100%;
+                    max-width: 1400px;
+                    margin: 0 auto;
                 }
                 iframe {
                     width: 100%;

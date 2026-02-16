@@ -1619,6 +1619,121 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
+        /* Desktop embed table ergonomics */
+        .leaderboard {
+            scrollbar-gutter: stable both-edges;
+        }
+        .leaderboard.has-horizontal-overflow {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            cursor: grab;
+        }
+        .leaderboard.is-dragging {
+            cursor: grabbing;
+            user-select: none;
+        }
+        .leaderboard::-webkit-scrollbar {
+            height: 12px;
+        }
+        .leaderboard::-webkit-scrollbar-thumb {
+            background: rgba(44, 62, 80, 0.35);
+            border-radius: 999px;
+        }
+        .leaderboard::-webkit-scrollbar-track {
+            background: rgba(44, 62, 80, 0.08);
+        }
+        .leaderboard .scroll-hint {
+            display: none;
+            margin: 0;
+            padding: 8px 12px;
+            text-align: center;
+            font-size: 0.82em;
+            color: #5b6775;
+            background: #f6f8fb;
+            border-top: 1px solid #dfe5ec;
+            border-bottom: 1px solid #dfe5ec;
+        }
+        .leaderboard.has-horizontal-overflow .scroll-hint {
+            display: block;
+        }
+        @media (max-width: 1400px) {
+            .leaderboard table {
+                min-width: 1180px;
+            }
+            .leaderboard th,
+            .leaderboard td {
+                padding: 10px 8px;
+            }
+            .pilot-name {
+                min-width: 150px;
+            }
+            .total-points {
+                min-width: 88px;
+            }
+            .flight-cell {
+                min-width: 152px;
+                font-size: 0.85em;
+            }
+            .flight-details {
+                padding: 7px;
+            }
+        }
+        @media (max-width: 1200px) {
+            .leaderboard table {
+                min-width: 1100px;
+            }
+            .flight-cell .flight-speed,
+            .flight-cell .flight-aircraft {
+                display: none;
+            }
+            .flight-details {
+                padding: 6px;
+            }
+        }
+        @media (min-width: 900px) {
+            .rank {
+                width: 64px;
+                min-width: 64px;
+            }
+            .pilot-name {
+                min-width: 170px;
+            }
+            .total-points {
+                min-width: 100px;
+            }
+            .leaderboard th:nth-child(1),
+            .leaderboard td:nth-child(1) {
+                position: sticky;
+                left: 0;
+                z-index: 6;
+                background: #fff;
+            }
+            .leaderboard th:nth-child(2),
+            .leaderboard td:nth-child(2) {
+                position: sticky;
+                left: 64px;
+                z-index: 6;
+                background: #fff;
+            }
+            .leaderboard th:nth-child(3),
+            .leaderboard td:nth-child(3) {
+                position: sticky;
+                left: 234px;
+                z-index: 6;
+                background: #fff;
+            }
+            .leaderboard th:nth-child(-n+3) {
+                background: #f8f9fa;
+                z-index: 7;
+            }
+            .leaderboard tbody tr:hover td:nth-child(-n+3) {
+                background: #f8f9fa;
+            }
+            .leaderboard th:nth-child(3),
+            .leaderboard td:nth-child(3) {
+                box-shadow: 6px 0 10px -8px rgba(0, 0, 0, 0.35);
+            }
+        }
+
         #leaderboardTable.three-flight-mode th:nth-child(7),
         #leaderboardTable.three-flight-mode th:nth-child(8),
         #leaderboardTable.three-flight-mode td:nth-child(7),
@@ -2144,6 +2259,7 @@ No maximum distance bonus`,
                 // Show table and hide loading
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('leaderboardTable').style.display = 'table';
+                updateLeaderboardOverflowState();
 
             } catch (error) {
                 console.error('Error loading leaderboard:', error);
@@ -2365,6 +2481,95 @@ No maximum distance bonus`,
             const table = document.getElementById('leaderboardTable');
             if (!table) return;
             table.classList.toggle('three-flight-mode', maxFlights === 3);
+        }
+
+        let leaderboardDragScrollInitialized = false;
+
+        function updateLeaderboardOverflowState() {
+            const container = document.querySelector('.leaderboard');
+            const table = document.getElementById('leaderboardTable');
+            const hint = container ? container.querySelector('.scroll-hint') : null;
+            if (!container || !table || table.style.display === 'none') return;
+
+            const hasHorizontalOverflow = table.scrollWidth > (container.clientWidth + 2);
+            container.classList.toggle('has-horizontal-overflow', hasHorizontalOverflow);
+
+            if (hint) {
+                const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+                hint.textContent = isDesktop
+                    ? 'Scroll horizontally for flights (drag table or Shift + mouse wheel)'
+                    : 'Swipe to see more flights →';
+            }
+        }
+
+        function setupLeaderboardDragScroll() {
+            if (leaderboardDragScrollInitialized) return;
+            const container = document.querySelector('.leaderboard');
+            if (!container) return;
+
+            let isDragging = false;
+            let pointerId = null;
+            let startX = 0;
+            let startScrollLeft = 0;
+
+            const isInteractiveTarget = (target) => {
+                if (!target || typeof target.closest !== 'function') return false;
+                return !!target.closest('a, button, input, select, textarea, .verify-btn, .toggle-btn, .find-btn');
+            };
+
+            container.addEventListener('pointerdown', (event) => {
+                if (event.pointerType === 'touch') return;
+                if (event.button !== 0) return;
+                if (!container.classList.contains('has-horizontal-overflow')) return;
+                if (isInteractiveTarget(event.target)) return;
+
+                isDragging = true;
+                pointerId = event.pointerId;
+                startX = event.clientX;
+                startScrollLeft = container.scrollLeft;
+                container.classList.add('is-dragging');
+                if (typeof container.setPointerCapture === 'function') {
+                    container.setPointerCapture(pointerId);
+                }
+                event.preventDefault();
+            });
+
+            container.addEventListener('pointermove', (event) => {
+                if (!isDragging) return;
+                const deltaX = event.clientX - startX;
+                container.scrollLeft = startScrollLeft - deltaX;
+                event.preventDefault();
+            });
+
+            const stopDragging = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                container.classList.remove('is-dragging');
+                if (pointerId != null && typeof container.releasePointerCapture === 'function') {
+                    try {
+                        if (container.hasPointerCapture(pointerId)) {
+                            container.releasePointerCapture(pointerId);
+                        }
+                    } catch (error) {
+                    }
+                }
+                pointerId = null;
+            };
+
+            container.addEventListener('pointerup', stopDragging);
+            container.addEventListener('pointercancel', stopDragging);
+            container.addEventListener('pointerleave', stopDragging);
+
+            // Desktop convenience: vertical wheel scroll translates to horizontal while table overflows.
+            container.addEventListener('wheel', (event) => {
+                if (!container.classList.contains('has-horizontal-overflow')) return;
+                if (event.shiftKey) return;
+                if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+                container.scrollLeft += event.deltaY;
+                event.preventDefault();
+            }, { passive: false });
+
+            leaderboardDragScrollInitialized = true;
         }
 
         // Flight preview functionality
@@ -3458,8 +3663,8 @@ No maximum distance bonus`,
                 });
             }
 
-            // Re-add pilot tooltip listeners after leaderboard is built
             setTimeout(() => {
+                updateLeaderboardOverflowState();
             }, 0);
         }
 
@@ -4857,6 +5062,9 @@ No maximum distance bonus`,
             await loadLeaderboard();
             calculateTrophyWinners();
             calculateTaskTypeStats();
+            setupLeaderboardDragScroll();
+            updateLeaderboardOverflowState();
+            window.addEventListener('resize', updateLeaderboardOverflowState);
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
