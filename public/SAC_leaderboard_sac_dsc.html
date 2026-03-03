@@ -1655,50 +1655,150 @@
         .leaderboard.has-horizontal-overflow .scroll-hint {
             display: block;
         }
-        @media (max-width: 1400px) {
+        @media (min-width: 769px) {
+            .leaderboard .scroll-hint {
+                position: fixed;
+                right: 16px;
+                bottom: 16px;
+                z-index: 10020;
+                border: 1px solid #d4dde9;
+                border-radius: 999px;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+                background: rgba(246, 248, 251, 0.95);
+                backdrop-filter: blur(4px);
+                pointer-events: none;
+                max-width: min(72vw, 360px);
+            }
+            .leaderboard.is-dragging .scroll-hint {
+                opacity: 0.55;
+            }
+        }
+        .leaderboard td {
+            vertical-align: middle;
+        }
+        @media (min-width: 769px) and (max-width: 1400px) {
+            .leaderboard {
+                font-size: 0.96em;
+            }
             .leaderboard table {
-                min-width: 1180px;
+                min-width: 1120px;
             }
             .leaderboard th,
             .leaderboard td {
-                padding: 10px 8px;
+                padding: 9px 6px;
             }
             .pilot-name {
                 min-width: 150px;
+                max-width: 150px;
+                width: 150px;
+                line-height: 1.2;
+            }
+            .pilot-name .pilot-link {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                white-space: normal;
+                line-height: 1.2;
             }
             .total-points {
-                min-width: 88px;
+                min-width: 74px;
+                font-size: 1.02em;
             }
             .flight-cell {
-                min-width: 152px;
-                font-size: 0.85em;
+                min-width: 132px;
+                font-size: 0.82em;
             }
             .flight-details {
-                padding: 7px;
+                padding: 6px;
+            }
+            .flight-location {
+                font-size: 0.78em;
+                line-height: 1.2;
             }
         }
-        @media (max-width: 1200px) {
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .leaderboard {
+                font-size: 0.9em;
+            }
             .leaderboard table {
-                min-width: 1100px;
+                min-width: 1020px;
+            }
+            .flight-cell {
+                min-width: 124px;
+                font-size: 0.78em;
             }
             .flight-cell .flight-speed,
             .flight-cell .flight-aircraft {
                 display: none;
             }
             .flight-details {
-                padding: 6px;
+                padding: 5px;
+            }
+        }
+        @media (max-width: 768px) {
+            .leaderboard {
+                font-size: 0.88em;
+            }
+            .leaderboard table {
+                min-width: 1020px;
+            }
+            .leaderboard th,
+            .leaderboard td {
+                padding: 7px 5px;
+            }
+            .rank {
+                width: 52px;
+                min-width: 52px;
+            }
+            .pilot-name {
+                min-width: 140px;
+                max-width: 140px;
+                width: 140px;
+                line-height: 1.2;
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+            }
+            .pilot-name .pilot-link {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                white-space: normal;
+                line-height: 1.2;
+            }
+            .total-points {
+                min-width: 70px;
+            }
+            .flight-cell {
+                min-width: 124px;
+                font-size: 0.78em;
+            }
+            .flight-cell .flight-speed,
+            .flight-cell .flight-aircraft {
+                display: none;
+            }
+            .flight-details {
+                padding: 5px;
+            }
+            .flight-location {
+                font-size: 0.76em;
+                line-height: 1.2;
             }
         }
         @media (min-width: 900px) {
             .rank {
-                width: 64px;
-                min-width: 64px;
+                width: 56px;
+                min-width: 56px;
             }
             .pilot-name {
-                min-width: 170px;
+                min-width: 150px;
+                max-width: 150px;
+                width: 150px;
             }
             .total-points {
-                min-width: 100px;
+                min-width: 74px;
             }
             .leaderboard th:nth-child(1),
             .leaderboard td:nth-child(1) {
@@ -1710,14 +1810,14 @@
             .leaderboard th:nth-child(2),
             .leaderboard td:nth-child(2) {
                 position: sticky;
-                left: 64px;
+                left: 56px;
                 z-index: 6;
                 background: #fff;
             }
             .leaderboard th:nth-child(3),
             .leaderboard td:nth-child(3) {
                 position: sticky;
-                left: 234px;
+                left: 206px;
                 z-index: 6;
                 background: #fff;
             }
@@ -2497,7 +2597,7 @@ No maximum distance bonus`,
             if (hint) {
                 const isDesktop = window.matchMedia('(min-width: 769px)').matches;
                 hint.textContent = isDesktop
-                    ? 'Scroll horizontally for flights (drag table or Shift + mouse wheel)'
+                    ? 'Drag horizontally for flights'
                     : 'Swipe to see more flights →';
             }
         }
@@ -2559,15 +2659,6 @@ No maximum distance bonus`,
             container.addEventListener('pointerup', stopDragging);
             container.addEventListener('pointercancel', stopDragging);
             container.addEventListener('pointerleave', stopDragging);
-
-            // Desktop convenience: vertical wheel scroll translates to horizontal while table overflows.
-            container.addEventListener('wheel', (event) => {
-                if (!container.classList.contains('has-horizontal-overflow')) return;
-                if (event.shiftKey) return;
-                if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-                container.scrollLeft += event.deltaY;
-                event.preventDefault();
-            }, { passive: false });
 
             leaderboardDragScrollInitialized = true;
         }
@@ -5295,22 +5386,49 @@ No maximum distance bonus`,
         </script>
 
     <script>
-        function sendHeight() {
-            // Use offsetHeight + margin or scrollHeight? scrollHeight is safer for growing content.
-            // We add a small buffer to prevent flickering scrollbars.
-            const height = document.body.scrollHeight + 20; 
-            window.parent.postMessage({ type: 'sac-resize', height: height }, '*');
-        }
-        
-        window.addEventListener('load', sendHeight);
-        window.addEventListener('resize', sendHeight);
-        
-        // Observe DOM changes to handle dynamic content (like toggles/search)
-        const observer = new MutationObserver(sendHeight);
-        observer.observe(document.body, { childList: true, subtree: true, attributes: true });
-        
-        // Send initial height
-        if (document.readyState === 'complete') sendHeight();
+        (function setupIframeHeightSync() {
+            const target = document.querySelector('.container') || document.body;
+            let lastHeight = 0;
+            let rafId = null;
+
+            function calculateHeight() {
+                const rectHeight = Math.ceil(target.getBoundingClientRect().height || 0);
+                const scrollHeight = Math.ceil(target.scrollHeight || 0);
+                return Math.max(rectHeight, scrollHeight) + 20;
+            }
+
+            function postHeight(force = false) {
+                const height = calculateHeight();
+                if (!force && Math.abs(height - lastHeight) < 2) return;
+                lastHeight = height;
+                window.parent.postMessage({ type: 'sac-resize', height }, '*');
+            }
+
+            function scheduleHeight(force = false) {
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                }
+                rafId = requestAnimationFrame(() => {
+                    rafId = null;
+                    postHeight(force);
+                });
+            }
+
+            window.addEventListener('load', () => scheduleHeight(true));
+            window.addEventListener('resize', () => scheduleHeight(false));
+
+            const mutationObserver = new MutationObserver(() => scheduleHeight(false));
+            mutationObserver.observe(target, { childList: true, subtree: true, characterData: true });
+
+            if ('ResizeObserver' in window) {
+                const resizeObserver = new ResizeObserver(() => scheduleHeight(false));
+                resizeObserver.observe(target);
+            }
+
+            if (document.readyState === 'complete') {
+                scheduleHeight(true);
+            }
+        })();
     </script>
         
 <!-- Generated at 2025-12-14T22:59:34.623Z -->
