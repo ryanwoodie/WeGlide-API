@@ -2787,7 +2787,9 @@ No maximum distance bonus\`,
                         verificationBadge = '<div class="verification-badge verified">✓ <200hrs PIC Verified</div>';
                         rowClass = 'verified-row';
                     } else {
-                        verificationButton = \`<div><button class="verify-btn unverified" onclick="showVerificationForm('\${pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify PIC hours">Verify PIC hours</button></div>\`;
+                        verificationButton = ALLOW_PUBLIC_VERIFICATION_WRITE
+                            ? \`<div><button class="verify-btn unverified" onclick="showVerificationForm('\${pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify PIC hours">Verify PIC hours</button></div>\`
+                            : '<div class="verification-badge readonly">Organizer verification required</div>';
                         rowClass = 'unverified-row';
                     }
 
@@ -2802,7 +2804,9 @@ No maximum distance bonus\`,
                         verificationBadge = '<div class="verification-badge verified">✓ DOB Verified</div>';
                         rowClass = 'verified-row';
                     } else {
-                        verificationButton = \`<div><button class="verify-btn unverified" onclick="showDOBVerificationForm('\${pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify date of birth">Verify DOB</button></div>\`;
+                        verificationButton = ALLOW_PUBLIC_VERIFICATION_WRITE
+                            ? \`<div><button class="verify-btn unverified" onclick="showDOBVerificationForm('\${pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify date of birth">Verify DOB</button></div>\`
+                            : '<div class="verification-badge readonly">Organizer verification required</div>';
                         rowClass = 'unverified-row';
                     }
 
@@ -3513,13 +3517,16 @@ No maximum distance bonus\`,
 
                 pilotsToShow.forEach((pilot, index) => {
                     const score = pilot.totalPoints || pilot.points || 0;
+                    const verificationAction = ALLOW_PUBLIC_VERIFICATION_WRITE
+                        ? \`<button class="verify-btn unverified small" onclick="showVerificationForm('\${pilot.pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify to claim trophy position">Verify PIC hours</button>\`
+                        : '<span class="verification-status readonly">Organizer verification required</span>';
                     html += \`
                         <div class="unverified-pilot">
                             <div class="winner-info">
                                 <span class="winner-name">\${pilot.pilot}</span>
                                 <span class="winner-score">\${score.toFixed(1)} pts</span>
                             </div>
-                            <button class="verify-btn unverified small" onclick="showVerificationForm('\${pilot.pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify to claim trophy position">Verify PIC hours</button>
+                            \${verificationAction}
                         </div>
                     \`;
                 });
@@ -3573,12 +3580,15 @@ No maximum distance bonus\`,
 
                 const maxShow = 3;
                 trophy.unverifiedCandidates.slice(0, maxShow).forEach((pilot) => {
+                    const verificationAction = ALLOW_PUBLIC_VERIFICATION_WRITE
+                        ? \`<button class="verify-btn unverified small" onclick="showDOBVerificationForm('\${pilot.userId || pilot.pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify date of birth">Verify DOB</button>\`
+                        : '<span class="verification-status readonly">Organizer verification required</span>';
                     html += \`
                         <div class="unverified-pilot">
                             <div class="winner-info">
                                 <span class="winner-name">\${pilot.pilot}</span>
                             </div>
-                            <button class="verify-btn unverified small" onclick="showDOBVerificationForm('\${pilot.userId || pilot.pilotId}', '\${pilot.pilot.replace(/'/g, '\\\'')}')" title="Verify date of birth">Verify DOB</button>
+                            \${verificationAction}
                         </div>
                     \`;
                 });
@@ -3839,8 +3849,15 @@ No maximum distance bonus\`,
             }
         });
 
+        const ALLOW_PUBLIC_VERIFICATION_WRITE = false;
+        const VERIFICATION_WRITE_DISABLED_MESSAGE = 'Verification submissions are currently disabled on this public page. Please contact the contest organizers.';
+
         // DOB Verification form
         function showDOBVerificationForm(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             const overlay = document.createElement('div');
             overlay.className = 'verification-overlay';
             overlay.innerHTML = \`
@@ -3863,6 +3880,10 @@ No maximum distance bonus\`,
         }
 
         async function submitDOBVerification(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             const dobInput = document.getElementById('dobInput');
             const dateOfBirth = dobInput.value;
 
@@ -3995,6 +4016,10 @@ No maximum distance bonus\`,
 
 
         function showVerificationForm(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             // Calculate WeGlide hours since Oct 1, 2024
             const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
             const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
@@ -4042,6 +4067,10 @@ No maximum distance bonus\`,
         }
 
         async function submitVerification(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             const hoursInput = document.getElementById('picHours');
             const hours = parseFloat(hoursInput.value);
 
@@ -4115,6 +4144,10 @@ No maximum distance bonus\`,
         }
 
         async function saveVerificationToDatabase(pilotId, pilotName, hours, dataSource = 'user-entered') {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                console.log('Verification writes are disabled; skipping remote/local write.');
+                return;
+            }
             const verificationData = {
                 pilotId: pilotId,
                 pilotName: pilotName,
@@ -4155,6 +4188,10 @@ No maximum distance bonus\`,
 
         // Mass Firebase sync function - triggered by URL parameter
         async function massFirebaseSync() {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                console.log('Verification writes are disabled; skipping mass Firebase sync.');
+                return;
+            }
             if (!db) {
                 console.log('⚠️ Firebase not initialized - cannot perform mass sync');
                 return;
@@ -4238,6 +4275,10 @@ No maximum distance bonus\`,
         }
 
         async function saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                console.log('DOB verification writes are disabled; skipping remote/local write.');
+                return;
+            }
             const verificationData = {
                 pilotId: pilotId,
                 pilotName: pilotName,
@@ -5485,6 +5526,11 @@ No maximum distance bonus\`,
             color: white;
         }
 
+        .verification-badge.readonly {
+            background-color: #6c757d;
+            color: white;
+        }
+
         .verify-btn {
             font-size: 0.65em;
             padding: 2px 6px;
@@ -5522,6 +5568,11 @@ No maximum distance bonus\`,
 
         .verification-status.verified {
             background-color: #28a745;
+            color: white;
+        }
+
+        .verification-status.readonly {
+            background-color: #6c757d;
             color: white;
         }
 
