@@ -1115,9 +1115,10 @@ async function processCanadianFlights() {
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 </head>`)
             .replace(/gfa_logo\.png/g, 'sac_logo.png')
-            .replace(/<p>Data from WeGlide API • (?:Australian|Canadian) gliding season runs[^<]*<\/p>/g, '<p id="seasonFooterText">Data from WeGlide API • Canadian gliding season runs __CURRENT_SEASON_LONG__</p>')
+            .replace(/<p>Data from WeGlide API • (?:Australian|Canadian) (?:gliding season|online competition season) runs[^<]*<\/p>/g, '<p id="seasonFooterText">Data from WeGlide API • Canadian online competition season runs __CURRENT_SEASON_LONG__</p>')
             .replace(/Best 5 flights per pilot • Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring')
             .replace(/Scoring uses the higher of Free flight or Task \(declared\) scoring for each flight/g, 'Scoring uses the higher of Free flight or WeGlide Task scoring for each flight')
+            .replace(/<p>Scoring uses the higher of Free flight or (?:Task \(declared\)|WeGlide Task) scoring for each flight<\/p>\s*/g, '')
             // Remove the logo image
             .replace(/<img src="[^"]*logo[^"]*"[^>]*>/g, '')
             // Add ID to scoring description for dynamic updates
@@ -1164,6 +1165,7 @@ async function processCanadianFlights() {
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
+        const SUPPORTS_HOVER_POINTER = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
         const SEASON_START = new Date('${seasonStartIso ? seasonStartIso + 'T00:00:00Z' : ''}');
         const SEASON_END = new Date('${seasonEndIso ? seasonEndIso + 'T23:59:59Z' : ''}');
         function getCurrentCanadianSeason() {
@@ -1194,7 +1196,7 @@ async function processCanadianFlights() {
         function updateSeasonFooterText() {
             const footer = document.getElementById('seasonFooterText');
             if (!footer) return;
-            footer.textContent = 'Data from WeGlide API • Canadian gliding season runs ' + CURRENT_SEASON.longLabel;
+            footer.textContent = 'Data from WeGlide API • Canadian online competition season runs ' + CURRENT_SEASON.longLabel;
         }
 
         // Tooltip functionality
@@ -2010,12 +2012,12 @@ No maximum distance bonus\`,
         }
 
         function pilotHoverEnter(event, pilotId, pilotName, element) {
-            if (IS_TOUCH_DEVICE) return;
+            if (!SUPPORTS_HOVER_POINTER) return;
             showPilotPreview(pilotId, pilotName, element);
         }
 
         function pilotHoverLeave(event) {
-            if (IS_TOUCH_DEVICE) return;
+            if (!SUPPORTS_HOVER_POINTER) return;
             hidePilotPreview(event);
         }
 
@@ -2028,7 +2030,7 @@ No maximum distance bonus\`,
         }
 
         function pilotLinkTap(event, pilotId, pilotName, element) {
-            if (!IS_TOUCH_DEVICE) {
+            if (SUPPORTS_HOVER_POINTER) {
                 return true;
             }
 

@@ -1938,9 +1938,8 @@
         </div>
         
         <div class="footer">
-            <p id="seasonFooterText">Data from WeGlide API • Canadian gliding season runs October 1, 2025 to September 30, 2026</p>
-            <p>Scoring uses the higher of Free flight or WeGlide Task scoring for each flight</p>
-        </div>
+            <p id="seasonFooterText">Data from WeGlide API • Canadian online competition season runs October 1, 2025 to September 30, 2026</p>
+            </div>
     </div>
 
     <script>
@@ -1959,6 +1958,7 @@
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
+        const SUPPORTS_HOVER_POINTER = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
         const SEASON_START = new Date('2025-09-24T00:00:00Z');
         const SEASON_END = new Date('2025-11-13T23:59:59Z');
         function getCurrentCanadianSeason() {
@@ -1989,7 +1989,7 @@
         function updateSeasonFooterText() {
             const footer = document.getElementById('seasonFooterText');
             if (!footer) return;
-            footer.textContent = 'Data from WeGlide API • Canadian gliding season runs ' + CURRENT_SEASON.longLabel;
+            footer.textContent = 'Data from WeGlide API • Canadian online competition season runs ' + CURRENT_SEASON.longLabel;
         }
 
         // Tooltip functionality
@@ -2805,12 +2805,12 @@ No maximum distance bonus`,
         }
 
         function pilotHoverEnter(event, pilotId, pilotName, element) {
-            if (IS_TOUCH_DEVICE) return;
+            if (!SUPPORTS_HOVER_POINTER) return;
             showPilotPreview(pilotId, pilotName, element);
         }
 
         function pilotHoverLeave(event) {
-            if (IS_TOUCH_DEVICE) return;
+            if (!SUPPORTS_HOVER_POINTER) return;
             hidePilotPreview(event);
         }
 
@@ -2823,7 +2823,7 @@ No maximum distance bonus`,
         }
 
         function pilotLinkTap(event, pilotId, pilotName, element) {
-            if (!IS_TOUCH_DEVICE) {
+            if (SUPPORTS_HOVER_POINTER) {
                 return true;
             }
 
@@ -5507,6 +5507,6 @@ No maximum distance bonus`,
         })();
     </script>
         
-<!-- Generated at 2026-03-05T05:10:18.806Z -->
+<!-- Generated at 2026-03-05T14:41:51.574Z -->
 </body>
 </html>
