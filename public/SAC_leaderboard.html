@@ -1203,6 +1203,11 @@
             color: white;
         }
 
+        .verification-badge.readonly {
+            background-color: #6c757d;
+            color: white;
+        }
+
         .verify-btn {
             font-size: 0.65em;
             padding: 2px 6px;
@@ -1240,6 +1245,11 @@
 
         .verification-status.verified {
             background-color: #28a745;
+            color: white;
+        }
+
+        .verification-status.readonly {
+            background-color: #6c757d;
             color: white;
         }
 
@@ -1619,6 +1629,221 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
+        /* Desktop embed table ergonomics */
+        .leaderboard {
+            scrollbar-gutter: stable both-edges;
+        }
+        .leaderboard.has-horizontal-overflow {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            cursor: grab;
+        }
+        .leaderboard.is-dragging {
+            cursor: grabbing;
+            user-select: none;
+        }
+        .leaderboard::-webkit-scrollbar {
+            height: 12px;
+        }
+        .leaderboard::-webkit-scrollbar-thumb {
+            background: rgba(44, 62, 80, 0.35);
+            border-radius: 999px;
+        }
+        .leaderboard::-webkit-scrollbar-track {
+            background: rgba(44, 62, 80, 0.08);
+        }
+        .leaderboard .scroll-hint {
+            display: none;
+            margin: 0;
+            padding: 8px 12px;
+            text-align: center;
+            font-size: 0.82em;
+            color: #5b6775;
+            background: #f6f8fb;
+            border-top: 1px solid #dfe5ec;
+            border-bottom: 1px solid #dfe5ec;
+        }
+        .leaderboard.has-horizontal-overflow .scroll-hint {
+            display: block;
+        }
+        @media (min-width: 769px) {
+            .leaderboard .scroll-hint {
+                position: fixed;
+                right: 16px;
+                bottom: 16px;
+                z-index: 10020;
+                border: 1px solid #d4dde9;
+                border-radius: 999px;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+                background: rgba(246, 248, 251, 0.95);
+                backdrop-filter: blur(4px);
+                pointer-events: none;
+                max-width: min(72vw, 360px);
+            }
+            .leaderboard.is-dragging .scroll-hint {
+                opacity: 0.55;
+            }
+        }
+        .leaderboard td {
+            vertical-align: middle;
+        }
+        @media (min-width: 769px) and (max-width: 1400px) {
+            .leaderboard {
+                font-size: 0.96em;
+            }
+            .leaderboard table {
+                min-width: 1120px;
+            }
+            .leaderboard th,
+            .leaderboard td {
+                padding: 9px 6px;
+            }
+            .pilot-name {
+                min-width: 150px;
+                max-width: 150px;
+                width: 150px;
+                line-height: 1.2;
+            }
+            .pilot-name .pilot-link {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                white-space: normal;
+                line-height: 1.2;
+            }
+            .total-points {
+                min-width: 74px;
+                font-size: 1.02em;
+            }
+            .flight-cell {
+                min-width: 132px;
+                font-size: 0.82em;
+            }
+            .flight-details {
+                padding: 6px;
+            }
+            .flight-location {
+                font-size: 0.78em;
+                line-height: 1.2;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .leaderboard {
+                font-size: 0.9em;
+            }
+            .leaderboard table {
+                min-width: 1020px;
+            }
+            .flight-cell {
+                min-width: 124px;
+                font-size: 0.78em;
+            }
+            .flight-cell .flight-speed,
+            .flight-cell .flight-aircraft {
+                display: none;
+            }
+            .flight-details {
+                padding: 5px;
+            }
+        }
+        @media (max-width: 768px) {
+            .leaderboard {
+                font-size: 0.88em;
+            }
+            .leaderboard table {
+                min-width: 1020px;
+            }
+            .leaderboard th,
+            .leaderboard td {
+                padding: 7px 5px;
+            }
+            .rank {
+                width: 52px;
+                min-width: 52px;
+            }
+            .pilot-name {
+                min-width: 140px;
+                max-width: 140px;
+                width: 140px;
+                line-height: 1.2;
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+            }
+            .pilot-name .pilot-link {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                white-space: normal;
+                line-height: 1.2;
+            }
+            .total-points {
+                min-width: 70px;
+            }
+            .flight-cell {
+                min-width: 124px;
+                font-size: 0.78em;
+            }
+            .flight-cell .flight-speed,
+            .flight-cell .flight-aircraft {
+                display: none;
+            }
+            .flight-details {
+                padding: 5px;
+            }
+            .flight-location {
+                font-size: 0.76em;
+                line-height: 1.2;
+            }
+        }
+        @media (min-width: 900px) {
+            .rank {
+                width: 56px;
+                min-width: 56px;
+            }
+            .pilot-name {
+                min-width: 150px;
+                max-width: 150px;
+                width: 150px;
+            }
+            .total-points {
+                min-width: 74px;
+            }
+            .leaderboard th:nth-child(1),
+            .leaderboard td:nth-child(1) {
+                position: sticky;
+                left: 0;
+                z-index: 6;
+                background: #fff;
+            }
+            .leaderboard th:nth-child(2),
+            .leaderboard td:nth-child(2) {
+                position: sticky;
+                left: 56px;
+                z-index: 6;
+                background: #fff;
+            }
+            .leaderboard th:nth-child(3),
+            .leaderboard td:nth-child(3) {
+                position: sticky;
+                left: 206px;
+                z-index: 6;
+                background: #fff;
+            }
+            .leaderboard th:nth-child(-n+3) {
+                background: #f8f9fa;
+                z-index: 7;
+            }
+            .leaderboard tbody tr:hover td:nth-child(-n+3) {
+                background: #f8f9fa;
+            }
+            .leaderboard th:nth-child(3),
+            .leaderboard td:nth-child(3) {
+                box-shadow: 6px 0 10px -8px rgba(0, 0, 0, 0.35);
+            }
+        }
+
         #leaderboardTable.three-flight-mode th:nth-child(7),
         #leaderboardTable.three-flight-mode th:nth-child(8),
         #leaderboardTable.three-flight-mode td:nth-child(7),
@@ -1713,7 +1938,7 @@
         </div>
         
         <div class="footer">
-            <p>Data from WeGlide API • Canadian gliding season runs October 1, 2024 to September 30, 2025</p>
+            <p id="seasonFooterText">Data from WeGlide API • Canadian gliding season runs October 1, 2025 to September 30, 2026</p>
             <p>Scoring uses the higher of Free flight or WeGlide Task scoring for each flight</p>
         </div>
     </div>
@@ -1736,13 +1961,36 @@
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SEASON_START = new Date('2025-09-24T00:00:00Z');
         const SEASON_END = new Date('2025-11-13T23:59:59Z');
-        const SEASON_LABEL = 'Oct 1, 2025 - Sept 30, 2026';
+        function getCurrentCanadianSeason() {
+            const now = new Date();
+            const currentYear = now.getUTCFullYear();
+            const isOnOrAfterOctober = now.getUTCMonth() >= 9;
+            const seasonStartYear = isOnOrAfterOctober ? currentYear : currentYear - 1;
+            const seasonEndYear = seasonStartYear + 1;
+            return {
+                shortLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear,
+                freeLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear + '*',
+                longLabel: 'October 1, ' + seasonStartYear + ' to September 30, ' + seasonEndYear
+            };
+        }
+        const CURRENT_SEASON = getCurrentCanadianSeason();
+        const SEASON_LABEL = CURRENT_SEASON.shortLabel;
+        const FREE_SEASON_LABEL = CURRENT_SEASON.freeLabel;
         const COMBINED_LABEL = 'Combined Scoring';
         const ENABLE_DOW_TROPHIES = true;
-        const SCORING_DESCRIPTION_COMBINED = 'Best 5 flights per pilot • Higher of <span class="scoring-tooltip" data-tooltip="task">WeGlide Task</span> or <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> • Oct 1, 2025 - Sept 30, 2026';
-        const SCORING_DESCRIPTION_FREE = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> only • <span class="scoring-tooltip" data-tooltip="freeseason">Oct 1, 2025 - Sept 30, 2026*</span>';
+        const SCORING_DESCRIPTION_COMBINED = 'Best 5 flights per pilot • Higher of <span class="scoring-tooltip" data-tooltip="task">WeGlide Task</span> or <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> • Oct 1, 2025 - Sept 30, 2026'
+            .replace(/Oct 1, \d{4} - Sept 30, \d{4}/g, SEASON_LABEL);
+        const SCORING_DESCRIPTION_FREE = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> only • <span class="scoring-tooltip" data-tooltip="freeseason">Oct 1, 2025 - Sept 30, 2026*</span>'
+            .replace(/Oct 1, \d{4} - Sept 30, \d{4}\*/g, FREE_SEASON_LABEL)
+            .replace(/Oct 1, \d{4} - Sept 30, \d{4}/g, SEASON_LABEL);
         const SAC_DSC_RULES_TOOLTIP = 'Soaring Association of Canada – Decentralized Soaring Contest (SAC-DSC)\n\nFormula:\n(distance + shape bonus + declaration bonus) ÷ (index/100)\n\nBonuses:\nDeclared and completed +30%, plus <strong>one</strong> of (if applicable):\n• FAI Triangle +40%\n• Quadrilateral +40% (if declared)\n• Out & Return +30%\n• Straight Out +30%\n• FAI/Rectangle with up to 3 Multi-Laps +20% (if declared)\n\nMax 3 turnpoints (4 for rectangles, 12 for multi-lap). Free flights/failed tasks scored as better of 4 legs distance OR best shape+bonus';
         const USING_SAC_DSC_VARIANT = COMBINED_LABEL === 'SAC-DSC';
+
+        function updateSeasonFooterText() {
+            const footer = document.getElementById('seasonFooterText');
+            if (!footer) return;
+            footer.textContent = 'Data from WeGlide API • Canadian gliding season runs ' + CURRENT_SEASON.longLabel;
+        }
 
         // Tooltip functionality
         const tooltipTexts = USING_SAC_DSC_VARIANT ? {
@@ -2144,6 +2392,7 @@ No maximum distance bonus`,
                 // Show table and hide loading
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('leaderboardTable').style.display = 'table';
+                updateLeaderboardOverflowState();
 
             } catch (error) {
                 console.error('Error loading leaderboard:', error);
@@ -2365,6 +2614,86 @@ No maximum distance bonus`,
             const table = document.getElementById('leaderboardTable');
             if (!table) return;
             table.classList.toggle('three-flight-mode', maxFlights === 3);
+        }
+
+        let leaderboardDragScrollInitialized = false;
+
+        function updateLeaderboardOverflowState() {
+            const container = document.querySelector('.leaderboard');
+            const table = document.getElementById('leaderboardTable');
+            const hint = container ? container.querySelector('.scroll-hint') : null;
+            if (!container || !table || table.style.display === 'none') return;
+
+            const hasHorizontalOverflow = table.scrollWidth > (container.clientWidth + 2);
+            container.classList.toggle('has-horizontal-overflow', hasHorizontalOverflow);
+
+            if (hint) {
+                const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+                hint.textContent = isDesktop
+                    ? 'Drag horizontally for flights'
+                    : 'Swipe to see more flights →';
+            }
+        }
+
+        function setupLeaderboardDragScroll() {
+            if (leaderboardDragScrollInitialized) return;
+            const container = document.querySelector('.leaderboard');
+            if (!container) return;
+
+            let isDragging = false;
+            let pointerId = null;
+            let startX = 0;
+            let startScrollLeft = 0;
+
+            const isInteractiveTarget = (target) => {
+                if (!target || typeof target.closest !== 'function') return false;
+                return !!target.closest('a, button, input, select, textarea, .verify-btn, .toggle-btn, .find-btn');
+            };
+
+            container.addEventListener('pointerdown', (event) => {
+                if (event.pointerType === 'touch') return;
+                if (event.button !== 0) return;
+                if (!container.classList.contains('has-horizontal-overflow')) return;
+                if (isInteractiveTarget(event.target)) return;
+
+                isDragging = true;
+                pointerId = event.pointerId;
+                startX = event.clientX;
+                startScrollLeft = container.scrollLeft;
+                container.classList.add('is-dragging');
+                if (typeof container.setPointerCapture === 'function') {
+                    container.setPointerCapture(pointerId);
+                }
+                event.preventDefault();
+            });
+
+            container.addEventListener('pointermove', (event) => {
+                if (!isDragging) return;
+                const deltaX = event.clientX - startX;
+                container.scrollLeft = startScrollLeft - deltaX;
+                event.preventDefault();
+            });
+
+            const stopDragging = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                container.classList.remove('is-dragging');
+                if (pointerId != null && typeof container.releasePointerCapture === 'function') {
+                    try {
+                        if (container.hasPointerCapture(pointerId)) {
+                            container.releasePointerCapture(pointerId);
+                        }
+                    } catch (error) {
+                    }
+                }
+                pointerId = null;
+            };
+
+            container.addEventListener('pointerup', stopDragging);
+            container.addEventListener('pointercancel', stopDragging);
+            container.addEventListener('pointerleave', stopDragging);
+
+            leaderboardDragScrollInitialized = true;
         }
 
         // Flight preview functionality
@@ -3279,7 +3608,9 @@ No maximum distance bonus`,
                         verificationBadge = '<div class="verification-badge verified">✓ <200hrs PIC Verified</div>';
                         rowClass = 'verified-row';
                     } else {
-                        verificationButton = `<div><button class="verify-btn unverified" onclick="showVerificationForm('${pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify PIC hours">Verify PIC hours</button></div>`;
+                        verificationButton = ALLOW_PUBLIC_VERIFICATION_WRITE
+                            ? `<div><button class="verify-btn unverified" onclick="showVerificationForm('${pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify PIC hours">Verify PIC hours</button></div>`
+                            : '<div class="verification-badge readonly">Organizer verification required</div>';
                         rowClass = 'unverified-row';
                     }
 
@@ -3294,7 +3625,9 @@ No maximum distance bonus`,
                         verificationBadge = '<div class="verification-badge verified">✓ DOB Verified</div>';
                         rowClass = 'verified-row';
                     } else {
-                        verificationButton = `<div><button class="verify-btn unverified" onclick="showDOBVerificationForm('${pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify date of birth">Verify DOB</button></div>`;
+                        verificationButton = ALLOW_PUBLIC_VERIFICATION_WRITE
+                            ? `<div><button class="verify-btn unverified" onclick="showDOBVerificationForm('${pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify date of birth">Verify DOB</button></div>`
+                            : '<div class="verification-badge readonly">Organizer verification required</div>';
                         rowClass = 'unverified-row';
                     }
 
@@ -3458,8 +3791,8 @@ No maximum distance bonus`,
                 });
             }
 
-            // Re-add pilot tooltip listeners after leaderboard is built
             setTimeout(() => {
+                updateLeaderboardOverflowState();
             }, 0);
         }
 
@@ -4005,13 +4338,16 @@ No maximum distance bonus`,
 
                 pilotsToShow.forEach((pilot, index) => {
                     const score = pilot.totalPoints || pilot.points || 0;
+                    const verificationAction = ALLOW_PUBLIC_VERIFICATION_WRITE
+                        ? `<button class="verify-btn unverified small" onclick="showVerificationForm('${pilot.pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify to claim trophy position">Verify PIC hours</button>`
+                        : '<span class="verification-status readonly">Organizer verification required</span>';
                     html += `
                         <div class="unverified-pilot">
                             <div class="winner-info">
                                 <span class="winner-name">${pilot.pilot}</span>
                                 <span class="winner-score">${score.toFixed(1)} pts</span>
                             </div>
-                            <button class="verify-btn unverified small" onclick="showVerificationForm('${pilot.pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify to claim trophy position">Verify PIC hours</button>
+                            ${verificationAction}
                         </div>
                     `;
                 });
@@ -4065,12 +4401,15 @@ No maximum distance bonus`,
 
                 const maxShow = 3;
                 trophy.unverifiedCandidates.slice(0, maxShow).forEach((pilot) => {
+                    const verificationAction = ALLOW_PUBLIC_VERIFICATION_WRITE
+                        ? `<button class="verify-btn unverified small" onclick="showDOBVerificationForm('${pilot.userId || pilot.pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify date of birth">Verify DOB</button>`
+                        : '<span class="verification-status readonly">Organizer verification required</span>';
                     html += `
                         <div class="unverified-pilot">
                             <div class="winner-info">
                                 <span class="winner-name">${pilot.pilot}</span>
                             </div>
-                            <button class="verify-btn unverified small" onclick="showDOBVerificationForm('${pilot.userId || pilot.pilotId}', '${pilot.pilot.replace(/'/g, '\'')}')" title="Verify date of birth">Verify DOB</button>
+                            ${verificationAction}
                         </div>
                     `;
                 });
@@ -4331,8 +4670,15 @@ No maximum distance bonus`,
             }
         });
 
+        const ALLOW_PUBLIC_VERIFICATION_WRITE = false;
+        const VERIFICATION_WRITE_DISABLED_MESSAGE = 'Verification submissions are currently disabled on this public page. Please contact the contest organizers.';
+
         // DOB Verification form
         function showDOBVerificationForm(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             const overlay = document.createElement('div');
             overlay.className = 'verification-overlay';
             overlay.innerHTML = `
@@ -4355,6 +4701,10 @@ No maximum distance bonus`,
         }
 
         async function submitDOBVerification(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             const dobInput = document.getElementById('dobInput');
             const dateOfBirth = dobInput.value;
 
@@ -4487,6 +4837,10 @@ No maximum distance bonus`,
 
 
         function showVerificationForm(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             // Calculate WeGlide hours since Oct 1, 2024
             const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
             const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
@@ -4534,6 +4888,10 @@ No maximum distance bonus`,
         }
 
         async function submitVerification(pilotId, pilotName) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
+                return;
+            }
             const hoursInput = document.getElementById('picHours');
             const hours = parseFloat(hoursInput.value);
 
@@ -4607,6 +4965,10 @@ No maximum distance bonus`,
         }
 
         async function saveVerificationToDatabase(pilotId, pilotName, hours, dataSource = 'user-entered') {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                console.log('Verification writes are disabled; skipping remote/local write.');
+                return;
+            }
             const verificationData = {
                 pilotId: pilotId,
                 pilotName: pilotName,
@@ -4647,6 +5009,10 @@ No maximum distance bonus`,
 
         // Mass Firebase sync function - triggered by URL parameter
         async function massFirebaseSync() {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                console.log('Verification writes are disabled; skipping mass Firebase sync.');
+                return;
+            }
             if (!db) {
                 console.log('⚠️ Firebase not initialized - cannot perform mass sync');
                 return;
@@ -4730,6 +5096,10 @@ No maximum distance bonus`,
         }
 
         async function saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth) {
+            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
+                console.log('DOB verification writes are disabled; skipping remote/local write.');
+                return;
+            }
             const verificationData = {
                 pilotId: pilotId,
                 pilotName: pilotName,
@@ -4848,6 +5218,8 @@ No maximum distance bonus`,
         }
 
         document.addEventListener('DOMContentLoaded', async function() {
+            updateSeasonFooterText();
+
             // Initialize Firebase
             await initializeFirebase();
 
@@ -4857,6 +5229,9 @@ No maximum distance bonus`,
             await loadLeaderboard();
             calculateTrophyWinners();
             calculateTaskTypeStats();
+            setupLeaderboardDragScroll();
+            updateLeaderboardOverflowState();
+            window.addEventListener('resize', updateLeaderboardOverflowState);
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
@@ -5087,24 +5462,51 @@ No maximum distance bonus`,
         </script>
 
     <script>
-        function sendHeight() {
-            // Use offsetHeight + margin or scrollHeight? scrollHeight is safer for growing content.
-            // We add a small buffer to prevent flickering scrollbars.
-            const height = document.body.scrollHeight + 20; 
-            window.parent.postMessage({ type: 'sac-resize', height: height }, '*');
-        }
-        
-        window.addEventListener('load', sendHeight);
-        window.addEventListener('resize', sendHeight);
-        
-        // Observe DOM changes to handle dynamic content (like toggles/search)
-        const observer = new MutationObserver(sendHeight);
-        observer.observe(document.body, { childList: true, subtree: true, attributes: true });
-        
-        // Send initial height
-        if (document.readyState === 'complete') sendHeight();
+        (function setupIframeHeightSync() {
+            const target = document.querySelector('.container') || document.body;
+            let lastHeight = 0;
+            let rafId = null;
+
+            function calculateHeight() {
+                const rectHeight = Math.ceil(target.getBoundingClientRect().height || 0);
+                const scrollHeight = Math.ceil(target.scrollHeight || 0);
+                return Math.max(rectHeight, scrollHeight) + 20;
+            }
+
+            function postHeight(force = false) {
+                const height = calculateHeight();
+                if (!force && Math.abs(height - lastHeight) < 2) return;
+                lastHeight = height;
+                window.parent.postMessage({ type: 'sac-resize', height }, '*');
+            }
+
+            function scheduleHeight(force = false) {
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                }
+                rafId = requestAnimationFrame(() => {
+                    rafId = null;
+                    postHeight(force);
+                });
+            }
+
+            window.addEventListener('load', () => scheduleHeight(true));
+            window.addEventListener('resize', () => scheduleHeight(false));
+
+            const mutationObserver = new MutationObserver(() => scheduleHeight(false));
+            mutationObserver.observe(target, { childList: true, subtree: true, characterData: true });
+
+            if ('ResizeObserver' in window) {
+                const resizeObserver = new ResizeObserver(() => scheduleHeight(false));
+                resizeObserver.observe(target);
+            }
+
+            if (document.readyState === 'complete') {
+                scheduleHeight(true);
+            }
+        })();
     </script>
         
-<!-- Generated at 2025-12-14T22:59:34.623Z -->
+<!-- Generated at 2026-03-05T05:10:18.806Z -->
 </body>
 </html>

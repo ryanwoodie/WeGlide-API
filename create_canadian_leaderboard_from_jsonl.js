@@ -1115,7 +1115,7 @@ async function processCanadianFlights() {
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 </head>`)
             .replace(/gfa_logo\.png/g, 'sac_logo.png')
-            .replace(/Australian gliding season runs October 1, 2024 to September 30, 2025/g, 'Canadian gliding season runs September 23, 2025 to September 30, 2026')
+            .replace(/<p>Data from WeGlide API • (?:Australian|Canadian) gliding season runs[^<]*<\/p>/g, '<p id="seasonFooterText">Data from WeGlide API • Canadian gliding season runs __CURRENT_SEASON_LONG__</p>')
             .replace(/Best 5 flights per pilot • Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring')
             .replace(/Scoring uses the higher of Free flight or Task \(declared\) scoring for each flight/g, 'Scoring uses the higher of Free flight or WeGlide Task scoring for each flight')
             // Remove the logo image
@@ -1141,9 +1141,12 @@ async function processCanadianFlights() {
         const seasonStartIso = seasonStartDate ? seasonStartDate.toISOString().split('T')[0] : '';
         const seasonEndIso = seasonEndDate ? seasonEndDate.toISOString().split('T')[0] : '';
         const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        // Season always Oct 1, 2025 - Sept 30, 2026
-        const seasonLabel = 'Oct 1, 2025 - Sept 30, 2026';
-        const freeSeasonLabel = 'Oct 1, 2025 - Sept 30, 2026*';
+        const now = new Date();
+        const currentSeasonStartYear = now.getUTCMonth() >= 9 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+        const currentSeasonEndYear = currentSeasonStartYear + 1;
+        const seasonLabel = `Oct 1, ${currentSeasonStartYear} - Sept 30, ${currentSeasonEndYear}`;
+        const freeSeasonLabel = `${seasonLabel}*`;
+        const seasonLongLabel = `October 1, ${currentSeasonStartYear} to September 30, ${currentSeasonEndYear}`;
 
         const newScriptContent = `<script>
         // Global variables for leaderboard data
@@ -1163,13 +1166,36 @@ async function processCanadianFlights() {
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SEASON_START = new Date('${seasonStartIso ? seasonStartIso + 'T00:00:00Z' : ''}');
         const SEASON_END = new Date('${seasonEndIso ? seasonEndIso + 'T23:59:59Z' : ''}');
-        const SEASON_LABEL = '${seasonLabel}';
+        function getCurrentCanadianSeason() {
+            const now = new Date();
+            const currentYear = now.getUTCFullYear();
+            const isOnOrAfterOctober = now.getUTCMonth() >= 9;
+            const seasonStartYear = isOnOrAfterOctober ? currentYear : currentYear - 1;
+            const seasonEndYear = seasonStartYear + 1;
+            return {
+                shortLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear,
+                freeLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear + '*',
+                longLabel: 'October 1, ' + seasonStartYear + ' to September 30, ' + seasonEndYear
+            };
+        }
+        const CURRENT_SEASON = getCurrentCanadianSeason();
+        const SEASON_LABEL = CURRENT_SEASON.shortLabel;
+        const FREE_SEASON_LABEL = CURRENT_SEASON.freeLabel;
         const COMBINED_LABEL = '__COMBINED_LABEL__';
         const ENABLE_DOW_TROPHIES = __ENABLE_DOW_TROPHIES__;
-        const SCORING_DESCRIPTION_COMBINED = '__SCORING_DESCRIPTION_COMBINED__';
-        const SCORING_DESCRIPTION_FREE = '__SCORING_DESCRIPTION_FREE__';
+        const SCORING_DESCRIPTION_COMBINED = '__SCORING_DESCRIPTION_COMBINED__'
+            .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}/g, SEASON_LABEL);
+        const SCORING_DESCRIPTION_FREE = '__SCORING_DESCRIPTION_FREE__'
+            .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}\\*/g, FREE_SEASON_LABEL)
+            .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}/g, SEASON_LABEL);
         const SAC_DSC_RULES_TOOLTIP = '__SAC_DSC_RULES_TOOLTIP__';
         const USING_SAC_DSC_VARIANT = COMBINED_LABEL === 'SAC-DSC';
+
+        function updateSeasonFooterText() {
+            const footer = document.getElementById('seasonFooterText');
+            if (!footer) return;
+            footer.textContent = 'Data from WeGlide API • Canadian gliding season runs ' + CURRENT_SEASON.longLabel;
+        }
 
         // Tooltip functionality
         const tooltipTexts = USING_SAC_DSC_VARIANT ? {
@@ -4397,6 +4423,8 @@ No maximum distance bonus\`,
         }
 
         document.addEventListener('DOMContentLoaded', async function() {
+            updateSeasonFooterText();
+
             // Initialize Firebase
             await initializeFirebase();
 
@@ -6262,6 +6290,7 @@ No maximum distance bonus\`,
             html = html.replace(/__SCORING_DESCRIPTION_COMBINED__/g, combinedDescription);
             html = html.replace(/__SCORING_DESCRIPTION_FREE__/g, freeDescription);
             html = html.replace(/__SAC_DSC_RULES_TOOLTIP__/g, sacDscTooltip);
+            html = html.replace(/__CURRENT_SEASON_LONG__/g, seasonLongLabel);
             return html;
         }
 

@@ -1938,7 +1938,7 @@
         </div>
         
         <div class="footer">
-            <p>Data from WeGlide API • Canadian gliding season runs October 1, 2024 to September 30, 2025</p>
+            <p id="seasonFooterText">Data from WeGlide API • Canadian gliding season runs October 1, 2025 to September 30, 2026</p>
             <p>Scoring uses the higher of Free flight or WeGlide Task scoring for each flight</p>
         </div>
     </div>
@@ -1961,13 +1961,36 @@
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SEASON_START = new Date('2025-09-24T00:00:00Z');
         const SEASON_END = new Date('2025-11-13T23:59:59Z');
-        const SEASON_LABEL = 'Oct 1, 2025 - Sept 30, 2026';
+        function getCurrentCanadianSeason() {
+            const now = new Date();
+            const currentYear = now.getUTCFullYear();
+            const isOnOrAfterOctober = now.getUTCMonth() >= 9;
+            const seasonStartYear = isOnOrAfterOctober ? currentYear : currentYear - 1;
+            const seasonEndYear = seasonStartYear + 1;
+            return {
+                shortLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear,
+                freeLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear + '*',
+                longLabel: 'October 1, ' + seasonStartYear + ' to September 30, ' + seasonEndYear
+            };
+        }
+        const CURRENT_SEASON = getCurrentCanadianSeason();
+        const SEASON_LABEL = CURRENT_SEASON.shortLabel;
+        const FREE_SEASON_LABEL = CURRENT_SEASON.freeLabel;
         const COMBINED_LABEL = 'SAC-DSC';
         const ENABLE_DOW_TROPHIES = false;
-        const SCORING_DESCRIPTION_COMBINED = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="sacdsc">SAC-DSC scoring</span> • Oct 1, 2025 - Sept 30, 2026';
-        const SCORING_DESCRIPTION_FREE = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> only • <span class="scoring-tooltip" data-tooltip="freeseason">Oct 1, 2025 - Sept 30, 2026*</span>';
+        const SCORING_DESCRIPTION_COMBINED = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="sacdsc">SAC-DSC scoring</span> • Oct 1, 2025 - Sept 30, 2026'
+            .replace(/Oct 1, \d{4} - Sept 30, \d{4}/g, SEASON_LABEL);
+        const SCORING_DESCRIPTION_FREE = 'Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="free">Free scoring</span> only • <span class="scoring-tooltip" data-tooltip="freeseason">Oct 1, 2025 - Sept 30, 2026*</span>'
+            .replace(/Oct 1, \d{4} - Sept 30, \d{4}\*/g, FREE_SEASON_LABEL)
+            .replace(/Oct 1, \d{4} - Sept 30, \d{4}/g, SEASON_LABEL);
         const SAC_DSC_RULES_TOOLTIP = 'Soaring Association of Canada – Decentralized Soaring Contest (SAC-DSC)\n\nFormula:\n(distance + shape bonus + declaration bonus) ÷ (index/100)\n\nBonuses:\nDeclared and completed +30%, plus <strong>one</strong> of (if applicable):\n• FAI Triangle +40%\n• Quadrilateral +40% (if declared)\n• Out & Return +30%\n• Straight Out +30%\n• FAI/Rectangle with up to 3 Multi-Laps +20% (if declared)\n\nMax 3 turnpoints (4 for rectangles, 12 for multi-lap). Free flights/failed tasks scored as better of 4 legs distance OR best shape+bonus';
         const USING_SAC_DSC_VARIANT = COMBINED_LABEL === 'SAC-DSC';
+
+        function updateSeasonFooterText() {
+            const footer = document.getElementById('seasonFooterText');
+            if (!footer) return;
+            footer.textContent = 'Data from WeGlide API • Canadian gliding season runs ' + CURRENT_SEASON.longLabel;
+        }
 
         // Tooltip functionality
         const tooltipTexts = USING_SAC_DSC_VARIANT ? {
@@ -5195,6 +5218,8 @@ No maximum distance bonus`,
         }
 
         document.addEventListener('DOMContentLoaded', async function() {
+            updateSeasonFooterText();
+
             // Initialize Firebase
             await initializeFirebase();
 
@@ -5482,6 +5507,6 @@ No maximum distance bonus`,
         })();
     </script>
         
-<!-- Generated at 2025-12-14T22:59:34.623Z -->
+<!-- Generated at 2026-03-05T05:10:18.806Z -->
 </body>
 </html>
