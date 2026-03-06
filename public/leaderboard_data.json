@@ -48,7 +48,6 @@
     "35423": 1618120,
     "35426": 504733,
     "35427": 163188,
-    "35430": 507803,
     "35431": 290665,
     "35433": 179105,
     "35434": 83322,
@@ -77,8 +76,7 @@
     "36033": 22111,
     "36083": 6505,
     "36101": 4159,
-    "36137": 7912,
-    "36868": 23602
+    "36137": 7912
   },
   "pilotVerifications": {
     "picHoursVerifications": {},
@@ -920,23 +918,6 @@
         "logo": "club/863.png"
       }
     },
-    "35430": {
-      "total_flight_duration": 507803,
-      "total_free_distance": 4514.26,
-      "avg_speed": 35.56,
-      "flight_count": 102,
-      "avg_glide_speed": 82.42,
-      "avg_glide_detour": 1.29,
-      "achievement_count": 0,
-      "name": "Susan Snell",
-      "gender": "F",
-      "club": {
-        "id": 1387,
-        "name": "Winnipeg Gliding Club",
-        "region": "CA-MB",
-        "url": "https://www.wgc.mb.ca"
-      }
-    },
     "35431": {
       "total_flight_duration": 290665,
       "total_free_distance": 4056.75,
@@ -1430,23 +1411,6 @@
         "region": "CA-AB",
         "url": "https://www.cunim.org",
         "logo": "club/965.png"
-      }
-    },
-    "36868": {
-      "total_flight_duration": 23602,
-      "total_free_distance": 186.77,
-      "avg_speed": 34.44,
-      "flight_count": 9,
-      "avg_glide_speed": 93.71,
-      "avg_glide_detour": 2.28,
-      "achievement_count": 0,
-      "name": "Martin Chicoine",
-      "gender": "M",
-      "club": {
-        "id": 1168,
-        "name": "Montreal Soaring Club",
-        "region": "CA-ON",
-        "url": "https://montrealsoaring.ca"
       }
     }
   },
@@ -2095,76 +2059,6 @@
       "awards": []
     },
     {
-      "pilot": "Bryan Swansburg",
-      "pilotId": 17026,
-      "totalPoints": 409.65999999999997,
-      "totalDistance": 422.19,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 920732,
-          "userId": 17026,
-          "date": "2025-10-11",
-          "distance": 212.53,
-          "speed": 80.84,
-          "points": 203.34,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        },
-        {
-          "id": 918201,
-          "userId": 17026,
-          "date": "2025-10-08",
-          "distance": 97.3,
-          "speed": 47.55,
-          "points": 94.36,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        },
-        {
-          "id": 913845,
-          "userId": 17026,
-          "date": "2025-10-04",
-          "distance": 85.04,
-          "speed": 46.78,
-          "points": 85.02,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        },
-        {
-          "id": 968963,
-          "userId": 17026,
-          "date": "2025-11-29",
-          "distance": 27.32,
-          "speed": 87.74,
-          "points": 26.94,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Alain Bouliane",
       "pilotId": 35763,
       "totalPoints": 383.27000000000004,
@@ -2245,6 +2139,61 @@
           "aircraftKind": "GL",
           "aircraftName": "Duo Discus",
           "dmstIndex": 112
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Bryan Swansburg",
+      "pilotId": 17026,
+      "totalPoints": 382.71999999999997,
+      "totalDistance": 394.87,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 920732,
+          "userId": 17026,
+          "date": "2025-10-11",
+          "distance": 212.53,
+          "speed": 80.84,
+          "points": 203.34,
+          "takeoff": "Smithers",
+          "region": "CA",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "Ventus cM 17.6m",
+          "dmstIndex": 115
+        },
+        {
+          "id": 918201,
+          "userId": 17026,
+          "date": "2025-10-08",
+          "distance": 97.3,
+          "speed": 47.55,
+          "points": 94.36,
+          "takeoff": "Smithers",
+          "region": "CA",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "Ventus cM 17.6m",
+          "dmstIndex": 115
+        },
+        {
+          "id": 913845,
+          "userId": 17026,
+          "date": "2025-10-04",
+          "distance": 85.04,
+          "speed": 46.78,
+          "points": 85.02,
+          "takeoff": "Smithers",
+          "region": "CA",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "Ventus cM 17.6m",
+          "dmstIndex": 115
         }
       ],
       "awards": []
@@ -4380,61 +4329,6 @@
       "awards": []
     },
     {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 74.3,
-      "totalDistance": 56.809999999999995,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 994913,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 25.14,
-          "speed": 34,
-          "points": 33.61,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994912,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 17.49,
-          "speed": 31.14,
-          "points": 22.9,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994914,
-          "userId": 35430,
-          "date": "2025-11-14",
-          "distance": 14.18,
-          "speed": 70.51,
-          "points": 17.79,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Justin Latour",
       "pilotId": 36083,
       "totalPoints": 73.81,
@@ -4510,76 +4404,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Discus 2b",
           "dmstIndex": 108
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Martin Chicoine",
-      "pilotId": 36868,
-      "totalPoints": 70.29,
-      "totalDistance": 57.37,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 996438,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 18.36,
-          "speed": 32.54,
-          "points": 22.32,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996440,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 15.36,
-          "speed": 58.45,
-          "points": 18.69,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996439,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 12.02,
-          "speed": 58.71,
-          "points": 14.68,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996441,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 11.63,
-          "speed": 48.29,
-          "points": 14.6,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
         }
       ],
       "awards": []
@@ -7650,60 +7474,6 @@
       ]
     },
     {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 9.09,
-      "totalDistance": 16.28,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 994913,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 8.74,
-          "speed": 4.37,
-          "points": 4.88,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994912,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 6.98,
-          "speed": 3.49,
-          "points": 3.9,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994914,
-          "userId": 35430,
-          "date": "2025-11-14",
-          "distance": 0.56,
-          "speed": 0.28,
-          "points": 0.31,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        }
-      ]
-    },
-    {
       "pilot": "Craig Pitchell",
       "pilotId": 35605,
       "totalPoints": 8.61,
@@ -7811,60 +7581,6 @@
           "aircraftKind": "GL",
           "aircraftName": "PW 5",
           "dmstIndex": 85
-        }
-      ]
-    },
-    {
-      "pilot": "Martin Chicoine",
-      "pilotId": 36868,
-      "totalPoints": 4.88,
-      "totalDistance": 9.180000000000001,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 996438,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 8.14,
-          "speed": 4.07,
-          "points": 4.33,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996439,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 0.57,
-          "speed": 0.28,
-          "points": 0.3,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996440,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 0.47,
-          "speed": 0.23,
-          "points": 0.25,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
         }
       ]
     },
@@ -10466,60 +10182,6 @@
       ]
     },
     {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 27.490000000000002,
-      "totalDistance": 23.64,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 994913,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 12.56,
-          "speed": 29.67,
-          "points": 14.6,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994912,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 7.36,
-          "speed": 29.31,
-          "points": 8.56,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994914,
-          "userId": 35430,
-          "date": "2025-11-14",
-          "distance": 3.72,
-          "speed": 77.86,
-          "points": 4.33,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        }
-      ]
-    },
-    {
       "pilot": "Jeff Slingerland",
       "pilotId": 35992,
       "totalPoints": 26.599999999999998,
@@ -10717,60 +10379,6 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-51 Junior",
           "dmstIndex": 90
-        }
-      ]
-    },
-    {
-      "pilot": "Martin Chicoine",
-      "pilotId": 36868,
-      "totalPoints": 21.07,
-      "totalDistance": 19.39,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 996438,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 7.26,
-          "speed": 18.5,
-          "points": 7.89,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996440,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 6.11,
-          "speed": 43.56,
-          "points": 6.64,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996441,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 6.02,
-          "speed": 41.44,
-          "points": 6.54,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
         }
       ]
     },
@@ -13408,60 +13016,6 @@
       ]
     },
     {
-      "pilot": "Martin Chicoine",
-      "pilotId": 36868,
-      "totalPoints": 23.29,
-      "totalDistance": 21.43,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 996438,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 10.05,
-          "speed": 28.6,
-          "points": 10.92,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996440,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 5.7,
-          "speed": 89.61,
-          "points": 6.2,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996441,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 5.68,
-          "speed": 39.17,
-          "points": 6.17,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        }
-      ]
-    },
-    {
       "pilot": "Marco Solo",
       "pilotId": 35395,
       "totalPoints": 22.59,
@@ -13725,30 +13279,6 @@
           "aircraftKind": "GL",
           "aircraftName": "LS 1-f neo",
           "dmstIndex": 101
-        }
-      ]
-    },
-    {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 9.06,
-      "totalDistance": 7.79,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 994912,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 7.79,
-          "speed": 29.49,
-          "points": 9.06,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
         }
       ]
     },
@@ -14111,45 +13641,6 @@
           "aircraftKind": "FG",
           "aircraftName": "AS 33 Me 15m",
           "dmstIndex": 116
-        }
-      ]
-    },
-    {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 22.119999999999997,
-      "totalDistance": 19.02,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 994913,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 9.62,
-          "speed": 13.99,
-          "points": 11.19,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "out",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994914,
-          "userId": 35430,
-          "date": "2025-11-14",
-          "distance": 9.4,
-          "speed": 50.73,
-          "points": 10.93,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "out",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
         }
       ]
     },
@@ -14550,30 +14041,6 @@
       ]
     },
     {
-      "pilot": "Bryan Swansburg",
-      "pilotId": 17026,
-      "totalPoints": 9.87,
-      "totalDistance": 11.35,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 968963,
-          "userId": 17026,
-          "date": "2025-11-29",
-          "distance": 11.35,
-          "speed": 21.44,
-          "points": 9.87,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "out",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        }
-      ]
-    },
-    {
       "pilot": "Thomas Breitenmoser",
       "pilotId": 25782,
       "totalPoints": 7.73,
@@ -14690,30 +14157,6 @@
           "aircraftKind": "GL",
           "aircraftName": "G 103 Twin Astir RG",
           "dmstIndex": 94
-        }
-      ]
-    },
-    {
-      "pilot": "Martin Chicoine",
-      "pilotId": 36868,
-      "totalPoints": 5.68,
-      "totalDistance": 5.23,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 996439,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 5.23,
-          "speed": 29.15,
-          "points": 5.68,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
         }
       ]
     },
@@ -31852,802 +31295,6 @@
         "weglideFreeDistance": 27.39,
         "dmstIndex": 86
       }
-    },
-    {
-      "id": 996441,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 12.47,
-        "thermal_avg": 0,
-        "glide_speed": 76.19,
-        "glide_speed_lift": 75.99,
-        "glide_speed_sink": 76.81,
-        "altitude_avg": 619,
-        "agl_avg": 488,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 1,
-        "glide_percentage_lift": 0.1,
-        "duration": 867,
-        "thermal_time": 0,
-        "glide_time": 867,
-        "wind_speed": 32,
-        "wind_direction": 235,
-        "attempt_count": 0,
-        "attempt_avg": 0,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.95,
-        "below_600_agl": 0.665,
-        "below_400_agl": 0.3225,
-        "below_200_agl": 0.0775,
-        "below_100_agl": 0.055,
-        "track_distance": 18.35,
-        "glide_detour": 1.58,
-        "glide_distance": 2.97,
-        "glide_alt_avg": 619,
-        "end_time": "2025-10-05T15:29:54+00:00",
-        "start_time": "2025-10-05T15:15:27+00:00",
-        "finish_alt": 52
-      },
-      "taskStats": {
-        "glide_ratio": 13.4,
-        "thermal_avg": 0,
-        "glide_speed": 74.34,
-        "glide_speed_lift": 74.99,
-        "glide_speed_sink": 74.69,
-        "altitude_avg": 649,
-        "agl_avg": 518,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 1,
-        "glide_percentage_lift": 0.1,
-        "duration": 815,
-        "thermal_time": 0,
-        "glide_time": 815,
-        "wind_speed": 32,
-        "wind_direction": 235,
-        "attempt_count": 0,
-        "attempt_avg": 0,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.9468,
-        "below_600_agl": 0.6436,
-        "below_400_agl": 0.2793,
-        "below_200_agl": 0.0186,
-        "below_100_agl": 0,
-        "track_distance": 16.83,
-        "glide_detour": 1.67,
-        "glide_distance": 3.93,
-        "glide_alt_avg": 649,
-        "end_time": "2025-10-05T15:29:02+00:00",
-        "start_time": "2025-10-05T15:15:27+00:00",
-        "finish_alt": 232,
-        "task_duration": 815,
-        "total_duration": 867
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 10.09,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 10.97,
-        "freePoints": 14.6,
-        "auPoints": 10.97,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 10.967391304347826,
-        "dmstFreeDistance": 10.09,
-        "dmstTaskActualPoints": 10.967391304347826,
-        "dmstTaskPotentialPoints": 10.967391304347826,
-        "dmstTaskDistance": 10.09,
-        "weglideFreeDistance": 11.63,
-        "dmstIndex": 92
-      }
-    },
-    {
-      "id": 996440,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 19.62,
-        "thermal_avg": 0,
-        "glide_speed": 87.74,
-        "glide_speed_lift": 85.15,
-        "glide_speed_sink": 86.83,
-        "altitude_avg": 582,
-        "agl_avg": 456,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 0.92,
-        "glide_percentage_lift": 0.12,
-        "duration": 946,
-        "thermal_time": 0,
-        "glide_time": 867,
-        "wind_speed": 22.23,
-        "wind_direction": 222,
-        "attempt_count": 1,
-        "attempt_avg": -0.7,
-        "attempt_speed_loss": 5.33,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.9507,
-        "below_600_agl": 0.7452,
-        "below_400_agl": 0.4582,
-        "below_200_agl": 0.0878,
-        "below_100_agl": 0.0043,
-        "track_distance": 21.13,
-        "glide_detour": 1.38,
-        "glide_distance": 2.17,
-        "glide_alt_avg": 609,
-        "end_time": "2025-10-05T16:07:22+00:00",
-        "start_time": "2025-10-05T15:51:36+00:00",
-        "finish_alt": 142
-      },
-      "taskStats": {
-        "glide_ratio": 16.5,
-        "thermal_avg": 0,
-        "glide_speed": 87.09,
-        "glide_speed_lift": 84.71,
-        "glide_speed_sink": 86.16,
-        "altitude_avg": 589,
-        "agl_avg": 463,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 0.91,
-        "glide_percentage_lift": 0.12,
-        "duration": 921,
-        "thermal_time": 0,
-        "glide_time": 842,
-        "wind_speed": 22.23,
-        "wind_direction": 222,
-        "attempt_count": 1,
-        "attempt_avg": -0.7,
-        "attempt_speed_loss": 4.14,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.9498,
-        "below_600_agl": 0.7402,
-        "below_400_agl": 0.4476,
-        "below_200_agl": 0.0699,
-        "below_100_agl": 0,
-        "track_distance": 20.37,
-        "glide_detour": 1.81,
-        "glide_distance": 2.49,
-        "glide_alt_avg": 618,
-        "end_time": "2025-10-05T16:06:57+00:00",
-        "start_time": "2025-10-05T15:51:36+00:00",
-        "finish_alt": 242,
-        "task_duration": 921,
-        "total_duration": 946
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 11.27,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 12.25,
-        "freePoints": 18.69,
-        "auPoints": 12.25,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 12.249999999999998,
-        "dmstFreeDistance": 11.27,
-        "dmstTaskActualPoints": 12.249999999999998,
-        "dmstTaskPotentialPoints": 12.249999999999998,
-        "dmstTaskDistance": 11.27,
-        "weglideFreeDistance": 15.36,
-        "dmstIndex": 92
-      }
-    },
-    {
-      "id": 996439,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 12.63,
-        "thermal_avg": 0,
-        "glide_speed": 94.06,
-        "glide_speed_lift": 96.32,
-        "glide_speed_sink": 91.26,
-        "altitude_avg": 606,
-        "agl_avg": 492,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 0.96,
-        "glide_percentage_lift": 0.09,
-        "duration": 737,
-        "thermal_time": 0,
-        "glide_time": 705,
-        "wind_speed": 23.3,
-        "wind_direction": 231,
-        "attempt_count": 1,
-        "attempt_avg": -1.38,
-        "attempt_speed_loss": 2.67,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.8431,
-        "below_600_agl": 0.7143,
-        "below_400_agl": 0.3894,
-        "below_200_agl": 0.112,
-        "below_100_agl": 0.0224,
-        "track_distance": 18.42,
-        "glide_detour": 1.53,
-        "glide_distance": 2,
-        "glide_alt_avg": 616,
-        "end_time": "2025-10-05T17:58:26+00:00",
-        "start_time": "2025-10-05T17:46:09+00:00",
-        "finish_alt": 107
-      },
-      "taskStats": {
-        "glide_ratio": 14.38,
-        "thermal_avg": 0,
-        "glide_speed": 95.76,
-        "glide_speed_lift": 95.61,
-        "glide_speed_sink": 91.77,
-        "altitude_avg": 587,
-        "agl_avg": 473,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 0.95,
-        "glide_percentage_lift": 0.1,
-        "duration": 626,
-        "thermal_time": 0,
-        "glide_time": 594,
-        "wind_speed": 23.3,
-        "wind_direction": 231,
-        "attempt_count": 1,
-        "attempt_avg": -1.38,
-        "attempt_speed_loss": 3.06,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.9211,
-        "below_600_agl": 0.7697,
-        "below_400_agl": 0.3882,
-        "below_200_agl": 0.0625,
-        "below_100_agl": 0,
-        "track_distance": 15.8,
-        "glide_detour": 1.6,
-        "glide_distance": 2.96,
-        "glide_alt_avg": 597,
-        "end_time": "2025-10-05T17:57:49+00:00",
-        "start_time": "2025-10-05T17:47:23+00:00",
-        "finish_alt": 269,
-        "task_duration": 626,
-        "total_duration": 737
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 9.89,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 10.75,
-        "freePoints": 14.68,
-        "auPoints": 10.75,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 10.75,
-        "dmstFreeDistance": 9.89,
-        "dmstTaskActualPoints": 10.75,
-        "dmstTaskPotentialPoints": 10.75,
-        "dmstTaskDistance": 9.89,
-        "weglideFreeDistance": 12.02,
-        "dmstIndex": 92
-      }
-    },
-    {
-      "id": 996438,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 23.6,
-        "thermal_avg": 0.39,
-        "glide_speed": 85.06,
-        "glide_speed_lift": 86.79,
-        "glide_speed_sink": 90.39,
-        "altitude_avg": 897,
-        "agl_avg": 799,
-        "thermal_count": 3,
-        "thermal_gain": 188,
-        "thermal_radius": 199.72,
-        "thermal_start_agl": 772,
-        "thermal_bank": 17.85,
-        "glide_percentage": 0.63,
-        "glide_percentage_lift": 0.35,
-        "duration": 2031,
-        "thermal_time": 480,
-        "glide_time": 1279,
-        "wind_speed": 22.18,
-        "wind_direction": 234,
-        "attempt_count": 5,
-        "attempt_avg": -0.82,
-        "attempt_speed_loss": 5.04,
-        "below_1000_agl": 0.7425,
-        "below_800_agl": 0.3821,
-        "below_600_agl": 0.311,
-        "below_400_agl": 0.0515,
-        "below_200_agl": 0.0081,
-        "below_100_agl": 0,
-        "track_distance": 30.22,
-        "glide_detour": 1.65,
-        "glide_distance": 1.14,
-        "glide_alt_avg": 897,
-        "end_time": "2025-10-05T19:33:37+00:00",
-        "start_time": "2025-10-05T18:59:46+00:00",
-        "finish_alt": 245
-      },
-      "taskStats": {
-        "glide_ratio": 20.77,
-        "thermal_avg": 0.39,
-        "glide_speed": 84.94,
-        "glide_speed_lift": 86.17,
-        "glide_speed_sink": 90.18,
-        "altitude_avg": 905,
-        "agl_avg": 807,
-        "thermal_count": 3,
-        "thermal_gain": 188,
-        "thermal_radius": 199.72,
-        "thermal_start_agl": 772,
-        "thermal_bank": 17.85,
-        "glide_percentage": 0.63,
-        "glide_percentage_lift": 0.37,
-        "duration": 2114,
-        "thermal_time": 480,
-        "glide_time": 1330,
-        "wind_speed": 21.89,
-        "wind_direction": 234,
-        "attempt_count": 6,
-        "attempt_avg": -0.9,
-        "attempt_speed_loss": 4.41,
-        "below_1000_agl": 0.7473,
-        "below_800_agl": 0.3646,
-        "below_600_agl": 0.2967,
-        "below_400_agl": 0.0491,
-        "below_200_agl": 0.0078,
-        "below_100_agl": 0,
-        "track_distance": 31.38,
-        "glide_detour": 2.04,
-        "glide_distance": 1.04,
-        "glide_alt_avg": 905,
-        "end_time": "2025-10-05T19:33:37+00:00",
-        "start_time": "2025-10-05T18:58:23+00:00",
-        "finish_alt": 245,
-        "task_duration": 2114,
-        "total_duration": 2031
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 15.41,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 16.75,
-        "freePoints": 22.32,
-        "auPoints": 16.75,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 16.75,
-        "dmstFreeDistance": 15.41,
-        "dmstTaskActualPoints": 16.75,
-        "dmstTaskPotentialPoints": 16.75,
-        "dmstTaskDistance": 15.41,
-        "weglideFreeDistance": 18.36,
-        "dmstIndex": 92
-      }
-    },
-    {
-      "id": 994914,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 22.3,
-        "thermal_avg": -1.3,
-        "glide_speed": 91.99,
-        "glide_speed_lift": 104.16,
-        "glide_speed_sink": 100.83,
-        "altitude_avg": 799,
-        "agl_avg": 731,
-        "thermal_count": 1,
-        "thermal_gain": -109,
-        "thermal_radius": 214.08,
-        "thermal_bank": 24.76,
-        "glide_percentage": 0.75,
-        "glide_percentage_lift": 0.01,
-        "duration": 724,
-        "thermal_time": 84,
-        "glide_time": 542,
-        "wind_speed": 33.35,
-        "wind_direction": 300,
-        "attempt_count": 3,
-        "attempt_avg": -1.67,
-        "attempt_speed_loss": 11.04,
-        "below_1000_agl": 0.8492,
-        "below_800_agl": 0.5025,
-        "below_600_agl": 0.2513,
-        "below_400_agl": 0.1256,
-        "below_200_agl": 0.0101,
-        "below_100_agl": 0,
-        "track_distance": 13.85,
-        "glide_detour": 0.98,
-        "glide_distance": 2.43,
-        "glide_alt_avg": 781,
-        "end_time": "2025-11-14T20:33:45+00:00",
-        "start_time": "2025-11-14T20:21:41+00:00",
-        "finish_alt": 212
-      },
-      "taskStats": {
-        "glide_ratio": 20.17,
-        "thermal_avg": -1.3,
-        "glide_speed": 91.99,
-        "glide_speed_lift": 104.16,
-        "glide_speed_sink": 100.83,
-        "altitude_avg": 799,
-        "agl_avg": 731,
-        "thermal_count": 1,
-        "thermal_gain": -109,
-        "thermal_radius": 214.08,
-        "thermal_bank": 24.76,
-        "glide_percentage": 0.75,
-        "glide_percentage_lift": 0.01,
-        "duration": 724,
-        "thermal_time": 84,
-        "glide_time": 542,
-        "wind_speed": 33.35,
-        "wind_direction": 300,
-        "attempt_count": 3,
-        "attempt_avg": -1.67,
-        "attempt_speed_loss": 9.98,
-        "below_1000_agl": 0.8492,
-        "below_800_agl": 0.5025,
-        "below_600_agl": 0.2513,
-        "below_400_agl": 0.1256,
-        "below_200_agl": 0.0101,
-        "below_100_agl": 0,
-        "track_distance": 13.85,
-        "glide_detour": 1.08,
-        "glide_distance": 2.43,
-        "glide_alt_avg": 781,
-        "end_time": "2025-11-14T20:33:45+00:00",
-        "start_time": "2025-11-14T20:21:41+00:00",
-        "finish_alt": 212,
-        "task_duration": 724,
-        "total_duration": 724
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 12.83,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 14.92,
-        "freePoints": 17.79,
-        "auPoints": 14.92,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 14.918604651162791,
-        "dmstFreeDistance": 12.83,
-        "dmstTaskActualPoints": 14.918604651162791,
-        "dmstTaskPotentialPoints": 14.918604651162791,
-        "dmstTaskDistance": 12.83,
-        "weglideFreeDistance": 14.18,
-        "dmstIndex": 86
-      }
-    },
-    {
-      "id": 994913,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 21.18,
-        "thermal_avg": 0.47,
-        "glide_speed": 92.24,
-        "glide_speed_lift": 92.6,
-        "glide_speed_sink": 91.78,
-        "altitude_avg": 874,
-        "agl_avg": 690,
-        "thermal_count": 3,
-        "thermal_gain": 476,
-        "thermal_radius": 136.39,
-        "thermal_start_agl": 539,
-        "thermal_bank": 26.13,
-        "glide_percentage": 0.59,
-        "glide_percentage_lift": 0.39,
-        "duration": 2662,
-        "thermal_time": 1003,
-        "glide_time": 1572,
-        "wind_speed": 14.74,
-        "wind_direction": 283,
-        "attempt_count": 3,
-        "attempt_avg": -0.91,
-        "attempt_speed_loss": 1.15,
-        "below_1000_agl": 0.8473,
-        "below_800_agl": 0.5737,
-        "below_600_agl": 0.4746,
-        "below_400_agl": 0.1095,
-        "below_200_agl": 0,
-        "below_100_agl": 0,
-        "track_distance": 40.28,
-        "glide_detour": 1.6,
-        "glide_distance": 1.61,
-        "glide_alt_avg": 862,
-        "end_time": "2025-10-19T21:29:45+00:00",
-        "start_time": "2025-10-19T20:45:23+00:00",
-        "finish_alt": 408
-      },
-      "taskStats": {
-        "glide_ratio": 17.51,
-        "thermal_avg": 0.47,
-        "glide_speed": 92.3,
-        "glide_speed_lift": 92.65,
-        "glide_speed_sink": 91.82,
-        "altitude_avg": 874,
-        "agl_avg": 689,
-        "thermal_count": 3,
-        "thermal_gain": 476,
-        "thermal_radius": 136.39,
-        "thermal_start_agl": 539,
-        "thermal_bank": 26.13,
-        "glide_percentage": 0.59,
-        "glide_percentage_lift": 0.39,
-        "duration": 2665,
-        "thermal_time": 1003,
-        "glide_time": 1575,
-        "wind_speed": 14.74,
-        "wind_direction": 283,
-        "attempt_count": 3,
-        "attempt_avg": -0.91,
-        "attempt_speed_loss": 0.95,
-        "below_1000_agl": 0.8475,
-        "below_800_agl": 0.5742,
-        "below_600_agl": 0.4752,
-        "below_400_agl": 0.1105,
-        "below_200_agl": 0,
-        "below_100_agl": 0,
-        "track_distance": 40.38,
-        "glide_detour": 1.93,
-        "glide_distance": 1.61,
-        "glide_alt_avg": 862,
-        "end_time": "2025-10-19T21:29:48+00:00",
-        "start_time": "2025-10-19T20:45:23+00:00",
-        "finish_alt": 402,
-        "task_duration": 2665,
-        "total_duration": 2662
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 20.89,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 24.29,
-        "freePoints": 33.61,
-        "auPoints": 24.29,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 24.290697674418606,
-        "dmstFreeDistance": 20.89,
-        "dmstTaskActualPoints": 24.290697674418606,
-        "dmstTaskPotentialPoints": 24.290697674418606,
-        "dmstTaskDistance": 20.89,
-        "weglideFreeDistance": 25.14,
-        "dmstIndex": 86
-      }
-    },
-    {
-      "id": 994912,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 19.43,
-        "thermal_avg": 0.06,
-        "glide_speed": 86.37,
-        "glide_speed_lift": 88.74,
-        "glide_speed_sink": 85.26,
-        "altitude_avg": 732,
-        "agl_avg": 538,
-        "thermal_count": 5,
-        "thermal_gain": 61,
-        "thermal_radius": 123.29,
-        "thermal_start_agl": 498,
-        "thermal_bank": 29.84,
-        "glide_percentage": 0.41,
-        "glide_percentage_lift": 0.29,
-        "duration": 2022,
-        "thermal_time": 1061,
-        "glide_time": 824,
-        "wind_speed": 28.34,
-        "wind_direction": 302,
-        "attempt_count": 3,
-        "attempt_avg": -0.85,
-        "attempt_speed_loss": 2.26,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.8872,
-        "below_600_agl": 0.7502,
-        "below_400_agl": 0.2112,
-        "below_200_agl": 0.0277,
-        "below_100_agl": 0.0119,
-        "track_distance": 19.77,
-        "glide_detour": 1.13,
-        "glide_distance": 1.38,
-        "glide_alt_avg": 704,
-        "end_time": "2025-10-19T18:00:04+00:00",
-        "start_time": "2025-10-19T17:26:22+00:00",
-        "finish_alt": 239
-      },
-      "taskStats": {
-        "glide_ratio": 19.79,
-        "thermal_avg": 0.06,
-        "glide_speed": 86.22,
-        "glide_speed_lift": 88.78,
-        "glide_speed_sink": 84.93,
-        "altitude_avg": 743,
-        "agl_avg": 548,
-        "thermal_count": 5,
-        "thermal_gain": 61,
-        "thermal_radius": 123.29,
-        "thermal_start_agl": 498,
-        "thermal_bank": 29.84,
-        "glide_percentage": 0.39,
-        "glide_percentage_lift": 0.31,
-        "duration": 1974,
-        "thermal_time": 1061,
-        "glide_time": 777,
-        "wind_speed": 28.34,
-        "wind_direction": 302,
-        "attempt_count": 3,
-        "attempt_avg": -0.85,
-        "attempt_speed_loss": 2.06,
-        "below_1000_agl": 1,
-        "below_800_agl": 0.885,
-        "below_600_agl": 0.7447,
-        "below_400_agl": 0.1925,
-        "below_200_agl": 0.0046,
-        "below_100_agl": 0,
-        "track_distance": 18.61,
-        "glide_detour": 1.22,
-        "glide_distance": 1.45,
-        "glide_alt_avg": 729,
-        "end_time": "2025-10-19T17:59:17+00:00",
-        "start_time": "2025-10-19T17:26:23+00:00",
-        "finish_alt": 367,
-        "task_duration": 1974,
-        "total_duration": 2022
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 15.28,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 17.77,
-        "freePoints": 22.9,
-        "auPoints": 17.77,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 17.767441860465116,
-        "dmstFreeDistance": 15.28,
-        "dmstTaskActualPoints": 17.767441860465116,
-        "dmstTaskPotentialPoints": 17.767441860465116,
-        "dmstTaskDistance": 15.28,
-        "weglideFreeDistance": 17.49,
-        "dmstIndex": 86
-      }
-    },
-    {
-      "id": 968963,
-      "taskAchieved": false,
-      "hasTask": false,
-      "bestContestType": "free",
-      "freeStats": {
-        "glide_ratio": 28.19,
-        "thermal_avg": 0,
-        "glide_speed": 103.61,
-        "glide_speed_lift": 102.6,
-        "glide_speed_sink": 104.15,
-        "altitude_avg": 2221,
-        "agl_avg": 503,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 0.98,
-        "glide_percentage_lift": 0.34,
-        "duration": 1121,
-        "thermal_time": 0,
-        "glide_time": 1099,
-        "wind_speed": 9.03,
-        "wind_direction": 96,
-        "attempt_count": 1,
-        "attempt_avg": -1.41,
-        "attempt_speed_loss": 1.75,
-        "below_1000_agl": 0.7966,
-        "below_800_agl": 0.752,
-        "below_600_agl": 0.7226,
-        "below_400_agl": 0.6405,
-        "below_200_agl": 0.4335,
-        "below_100_agl": 0.2284,
-        "track_distance": 31.63,
-        "glide_detour": 1.16,
-        "glide_distance": 3.01,
-        "glide_alt_avg": 2225,
-        "end_time": "2025-11-29T21:50:48+00:00",
-        "start_time": "2025-11-29T21:32:07+00:00",
-        "finish_alt": 1699
-      },
-      "taskStats": {
-        "glide_ratio": 23.88,
-        "thermal_avg": 0,
-        "glide_speed": 103.61,
-        "glide_speed_lift": 102.6,
-        "glide_speed_sink": 104.15,
-        "altitude_avg": 2221,
-        "agl_avg": 503,
-        "thermal_count": 0,
-        "thermal_gain": 0,
-        "glide_percentage": 0.98,
-        "glide_percentage_lift": 0.34,
-        "duration": 1121,
-        "thermal_time": 0,
-        "glide_time": 1099,
-        "wind_speed": 9.03,
-        "wind_direction": 96,
-        "attempt_count": 1,
-        "attempt_avg": -1.41,
-        "attempt_speed_loss": 1.49,
-        "below_1000_agl": 0.7966,
-        "below_800_agl": 0.752,
-        "below_600_agl": 0.7226,
-        "below_400_agl": 0.6405,
-        "below_200_agl": 0.4335,
-        "below_100_agl": 0.2284,
-        "track_distance": 31.63,
-        "glide_detour": 1.37,
-        "glide_distance": 3.01,
-        "glide_alt_avg": 2225,
-        "end_time": "2025-11-29T21:50:48+00:00",
-        "start_time": "2025-11-29T21:32:07+00:00",
-        "finish_alt": 1699,
-        "task_duration": 1121,
-        "total_duration": 1121
-      },
-      "taskInfo": {
-        "hasTask": false,
-        "distanceKm": 23.14,
-        "type": null,
-        "typeLabel": "No task declared",
-        "completed": false,
-        "taskContestUsed": "ca",
-        "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 20.12,
-        "freePoints": 26.94,
-        "auPoints": 20.12,
-        "declarationPoints": null,
-        "bestContestType": "free",
-        "dmstFreePoints": 20.121739130434786,
-        "dmstFreeDistance": 23.14,
-        "dmstTaskActualPoints": 20.121739130434786,
-        "dmstTaskPotentialPoints": 20.121739130434786,
-        "dmstTaskDistance": 23.14,
-        "weglideFreeDistance": 27.32,
-        "dmstIndex": 115
-      }
     }
   ],
   "minimalFlights": [
@@ -44646,526 +43293,6 @@
         "name": "Port Alberni",
         "region": "CA-BC"
       }
-    },
-    {
-      "id": 996441,
-      "user": {
-        "id": 36868,
-        "name": "Martin Chicoine"
-      },
-      "date": "2025-10-05",
-      "distance": 11.63,
-      "duration": 1217,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 14.6,
-          "distance": 11.63,
-          "speed": 48.29,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 0.1,
-          "distance": 0.19,
-          "speed": 0.1,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 6.54,
-          "distance": 6.02,
-          "speed": 41.44,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out_return",
-          "points": 6.17,
-          "distance": 5.68,
-          "speed": 39.17,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 10.97,
-          "distance": 10.09,
-          "speed": 44.57,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Hawkesbury",
-        "region": "CA-ON"
-      }
-    },
-    {
-      "id": 996440,
-      "user": {
-        "id": 36868,
-        "name": "Martin Chicoine"
-      },
-      "date": "2025-10-05",
-      "distance": 15.36,
-      "duration": 1345,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 18.69,
-          "distance": 15.36,
-          "speed": 58.45,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 0.25,
-          "distance": 0.47,
-          "speed": 0.23,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 6.64,
-          "distance": 6.11,
-          "speed": 43.56,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out_return",
-          "points": 6.2,
-          "distance": 5.7,
-          "speed": 89.61,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 12.25,
-          "distance": 11.27,
-          "speed": 44.05,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Hawkesbury",
-        "region": "CA-ON"
-      }
-    },
-    {
-      "id": 996439,
-      "user": {
-        "id": 36868,
-        "name": "Martin Chicoine"
-      },
-      "date": "2025-10-05",
-      "distance": 12.02,
-      "duration": 1204,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 14.68,
-          "distance": 12.02,
-          "speed": 58.71,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 0.3,
-          "distance": 0.57,
-          "speed": 0.28,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 5.38,
-          "distance": 4.95,
-          "speed": 45.34,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out",
-          "points": 5.68,
-          "distance": 5.23,
-          "speed": 29.15,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 10.75,
-          "distance": 9.89,
-          "speed": 56.88,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Hawkesbury",
-        "region": "CA-ON"
-      }
-    },
-    {
-      "id": 996438,
-      "user": {
-        "id": 36868,
-        "name": "Martin Chicoine"
-      },
-      "date": "2025-10-05",
-      "distance": 18.36,
-      "duration": 2622,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 22.32,
-          "distance": 18.36,
-          "speed": 32.54,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 4.33,
-          "distance": 8.14,
-          "speed": 4.07,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 7.89,
-          "distance": 7.26,
-          "speed": 18.5,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out_return",
-          "points": 10.92,
-          "distance": 10.05,
-          "speed": 28.6,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 16.75,
-          "distance": 15.41,
-          "speed": 26.24,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Hawkesbury",
-        "region": "CA-ON"
-      }
-    },
-    {
-      "id": 994914,
-      "user": {
-        "id": 35430,
-        "name": "Susan Snell"
-      },
-      "date": "2025-11-14",
-      "distance": 14.18,
-      "duration": 1173,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 17.79,
-          "distance": 14.18,
-          "speed": 70.51,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 0.31,
-          "distance": 0.56,
-          "speed": 0.28,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 4.33,
-          "distance": 3.72,
-          "speed": 77.86,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out",
-          "points": 10.93,
-          "distance": 9.4,
-          "speed": 50.73,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 14.92,
-          "distance": 12.83,
-          "speed": 63.8,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Starbuck",
-        "region": "CA-MB"
-      }
-    },
-    {
-      "id": 994913,
-      "user": {
-        "id": 35430,
-        "name": "Susan Snell"
-      },
-      "date": "2025-10-19",
-      "distance": 25.14,
-      "duration": 3008,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 33.61,
-          "distance": 25.14,
-          "speed": 34,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 4.88,
-          "distance": 8.74,
-          "speed": 4.37,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 14.6,
-          "distance": 12.56,
-          "speed": 29.67,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out",
-          "points": 11.19,
-          "distance": 9.62,
-          "speed": 13.99,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 24.29,
-          "distance": 20.89,
-          "speed": 28.22,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Starbuck",
-        "region": "CA-MB"
-      }
-    },
-    {
-      "id": 994912,
-      "user": {
-        "id": 35430,
-        "name": "Susan Snell"
-      },
-      "date": "2025-10-19",
-      "distance": 17.49,
-      "duration": 2277,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 22.9,
-          "distance": 17.49,
-          "speed": 31.14,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 3.9,
-          "distance": 6.98,
-          "speed": 3.49,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 8.56,
-          "distance": 7.36,
-          "speed": 29.31,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out_return",
-          "points": 9.06,
-          "distance": 7.79,
-          "speed": 29.49,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 17.77,
-          "distance": 15.28,
-          "speed": 27.87,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Starbuck",
-        "region": "CA-MB"
-      }
-    },
-    {
-      "id": 968963,
-      "user": {
-        "id": 17026,
-        "name": "Bryan Swansburg"
-      },
-      "date": "2025-11-29",
-      "distance": 27.32,
-      "duration": 4443,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 26.94,
-          "distance": 27.32,
-          "speed": 87.74,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 0.36,
-          "distance": 0.8,
-          "speed": 0.4,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 10.63,
-          "distance": 12.22,
-          "speed": 63.39,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out",
-          "points": 9.87,
-          "distance": 11.35,
-          "speed": 21.44,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 20.12,
-          "distance": 23.14,
-          "speed": 74.31,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Smithers",
-        "region": "CA"
-      }
     }
   ],
   "mixedLeaderboard": [
@@ -45785,75 +43912,6 @@
       ]
     },
     {
-      "pilot": "Bryan Swansburg",
-      "pilotId": 17026,
-      "totalPoints": 409.65999999999997,
-      "totalDistance": 422.19,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 920732,
-          "userId": 17026,
-          "date": "2025-10-11",
-          "distance": 212.53,
-          "speed": 80.84,
-          "points": 203.34,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        },
-        {
-          "id": 918201,
-          "userId": 17026,
-          "date": "2025-10-08",
-          "distance": 97.3,
-          "speed": 47.55,
-          "points": 94.36,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        },
-        {
-          "id": 913845,
-          "userId": 17026,
-          "date": "2025-10-04",
-          "distance": 85.04,
-          "speed": 46.78,
-          "points": 85.02,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        },
-        {
-          "id": 968963,
-          "userId": 17026,
-          "date": "2025-11-29",
-          "distance": 27.32,
-          "speed": 87.74,
-          "points": 26.94,
-          "takeoff": "Smithers",
-          "region": "CA",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115
-        }
-      ]
-    },
-    {
       "pilot": "Alain Bouliane",
       "pilotId": 35763,
       "totalPoints": 383.27000000000004,
@@ -45934,6 +43992,60 @@
           "aircraftKind": "GL",
           "aircraftName": "Duo Discus",
           "dmstIndex": 112
+        }
+      ]
+    },
+    {
+      "pilot": "Bryan Swansburg",
+      "pilotId": 17026,
+      "totalPoints": 382.71999999999997,
+      "totalDistance": 394.87,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 920732,
+          "userId": 17026,
+          "date": "2025-10-11",
+          "distance": 212.53,
+          "speed": 80.84,
+          "points": 203.34,
+          "takeoff": "Smithers",
+          "region": "CA",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "Ventus cM 17.6m",
+          "dmstIndex": 115
+        },
+        {
+          "id": 918201,
+          "userId": 17026,
+          "date": "2025-10-08",
+          "distance": 97.3,
+          "speed": 47.55,
+          "points": 94.36,
+          "takeoff": "Smithers",
+          "region": "CA",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "Ventus cM 17.6m",
+          "dmstIndex": 115
+        },
+        {
+          "id": 913845,
+          "userId": 17026,
+          "date": "2025-10-04",
+          "distance": 85.04,
+          "speed": 46.78,
+          "points": 85.02,
+          "takeoff": "Smithers",
+          "region": "CA",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "Ventus cM 17.6m",
+          "dmstIndex": 115
         }
       ]
     },
@@ -48020,60 +46132,6 @@
       ]
     },
     {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 74.3,
-      "totalDistance": 56.809999999999995,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 994913,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 25.14,
-          "speed": 34,
-          "points": 33.61,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994912,
-          "userId": 35430,
-          "date": "2025-10-19",
-          "distance": 17.49,
-          "speed": 31.14,
-          "points": 22.9,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        },
-        {
-          "id": 994914,
-          "userId": 35430,
-          "date": "2025-11-14",
-          "distance": 14.18,
-          "speed": 70.51,
-          "points": 17.79,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86
-        }
-      ]
-    },
-    {
       "pilot": "Justin Latour",
       "pilotId": 36083,
       "totalPoints": 73.81,
@@ -48148,75 +46206,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Discus 2b",
           "dmstIndex": 108
-        }
-      ]
-    },
-    {
-      "pilot": "Martin Chicoine",
-      "pilotId": 36868,
-      "totalPoints": 70.29,
-      "totalDistance": 57.37,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 996438,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 18.36,
-          "speed": 32.54,
-          "points": 22.32,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996440,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 15.36,
-          "speed": 58.45,
-          "points": 18.69,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996439,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 12.02,
-          "speed": 58.71,
-          "points": 14.68,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
-        },
-        {
-          "id": 996441,
-          "userId": 36868,
-          "date": "2025-10-05",
-          "distance": 11.63,
-          "speed": 48.29,
-          "points": 14.6,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92
         }
       ]
     },
@@ -49192,6 +47181,30 @@
       ]
     },
     {
+      "pilot": "Kelvin Cole",
+      "pilotId": 6303,
+      "totalPoints": 132.68,
+      "totalDistance": 132.68,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 922252,
+          "userId": 6303,
+          "date": "2025-10-11",
+          "distance": 132.68,
+          "speed": 45.17,
+          "points": 132.68,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "unknown",
+          "aircraftName": "",
+          "dmstIndex": 100
+        }
+      ]
+    },
+    {
       "pilot": "Bryan Swansburg",
       "pilotId": 17026,
       "totalPoints": 261.41,
@@ -49242,30 +47255,6 @@
           "aircraftKind": "MG",
           "aircraftName": "Ventus cM 17.6m",
           "dmstIndex": 115
-        }
-      ]
-    },
-    {
-      "pilot": "Kelvin Cole",
-      "pilotId": 6303,
-      "totalPoints": 132.68,
-      "totalDistance": 132.68,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 922252,
-          "userId": 6303,
-          "date": "2025-10-11",
-          "distance": 132.68,
-          "speed": 45.17,
-          "points": 132.68,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100
         }
       ]
     },
@@ -50231,13 +48220,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 79,
-    "totalFlights": 193,
-    "totalKms": 20143,
+    "totalPilots": 77,
+    "totalFlights": 185,
+    "totalKms": 20002,
     "totalTasksDeclared": 63,
     "totalTasksCompleted": 2,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-03-06T01:43:24.666Z"
+    "generatedAt": "2026-03-06T01:55:51.041Z"
   }
 }

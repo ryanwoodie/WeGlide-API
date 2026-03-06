@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
 // Fetch and cache WeGlide user total_flight_duration values for a set of user IDs
-// - Reads IDs from a JSONL flights file (default: australian_flights_2025_details.jsonl)
+// - Reads IDs from a JSONL flights file (default: canadian_flights_2026_details.jsonl)
 // - Requests users in batches via /v1/user?id_in=...
 // - Writes a simple JSON map: { "<userId>": <total_flight_duration_seconds>, ... }
 
 const fs = require('fs');
 const readline = require('readline');
 
-const INPUT_FILE = process.argv[2] || 'australian_flights_2025_details.jsonl';
-const OUTPUT_FILE = process.argv[3] || 'australian_user_durations.json';
+const INPUT_FILE = process.argv[2] || 'canadian_flights_2026_details.jsonl';
+const OUTPUT_FILE = process.argv[3] || 'canadian_user_durations.json';
 const BATCH_SIZE = 100;
 
 async function readUserIdsFromJsonl(filePath) {
@@ -72,4 +72,3 @@ main().catch(err => {
   console.error('Error:', err.message || err);
   process.exit(1);
 });
-

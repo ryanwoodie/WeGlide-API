@@ -848,13 +848,13 @@ async function processCanadianFlights() {
             });
         });
 
-        // Filter australianFlights to only include flights used in leaderboards
+        // Filter down to the flights we actually render in tooltips/stats.
         australianFlights = australianFlights.filter(flight => usedFlightIds.has(flight.id));
         console.log(`📊 Storing ${australianFlights.length} flight details for tooltips`);
 
         // Write detailed flight data to separate file to avoid embedding large data
-        fs.writeFileSync(resolvePath('australian_flight_details.json'), JSON.stringify(australianFlights, null, 2));
-        console.log(`💾 Saved detailed flight data to australian_flight_details.json`);
+        fs.writeFileSync(resolvePath('canadian_flight_details.json'), JSON.stringify(australianFlights, null, 2));
+        console.log('💾 Saved detailed flight data to canadian_flight_details.json');
 
         // Write minimal flight data for task stats to separate file
         const minimalFlightData = allFlightData.map(f => {
@@ -903,8 +903,8 @@ async function processCanadianFlights() {
                 takeoff_airport: f.takeoff_airport ? { name: f.takeoff_airport.name, region: f.takeoff_airport.region } : null
             };
         });
-        fs.writeFileSync(resolvePath('australian_flight_stats.json'), JSON.stringify(minimalFlightData, null, 2));
-        console.log(`💾 Saved flight stats data to australian_flight_stats.json`);
+        fs.writeFileSync(resolvePath('canadian_flight_stats.json'), JSON.stringify(minimalFlightData, null, 2));
+        console.log('💾 Saved flight stats data to canadian_flight_stats.json');
 
         // Calculate statistics from ALL flights (not just top 5 used for leaderboard)
         // Note: Need to access original flight data to check actual task objects
@@ -3837,7 +3837,7 @@ No maximum distance bonus\`,
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
 
-            alert('Verification data exported! Save this file and commit it to your repository as pilot_pic_hours_verification.json');
+            alert('Verification data exported. Save the JSON locally if you want to keep a manual verification backup.');
         }
 
         function showAdminPanel() {
@@ -3851,13 +3851,11 @@ No maximum distance bonus\`,
                     <h3>Admin Panel - Verification Data</h3>
                     <p><strong>Stored Verifications:</strong> \${verificationCount}</p>
                     <div style="margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 5px;">
-                        <h4>For GitHub Pages Deployment:</h4>
+                        <h4>Local Verification Backup:</h4>
                         <p style="font-size: 0.9em; text-align: left; line-height: 1.4; color: #333;">
                             1. Click "Export Verification Data" to download the JSON file<br>
-                            2. Save it as <code>pilot_pic_hours_verification.json</code> in your repository<br>
-                            3. Commit and push to GitHub<br>
-                            4. Regenerate your HTML with the updated data using the Node.js script<br>
-                            5. Deploy the new HTML to GitHub Pages
+                            2. Store it somewhere local and ignored, such as <code>.local_archive/</code><br>
+                            3. Use it as a manual backup if you need to review or restore verification data later
                         </p>
                     </div>
                     <div class="form-buttons">
@@ -6356,19 +6354,7 @@ No maximum distance bonus\`,
         fs.writeFileSync(resolvePath('leaderboard_data.json'), JSON.stringify(leaderboardData, null, 2));
         console.log('✅ Created leaderboard_data.json for API');
 
-        fs.writeFileSync(resolvePath('australian_leaderboard.html'), `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=./SAC_leaderboard.html" />
-  <title>Redirecting…</title>
-</head>
-<body>
-  <p>Redirecting to <a href="./SAC_leaderboard.html">SAC Leaderboard</a>…</p>
-</body>
-</html>`);
-
-        console.log('✅ Created SAC_leaderboard.html, SAC_leaderboard_sac_dsc.html, and updated redirect');
+        console.log('✅ Created SAC_leaderboard.html, SAC_leaderboard_sac_dsc.html, and leaderboard_data.json');
 
         // Run server-side WeGlide verification calculation
         console.log('🔄 Running WeGlide verification calculations...');

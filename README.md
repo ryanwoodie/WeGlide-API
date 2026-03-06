@@ -1,49 +1,38 @@
-# 🏆 Canadian Gliding Leaderboard 2025
+# SAC Leaderboard
 
-A comprehensive leaderboard for Canadian gliding pilots during the 2025 season (October 1, 2024 - September 30, 2025).
+Canadian gliding leaderboard tooling and the Vercel deployment that publishes `sac-leaderboard.vercel.app`.
 
-## 🎯 Features
+## What Lives Here
 
-- **Best 5 flights per pilot** ranked by total points
-- **Task vs Free scoring** - uses the higher of the two for each flight
-- **Complete season data** - All 824 Canadian flights from WeGlide API
-- **Interactive design** - Beautiful, responsive HTML interface
-- **Direct WeGlide links** - Click any flight to view full details
-- **Task flight identification** - "TASK" badges for declared flights
+- `api/` contains the Vercel serverless functions that serve the leaderboard and run the WeGlide update pipeline.
+- `public/` contains the published HTML and JSON artifacts that the deployed site serves.
+- `create_canadian_leaderboard_from_jsonl.js` builds the leaderboard HTML and API payload from the Canadian JSONL dataset.
+- `fetch_canadian_flights.js`, `fetch_user_profiles.js`, and `fetch_user_durations.js` support local data refreshes.
 
-## 🚀 View Leaderboard
+## Core Commands
 
-**Live Leaderboard:** [canadian_leaderboard_2025_embedded.html](./canadian_leaderboard_2025_embedded.html)
+```bash
+npm install
+node fetch_canadian_flights.js
+node fetch_user_profiles.js canadian_flights_2026_details.jsonl canadian_user_profiles.json
+node fetch_user_durations.js canadian_flights_2026_details.jsonl canadian_user_durations.json
+node create_canadian_leaderboard_from_jsonl.js
+```
 
-## 🔧 Technical Details
+## Deployment Notes
 
-### Data Source
-- **WeGlide API** - `https://api.weglide.org/v1/flight`
-- **Season filter** - `season_in=2025` 
-- **Country filter** - `country_id_in=CA`
+- Production is hosted on Vercel.
+- `/api/check-flights` polls WeGlide for the latest Canadian flight.
+- `/api/fetch-and-build` fetches new flight details, rebuilds the leaderboard, and syncs the updated artifacts back to GitHub.
 
-### Scoring Logic
-For each flight, the system:
-1. Fetches basic flight data from `/v1/flight` endpoint
-2. Gets detailed scoring from `/v1/flightdetail/{flight_id}` endpoint  
-3. Compares Free flight score vs Task (declaration) score
-4. Uses whichever score is higher
-5. Takes best 5 flights per pilot for final ranking
+Required production env vars:
 
-### Files
+- `UPDATE_TOKEN`
+- `GITHUB_TOKEN`
+- `BLOB_READ_WRITE_TOKEN`
+- `SEASON_START`
+- `SEASON_END`
 
-- `canadian_leaderboard_2025_embedded.html` - Standalone leaderboard (main file)
-- `canadian_flights_2025.json` - Raw flight data (824 flights)
-- `leaderboard_enhanced.json` - Processed leaderboard data
-- `process_leaderboard.js` - Data processing script
-- `enhance_leaderboard.js` - Task scoring enhancement script
-- `embed_data.js` - HTML data embedding script
+## Local-Only Material
 
-## 🏁 Season Period
-
-The 2025 gliding season runs from **October 1, 2024** to **September 30, 2025** following standard international gliding competition seasons.
-
----
-
-*Data updated: December 2024*  
-*Powered by WeGlide API*
+Scratch files, archived prototypes, AI chat logs, and other working notes belong in ignored paths such as `.local_archive/`, `.claude/`, `.gemini/`, and `.history/`.

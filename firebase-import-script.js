@@ -18,7 +18,7 @@ async function importCriticalVerificationsToFirebase() {
     const exportFile = 'firebase_critical_verifications.json';
     if (!fs.existsSync(exportFile)) {
         console.error('❌ Export file not found:', exportFile);
-        console.log('💡 Run the leaderboard generation first: node create_australian_leaderboard_from_jsonl.js');
+        console.log('💡 Run the leaderboard generation first: node create_canadian_leaderboard_from_jsonl.js');
         return;
     }
 
@@ -51,7 +51,7 @@ async function importCriticalVerificationsToFirebase() {
         // Fallback: Show manual import instructions
         console.log('');
         console.log('🔧 MANUAL IMPORT INSTRUCTIONS:');
-        console.log('1. Go to Firebase Console: https://console.firebase.google.com/project/australian-leaderboard/firestore');
+        console.log('1. Go to your Firebase Console project and open Firestore');
         console.log('2. Navigate to the "pilot_verifications" collection');
         console.log('3. Import the data from:', exportFile);
         console.log('4. Or copy/paste individual records for pilots with >=200 hours');

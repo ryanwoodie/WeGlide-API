@@ -1,4 +1,7 @@
 node_modules
+.local_archive
+.claude
+.gemini
 all_flights_2025_details.jsonl
 all_flights_2025_details_backup.jsonl
 all_flights_2025_details_corrupted.jsonl

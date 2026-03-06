@@ -11,9 +11,6 @@ const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
 const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
 const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
 
-// Blob config
-const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
-const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.com';
 const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
 
 /**

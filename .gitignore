@@ -13,9 +13,16 @@ Thumbs.db
 .vscode/
 .idea/
 .history/
+.claude/
+.gemini/
 
 # Temporary processing files
 enhancement_log.txt
+check_weglide_api.js
+bootstrap/
+.local_archive/
+*.igc
+# Claude Conversation Log.md
 
 # Large data files (exclude from daily commits)
 *.csv
@@ -28,9 +35,6 @@ canadian_user_profiles.json
 
 # HTML reports
 *.html
-!australian_leaderboard.html
-!SAC_leaderboard.html
-!SAC_leaderboard_sac_dsc.html
 !public/*.html
 
 # JSON data files
@@ -47,6 +51,9 @@ user_*.json
 working_proxies.json
 downloaded_flight_ids.json
 recovered_flights.json
+canadian_flight_details.json
+canadian_flight_stats.json
+pilot_pic_hours_verification.json
 
 # Log files
 *.txt
@@ -54,7 +61,7 @@ recovered_flights.json
 # Images
 *.png
 
-# Claude conversation logs
+# Local AI / deployment config
 claude-conversation-*.md
 .vercel
 .env*.local
