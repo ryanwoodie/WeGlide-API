@@ -834,23 +834,6 @@
       "logo": "club/863.png"
     }
   },
-  "35430": {
-    "total_flight_duration": 507803,
-    "total_free_distance": 4514.26,
-    "avg_speed": 35.56,
-    "flight_count": 102,
-    "avg_glide_speed": 82.42,
-    "avg_glide_detour": 1.29,
-    "achievement_count": 0,
-    "name": "Susan Snell",
-    "gender": "F",
-    "club": {
-      "id": 1387,
-      "name": "Winnipeg Gliding Club",
-      "region": "CA-MB",
-      "url": "https://www.wgc.mb.ca"
-    }
-  },
   "35431": {
     "total_flight_duration": 290665,
     "total_free_distance": 4056.75,
