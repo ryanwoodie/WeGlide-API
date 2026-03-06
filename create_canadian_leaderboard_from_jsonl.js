@@ -3946,6 +3946,72 @@ No maximum distance bonus\`,
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
 
+        function positionVerificationOverlayFromParentViewport(overlay, payload) {
+            if (!overlay || !payload || !payload.iframeRect) return;
+
+            const form = overlay.querySelector('.verification-form');
+            if (!form) return;
+
+            const iframeLeft = Number(payload.iframeRect.left);
+            const iframeTop = Number(payload.iframeRect.top);
+            const parentViewportWidth = Number(payload.parentViewportWidth);
+            const parentViewportHeight = Number(payload.parentViewportHeight);
+
+            if (!Number.isFinite(iframeLeft) || !Number.isFinite(iframeTop) ||
+                !Number.isFinite(parentViewportWidth) || !Number.isFinite(parentViewportHeight)) {
+                return;
+            }
+
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const formRect = form.getBoundingClientRect();
+            const margin = 16;
+
+            const centerXInChild = (parentViewportWidth / 2) - iframeLeft;
+            const centerYInChild = (parentViewportHeight / 2) - iframeTop;
+            const desiredLeft = scrollX + centerXInChild;
+            const desiredTop = scrollY + centerYInChild;
+            const minLeft = scrollX + (formRect.width / 2) + margin;
+            const maxLeft = scrollX + viewportWidth - (formRect.width / 2) - margin;
+            const minTop = scrollY + (formRect.height / 2) + margin;
+            const maxTop = scrollY + viewportHeight - (formRect.height / 2) - margin;
+            const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), Math.max(minLeft, maxLeft));
+            const clampedTop = Math.min(Math.max(desiredTop, minTop), Math.max(minTop, maxTop));
+
+            overlay.classList.add('verification-overlay-embedded');
+            form.style.position = 'absolute';
+            form.style.left = clampedLeft + 'px';
+            form.style.top = clampedTop + 'px';
+            form.style.transform = 'translate(-50%, -50%)';
+        }
+
+        function requestParentViewportForVerificationOverlay(overlay) {
+            if (!overlay || window.parent === window) {
+                return;
+            }
+
+            const requestId = 'sac-modal-vp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+            let timeoutId;
+            const handleViewportResponse = (messageEvent) => {
+                const data = messageEvent && messageEvent.data;
+                if (!data || data.type !== 'sac-parent-viewport' || data.requestId !== requestId) {
+                    return;
+                }
+                window.removeEventListener('message', handleViewportResponse);
+                if (timeoutId) clearTimeout(timeoutId);
+                positionVerificationOverlayFromParentViewport(overlay, data);
+            };
+
+            window.addEventListener('message', handleViewportResponse);
+            timeoutId = setTimeout(() => {
+                window.removeEventListener('message', handleViewportResponse);
+            }, 250);
+
+            window.parent.postMessage({ type: 'sac-request-parent-viewport', requestId }, '*');
+        }
+
         function openVerificationOverlay(overlay) {
             closeVerificationForm();
             document.body.classList.add('verification-modal-open');
@@ -3955,6 +4021,8 @@ No maximum distance bonus\`,
             if (form) {
                 form.scrollTop = 0;
             }
+
+            requestParentViewportForVerificationOverlay(overlay);
         }
 
         async function requestVerificationEmail(payload) {
