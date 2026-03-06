@@ -1093,12 +1093,23 @@ async function processCanadianFlights() {
             console.warn('⚠️ Could not load/save pilot profile data:', e.message || e);
         }
 
-        // Load pilot verification data - DISABLED: using Firebase only
+        // Load cached pilot verification data if present. Manual email-link
+        // verifications are loaded live from the API when the page boots.
         let pilotVerificationData = {
             picHoursVerifications: {},
             dobVerifications: {}
         };
-        console.log('ℹ️ Using Firebase-only for verifications (no embedded JSON)');
+        try {
+            const verificationPath = resolvePath('pilot_pic_hours_verification.json');
+            if (fs.existsSync(verificationPath)) {
+                pilotVerificationData = JSON.parse(fs.readFileSync(verificationPath, 'utf8'));
+                console.log('ℹ️ Loaded cached verification calculations');
+            } else {
+                console.log('ℹ️ No cached verification calculations found');
+            }
+        } catch (e) {
+            console.warn('⚠️ Could not load cached verification calculations:', e.message || e);
+        }
 
         // Read the Canadian HTML template
         const canadianHTML = fs.readFileSync(TEMPLATE_FILE, 'utf-8');
@@ -1108,12 +1119,6 @@ async function processCanadianFlights() {
             .replace(/Canadian Gliding Leaderboard 2025/g, 'Soaring Association of Canada Leaderboard')
             .replace(/🏆 Canadian Gliding Leaderboard 2025/g, '🏆 Soaring Association of Canada Leaderboard')
             .replace(/Soaring Association of Canada/g, 'Soaring Association of Canada')
-            // Add Firebase CDN scripts before closing head tag
-            .replace('</head>', `
-    <!-- Firebase CDN -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-</head>`)
             .replace(/gfa_logo\.png/g, 'sac_logo.png')
             .replace(/<p>Data from WeGlide API • (?:Australian|Canadian) (?:gliding season|online competition season) runs[^<]*<\/p>/g, '<p id="seasonFooterText">Data from WeGlide API • Canadian online competition season runs __CURRENT_SEASON_LONG__</p>')
             .replace(/Best 5 flights per pilot • Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring')
@@ -3875,15 +3880,39 @@ No maximum distance bonus\`,
             }
         });
 
-        const ALLOW_PUBLIC_VERIFICATION_WRITE = false;
-        const VERIFICATION_WRITE_DISABLED_MESSAGE = 'Verification submissions are currently disabled on this public page. Please contact the contest organizers.';
+        const ALLOW_PUBLIC_VERIFICATION_WRITE = true;
+        const VERIFICATION_STATE_ENDPOINT = '/api/verification-state';
+        const VERIFICATION_REQUEST_ENDPOINT = '/api/request-verification';
+        const VERIFICATION_REQUEST_MESSAGE = 'A confirmation link will be emailed to you. Your claim is only applied after you open that link.';
+
+        function isValidVerificationEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        async function requestVerificationEmail(payload) {
+            const response = await fetch(VERIFICATION_REQUEST_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            let body = {};
+            try {
+                body = await response.json();
+            } catch (error) {
+                body = {};
+            }
+
+            if (!response.ok || !body.ok) {
+                throw new Error(body.error || 'Failed to send verification email');
+            }
+        }
 
         // DOB Verification form
         function showDOBVerificationForm(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
             const overlay = document.createElement('div');
             overlay.className = 'verification-overlay';
             overlay.innerHTML = \`
@@ -3895,9 +3924,14 @@ No maximum distance bonus\`,
                         <input type="date" id="dobInput" max="2010-12-31" />
                         <label for="dobInput">Date of Birth</label>
                     </div>
+                    <div>
+                        <input type="email" id="verificationEmail" placeholder="you@example.com" />
+                        <label for="verificationEmail">Email address</label>
+                    </div>
                     <p style="font-size: 0.9em; color: #888;">This is a self-declaration system. Your age at the time of achieving Silver C will be calculated.</p>
+                    <p style="font-size: 0.9em; color: #888;">\${VERIFICATION_REQUEST_MESSAGE}</p>
                     <div class="form-buttons">
-                        <button class="submit-btn" onclick="submitDOBVerification('\${pilotId}', '\${pilotName}')">Verify</button>
+                        <button class="submit-btn" onclick="submitDOBVerification('\${pilotId}', '\${pilotName}')">Send verification link</button>
                         <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
                     </div>
                 </div>
@@ -3906,15 +3940,18 @@ No maximum distance bonus\`,
         }
 
         async function submitDOBVerification(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
             const dobInput = document.getElementById('dobInput');
+            const emailInput = document.getElementById('verificationEmail');
             const dateOfBirth = dobInput.value;
+            const email = emailInput.value.trim().toLowerCase();
 
             if (!dateOfBirth) {
                 alert('Please enter your date of birth');
+                return;
+            }
+
+            if (!isValidVerificationEmail(email)) {
+                alert('Please enter a valid email address');
                 return;
             }
 
@@ -3927,38 +3964,25 @@ No maximum distance bonus\`,
                 return;
             }
 
-            // Show loading state
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Saving...';
+            submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
             try {
-                // Save to database
-                await saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth);
-
-                // Update local data for immediate UI update
-                pilotVerifications.dobVerifications = pilotVerifications.dobVerifications || {};
-                pilotVerifications.dobVerifications[pilotId] = {
+                await requestVerificationEmail({
+                    type: 'dob',
+                    pilotId: pilotId,
                     pilotName: pilotName,
                     dateOfBirth: dateOfBirth,
-                    verifiedDate: new Date().toISOString(),
-                    dataSource: 'user-entered',
-                    age: Math.floor(age)
-                };
+                    email: email
+                });
 
-                // Close form and rebuild leaderboard
                 closeVerificationForm();
-                buildLeaderboard();
-                calculateTrophyWinners(); // Recalculate trophies
-
-                // Show confirmation
-                alert(\`Thank you \${pilotName}! Your date of birth has been verified.\`);
+                alert(\`A verification link was sent to \${email}. Open it to confirm \${pilotName}'s date of birth.\`);
             } catch (error) {
-                console.error('Failed to save DOB verification:', error);
-                alert('Failed to save verification. Please try again or contact support.');
-
-                // Reset button
+                console.error('Failed to request DOB verification:', error);
+                alert(error.message || 'Failed to send verification email. Please try again or contact support.');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
@@ -3969,7 +3993,6 @@ No maximum distance bonus\`,
             const startDate = new Date('2025-10-01T00:00:00Z');
             let totalSeconds = 0;
 
-            // Use the minimal flight data which has duration field
             fullFlightData.forEach(flight => {
                 if (flight.user && flight.user.id == pilotId) {
                     const flightDate = new Date(flight.date + 'T00:00:00Z');
@@ -3979,42 +4002,35 @@ No maximum distance bonus\`,
                 }
             });
 
-            return totalSeconds / 3600; // Convert to hours
+            return totalSeconds / 3600;
         }
 
         async function runAutomaticVerificationWorkflow() {
             console.log('Running automatic verification workflow...');
 
-            // Get all pilots from the mixed leaderboard (most comprehensive)
             const allPilots = mixedLeaderboard.map(p => ({ pilotId: p.pilotId, pilot: p.pilot }));
             let updatedCount = 0;
 
             for (const pilot of allPilots) {
                 const pilotId = pilot.pilotId;
-
-                // Skip if user has already entered data (highest priority)
                 const existingVerification = pilotVerifications.picHoursVerifications &&
-                                           pilotVerifications.picHoursVerifications[pilotId];
+                    pilotVerifications.picHoursVerifications[pilotId];
 
-                if (existingVerification && existingVerification.dataSource === 'user-entered') {
-                    continue; // Don't overwrite user data
+                if (existingVerification && existingVerification.dataSource === 'email-verified') {
+                    continue;
                 }
 
-                // Calculate WeGlide-based hours
                 const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
                 const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
                 const estimatedOct1Hours = Math.max(0, totalWeGlideHours - weglideHoursSinceStart);
 
-                // Only update if we have meaningful WeGlide data
                 if (totalWeGlideHours > 0) {
                     pilotVerifications.picHoursVerifications = pilotVerifications.picHoursVerifications || {};
-
-                    // Create/update automatic verification entry
                     pilotVerifications.picHoursVerifications[pilotId] = {
                         pilotName: pilot.pilot,
                         picHours: estimatedOct1Hours,
                         verifiedDate: new Date().toISOString(),
-                        dataSource: 'weglide-calculated', // Lower priority than user data
+                        dataSource: 'weglide-calculated',
                         eligible: estimatedOct1Hours < 200,
                         calculation: {
                             totalWeGlideHours: totalWeGlideHours,
@@ -4023,15 +4039,6 @@ No maximum distance bonus\`,
                         }
                     };
                     updatedCount++;
-
-                    // Save to database if pilot is over 200 hours (important for eligibility)
-                    if (estimatedOct1Hours >= 200) {
-                        try {
-                            await saveVerificationToDatabase(pilotId, pilot.pilot, estimatedOct1Hours, 'weglide-calculated');
-                        } catch (error) {
-                            console.warn(\`Failed to save auto-verification for \${pilot.pilot}:\`, error);
-                        }
-                    }
                 }
             }
 
@@ -4040,13 +4047,7 @@ No maximum distance bonus\`,
             }
         }
 
-
         function showVerificationForm(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
-            // Calculate WeGlide hours since Oct 1, 2024
             const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
             const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
             const estimatedOct1Hours = Math.max(0, totalWeGlideHours - weglideHoursSinceStart);
@@ -4072,12 +4073,17 @@ No maximum distance bonus\`,
                         <input type="number" id="picHours" min="0" step="0.1" placeholder="Hours" value="\${estimatedOct1Hours > 0 ? estimatedOct1Hours.toFixed(1) : ''}" />
                         <label for="picHours">hours PIC</label>
                     </div>
+                    <div>
+                        <input type="email" id="verificationEmail" placeholder="you@example.com" />
+                        <label for="verificationEmail">Email address</label>
+                    </div>
                     <p style="font-size: 0.9em; color: #888;">
                         Self-declaration system. If you enter ≥200 hours, you'll be removed from the Under 200 Hours eligibility list.
                         \${weglideHoursSinceStart > 0 ? 'Pre-filled with WeGlide calculation - please verify or correct.' : ''}
                     </p>
+                    <p style="font-size: 0.9em; color: #888;">\${VERIFICATION_REQUEST_MESSAGE}</p>
                     <div class="form-buttons">
-                        <button class="submit-btn" onclick="submitVerification('\${pilotId}', '\${pilotName}')">Verify</button>
+                        <button class="submit-btn" onclick="submitVerification('\${pilotId}', '\${pilotName}')">Send verification link</button>
                         <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
                     </div>
                 </div>
@@ -4093,340 +4099,76 @@ No maximum distance bonus\`,
         }
 
         async function submitVerification(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
             const hoursInput = document.getElementById('picHours');
+            const emailInput = document.getElementById('verificationEmail');
             const hours = parseFloat(hoursInput.value);
+            const email = emailInput.value.trim().toLowerCase();
 
             if (isNaN(hours) || hours < 0) {
                 alert('Please enter valid PIC hours (0 or greater)');
                 return;
             }
 
-            // Show loading state
+            if (!isValidVerificationEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Saving...';
+            submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
             try {
-                // Save to database (Firebase or localStorage fallback)
-                await saveVerificationToDatabase(pilotId, pilotName, hours);
-
-                // Update local data for immediate UI update
-                pilotVerifications.picHoursVerifications = pilotVerifications.picHoursVerifications || {};
-                pilotVerifications.picHoursVerifications[pilotId] = {
+                await requestVerificationEmail({
+                    type: 'pic',
+                    pilotId: pilotId,
                     pilotName: pilotName,
                     picHours: hours,
-                    verifiedDate: new Date().toISOString(),
-                    dataSource: 'user-entered', // Mark as user data (highest priority)
-                    eligible: hours < 200
-                };
+                    email: email
+                });
 
-                // Close form and rebuild leaderboard
                 closeVerificationForm();
-                buildLeaderboard();
-
-                // Show confirmation
-                alert(\`Thank you \${pilotName}! Your PIC hours (\${hours}) have been verified and saved.\`);
+                alert(\`A verification link was sent to \${email}. Open it to confirm \${pilotName}'s PIC hours.\`);
             } catch (error) {
-                console.error('Failed to save verification:', error);
-                alert('Failed to save verification. Please try again or contact support.');
-
-                // Reset button
+                console.error('Failed to request verification:', error);
+                alert(error.message || 'Failed to send verification email. Please try again or contact support.');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         }
 
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCXkPOue3IVoSRCYYYoudxHo_hFl-a_TxY",
-            authDomain: "australian-leaderboard.firebaseapp.com",
-            projectId: "australian-leaderboard",
-            storageBucket: "australian-leaderboard.firebasestorage.app",
-            messagingSenderId: "839850033533",
-            appId: "1:839850033533:web:083b21b92572efff878c14"
-        };
-
-        // Initialize Firebase (loaded from CDN)
-        let db = null;
-
-        async function initializeFirebase() {
-            try {
-                // Firebase is loaded via CDN in the HTML
-                if (typeof firebase !== 'undefined') {
-                    firebase.initializeApp(firebaseConfig);
-                    db = firebase.firestore();
-                    console.log('Firebase initialized successfully');
-                } else {
-                    console.warn('Firebase not loaded - using localStorage fallback');
-                }
-            } catch (error) {
-                console.warn('Firebase initialization failed - using localStorage fallback:', error);
-            }
-        }
-
-        async function saveVerificationToDatabase(pilotId, pilotName, hours, dataSource = 'user-entered') {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                console.log('Verification writes are disabled; skipping remote/local write.');
-                return;
-            }
-            const verificationData = {
-                pilotId: pilotId,
-                pilotName: pilotName,
-                picHours: hours,
-                verifiedDate: new Date().toISOString(),
-                eligible: hours < 200,
-                dataSource: dataSource,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            };
-
-            if (db) {
-                try {
-                    console.log('Attempting to save verification data:', JSON.stringify(verificationData, null, 2));
-                    // Save to Firebase Firestore
-                    await db.collection('pilot_verifications').doc(pilotId).set(verificationData);
-                    console.log('Verification saved to Firebase');
-                    return;
-                } catch (error) {
-                    console.error('Firebase save failed:', error);
-                    console.error('Error details:', error.code, error.message);
-                    console.error('Data that failed:', JSON.stringify(verificationData, null, 2));
-                    // Fall back to localStorage
-                }
-            }
-
-            // Fallback to localStorage
-            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"picHoursVerifications": {}, "dobVerifications": {}}');
-            localData.picHoursVerifications = localData.picHoursVerifications || {};
-            localData.picHoursVerifications[pilotId] = {
-                pilotName: pilotName,
-                picHours: hours,
-                verifiedDate: new Date().toISOString(),
-                eligible: hours < 200
-            };
-            localStorage.setItem('pilot_verifications', JSON.stringify(localData));
-            console.log('Verification saved to localStorage (fallback)');
-        }
-
-        // Mass Firebase sync function - triggered by URL parameter
-        async function massFirebaseSync() {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                console.log('Verification writes are disabled; skipping mass Firebase sync.');
-                return;
-            }
-            if (!db) {
-                console.log('⚠️ Firebase not initialized - cannot perform mass sync');
-                return;
-            }
-
-            console.log('🔄 Starting mass Firebase sync of all WeGlide verification data...');
-
-            let successCount = 0;
-            let skipCount = 0;
-            let errorCount = 0;
-
-            // Get all WeGlide-calculated verifications
-            const allVerifications = Object.entries(pilotVerifications.picHoursVerifications || {})
-                .filter(([pilotId, data]) => data.dataSource === 'weglide-calculated');
-
-            console.log('📊 Found ' + allVerifications.length + ' WeGlide verifications to sync');
-
-            for (const [pilotId, verificationData] of allVerifications) {
-                try {
-                    // Check if this pilot already exists in Firebase
-                    const existingDoc = await db.collection('pilot_verifications').doc(pilotId).get();
-
-                    if (existingDoc.exists) {
-                        const existingData = existingDoc.data();
-                        // Don't overwrite user-entered data
-                        if (existingData.dataSource === 'user-entered') {
-                            skipCount++;
-                            continue;
-                        }
-                    }
-
-                    // Push to Firebase
-                    const firebaseData = {
-                        pilotId: pilotId,
-                        pilotName: verificationData.pilotName,
-                        picHours: verificationData.picHours,
-                        verifiedDate: verificationData.verifiedDate,
-                        eligible: verificationData.eligible,
-                        dataSource: verificationData.dataSource,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    };
-
-                    // Only include calculation if it exists and has no undefined values
-                    if (verificationData.calculation &&
-                        typeof verificationData.calculation === 'object' &&
-                        Object.values(verificationData.calculation).every(val => val !== undefined)) {
-                        firebaseData.calculation = verificationData.calculation;
-                    }
-
-                    await db.collection('pilot_verifications').doc(pilotId).set(firebaseData);
-                    successCount++;
-
-                    // Progress update and throttle
-                    if (successCount % 25 === 0) {
-                        console.log('   📤 Synced ' + successCount + ' verifications...');
-                        await new Promise(resolve => setTimeout(resolve, 100));
-                    }
-
-                } catch (error) {
-                    console.error('❌ Failed to sync pilot ' + pilotId + ' (' + verificationData.pilotName + '):', error.message);
-                    errorCount++;
-                }
-            }
-
-            console.log('📊 Mass Firebase Sync Complete:');
-            if (successCount > 0) {
-                console.log('✅ Successfully synced ' + successCount + ' WeGlide verifications');
-            }
-            if (skipCount > 0) {
-                console.log('⏭️ Skipped ' + skipCount + ' pilots (user data preserved)');
-            }
-            if (errorCount > 0) {
-                console.log('⚠️ Failed to sync ' + errorCount + ' verifications');
-            }
-
-            // Update URL to remove the parameter so sync doesn't run again on refresh
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.delete('sync_firebase');
-            window.history.replaceState({}, '', newUrl);
-            console.log('🔧 Removed sync_firebase parameter from URL');
-        }
-
-        async function saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                console.log('DOB verification writes are disabled; skipping remote/local write.');
-                return;
-            }
-            const verificationData = {
-                pilotId: pilotId,
-                pilotName: pilotName,
-                dateOfBirth: dateOfBirth,
-                verifiedDate: new Date().toISOString(),
-                dataSource: 'user-entered',
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            };
-
-            if (db) {
-                try {
-                    // Save to Firebase Firestore
-                    await db.collection('dob_verifications').doc(pilotId).set(verificationData);
-                    console.log('DOB verification saved to Firebase');
-                    return;
-                } catch (error) {
-                    console.error('Firebase DOB save failed:', error);
-                    // Fall back to localStorage
-                }
-            }
-
-            // Fallback to localStorage
-            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"picHoursVerifications": {}, "dobVerifications": {}}');
-            localData.dobVerifications = localData.dobVerifications || {};
-            localData.dobVerifications[pilotId] = {
-                pilotName: pilotName,
-                dateOfBirth: dateOfBirth,
-                verifiedDate: new Date().toISOString()
-            };
-            localStorage.setItem('pilot_verifications', JSON.stringify(localData));
-            console.log('DOB verification saved to localStorage (fallback)');
-        }
-
         async function loadVerificationsFromDatabase() {
-            if (db) {
-                try {
-                    // Load PIC hours verifications
-                    const picSnapshot = await db.collection('pilot_verifications').get();
-                    const picVerifications = {};
-                    picSnapshot.forEach(doc => {
-                        const data = doc.data();
-                        picVerifications[doc.id] = {
-                            pilotName: data.pilotName,
-                            picHours: data.picHours,
-                            verifiedDate: data.verifiedDate,
-                            eligible: data.eligible,
-                            dataSource: data.dataSource || 'user-entered' // Default to user-entered for backward compatibility
-                        };
-                    });
+            try {
+                const response = await fetch(VERIFICATION_STATE_ENDPOINT, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-                    // Load DOB verifications
-                    const dobSnapshot = await db.collection('dob_verifications').get();
-                    const dobVerifications = {};
-                    dobSnapshot.forEach(doc => {
-                        const data = doc.data();
-                        dobVerifications[doc.id] = {
-                            pilotName: data.pilotName,
-                            dateOfBirth: data.dateOfBirth,
-                            verifiedDate: data.verifiedDate,
-                            dataSource: data.dataSource || 'user-entered' // Default to user-entered for backward compatibility
-                        };
-                    });
-
-                    // Merge with embedded data and update pilotVerifications
-                    pilotVerifications.picHoursVerifications = {
-                        ...pilotVerifications.picHoursVerifications,
-                        ...picVerifications
-                    };
-                    pilotVerifications.dobVerifications = {
-                        ...pilotVerifications.dobVerifications,
-                        ...dobVerifications
-                    };
-
-                    console.log(\`Loaded \${Object.keys(picVerifications).length} PIC hour verifications from Firebase\`);
-                    console.log(\`Loaded \${Object.keys(dobVerifications).length} DOB verifications from Firebase\`);
-                    return;
-                } catch (error) {
-                    console.error('Failed to load verifications from Firebase:', error);
+                if (!response.ok) {
+                    throw new Error(\`Verification state request failed: \${response.status}\`);
                 }
-            }
 
-            // Fallback to localStorage
-            const localData = localStorage.getItem('pilot_verifications');
-            if (localData) {
-                try {
-                    const parsed = JSON.parse(localData);
+                const remoteData = await response.json();
+                pilotVerifications.picHoursVerifications = {
+                    ...pilotVerifications.picHoursVerifications,
+                    ...(remoteData.picHoursVerifications || {})
+                };
+                pilotVerifications.dobVerifications = {
+                    ...pilotVerifications.dobVerifications,
+                    ...(remoteData.dobVerifications || {})
+                };
 
-                    if (parsed.picHoursVerifications) {
-                        pilotVerifications.picHoursVerifications = {
-                            ...pilotVerifications.picHoursVerifications,
-                            ...parsed.picHoursVerifications
-                        };
-                        console.log(\`Loaded \${Object.keys(parsed.picHoursVerifications).length} PIC hour verifications from localStorage\`);
-                    }
-
-                    if (parsed.dobVerifications) {
-                        pilotVerifications.dobVerifications = {
-                            ...pilotVerifications.dobVerifications,
-                            ...parsed.dobVerifications
-                        };
-                        console.log(\`Loaded \${Object.keys(parsed.dobVerifications).length} DOB verifications from localStorage\`);
-                    }
-
-                    // Handle old format for backward compatibility
-                    if (parsed.verifications && !parsed.picHoursVerifications) {
-                        pilotVerifications.picHoursVerifications = {
-                            ...pilotVerifications.picHoursVerifications,
-                            ...parsed.verifications
-                        };
-                        console.log(\`Migrated \${Object.keys(parsed.verifications).length} old format verifications\`);
-                    }
-                } catch (e) {
-                    console.warn('Failed to parse localStorage verification data:', e);
-                }
+                console.log(\`Loaded \${Object.keys(remoteData.picHoursVerifications || {}).length} PIC hour verifications from API\`);
+                console.log(\`Loaded \${Object.keys(remoteData.dobVerifications || {}).length} DOB verifications from API\`);
+            } catch (error) {
+                console.error('Failed to load verifications from API:', error);
             }
         }
 
         document.addEventListener('DOMContentLoaded', async function() {
             updateSeasonFooterText();
-
-            // Initialize Firebase
-            await initializeFirebase();
 
             // Load verification data from database
             await loadVerificationsFromDatabase();
@@ -4451,15 +4193,6 @@ No maximum distance bonus\`,
 
             // Initialize tooltips
             addTooltipListeners();
-
-            // Check for mass Firebase sync URL parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('sync_firebase') === 'true' && db) {
-                console.log('🔄 Mass Firebase sync triggered by URL parameter...');
-                setTimeout(() => {
-                    massFirebaseSync();
-                }, 2000); // Give Firebase extra time to initialize
-            }
 
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {

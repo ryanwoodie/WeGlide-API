@@ -1851,10 +1851,6 @@
             display: none;
         }
     </style>
-
-    <!-- Firebase CDN -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
     <div class="container">
@@ -2147,7 +2143,7 @@ No maximum distance bonus`,
             tooltip.style.transform = transform;
         }
         // Embedded pilot durations (seconds), keyed by pilotId
-        const pilotDurations = {"2070":4865980,"5450":407130,"6084":263574,"6303":473457,"8848":16660929,"10764":307703,"12901":107356,"13284":933871,"13388":61867,"13987":63875,"15888":444213,"15929":2341220,"16605":1079243,"17026":705914,"20723":755642,"21219":42811,"21574":429385,"22077":1437577,"22081":317501,"22232":1601178,"22746":1188982,"22923":1553895,"23330":529480,"23352":50838,"23521":590477,"23795":2961163,"24793":4512751,"24930":2355622,"25019":50289,"25114":264162,"25782":387693,"26583":125303,"27891":10744,"27904":1430299,"29394":525866,"29869":3796792,"34953":297190,"35091":3733214,"35288":4241215,"35351":251332,"35367":1098401,"35385":3378354,"35395":69855,"35400":390922,"35420":64360,"35423":1618120,"35426":504733,"35427":163188,"35430":507803,"35431":290665,"35433":179105,"35434":83322,"35436":767267,"35437":27464,"35461":45759,"35484":12480,"35496":2949969,"35546":1206983,"35556":10675,"35573":491188,"35605":6644,"35610":1718217,"35644":4256747,"35709":157586,"35714":2421190,"35759":6656,"35763":205782,"35777":5182,"35810":6138,"35822":7113,"35942":25314,"35963":8424,"35992":2817,"36028":45100,"36033":22111,"36083":6505,"36101":4159,"36137":7912,"36868":23602};
+        const pilotDurations = {"2070":4865980,"5450":407130,"6084":263574,"6303":473457,"8848":16660929,"10764":307703,"12901":107356,"13284":933871,"13388":61867,"13987":63875,"15888":444213,"15929":2341220,"16605":1079243,"17026":705914,"20723":755642,"21219":42811,"21574":429385,"22077":1437577,"22081":317501,"22232":1601178,"22746":1188982,"22923":1553895,"23330":529480,"23352":50838,"23521":590477,"23795":2961163,"24793":4512751,"24930":2355622,"25019":50289,"25114":264162,"25782":387693,"26583":125303,"27891":10744,"27904":1430299,"29394":525866,"29869":3796792,"34953":297190,"35091":3733214,"35288":4241215,"35351":251332,"35367":1098401,"35385":3378354,"35395":69855,"35400":390922,"35420":64360,"35423":1618120,"35426":504733,"35427":163188,"35431":290665,"35433":179105,"35434":83322,"35436":767267,"35437":27464,"35461":45759,"35484":12480,"35496":2949969,"35546":1206983,"35556":10675,"35573":491188,"35605":6644,"35610":1718217,"35644":4256747,"35709":157586,"35714":2421190,"35759":6656,"35763":205782,"35777":5182,"35810":6138,"35822":7113,"35942":25314,"35963":8424,"35992":2817,"36028":45100,"36033":22111,"36083":6505,"36101":4159,"36137":7912};
 
         // Embedded pilot profile data, keyed by pilotId
         const pilotProfiles = {"2070":{"total_flight_duration":4865980,"total_free_distance":106816.62,"avg_speed":83.48,"flight_count":346,"avg_glide_speed":138.67,"avg_glide_detour":1.18,"achievement_count":0,"name":"Christopher Michael Gough","gender":"M","club":{"id":965,"name":"Cu Nim Gliding Club","region":"CA-AB","url":"https://www.cunim.org","logo":"club/965.png"}},"5450":{"total_flight_duration":407130,"total_free_distance":4666.76,"avg_speed":48.12,"flight_count":113,"avg_glide_speed":99.58,"avg_glide_detour":1.59,"achievement_count":0,"name":"Steve Godreau","gender":"M","club":{"id":999,"name":"Edmonton Soaring Club","region":"CA-AB","url":"http://www.edmontonsoaringclub.com"}},"6084":{"total_flight_duration":263574,"total_free_distance":4009.99,"avg_speed":61.07,"flight_count":33,"avg_glide_speed":123.85,"avg_glide_detour":1.55,"achievement_count":0,"name":"Tyler Paradis","gender":"D","club":{"id":999,"name":"Edmonton Soaring Club","region":"CA-AB","url":"http://www.edmontonsoaringclub.com"}},"6303":{"total_flight_duration":473457,"total_free_distance":7603.87,"avg_speed":64.17,"flight_count":50,"avg_glide_speed":124.02,"avg_glide_detour":1.35,"achievement_count":0,"name":"Kelvin Cole","gender":"M","club":{"id":999,"name":"Edmonton Soaring Club","region":"CA-AB","url":"http://www.edmontonsoaringclub.com"}},"8848":{"total_flight_duration":16660929,"total_free_distance":308501.08,"avg_speed":71.2,"flight_count":1125,"avg_glide_speed":120.41,"avg_glide_detour":1.22,"achievement_count":0,"name":"Andre R. Pepin","gender":"M","club":{"id":1168,"name":"Montreal Soaring Club","region":"CA-ON","url":"https://montrealsoaring.ca"}},"10764":{"total_flight_duration":307703,"total_free_distance":4208.69,"avg_speed":53.73,"flight_count":46,"avg_glide_speed":112.89,"avg_glide_detour":1.28,"achievement_count":0,"name":"Denis Nolan","gender":"M","club":{"id":1380,"name":"Warwick Gliding Club","region":"AU-QLD","url":"https://www.warwickgliding.org","logo":"club/1380.png","in_league":"AU"}},"12901":{"total_flight_duration":107356,"total_free_distance":1736.27,"avg_speed":62.63,"flight_count":10,"avg_glide_speed":119.76,"avg_glide_detour":1.15,"achievement_count":0,"name":"Mike Morgulis","gender":"M","club":{"id":1345,"name":"Toronto Soaring Club","region":"CA-ON","url":"http://toronto-soaring.ca"}},"13284":{"total_flight_duration":933871,"total_free_distance":12061.92,"avg_speed":50.48,"flight_count":159,"avg_glide_speed":107.51,"avg_glide_detour":1.31,"achievement_count":0,"name":"Mark Luscher","gender":"M","club":{"id":1310,"name":"SOSA Gliding Club","region":"CA-ON","url":"https://www.sosaglidingclub.com"}},"13388":{"total_flight_duration":61867,"total_free_distance":478.45,"avg_speed":35.37,"flight_count":28,"avg_glide_speed":90.74,"avg_glide_detour":1.76,"achievement_count":0,"name":"Paulo Matioli","gender":"M","club":{"id":1029,"name":"Gatineau Gliding Club","region":"CA-ON","url":"https://www.gatineauglidingclub.ca"}},"13987":{"total_flight_duration":63875,"total_free_distance":906.63,"avg_speed":53.9,"flight_count":8,"avg_glide_speed":116.3,"avg_glide_detour":1.15,"achievement_count":0,"name":"Mohammad Reza Darvish","gender":"M","club":{"id":1310,"name":"SOSA Gliding Club","region":"CA-ON","url":"https://www.sosaglidingclub.com"}},"15888":{"total_flight_duration":444213,"total_free_distance":5184.21,"avg_speed":48.42,"flight_count":49,"avg_glide_speed":126.29,"avg_glide_detour":1.76,"achievement_count":0,"name":"Daniel Nazarko","gender":"M","club":{"id":965,"name":"Cu Nim Gliding Club","region":"CA-AB","url":"https://www.cunim.org","logo":"club/965.png"}},"15929":{"total_flight_duration":2341220,"total_free_distance":59319.68,"avg_speed":102.69,"flight_count":125,"avg_glide_speed":146.25,"avg_glide_detour":1.21,"achievement_count":0,"name":"Chester Fitchett","gender":"M","club":{"id":965,"name":"Cu Nim Gliding Club","region":"CA-AB","url":"https://www.cunim.org","logo":"club/965.png"}},"16605":{"total_flight_duration":1079243,"total_free_distance":14232.53,"avg_speed":55.07,"flight_count":132,"avg_glide_speed":111.59,"avg_glide_detour":1.54,"achievement_count":0,"name":"Ward Clapham","gender":"M","club":{"id":849,"name":"Alberni Valley Soaring Association","region":"CA-BC","url":"http://www.avsa.ca"}},"17026":{"total_flight_duration":705914,"total_free_distance":13316.87,"avg_speed":79.11,"flight_count":50,"avg_glide_speed":128.2,"avg_glide_detour":1.3,"achievement_count":0,"name":"Bryan Swansburg","gender":"M","club":{"id":849,"name":"Alberni Valley Soaring Association","region":"CA-BC","url":"http://www.avsa.ca"}},"20723":{"total_flight_duration":755642,"total_free_distance":11818.76,"avg_speed":60.89,"flight_count":64,"avg_glide_speed":119.78,"avg_glide_detour":1.31,"achievement_count":0,"name":"Ryan Wood","gender":"M","club":{"id":1808,"name":"Prince Albert Gliding and Soaring Club","region":"CA-SK","url":"https://www.pagsc.ca","logo":"club/1808.png"}},"21219":{"total_flight_duration":42811,"total_free_distance":756.96,"avg_speed":66.57,"flight_count":3,"avg_glide_speed":124.89,"avg_glide_detour":1.26,"achievement_count":0,"name":"Kerry Kirby","gender":"M","club":{"id":1037,"name":"Great Lakes Gliding Club","region":"CA-ON","url":"https://www.greatlakesgliding.com"}},"21574":{"total_flight_duration":429385,"total_free_distance":5570.58,"avg_speed":61.24,"flight_count":99,"avg_glide_speed":111.3,"avg_glide_detour":1.33,"achievement_count":0,"name":"Warwick Patterson","gender":"M","club":{"id":849,"name":"Alberni Valley Soaring Association","region":"CA-BC","url":"http://www.avsa.ca"}},"22077":{"total_flight_duration":1437577,"total_free_distance":19924,"avg_speed":54.7,"flight_count":130,"avg_glide_speed":116.06,"avg_glide_detour":1.37,"achievement_count":0,"name":"Sasha Pejic","gender":"M","club":{"id":965,"name":"Cu Nim Gliding Club","region":"CA-AB","url":"https://www.cunim.org","logo":"club/965.png"}},"22081":{"total_flight_duration":317501,"total_free_distance":8223.04,"avg_speed":97.64,"flight_count":21,"avg_glide_speed":159.22,"avg_glide_detour":1.15,"achievement_count":0,"name":"Predrag Kupcevic","gender":"M","club":{"id":1310,"name":"SOSA Gliding Club","region":"CA-ON","url":"https://www.sosaglidingclub.com"}},"22232":{"total_flight_duration":1601178,"total_free_distance":21360.17,"avg_speed":53.1,"flight_count":256,"avg_glide_speed":103.39,"avg_glide_detour":1.27,"achievement_count":0,"name":"Gregory Zak","gender":"M","club":{"id":1310,"name":"SOSA Gliding Club","region":"CA-ON","url":"https://www.sosaglidingclub.com"}},"22746":{"total_flight_duration":1188982,"total_free_distance":14839.85,"avg_speed":51.64,"flight_count":154,"avg_glide_speed":117.76,"avg_glide_detour":1.63,"achievement_count":0,"name":"Frédéric Bourgault","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"22923":{"total_flight_duration":1553895,"total_free_distance":24458.74,"avg_speed":61.38,"flight_count":181,"avg_glide_speed":129.71,"avg_glide_detour":1.23,"achievement_count":0,"name":"John Mulder","gender":"M","club":{"id":914,"name":"Central Alberta Gliding Club","region":"CA-AB","url":"http://www.cagcsoaring.ca"}},"23330":{"total_flight_duration":529480,"total_free_distance":6329.32,"avg_speed":50.53,"flight_count":158,"avg_glide_speed":117.32,"avg_glide_detour":1.34,"achievement_count":0,"name":"Guy Gauthier","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"23352":{"total_flight_duration":50838,"total_free_distance":486.18,"avg_speed":42.79,"flight_count":28,"avg_glide_speed":88.09,"avg_glide_detour":1.25,"achievement_count":0,"name":"T. Link","gender":"M","club":{"id":914,"name":"Central Alberta Gliding Club","region":"CA-AB","url":"http://www.cagcsoaring.ca"}},"23521":{"total_flight_duration":590477,"total_free_distance":10775.32,"avg_speed":72.73,"flight_count":70,"avg_glide_speed":132.47,"avg_glide_detour":1.35,"achievement_count":0,"name":"Ray Troppmann","gender":"M","club":{"id":999,"name":"Edmonton Soaring Club","region":"CA-AB","url":"http://www.edmontonsoaringclub.com"}},"23795":{"total_flight_duration":2961163,"total_free_distance":28714.51,"avg_speed":39.69,"flight_count":304,"avg_glide_speed":91.26,"avg_glide_detour":1.36,"achievement_count":0,"name":"Pascal Hayet","gender":"M","club":{"id":947,"name":"CVV de Québec","region":"CA-QC","url":"https://www.cvvq.net"}},"24793":{"total_flight_duration":4512751,"total_free_distance":86686.23,"avg_speed":72.97,"flight_count":312,"avg_glide_speed":125.78,"avg_glide_detour":1.19,"achievement_count":0,"name":"Gabriel Duford","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"24930":{"total_flight_duration":2355622,"total_free_distance":34468.87,"avg_speed":57.52,"flight_count":242,"avg_glide_speed":128.94,"avg_glide_detour":1.66,"achievement_count":0,"name":"Sergey Skobkarev","gender":"M","club":{"id":1363,"name":"Vancouver Soaring Association","region":"CA-BC","url":"http://vancouversoaring.com"}},"25019":{"total_flight_duration":50289,"total_free_distance":532.58,"avg_speed":41.37,"flight_count":4,"avg_glide_speed":114.14,"avg_glide_detour":2.44,"achievement_count":0,"name":"Daan Wynberg","gender":"M","club":{"id":1363,"name":"Vancouver Soaring Association","region":"CA-BC","url":"http://vancouversoaring.com"}},"25114":{"total_flight_duration":264162,"total_free_distance":3134.03,"avg_speed":46.18,"flight_count":29,"avg_glide_speed":131.14,"avg_glide_detour":1.6,"achievement_count":0,"name":"Joshua Peace","gender":"M","club":{"id":965,"name":"Cu Nim Gliding Club","region":"CA-AB","url":"https://www.cunim.org","logo":"club/965.png"}},"25782":{"total_flight_duration":387693,"total_free_distance":4792.69,"avg_speed":50.67,"flight_count":65,"avg_glide_speed":113.5,"avg_glide_detour":1.97,"achievement_count":0,"name":"Thomas Breitenmoser","gender":"M","club":{"id":1363,"name":"Vancouver Soaring Association","region":"CA-BC","url":"http://vancouversoaring.com"}},"26583":{"total_flight_duration":125303,"total_free_distance":1900.1,"avg_speed":60.86,"flight_count":13,"avg_glide_speed":112.36,"avg_glide_detour":1.18,"achievement_count":0,"name":"James Wood","gender":"M","club":{"id":1310,"name":"SOSA Gliding Club","region":"CA-ON","url":"https://www.sosaglidingclub.com"}},"27891":{"total_flight_duration":10744,"total_free_distance":104.48,"avg_speed":36.99,"flight_count":2,"avg_glide_speed":108.07,"avg_glide_detour":1.31,"achievement_count":0,"name":"Jay Carle Brodeur","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"27904":{"total_flight_duration":1430299,"total_free_distance":17446.98,"avg_speed":47.55,"flight_count":76,"avg_glide_speed":120.69,"avg_glide_detour":1.42,"achievement_count":0,"name":"Ronald M.B. Smith","gender":"M","club":{"id":1029,"name":"Gatineau Gliding Club","region":"CA-ON","url":"https://www.gatineauglidingclub.ca"}},"29394":{"total_flight_duration":525866,"total_free_distance":7368.12,"avg_speed":56.49,"flight_count":45,"avg_glide_speed":121.37,"avg_glide_detour":1.3,"achievement_count":0,"name":"Michael McKay","gender":"M","club":{"id":1029,"name":"Gatineau Gliding Club","region":"CA-ON","url":"https://www.gatineauglidingclub.ca"}},"29869":{"total_flight_duration":3796792,"total_free_distance":53127.57,"avg_speed":56.27,"flight_count":392,"avg_glide_speed":115.19,"avg_glide_detour":1.29,"achievement_count":0,"name":"Denis Pepin","gender":"M","club":{"id":947,"name":"CVV de Québec","region":"CA-QC","url":"https://www.cvvq.net"}},"34953":{"total_flight_duration":297190,"total_free_distance":5826.86,"avg_speed":73.57,"flight_count":22,"avg_glide_speed":126.11,"avg_glide_detour":1.19,"achievement_count":0,"name":"Jean Lapierre","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35091":{"total_flight_duration":3733214,"total_free_distance":47945.67,"avg_speed":50.03,"flight_count":290,"avg_glide_speed":114.94,"avg_glide_detour":1.34,"achievement_count":0,"name":"François Tanguay","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35288":{"total_flight_duration":4241215,"total_free_distance":61433.72,"avg_speed":56.79,"flight_count":404,"avg_glide_speed":119.63,"avg_glide_detour":1.52,"achievement_count":0,"name":"Frank Pilz","gender":"M","club":{"id":1363,"name":"Vancouver Soaring Association","region":"CA-BC","url":"http://vancouversoaring.com"}},"35351":{"total_flight_duration":251332,"total_free_distance":2722.5,"avg_speed":41.8,"flight_count":27,"avg_glide_speed":98.27,"avg_glide_detour":1.32,"achievement_count":0,"name":"Éric Raissac","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35367":{"total_flight_duration":1098401,"total_free_distance":9000.52,"avg_speed":33.6,"flight_count":117,"avg_glide_speed":115.32,"avg_glide_detour":1.54,"achievement_count":0,"name":"Christian Boulay","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35385":{"total_flight_duration":3378354,"total_free_distance":46834.15,"avg_speed":52.54,"flight_count":255,"avg_glide_speed":109.98,"avg_glide_detour":1.25,"achievement_count":0,"name":"Gustavo Tanoni","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35395":{"total_flight_duration":69855,"total_free_distance":445.42,"avg_speed":26.77,"flight_count":8,"avg_glide_speed":92.04,"avg_glide_detour":2.04,"achievement_count":0,"name":"Marco Solo","gender":"M","club":{"id":1310,"name":"SOSA Gliding Club","region":"CA-ON","url":"https://www.sosaglidingclub.com"}},"35400":{"total_flight_duration":390922,"total_free_distance":4867.28,"avg_speed":48.2,"flight_count":43,"avg_glide_speed":106.54,"avg_glide_detour":1.29,"achievement_count":0,"name":"Ionel Anton","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35420":{"total_flight_duration":64360,"total_free_distance":873.79,"avg_speed":51.46,"flight_count":5,"avg_glide_speed":123.57,"avg_glide_detour":1.36,"achievement_count":0,"name":"David philip","gender":"M","club":{"id":1037,"name":"Great Lakes Gliding Club","region":"CA-ON","url":"https://www.greatlakesgliding.com"}},"35423":{"total_flight_duration":1618120,"total_free_distance":18046.33,"avg_speed":44.78,"flight_count":137,"avg_glide_speed":106.48,"avg_glide_detour":1.7,"achievement_count":0,"name":"James Kingdon","gender":"M","club":{"id":1393,"name":"York Soaring Association","region":"CA-ON","url":"https://www.yorksoaring.com"}},"35426":{"total_flight_duration":504733,"total_free_distance":3616.05,"avg_speed":29.45,"flight_count":50,"avg_glide_speed":97.28,"avg_glide_detour":2.87,"achievement_count":0,"name":"Omar Duric","gender":"M","club":{"id":1363,"name":"Vancouver Soaring Association","region":"CA-BC","url":"http://vancouversoaring.com"}},"35427":{"total_flight_duration":163188,"total_free_distance":1779.19,"avg_speed":46.81,"flight_count":62,"avg_glide_speed":107.13,"avg_glide_detour":1.25,"achievement_count":0,"name":"Marc-André Rathé","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35430":{"total_flight_duration":507803,"total_free_distance":4514.26,"avg_speed":35.56,"flight_count":102,"avg_glide_speed":82.42,"avg_glide_detour":1.29,"achievement_count":0,"name":"Susan Snell","gender":"F","club":{"id":1387,"name":"Winnipeg Gliding Club","region":"CA-MB","url":"https://www.wgc.mb.ca"}},"35431":{"total_flight_duration":290665,"total_free_distance":4056.75,"avg_speed":55.4,"flight_count":25,"avg_glide_speed":112.45,"avg_glide_detour":1.31,"achievement_count":0,"name":"Csaba Balazs","gender":"M","club":{"id":1168,"name":"Montreal Soaring Club","region":"CA-ON","url":"https://montrealsoaring.ca"}},"35433":{"total_flight_duration":179105,"total_free_distance":870.43,"avg_speed":20.62,"flight_count":16,"avg_glide_speed":83.5,"avg_glide_detour":3.24,"achievement_count":0,"name":"Kevin Klock","gender":"M","club":{"id":1363,"name":"Vancouver Soaring Association","region":"CA-BC","url":"http://vancouversoaring.com"}},"35434":{"total_flight_duration":83322,"total_free_distance":494.52,"avg_speed":23.89,"flight_count":8,"avg_glide_speed":96.68,"avg_glide_detour":2.27,"achievement_count":0,"name":"Paul Payette","gender":"M","club":{"id":1345,"name":"Toronto Soaring Club","region":"CA-ON","url":"http://toronto-soaring.ca"}},"35436":{"total_flight_duration":767267,"total_free_distance":16252.36,"avg_speed":79.24,"flight_count":37,"avg_glide_speed":126.4,"avg_glide_detour":1.13,"achievement_count":0,"name":"Nick Bonniere","gender":"M","club":{"id":1168,"name":"Montreal Soaring Club","region":"CA-ON","url":"https://montrealsoaring.ca"}},"35437":{"total_flight_duration":27464,"total_free_distance":253.39,"avg_speed":35.27,"flight_count":3,"avg_glide_speed":93.4,"avg_glide_detour":1.43,"achievement_count":0,"name":"Ali Askari","gender":"M","club":{"id":1345,"name":"Toronto Soaring Club","region":"CA-ON","url":"http://toronto-soaring.ca"}},"35461":{"total_flight_duration":45759,"total_free_distance":382.65,"avg_speed":31.31,"flight_count":4,"avg_glide_speed":105.18,"avg_glide_detour":1.93,"achievement_count":0,"name":"Gregory Wilson","gender":"M","club":{"id":1345,"name":"Toronto Soaring Club","region":"CA-ON","url":"http://toronto-soaring.ca"}},"35484":{"total_flight_duration":12480,"total_free_distance":129.11,"avg_speed":49.07,"flight_count":1,"avg_glide_speed":103.51,"avg_glide_detour":1.33,"achievement_count":0,"name":"Jim Miller","gender":"M","club":{"id":1345,"name":"Toronto Soaring Club","region":"CA-ON","url":"http://toronto-soaring.ca"}},"35496":{"total_flight_duration":2949969,"total_free_distance":50392.37,"avg_speed":67.06,"flight_count":251,"avg_glide_speed":117.09,"avg_glide_detour":1.14,"achievement_count":0,"name":"Richard Noel","gender":"M","club":{"id":947,"name":"CVV de Québec","region":"CA-QC","url":"https://www.cvvq.net"}},"35546":{"total_flight_duration":1206983,"total_free_distance":13420.25,"avg_speed":43.89,"flight_count":159,"avg_glide_speed":101.96,"avg_glide_detour":1.39,"achievement_count":0,"name":"Philippe Laflamme","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35556":{"total_flight_duration":10675,"total_free_distance":109.74,"avg_speed":42.94,"flight_count":2,"avg_glide_speed":96.12,"avg_glide_detour":1.49,"achievement_count":0,"name":"Lucas Aguenier","gender":"M","club":{"id":947,"name":"CVV de Québec","region":"CA-QC","url":"https://www.cvvq.net"}},"35573":{"total_flight_duration":491188,"total_free_distance":4331.69,"avg_speed":34.78,"flight_count":34,"avg_glide_speed":109.35,"avg_glide_detour":1.69,"achievement_count":0,"name":"Luc Paquette","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35605":{"total_flight_duration":6644,"total_free_distance":52.75,"avg_speed":34.45,"flight_count":3,"avg_glide_speed":101.14,"avg_glide_detour":0.95,"achievement_count":0,"name":"Craig Pitchell","gender":"M","club":{"id":1133,"name":"London Soaring Club","region":"CA-ON","url":"https://www.londonsoaringclub.ca"}},"35610":{"total_flight_duration":1718217,"total_free_distance":14482.71,"avg_speed":35.22,"flight_count":283,"avg_glide_speed":93,"avg_glide_detour":1.55,"achievement_count":0,"name":"Tim Fulcher","gender":"M","club":{"id":1387,"name":"Winnipeg Gliding Club","region":"CA-MB","url":"https://www.wgc.mb.ca"}},"35644":{"total_flight_duration":4256747,"total_free_distance":80898.83,"avg_speed":72.12,"flight_count":233,"avg_glide_speed":121.75,"avg_glide_detour":1.15,"achievement_count":0,"name":"Christian Hamel","gender":"M","club":{"id":1168,"name":"Montreal Soaring Club","region":"CA-ON","url":"https://montrealsoaring.ca"}},"35709":{"total_flight_duration":157586,"total_free_distance":1666.26,"avg_speed":43.72,"flight_count":26,"avg_glide_speed":90.97,"avg_glide_detour":2.18,"achievement_count":0,"name":"Ray Ochitwa","gender":"M","club":{"id":1363,"name":"Vancouver Soaring Association","region":"CA-BC","url":"http://vancouversoaring.com"}},"35714":{"total_flight_duration":2421190,"total_free_distance":28665.89,"avg_speed":47.82,"flight_count":190,"avg_glide_speed":119.24,"avg_glide_detour":1.51,"achievement_count":0,"name":"Lee Fasken","gender":"M","club":{"id":1029,"name":"Gatineau Gliding Club","region":"CA-ON","url":"https://www.gatineauglidingclub.ca"}},"35759":{"total_flight_duration":6656,"total_free_distance":42.89,"avg_speed":26.03,"flight_count":2,"avg_glide_speed":94.02,"avg_glide_detour":1.84,"achievement_count":0,"name":"Patrick Kessler","gender":"M","club":{"id":947,"name":"CVV de Québec","region":"CA-QC","url":"https://www.cvvq.net"}},"35763":{"total_flight_duration":205782,"total_free_distance":1981.04,"avg_speed":38.48,"flight_count":41,"avg_glide_speed":106.47,"avg_glide_detour":1.86,"achievement_count":0,"name":"Alain Bouliane","gender":"M","club":{"id":1168,"name":"Montreal Soaring Club","region":"CA-ON","url":"https://montrealsoaring.ca"}},"35777":{"total_flight_duration":5182,"total_free_distance":32.57,"avg_speed":28.93,"flight_count":1,"avg_glide_speed":95.54,"avg_glide_detour":2.13,"achievement_count":0,"name":"Thomas Chester","gender":"M","club":{"id":849,"name":"Alberni Valley Soaring Association","region":"CA-BC","url":"http://www.avsa.ca"}},"35810":{"total_flight_duration":6138,"total_free_distance":69.25,"avg_speed":43.27,"flight_count":1,"avg_glide_speed":91.66,"avg_glide_detour":1.33,"achievement_count":0,"name":"Tim Wood","gender":"M","club":{"id":1393,"name":"York Soaring Association","region":"CA-ON","url":"https://www.yorksoaring.com"}},"35822":{"total_flight_duration":7113,"total_free_distance":76.72,"avg_speed":41.17,"flight_count":1,"avg_glide_speed":112.02,"avg_glide_detour":1.81,"achievement_count":0,"name":"Michel Rochette","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"35942":{"total_flight_duration":25314,"total_free_distance":348.58,"avg_speed":56.5,"flight_count":3,"avg_glide_speed":79.11,"avg_glide_detour":1.27,"achievement_count":0,"name":"Travis Klassen","gender":"M","club":null},"35963":{"total_flight_duration":8424,"total_free_distance":164.06,"avg_speed":72.45,"flight_count":1,"avg_glide_speed":135.43,"avg_glide_detour":1.14,"achievement_count":0,"name":"Tom Coulson","gender":"M","club":{"id":1310,"name":"SOSA Gliding Club","region":"CA-ON","url":"https://www.sosaglidingclub.com"}},"35992":{"total_flight_duration":2817,"total_free_distance":52.98,"avg_speed":101.51,"flight_count":2,"avg_glide_speed":122.57,"avg_glide_detour":1.17,"achievement_count":0,"name":"Jeff Slingerland","gender":"M","club":{"id":1124,"name":"Lethbridge Soaring Club","region":"CA-AB","url":"https://www.lethbridgesoaring.ca"}},"36028":{"total_flight_duration":45100,"total_free_distance":468.57,"avg_speed":39.96,"flight_count":4,"avg_glide_speed":99.93,"avg_glide_detour":1.27,"achievement_count":0,"name":"Nicholas Bertrand","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"36033":{"total_flight_duration":22111,"total_free_distance":191.04,"avg_speed":37.12,"flight_count":6,"avg_glide_speed":96.63,"avg_glide_detour":1.29,"achievement_count":0,"name":"Antoine  Latulippe","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"36083":{"total_flight_duration":6505,"total_free_distance":58.96,"avg_speed":36.37,"flight_count":3,"avg_glide_speed":96.71,"avg_glide_detour":1.07,"achievement_count":0,"name":"Justin Latour","gender":"M","club":{"id":863,"name":"Association de Vol a Voile Champlain","region":"CA-QC","url":"https://www.avvc.qc.ca","logo":"club/863.png"}},"36101":{"total_flight_duration":4159,"total_free_distance":60.62,"avg_speed":61.23,"flight_count":1,"avg_glide_speed":101.42,"avg_glide_detour":1.32,"achievement_count":0,"name":"Harrison Breeze","gender":"M","club":{"id":849,"name":"Alberni Valley Soaring Association","region":"CA-BC","url":"http://www.avsa.ca"}},"36137":{"total_flight_duration":7912,"total_free_distance":83.52,"avg_speed":45.2,"flight_count":1,"avg_glide_speed":125.11,"avg_glide_detour":1.35,"achievement_count":0,"name":"Gerald Ince","gender":"M","club":{"id":965,"name":"Cu Nim Gliding Club","region":"CA-AB","url":"https://www.cunim.org","logo":"club/965.png"}},"36868":{"total_flight_duration":23602,"total_free_distance":186.77,"avg_speed":34.44,"flight_count":9,"avg_glide_speed":93.71,"avg_glide_detour":2.28,"achievement_count":0,"name":"Martin Chicoine","gender":"M","club":{"id":1168,"name":"Montreal Soaring Club","region":"CA-ON","url":"https://montrealsoaring.ca"}}};
@@ -4668,15 +4664,39 @@ No maximum distance bonus`,
             }
         });
 
-        const ALLOW_PUBLIC_VERIFICATION_WRITE = false;
-        const VERIFICATION_WRITE_DISABLED_MESSAGE = 'Verification submissions are currently disabled on this public page. Please contact the contest organizers.';
+        const ALLOW_PUBLIC_VERIFICATION_WRITE = true;
+        const VERIFICATION_STATE_ENDPOINT = '/api/verification-state';
+        const VERIFICATION_REQUEST_ENDPOINT = '/api/request-verification';
+        const VERIFICATION_REQUEST_MESSAGE = 'A confirmation link will be emailed to you. Your claim is only applied after you open that link.';
+
+        function isValidVerificationEmail(email) {
+            return /^[^s@]+@[^s@]+.[^s@]+$/.test(email);
+        }
+
+        async function requestVerificationEmail(payload) {
+            const response = await fetch(VERIFICATION_REQUEST_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            let body = {};
+            try {
+                body = await response.json();
+            } catch (error) {
+                body = {};
+            }
+
+            if (!response.ok || !body.ok) {
+                throw new Error(body.error || 'Failed to send verification email');
+            }
+        }
 
         // DOB Verification form
         function showDOBVerificationForm(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
             const overlay = document.createElement('div');
             overlay.className = 'verification-overlay';
             overlay.innerHTML = `
@@ -4688,9 +4708,14 @@ No maximum distance bonus`,
                         <input type="date" id="dobInput" max="2010-12-31" />
                         <label for="dobInput">Date of Birth</label>
                     </div>
+                    <div>
+                        <input type="email" id="verificationEmail" placeholder="you@example.com" />
+                        <label for="verificationEmail">Email address</label>
+                    </div>
                     <p style="font-size: 0.9em; color: #888;">This is a self-declaration system. Your age at the time of achieving Silver C will be calculated.</p>
+                    <p style="font-size: 0.9em; color: #888;">${VERIFICATION_REQUEST_MESSAGE}</p>
                     <div class="form-buttons">
-                        <button class="submit-btn" onclick="submitDOBVerification('${pilotId}', '${pilotName}')">Verify</button>
+                        <button class="submit-btn" onclick="submitDOBVerification('${pilotId}', '${pilotName}')">Send verification link</button>
                         <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
                     </div>
                 </div>
@@ -4699,15 +4724,18 @@ No maximum distance bonus`,
         }
 
         async function submitDOBVerification(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
             const dobInput = document.getElementById('dobInput');
+            const emailInput = document.getElementById('verificationEmail');
             const dateOfBirth = dobInput.value;
+            const email = emailInput.value.trim().toLowerCase();
 
             if (!dateOfBirth) {
                 alert('Please enter your date of birth');
+                return;
+            }
+
+            if (!isValidVerificationEmail(email)) {
+                alert('Please enter a valid email address');
                 return;
             }
 
@@ -4720,38 +4748,25 @@ No maximum distance bonus`,
                 return;
             }
 
-            // Show loading state
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Saving...';
+            submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
             try {
-                // Save to database
-                await saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth);
-
-                // Update local data for immediate UI update
-                pilotVerifications.dobVerifications = pilotVerifications.dobVerifications || {};
-                pilotVerifications.dobVerifications[pilotId] = {
+                await requestVerificationEmail({
+                    type: 'dob',
+                    pilotId: pilotId,
                     pilotName: pilotName,
                     dateOfBirth: dateOfBirth,
-                    verifiedDate: new Date().toISOString(),
-                    dataSource: 'user-entered',
-                    age: Math.floor(age)
-                };
+                    email: email
+                });
 
-                // Close form and rebuild leaderboard
                 closeVerificationForm();
-                buildLeaderboard();
-                calculateTrophyWinners(); // Recalculate trophies
-
-                // Show confirmation
-                alert(`Thank you ${pilotName}! Your date of birth has been verified.`);
+                alert(`A verification link was sent to ${email}. Open it to confirm ${pilotName}'s date of birth.`);
             } catch (error) {
-                console.error('Failed to save DOB verification:', error);
-                alert('Failed to save verification. Please try again or contact support.');
-
-                // Reset button
+                console.error('Failed to request DOB verification:', error);
+                alert(error.message || 'Failed to send verification email. Please try again or contact support.');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
@@ -4762,7 +4777,6 @@ No maximum distance bonus`,
             const startDate = new Date('2025-10-01T00:00:00Z');
             let totalSeconds = 0;
 
-            // Use the minimal flight data which has duration field
             fullFlightData.forEach(flight => {
                 if (flight.user && flight.user.id == pilotId) {
                     const flightDate = new Date(flight.date + 'T00:00:00Z');
@@ -4772,42 +4786,35 @@ No maximum distance bonus`,
                 }
             });
 
-            return totalSeconds / 3600; // Convert to hours
+            return totalSeconds / 3600;
         }
 
         async function runAutomaticVerificationWorkflow() {
             console.log('Running automatic verification workflow...');
 
-            // Get all pilots from the mixed leaderboard (most comprehensive)
             const allPilots = mixedLeaderboard.map(p => ({ pilotId: p.pilotId, pilot: p.pilot }));
             let updatedCount = 0;
 
             for (const pilot of allPilots) {
                 const pilotId = pilot.pilotId;
-
-                // Skip if user has already entered data (highest priority)
                 const existingVerification = pilotVerifications.picHoursVerifications &&
-                                           pilotVerifications.picHoursVerifications[pilotId];
+                    pilotVerifications.picHoursVerifications[pilotId];
 
-                if (existingVerification && existingVerification.dataSource === 'user-entered') {
-                    continue; // Don't overwrite user data
+                if (existingVerification && existingVerification.dataSource === 'email-verified') {
+                    continue;
                 }
 
-                // Calculate WeGlide-based hours
                 const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
                 const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
                 const estimatedOct1Hours = Math.max(0, totalWeGlideHours - weglideHoursSinceStart);
 
-                // Only update if we have meaningful WeGlide data
                 if (totalWeGlideHours > 0) {
                     pilotVerifications.picHoursVerifications = pilotVerifications.picHoursVerifications || {};
-
-                    // Create/update automatic verification entry
                     pilotVerifications.picHoursVerifications[pilotId] = {
                         pilotName: pilot.pilot,
                         picHours: estimatedOct1Hours,
                         verifiedDate: new Date().toISOString(),
-                        dataSource: 'weglide-calculated', // Lower priority than user data
+                        dataSource: 'weglide-calculated',
                         eligible: estimatedOct1Hours < 200,
                         calculation: {
                             totalWeGlideHours: totalWeGlideHours,
@@ -4816,15 +4823,6 @@ No maximum distance bonus`,
                         }
                     };
                     updatedCount++;
-
-                    // Save to database if pilot is over 200 hours (important for eligibility)
-                    if (estimatedOct1Hours >= 200) {
-                        try {
-                            await saveVerificationToDatabase(pilotId, pilot.pilot, estimatedOct1Hours, 'weglide-calculated');
-                        } catch (error) {
-                            console.warn(`Failed to save auto-verification for ${pilot.pilot}:`, error);
-                        }
-                    }
                 }
             }
 
@@ -4833,13 +4831,7 @@ No maximum distance bonus`,
             }
         }
 
-
         function showVerificationForm(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
-            // Calculate WeGlide hours since Oct 1, 2024
             const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
             const totalWeGlideHours = pilotDurations[pilotId] ? (pilotDurations[pilotId] / 3600) : 0;
             const estimatedOct1Hours = Math.max(0, totalWeGlideHours - weglideHoursSinceStart);
@@ -4865,12 +4857,17 @@ No maximum distance bonus`,
                         <input type="number" id="picHours" min="0" step="0.1" placeholder="Hours" value="${estimatedOct1Hours > 0 ? estimatedOct1Hours.toFixed(1) : ''}" />
                         <label for="picHours">hours PIC</label>
                     </div>
+                    <div>
+                        <input type="email" id="verificationEmail" placeholder="you@example.com" />
+                        <label for="verificationEmail">Email address</label>
+                    </div>
                     <p style="font-size: 0.9em; color: #888;">
                         Self-declaration system. If you enter ≥200 hours, you'll be removed from the Under 200 Hours eligibility list.
                         ${weglideHoursSinceStart > 0 ? 'Pre-filled with WeGlide calculation - please verify or correct.' : ''}
                     </p>
+                    <p style="font-size: 0.9em; color: #888;">${VERIFICATION_REQUEST_MESSAGE}</p>
                     <div class="form-buttons">
-                        <button class="submit-btn" onclick="submitVerification('${pilotId}', '${pilotName}')">Verify</button>
+                        <button class="submit-btn" onclick="submitVerification('${pilotId}', '${pilotName}')">Send verification link</button>
                         <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
                     </div>
                 </div>
@@ -4886,340 +4883,76 @@ No maximum distance bonus`,
         }
 
         async function submitVerification(pilotId, pilotName) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                alert(VERIFICATION_WRITE_DISABLED_MESSAGE);
-                return;
-            }
             const hoursInput = document.getElementById('picHours');
+            const emailInput = document.getElementById('verificationEmail');
             const hours = parseFloat(hoursInput.value);
+            const email = emailInput.value.trim().toLowerCase();
 
             if (isNaN(hours) || hours < 0) {
                 alert('Please enter valid PIC hours (0 or greater)');
                 return;
             }
 
-            // Show loading state
+            if (!isValidVerificationEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Saving...';
+            submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
             try {
-                // Save to database (Firebase or localStorage fallback)
-                await saveVerificationToDatabase(pilotId, pilotName, hours);
-
-                // Update local data for immediate UI update
-                pilotVerifications.picHoursVerifications = pilotVerifications.picHoursVerifications || {};
-                pilotVerifications.picHoursVerifications[pilotId] = {
+                await requestVerificationEmail({
+                    type: 'pic',
+                    pilotId: pilotId,
                     pilotName: pilotName,
                     picHours: hours,
-                    verifiedDate: new Date().toISOString(),
-                    dataSource: 'user-entered', // Mark as user data (highest priority)
-                    eligible: hours < 200
-                };
+                    email: email
+                });
 
-                // Close form and rebuild leaderboard
                 closeVerificationForm();
-                buildLeaderboard();
-
-                // Show confirmation
-                alert(`Thank you ${pilotName}! Your PIC hours (${hours}) have been verified and saved.`);
+                alert(`A verification link was sent to ${email}. Open it to confirm ${pilotName}'s PIC hours.`);
             } catch (error) {
-                console.error('Failed to save verification:', error);
-                alert('Failed to save verification. Please try again or contact support.');
-
-                // Reset button
+                console.error('Failed to request verification:', error);
+                alert(error.message || 'Failed to send verification email. Please try again or contact support.');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         }
 
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCXkPOue3IVoSRCYYYoudxHo_hFl-a_TxY",
-            authDomain: "australian-leaderboard.firebaseapp.com",
-            projectId: "australian-leaderboard",
-            storageBucket: "australian-leaderboard.firebasestorage.app",
-            messagingSenderId: "839850033533",
-            appId: "1:839850033533:web:083b21b92572efff878c14"
-        };
-
-        // Initialize Firebase (loaded from CDN)
-        let db = null;
-
-        async function initializeFirebase() {
-            try {
-                // Firebase is loaded via CDN in the HTML
-                if (typeof firebase !== 'undefined') {
-                    firebase.initializeApp(firebaseConfig);
-                    db = firebase.firestore();
-                    console.log('Firebase initialized successfully');
-                } else {
-                    console.warn('Firebase not loaded - using localStorage fallback');
-                }
-            } catch (error) {
-                console.warn('Firebase initialization failed - using localStorage fallback:', error);
-            }
-        }
-
-        async function saveVerificationToDatabase(pilotId, pilotName, hours, dataSource = 'user-entered') {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                console.log('Verification writes are disabled; skipping remote/local write.');
-                return;
-            }
-            const verificationData = {
-                pilotId: pilotId,
-                pilotName: pilotName,
-                picHours: hours,
-                verifiedDate: new Date().toISOString(),
-                eligible: hours < 200,
-                dataSource: dataSource,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            };
-
-            if (db) {
-                try {
-                    console.log('Attempting to save verification data:', JSON.stringify(verificationData, null, 2));
-                    // Save to Firebase Firestore
-                    await db.collection('pilot_verifications').doc(pilotId).set(verificationData);
-                    console.log('Verification saved to Firebase');
-                    return;
-                } catch (error) {
-                    console.error('Firebase save failed:', error);
-                    console.error('Error details:', error.code, error.message);
-                    console.error('Data that failed:', JSON.stringify(verificationData, null, 2));
-                    // Fall back to localStorage
-                }
-            }
-
-            // Fallback to localStorage
-            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"picHoursVerifications": {}, "dobVerifications": {}}');
-            localData.picHoursVerifications = localData.picHoursVerifications || {};
-            localData.picHoursVerifications[pilotId] = {
-                pilotName: pilotName,
-                picHours: hours,
-                verifiedDate: new Date().toISOString(),
-                eligible: hours < 200
-            };
-            localStorage.setItem('pilot_verifications', JSON.stringify(localData));
-            console.log('Verification saved to localStorage (fallback)');
-        }
-
-        // Mass Firebase sync function - triggered by URL parameter
-        async function massFirebaseSync() {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                console.log('Verification writes are disabled; skipping mass Firebase sync.');
-                return;
-            }
-            if (!db) {
-                console.log('⚠️ Firebase not initialized - cannot perform mass sync');
-                return;
-            }
-
-            console.log('🔄 Starting mass Firebase sync of all WeGlide verification data...');
-
-            let successCount = 0;
-            let skipCount = 0;
-            let errorCount = 0;
-
-            // Get all WeGlide-calculated verifications
-            const allVerifications = Object.entries(pilotVerifications.picHoursVerifications || {})
-                .filter(([pilotId, data]) => data.dataSource === 'weglide-calculated');
-
-            console.log('📊 Found ' + allVerifications.length + ' WeGlide verifications to sync');
-
-            for (const [pilotId, verificationData] of allVerifications) {
-                try {
-                    // Check if this pilot already exists in Firebase
-                    const existingDoc = await db.collection('pilot_verifications').doc(pilotId).get();
-
-                    if (existingDoc.exists) {
-                        const existingData = existingDoc.data();
-                        // Don't overwrite user-entered data
-                        if (existingData.dataSource === 'user-entered') {
-                            skipCount++;
-                            continue;
-                        }
-                    }
-
-                    // Push to Firebase
-                    const firebaseData = {
-                        pilotId: pilotId,
-                        pilotName: verificationData.pilotName,
-                        picHours: verificationData.picHours,
-                        verifiedDate: verificationData.verifiedDate,
-                        eligible: verificationData.eligible,
-                        dataSource: verificationData.dataSource,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    };
-
-                    // Only include calculation if it exists and has no undefined values
-                    if (verificationData.calculation &&
-                        typeof verificationData.calculation === 'object' &&
-                        Object.values(verificationData.calculation).every(val => val !== undefined)) {
-                        firebaseData.calculation = verificationData.calculation;
-                    }
-
-                    await db.collection('pilot_verifications').doc(pilotId).set(firebaseData);
-                    successCount++;
-
-                    // Progress update and throttle
-                    if (successCount % 25 === 0) {
-                        console.log('   📤 Synced ' + successCount + ' verifications...');
-                        await new Promise(resolve => setTimeout(resolve, 100));
-                    }
-
-                } catch (error) {
-                    console.error('❌ Failed to sync pilot ' + pilotId + ' (' + verificationData.pilotName + '):', error.message);
-                    errorCount++;
-                }
-            }
-
-            console.log('📊 Mass Firebase Sync Complete:');
-            if (successCount > 0) {
-                console.log('✅ Successfully synced ' + successCount + ' WeGlide verifications');
-            }
-            if (skipCount > 0) {
-                console.log('⏭️ Skipped ' + skipCount + ' pilots (user data preserved)');
-            }
-            if (errorCount > 0) {
-                console.log('⚠️ Failed to sync ' + errorCount + ' verifications');
-            }
-
-            // Update URL to remove the parameter so sync doesn't run again on refresh
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.delete('sync_firebase');
-            window.history.replaceState({}, '', newUrl);
-            console.log('🔧 Removed sync_firebase parameter from URL');
-        }
-
-        async function saveDOBVerificationToDatabase(pilotId, pilotName, dateOfBirth) {
-            if (!ALLOW_PUBLIC_VERIFICATION_WRITE) {
-                console.log('DOB verification writes are disabled; skipping remote/local write.');
-                return;
-            }
-            const verificationData = {
-                pilotId: pilotId,
-                pilotName: pilotName,
-                dateOfBirth: dateOfBirth,
-                verifiedDate: new Date().toISOString(),
-                dataSource: 'user-entered',
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            };
-
-            if (db) {
-                try {
-                    // Save to Firebase Firestore
-                    await db.collection('dob_verifications').doc(pilotId).set(verificationData);
-                    console.log('DOB verification saved to Firebase');
-                    return;
-                } catch (error) {
-                    console.error('Firebase DOB save failed:', error);
-                    // Fall back to localStorage
-                }
-            }
-
-            // Fallback to localStorage
-            const localData = JSON.parse(localStorage.getItem('pilot_verifications') || '{"picHoursVerifications": {}, "dobVerifications": {}}');
-            localData.dobVerifications = localData.dobVerifications || {};
-            localData.dobVerifications[pilotId] = {
-                pilotName: pilotName,
-                dateOfBirth: dateOfBirth,
-                verifiedDate: new Date().toISOString()
-            };
-            localStorage.setItem('pilot_verifications', JSON.stringify(localData));
-            console.log('DOB verification saved to localStorage (fallback)');
-        }
-
         async function loadVerificationsFromDatabase() {
-            if (db) {
-                try {
-                    // Load PIC hours verifications
-                    const picSnapshot = await db.collection('pilot_verifications').get();
-                    const picVerifications = {};
-                    picSnapshot.forEach(doc => {
-                        const data = doc.data();
-                        picVerifications[doc.id] = {
-                            pilotName: data.pilotName,
-                            picHours: data.picHours,
-                            verifiedDate: data.verifiedDate,
-                            eligible: data.eligible,
-                            dataSource: data.dataSource || 'user-entered' // Default to user-entered for backward compatibility
-                        };
-                    });
+            try {
+                const response = await fetch(VERIFICATION_STATE_ENDPOINT, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-                    // Load DOB verifications
-                    const dobSnapshot = await db.collection('dob_verifications').get();
-                    const dobVerifications = {};
-                    dobSnapshot.forEach(doc => {
-                        const data = doc.data();
-                        dobVerifications[doc.id] = {
-                            pilotName: data.pilotName,
-                            dateOfBirth: data.dateOfBirth,
-                            verifiedDate: data.verifiedDate,
-                            dataSource: data.dataSource || 'user-entered' // Default to user-entered for backward compatibility
-                        };
-                    });
-
-                    // Merge with embedded data and update pilotVerifications
-                    pilotVerifications.picHoursVerifications = {
-                        ...pilotVerifications.picHoursVerifications,
-                        ...picVerifications
-                    };
-                    pilotVerifications.dobVerifications = {
-                        ...pilotVerifications.dobVerifications,
-                        ...dobVerifications
-                    };
-
-                    console.log(`Loaded ${Object.keys(picVerifications).length} PIC hour verifications from Firebase`);
-                    console.log(`Loaded ${Object.keys(dobVerifications).length} DOB verifications from Firebase`);
-                    return;
-                } catch (error) {
-                    console.error('Failed to load verifications from Firebase:', error);
+                if (!response.ok) {
+                    throw new Error(`Verification state request failed: ${response.status}`);
                 }
-            }
 
-            // Fallback to localStorage
-            const localData = localStorage.getItem('pilot_verifications');
-            if (localData) {
-                try {
-                    const parsed = JSON.parse(localData);
+                const remoteData = await response.json();
+                pilotVerifications.picHoursVerifications = {
+                    ...pilotVerifications.picHoursVerifications,
+                    ...(remoteData.picHoursVerifications || {})
+                };
+                pilotVerifications.dobVerifications = {
+                    ...pilotVerifications.dobVerifications,
+                    ...(remoteData.dobVerifications || {})
+                };
 
-                    if (parsed.picHoursVerifications) {
-                        pilotVerifications.picHoursVerifications = {
-                            ...pilotVerifications.picHoursVerifications,
-                            ...parsed.picHoursVerifications
-                        };
-                        console.log(`Loaded ${Object.keys(parsed.picHoursVerifications).length} PIC hour verifications from localStorage`);
-                    }
-
-                    if (parsed.dobVerifications) {
-                        pilotVerifications.dobVerifications = {
-                            ...pilotVerifications.dobVerifications,
-                            ...parsed.dobVerifications
-                        };
-                        console.log(`Loaded ${Object.keys(parsed.dobVerifications).length} DOB verifications from localStorage`);
-                    }
-
-                    // Handle old format for backward compatibility
-                    if (parsed.verifications && !parsed.picHoursVerifications) {
-                        pilotVerifications.picHoursVerifications = {
-                            ...pilotVerifications.picHoursVerifications,
-                            ...parsed.verifications
-                        };
-                        console.log(`Migrated ${Object.keys(parsed.verifications).length} old format verifications`);
-                    }
-                } catch (e) {
-                    console.warn('Failed to parse localStorage verification data:', e);
-                }
+                console.log(`Loaded ${Object.keys(remoteData.picHoursVerifications || {}).length} PIC hour verifications from API`);
+                console.log(`Loaded ${Object.keys(remoteData.dobVerifications || {}).length} DOB verifications from API`);
+            } catch (error) {
+                console.error('Failed to load verifications from API:', error);
             }
         }
 
         document.addEventListener('DOMContentLoaded', async function() {
             updateSeasonFooterText();
-
-            // Initialize Firebase
-            await initializeFirebase();
 
             // Load verification data from database
             await loadVerificationsFromDatabase();
@@ -5244,15 +4977,6 @@ No maximum distance bonus`,
 
             // Initialize tooltips
             addTooltipListeners();
-
-            // Check for mass Firebase sync URL parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('sync_firebase') === 'true' && db) {
-                console.log('🔄 Mass Firebase sync triggered by URL parameter...');
-                setTimeout(() => {
-                    massFirebaseSync();
-                }, 2000); // Give Firebase extra time to initialize
-            }
 
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
@@ -5505,6 +5229,6 @@ No maximum distance bonus`,
         })();
     </script>
         
-<!-- Generated at 2026-03-06T02:00:08.129Z -->
+<!-- Generated at 2026-03-06T22:21:02.190Z -->
 </body>
 </html>
