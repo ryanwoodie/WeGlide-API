@@ -15,3 +15,5 @@ australian_flights_2025_details.jsonl
 canadian_flights_2026_details.jsonl
 canadian_flights_2025.json
 *.xlsx
+!canadian_flights_2026_details.jsonl
+!canadian_user_profiles.json

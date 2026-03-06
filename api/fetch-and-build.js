@@ -3,12 +3,18 @@ const path = require('path');
 const https = require('https');
 const readline = require('readline');
 const { spawn } = require('child_process');
+const { get: getBlob, list: listBlobs, put: putBlob } = require('@vercel/blob');
 
 // Prefer Vercel Blob for persistence when available; fall back to local FS during dev
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN || null;
-const BLOB_BASE_URL = process.env.BLOB_BASE_URL || 'https://blob.vercel-storage.com';
 const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
 const PROFILES_BLOB_KEY = process.env.PROFILES_BLOB_KEY || 'canadian_user_profiles.json';
+const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
+const BOOTSTRAP_FILES = {
+    [DATASET_BLOB_KEY]: path.join(process.cwd(), 'bootstrap', 'canadian_flights_2026_details.bootstrap'),
+    [PROFILES_BLOB_KEY]: path.join(process.cwd(), 'bootstrap', 'canadian_user_profiles.bootstrap')
+};
 
 const usingBlob = () => Boolean(BLOB_TOKEN);
 const TMP_DIR = usingBlob() ? '/tmp' : process.cwd();
@@ -36,53 +42,87 @@ function log(...args) {
 }
 
 
-async function resolveLatestBlobUrl(key) {
-    if (!usingBlob()) return null;
-    const listUrl = `${BLOB_BASE_URL.replace(/\/$/, '')}?limit=500`;
-    const response = await fetch(listUrl, {
-        headers: { Authorization: `Bearer ${BLOB_TOKEN}` }
-    });
-    if (!response.ok) {
-        log(`Blob list failed: ${response.status}`);
-        return null;
+function getBlobPrefix(key) {
+    const extension = path.extname(key);
+    return extension ? key.slice(0, -extension.length) : key;
+}
+
+function matchesLogicalBlobKey(pathname, key) {
+    if (pathname === key) {
+        return true;
     }
-    const data = await response.json();
-    const matches = (data.blobs || []).filter(b => b.pathname === key);
+
+    const extension = path.extname(key);
+    if (!extension) {
+        return pathname.startsWith(`${key}-`);
+    }
+
+    const prefix = key.slice(0, -extension.length);
+    return pathname.startsWith(`${prefix}-`) && pathname.endsWith(extension);
+}
+
+async function resolveLatestBlob(key) {
+    if (!usingBlob()) return null;
+
+    let cursor;
+    const matches = [];
+
+    do {
+        const response = await listBlobs({
+            limit: 1000,
+            prefix: getBlobPrefix(key),
+            cursor,
+            token: BLOB_TOKEN
+        });
+
+        matches.push(...response.blobs.filter(blob => matchesLogicalBlobKey(blob.pathname, key)));
+        cursor = response.hasMore ? response.cursor : undefined;
+    } while (cursor);
+
     if (matches.length === 0) {
         log(`No blob matches for key: ${key}`);
         return null;
     }
+
     matches.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
-    log(`Resolved blob for ${key}: ${matches[0].url}`);
-    return matches[0].url;
+    log(`Resolved blob for ${key}: ${matches[0].pathname}`);
+    return matches[0];
+}
+
+async function readBlobStreamAsText(stream) {
+    return new Response(stream).text();
 }
 
 async function blobFetchText(key) {
     if (!usingBlob()) return null;
-    const url = await resolveLatestBlobUrl(key);
-    if (!url) return null;
+    const blob = await resolveLatestBlob(key);
+    if (!blob) return null;
 
-    const res = await fetch(url);
-    if (res.status === 404) return null;
-    if (!res.ok) {
-        throw new Error(`Blob fetch failed for ${key} (url: ${url}): ${res.status} ${res.statusText}`);
+    const result = await getBlob(blob.url, {
+        access: 'public',
+        token: BLOB_TOKEN
+    });
+
+    if (!result) {
+        return null;
     }
-    return res.text();
+
+    if (result.statusCode !== 200 || !result.stream) {
+        throw new Error(`Blob fetch failed for ${key} (${blob.pathname}): status ${result.statusCode}`);
+    }
+
+    return readBlobStreamAsText(result.stream);
 }
 
 async function blobPutText(key, body, contentType = 'application/octet-stream') {
     if (!usingBlob()) return;
-    const res = await fetch(`${BLOB_BASE_URL.replace(/\/$/, '')}/${key}?access=public`, {
-        method: 'PUT',
-        headers: {
-            Authorization: `Bearer ${BLOB_TOKEN}`,
-            'Content-Type': contentType
-        },
-        body
+    await putBlob(key, body, {
+        access: 'public',
+        token: BLOB_TOKEN,
+        contentType,
+        addRandomSuffix: false,
+        allowOverwrite: true
     });
-    if (!res.ok) {
-        throw new Error(`Blob write failed for ${key}: ${res.status} ${res.statusText}`);
-    }
 }
 
 function jsonRequest(url, { method = 'GET', body = null, headers = {} } = {}) {
@@ -136,14 +176,95 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function getRepoFilePath(filename) {
+    return path.join(process.cwd(), filename);
+}
+
+async function fetchGithubRepoText(filename) {
+    const encodedPath = filename.split('/').map(segment => encodeURIComponent(segment)).join('/');
+    const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${encodedPath}?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+    const headers = {
+        'Accept': 'application/vnd.github.raw',
+        'User-Agent': 'SAC-Leaderboard-Bot/1.0'
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+        headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
+    const response = await fetch(url, { headers });
+    if (response.status === 404) {
+        return null;
+    }
+    if (!response.ok) {
+        throw new Error(`GitHub fetch failed for ${filename}: ${response.status} ${response.statusText}`);
+    }
+    return response.text();
+}
+
+async function loadPersistentText(filename) {
+    const repoPath = getRepoFilePath(filename);
+    if (fs.existsSync(repoPath)) {
+        return fs.readFileSync(repoPath, 'utf8');
+    }
+
+    const bootstrapPath = BOOTSTRAP_FILES[filename];
+    if (bootstrapPath && fs.existsSync(bootstrapPath)) {
+        return fs.readFileSync(bootstrapPath, 'utf8');
+    }
+
+    try {
+        const githubText = await fetchGithubRepoText(filename);
+        if (githubText) {
+            return githubText;
+        }
+    } catch (error) {
+        log(`GitHub fallback failed for ${filename}: ${error.message}`);
+    }
+
+    if (!usingBlob()) {
+        return null;
+    }
+
+    try {
+        return await blobFetchText(filename);
+    } catch (error) {
+        log(`Blob fallback failed for ${filename}: ${error.message}`);
+        return null;
+    }
+}
+
 async function loadExistingFlights() {
     const ids = new Set();
     let total = 0;
     let latestDate = null;
 
     let sourceStream;
-    if (usingBlob()) {
-        const text = await blobFetchText(DATASET_BLOB_KEY);
+    if (fs.existsSync(DATASET_FILE)) {
+        sourceStream = fs.createReadStream(DATASET_FILE);
+        const rl = readline.createInterface({ input: sourceStream, crlfDelay: Infinity });
+
+        for await (const line of rl) {
+            const trimmed = line.trim();
+            if (!trimmed) continue;
+            try {
+                const flight = JSON.parse(trimmed);
+                total += 1;
+                if (flight.id) {
+                    ids.add(flight.id);
+                }
+                if (flight.scoring_date) {
+                    const timestamp = Date.parse(flight.scoring_date);
+                    if (!Number.isNaN(timestamp) && (!latestDate || timestamp > latestDate)) {
+                        latestDate = timestamp;
+                    }
+                }
+            } catch (error) {
+                log('Skipping invalid flight row:', error.message);
+            }
+        }
+    } else if (usingBlob()) {
+        const text = await loadPersistentText(DATASET_BLOB_KEY);
         if (!text) return { ids, total, latestDate };
         // Simulate streaming by iterating lines
         const lines = text.split('\n');
@@ -270,6 +391,13 @@ async function fetchFlightDetails(flights) {
 }
 
 async function appendFlightsToDataset(newFlightDetails) {
+    if (!fs.existsSync(DATASET_FILE)) {
+        const datasetText = await loadPersistentText(DATASET_BLOB_KEY);
+        if (datasetText) {
+            fs.writeFileSync(DATASET_FILE, datasetText);
+        }
+    }
+
     const payload = newFlightDetails.map(flight => JSON.stringify(flight)).join('\n') + '\n';
 
     // Write to the working dataset file in /tmp or local directory
@@ -280,21 +408,19 @@ async function appendFlightsToDataset(newFlightDetails) {
         stream.write(payload);
         stream.end();
     });
-
-    // Also update the repository file for persistence
-    const repoDatasetPath = path.join(process.cwd(), 'canadian_flights_2026_details.jsonl');
-    await new Promise((resolve, reject) => {
-        const stream = fs.createWriteStream(repoDatasetPath, { flags: 'a' });
-        stream.on('error', reject);
-        stream.on('finish', resolve);
-        stream.write(payload);
-        stream.end();
-    });
 }
 
 async function loadProfiles() {
+    if (fs.existsSync(PROFILES_FILE)) {
+        try {
+            return JSON.parse(fs.readFileSync(PROFILES_FILE, 'utf8'));
+        } catch (error) {
+            log('Failed to parse working profiles file, rebuilding from persistence:', error.message);
+        }
+    }
+
     if (usingBlob()) {
-        const text = await blobFetchText(PROFILES_BLOB_KEY);
+        const text = await loadPersistentText(PROFILES_BLOB_KEY);
         if (!text) return {};
         try {
             return JSON.parse(text);
@@ -337,12 +463,7 @@ async function fetchUserProfiles(pilotIds) {
 function persistProfiles(profiles) {
     const serialized = JSON.stringify(profiles, null, 2);
 
-    // Write to working directory
     fs.writeFileSync(PROFILES_FILE, serialized);
-
-    // Also write to repository for persistence
-    const repoProfilesPath = path.join(process.cwd(), 'canadian_user_profiles.json');
-    fs.writeFileSync(repoProfilesPath, serialized);
 }
 
 async function computeSeasonSecondsForPilots(pilotIds) {
@@ -352,9 +473,13 @@ async function computeSeasonSecondsForPilots(pilotIds) {
     }
     const pilotSet = new Set(pilotIds.map(id => Number(id)));
     const baselineTimestamp = Date.parse(`${SEASON_BASELINE_DATE}T00:00:00Z`);
-    const text = usingBlob() ? await blobFetchText(DATASET_BLOB_KEY) : null;
-    if (usingBlob()) {
-        if (!text) return totals;
+    let text = null;
+    if (fs.existsSync(DATASET_FILE)) {
+        text = fs.readFileSync(DATASET_FILE, 'utf8');
+    } else {
+        text = await loadPersistentText(DATASET_BLOB_KEY);
+    }
+    if (text) {
         const lines = text.split('\n');
         for (const line of lines) {
             const trimmed = line.trim();
@@ -492,25 +617,147 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
 const builder = require('../create_canadian_leaderboard_from_jsonl.js');
 
 async function ensureLocalCopiesFromRepo() {
-    // Bootstrap from local repository files (no longer using blob storage)
-
-    // 1. Dataset Bootstrap
-    const localDatasetPath = path.join(process.cwd(), 'canadian_flights_2026_details.jsonl');
-    if (fs.existsSync(localDatasetPath)) {
-        log('Loading dataset from repository file...');
-        const content = fs.readFileSync(localDatasetPath, 'utf8');
-        fs.writeFileSync(DATASET_FILE, content);
-    } else if (!fs.existsSync(DATASET_FILE)) {
-        throw new Error('Dataset file not found in repository; cannot build leaderboard');
+    if (!fs.existsSync(DATASET_FILE)) {
+        const datasetText = await loadPersistentText('canadian_flights_2026_details.jsonl');
+        if (datasetText) {
+            log('Loading dataset from repository/GitHub persistence...');
+            fs.writeFileSync(DATASET_FILE, datasetText);
+        } else {
+            throw new Error('Dataset file not found in repository; cannot build leaderboard');
+        }
     }
 
-    // 2. Profiles Bootstrap
-    const localProfilesPath = path.join(process.cwd(), 'canadian_user_profiles.json');
-    if (fs.existsSync(localProfilesPath)) {
-        log('Loading profiles from repository file...');
-        const content = fs.readFileSync(localProfilesPath, 'utf8');
-        fs.writeFileSync(PROFILES_FILE, content);
+    if (!fs.existsSync(PROFILES_FILE)) {
+        const profilesText = await loadPersistentText('canadian_user_profiles.json');
+        if (profilesText) {
+            log('Loading profiles from repository/GitHub persistence...');
+            fs.writeFileSync(PROFILES_FILE, profilesText);
+        }
     }
+}
+
+async function syncArtifactsToGitHub(artifacts) {
+    if (!process.env.GITHUB_TOKEN) {
+        return { pushed: false, skipped: true, reason: 'GITHUB_TOKEN not set' };
+    }
+
+    const githubHeaders = (accept = 'application/vnd.github+json') => ({
+        'Accept': accept,
+        'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+        'User-Agent': 'SAC-Leaderboard-Bot/1.0',
+        'X-GitHub-Api-Version': '2022-11-28'
+    });
+
+    const encodedBranch = encodeURIComponent(GITHUB_BRANCH);
+    const apiBase = `https://api.github.com/repos/${GITHUB_REPO}`;
+
+    const refResponse = await fetch(`${apiBase}/git/ref/heads/${encodedBranch}`, {
+        headers: githubHeaders()
+    });
+    if (!refResponse.ok) {
+        const details = await refResponse.text();
+        throw new Error(`GitHub ref lookup failed: ${refResponse.status} ${refResponse.statusText} ${details}`);
+    }
+    const refData = await refResponse.json();
+    const currentCommitSha = refData.object.sha;
+
+    const commitResponse = await fetch(`${apiBase}/git/commits/${currentCommitSha}`, {
+        headers: githubHeaders()
+    });
+    if (!commitResponse.ok) {
+        const details = await commitResponse.text();
+        throw new Error(`GitHub commit lookup failed: ${commitResponse.status} ${commitResponse.statusText} ${details}`);
+    }
+    const commitData = await commitResponse.json();
+
+    const changedArtifacts = [];
+    for (const artifact of artifacts) {
+        if (!artifact || !fs.existsSync(artifact.localPath)) {
+            continue;
+        }
+
+        const localContent = fs.readFileSync(artifact.localPath, 'utf8');
+        let remoteContent = null;
+        try {
+            remoteContent = await fetchGithubRepoText(artifact.repoPath);
+        } catch (error) {
+            log(`GitHub compare failed for ${artifact.repoPath}: ${error.message}`);
+        }
+
+        if (remoteContent === localContent) {
+            continue;
+        }
+
+        const blobResponse = await fetch(`${apiBase}/git/blobs`, {
+            method: 'POST',
+            headers: Object.assign({ 'Content-Type': 'application/json' }, githubHeaders()),
+            body: JSON.stringify({
+                content: Buffer.from(localContent, 'utf8').toString('base64'),
+                encoding: 'base64'
+            })
+        });
+        if (!blobResponse.ok) {
+            const details = await blobResponse.text();
+            throw new Error(`GitHub blob create failed for ${artifact.repoPath}: ${blobResponse.status} ${blobResponse.statusText} ${details}`);
+        }
+
+        const blobData = await blobResponse.json();
+        changedArtifacts.push({
+            path: artifact.repoPath,
+            mode: '100644',
+            type: 'blob',
+            sha: blobData.sha
+        });
+    }
+
+    if (!changedArtifacts.length) {
+        return { pushed: false, skipped: true, reason: 'No changes to commit' };
+    }
+
+    const timestamp = new Date().toISOString();
+    const treeResponse = await fetch(`${apiBase}/git/trees`, {
+        method: 'POST',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, githubHeaders()),
+        body: JSON.stringify({
+            base_tree: commitData.tree.sha,
+            tree: changedArtifacts
+        })
+    });
+    if (!treeResponse.ok) {
+        const details = await treeResponse.text();
+        throw new Error(`GitHub tree create failed: ${treeResponse.status} ${treeResponse.statusText} ${details}`);
+    }
+    const treeData = await treeResponse.json();
+
+    const newCommitResponse = await fetch(`${apiBase}/git/commits`, {
+        method: 'POST',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, githubHeaders()),
+        body: JSON.stringify({
+            message: `Auto-update leaderboard - ${timestamp}`,
+            tree: treeData.sha,
+            parents: [currentCommitSha]
+        })
+    });
+    if (!newCommitResponse.ok) {
+        const details = await newCommitResponse.text();
+        throw new Error(`GitHub commit create failed: ${newCommitResponse.status} ${newCommitResponse.statusText} ${details}`);
+    }
+    const newCommitData = await newCommitResponse.json();
+
+    const updateRefResponse = await fetch(`${apiBase}/git/refs/heads/${encodedBranch}`, {
+        method: 'PATCH',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, githubHeaders()),
+        body: JSON.stringify({
+            sha: newCommitData.sha,
+            force: false
+        })
+    });
+    if (!updateRefResponse.ok) {
+        const details = await updateRefResponse.text();
+        throw new Error(`GitHub ref update failed: ${updateRefResponse.status} ${updateRefResponse.statusText} ${details}`);
+    }
+
+    return { pushed: true, skipped: false, files: changedArtifacts.map(file => file.path) };
 }
 
 async function runLeaderboardBuild() {
@@ -576,6 +823,8 @@ async function runFetchAndBuild(options = {}) {
         summary.meta.existingFlights = existing.total;
         summary.meta.latestFlightDate = existing.latestDate;
         summary.meta.persistence = usingBlob() ? 'blob' : 'filesystem';
+
+        await ensureLocalCopiesFromRepo();
 
         const newFlights = await fetchRecentFlights(existing.ids, options.limitOverride);
         summary.meta.newFlights = newFlights.length;
@@ -646,76 +895,51 @@ async function runFetchAndBuild(options = {}) {
         const firebaseSummary = await uploadPilotVerifications(newProfiles, seasonSecondsMap);
         summary.meta.firebase = firebaseSummary;
 
-        // Ensure local copies exist for the build step from repository
-        await ensureLocalCopiesFromRepo();
-
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
 
-        // Copy generated files to public/ directory for static serving
-        const publicDir = path.join(process.cwd(), 'public');
-        if (!fs.existsSync(publicDir)) {
-            fs.mkdirSync(publicDir, { recursive: true });
-        }
-
         summary.logs = [];
-        const htmlFiles = ['SAC_leaderboard_sac_dsc.html', 'SAC_leaderboard.html', 'leaderboard_data.json'];
-        let filesUpdated = false;
-        for (const file of htmlFiles) {
-            const sourcePath = path.join(TMP_DIR, file);
-            const destPath = path.join(publicDir, file);
-            if (fs.existsSync(sourcePath)) {
-                fs.copyFileSync(sourcePath, destPath);
-                filesUpdated = true;
-                const msg = `Successfully copied ${file} to public/ directory.`;
-                log(msg);
-                summary.logs.push(msg);
-            } else {
-                const msg = `Warning: ${file} not found at ${sourcePath}. Not copied.`;
-                log(msg);
-                summary.logs.push(msg);
+        const publicArtifacts = [
+            { repoPath: 'public/SAC_leaderboard_sac_dsc.html', localPath: path.join(TMP_DIR, 'SAC_leaderboard_sac_dsc.html') },
+            { repoPath: 'public/SAC_leaderboard.html', localPath: path.join(TMP_DIR, 'SAC_leaderboard.html') },
+            { repoPath: 'public/leaderboard_data.json', localPath: path.join(TMP_DIR, 'leaderboard_data.json') }
+        ];
+        const persistenceArtifacts = [
+            { repoPath: 'canadian_flights_2026_details.jsonl', localPath: DATASET_FILE },
+            { repoPath: 'canadian_user_profiles.json', localPath: PROFILES_FILE },
+            ...publicArtifacts
+        ];
+
+        if (TMP_DIR === process.cwd()) {
+            const publicDir = path.join(process.cwd(), 'public');
+            if (!fs.existsSync(publicDir)) {
+                fs.mkdirSync(publicDir, { recursive: true });
             }
-        }
 
-        // Auto-commit updated files to repository if GITHUB_TOKEN is available
-        if (filesUpdated && process.env.GITHUB_TOKEN) {
-            try {
-                const { execSync } = require('child_process');
-
-                // Configure git
-                execSync('git config user.name "Vercel Bot"');
-                execSync('git config user.email "bot@vercel.com"');
-
-                // Only commit the public/ directory (not the large dataset files)
-                execSync('git add public/');
-
-                // Check if there are changes
-                const status = execSync('git status --porcelain').toString();
-                if (status.trim()) {
-                    // Commit with timestamp
-                    const timestamp = new Date().toISOString();
-                    execSync(`git commit -m "Auto-update leaderboard - ${timestamp}"`);
-
-                    // Push using GitHub token
-                    const repoUrl = `https://${process.env.GITHUB_TOKEN}@github.com/ryanwoodie/WeGlide-API.git`;
-                    execSync(`git push ${repoUrl} HEAD:main`);
-
-                    const msg = 'Successfully committed and pushed updated files to repository.';
+            for (const artifact of publicArtifacts) {
+                const sourcePath = artifact.localPath;
+                const destPath = path.join(process.cwd(), artifact.repoPath);
+                if (fs.existsSync(sourcePath)) {
+                    fs.copyFileSync(sourcePath, destPath);
+                    const msg = `Successfully copied ${path.basename(sourcePath)} to ${artifact.repoPath}.`;
                     log(msg);
                     summary.logs.push(msg);
                 } else {
-                    const msg = 'No changes to commit.';
+                    const msg = `Warning: ${path.basename(sourcePath)} not found at ${sourcePath}. Not copied.`;
                     log(msg);
                     summary.logs.push(msg);
                 }
-            } catch (error) {
-                const msg = `Git commit failed: ${error.message}`;
-                log(msg);
-                summary.logs.push(msg);
-                // Don't fail the entire build if git commit fails
             }
-        } else if (filesUpdated && !process.env.GITHUB_TOKEN) {
-            const msg = 'GITHUB_TOKEN not set - skipping auto-commit. Files updated locally only.';
+        }
+
+        const syncSummary = await syncArtifactsToGitHub(persistenceArtifacts);
+        summary.meta.gitSync = syncSummary;
+        if (syncSummary.pushed) {
+            const msg = `Synced ${syncSummary.files.length} artifact(s) to GitHub.`;
+            log(msg);
+            summary.logs.push(msg);
+        } else {
+            const msg = `GitHub sync skipped: ${syncSummary.reason}`;
             log(msg);
             summary.logs.push(msg);
         }
