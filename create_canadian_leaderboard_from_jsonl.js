@@ -3926,7 +3926,7 @@ No maximum distance bonus\`,
                     </div>
                 </div>
             \`;
-            document.body.appendChild(overlay);
+            openVerificationOverlay(overlay);
         }
 
         // Add keyboard shortcut for admin panel (Ctrl+Shift+A)
@@ -3944,6 +3944,17 @@ No maximum distance bonus\`,
 
         function isValidVerificationEmail(email) {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function openVerificationOverlay(overlay) {
+            closeVerificationForm();
+            document.body.classList.add('verification-modal-open');
+            document.body.appendChild(overlay);
+
+            const form = overlay.querySelector('.verification-form');
+            if (form) {
+                form.scrollTop = 0;
+            }
         }
 
         async function requestVerificationEmail(payload) {
@@ -3993,7 +4004,7 @@ No maximum distance bonus\`,
                     </div>
                 </div>
             \`;
-            document.body.appendChild(overlay);
+            openVerificationOverlay(overlay);
         }
 
         async function submitDOBVerification(pilotId, pilotName) {
@@ -4145,7 +4156,7 @@ No maximum distance bonus\`,
                     </div>
                 </div>
             \`;
-            document.body.appendChild(overlay);
+            openVerificationOverlay(overlay);
         }
 
         function closeVerificationForm() {
@@ -4153,6 +4164,7 @@ No maximum distance bonus\`,
             if (overlay) {
                 overlay.remove();
             }
+            document.body.classList.remove('verification-modal-open');
         }
 
         async function submitVerification(pilotId, pilotName) {
@@ -5402,17 +5414,26 @@ No maximum distance bonus\`,
             overflow-y: auto;
         }
 
+        body.verification-modal-open {
+            overflow: hidden;
+        }
+
         .verification-form {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
             background: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             max-width: 500px;
-            width: 90%;
+            width: min(500px, calc(100vw - 32px));
             text-align: center;
-            margin: auto;
+            margin: 0;
             max-height: calc(100dvh - 32px);
             overflow-y: auto;
+            box-sizing: border-box;
         }
 
         .verification-form h3 {
@@ -5481,6 +5502,22 @@ No maximum distance bonus\`,
 
         .verification-form .cancel-btn:hover {
             background-color: #5a6268;
+        }
+
+        @media (max-width: 640px) {
+            .verification-overlay {
+                padding: 12px;
+                align-items: flex-start;
+            }
+
+            .verification-form {
+                top: 12px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100vw - 24px);
+                max-height: calc(100dvh - 24px);
+                padding: 22px 16px;
+            }
         }
 
         .trophy-grid {
