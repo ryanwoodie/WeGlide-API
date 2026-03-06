@@ -1328,5 +1328,22 @@
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
     }
+  },
+  "36868": {
+    "total_flight_duration": 23602,
+    "total_free_distance": 186.77,
+    "avg_speed": 34.44,
+    "flight_count": 9,
+    "avg_glide_speed": 93.71,
+    "avg_glide_detour": 2.28,
+    "achievement_count": 0,
+    "name": "Martin Chicoine",
+    "gender": "M",
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca"
+    }
   }
 }
