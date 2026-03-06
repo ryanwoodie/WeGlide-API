@@ -10,8 +10,32 @@ const WEGLIDE_API_BASE = trimEnv(process.env.WEGLIDE_API_BASE, 'https://api.wegl
 const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
 const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
 const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
+const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 
 const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
+
+async function fetchGithubRepoText(filename) {
+    const encodedPath = filename.split('/').map(segment => encodeURIComponent(segment)).join('/');
+    const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${encodedPath}?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+    const headers = {
+        'Accept': 'application/vnd.github.raw',
+        'User-Agent': 'SAC-Leaderboard-Bot/1.0'
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+        headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
+    const response = await fetch(url, { headers });
+    if (response.status === 404) {
+        return null;
+    }
+    if (!response.ok) {
+        throw new Error(`GitHub fetch failed for ${filename}: ${response.status} ${response.statusText}`);
+    }
+    return response.text();
+}
 
 /**
  * Fetch latest Canadian flight from WeGlide API
@@ -50,15 +74,19 @@ async function getKnownFlightIds() {
     const path = require('path');
 
     try {
-        // Read from the repository dataset file
         const datasetPath = path.join(process.cwd(), DATASET_BLOB_KEY);
+        let text = null;
 
-        if (!fs.existsSync(datasetPath)) {
-            console.log('[check-flights] Dataset file not found, assuming no flights known yet');
-            return null;
+        if (fs.existsSync(datasetPath)) {
+            text = fs.readFileSync(datasetPath, 'utf8');
+        } else {
+            text = await fetchGithubRepoText(DATASET_BLOB_KEY);
+            if (!text) {
+                console.log('[check-flights] Dataset file not found locally or on GitHub, assuming no flights known yet');
+                return null;
+            }
         }
 
-        const text = fs.readFileSync(datasetPath, 'utf8');
         const lines = text.trim().split('\n');
 
         if (lines.length === 0) return null;
