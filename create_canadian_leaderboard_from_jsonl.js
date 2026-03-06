@@ -1198,6 +1198,14 @@ async function processCanadianFlights() {
         const SAC_DSC_RULES_TOOLTIP = '__SAC_DSC_RULES_TOOLTIP__';
         const USING_SAC_DSC_VARIANT = COMBINED_LABEL === 'SAC-DSC';
 
+        function isPicHoursVerifiedEntry(entry) {
+            return !!(entry && entry.dataSource && entry.dataSource !== 'weglide-calculated');
+        }
+
+        function isDobVerifiedEntry(entry) {
+            return !!(entry && entry.dateOfBirth);
+        }
+
         function updateSeasonFooterText() {
             const footer = document.getElementById('seasonFooterText');
             if (!footer) return;
@@ -2814,7 +2822,7 @@ No maximum distance bonus\`,
                 if (under200Enabled && !isSilverCGull) {
                     const pilotId = pilot.pilotId;
                     const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
-                    const isUserVerified = verificationData && verificationData.dataSource === 'user-entered';
+                    const isUserVerified = isPicHoursVerifiedEntry(verificationData);
 
                     if (isUserVerified) {
                         verificationBadge = '<div class="verification-badge verified">✓ <200hrs PIC Verified</div>';
@@ -2831,7 +2839,7 @@ No maximum distance bonus\`,
                 } else if (isSilverCGull) {
                     const pilotId = pilot.userId || pilot.pilotId;
                     const verificationData = pilotVerifications.dobVerifications && pilotVerifications.dobVerifications[pilotId];
-                    const isUserVerified = verificationData && verificationData.dataSource === 'user-entered';
+                    const isUserVerified = isDobVerifiedEntry(verificationData);
 
                     if (isUserVerified) {
                         verificationBadge = '<div class="verification-badge verified">✓ DOB Verified</div>';
@@ -2845,22 +2853,6 @@ No maximum distance bonus\`,
 
                     // Add verification elements underneath pilot name
                     pilotName = \`\${pilotName}\${verificationBadge}\${verificationButton}\`;
-                }
-
-                // Add aircraft award badges in free mode (calculated for visible pilots)
-                if (isFreeMode && visibleAwards) {
-                    const badges = [];
-                    // Check if this pilot is the best glider pilot among visible pilots
-                    if (visibleAwards.bestGliderPilotId === pilot.pilotId) {
-                        badges.push('<span class="award-badge glider" title="Best Pure Glider Free Score">🪁 Best Pure Glider</span>');
-                    }
-                    // Check if this pilot is the best motor glider pilot among visible pilots
-                    if (visibleAwards.bestMotorGliderPilotId === pilot.pilotId) {
-                        badges.push('<span class="award-badge motor-glider" title="Best Motor Glider Free Score">⚙️ Best Motor Glider</span>');
-                    }
-                    if (badges.length > 0) {
-                        pilotName = \`\${pilotName} \${badges.join('')}\`;
-                    }
                 }
 
                 // Handle different data structures
@@ -3064,8 +3056,7 @@ No maximum distance bonus\`,
             // Find verified and unverified pilots
             const getVerificationStatus = (pilot) => {
                 const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilot.pilotId];
-                // Only consider user-entered verifications, not WeGlide-calculated ones
-                return verificationData && verificationData.dataSource === 'user-entered';
+                return isPicHoursVerifiedEntry(verificationData);
             };
 
             // Get top verified pilot and any higher unverified pilots
@@ -3101,6 +3092,7 @@ No maximum distance bonus\`,
                 free: null,
                 sameWinner: false,
                 explanation: '',
+                tentativeCombined: mixed200[0] || null,
                 higherUnverifiedCombined: higherUnverifiedCombined,
                 higherUnverifiedFree: higherUnverifiedFree
             };
@@ -3112,7 +3104,9 @@ No maximum distance bonus\`,
                 result.free = topVerifiedFree;
                 result.explanation = 'Different winners in ' + COMBINED_LABEL + ' vs Free scoring - 2 awards';
             } else if (!topVerifiedCombined) {
-                result.explanation = 'No verified pilots found with <200 hours';
+                result.explanation = result.tentativeCombined
+                    ? 'Current leader is tentative until PIC hours are verified'
+                    : 'No verified pilots found with <200 hours';
             }
 
             return result;
@@ -3486,14 +3480,13 @@ No maximum distance bonus\`,
         }
 
         function formatTrophy200Winner(trophy) {
-            if (!trophy || (!trophy.combined && !trophy.free)) {
+            if (!trophy || (!trophy.combined && !trophy.free && !trophy.tentativeCombined)) {
                 return '<p class="no-winner">No eligible winner found</p>';
             }
 
             const getVerificationStatusText = (pilot) => {
                 const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilot.pilotId];
-                // Only consider user-entered verifications, not WeGlide-calculated ones
-                const isVerified = verificationData && verificationData.dataSource === 'user-entered';
+                const isVerified = isPicHoursVerifiedEntry(verificationData);
                 if (isVerified) {
                     return '<span class="verification-status verified">✓ <200hrs PIC Verified</span>';
                 } else {
@@ -3502,6 +3495,33 @@ No maximum distance bonus\`,
             };
 
             let html = '';
+            const tentativeCombinedNeedsVerification = trophy.tentativeCombined && !isPicHoursVerifiedEntry(
+                pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[trophy.tentativeCombined.pilotId]
+            );
+            const higherUnverifiedPilots = (trophy.higherUnverifiedCombined || []).filter((pilot) => {
+                if (!tentativeCombinedNeedsVerification || !trophy.tentativeCombined) {
+                    return true;
+                }
+                return pilot.pilotId !== trophy.tentativeCombined.pilotId;
+            });
+
+            if (trophy.tentativeCombined && tentativeCombinedNeedsVerification) {
+                const score = trophy.tentativeCombined.totalPoints || trophy.tentativeCombined.points || 0;
+                const verificationAction = ALLOW_PUBLIC_VERIFICATION_WRITE
+                    ? \`<button class="verify-btn unverified small" onclick="showVerificationForm('\${trophy.tentativeCombined.pilotId}', '\${trophy.tentativeCombined.pilot.replace(/'/g, '\\\'')}')" title="Verify to confirm 200 Trophy eligibility">Verify PIC hours</button>\`
+                    : '<span class="verification-status readonly">Organizer verification required</span>';
+                html += \`
+                    <div class="winner tentative-winner">
+                        <div class="winner-info">
+                            <span class="winner-name">⚑ <a href="https://www.weglide.org/user/\${trophy.tentativeCombined.pilotId}" target="_blank" class="pilot-link">\${trophy.tentativeCombined.pilot}</a></span>
+                            <span class="winner-score">\${score.toFixed(1)} pts</span>
+                        </div>
+                        <span class="winner-type">Tentative \${COMBINED_LABEL} leader</span>
+                        <span class="verification-status unverified">⚠ Needs PIC verification</span>
+                        \${verificationAction}
+                    </div>
+                \`;
+            }
 
             // Show current verified winner
             if (trophy.combined) {
@@ -3533,10 +3553,10 @@ No maximum distance bonus\`,
             }
 
             // Show higher unverified pilots that need verification (limit to top 5)
-            if (trophy.higherUnverifiedCombined && trophy.higherUnverifiedCombined.length > 0) {
+            if (higherUnverifiedPilots.length > 0) {
                 const maxShow = 5;
-                const totalUnverified = trophy.higherUnverifiedCombined.length;
-                const pilotsToShow = trophy.higherUnverifiedCombined.slice(0, maxShow);
+                const totalUnverified = higherUnverifiedPilots.length;
+                const pilotsToShow = higherUnverifiedPilots.slice(0, maxShow);
 
                 html += '<div class="unverified-leaders">';
 
@@ -3661,11 +3681,12 @@ No maximum distance bonus\`,
 
             // 200 Trophy (moved beside Canadair)
             html += \`
-                <div class="trophy-item">
+                <div class="trophy-item trophy-item-link" role="button" tabindex="0" onclick="if (event.target.closest('a,button')) return; activateUnder200FromTrophy()" onkeydown="handleTrophyItemKeydown(event, 'under200')" title="Open the <200 hrs PIC leaderboard">
                     <h4>🏆 200 Trophy</h4>
                     <p class="trophy-desc">Under 200 Hours Champion</p>
                     \${formatTrophy200Winner(trophies.trophy200)}
                     <p class="calculation-note">\${trophies.trophy200.explanation}</p>
+                    <p class="trophy-link-hint">View the &lt;200 hrs PIC leaderboard</p>
                 </div>
             \`;
 
@@ -3733,6 +3754,42 @@ No maximum distance bonus\`,
             } else {
                 content.style.display = 'none';
                 arrow.textContent = '▶';
+            }
+        }
+
+        function handleTrophyItemKeydown(event, target) {
+            if (event.key !== 'Enter' && event.key !== ' ') {
+                return;
+            }
+            event.preventDefault();
+            if (target === 'under200') {
+                activateUnder200FromTrophy();
+            }
+        }
+
+        function setUnder200Filter(enabled, options = {}) {
+            const forceMixedMode = options.forceMixedMode === true;
+            if (forceMixedMode || leaderboard === silverCGullLeaderboard) {
+                switchScoringMode('mixed');
+            }
+
+            under200Enabled = enabled;
+            const underBtn = document.getElementById('under200Btn');
+            if (underBtn) {
+                underBtn.classList.toggle('active', under200Enabled);
+            }
+            updateUnder200ButtonLabel();
+            buildLeaderboard();
+            setTimeout(() => {
+                if (typeof addTooltipListeners === 'function') addTooltipListeners();
+            }, 0);
+        }
+
+        function activateUnder200FromTrophy() {
+            setUnder200Filter(true, { forceMixedMode: true });
+            const leaderboardElement = document.querySelector('.leaderboard');
+            if (leaderboardElement) {
+                leaderboardElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
@@ -4016,7 +4073,7 @@ No maximum distance bonus\`,
                 const existingVerification = pilotVerifications.picHoursVerifications &&
                     pilotVerifications.picHoursVerifications[pilotId];
 
-                if (existingVerification && existingVerification.dataSource === 'email-verified') {
+                if (existingVerification && existingVerification.dataSource && existingVerification.dataSource !== 'weglide-calculated') {
                     continue;
                 }
 
@@ -4197,20 +4254,7 @@ No maximum distance bonus\`,
             const underBtn = document.getElementById('under200Btn');
             if (underBtn) {
                 underBtn.addEventListener('click', () => {
-                    // If currently viewing Silver C-Gull candidates, switch back to default view
-                    if (leaderboard === silverCGullLeaderboard) {
-                        switchScoringMode('mixed'); // Switch back to default mixed view
-                    }
-
-                    under200Enabled = !under200Enabled;
-                    underBtn.classList.toggle('active', under200Enabled);
-                    updateUnder200ButtonLabel();
-                    buildLeaderboard();
-                    // Re-add tooltip listeners after under 200 filter toggle
-                    setTimeout(() => {
-                        if (typeof addTooltipListeners === 'function') addTooltipListeners();
-                            }, 0);
-                    // No need to recalculate trophies - 200 Trophy is always <200 list
+                    setUnder200Filter(!under200Enabled);
                 });
                 updateUnder200ButtonLabel();
             }
@@ -4771,23 +4815,6 @@ No maximum distance bonus\`,
             background: rgba(255,193,7,0.9);
             color: #333;
             border-color: rgba(255,193,7,0.9);
-        }
-
-        /* Award badges */
-        .award-badge {
-            font-size: 0.85em;
-            margin-left: 6px;
-            opacity: 0.7;
-            display: inline;
-            white-space: nowrap;
-        }
-
-        .award-badge.glider {
-            color: #4a90e2;
-        }
-
-        .award-badge.motor-glider {
-            color: #f39c12;
         }
 
         /* Aircraft info styling */
@@ -5360,16 +5387,19 @@ No maximum distance bonus\`,
 
         /* Verification Form Overlay */
         .verification-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            position: fixed;
+            inset: 0;
+            width: auto;
             min-height: 100vh;
+            min-height: 100dvh;
             background-color: rgba(0, 0, 0, 0.7);
             z-index: 10000;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 16px;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
 
         .verification-form {
@@ -5380,6 +5410,9 @@ No maximum distance bonus\`,
             max-width: 500px;
             width: 90%;
             text-align: center;
+            margin: auto;
+            max-height: calc(100dvh - 32px);
+            overflow-y: auto;
         }
 
         .verification-form h3 {
@@ -5393,23 +5426,38 @@ No maximum distance bonus\`,
             margin: 15px 0;
         }
 
-        .verification-form input[type="number"] {
-            width: 100px;
+        .verification-form label {
+            display: block;
+            margin-top: 6px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .verification-form input[type="number"],
+        .verification-form input[type="date"],
+        .verification-form input[type="email"] {
+            width: min(100%, 280px);
             padding: 8px;
             font-size: 16px;
             border: 2px solid #ddd;
             border-radius: 5px;
             text-align: center;
-            margin: 10px;
+            margin: 10px auto 0 auto;
+            display: block;
+            box-sizing: border-box;
         }
 
         .verification-form .form-buttons {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .verification-form button {
             padding: 10px 20px;
-            margin: 5px;
+            margin: 0;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -5448,6 +5496,26 @@ No maximum distance bonus\`,
             border-left: 4px solid #ffd700;
         }
 
+        .trophy-item-link {
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        }
+
+        .trophy-item-link:hover,
+        .trophy-item-link:focus-within {
+            background: rgba(255,255,255,0.12);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+
+        .trophy-link-hint {
+            margin: 10px 0 0 0;
+            font-size: 0.8em;
+            color: #ffd700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
         .trophy-item h4 {
             margin: 0 0 8px 0;
             color: #ffd700;
@@ -5469,6 +5537,12 @@ No maximum distance bonus\`,
 
         .winner:last-child {
             border-bottom: none;
+        }
+
+        .tentative-winner {
+            border-left: 3px solid #ffd700;
+            padding-left: 8px;
+            background: rgba(255, 215, 0, 0.06);
         }
 
         .winner strong {
@@ -6109,7 +6183,7 @@ No maximum distance bonus\`,
                 const existingVerification = pilotVerificationData.picHoursVerifications[pilotId];
 
                 // Skip if user has already entered data (never overwrite user data)
-                if (existingVerification && existingVerification.dataSource === 'user-entered') {
+                if (existingVerification && existingVerification.dataSource && existingVerification.dataSource !== 'weglide-calculated') {
                     continue;
                 }
 
