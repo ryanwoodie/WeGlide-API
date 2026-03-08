@@ -1494,6 +1494,17 @@ No maximum distance bonus\`,
             return String(profile?.club?.name || '').trim();
         }
 
+        function getPilotCanadianClubName(pilot) {
+            if (!pilot) return '';
+            const pilotId = pilot.userId || pilot.pilotId;
+            const profile = getPilotProfile(pilotId);
+            const region = String(profile?.club?.region || '').trim().toUpperCase().replace(/_/g, '-');
+            if (!region.startsWith('CA-')) {
+                return '';
+            }
+            return String(profile?.club?.name || '').trim();
+        }
+
         function collectClubOptions() {
             const clubs = new Set();
             [
@@ -1506,7 +1517,7 @@ No maximum distance bonus\`,
                 silverCGullLeaderboard
             ].forEach(list => {
                 (list || []).forEach(pilot => {
-                    const clubName = getPilotClubName(pilot);
+                    const clubName = getPilotCanadianClubName(pilot);
                     if (clubName) {
                         clubs.add(clubName);
                     }
@@ -1541,7 +1552,7 @@ No maximum distance bonus\`,
             if (selectedClub === 'all') {
                 return list;
             }
-            return list.filter(pilot => getPilotClubName(pilot) === selectedClub);
+            return list.filter(pilot => getPilotCanadianClubName(pilot) === selectedClub);
         }
 
         // Calculate current year stats for a pilot
