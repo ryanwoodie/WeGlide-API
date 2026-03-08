@@ -21,6 +21,7 @@ const TMP_DIR = usingBlob() ? '/tmp' : process.cwd();
 
 const DATASET_FILE = path.join(TMP_DIR, process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
 const PROFILES_FILE = path.join(TMP_DIR, process.env.CANADIAN_PROFILES_FILE || 'canadian_user_profiles.json');
+const COMBINED_HOURS_FILE = path.join(TMP_DIR, process.env.CANADIAN_COMBINED_HOURS_FILE || 'canadian_combined_hours.json');
 const LOCK_FILE = path.join('/tmp', 'fetch_and_build.lock');
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
@@ -33,6 +34,8 @@ const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
 // WeGlide pagination expects skip to be a multiple of 100, so we page in 100-flight blocks
 const FLIGHT_BATCH_SIZE = 100;
 const FLIGHT_DETAIL_DELAY_MS = Number(trimEnv(process.env.FLIGHT_DETAIL_DELAY_MS, 200));
+const DEFAULT_OLC_DB_PATH = path.resolve(process.cwd(), '../OLC-downloader/olc_stats.sqlite');
+const OLC_DB_PATH = trimEnv(process.env.OLC_DB_PATH, fs.existsSync(DEFAULT_OLC_DB_PATH) ? DEFAULT_OLC_DB_PATH : '');
 
 let globalLogBuffer = [];
 function log(...args) {
@@ -122,6 +125,82 @@ async function blobPutText(key, body, contentType = 'application/octet-stream') 
         contentType,
         addRandomSuffix: false,
         allowOverwrite: true
+    });
+}
+
+function loadCombinedHoursCache() {
+    if (!fs.existsSync(COMBINED_HOURS_FILE)) {
+        return {};
+    }
+    try {
+        const payload = JSON.parse(fs.readFileSync(COMBINED_HOURS_FILE, 'utf8'));
+        return payload && payload.pilots ? payload.pilots : {};
+    } catch (error) {
+        log(`Failed to parse combined hours cache: ${error.message}`);
+        return {};
+    }
+}
+
+async function runOlcCombinedHoursSync(pilotIds) {
+    if (!OLC_DB_PATH || !fs.existsSync(OLC_DB_PATH)) {
+        return { skipped: true, reason: 'OLC DB not configured' };
+    }
+
+    const syncScriptPath = path.join(process.cwd(), 'sync_weglide_to_olc_db.js');
+    if (!fs.existsSync(syncScriptPath)) {
+        return { skipped: true, reason: 'sync_weglide_to_olc_db.js not found' };
+    }
+
+    const args = [
+        syncScriptPath,
+        '--db', OLC_DB_PATH,
+        '--profiles', PROFILES_FILE,
+        '--flights', DATASET_FILE,
+        '--user-directory', path.join(process.cwd(), 'weglide_users_all.jsonl'),
+        '--export-combined-hours', COMBINED_HOURS_FILE,
+        '--cutoff-date', SEASON_BASELINE_DATE
+    ];
+
+    if (pilotIds.length) {
+        args.push('--pilot-ids', pilotIds.join(','));
+    } else {
+        args.push('--rebuild-only');
+    }
+
+    return new Promise((resolve, reject) => {
+        const child = spawn(process.execPath, args, {
+            cwd: process.cwd(),
+            env: process.env
+        });
+        let stdout = '';
+        let stderr = '';
+
+        child.stdout.on('data', chunk => {
+            const text = chunk.toString();
+            stdout += text;
+            text.trim().split('\n').forEach(line => {
+                if (line.trim()) log(line.trim());
+            });
+        });
+        child.stderr.on('data', chunk => {
+            const text = chunk.toString();
+            stderr += text;
+            text.trim().split('\n').forEach(line => {
+                if (line.trim()) log(line.trim());
+            });
+        });
+        child.on('error', reject);
+        child.on('close', code => {
+            if (code !== 0) {
+                reject(new Error(`OLC combined-hours sync failed (${code}): ${stderr || stdout || 'no output'}`));
+                return;
+            }
+            resolve({
+                skipped: false,
+                syncedPilotCount: pilotIds.length,
+                stdout
+            });
+        });
     });
 }
 
@@ -541,7 +620,7 @@ async function computeSeasonSecondsForPilots(pilotIds) {
     return totals;
 }
 
-async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
+async function uploadPilotVerifications(newProfiles, seasonSecondsMap, combinedHoursMap) {
     if (!newProfiles.length) {
         return { uploaded: 0, skipped: true, reason: 'no new pilots' };
     }
@@ -584,20 +663,34 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap) {
         if (!profile || typeof profile.id !== 'number') continue;
         const lifetimeHours = (Number(profile.total_flight_duration) || 0) / 3600;
         const seasonHours = ((seasonSecondsMap[profile.id] || 0) / 3600);
-        const baselineHours = Math.max(0, lifetimeHours - seasonHours);
+        const combinedHours = combinedHoursMap[String(profile.id)] || null;
+        const totalCombinedHours = combinedHours && typeof combinedHours.combinedHours === 'number'
+            ? combinedHours.combinedHours
+            : lifetimeHours;
+        const olcOnlyHours = combinedHours && typeof combinedHours.olcOnlyHours === 'number'
+            ? combinedHours.olcOnlyHours
+            : 0;
+        const baselineHours = combinedHours && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
+            ? combinedHours.combinedHoursBeforeCutoff
+            : Math.max(0, lifetimeHours - seasonHours);
         const eligible = baselineHours < 200;
 
         const verificationData = {
             pilotName: profile.name || 'Unknown Pilot',
             picHours: Number(baselineHours.toFixed(1)),
             verifiedDate: new Date().toISOString(),
-            dataSource: 'weglide-automatic',
+            dataSource: olcOnlyHours > 0 ? 'combined-hours-automatic' : 'weglide-automatic',
             eligible,
             calculation: {
+                cutoffDate: SEASON_BASELINE_DATE,
+                totalCombinedHours: Number(totalCombinedHours.toFixed(1)),
                 totalWeGlideHours: Number(lifetimeHours.toFixed(1)),
+                olcOnlyHours: Number(olcOnlyHours.toFixed(1)),
                 hoursSinceSeasonStart: Number(seasonHours.toFixed(1)),
                 baselineHours: Number(baselineHours.toFixed(1)),
-                note: 'Baseline = lifetime hours - post-season-start hours'
+                note: olcOnlyHours > 0
+                    ? 'Baseline uses combined OLC + WeGlide hours before cutoff date'
+                    : 'Baseline = lifetime WeGlide hours - post-season-start hours'
             }
         };
 
@@ -632,6 +725,14 @@ async function ensureLocalCopiesFromRepo() {
         if (profilesText) {
             log('Loading profiles from repository/GitHub persistence...');
             fs.writeFileSync(PROFILES_FILE, profilesText);
+        }
+    }
+
+    if (!fs.existsSync(COMBINED_HOURS_FILE)) {
+        const combinedHoursText = await loadPersistentText('canadian_combined_hours.json');
+        if (combinedHoursText) {
+            log('Loading combined hours cache from repository/GitHub persistence...');
+            fs.writeFileSync(COMBINED_HOURS_FILE, combinedHoursText);
         }
     }
 }
@@ -892,7 +993,16 @@ async function runFetchAndBuild(options = {}) {
         const seasonSecondsMap = await computeSeasonSecondsForPilots(newPilotIds);
         summary.meta.seasonSecondsCalculated = Object.keys(seasonSecondsMap).length;
 
-        const firebaseSummary = await uploadPilotVerifications(newProfiles, seasonSecondsMap);
+        let olcSyncSummary = { skipped: true, reason: 'No OLC sync attempted' };
+        if (newPilotIds.length || !fs.existsSync(COMBINED_HOURS_FILE)) {
+            olcSyncSummary = await runOlcCombinedHoursSync(newPilotIds);
+        }
+        summary.meta.olcSync = olcSyncSummary;
+
+        const combinedHoursMap = loadCombinedHoursCache();
+        summary.meta.combinedHoursCachedPilots = Object.keys(combinedHoursMap).length;
+
+        const firebaseSummary = await uploadPilotVerifications(newProfiles, seasonSecondsMap, combinedHoursMap);
         summary.meta.firebase = firebaseSummary;
 
         const buildResult = await runLeaderboardBuild();
@@ -907,6 +1017,7 @@ async function runFetchAndBuild(options = {}) {
         const persistenceArtifacts = [
             { repoPath: 'canadian_flights_2026_details.jsonl', localPath: DATASET_FILE },
             { repoPath: 'canadian_user_profiles.json', localPath: PROFILES_FILE },
+            { repoPath: 'canadian_combined_hours.json', localPath: COMBINED_HOURS_FILE },
             ...publicArtifacts
         ];
 
