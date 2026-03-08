@@ -1219,6 +1219,7 @@ async function processCanadianFlights() {
         let currentScoringMode = 'mixed';
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
+        let selectedClub = 'all';
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SUPPORTS_HOVER_POINTER = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
         const SEASON_START = new Date('${seasonStartIso ? seasonStartIso + 'T00:00:00Z' : ''}');
@@ -1486,6 +1487,63 @@ No maximum distance bonus\`,
             return pilotProfiles[pilotId] || null;
         }
 
+        function getPilotClubName(pilot) {
+            if (!pilot) return '';
+            const pilotId = pilot.userId || pilot.pilotId;
+            const profile = getPilotProfile(pilotId);
+            return String(profile?.club?.name || '').trim();
+        }
+
+        function collectClubOptions() {
+            const clubs = new Set();
+            [
+                mixedLeaderboard,
+                freeLeaderboard,
+                sprintLeaderboard,
+                triangleLeaderboard,
+                outReturnLeaderboard,
+                outLeaderboard,
+                silverCGullLeaderboard
+            ].forEach(list => {
+                (list || []).forEach(pilot => {
+                    const clubName = getPilotClubName(pilot);
+                    if (clubName) {
+                        clubs.add(clubName);
+                    }
+                });
+            });
+            return Array.from(clubs).sort((left, right) => left.localeCompare(right));
+        }
+
+        function populateClubFilterOptions() {
+            const select = document.getElementById('clubFilterSelect');
+            if (!select) return;
+
+            const clubs = collectClubOptions();
+            const previousValue = selectedClub;
+            select.innerHTML = '<option value="all">All clubs</option>';
+            clubs.forEach(clubName => {
+                const option = document.createElement('option');
+                option.value = clubName;
+                option.textContent = clubName;
+                select.appendChild(option);
+            });
+
+            if (previousValue !== 'all' && clubs.includes(previousValue)) {
+                select.value = previousValue;
+            } else {
+                select.value = 'all';
+                selectedClub = 'all';
+            }
+        }
+
+        function applyClubFilter(list) {
+            if (selectedClub === 'all') {
+                return list;
+            }
+            return list.filter(pilot => getPilotClubName(pilot) === selectedClub);
+        }
+
         // Calculate current year stats for a pilot
         function calculateCurrentYearStats(pilotId) {
             let flightCount = 0;
@@ -1722,6 +1780,7 @@ No maximum distance bonus\`,
                 });
 
                 // Build leaderboard table using shared renderer
+                populateClubFilterOptions();
                 buildLeaderboard();
 
                 if (typeof addTooltipListeners === 'function') addTooltipListeners();
@@ -2900,7 +2959,8 @@ No maximum distance bonus\`,
             tbody.innerHTML = '';
             const isFreeMode = leaderboard === freeLeaderboard;
             const isSilverCGull = leaderboard === silverCGullLeaderboard;
-            const visible = applyUnder200Filter(leaderboard);
+            const visible = applyUnder200Filter(applyClubFilter(leaderboard));
+            const clubFilterActive = selectedClub !== 'all';
             const isThreeFlightMode = currentScoringMode === 'sprint' || currentScoringMode === 'triangle' || currentScoringMode === 'out_return' || currentScoringMode === 'out';
             const maxFlightsToShow = isThreeFlightMode ? 3 : 5;
 
@@ -3021,7 +3081,7 @@ No maximum distance bonus\`,
             toggleFlightColumns(maxFlightsToShow);
 
             // Update stats based on current visibility (only for <200 hour filter or Silver C-Gull mode)
-            if (under200Enabled || isSilverCGull) {
+            if (under200Enabled || clubFilterActive || isSilverCGull) {
                 const visibleStatsList = visible;
                 document.getElementById('pilotCount').textContent = visibleStatsList.length;
                 if (isSilverCGull) {
@@ -3063,7 +3123,7 @@ No maximum distance bonus\`,
             }
 
             // Recompute task stats for visible pilots using embedded fullFlightData (only when filtering)
-            if (under200Enabled && !isSilverCGull) {
+            if ((under200Enabled || clubFilterActive) && !isSilverCGull) {
                 try {
                     const visibleStatsList = visible;
                     const pilotIdSet = new Set(visibleStatsList.map(p => p.pilotId));
@@ -4432,6 +4492,13 @@ No maximum distance bonus\`,
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
             document.getElementById('freeBtn').addEventListener('click', () => switchScoringMode('free'));
+            const clubFilterSelect = document.getElementById('clubFilterSelect');
+            if (clubFilterSelect) {
+                clubFilterSelect.addEventListener('change', (event) => {
+                    selectedClub = event.target.value || 'all';
+                    buildLeaderboard();
+                });
+            }
             const sprintBtn = document.getElementById('sprintBtn');
             if (sprintBtn) sprintBtn.addEventListener('click', () => switchScoringMode('sprint'));
             const triangleBtn = document.getElementById('triangleBtn');
@@ -4648,7 +4715,7 @@ No maximum distance bonus\`,
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle">\n                    <div class="primary-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div>\n                <div class="scoring-toggle">\n                    <div class="secondary-toggle-row">\n                        <span class="secondary-toggle-label">Other WeGlide contests:</span>\n                        <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                        <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                        <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                        <button class="toggle-btn secondary" id="outBtn">Out</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
+            '$1</div><div class="scoring-toggle">\n                    <div class="primary-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button>\n                        <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div>\n                <div class="scoring-toggle">\n                    <div class="secondary-toggle-row">\n                        <span class="secondary-toggle-label">Other WeGlide contests:</span>\n                        <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                        <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                        <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                        <button class="toggle-btn secondary" id="outBtn">Out</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
         );
 
         // Placeholder for combined toggle label so variants can customise text
@@ -5009,6 +5076,29 @@ No maximum distance bonus\`,
             background: rgba(255,193,7,0.9);
             color: #333;
             border-color: rgba(255,193,7,0.9);
+        }
+
+        .club-filter-select {
+            padding: 8px 14px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            min-width: 150px;
+        }
+
+        .club-filter-select:hover,
+        .club-filter-select:focus {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+            outline: none;
+        }
+
+        .club-filter-select option {
+            color: #1f2a3d;
         }
 
         /* Aircraft info styling */
