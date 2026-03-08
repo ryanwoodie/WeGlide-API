@@ -757,8 +757,7 @@ async function processCanadianFlights() {
         // Generate Silver C-Gull leaderboard
         const silverCGullLeaderboard = await generateSilverCGullLeaderboard();
 
-        // Calculate aircraft type awards for free leaderboard
-        function calculateAircraftAwards(pilotFlights) {
+        function calculateAircraftAwards(leaderboard) {
             let bestGliderScore = 0;
             let bestGliderPilot = null;
             let bestGliderPilotId = null;
@@ -766,8 +765,8 @@ async function processCanadianFlights() {
             let bestMotorGliderPilot = null;
             let bestMotorGliderPilotId = null;
 
-            Object.keys(pilotFlights).forEach(pilotName => {
-                const flights = pilotFlights[pilotName];
+            leaderboard.forEach(pilot => {
+                const flights = pilot.bestFlights || [];
 
                 // Separate flights by aircraft type
                 const gliderFlights = flights.filter(f => f.aircraftKind === 'GL');
@@ -782,7 +781,7 @@ async function processCanadianFlights() {
 
                     if (totalGliderScore > bestGliderScore) {
                         bestGliderScore = totalGliderScore;
-                        bestGliderPilot = pilotName;
+                        bestGliderPilot = pilot.pilot;
                         bestGliderPilotId = bestGliderFlights[0].userId;
                     }
                 }
@@ -795,7 +794,7 @@ async function processCanadianFlights() {
 
                     if (totalMotorGliderScore > bestMotorGliderScore) {
                         bestMotorGliderScore = totalMotorGliderScore;
-                        bestMotorGliderPilot = pilotName;
+                        bestMotorGliderPilot = pilot.pilot;
                         bestMotorGliderPilotId = bestMotorGliderFlights[0].userId;
                     }
                 }
@@ -811,12 +810,24 @@ async function processCanadianFlights() {
             };
         }
 
-        const aircraftAwards = calculateAircraftAwards(pilotFlightsFree);
+        const MIN_LEADERBOARD_FLIGHT_POINTS = 50;
+        const filteredFreeLeaderboard = freeLeaderboard.map((pilot) => {
+            const filteredFlights = (pilot.bestFlights || []).filter(f => (f.points || 0) >= MIN_LEADERBOARD_FLIGHT_POINTS);
+            const totalPoints = filteredFlights.reduce((sum, f) => sum + (f.points || 0), 0);
+            const totalDistance = filteredFlights.reduce((sum, f) => sum + (f.distance || 0), 0);
+            return Object.assign({}, pilot, {
+                bestFlights: filteredFlights,
+                flightCount: filteredFlights.length,
+                totalPoints,
+                totalDistance
+            });
+        }).filter(p => p.flightCount > 0);
 
-        // Apply SAC-DSC minimum score filter before building outputs
-        const MIN_SAC_DSC_POINTS = 50;
+        const aircraftAwards = calculateAircraftAwards(filteredFreeLeaderboard);
+
+        // Apply minimum score filter before building outputs
         const filteredSacDscLeaderboard = sacDscLeaderboard.map((pilot) => {
-            const filteredFlights = (pilot.bestFlights || []).filter(f => (f.points || 0) >= MIN_SAC_DSC_POINTS);
+            const filteredFlights = (pilot.bestFlights || []).filter(f => (f.points || 0) >= MIN_LEADERBOARD_FLIGHT_POINTS);
             const totalPoints = filteredFlights.reduce((sum, f) => sum + (f.points || 0), 0);
             const totalDistance = filteredFlights.reduce((sum, f) => sum + (f.distance || 0), 0);
             return Object.assign({}, pilot, {
@@ -828,9 +839,10 @@ async function processCanadianFlights() {
         }).filter(p => p.flightCount > 0);
 
         const sacDscLeaderboardOutput = filteredSacDscLeaderboard;
+        const freeLeaderboardOutput = filteredFreeLeaderboard;
 
         // Add award badges to free leaderboard pilots
-        freeLeaderboard.forEach(pilot => {
+        freeLeaderboardOutput.forEach(pilot => {
             pilot.awards = [];
             if (pilot.pilot === aircraftAwards.bestGliderPilot) {
                 pilot.awards.push({ type: 'glider', score: aircraftAwards.bestGliderScore });
@@ -1007,7 +1019,7 @@ async function processCanadianFlights() {
 
         console.log(`Combined Leaderboard: ${totalPilots} pilots, ${totalFlights} flights, ${totalKms} km total`);
         console.log(`Tasks: ${totalTasksDeclared} declared, ${totalTasksCompleted} completed, ${totalTasksHigherThanFree} > free score`);
-        console.log(`Free Leaderboard: ${freeLeaderboard.length} pilots, ${freeLeaderboard.reduce((sum, pilot) => sum + pilot.flightCount, 0)} flights`);
+        console.log(`Free Leaderboard: ${freeLeaderboardOutput.length} pilots, ${freeLeaderboardOutput.reduce((sum, pilot) => sum + pilot.flightCount, 0)} flights`);
         const sacDscFlightsCount = sacDscLeaderboardOutput.reduce((sum, pilot) => sum + pilot.flightCount, 0);
         const sacDscKms = sacDscLeaderboardOutput.reduce((sum, pilot) => sum + pilot.totalDistance, 0);
         console.log(`SAC-DSC Leaderboard (>=50 pts only): ${sacDscLeaderboardOutput.length} pilots, ${sacDscFlightsCount} flights, ${sacDscKms.toFixed(0)} km total`);
@@ -1061,7 +1073,7 @@ async function processCanadianFlights() {
         // Compute unique pilot IDs and prefetch profile data server-side
         const allPilotIds = Array.from(new Set([
             ...mixedLeaderboard,
-            ...freeLeaderboard,
+            ...freeLeaderboardOutput,
             ...sacDscLeaderboardOutput
         ].map(p => p.pilotId)));
         let pilotDurationsEmbedded = {};
@@ -6275,7 +6287,7 @@ No maximum distance bonus\`,
             pilotVerifications: JSON.stringify(pilotVerificationData),
             pilotProfiles: JSON.stringify(pilotProfilesEmbedded),
             aircraftAwards: JSON.stringify(aircraftAwards),
-            freeLeaderboard: JSON.stringify(freeLeaderboard),
+            freeLeaderboard: JSON.stringify(freeLeaderboardOutput),
             sprintLeaderboard: JSON.stringify(sprintLeaderboard),
             triangleLeaderboard: JSON.stringify(triangleLeaderboard),
             outReturnLeaderboard: JSON.stringify(outReturnLeaderboard),
