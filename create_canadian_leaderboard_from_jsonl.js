@@ -4308,7 +4308,7 @@ No maximum distance bonus\`,
 
                     <div>
                         <input type="number" id="picHours" min="0" step="0.1" placeholder="Hours" value="\${estimatedOct1Hours > 0 ? estimatedOct1Hours.toFixed(1) : ''}" />
-                        <label for="picHours">hours PIC</label>
+                        <label for="picHours">hours PIC as of \${VERIFICATION_CUTOFF_LABEL}</label>
                     </div>
                     <div>
                         <input type="email" id="verificationEmail" placeholder="you@example.com" />
