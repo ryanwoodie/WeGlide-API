@@ -4302,7 +4302,7 @@ No maximum distance bonus\`,
                         Combined hours: \${hoursSummary.combinedHours.toFixed(1)}h<br>
                         WeGlide hours: \${hoursSummary.weglideHours.toFixed(1)}h<br>
                         OLC-only hours: \${hoursSummary.olcOnlyHours.toFixed(1)}h<br>
-                        <strong>Estimated hours as of \${VERIFICATION_CUTOFF_LABEL}: \${estimatedOct1Hours.toFixed(1)}h</strong>
+                        <strong>Estimated hours: \${estimatedOct1Hours.toFixed(1)}h</strong>
                     </div>
                     \` : ''}
 
