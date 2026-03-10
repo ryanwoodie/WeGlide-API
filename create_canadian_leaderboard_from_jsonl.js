@@ -23,15 +23,69 @@ function durationSecondsFromFlight(flight) {
     return Math.round((landingMs - takeoffMs) / 1000);
 }
 
+function findContestByNames(flight, names, predicate = null) {
+    if (!flight?.contest || !Array.isArray(flight.contest)) {
+        return null;
+    }
+
+    const normalizedNames = Array.isArray(names) ? names : [names];
+    for (const name of normalizedNames) {
+        const contest = flight.contest.find((entry) => {
+            if (!entry || entry.name !== name) return false;
+            return typeof predicate === 'function' ? predicate(entry) : true;
+        });
+        if (contest) {
+            return contest;
+        }
+    }
+
+    return null;
+}
+
+function findPrimaryTaskContest(flight, requirePoints = true) {
+    return findContestByNames(
+        flight,
+        ['ca', 'au'],
+        requirePoints
+            ? (contest) => typeof contest.points === 'number' && contest.points > 0
+            : null
+    );
+}
+
+function findDeclaredTaskContest(flight, requirePoints = false) {
+    const declarationContest = findContestByNames(
+        flight,
+        ['declaration'],
+        requirePoints
+            ? (contest) => typeof contest.points === 'number' && contest.points > 0
+            : null
+    );
+    if (declarationContest?.score?.declared === true) {
+        return declarationContest;
+    }
+
+    const taskContest = findPrimaryTaskContest(flight, requirePoints);
+    if (taskContest?.score?.name === 'declaration' && taskContest?.score?.declared === true) {
+        return taskContest;
+    }
+
+    return null;
+}
+
+function isIgcLoggerValidForBhc(flight) {
+    return flight?.igc_file?.valid === 4 &&
+        (!Array.isArray(flight?.igc_file?.errors) || flight.igc_file.errors.length === 0);
+}
+
 // Function to calculate best score from flight contest data (Mixed scoring)
 function calculateBestScore(flight) {
     if (!flight.contest || !Array.isArray(flight.contest)) {
         return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
     }
 
-    // Find the "au" (task), "declaration", and "free" contests specifically
-    const auContest = flight.contest.find(contest => contest.name === 'ca' && contest.points > 0);
-    const declarationContest = flight.contest.find(contest => contest.name === 'declaration' && contest.points > 0);
+    // Find the task/declaration/free contests specifically
+    const auContest = findPrimaryTaskContest(flight, true);
+    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
     const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
 
     let bestContest = null;
@@ -71,7 +125,7 @@ function calculateBestScore(flight) {
 
     if (bestContest) {
         // Mark as declared if using au or declaration contest that was declared
-        const isDeclaredTask = (bestContest.name === 'ca' && isAuDeclared) ||
+        const isDeclaredTask = ((bestContest.name === 'ca' || bestContest.name === 'au') && isAuDeclared) ||
                               (bestContest.name === 'declaration' && isDeclarationDeclared);
 
         return {
@@ -113,7 +167,9 @@ function calculateContestScore(flight, contestName) {
         return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
     }
 
-    const contest = flight.contest.find(c => c && c.name === contestName && typeof c.points === 'number' && c.points > 0);
+    const contest = contestName === 'ca'
+        ? findPrimaryTaskContest(flight, true)
+        : flight.contest.find(c => c && c.name === contestName && typeof c.points === 'number' && c.points > 0);
     if (!contest) {
         return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
     }
@@ -180,6 +236,322 @@ function getDMSTShapeBonus(kind) {
     }
 }
 
+function haversineDistanceKm(from, to) {
+    if (!Array.isArray(from) || !Array.isArray(to) || from.length < 2 || to.length < 2) {
+        return null;
+    }
+
+    const [lon1, lat1] = from.map(Number);
+    const [lon2, lat2] = to.map(Number);
+    if (![lon1, lat1, lon2, lat2].every(Number.isFinite)) {
+        return null;
+    }
+
+    const toRadians = (degrees) => degrees * Math.PI / 180;
+    const earthRadiusKm = 6371;
+    const dLat = toRadians(lat2 - lat1);
+    const dLon = toRadians(lon2 - lon1);
+    const lat1Rad = toRadians(lat1);
+    const lat2Rad = toRadians(lat2);
+    const a = Math.sin(dLat / 2) ** 2 +
+        Math.cos(lat1Rad) * Math.cos(lat2Rad) * Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return earthRadiusKm * c;
+}
+
+function getTriangleLegDistances(flight, declarationContest) {
+    const scoreLegs = declarationContest?.score?.leg;
+    if (Array.isArray(scoreLegs) && scoreLegs.length === 3) {
+        const distances = scoreLegs.map((leg) => Number(leg?.distance));
+        if (distances.every((distance) => Number.isFinite(distance) && distance > 0)) {
+            return distances;
+        }
+    }
+
+    const points = flight?.task?.point_features;
+    if (Array.isArray(points) && points.length >= 4) {
+        const coordinates = points
+            .map((point) => point?.geometry?.coordinates)
+            .filter((coordinates) => Array.isArray(coordinates) && coordinates.length >= 2)
+            .slice(0, 4);
+        if (coordinates.length === 4) {
+            const distances = [
+                haversineDistanceKm(coordinates[0], coordinates[1]),
+                haversineDistanceKm(coordinates[1], coordinates[2]),
+                haversineDistanceKm(coordinates[2], coordinates[3])
+            ];
+            if (distances.every((distance) => Number.isFinite(distance) && distance > 0)) {
+                return distances;
+            }
+        }
+    }
+
+    return [];
+}
+
+function classifyTriangleType(totalDistance, legDistances) {
+    if (!Number.isFinite(totalDistance) || totalDistance <= 0 || !Array.isArray(legDistances) || legDistances.length !== 3) {
+        return 'other';
+    }
+
+    const shortestLeg = Math.min(...legDistances);
+    const longestLeg = Math.max(...legDistances);
+    const shortestRatio = shortestLeg / totalDistance;
+    const longestRatio = longestLeg / totalDistance;
+
+    const isFaiTriangle = shortestRatio >= 0.28 ||
+        (totalDistance >= 500 && shortestRatio >= 0.25 && longestRatio <= 0.45);
+
+    return isFaiTriangle ? 'fai' : 'other';
+}
+
+function getTaskPointCoordinates(flight) {
+    const points = flight?.task?.point_features;
+    if (!Array.isArray(points)) {
+        return [];
+    }
+
+    return points
+        .map((point) => point?.geometry?.coordinates)
+        .filter((coordinates) => Array.isArray(coordinates) && coordinates.length >= 2);
+}
+
+function getFr4SideStartTriangleData(flight) {
+    if (flight?.task?.kind !== 'FR4' || flight?.task?.closed !== true) {
+        return null;
+    }
+
+    const coordinates = getTaskPointCoordinates(flight);
+    if (coordinates.length !== 5) {
+        return null;
+    }
+
+    const [start, turnpoint1, turnpoint2, turnpoint3, finish] = coordinates;
+    const finishGapKm = haversineDistanceKm(start, finish);
+    if (!Number.isFinite(finishGapKm) || finishGapKm > 2) {
+        return null;
+    }
+
+    const sideViaStartKm = haversineDistanceKm(turnpoint3, start) + haversineDistanceKm(start, turnpoint1);
+    const directSideKm = haversineDistanceKm(turnpoint3, turnpoint1);
+    if (!Number.isFinite(sideViaStartKm) || !Number.isFinite(directSideKm) || directSideKm <= 0) {
+        return null;
+    }
+
+    const splitDeltaKm = Math.abs(sideViaStartKm - directSideKm);
+    const splitDeltaPct = splitDeltaKm / directSideKm;
+    const startOnTriangleSide = splitDeltaPct <= 0.03 || splitDeltaKm <= 3;
+    if (!startOnTriangleSide) {
+        return null;
+    }
+
+    const legDistances = [
+        haversineDistanceKm(turnpoint1, turnpoint2),
+        haversineDistanceKm(turnpoint2, turnpoint3),
+        directSideKm
+    ];
+    if (!legDistances.every((distance) => Number.isFinite(distance) && distance > 0)) {
+        return null;
+    }
+
+    const totalDistance = legDistances.reduce((sum, distance) => sum + distance, 0);
+    const triangleType = classifyTriangleType(totalDistance, legDistances);
+
+    return {
+        legDistances,
+        totalDistance,
+        triangleType,
+        splitDeltaKm,
+        splitDeltaPct
+    };
+}
+
+function getBhcTaskCandidate(flight) {
+    const task = flight?.task;
+    if (!task || (task.kind !== 'TR' && task.kind !== 'FR4')) {
+        return null;
+    }
+
+    const declaredContest = findDeclaredTaskContest(flight, false);
+
+    if (task.kind === 'TR') {
+        const legDistances = getTriangleLegDistances(flight, declaredContest);
+        if (legDistances.length !== 3) {
+            return null;
+        }
+
+        const scoringDistance = Number(task.distance) > 0
+            ? Number(task.distance)
+            : Number(declaredContest?.distance) > 0
+                ? Number(declaredContest.distance)
+                : legDistances.reduce((sum, legDistance) => sum + legDistance, 0);
+        if (!Number.isFinite(scoringDistance) || scoringDistance <= 0) {
+            return null;
+        }
+
+        return {
+            taskKind: 'TR',
+            displayTaskKind: 'TR',
+            legDistances,
+            scoringDistance,
+            triangleType: classifyTriangleType(scoringDistance, legDistances),
+            splitDeltaKm: null,
+            splitDeltaPct: null
+        };
+    }
+
+    const fr4Triangle = getFr4SideStartTriangleData(flight);
+    if (!fr4Triangle) {
+        return null;
+    }
+
+    return {
+        taskKind: 'FR4',
+        displayTaskKind: 'FR4 Side-Start',
+        legDistances: fr4Triangle.legDistances,
+        scoringDistance: Number(task.distance) > 0
+            ? Number(task.distance)
+            : Number(declaredContest?.distance) > 0
+                ? Number(declaredContest.distance)
+                : fr4Triangle.totalDistance,
+        triangleType: fr4Triangle.triangleType,
+        splitDeltaKm: fr4Triangle.splitDeltaKm,
+        splitDeltaPct: fr4Triangle.splitDeltaPct
+    };
+}
+
+function getBhcDisplaySpeed(flight, distance, scoringContest) {
+    const contestSpeed = Number(scoringContest?.speed);
+    if (Number.isFinite(contestSpeed) && contestSpeed > 0) {
+        return contestSpeed;
+    }
+
+    const contestScoreSpeed = Number(scoringContest?.score?.speed);
+    if (Number.isFinite(contestScoreSpeed) && contestScoreSpeed > 0) {
+        return contestScoreSpeed;
+    }
+
+    const durationSeconds = Number(flight?.total_seconds);
+    if (Number.isFinite(distance) && distance > 0 && Number.isFinite(durationSeconds) && durationSeconds > 0) {
+        return (distance * 3600) / durationSeconds;
+    }
+
+    return 0;
+}
+
+function getContestDistanceValue(contest) {
+    const contestDistance = Number(contest?.distance);
+    if (Number.isFinite(contestDistance) && contestDistance > 0) {
+        return contestDistance;
+    }
+
+    const scoreDistance = Number(contest?.score?.distance);
+    if (Number.isFinite(scoreDistance) && scoreDistance > 0) {
+        return scoreDistance;
+    }
+
+    return null;
+}
+
+function findBhcAltitudeContest(flight) {
+    return findContestByNames(
+        flight,
+        ['ca', 'au', 'declaration']
+    );
+}
+
+function assessBhcAltitudeRule(flight) {
+    const altitudeUnknownMessage = 'Unable to determine if flight meets the 1,000 m difference or not.';
+    const taskContest = findBhcAltitudeContest(flight);
+    const taskDistance = Number(flight?.task?.distance);
+    const contestDistance = getContestDistanceValue(taskContest);
+
+    if (!taskContest) {
+        return {
+            status: 'unknown',
+            reason: 'missing_contest',
+            source: taskContest?.name || null,
+            taskDistance: Number.isFinite(taskDistance) ? taskDistance : null,
+            contestDistance,
+            altitudeDifference: null,
+            message: altitudeUnknownMessage
+        };
+    }
+
+    const scoreLegs = taskContest?.score?.leg || [];
+    const departureAltitude = Number(scoreLegs[0]?.start_alt);
+    const finishAltitude = Number(scoreLegs[scoreLegs.length - 1]?.end_alt);
+
+    if (!Number.isFinite(departureAltitude) || !Number.isFinite(finishAltitude)) {
+        return {
+            status: 'unknown',
+            reason: 'missing_altitude',
+            source: taskContest.name,
+            taskDistance,
+            contestDistance,
+            altitudeDifference: null,
+            message: altitudeUnknownMessage
+        };
+    }
+
+    const altitudeDifference = departureAltitude - finishAltitude;
+    return {
+        status: altitudeDifference > 1000 ? 'failed' : 'passed',
+        reason: 'measured',
+        source: taskContest.name,
+        taskDistance,
+        contestDistance,
+        altitudeDifference,
+        message: altitudeUnknownMessage
+    };
+}
+
+function calculateBhcScore(flight) {
+    if (flight.valid !== true || flight.task_achieved !== true) {
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, triangleType: null };
+    }
+
+    const candidate = getBhcTaskCandidate(flight);
+    if (!candidate) {
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, triangleType: null };
+    }
+
+    const dmstIndex = Number(flight.dmst_index);
+    if (!Number.isFinite(dmstIndex) || dmstIndex <= 0) {
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, triangleType: null };
+    }
+
+    const declaredContest = findDeclaredTaskContest(flight, false);
+    const altitudeAssessment = assessBhcAltitudeRule(flight);
+    if (altitudeAssessment.status === 'failed') {
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, triangleType: null };
+    }
+
+    const bonusMultiplier = candidate.triangleType === 'fai' ? 1.30 : 1.0;
+    const scoreBaseDistance = candidate.scoringDistance;
+    const score = Math.round(((scoreBaseDistance * bonusMultiplier * 100) / dmstIndex) * 100) / 100;
+    const loggerValid = isIgcLoggerValidForBhc(flight);
+    const declarationSource = flight?.task?.from_igcfile === true ? 'igc' : 'weglide';
+
+    return {
+        score,
+        distance: scoreBaseDistance,
+        speed: getBhcDisplaySpeed(flight, scoreBaseDistance, declaredContest),
+        contestType: 'bhc',
+        declared: true,
+        triangleType: candidate.triangleType,
+        bhcTaskKind: candidate.displayTaskKind,
+        bhcLoggerValid: loggerValid,
+        bhcDeclarationSource: declarationSource,
+        bhcOfficialEligible: loggerValid,
+        bhcAltitudeStatus: altitudeAssessment.status,
+        bhcAltitudeDifference: altitudeAssessment.altitudeDifference,
+        bhcAltitudeSource: altitudeAssessment.source,
+        bhcSplitDeltaKm: candidate.splitDeltaKm,
+        bhcSplitDeltaPct: candidate.splitDeltaPct
+    };
+}
+
 async function processCanadianFlights() {
     const INPUT_FILE = process.env.INPUT_FILE || 'canadian_flights_2026_details.jsonl';
     const OUTPUT_DIR = process.env.OUTPUT_DIR || '.';
@@ -191,6 +563,7 @@ async function processCanadianFlights() {
     const pilotFlightsMixed = {};  // Mixed scoring (AU/Free)
     const pilotFlightsSacDsc = {}; // Pure AU scoring for SAC-DSC leaderboard
     const pilotFlightsFree = {};   // Free-only scoring
+    const pilotFlightsBhc = {}; // Barron Hilton Challenge scoring
     const pilotFlightsSprint = {}; // Sprint contest scoring
     const pilotFlightsTriangle = {}; // Triangle contest scoring
     const pilotFlightsOutReturn = {}; // Out & Return contest scoring
@@ -253,6 +626,9 @@ async function processCanadianFlights() {
                     if (!pilotFlightsSacDsc[pilotName]) {
                         pilotFlightsSacDsc[pilotName] = [];
                     }
+                    if (!pilotFlightsBhc[pilotName]) {
+                        pilotFlightsBhc[pilotName] = [];
+                    }
                     if (!pilotFlightsSprint[pilotName]) {
                         pilotFlightsSprint[pilotName] = [];
                     }
@@ -270,6 +646,7 @@ async function processCanadianFlights() {
                     const mixedScoringData = calculateBestScore(flight);
                     const freeScoringData = calculateFreeScore(flight);
                     const sacDscScoringData = calculateContestScore(flight, 'ca');
+                    const bhcScoringData = calculateBhcScore(flight);
 
                     // Add to mixed scoring leaderboard
                     if (mixedScoringData.score > 0) {
@@ -324,6 +701,34 @@ async function processCanadianFlights() {
                             aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
                             dmstIndex: flight.dmst_index || null
+                        });
+                    }
+
+                    if (bhcScoringData.score > 0) {
+                        pilotFlightsBhc[pilotName].push({
+                            id: flight.id,
+                            userId: flight.user?.id,
+                            date: flight.scoring_date,
+                            distance: bhcScoringData.distance,
+                            speed: bhcScoringData.speed,
+                            points: bhcScoringData.score,
+                            takeoff: flight.takeoff_airport?.name || '',
+                            region: flight.takeoff_airport?.region || '',
+                            declared: bhcScoringData.declared,
+                            contestType: bhcScoringData.contestType,
+                            aircraftKind: flight.aircraft?.kind || 'unknown',
+                            aircraftName: flight.aircraft?.name || '',
+                            dmstIndex: flight.dmst_index || null,
+                            triangleType: bhcScoringData.triangleType,
+                            bhcTaskKind: bhcScoringData.bhcTaskKind,
+                            bhcLoggerValid: bhcScoringData.bhcLoggerValid,
+                            bhcDeclarationSource: bhcScoringData.bhcDeclarationSource,
+                            bhcOfficialEligible: bhcScoringData.bhcOfficialEligible,
+                            bhcAltitudeStatus: bhcScoringData.bhcAltitudeStatus,
+                            bhcAltitudeDifference: bhcScoringData.bhcAltitudeDifference,
+                            bhcAltitudeSource: bhcScoringData.bhcAltitudeSource,
+                            bhcSplitDeltaKm: bhcScoringData.bhcSplitDeltaKm,
+                            bhcSplitDeltaPct: bhcScoringData.bhcSplitDeltaPct
                         });
                     }
 
@@ -404,10 +809,10 @@ async function processCanadianFlights() {
                     }
 
                     // Store comprehensive flight stats for tooltip use if it has scoring data
-                    if (mixedScoringData.score > 0 || freeScoringData.score > 0) {
+                    if (mixedScoringData.score > 0 || freeScoringData.score > 0 || bhcScoringData.score > 0) {
                         // Get stats from both contest types
-                        const auContest = flight.contest?.find(c => c.name === 'ca' && c.points > 0);
-                        const declarationContest = flight.contest?.find(c => c.name === 'declaration' && c.points > 0);
+                        const auContest = findPrimaryTaskContest(flight, true);
+                        const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
                         const freeContest = flight.contest?.find(c => c.name === 'free' && c.points > 0);
                         const taskAchieved = flight.task_achieved === true;
 
@@ -420,7 +825,17 @@ async function processCanadianFlights() {
                                 // Store both free and task stats for dynamic switching
                                 freeStats: null,
                                 taskStats: null,
-                                taskInfo: null
+                                taskInfo: null,
+                                bhcInfo: bhcScoringData.score > 0 ? {
+                                    taskKind: bhcScoringData.bhcTaskKind,
+                                    triangleType: bhcScoringData.triangleType,
+                                    loggerValid: bhcScoringData.bhcLoggerValid,
+                                    declarationSource: bhcScoringData.bhcDeclarationSource,
+                                    officialEligible: bhcScoringData.bhcOfficialEligible,
+                                    altitudeStatus: bhcScoringData.bhcAltitudeStatus,
+                                    altitudeDifference: bhcScoringData.bhcAltitudeDifference,
+                                    altitudeSource: bhcScoringData.bhcAltitudeSource
+                                } : null
                             };
 
                             // Extract comprehensive stats from free contest
@@ -523,11 +938,11 @@ async function processCanadianFlights() {
                                 : (typeof auContest?.distance === 'number' ? auContest.distance
                                     : (typeof declarationContest?.distance === 'number' ? declarationContest.distance : null));
 
-                            const taskContestUsed = (mixedScoringData.contestType === 'ca' || mixedScoringData.contestType === 'declaration')
+                            const taskContestUsed = ((mixedScoringData.contestType === 'ca' || mixedScoringData.contestType === 'au') || mixedScoringData.contestType === 'declaration')
                                 ? mixedScoringData.contestType
-                                : (auContest ? 'ca' : declarationContest ? 'declaration' : null);
+                                : (auContest ? auContest.name : declarationContest ? 'declaration' : null);
 
-                            const taskContestPoints = taskContestUsed === 'ca'
+                            const taskContestPoints = (taskContestUsed === 'ca' || taskContestUsed === 'au')
                                 ? auContest?.points
                                 : taskContestUsed === 'declaration'
                                     ? declarationContest?.points
@@ -580,7 +995,7 @@ async function processCanadianFlights() {
                                 taskContestLabel: (() => {
                                     if (!taskContestUsed) return 'Task Score';
                                     if (taskContestUsed === 'declaration') return 'SAC-DSC Task Score';
-                                    if (taskContestUsed === 'ca') {
+                                    if (taskContestUsed === 'ca' || taskContestUsed === 'au') {
                                         if (!taskAchieved) {
                                             return 'SAC-DSC Task Score (not finished)';
                                         }
@@ -659,10 +1074,47 @@ async function processCanadianFlights() {
             return leaderboard;
         }
 
+        function generateBhcLeaderboard(pilotFlights) {
+            const leaderboard = [];
+
+            Object.keys(pilotFlights).forEach((pilotName) => {
+                const flights = (pilotFlights[pilotName] || []).slice().sort((a, b) => b.points - a.points);
+                if (flights.length === 0) {
+                    return;
+                }
+
+                const bestOverallFlight = flights[0];
+                const bestOfficialFlight = flights.find((flight) => flight.bhcLoggerValid !== false) || null;
+                const buildEntry = (flight, extra = {}) => ({
+                    pilot: pilotName,
+                    pilotId: flight.userId || flight.id,
+                    totalPoints: flight.points,
+                    totalDistance: flight.distance,
+                    flightCount: 1,
+                    bestFlights: [flight],
+                    ...extra
+                });
+
+                if (bestOverallFlight.bhcLoggerValid === false) {
+                    leaderboard.push(buildEntry(bestOverallFlight, { isBhcUnofficialRow: true }));
+                    if (bestOfficialFlight && bestOfficialFlight.id !== bestOverallFlight.id) {
+                        leaderboard.push(buildEntry(bestOfficialFlight, { isBhcOfficialAlternateRow: true }));
+                    }
+                    return;
+                }
+
+                leaderboard.push(buildEntry(bestOverallFlight));
+            });
+
+            leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
+            return leaderboard;
+        }
+
         // Generate both leaderboards
         const mixedLeaderboard = generateLeaderboard(pilotFlightsMixed);
         const sacDscLeaderboard = generateLeaderboard(pilotFlightsSacDsc);
         const freeLeaderboard = generateLeaderboard(pilotFlightsFree);
+        const bhcLeaderboard = generateBhcLeaderboard(pilotFlightsBhc);
         const sprintLeaderboard = generateLeaderboard(pilotFlightsSprint, 3);
         const triangleLeaderboard = generateLeaderboard(pilotFlightsTriangle, 3);
         const outReturnLeaderboard = generateLeaderboard(pilotFlightsOutReturn, 3);
@@ -861,6 +1313,7 @@ async function processCanadianFlights() {
             mixedLeaderboard,
             sacDscLeaderboardOutput,
             freeLeaderboard,
+            bhcLeaderboard,
             sprintLeaderboard,
             triangleLeaderboard,
             outReturnLeaderboard,
@@ -888,6 +1341,26 @@ async function processCanadianFlights() {
         // Write detailed flight data to separate file to avoid embedding large data
         fs.writeFileSync(resolvePath('canadian_flight_details.json'), JSON.stringify(australianFlights, null, 2));
         console.log('💾 Saved detailed flight data to canadian_flight_details.json');
+
+        const flightClubById = {};
+        allFlightData.forEach((flight) => {
+            if (!usedFlightIds.has(flight.id)) {
+                return;
+            }
+
+            const clubId = Number(flight?.club?.id);
+            const clubName = String(flight?.club?.name || '').trim();
+            const clubRegion = String(flight?.club?.region || '').trim();
+            if (!Number.isFinite(clubId) && !clubName && !clubRegion) {
+                return;
+            }
+
+            flightClubById[flight.id] = {
+                clubId: Number.isFinite(clubId) ? clubId : null,
+                name: clubName,
+                region: clubRegion
+            };
+        });
 
         // Write minimal flight data for task stats to separate file
         const minimalFlightData = allFlightData.map(f => {
@@ -980,8 +1453,8 @@ async function processCanadianFlights() {
 
                 // Count completed tasks that scored higher than free scoring
                 if (flight.contest && Array.isArray(flight.contest)) {
-                    const auContest = flight.contest.find(contest => contest.name === 'ca' && contest.points > 0);
-                    const declarationContest = flight.contest.find(contest => contest.name === 'declaration' && contest.points > 0);
+                    const auContest = findPrimaryTaskContest(flight, true);
+                    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
                     const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
 
                     // Check if declared AU or Declaration scored higher than free
@@ -1070,19 +1543,153 @@ async function processCanadianFlights() {
             return { durations, profiles };
         }
 
+        function normalizeClubMetadata(club) {
+            if (!club || typeof club !== 'object') {
+                return null;
+            }
+
+            const clubId = Number(club.id);
+            if (!Number.isFinite(clubId)) {
+                return null;
+            }
+
+            return {
+                id: clubId,
+                name: String(club.name || '').trim(),
+                region: String(club.region || '').trim(),
+                url: String(club.url || '').trim(),
+                logo: String(club.logo || '').trim(),
+                in_league: String(club.in_league || '').trim(),
+                lookupMissing: Boolean(club.lookupMissing)
+            };
+        }
+
+        function buildClubIdScanList(maxClubId) {
+            const normalizedMax = Number(maxClubId);
+            if (!Number.isFinite(normalizedMax) || normalizedMax < 1) {
+                return [];
+            }
+
+            return Array.from({ length: Math.floor(normalizedMax) }, (_, index) => index + 1);
+        }
+
+        function sleep(ms) {
+            return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+
+        function mergeClubMetadataFromProfiles(target, profiles) {
+            Object.values(profiles || {}).forEach((profile) => {
+                const normalizedClub = normalizeClubMetadata(profile?.club);
+                if (!normalizedClub) {
+                    return;
+                }
+
+                const key = String(normalizedClub.id);
+                target[key] = {
+                    ...(target[key] || {}),
+                    ...normalizedClub
+                };
+            });
+        }
+
+        async function fetchClubMetadataServer(clubIds, existingMetadata = {}) {
+            const clubMetadata = { ...(existingMetadata || {}) };
+            const normalizedIds = Array.from(new Set(
+                (clubIds || [])
+                    .map((clubId) => Number(clubId))
+                    .filter((clubId) => Number.isFinite(clubId))
+            ));
+
+            const missingIds = normalizedIds.filter((clubId) => {
+                const cached = clubMetadata[String(clubId)];
+                if (!cached) {
+                    return true;
+                }
+
+                if (cached.lookupMissing) {
+                    return false;
+                }
+
+                return !String(cached.name || '').trim() || !String(cached.region || '').trim();
+            });
+
+            if (missingIds.length === 0) {
+                return clubMetadata;
+            }
+
+            console.log(`⏬ Fetching metadata for ${missingIds.length} clubs from WeGlide...`);
+            const requestHeaders = {
+                'Accept': 'application/json',
+                'Origin': 'https://www.weglide.org',
+                'Referer': 'https://www.weglide.org/',
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+            };
+            const concurrency = Math.max(1, Number(process.env.WEGLIDE_CLUB_FETCH_CONCURRENCY || 2));
+            const batchDelayMs = Math.max(0, Number(process.env.WEGLIDE_CLUB_FETCH_DELAY_MS || 250));
+            for (let i = 0; i < missingIds.length; i += concurrency) {
+                const batch = missingIds.slice(i, i + concurrency);
+                await Promise.all(batch.map(async (clubId) => {
+                    const url = `https://api.weglide.org/v1/club/${clubId}`;
+                    try {
+                        const resp = await fetch(url, {
+                            headers: requestHeaders
+                        });
+                        if (!resp.ok) {
+                            console.warn(`⚠️ Club fetch failed for ${clubId}: ${resp.status}`);
+                            if (resp.status === 404) {
+                                clubMetadata[String(clubId)] = {
+                                    ...(clubMetadata[String(clubId)] || {}),
+                                    id: clubId,
+                                    lookupMissing: true
+                                };
+                            }
+                            return;
+                        }
+
+                        const payload = await resp.json();
+                        const normalizedClub = normalizeClubMetadata(payload);
+                        if (!normalizedClub) {
+                            return;
+                        }
+
+                        clubMetadata[String(normalizedClub.id)] = {
+                            ...(clubMetadata[String(normalizedClub.id)] || {}),
+                            ...normalizedClub
+                        };
+                    } catch (error) {
+                        console.warn(`⚠️ Club fetch failed for ${clubId}:`, error.message || error);
+                    }
+                }));
+                if (batchDelayMs > 0 && i + concurrency < missingIds.length) {
+                    await sleep(batchDelayMs);
+                }
+            }
+
+            return clubMetadata;
+        }
+
         // Compute unique pilot IDs and prefetch profile data server-side
         const allPilotIds = Array.from(new Set([
             ...mixedLeaderboard,
             ...freeLeaderboardOutput,
             ...sacDscLeaderboardOutput
         ].map(p => p.pilotId)));
+        const requiredClubIds = Array.from(new Set(
+            allFlightData
+                .filter((flight) => usedFlightIds.has(flight.id))
+                .map((flight) => Number(flight?.club?.id))
+                .filter((clubId) => Number.isFinite(clubId))
+        ));
+        const scannedClubIds = buildClubIdScanList(process.env.WEGLIDE_CLUB_SEED_SCAN_MAX || 0);
         let pilotDurationsEmbedded = {};
         let pilotProfilesEmbedded = {};
         let pilotCombinedHoursEmbedded = {};
+        let clubMetadataByIdEmbedded = {};
         try {
             const durationsPath = resolvePath('canadian_user_durations.json');
             const profilesPath = resolvePath('canadian_user_profiles.json');
             const combinedHoursPath = resolvePath('canadian_combined_hours.json');
+            const clubMetadataPath = resolvePath('weglide_club_metadata.json');
             let loaded = false;
 
             // Try to load both caches, or derive durations from profiles if durations missing
@@ -1127,6 +1734,16 @@ async function processCanadianFlights() {
                 }
             }
 
+            if (fs.existsSync(clubMetadataPath)) {
+                try {
+                    clubMetadataByIdEmbedded = JSON.parse(fs.readFileSync(clubMetadataPath, 'utf-8'));
+                    console.log(`ℹ️ Loaded cached club metadata for ${Object.keys(clubMetadataByIdEmbedded).length} clubs`);
+                } catch (error) {
+                    console.warn('⚠️ Could not parse club metadata cache:', error.message || error);
+                    clubMetadataByIdEmbedded = {};
+                }
+            }
+
             if (!loaded) {
                 console.log('⏬ Fetching pilot profile data from WeGlide...');
                 const { durations, profiles } = await fetchUserProfilesServer(allPilotIds);
@@ -1137,6 +1754,14 @@ async function processCanadianFlights() {
                 fs.writeFileSync(profilesPath, JSON.stringify(pilotProfilesEmbedded, null, 2));
                 console.log('💾 Saved pilot durations and profiles to cache files');
             }
+
+            mergeClubMetadataFromProfiles(clubMetadataByIdEmbedded, pilotProfilesEmbedded);
+            if (scannedClubIds.length > 0) {
+                console.log(`⏬ One-time club seed enabled for ids 1-${scannedClubIds[scannedClubIds.length - 1]}...`);
+            }
+            clubMetadataByIdEmbedded = await fetchClubMetadataServer([...scannedClubIds, ...requiredClubIds], clubMetadataByIdEmbedded);
+            fs.writeFileSync(clubMetadataPath, JSON.stringify(clubMetadataByIdEmbedded, null, 2));
+            console.log(`💾 Saved club metadata cache for ${Object.keys(clubMetadataByIdEmbedded).length} clubs`);
         } catch (e) {
             console.warn('⚠️ Could not load/save pilot profile data:', e.message || e);
         }
@@ -1180,7 +1805,7 @@ async function processCanadianFlights() {
             .replace(/<div class="stat">\s*<span class="stat-number" id="seasonPeriod">Oct 2024 - Sep 2025<\/span>\s*<span class="stat-label">Season Period<\/span>\s*<\/div>/g,
                 `<div class="stat" onclick="toggleTaskStatsSection()" style="cursor: pointer;" title="Click to view task type statistics">
                     <span class="stat-number" id="tasksDeclared">${totalTasksDeclared.toLocaleString()}</span>
-                    <span class="stat-label">Tasks Declared</span>
+                    <span class="stat-label clickable-stat-label">Tasks Declared</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number" id="tasksCompleted">${totalTasksCompleted.toLocaleString()}</span>
@@ -1208,6 +1833,7 @@ async function processCanadianFlights() {
         // Global variables for leaderboard data
         let mixedLeaderboard = [];
         let freeLeaderboard = [];
+        let bhcLeaderboard = [];
         let sprintLeaderboard = [];
         let triangleLeaderboard = [];
         let outReturnLeaderboard = [];
@@ -1215,6 +1841,8 @@ async function processCanadianFlights() {
         let silverCGullLeaderboard = [];
         let fullFlightData = [];
         let detailedFlightData = [];
+        let flightClubById = {};
+        let clubMetadataById = {};
         let leaderboard = [];
         let currentScoringMode = 'mixed';
         const HOURS_200_SEC = 200 * 3600;
@@ -1246,6 +1874,8 @@ async function processCanadianFlights() {
         const SCORING_DESCRIPTION_FREE = '__SCORING_DESCRIPTION_FREE__'
             .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}\\*/g, FREE_SEASON_LABEL)
             .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}/g, SEASON_LABEL);
+        const SCORING_DESCRIPTION_BHC = '<span class="scoring-tooltip" data-tooltip="bhc">Barron Hilton Challenge</span> • Best 1 declared triangle flight • FAI triangles get a 30% bonus • Gray rows are non-IGC recorders • Oct 1, 2025 - Sept 30, 2026'
+            .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}/g, SEASON_LABEL);
         const SAC_DSC_RULES_TOOLTIP = '__SAC_DSC_RULES_TOOLTIP__';
         const USING_SAC_DSC_VARIANT = COMBINED_LABEL === 'SAC-DSC';
         const AUTO_PIC_DATA_SOURCES = new Set(['weglide-calculated', 'combined-hours-calculated']);
@@ -1264,9 +1894,183 @@ async function processCanadianFlights() {
             footer.textContent = 'Data from WeGlide API • Canadian online competition season runs ' + CURRENT_SEASON.longLabel;
         }
 
+        function findContestByNames(flight, names, predicate = null) {
+            if (!flight || !Array.isArray(flight.contest)) {
+                return null;
+            }
+
+            const normalizedNames = Array.isArray(names) ? names : [names];
+            for (const name of normalizedNames) {
+                const contest = flight.contest.find((entry) => {
+                    if (!entry || entry.name !== name) return false;
+                    return typeof predicate === 'function' ? predicate(entry) : true;
+                });
+                if (contest) {
+                    return contest;
+                }
+            }
+
+            return null;
+        }
+
+        function findPrimaryTaskContest(flight, requirePoints = true) {
+            return findContestByNames(
+                flight,
+                ['ca', 'au'],
+                requirePoints
+                    ? (contest) => typeof contest.points === 'number' && contest.points > 0
+                    : null
+            );
+        }
+
+        function getContestDistanceValue(contest) {
+            const contestDistance = Number(contest?.distance);
+            if (Number.isFinite(contestDistance) && contestDistance > 0) {
+                return contestDistance;
+            }
+
+            const scoreDistance = Number(contest?.score?.distance);
+            if (Number.isFinite(scoreDistance) && scoreDistance > 0) {
+                return scoreDistance;
+            }
+
+            return null;
+        }
+
+        function findBhcAltitudeContest(flight) {
+            return findContestByNames(
+                flight,
+                ['ca', 'au', 'declaration']
+            );
+        }
+
+        function assessBhcAltitudeRule(flight) {
+            const altitudeUnknownMessage = 'Unable to determine if flight meets the 1,000 m difference or not.';
+            const taskContest = findBhcAltitudeContest(flight);
+            const taskDistance = Number(flight?.task?.distance);
+            const contestDistance = getContestDistanceValue(taskContest);
+
+            if (!taskContest) {
+                return {
+                    status: 'unknown',
+                    reason: 'missing_contest',
+                    source: taskContest?.name || null,
+                    altitudeDifference: null,
+                    message: altitudeUnknownMessage
+                };
+            }
+
+            const scoreLegs = taskContest?.score?.leg || [];
+            const departureAltitude = Number(scoreLegs[0]?.start_alt);
+            const finishAltitude = Number(scoreLegs[scoreLegs.length - 1]?.end_alt);
+
+            if (!Number.isFinite(departureAltitude) || !Number.isFinite(finishAltitude)) {
+                return {
+                    status: 'unknown',
+                    reason: 'missing_altitude',
+                    source: taskContest.name,
+                    altitudeDifference: null,
+                    message: altitudeUnknownMessage
+                };
+            }
+
+            const altitudeDifference = departureAltitude - finishAltitude;
+            return {
+                status: altitudeDifference > 1000 ? 'failed' : 'passed',
+                reason: 'measured',
+                source: taskContest.name,
+                altitudeDifference,
+                message: altitudeUnknownMessage
+            };
+        }
+
+        function annotateBhcLeaderboardMetadata() {
+            if (!Array.isArray(fullFlightData) || !Array.isArray(bhcLeaderboard) || fullFlightData.length === 0) {
+                return;
+            }
+
+            const assessmentById = new Map(fullFlightData.map((flight) => [flight.id, assessBhcAltitudeRule(flight)]));
+
+            bhcLeaderboard = bhcLeaderboard
+                .map((pilot) => {
+                    const bestFlights = (pilot.bestFlights || [])
+                        .map((flight) => {
+                    const assessment = assessmentById.get(flight.id);
+                    if (!assessment) {
+                        return flight;
+                    }
+
+                    if (assessment.status === 'unknown' && assessment.reason === 'missing_altitude') {
+                        return flight;
+                    }
+
+                    return {
+                        ...flight,
+                        bhcAltitudeStatus: assessment.status,
+                                bhcAltitudeDifference: assessment.altitudeDifference,
+                                bhcAltitudeSource: assessment.source
+                            };
+                        })
+                        .filter((flight) => flight?.bhcAltitudeStatus !== 'failed');
+
+                    if (bestFlights.length === 0) {
+                        return null;
+                    }
+
+                    return {
+                        ...pilot,
+                        bestFlights,
+                        flightCount: bestFlights.length,
+                        totalPoints: bestFlights.reduce((sum, flight) => sum + (Number(flight.points) || 0), 0),
+                        totalDistance: bestFlights.reduce((sum, flight) => sum + (Number(flight.distance) || 0), 0)
+                    };
+                })
+                .filter(Boolean)
+                .sort((a, b) => (b.totalPoints || 0) - (a.totalPoints || 0));
+
+            if (Array.isArray(detailedFlightData) && detailedFlightData.length > 0) {
+                detailedFlightData = detailedFlightData.map((flight) => {
+                    if (!flight?.bhcInfo) {
+                        return flight;
+                    }
+
+                    const assessment = assessmentById.get(flight.id);
+                    if (!assessment) {
+                        return flight;
+                    }
+
+                    if (assessment.status === 'unknown' && assessment.reason === 'missing_altitude') {
+                        return flight;
+                    }
+
+                    return {
+                        ...flight,
+                        bhcInfo: {
+                            ...flight.bhcInfo,
+                            altitudeStatus: assessment.status,
+                            altitudeDifference: assessment.altitudeDifference,
+                            altitudeSource: assessment.source
+                        }
+                    };
+                });
+            }
+        }
+
         // Tooltip functionality
         const tooltipTexts = USING_SAC_DSC_VARIANT ? {
             sacdsc: SAC_DSC_RULES_TOOLTIP,
+            bhc: \`Barron Hilton Challenge
+
+Fly a declared closed triangle and return to the declared start/finish point.
+The start/finish can be at a triangle corner or in the middle of one leg.
+Waypoints must be flown in the declared order, and the declaration must be made before takeoff.
+Official scoring requires an IGC-approved recorder.
+
+Scoring:
+• 1 point per km of declared triangle distance
+• FAI triangles get a 30% bonus
+• Score is then multiplied by 100 ÷ OLC index
+• Start altitude may not be more than 1000 m above finish altitude\`,
             free: \`WeGlide Free
 1.0 point per km, up to 6 legs
 
@@ -1296,6 +2100,18 @@ Declared and completed +30%, plus one of (if applicable):
 
 Max 3 turnpoints (4 for rectangles)
 Points only for declared task distance\`,
+            bhc: \`Barron Hilton Challenge
+
+Fly a declared closed triangle and return to the declared start/finish point.
+The start/finish can be at a triangle corner or in the middle of one leg.
+Waypoints must be flown in the declared order, and the declaration must be made before takeoff.
+Official scoring requires an IGC-approved recorder.
+
+Scoring:
+• 1 point per km of declared triangle distance
+• FAI triangles get a 30% bonus
+• Score is then multiplied by 100 ÷ OLC index
+• Start altitude may not be more than 1000 m above finish altitude\`,
             free: \`WeGlide Free
 1.0 point per km, up to 6 legs
 
@@ -1487,29 +2303,88 @@ No maximum distance bonus\`,
             return pilotProfiles[pilotId] || null;
         }
 
-        function getPilotClubName(pilot) {
-            if (!pilot) return '';
-            const pilotId = pilot.userId || pilot.pilotId;
-            const profile = getPilotProfile(pilotId);
-            return String(profile?.club?.name || '').trim();
+        function getClubMetadataById(clubId) {
+            const normalizedClubId = Number(clubId);
+            if (!Number.isFinite(normalizedClubId)) {
+                return null;
+            }
+
+            return clubMetadataById[String(normalizedClubId)] || clubMetadataById[normalizedClubId] || null;
         }
 
-        function getPilotCanadianClubName(pilot) {
-            if (!pilot) return '';
-            const pilotId = pilot.userId || pilot.pilotId;
-            const profile = getPilotProfile(pilotId);
-            const region = String(profile?.club?.region || '').trim().toUpperCase().replace(/_/g, '-');
-            if (!region.startsWith('CA-')) {
+        function getClubMetadataByName(clubName) {
+            const normalizedName = String(clubName || '').trim().toLowerCase();
+            if (!normalizedName) {
+                return null;
+            }
+
+            for (const profile of Object.values(pilotProfiles || {})) {
+                const profileClubName = String(profile?.club?.name || '').trim().toLowerCase();
+                if (profileClubName && profileClubName === normalizedName) {
+                    return profile.club || null;
+                }
+            }
+
+            return null;
+        }
+
+        function normalizeClubRegion(region) {
+            return String(region || '').trim().toUpperCase().replace(/_/g, '-');
+        }
+
+        function regionMatchesCountry(region, requiredRegionPrefix) {
+            const normalizedRegion = normalizeClubRegion(region);
+            const normalizedPrefix = normalizeClubRegion(requiredRegionPrefix);
+            const bareCountry = normalizedPrefix.replace(/-$/, '');
+            return normalizedRegion === bareCountry || normalizedRegion.startsWith(normalizedPrefix);
+        }
+
+        function getFlightClubNameById(flightId, requiredRegionPrefix = 'CA-') {
+            const club = flightClubById[String(flightId)] || flightClubById[flightId];
+            const clubMetadata = getClubMetadataById(club?.clubId) || getClubMetadataByName(club?.name);
+            const clubName = String(club?.name || clubMetadata?.name || '').trim();
+            const region = normalizeClubRegion(clubMetadata?.region || club?.region || '');
+            if (!clubName || !regionMatchesCountry(region, requiredRegionPrefix)) {
                 return '';
             }
-            return String(profile?.club?.name || '').trim();
+            return clubName;
         }
 
-        function collectClubOptions() {
+        function getPilotFlightClubNames(pilot, requiredRegionPrefix = 'CA-') {
+            if (!pilot || !Array.isArray(pilot.bestFlights)) {
+                return [];
+            }
+
             const clubs = new Set();
+            pilot.bestFlights.forEach((flight) => {
+                const clubName = getFlightClubNameById(flight?.id, requiredRegionPrefix);
+                if (clubName) {
+                    clubs.add(clubName);
+                }
+            });
+            return Array.from(clubs);
+        }
+
+        function getClubNamesFromMetadata(requiredRegionPrefix = 'CA-') {
+            const clubs = new Set();
+
+            Object.values(clubMetadataById || {}).forEach((club) => {
+                const clubName = String(club?.name || '').trim();
+                const region = normalizeClubRegion(club?.region || '');
+                if (clubName && regionMatchesCountry(region, requiredRegionPrefix)) {
+                    clubs.add(clubName);
+                }
+            });
+
+            return clubs;
+        }
+
+        function collectClubOptions(requiredRegionPrefix = 'CA-') {
+            const clubs = getClubNamesFromMetadata(requiredRegionPrefix);
             [
                 mixedLeaderboard,
                 freeLeaderboard,
+                bhcLeaderboard,
                 sprintLeaderboard,
                 triangleLeaderboard,
                 outReturnLeaderboard,
@@ -1517,10 +2392,7 @@ No maximum distance bonus\`,
                 silverCGullLeaderboard
             ].forEach(list => {
                 (list || []).forEach(pilot => {
-                    const clubName = getPilotCanadianClubName(pilot);
-                    if (clubName) {
-                        clubs.add(clubName);
-                    }
+                    getPilotFlightClubNames(pilot, requiredRegionPrefix).forEach((clubName) => clubs.add(clubName));
                 });
             });
             return Array.from(clubs).sort((left, right) => left.localeCompare(right));
@@ -1530,7 +2402,7 @@ No maximum distance bonus\`,
             const select = document.getElementById('clubFilterSelect');
             if (!select) return;
 
-            const clubs = collectClubOptions();
+            const clubs = collectClubOptions('CA-');
             const previousValue = selectedClub;
             select.innerHTML = '<option value="all">All clubs</option>';
             clubs.forEach(clubName => {
@@ -1552,7 +2424,7 @@ No maximum distance bonus\`,
             if (selectedClub === 'all') {
                 return list;
             }
-            return list.filter(pilot => getPilotCanadianClubName(pilot) === selectedClub);
+            return list.filter(pilot => getPilotFlightClubNames(pilot, 'CA-').includes(selectedClub));
         }
 
         // Calculate current year stats for a pilot
@@ -1745,6 +2617,7 @@ No maximum distance bonus\`,
                 // Embedded leaderboard data
                 mixedLeaderboard = __MIXED_LEADERBOARD__;
                 freeLeaderboard = __FREE_LEADERBOARD__;
+                bhcLeaderboard = __BHC_LEADERBOARD__;
                 sprintLeaderboard = __SPRINT_LEADERBOARD__;
                 triangleLeaderboard = __TRIANGLE_LEADERBOARD__;
                 outReturnLeaderboard = __OUTRETURN_LEADERBOARD__;
@@ -1756,6 +2629,12 @@ No maximum distance bonus\`,
 
                 // Embedded minimal flight data for task stats (compressed)
                 fullFlightData = __MINIMAL_FLIGHTS__;
+
+                // Embedded flight club lookup keyed by flight id
+                flightClubById = __FLIGHT_CLUBS__;
+
+                // Embedded club metadata keyed by club id
+                clubMetadataById = __CLUB_METADATA__;
 
                 // ALL flight statistics (not just top 5 used for leaderboard)
                 const allFlightStats = {
@@ -1776,10 +2655,14 @@ No maximum distance bonus\`,
                 // Update stats from the actual leaderboard data
                 const pilotCount = mixedLeaderboard.length;
                 const flightCount = mixedLeaderboard.reduce((sum, pilot) => sum + (pilot.flightCount || 0), 0);
+                const totalPoints = getLeaderboardPointsTotal(mixedLeaderboard);
                 const totalDistance = Math.round(mixedLeaderboard.reduce((sum, pilot) => sum + (pilot.totalDistance || 0), 0));
-                document.getElementById('pilotCount').textContent = pilotCount.toLocaleString();
-                document.getElementById('flightCount').textContent = flightCount.toLocaleString();
-                document.getElementById('totalKms').textContent = totalDistance.toLocaleString();
+                updateHeadlineStats({
+                    pilotCount,
+                    flightCount,
+                    totalPoints,
+                    totalDistance
+                });
 
                 // Show task stats only in Combined mode
                 updateTaskStats('mixed', {
@@ -1791,6 +2674,7 @@ No maximum distance bonus\`,
                 });
 
                 // Build leaderboard table using shared renderer
+                annotateBhcLeaderboardMetadata();
                 populateClubFilterOptions();
                 buildLeaderboard();
 
@@ -1809,8 +2693,30 @@ No maximum distance bonus\`,
             }
         }
 
+        function isCompletedTaskFlight(flight) {
+            if (flight?.taskCompleted === true || flight?.task_achieved === true) {
+                return true;
+            }
+
+            const rawFlight = (fullFlightData || []).find((candidate) => candidate && candidate.id === flight?.id);
+            return rawFlight?.taskCompleted === true || rawFlight?.task_achieved === true;
+        }
+
         function createFlightCell(flight) {
-            const declaredBadge = flight.declared ? '<span class="declared-task">TASK</span>' : '';
+            const showTaskBadge = currentScoringMode !== 'bhc' && (
+                flight.declared ||
+                (currentScoringMode === 'free' && isCompletedTaskFlight(flight))
+            );
+            const declaredBadge = showTaskBadge
+                ? '<span class="declared-task">TASK</span>'
+                : '';
+            const triangleTypeBadge = flight.triangleType === 'fai'
+                ? '<span class="triangle-type-badge">FAI</span>'
+                : flight.triangleType === 'other'
+                    ? '<span class="triangle-type-badge other">Triangle</span>'
+                    : '';
+            const bhcModeActive = currentScoringMode === 'bhc';
+            const bhcCellClass = bhcModeActive && flight.bhcLoggerValid === false ? ' bhc-unofficial' : '';
             const flightUrl = \`https://www.weglide.org/flight/\${flight.id}\`;
 
             // Create aircraft display with name and index if available
@@ -1827,14 +2733,14 @@ No maximum distance bonus\`,
             }
 
             return \`
-                <td class="flight-cell" onmouseenter="showFlightPreview(\${flight.id}, event)" onmouseleave="hideFlightPreview(event)">
+                <td class="flight-cell\${bhcCellClass}" onmouseenter="showFlightPreview(\${flight.id}, event)" onmouseleave="hideFlightPreview(event)">
                     <div class="flight-details">
-                        <div class="flight-points">\${flight.points.toFixed(1)} pts\${declaredBadge}</div>
+                        <div class="flight-points">\${flight.points.toFixed(1)} pts\${declaredBadge}\${triangleTypeBadge}</div>
                         <div class="flight-distance">\${flight.distance.toFixed(1)} km</div>
                         <div class="flight-speed">\${flight.speed.toFixed(1)} km/h</div>
                         <div class="flight-date">\${formatDate(flight.date)}</div>
                         <div class="flight-aircraft">\${aircraftDisplay}</div>
-                        <div class="flight-location">\${flight.takeoff} • <a href="\${flightUrl}" target="_blank" class="weglide-link">View on WeGlide →</a></div>
+                        <div class="flight-location">\${flight.takeoff} • <a href="\${flightUrl}" target="_blank" class="weglide-link" onmouseenter="suppressFlightTooltip(event)" onmouseleave="clearFlightTooltipSuppression()" onfocus="suppressFlightTooltip(event)" onblur="clearFlightTooltipSuppression()">View on WeGlide →</a></div>
                     </div>
                 </td>
             \`;
@@ -1856,10 +2762,120 @@ No maximum distance bonus\`,
             // Task stats are now always visible in the main stats area
             // Just update the values - no need to show/hide
             if (document.getElementById('tasksDeclared') && stats && stats.totalTasksDeclared !== undefined) {
-                document.getElementById('tasksDeclared').textContent = stats.totalTasksDeclared.toLocaleString();
+                document.getElementById('tasksDeclared').textContent =
+                    (typeof stats.totalTasksDeclared === 'number' && Number.isFinite(stats.totalTasksDeclared))
+                        ? stats.totalTasksDeclared.toLocaleString()
+                        : '--';
             }
             if (document.getElementById('tasksCompleted') && stats && stats.totalTasksCompleted !== undefined) {
-                document.getElementById('tasksCompleted').textContent = stats.totalTasksCompleted.toLocaleString();
+                document.getElementById('tasksCompleted').textContent =
+                    (typeof stats.totalTasksCompleted === 'number' && Number.isFinite(stats.totalTasksCompleted))
+                        ? stats.totalTasksCompleted.toLocaleString()
+                        : '--';
+            }
+        }
+
+        function calculateDisplayedTaskStats(list) {
+            const displayedFlightIds = new Set();
+
+            (Array.isArray(list) ? list : []).forEach((pilot) => {
+                if (Array.isArray(pilot?.bestFlights)) {
+                    pilot.bestFlights.forEach((flight) => {
+                        if (flight?.id !== undefined && flight?.id !== null) {
+                            displayedFlightIds.add(flight.id);
+                        }
+                    });
+                } else if (pilot?.flightId !== undefined && pilot?.flightId !== null) {
+                    displayedFlightIds.add(pilot.flightId);
+                }
+            });
+
+            let totalTasksDeclared = 0;
+            let totalTasksCompleted = 0;
+
+            (fullFlightData || []).forEach((flight) => {
+                if (!flight || !displayedFlightIds.has(flight.id)) {
+                    return;
+                }
+
+                if (flight.taskDeclared || flight.task) {
+                    totalTasksDeclared++;
+                    if (flight.taskCompleted || flight.task_achieved === true) {
+                        totalTasksCompleted++;
+                    }
+                }
+            });
+
+            return {
+                totalTasksDeclared,
+                totalTasksCompleted
+            };
+        }
+
+        function getLeaderboardPointsTotal(list) {
+            return (Array.isArray(list) ? list : []).reduce((sum, pilot) => {
+                if (typeof pilot?.totalPoints === 'number' && Number.isFinite(pilot.totalPoints)) {
+                    return sum + pilot.totalPoints;
+                }
+
+                if (typeof pilot?.points === 'number' && Number.isFinite(pilot.points)) {
+                    return sum + pilot.points;
+                }
+
+                if (typeof pilot?.points === 'string') {
+                    const parsedPoints = parseFloat(pilot.points.replace(/[^0-9.-]+/g, ''));
+                    if (Number.isFinite(parsedPoints)) {
+                        return sum + parsedPoints;
+                    }
+                }
+
+                if (Array.isArray(pilot?.bestFlights)) {
+                    return sum + pilot.bestFlights.reduce((flightSum, flight) => {
+                        return flightSum + ((typeof flight?.points === 'number' && Number.isFinite(flight.points)) ? flight.points : 0);
+                    }, 0);
+                }
+
+                return sum;
+            }, 0);
+        }
+
+        function formatHeadlinePoints(pointsValue) {
+            if (typeof pointsValue !== 'number' || !Number.isFinite(pointsValue)) {
+                return '-';
+            }
+
+            return pointsValue.toLocaleString(undefined, {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1
+            });
+        }
+
+        function updateHeadlineStats({ pilotCount, flightCount, totalPoints, totalDistance }) {
+            const pilotCountEl = document.getElementById('pilotCount');
+            const flightCountEl = document.getElementById('flightCount');
+            const totalPointsEl = document.getElementById('totalPoints');
+            const totalKmsEl = document.getElementById('totalKms');
+
+            if (pilotCountEl) {
+                pilotCountEl.textContent =
+                    (typeof pilotCount === 'number' && Number.isFinite(pilotCount))
+                        ? pilotCount.toLocaleString()
+                        : '--';
+            }
+            if (flightCountEl) {
+                flightCountEl.textContent =
+                    (typeof flightCount === 'number' && Number.isFinite(flightCount))
+                        ? flightCount.toLocaleString()
+                        : '--';
+            }
+            if (totalPointsEl) {
+                totalPointsEl.textContent = formatHeadlinePoints(totalPoints);
+            }
+            if (totalKmsEl) {
+                totalKmsEl.textContent =
+                    (typeof totalDistance === 'number' && Number.isFinite(totalDistance))
+                        ? Math.round(totalDistance).toLocaleString()
+                        : '--';
             }
         }
 
@@ -1869,12 +2885,18 @@ No maximum distance bonus\`,
 
             const updateStatsFromLeaderboard = (list) => {
                 if (!Array.isArray(list)) return;
-                const pilotCount = list.length;
+                const pilotCount = currentScoringMode === 'bhc'
+                    ? new Set(list.map((pilot) => String(pilot.pilotId || pilot.userId || pilot.pilot || ''))).size
+                    : list.length;
                 const flightCount = list.reduce((sum, pilot) => sum + (Array.isArray(pilot.bestFlights) ? pilot.bestFlights.length : 0), 0);
+                const totalPoints = getLeaderboardPointsTotal(list);
                 const totalDistance = Math.round(list.reduce((sum, pilot) => sum + (pilot.totalDistance || 0), 0));
-                document.getElementById('pilotCount').textContent = pilotCount.toLocaleString();
-                document.getElementById('flightCount').textContent = flightCount.toLocaleString();
-                document.getElementById('totalKms').textContent = totalDistance.toLocaleString();
+                updateHeadlineStats({
+                    pilotCount,
+                    flightCount,
+                    totalPoints,
+                    totalDistance
+                });
             };
 
             if (mode === 'mixed') {
@@ -1903,6 +2925,17 @@ No maximum distance bonus\`,
                     totalTasksDeclared: ` + totalTasksDeclared + `,
                     totalTasksCompleted: ` + totalTasksCompleted + `,
                     totalTasksHigherThanFree: ` + totalTasksHigherThanFree + `
+                });
+            } else if (mode === 'bhc') {
+                leaderboard = bhcLeaderboard;
+                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_BHC;
+                updateStatsFromLeaderboard(leaderboard);
+                updateTaskStats('mixed', {
+                    totalPilots: ` + totalPilots + `,
+                    totalFlights: ` + totalFlights + `,
+                    totalKms: ` + totalKms + `,
+                    totalTasksDeclared: ` + totalTasksDeclared + `,
+                    totalTasksCompleted: ` + totalTasksCompleted + `
                 });
             } else if (mode === 'sprint') {
                 leaderboard = sprintLeaderboard;
@@ -1952,20 +2985,27 @@ No maximum distance bonus\`,
                 leaderboard = silverCGullLeaderboard;
                 document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
 
-                document.getElementById('pilotCount').textContent = leaderboard.length;
-                document.getElementById('flightCount').textContent = leaderboard.length;
+                const totalPoints = getLeaderboardPointsTotal(leaderboard);
                 const silverKms = leaderboard.reduce((sum, pilot) => {
                     const distance = parseFloat(pilot.distance) || 0;
                     return sum + distance;
                 }, 0);
-                document.getElementById('totalKms').textContent = Math.round(silverKms).toLocaleString();
+                updateHeadlineStats({
+                    pilotCount: leaderboard.length,
+                    flightCount: leaderboard.length,
+                    totalPoints,
+                    totalDistance: silverKms
+                });
             } else {
                 leaderboard = freeLeaderboard;
                 document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_FREE;
 
-                document.getElementById('pilotCount').textContent = ` + totalPilots + `;
-                document.getElementById('flightCount').textContent = ` + totalFlights + `;
-                document.getElementById('totalKms').textContent = (` + totalKms + `).toLocaleString();
+                updateHeadlineStats({
+                    pilotCount: ` + totalPilots + `,
+                    flightCount: ` + totalFlights + `,
+                    totalPoints: getLeaderboardPointsTotal(freeLeaderboard),
+                    totalDistance: ` + totalKms + `
+                });
 
                 updateTaskStats('free', {
                     totalPilots: ` + totalPilots + `,
@@ -1981,6 +3021,7 @@ No maximum distance bonus\`,
             const modeToButton = {
                 mixed: 'combinedBtn',
                 free: 'freeBtn',
+                bhc: 'bhcBtn',
                 sprint: 'sprintBtn',
                 triangle: 'triangleBtn',
                 out_return: 'outReturnBtn',
@@ -2001,6 +3042,8 @@ No maximum distance bonus\`,
                 if (typeof updateUnder200ButtonLabel === 'function') updateUnder200ButtonLabel();
             }
 
+            updateTaskStats(mode, calculateDisplayedTaskStats(leaderboard));
+
             buildLeaderboard();
 
             if (mode === 'silverCGull') {
@@ -2020,6 +3063,7 @@ No maximum distance bonus\`,
         function toggleFlightColumns(maxFlights) {
             const table = document.getElementById('leaderboardTable');
             if (!table) return;
+            table.classList.toggle('one-flight-mode', maxFlights === 1);
             table.classList.toggle('three-flight-mode', maxFlights === 3);
         }
 
@@ -2107,6 +3151,7 @@ No maximum distance bonus\`,
         let previewTimeout;
         let previewElement;
         let flightHideTimeout;
+        let suppressFlightTooltipUntil = 0;
         let pilotPreviewTimeout;
         let pilotPreviewElement;
         let pilotPreviewHideTimeout;
@@ -2273,7 +3318,24 @@ No maximum distance bonus\`,
             }
             cancelFlightHide();
 
+            const hoveredElement = event && typeof event.clientX === 'number' && typeof event.clientY === 'number'
+                ? document.elementFromPoint(event.clientX, event.clientY)
+                : null;
+            if ((Date.now() < suppressFlightTooltipUntil) ||
+                (hoveredElement && hoveredElement.closest && hoveredElement.closest('.weglide-link'))) {
+                return;
+            }
+
             previewTimeout = setTimeout(() => {
+                const liveHoveredElement = event && typeof event.clientX === 'number' && typeof event.clientY === 'number'
+                    ? document.elementFromPoint(event.clientX, event.clientY)
+                    : null;
+                if ((Date.now() < suppressFlightTooltipUntil) ||
+                    (liveHoveredElement && liveHoveredElement.closest && liveHoveredElement.closest('.weglide-link'))) {
+                    previewTimeout = null;
+                    return;
+                }
+
                 // Find the flight data in our current leaderboard
                 let basicFlightData = null;
                 for (const pilot of leaderboard) {
@@ -2292,7 +3354,20 @@ No maximum distance bonus\`,
                 } else if (basicFlightData) {
                     showFlightTooltip(basicFlightData, null, event);
                 }
-            }, 300);
+                previewTimeout = null;
+            }, 650);
+        }
+
+        function suppressFlightTooltip(event) {
+            suppressFlightTooltipUntil = Date.now() + 1200;
+            hideFlightPreview(null, true);
+            if (event && typeof event.stopPropagation === 'function') {
+                event.stopPropagation();
+            }
+        }
+
+        function clearFlightTooltipSuppression() {
+            suppressFlightTooltipUntil = 0;
         }
 
         function showFlightTooltip(flightData, detailedFlight, event) {
@@ -2305,6 +3380,9 @@ No maximum distance bonus\`,
         // Determine task status and scoring type separately
         let taskStatusBadge = '';
         let scoringTypeBadge = '';
+        let bhcSourceBadge = '';
+        let bhcLoggerBadge = '';
+        let bhcAltitudeBadge = '';
         let taskScoreHtml = '';
 
             if (detailedFlight) {
@@ -2319,10 +3397,12 @@ No maximum distance bonus\`,
                 }
 
                 // Scoring type badge - check the actual contestType used
-                if (flightData.contestType === 'ca') {
+                if (flightData.contestType === 'ca' || flightData.contestType === 'au') {
                     scoringTypeBadge = '<span class="flight-type declared">Task Score</span>';
                 } else if (flightData.contestType === 'declaration') {
                     scoringTypeBadge = '<span class="flight-type declared">Declaration Score</span>';
+                } else if (flightData.contestType === 'bhc') {
+                    scoringTypeBadge = '<span class="flight-type declared">BHC Score</span>';
                 } else {
                     scoringTypeBadge = '<span class="flight-type free">Free Score</span>';
                 }
@@ -2332,16 +3412,33 @@ No maximum distance bonus\`,
                     taskStatusBadge = '<span class="flight-type declared">✓ Task Declared</span>';
                 }
                 // Use the actual contestType from the flight data
-                if (flightData.contestType === 'ca') {
+                if (flightData.contestType === 'ca' || flightData.contestType === 'au') {
                     scoringTypeBadge = '<span class="flight-type declared">Task Score</span>';
                 } else if (flightData.contestType === 'declaration') {
                     scoringTypeBadge = '<span class="flight-type declared">Declaration Score</span>';
+                } else if (flightData.contestType === 'bhc') {
+                    scoringTypeBadge = '<span class="flight-type declared">BHC Score</span>';
                 } else {
                     scoringTypeBadge = '<span class="flight-type free">Free Score</span>';
                 }
             }
 
-            const statusBadges = [taskStatusBadge, scoringTypeBadge].filter(badge => badge).join(' ');
+            if (flightData.contestType === 'bhc') {
+                const declarationSource = detailedFlight?.bhcInfo?.declarationSource || flightData.bhcDeclarationSource;
+                const loggerValid = detailedFlight?.bhcInfo?.loggerValid ?? flightData.bhcLoggerValid;
+                const altitudeStatus = detailedFlight?.bhcInfo?.altitudeStatus || flightData.bhcAltitudeStatus;
+                bhcSourceBadge = declarationSource === 'igc'
+                    ? '<span class="info-badge">IGC Declaration</span>'
+                    : '<span class="info-badge subtle">WeGlide Declaration</span>';
+                bhcLoggerBadge = loggerValid === false
+                    ? '<span class="info-badge warning">Non-IGC-approved logger</span>'
+                    : '<span class="info-badge">IGC Recorder</span>';
+                bhcAltitudeBadge = altitudeStatus === 'unknown'
+                    ? '<span class="info-badge subtle">Altitude rule unknown</span>'
+                    : '';
+            }
+
+            const statusBadges = [taskStatusBadge, scoringTypeBadge, bhcSourceBadge, bhcLoggerBadge, bhcAltitudeBadge].filter(badge => badge).join(' ');
 
             // Helper functions for conversions
             const metersToFeet = (m) => Math.round(m * 3.28084);
@@ -2973,19 +4070,51 @@ No maximum distance bonus\`,
             const visible = applyUnder200Filter(applyClubFilter(leaderboard));
             const clubFilterActive = selectedClub !== 'all';
             const isThreeFlightMode = currentScoringMode === 'sprint' || currentScoringMode === 'triangle' || currentScoringMode === 'out_return' || currentScoringMode === 'out';
-            const maxFlightsToShow = isThreeFlightMode ? 3 : 5;
+            const maxFlightsToShow = currentScoringMode === 'bhc' ? 1 : (isThreeFlightMode ? 3 : 5);
+
+            if (visible.length === 0) {
+                const emptyRow = document.createElement('tr');
+                const emptyMessage = clubFilterActive
+                    ? 'No matching flights logged yet for ' + selectedClub
+                    : 'No matching flights found';
+                emptyRow.innerHTML = '<td colspan="8" style="text-align: center; color: #6c757d; padding: 24px 12px;">' + emptyMessage + '</td>';
+                tbody.appendChild(emptyRow);
+                toggleFlightColumns(maxFlightsToShow);
+                updateHeadlineStats({
+                    pilotCount: null,
+                    flightCount: null,
+                    totalPoints: null,
+                    totalDistance: null
+                });
+                updateTaskStats(currentScoringMode, {
+                    totalTasksDeclared: null,
+                    totalTasksCompleted: null
+                });
+                setTimeout(() => {
+                    updateLeaderboardOverflowState();
+                }, 0);
+                return;
+            }
 
             // Calculate aircraft awards for visible pilots in free mode
             const visibleAwards = isFreeMode ? calculateVisibleAircraftAwards(visible) : null;
+            let rankedPosition = 0;
 
-            visible.forEach((pilot, index) => {
+            visible.forEach((pilot) => {
                 const row = document.createElement('tr');
+                const bhcLeadFlight = Array.isArray(pilot.bestFlights) ? pilot.bestFlights[0] : null;
+                const isBhcUnofficialRow = currentScoringMode === 'bhc' &&
+                    (pilot.isBhcUnofficialRow === true || (bhcLeadFlight && bhcLeadFlight.bhcLoggerValid === false));
 
-                let rankDisplay = index + 1;
-                if (!isFreeMode && !isSilverCGull) {
-                    if (index === 0) rankDisplay = '<span class="medal gold">🥇</span>' + rankDisplay;
-                    else if (index === 1) rankDisplay = '<span class="medal silver">🥈</span>' + rankDisplay;
-                    else if (index === 2) rankDisplay = '<span class="medal bronze">🥉</span>' + rankDisplay;
+                let rankDisplay = 'N/A';
+                if (!isBhcUnofficialRow) {
+                    rankedPosition += 1;
+                    rankDisplay = rankedPosition;
+                    if (!isFreeMode && !isSilverCGull) {
+                        if (rankedPosition === 1) rankDisplay = '<span class="medal gold">🥇</span>' + rankDisplay;
+                        else if (rankedPosition === 2) rankDisplay = '<span class="medal silver">🥈</span>' + rankDisplay;
+                        else if (rankedPosition === 3) rankDisplay = '<span class="medal bronze">🥉</span>' + rankDisplay;
+                    }
                 }
 
                 // Create pilot name with link to WeGlide profile
@@ -3059,7 +4188,7 @@ No maximum distance bonus\`,
                                 <div class="flight-speed">\${pilot.duration}</div>
                                 <div class="flight-date">\${pilot.date}</div>
                                 <div class="flight-aircraft">\${pilot.club}</div>
-                                <div class="flight-location">\${pilot.takeoff} • <a href="\${flightUrl}" target="_blank" class="weglide-link">View on WeGlide →</a></div>
+                                <div class="flight-location">\${pilot.takeoff} • <a href="\${flightUrl}" target="_blank" class="weglide-link" onmouseenter="suppressFlightTooltip(event)" onmouseleave="clearFlightTooltipSuppression()" onfocus="suppressFlightTooltip(event)" onblur="clearFlightTooltipSuppression()">View on WeGlide →</a></div>
                             </div>
                         </td>
                         <td class="flight-cell">-</td>
@@ -3072,6 +4201,19 @@ No maximum distance bonus\`,
                     const flightsToShow = Array.isArray(pilot.bestFlights)
                         ? pilot.bestFlights.slice(0, maxFlightsToShow)
                         : [];
+                    if (currentScoringMode === 'bhc' && flightsToShow[0]) {
+                        const leadFlight = flightsToShow[0];
+                        const altitudeQuestion = leadFlight.bhcAltitudeStatus === 'unknown'
+                            ? '<span class="bhc-altitude-question" title="Unable to determine if flight meets the 1,000 m difference or not.">?</span>'
+                            : '';
+                        const sourceBadge = leadFlight.bhcDeclarationSource === 'igc'
+                            ? '<span class="info-badge">IGC Declaration</span>'
+                            : '<span class="info-badge subtle">WeGlide Declaration</span>';
+                        const recorderBadge = leadFlight.bhcLoggerValid === false
+                            ? '<span class="info-badge warning">Non-IGC-approved logger</span>'
+                            : '<span class="info-badge">IGC Recorder</span>';
+                        pilotName += altitudeQuestion + '<div class="bhc-pilot-meta">' + sourceBadge + recorderBadge + '</div>';
+                    }
                     row.innerHTML = \`
                         <td class="rank">\${rankDisplay}</td>
                         <td class="pilot-name">\${pilotName}</td>
@@ -3085,6 +4227,9 @@ No maximum distance bonus\`,
                 if (rowClass) {
                     row.className = rowClass;
                 }
+                if (isBhcUnofficialRow) {
+                    row.classList.add('bhc-unofficial-row');
+                }
 
                 tbody.appendChild(row);
             });
@@ -3094,94 +4239,61 @@ No maximum distance bonus\`,
             // Update stats based on current visibility (only for <200 hour filter or Silver C-Gull mode)
             if (under200Enabled || clubFilterActive || isSilverCGull) {
                 const visibleStatsList = visible;
-                document.getElementById('pilotCount').textContent = visibleStatsList.length;
+                const visiblePilotCount = currentScoringMode === 'bhc' && !isSilverCGull
+                    ? new Set(visibleStatsList.map((pilot) => String(pilot.pilotId || pilot.userId || pilot.pilot || ''))).size
+                    : visibleStatsList.length;
+                const visibleTotalPoints = getLeaderboardPointsTotal(visibleStatsList);
+                let visibleFlightCount = visibleStatsList.length;
+                let visibleTotalDistance = 0;
                 if (isSilverCGull) {
                     // Silver C-Gull shows 1 flight per pilot
-                    document.getElementById('flightCount').textContent = visibleStatsList.length;
+                    visibleFlightCount = visibleStatsList.length;
+                } else if (currentScoringMode === 'bhc') {
+                    visibleFlightCount = visibleStatsList.length;
                 } else {
                     // For <200 hour filter, show ALL flights in database from visible pilots
                     const visiblePilotIds = new Set(visibleStatsList.map(p => p.pilotId));
                     const totalFlightsVisible = (fullFlightData || []).filter(f =>
                         f && f.user && visiblePilotIds.has(f.user.id)
                     ).length;
-                    document.getElementById('flightCount').textContent = totalFlightsVisible;
+                    visibleFlightCount = totalFlightsVisible;
                 }
                 if (isSilverCGull) {
                     // For Silver C-Gull, use the distance from the Silver Badge flights
-                    const totalKmsVisible = Math.round(visibleStatsList.reduce((sum, p) => sum + (p.totalDistance || 0), 0));
-                    document.getElementById('totalKms').textContent = totalKmsVisible.toLocaleString();
+                    visibleTotalDistance = visibleStatsList.reduce((sum, p) => sum + (p.totalDistance || 0), 0);
                 } else {
                     // For <200 hour filter, calculate total km from ALL flights in database from visible pilots
                     const visiblePilotIds = new Set(visibleStatsList.map(p => p.pilotId));
-                    const totalKmsVisible = (fullFlightData || []).filter(f =>
+                    visibleTotalDistance = (fullFlightData || []).filter(f =>
                         f && f.user && visiblePilotIds.has(f.user.id)
                     ).reduce((sum, flight) => {
                         // Use the same logic as main stats calculation
                         const bestScore = calculateBestScoreForFlight(flight);
                         return sum + (bestScore.distance || 0);
                     }, 0);
-                    document.getElementById('totalKms').textContent = Math.round(totalKmsVisible).toLocaleString();
                 }
+                updateHeadlineStats({
+                    pilotCount: visiblePilotCount,
+                    flightCount: visibleFlightCount,
+                    totalPoints: visibleTotalPoints,
+                    totalDistance: visibleTotalDistance
+                });
             } else if (!isSilverCGull && (currentScoringMode === 'mixed' || currentScoringMode === 'free')) {
                 // When <200 filter is off, restore stats from current leaderboard
                 const currentLeaderboard = currentScoringMode === 'mixed' ? mixedLeaderboard : freeLeaderboard;
                 const pilotCount = currentLeaderboard.length;
                 const flightCount = currentLeaderboard.reduce((sum, pilot) => sum + (pilot.flightCount || 0), 0);
+                const totalPoints = getLeaderboardPointsTotal(currentLeaderboard);
                 const totalDistance = Math.round(currentLeaderboard.reduce((sum, pilot) => sum + (pilot.totalDistance || 0), 0));
-                document.getElementById('pilotCount').textContent = pilotCount.toLocaleString();
-                document.getElementById('flightCount').textContent = flightCount.toLocaleString();
-                document.getElementById('totalKms').textContent = totalDistance.toLocaleString();
-            }
-
-            // Recompute task stats for visible pilots using embedded fullFlightData (only when filtering)
-            if ((under200Enabled || clubFilterActive) && !isSilverCGull) {
-                try {
-                    const visibleStatsList = visible;
-                    const pilotIdSet = new Set(visibleStatsList.map(p => p.pilotId));
-                let tasksDeclared = 0;
-                let tasksCompleted = 0;
-                (fullFlightData || []).forEach(f => {
-                    if (!f || !f.user || !pilotIdSet.has(f.user.id)) return;
-                    if (f.task) {
-                        tasksDeclared++;
-                        if (f.task_achieved === true) {
-                            tasksCompleted++;
-                        }
-                    }
-                });
-                // Get the filtered totals we just calculated
-                const filteredPilots = visibleStatsList.length;
-                const filteredFlights = (fullFlightData || []).filter(f =>
-                    f && f.user && pilotIdSet.has(f.user.id)
-                ).length;
-                const filteredKms = Math.round((fullFlightData || []).filter(f =>
-                    f && f.user && pilotIdSet.has(f.user.id)
-                ).reduce((sum, flight) => {
-                    const bestScore = calculateBestScoreForFlight(flight);
-                    return sum + (bestScore.distance || 0);
-                }, 0));
-
-                updateTaskStats(isFreeMode ? 'free' : 'mixed', {
-                    totalPilots: filteredPilots,
-                    totalFlights: filteredFlights,
-                    totalKms: filteredKms,
-                    totalTasksDeclared: tasksDeclared,
-                    totalTasksCompleted: tasksCompleted
-                });
-                } catch (e) {
-                    console.warn('Task stats recompute failed:', e);
-                }
-            } else if (!isSilverCGull) {
-                // When filter is off, restore original stats for Combined/Free modes
-                const currentMode = leaderboard === mixedLeaderboard ? 'mixed' : 'free';
-                updateTaskStats(currentMode, {
-                    totalPilots: ` + totalPilots + `,
-                    totalFlights: ` + totalFlights + `,
-                    totalKms: ` + totalKms + `,
-                    totalTasksDeclared: ` + totalTasksDeclared + `,
-                    totalTasksCompleted: ` + totalTasksCompleted + `
+                updateHeadlineStats({
+                    pilotCount,
+                    flightCount,
+                    totalPoints,
+                    totalDistance
                 });
             }
+
+            updateTaskStats(currentScoringMode, calculateDisplayedTaskStats(visible));
 
             setTimeout(() => {
                 updateLeaderboardOverflowState();
@@ -3420,8 +4532,8 @@ No maximum distance bonus\`,
                 if (taskTypes.includes('TR')) {
                     // Triangle: compare triangle contest vs au/declaration (if declared)
                     const triangleContest = flight.contest.find(c => c.name === 'triangle' && c.points > 0);
-                    const auContest = flight.contest.find(c => c.name === 'ca' && c.points > 0);
-                    const declarationContest = flight.contest.find(c => c.name === 'declaration' && c.points > 0);
+                    const auContest = findPrimaryTaskContest(flight, true);
+                    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
                     const freeContest = flight.contest.find(c => c.name === 'free' && c.points > 0);
 
                     const candidates = [];
@@ -3452,8 +4564,8 @@ No maximum distance bonus\`,
                 } else if (taskTypes.includes('OR')) {
                     // Out & Return: compare out_return contest vs au/declaration (if declared)
                     const orContest = flight.contest.find(c => c.name === 'out_return' && c.points > 0);
-                    const auContest = flight.contest.find(c => c.name === 'ca' && c.points > 0);
-                    const declarationContest = flight.contest.find(c => c.name === 'declaration' && c.points > 0);
+                    const auContest = findPrimaryTaskContest(flight, true);
+                    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
                     const freeContest = flight.contest.find(c => c.name === 'free' && c.points > 0);
 
                     const candidates = [];
@@ -3483,8 +4595,8 @@ No maximum distance bonus\`,
                     }
                 } else {
                     // For other task types (like GL/Goal), only use au/declaration if declared
-                    const auContest = flight.contest.find(c => c.name === 'ca' && c.points > 0);
-                    const declarationContest = flight.contest.find(c => c.name === 'declaration' && c.points > 0);
+                    const auContest = findPrimaryTaskContest(flight, true);
+                    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
 
                     if (auContest?.score?.declared) {
                         contestToUse = auContest;
@@ -3552,8 +4664,8 @@ No maximum distance bonus\`,
                 return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
             }
 
-            const auContest = flight.contest.find(contest => contest.name === 'ca' && contest.points > 0);
-            const declarationContest = flight.contest.find(contest => contest.name === 'declaration' && contest.points > 0);
+            const auContest = findPrimaryTaskContest(flight, true);
+            const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
             const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
 
             let bestContest = null;
@@ -3578,7 +4690,7 @@ No maximum distance bonus\`,
             }
 
             if (bestContest) {
-                const isDeclaredTask = (bestContest.name === 'ca' && isAuDeclared) ||
+                const isDeclaredTask = ((bestContest.name === 'ca' || bestContest.name === 'au') && isAuDeclared) ||
                                       (bestContest.name === 'declaration' && isDeclarationDeclared);
 
                 return {
@@ -4510,6 +5622,8 @@ No maximum distance bonus\`,
                     buildLeaderboard();
                 });
             }
+            const bhcBtn = document.getElementById('bhcBtn');
+            if (bhcBtn) bhcBtn.addEventListener('click', () => switchScoringMode('bhc'));
             const sprintBtn = document.getElementById('sprintBtn');
             if (sprintBtn) sprintBtn.addEventListener('click', () => switchScoringMode('sprint'));
             const triangleBtn = document.getElementById('triangleBtn');
@@ -4726,7 +5840,7 @@ No maximum distance bonus\`,
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle">\n                    <div class="primary-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button>\n                        <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div>\n                <div class="scoring-toggle">\n                    <div class="secondary-toggle-row">\n                        <span class="secondary-toggle-label">Other WeGlide contests:</span>\n                        <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                        <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                        <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                        <button class="toggle-btn secondary" id="outBtn">Out</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
+            '$1</div><div class="scoring-toggle">\n                    <div class="primary-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button>\n                        <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div>\n                <div class="scoring-toggle">\n                    <div class="secondary-toggle-row">\n                        <span class="secondary-toggle-label">Other contests:</span>\n                        <button class="toggle-btn secondary" id="bhcBtn">BHC</button>\n                        <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                        <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                        <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                        <button class="toggle-btn secondary" id="outBtn">Out</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
         );
 
         // Placeholder for combined toggle label so variants can customise text
@@ -4783,6 +5897,146 @@ No maximum distance bonus\`,
         .toggle-btn.secondary.active {
             opacity: 1;
             border-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .triangle-type-badge {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 0.72em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: #d6e8ff;
+            color: #133b66;
+            border: 1px solid #94b8e6;
+        }
+
+        .triangle-type-badge.other {
+            background: #f6e8b1;
+            color: #5c4600;
+            border-color: #d6c070;
+        }
+
+        .bhc-meta-badge {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 6px;
+            border-radius: 999px;
+            font-size: 0.68em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .bhc-meta-badge {
+            margin-left: 0;
+            margin-right: 6px;
+            background: rgba(76, 175, 80, 0.18);
+            color: #c6f6c6;
+            border: 1px solid rgba(129, 199, 132, 0.45);
+        }
+
+        .bhc-meta-badge.valid {
+            background: rgba(76, 175, 80, 0.18);
+            color: #c6f6c6;
+            border-color: rgba(129, 199, 132, 0.45);
+        }
+
+        .bhc-meta-badge.invalid {
+            background: rgba(244, 67, 54, 0.18);
+            color: #ffb3ab;
+            border-color: rgba(255, 138, 128, 0.45);
+        }
+
+        .bhc-pilot-meta {
+            margin-top: 4px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 0.78em;
+            line-height: 1.35;
+            color: #5c6670;
+        }
+
+        .bhc-altitude-question {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            margin-left: 6px;
+            border-radius: 999px;
+            background: #fff1bf;
+            border: 1px solid #d7b94d;
+            color: #7a5b00;
+            font-size: 0.72em;
+            font-weight: 700;
+            line-height: 1;
+            cursor: help;
+            vertical-align: middle;
+        }
+
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid #a9d7b0;
+            background: #ecf8ee;
+            color: #22613b;
+            font-size: 0.72em;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .info-badge.subtle {
+            background: #f3fbf4;
+            color: #4a7758;
+            border-color: #c7e4cb;
+        }
+
+        .info-badge.warning {
+            background: #ececec;
+            color: #5b6166;
+            border-color: #c9cdd1;
+        }
+
+        .bhc-unofficial-row {
+            background: #d9d9d9;
+        }
+
+        .bhc-unofficial-row td {
+            background: #d7d7d7;
+            color: #4d545b;
+        }
+
+        .bhc-unofficial-row:hover td,
+        .bhc-unofficial-row .rank,
+        .bhc-unofficial-row .pilot-name,
+        .bhc-unofficial-row .total-points,
+        .bhc-unofficial-row .flight-cell {
+            background: #d7d7d7 !important;
+        }
+
+        .bhc-unofficial-row .total-points,
+        .bhc-unofficial-row .flight-points,
+        .bhc-unofficial-row .pilot-link,
+        .bhc-unofficial-row .bhc-pilot-meta {
+            color: #4a4f55 !important;
+        }
+
+        .bhc-unofficial-row .flight-details {
+            background: #d0d0d0;
+            border-left-color: #8d949b;
+        }
+
+        .flight-cell.bhc-unofficial {
+            background: #cfcfcf;
+            border-color: #a8a8a8;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
         }
 
         /* Find button */
@@ -5374,6 +6628,12 @@ No maximum distance bonus\`,
 
         .stat-label {
             color: #aaa;
+        }
+
+        .clickable-stat-label {
+            cursor: pointer;
+            text-decoration: underline dotted;
+            text-underline-offset: 3px;
         }
 
         .stat-value {
@@ -6327,6 +7587,17 @@ No maximum distance bonus\`,
         #leaderboardTable.three-flight-mode td:nth-child(7),
         #leaderboardTable.three-flight-mode td:nth-child(8) {
             display: none;
+        }
+
+        #leaderboardTable.one-flight-mode th:nth-child(5),
+        #leaderboardTable.one-flight-mode th:nth-child(6),
+        #leaderboardTable.one-flight-mode th:nth-child(7),
+        #leaderboardTable.one-flight-mode th:nth-child(8),
+        #leaderboardTable.one-flight-mode td:nth-child(5),
+        #leaderboardTable.one-flight-mode td:nth-child(6),
+        #leaderboardTable.one-flight-mode td:nth-child(7),
+        #leaderboardTable.one-flight-mode td:nth-child(8) {
+            display: none;
         }`;
 
         australianHTML = australianHTML.replace('</style>', toggleCSS + '\n    </style>');
@@ -6387,8 +7658,11 @@ No maximum distance bonus\`,
             pilotCombinedHours: JSON.stringify(pilotCombinedHoursEmbedded),
             pilotVerifications: JSON.stringify(pilotVerificationData),
             pilotProfiles: JSON.stringify(pilotProfilesEmbedded),
+            flightClubs: JSON.stringify(flightClubById),
+            clubMetadata: JSON.stringify(clubMetadataByIdEmbedded),
             aircraftAwards: JSON.stringify(aircraftAwards),
             freeLeaderboard: JSON.stringify(freeLeaderboardOutput),
+            bhcLeaderboard: JSON.stringify(bhcLeaderboard),
             sprintLeaderboard: JSON.stringify(sprintLeaderboard),
             triangleLeaderboard: JSON.stringify(triangleLeaderboard),
             outReturnLeaderboard: JSON.stringify(outReturnLeaderboard),
@@ -6404,8 +7678,11 @@ No maximum distance bonus\`,
             html = html.replace('__PILOT_COMBINED_HOURS_PLACEHOLDER__', serializedShared.pilotCombinedHours);
             html = html.replace('__PILOT_VERIFICATIONS_PLACEHOLDER__', serializedShared.pilotVerifications);
             html = html.replace('__PILOT_PROFILES_PLACEHOLDER__', serializedShared.pilotProfiles);
+            html = html.replace('__FLIGHT_CLUBS__', serializedShared.flightClubs);
+            html = html.replace('__CLUB_METADATA__', serializedShared.clubMetadata);
             html = html.replace('__AIRCRAFT_AWARDS__', serializedShared.aircraftAwards);
             html = html.replace('__FREE_LEADERBOARD__', serializedShared.freeLeaderboard);
+            html = html.replace('__BHC_LEADERBOARD__', serializedShared.bhcLeaderboard);
             html = html.replace('__SPRINT_LEADERBOARD__', serializedShared.sprintLeaderboard);
             html = html.replace('__TRIANGLE_LEADERBOARD__', serializedShared.triangleLeaderboard);
             html = html.replace('__OUTRETURN_LEADERBOARD__', serializedShared.outReturnLeaderboard);
@@ -6459,8 +7736,10 @@ No maximum distance bonus\`,
             pilotCombinedHours: JSON.parse(serializedShared.pilotCombinedHours),
             pilotVerifications: JSON.parse(serializedShared.pilotVerifications),
             pilotProfiles: JSON.parse(serializedShared.pilotProfiles),
+            clubMetadataById: JSON.parse(serializedShared.clubMetadata),
             aircraftAwards: JSON.parse(serializedShared.aircraftAwards),
             freeLeaderboard: JSON.parse(serializedShared.freeLeaderboard),
+            bhcLeaderboard: JSON.parse(serializedShared.bhcLeaderboard),
             sprintLeaderboard: JSON.parse(serializedShared.sprintLeaderboard),
             triangleLeaderboard: JSON.parse(serializedShared.triangleLeaderboard),
             outReturnLeaderboard: JSON.parse(serializedShared.outReturnLeaderboard),
