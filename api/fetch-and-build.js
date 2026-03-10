@@ -3,10 +3,13 @@ const path = require('path');
 const https = require('https');
 const readline = require('readline');
 const { spawn } = require('child_process');
-const { get: getBlob, list: listBlobs, put: putBlob } = require('@vercel/blob');
+const { get: getBlob, list: listBlobs } = require('@vercel/blob');
 
-// Prefer Vercel Blob for persistence when available; fall back to local FS during dev
+// Default to GitHub-backed persistence. Blob fallback is opt-in because list() is billed
+// as an advanced operation and the dataset/profiles already sync back to the repo.
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN || null;
+const RUNNING_ON_VERCEL = Boolean(process.env.VERCEL);
+const BLOB_FALLBACK_ENABLED = /^(1|true|yes)$/i.test((process.env.ENABLE_BLOB_FALLBACK || '').trim());
 const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
 const PROFILES_BLOB_KEY = process.env.PROFILES_BLOB_KEY || 'canadian_user_profiles.json';
 const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
@@ -16,8 +19,8 @@ const BOOTSTRAP_FILES = {
     [PROFILES_BLOB_KEY]: path.join(process.cwd(), 'bootstrap', 'canadian_user_profiles.bootstrap')
 };
 
-const usingBlob = () => Boolean(BLOB_TOKEN);
-const TMP_DIR = usingBlob() ? '/tmp' : process.cwd();
+const usingBlobFallback = () => Boolean(BLOB_TOKEN) && BLOB_FALLBACK_ENABLED;
+const TMP_DIR = RUNNING_ON_VERCEL ? '/tmp' : process.cwd();
 
 const DATASET_FILE = path.join(TMP_DIR, process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
 const PROFILES_FILE = path.join(TMP_DIR, process.env.CANADIAN_PROFILES_FILE || 'canadian_user_profiles.json');
@@ -65,7 +68,7 @@ function matchesLogicalBlobKey(pathname, key) {
 }
 
 async function resolveLatestBlob(key) {
-    if (!usingBlob()) return null;
+    if (!usingBlobFallback()) return null;
 
     let cursor;
     const matches = [];
@@ -97,7 +100,7 @@ async function readBlobStreamAsText(stream) {
 }
 
 async function blobFetchText(key) {
-    if (!usingBlob()) return null;
+    if (!usingBlobFallback()) return null;
     const blob = await resolveLatestBlob(key);
     if (!blob) return null;
 
@@ -115,17 +118,6 @@ async function blobFetchText(key) {
     }
 
     return readBlobStreamAsText(result.stream);
-}
-
-async function blobPutText(key, body, contentType = 'application/octet-stream') {
-    if (!usingBlob()) return;
-    await putBlob(key, body, {
-        access: 'public',
-        token: BLOB_TOKEN,
-        contentType,
-        addRandomSuffix: false,
-        allowOverwrite: true
-    });
 }
 
 function loadCombinedHoursCache() {
@@ -301,7 +293,7 @@ async function loadPersistentText(filename) {
         log(`GitHub fallback failed for ${filename}: ${error.message}`);
     }
 
-    if (!usingBlob()) {
+    if (!usingBlobFallback()) {
         return null;
     }
 
@@ -342,7 +334,7 @@ async function loadExistingFlights() {
                 log('Skipping invalid flight row:', error.message);
             }
         }
-    } else if (usingBlob()) {
+    } else {
         const text = await loadPersistentText(DATASET_BLOB_KEY);
         if (!text) return { ids, total, latestDate };
         // Simulate streaming by iterating lines
@@ -358,32 +350,6 @@ async function loadExistingFlights() {
                     const ts = Date.parse(flight.scoring_date);
                     if (!Number.isNaN(ts) && (!latestDate || ts > latestDate)) {
                         latestDate = ts;
-                    }
-                }
-            } catch (error) {
-                log('Skipping invalid flight row:', error.message);
-            }
-        }
-    } else {
-        if (!fs.existsSync(DATASET_FILE)) {
-            return { ids, total, latestDate };
-        }
-        sourceStream = fs.createReadStream(DATASET_FILE);
-        const rl = readline.createInterface({ input: sourceStream, crlfDelay: Infinity });
-
-        for await (const line of rl) {
-            const trimmed = line.trim();
-            if (!trimmed) continue;
-            try {
-                const flight = JSON.parse(trimmed);
-                total += 1;
-                if (flight.id) {
-                    ids.add(flight.id);
-                }
-                if (flight.scoring_date) {
-                    const timestamp = Date.parse(flight.scoring_date);
-                    if (!Number.isNaN(timestamp) && (!latestDate || timestamp > latestDate)) {
-                        latestDate = timestamp;
                     }
                 }
             } catch (error) {
@@ -498,13 +464,12 @@ async function loadProfiles() {
         }
     }
 
-    if (usingBlob()) {
-        const text = await loadPersistentText(PROFILES_BLOB_KEY);
-        if (!text) return {};
+    const text = await loadPersistentText(PROFILES_BLOB_KEY);
+    if (text) {
         try {
             return JSON.parse(text);
         } catch (e) {
-            log('Failed to parse blob profiles:', e.message);
+            log('Failed to parse persisted profiles:', e.message);
             return {};
         }
     }
@@ -923,7 +888,8 @@ async function runFetchAndBuild(options = {}) {
         const existing = await loadExistingFlights();
         summary.meta.existingFlights = existing.total;
         summary.meta.latestFlightDate = existing.latestDate;
-        summary.meta.persistence = usingBlob() ? 'blob' : 'filesystem';
+        summary.meta.persistence = 'github';
+        summary.meta.blobFallbackEnabled = usingBlobFallback();
 
         await ensureLocalCopiesFromRepo();
 
