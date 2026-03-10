@@ -36,6 +36,7 @@ canadian_user_profiles.json
 # HTML reports
 *.html
 !public/*.html
+!bhc_au_sample/index.html
 
 # JSON data files
 all_flights_*.json
