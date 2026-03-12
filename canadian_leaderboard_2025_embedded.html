@@ -4,274 +4,341 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canadian Gliding Leaderboard 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        * {
+            box-sizing: border-box;
         }
-        
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #f0f2f5;
+            min-height: 100vh;
+            color: #1a1a2e;
+            -webkit-font-smoothing: antialiased;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
             overflow: hidden;
         }
-        
+
         .header {
-            background: rgb(33, 58, 120);
+            background: #16213e;
             color: white;
-            padding: 30px;
+            padding: 32px 40px;
             text-align: center;
             position: relative;
         }
-        
+
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 30px;
+            justify-content: center;
+            gap: 28px;
             position: relative;
         }
-        
+
         .sac-logo {
-            width: 120px;
-            height: 120px;
+            width: 88px;
+            height: 88px;
             flex-shrink: 0;
         }
-        
+
         .header-text {
             flex: 1;
             text-align: center;
         }
-        
+
         .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
-            font-weight: 300;
+            margin: 0 0 6px 0;
+            font-size: 1.75em;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
-        
+
         .header p {
             margin: 0;
-            opacity: 0.8;
-            font-size: 1.1em;
+            opacity: 0.65;
+            font-size: 0.9em;
+            font-weight: 400;
         }
-        
+
         .stats {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 12px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
-        
-        @media (max-width: 768px) {
-            .header {
-                padding: 20px 15px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .sac-logo {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .stats {
-                gap: 15px;
-                margin-top: 15px;
-            }
-            
-            .stat {
-                min-width: 80px;
-            }
-            
-            .container {
-                margin: 0; /* remove outer margin on mobile */
-                border-radius: 0; /* flush edges on mobile */
-            }
-            
-            body {
-                padding: 0; /* remove background padding on mobile */
-            }
-            
-            .leaderboard {
-                border-radius: 0; /* no rounded corners around table on mobile */
-            }
-        }
-        
+
         .stat {
             text-align: center;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 10px 20px;
+            min-width: 90px;
         }
-        
+
         .stat-number {
-            font-size: 2em;
-            font-weight: bold;
+            font-size: 1.5em;
+            font-weight: 700;
             display: block;
+            letter-spacing: -0.02em;
         }
-        
+
         .stat-label {
-            font-size: 0.9em;
-            opacity: 0.8;
+            font-size: 0.7em;
+            opacity: 0.75;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 500;
         }
-        
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px 16px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
+            .sac-logo {
+                width: 64px;
+                height: 64px;
+            }
+
+            .header h1 {
+                font-size: 1.4em;
+            }
+
+            .stats {
+                justify-content: center;
+                gap: 8px;
+                margin-top: 14px;
+            }
+
+            .stat {
+                min-width: 72px;
+                padding: 8px 12px;
+            }
+
+            .stat-number {
+                font-size: 1.2em;
+            }
+
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            body {
+                padding: 0;
+            }
+
+            .leaderboard {
+                border-radius: 0;
+            }
+        }
+
         .leaderboard {
             padding: 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            position: relative; /* enable scroll cue overlay positioning */
+            position: relative;
         }
-        /* Removed mobile right-edge fade scroll cue */
-        
+
         .leaderboard table {
             width: 100%;
             min-width: 1000px;
             border-collapse: collapse;
         }
-        
+
         .leaderboard th {
-            background: #f8f9fa;
-            padding: 15px 10px;
+            background: #fafbfc;
+            padding: 10px 12px;
             text-align: left;
             font-weight: 600;
-            color: #2c3e50;
-            border-bottom: 2px solid #dee2e6;
+            font-size: 0.7em;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #e5e7eb;
             position: sticky;
             top: 0;
         }
-        
+
         .leaderboard td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #dee2e6;
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
         }
-        
+
+        .leaderboard tbody tr {
+            transition: background-color 0.15s ease;
+        }
+
         .leaderboard tbody tr:hover {
-            background-color: #f8f9fa;
+            background-color: #f8fafc;
         }
-        
+
         .rank {
-            font-weight: bold;
-            color: #3498db;
-            width: 60px;
+            font-weight: 700;
+            color: #6b7280;
+            width: 52px;
             text-align: center;
+            font-size: 0.9em;
+            font-variant-numeric: tabular-nums;
         }
-        
+
+        .rank-1 .rank { color: #b8860b; }
+        .rank-2 .rank { color: #6b7280; }
+        .rank-3 .rank { color: #a0522d; }
+
         .pilot-name {
             font-weight: 600;
-            color: #2c3e50;
+            color: #1a1a2e;
             min-width: 130px;
-        }
-        
-        .total-points {
-            font-weight: bold;
-            color: #27ae60;
-            text-align: right;
-            min-width: 80px;
-        }
-        
-        .flight-cell {
-            min-width: 180px;
             font-size: 0.9em;
         }
-        
-        .flight-details {
-            background: #f8f9fa;
-            border-radius: 6px;
-            padding: 8px;
-            margin: 2px 0;
-            border-left: 4px solid #3498db;
+
+        .total-points {
+            font-weight: 700;
+            color: #16213e;
+            text-align: right;
+            min-width: 80px;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.95em;
         }
-        
-        .flight-points {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .flight-distance {
-            color: #7f8c8d;
+
+        .flight-cell {
+            min-width: 170px;
             font-size: 0.85em;
         }
-        
-        .flight-date {
-            color: #95a5a6;
-            font-size: 0.8em;
+
+        .flight-details {
+            background: #f8fafc;
+            border-radius: 4px;
+            padding: 8px 10px;
+            margin: 2px 0;
+            border-left: 3px solid #cbd5e1;
         }
-        
+
+        .leaderboard tbody tr:nth-child(-n+3) .flight-details {
+            border-left-color: #3b82f6;
+        }
+
+        .flight-points {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .flight-distance {
+            color: #6b7280;
+            font-size: 0.88em;
+        }
+
+        .flight-date {
+            color: #9ca3af;
+            font-size: 0.82em;
+        }
+
         .flight-link {
-            color: #3498db;
+            color: #3b82f6;
             text-decoration: none;
             font-size: 0.8em;
             display: inline-block;
-            margin-top: 4px;
+            margin-top: 3px;
+            font-weight: 500;
         }
-        
+
         .flight-link:hover {
             text-decoration: underline;
         }
-        
+
         .declared-task {
-            background: linear-gradient(90deg, #f39c12, #e67e22);
+            background: #f59e0b;
             color: white;
-            font-size: 0.7em;
+            font-size: 0.65em;
             padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: 5px;
+            border-radius: 3px;
+            margin-left: 4px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            vertical-align: middle;
         }
-        
+
         .loading {
             text-align: center;
-            padding: 40px;
-            color: #7f8c8d;
+            padding: 48px;
+            color: #9ca3af;
         }
-        
+
+        .loading h3 {
+            font-weight: 600;
+            color: #6b7280;
+        }
+
         .error {
-            background: #e74c3c;
-            color: white;
-            padding: 15px;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+            padding: 16px;
             margin: 20px;
             border-radius: 6px;
         }
-        
+
         .footer {
-            background: #2c3e50;
-            color: white;
+            background: #16213e;
+            color: rgba(255,255,255,0.6);
             text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
+            padding: 16px 24px;
+            font-size: 0.78em;
+            letter-spacing: 0.01em;
         }
-        
+
+        .footer p {
+            margin: 4px 0;
+        }
+
         .medal {
             display: inline-block;
-            margin-right: 5px;
+            margin-right: 4px;
         }
-        
-        .gold { color: #f1c40f; }
-        .silver { color: #95a5a6; }
-        .bronze { color: #cd7f32; }
-        
+
+        .gold { color: #b8860b; }
+        .silver { color: #8e9aaf; }
+        .bronze { color: #a0522d; }
+
         @media (max-width: 768px) {
             .stats {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
             }
-            
+
             .flight-cell {
                 min-width: 150px;
                 font-size: 0.8em;
             }
-            /* Widen pilot column on mobile to show more characters */
+
             .pilot-name {
                 min-width: 120px;
                 max-width: 180px;
@@ -286,12 +353,12 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-            
+
             .leaderboard th,
             .leaderboard td {
                 padding: 8px 6px;
             }
-            /* Tighter points column on mobile */
+
             .total-points {
                 min-width: 70px;
             }
@@ -301,8 +368,8 @@
         .scroll-hint {
             display: none;
             text-align: center;
-            font-size: 0.9em;
-            color: #6c757d;
+            font-size: 0.8em;
+            color: #9ca3af;
             padding: 8px 10px;
         }
         @media (max-width: 768px) {
@@ -318,20 +385,114 @@
             padding: 0 10px;
         }
         .toggle-btn {
-            padding: 6px 12px;
-            border: 1px solid #ced4da;
-            background: #f8f9fa;
-            color: #2c3e50;
-            border-radius: 16px;
+            padding: 6px 14px;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
+            font-weight: 500;
         }
-        .toggle-btn:hover { background: #e9ecef; }
+        .toggle-btn:hover { background: #f3f4f6; }
         .toggle-btn.active {
-            background: #2c5aa0;
+            background: #16213e;
             color: #fff;
-            border-color: #2c5aa0;
+            border-color: #16213e;
+        }
+
+        /* Mobile responsive tooltip */
+        @media (max-width: 768px) {
+            .flight-preview {
+                position: fixed !important;
+                width: 95vw !important;
+                height: 95vh !important;
+                max-width: none !important;
+                max-height: none !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                border-radius: 8px;
+                overflow-y: auto;
+            }
+        }
+
+        /* Flight preview tooltip */
+        .flight-preview {
+            position: absolute;
+            z-index: 10000;
+            background: #1a1a1a;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            padding: 0;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .flight-cell {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .flight-cell:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        /* Tip banner for click-for-details */
+        .tip-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            margin: 0 0 8px 0;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 6px;
+            color: #3b82f6;
+            font-size: 0.85em;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+        }
+
+        .tip-banner-icon {
+            font-size: 1em;
+            flex-shrink: 0;
+        }
+
+        .tip-banner-dismiss {
+            background: none;
+            border: none;
+            color: #3b82f6;
+            cursor: pointer;
+            font-size: 1.1em;
+            padding: 0 0 0 8px;
+            opacity: 0.6;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .tip-banner-dismiss:hover {
+            opacity: 1;
+        }
+
+        /* Pilot and WeGlide links */
+        .pilot-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .pilot-link:hover {
+            text-decoration: underline;
+            color: #2563eb;
         }
     </style>
 </head>
@@ -341,8 +502,8 @@
             <div class="header-content">
                 <img src="sac_logo.png" alt="Soaring Association of Canada" class="sac-logo">
                 <div class="header-text">
-                    <h1>🏆 Canadian Gliding Leaderboard 2025</h1>
-                    <p>Best 5 flights per pilot • Higher of Free or Task scoring</p>
+                    <h1>Canadian Gliding Leaderboard 2025</h1>
+                    <p>Best 5 flights per pilot &middot; Higher of Free or Task scoring</p>
                 </div>
             </div>
             <div class="stats">
@@ -383,7 +544,13 @@
                 <h3>Error Loading Data</h3>
                 <p id="errorMessage">Unable to load leaderboard data.</p>
             </div>
-            
+
+            <div class="tip-banner" id="tipBanner" style="display: none;">
+                <span class="tip-banner-icon">💡</span>
+                <span>Click on flight cells or pilot names for more details</span>
+                <button class="tip-banner-dismiss" onclick="dismissTipBanner()" title="Dismiss">&times;</button>
+            </div>
+
             <table id="leaderboardTable" style="display: none;">
                 <thead>
                     <tr>
@@ -5063,21 +5230,16 @@
                 const visible = applyUnder200Filter(originalLeaderboard);
                 visible.forEach((pilot, index) => {
                     const row = document.createElement('tr');
-                    
-                    // Rank with medal for top 3
-                    let rankDisplay = index + 1;
-                    if (index === 0) rankDisplay = '<span class="medal gold">🥇</span>' + rankDisplay;
-                    else if (index === 1) rankDisplay = '<span class="medal silver">🥈</span>' + rankDisplay;
-                    else if (index === 2) rankDisplay = '<span class="medal bronze">🥉</span>' + rankDisplay;
-                    
+                    if (index < 3) row.classList.add('rank-' + (index + 1));
+
                     row.innerHTML = `
-                        <td class="rank">${rankDisplay}</td>
+                        <td class="rank">${index + 1}</td>
                         <td class="pilot-name">${pilot.pilot}</td>
                         <td class="total-points">${pilot.totalPoints.toFixed(1)}</td>
                         ${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}
                         ${Array(5 - pilot.bestFlights.length).fill('<td class="flight-cell">-</td>').join('')}
                     `;
-                    
+
                     tbody.appendChild(row);
                 });
                 
@@ -5131,12 +5293,9 @@
                     updateStatsFrom(visible);
                     visible.forEach((pilot, index) => {
                         const row = document.createElement('tr');
-                        let rankDisplay = index + 1;
-                        if (index === 0) rankDisplay = '<span class="medal gold">🥇</span>' + rankDisplay;
-                        else if (index === 1) rankDisplay = '<span class="medal silver">🥈</span>' + rankDisplay;
-                        else if (index === 2) rankDisplay = '<span class="medal bronze">🥉</span>' + rankDisplay;
+                        if (index < 3) row.classList.add('rank-' + (index + 1));
                         row.innerHTML = `
-                            <td class="rank">${rankDisplay}</td>
+                            <td class="rank">${index + 1}</td>
                             <td class="pilot-name">${pilot.pilot}</td>
                             <td class="total-points">${pilot.totalPoints.toFixed(1)}</td>
                             ${pilot.bestFlights.map(flight => createFlightCell(flight)).join('')}

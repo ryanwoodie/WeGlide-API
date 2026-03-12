@@ -4,274 +4,341 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soaring Association of Canada Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        * {
+            box-sizing: border-box;
         }
-        
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #f0f2f5;
+            min-height: 100vh;
+            color: #1a1a2e;
+            -webkit-font-smoothing: antialiased;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
             overflow: hidden;
         }
-        
+
         .header {
-            background: rgb(33, 58, 120);
+            background: #16213e;
             color: white;
-            padding: 30px;
+            padding: 32px 40px;
             text-align: center;
             position: relative;
         }
-        
+
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 30px;
+            justify-content: center;
+            gap: 28px;
             position: relative;
         }
-        
+
         .sac-logo {
-            width: 120px;
-            height: 120px;
+            width: 88px;
+            height: 88px;
             flex-shrink: 0;
         }
-        
+
         .header-text {
             flex: 1;
             text-align: center;
         }
-        
+
         .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
-            font-weight: 300;
+            margin: 0 0 6px 0;
+            font-size: 1.75em;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
-        
+
         .header p {
             margin: 0;
-            opacity: 0.8;
-            font-size: 1.1em;
+            opacity: 0.65;
+            font-size: 0.9em;
+            font-weight: 400;
         }
-        
+
         .stats {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 12px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
-        
-        @media (max-width: 768px) {
-            .header {
-                padding: 20px 15px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .sac-logo {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .stats {
-                gap: 15px;
-                margin-top: 15px;
-            }
-            
-            .stat {
-                min-width: 80px;
-            }
-            
-            .container {
-                margin: 0; /* remove outer margin on mobile */
-                border-radius: 0; /* flush edges on mobile */
-            }
-            
-            body {
-                padding: 0; /* remove background padding on mobile */
-            }
-            
-            .leaderboard {
-                border-radius: 0; /* no rounded corners around table on mobile */
-            }
-        }
-        
+
         .stat {
             text-align: center;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 10px 20px;
+            min-width: 90px;
         }
-        
+
         .stat-number {
-            font-size: 2em;
-            font-weight: bold;
+            font-size: 1.5em;
+            font-weight: 700;
             display: block;
+            letter-spacing: -0.02em;
         }
-        
+
         .stat-label {
-            font-size: 0.9em;
-            opacity: 0.8;
+            font-size: 0.7em;
+            opacity: 0.75;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 500;
         }
-        
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px 16px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
+            .sac-logo {
+                width: 64px;
+                height: 64px;
+            }
+
+            .header h1 {
+                font-size: 1.4em;
+            }
+
+            .stats {
+                justify-content: center;
+                gap: 8px;
+                margin-top: 14px;
+            }
+
+            .stat {
+                min-width: 72px;
+                padding: 8px 12px;
+            }
+
+            .stat-number {
+                font-size: 1.2em;
+            }
+
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            body {
+                padding: 0;
+            }
+
+            .leaderboard {
+                border-radius: 0;
+            }
+        }
+
         .leaderboard {
             padding: 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            position: relative; /* enable scroll cue overlay positioning */
+            position: relative;
         }
-        /* Removed mobile right-edge fade scroll cue */
-        
+
         .leaderboard table {
             width: 100%;
             min-width: 1000px;
             border-collapse: collapse;
         }
-        
+
         .leaderboard th {
-            background: #f8f9fa;
-            padding: 15px 10px;
+            background: #fafbfc;
+            padding: 10px 12px;
             text-align: left;
             font-weight: 600;
-            color: #2c3e50;
-            border-bottom: 2px solid #dee2e6;
+            font-size: 0.7em;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #e5e7eb;
             position: sticky;
             top: 0;
         }
-        
+
         .leaderboard td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #dee2e6;
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
         }
-        
+
+        .leaderboard tbody tr {
+            transition: background-color 0.15s ease;
+        }
+
         .leaderboard tbody tr:hover {
-            background-color: #f8f9fa;
+            background-color: #f8fafc;
         }
-        
+
         .rank {
-            font-weight: bold;
-            color: #3498db;
-            width: 60px;
+            font-weight: 700;
+            color: #6b7280;
+            width: 52px;
             text-align: center;
+            font-size: 0.9em;
+            font-variant-numeric: tabular-nums;
         }
-        
+
+        .rank-1 .rank { color: #b8860b; }
+        .rank-2 .rank { color: #6b7280; }
+        .rank-3 .rank { color: #a0522d; }
+
         .pilot-name {
             font-weight: 600;
-            color: #2c3e50;
+            color: #1a1a2e;
             min-width: 130px;
-        }
-        
-        .total-points {
-            font-weight: bold;
-            color: #27ae60;
-            text-align: right;
-            min-width: 80px;
-        }
-        
-        .flight-cell {
-            min-width: 180px;
             font-size: 0.9em;
         }
-        
-        .flight-details {
-            background: #f8f9fa;
-            border-radius: 6px;
-            padding: 8px;
-            margin: 2px 0;
-            border-left: 4px solid #3498db;
+
+        .total-points {
+            font-weight: 700;
+            color: #16213e;
+            text-align: right;
+            min-width: 80px;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.95em;
         }
-        
-        .flight-points {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .flight-distance {
-            color: #7f8c8d;
+
+        .flight-cell {
+            min-width: 170px;
             font-size: 0.85em;
         }
-        
-        .flight-date {
-            color: #95a5a6;
-            font-size: 0.8em;
+
+        .flight-details {
+            background: #f8fafc;
+            border-radius: 4px;
+            padding: 8px 10px;
+            margin: 2px 0;
+            border-left: 3px solid #cbd5e1;
         }
-        
+
+        .leaderboard tbody tr:nth-child(-n+3) .flight-details {
+            border-left-color: #3b82f6;
+        }
+
+        .flight-points {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .flight-distance {
+            color: #6b7280;
+            font-size: 0.88em;
+        }
+
+        .flight-date {
+            color: #9ca3af;
+            font-size: 0.82em;
+        }
+
         .flight-link {
-            color: #3498db;
+            color: #3b82f6;
             text-decoration: none;
             font-size: 0.8em;
             display: inline-block;
-            margin-top: 4px;
+            margin-top: 3px;
+            font-weight: 500;
         }
-        
+
         .flight-link:hover {
             text-decoration: underline;
         }
-        
+
         .declared-task {
-            background: linear-gradient(90deg, #f39c12, #e67e22);
+            background: #f59e0b;
             color: white;
-            font-size: 0.7em;
+            font-size: 0.65em;
             padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: 5px;
+            border-radius: 3px;
+            margin-left: 4px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            vertical-align: middle;
         }
-        
+
         .loading {
             text-align: center;
-            padding: 40px;
-            color: #7f8c8d;
+            padding: 48px;
+            color: #9ca3af;
         }
-        
+
+        .loading h3 {
+            font-weight: 600;
+            color: #6b7280;
+        }
+
         .error {
-            background: #e74c3c;
-            color: white;
-            padding: 15px;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+            padding: 16px;
             margin: 20px;
             border-radius: 6px;
         }
-        
+
         .footer {
-            background: #2c3e50;
-            color: white;
+            background: #16213e;
+            color: rgba(255,255,255,0.6);
             text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
+            padding: 16px 24px;
+            font-size: 0.78em;
+            letter-spacing: 0.01em;
         }
-        
+
+        .footer p {
+            margin: 4px 0;
+        }
+
         .medal {
             display: inline-block;
-            margin-right: 5px;
+            margin-right: 4px;
         }
-        
-        .gold { color: #f1c40f; }
-        .silver { color: #95a5a6; }
-        .bronze { color: #cd7f32; }
-        
+
+        .gold { color: #b8860b; }
+        .silver { color: #8e9aaf; }
+        .bronze { color: #a0522d; }
+
         @media (max-width: 768px) {
             .stats {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
             }
-            
+
             .flight-cell {
                 min-width: 150px;
                 font-size: 0.8em;
             }
-            /* Widen pilot column on mobile to show more characters */
+
             .pilot-name {
                 min-width: 120px;
                 max-width: 180px;
@@ -286,12 +353,12 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-            
+
             .leaderboard th,
             .leaderboard td {
                 padding: 8px 6px;
             }
-            /* Tighter points column on mobile */
+
             .total-points {
                 min-width: 70px;
             }
@@ -301,8 +368,8 @@
         .scroll-hint {
             display: none;
             text-align: center;
-            font-size: 0.9em;
-            color: #6c757d;
+            font-size: 0.8em;
+            color: #9ca3af;
             padding: 8px 10px;
         }
         @media (max-width: 768px) {
@@ -318,20 +385,21 @@
             padding: 0 10px;
         }
         .toggle-btn {
-            padding: 6px 12px;
-            border: 1px solid #ced4da;
-            background: #f8f9fa;
-            color: #2c3e50;
-            border-radius: 16px;
+            padding: 6px 14px;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
+            font-weight: 500;
         }
-        .toggle-btn:hover { background: #e9ecef; }
+        .toggle-btn:hover { background: #f3f4f6; }
         .toggle-btn.active {
-            background: #2c5aa0;
+            background: #16213e;
             color: #fff;
-            border-color: #2c5aa0;
+            border-color: #16213e;
         }
     
         /* Position context for absolute tooltips in iframe */
@@ -373,16 +441,16 @@
 
         .toggle-btn.secondary {
             padding: 4px 10px;
-            font-size: 0.85em;
+            font-size: 0.78em;
             border-width: 1px;
-            opacity: 0.85;
-            color: rgba(255, 255, 255, 0.9);
-            border-color: rgba(255, 255, 255, 0.5);
+            opacity: 0.75;
+            color: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .toggle-btn.secondary.active {
             opacity: 1;
-            border-color: rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .triangle-type-badge {
@@ -527,22 +595,19 @@
 
         /* Find button */
         .find-btn {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #28a745, #20c997);
+            padding: 7px 16px;
+            background: #16213e;
             color: white;
-            border: none;
-            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+            transition: all 0.15s ease;
         }
 
         .find-btn:hover {
-            background: linear-gradient(135deg, #218838, #1ea080);
-            box-shadow: 0 3px 6px rgba(40, 167, 69, 0.4);
-            transform: translateY(-1px);
+            background: #1e2d50;
         }
 
         /* Floating search overlay */
@@ -557,63 +622,66 @@
         .search-widget {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid #e0e0e0;
-            padding: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+            border: 1px solid #e5e7eb;
+            padding: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            min-width: 300px;
+            gap: 6px;
+            min-width: 280px;
         }
 
         #searchInput {
             flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
+            padding: 7px 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 13px;
+            font-family: inherit;
             outline: none;
         }
 
         #searchInput:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
         }
 
         #nextBtn {
-            padding: 8px 12px;
-            background: #007bff;
+            padding: 7px 12px;
+            background: #16213e;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
+            font-family: inherit;
         }
 
         #nextBtn:hover:not(:disabled) {
-            background: #0056b3;
+            background: #1e2d50;
         }
 
         #nextBtn:disabled {
-            background: #ccc;
+            background: #d1d5db;
             cursor: not-allowed;
         }
 
         #closeBtn {
-            padding: 8px 10px;
-            background: #dc3545;
+            padding: 7px 10px;
+            background: #6b7280;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
             line-height: 1;
+            font-family: inherit;
         }
 
         #closeBtn:hover {
-            background: #c82333;
+            background: #4b5563;
         }
 
         #searchStatus {
@@ -630,14 +698,14 @@
 
         /* Search highlight */
         .search-highlight {
-            background: #ffeb3b !important;
-            font-weight: bold;
-            border-radius: 3px;
-            padding: 2px 4px;
+            background: #fef3c7 !important;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 3px;
         }
 
         .search-current {
-            background: #ff5722 !important;
+            background: #3b82f6 !important;
             color: white;
         }
 
@@ -691,7 +759,7 @@
 
         .weglide-profile-link {
             font-size: 11px;
-            color: #007bff;
+            color: #3b82f6;
             text-decoration: none;
             font-weight: 500;
         }
@@ -764,92 +832,96 @@
         }
 
         .pilot-highlight {
-            background: #ffeb3b !important;
-            font-weight: bold;
-            border-radius: 3px;
-            padding: 2px 4px;
+            background: #fef3c7 !important;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 3px;
         }
 
         .pilot-current {
-            background: #ff5722 !important;
+            background: #3b82f6 !important;
             color: white !important;
         }
 
         .toggle-btn {
-            padding: 8px 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 20px;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.75);
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
             font-weight: 500;
         }
 
         .toggle-btn:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.3);
+            color: white;
         }
 
         .toggle-btn.active {
-            background: rgba(255,255,255,0.9);
-            color: #2c5aa0;
-            border-color: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.92);
+            color: #16213e;
+            border-color: rgba(255,255,255,0.92);
+            font-weight: 600;
         }
 
         /* Filter button - visually distinct from scoring buttons */
         .filter-btn {
-            padding: 8px 16px;
-            border: 2px solid rgba(255,193,7,0.5);
-            background: rgba(255,193,7,0.1);
-            color: #ffc107;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,193,7,0.35);
+            background: rgba(255,193,7,0.08);
+            color: rgba(255,213,79,0.9);
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
             font-weight: 500;
             position: relative;
         }
 
         .filter-btn::before {
-            content: "🔍";
-            margin-right: 6px;
-            font-size: 0.8em;
+            content: "Filter";
+            margin-right: 0;
+            font-size: 1em;
         }
 
         .filter-btn:hover {
-            background: rgba(255,193,7,0.2);
-            border-color: rgba(255,193,7,0.7);
+            background: rgba(255,193,7,0.15);
+            border-color: rgba(255,193,7,0.5);
         }
 
         .filter-btn.active {
-            background: rgba(255,193,7,0.9);
-            color: #333;
-            border-color: rgba(255,193,7,0.9);
+            background: rgba(255,193,7,0.85);
+            color: #1a1a2e;
+            border-color: rgba(255,193,7,0.85);
+            font-weight: 600;
         }
 
         .club-filter-select {
-            padding: 8px 14px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 10px;
+            padding: 7px 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.85);
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9em;
+            font-size: 0.82em;
             font-weight: 500;
+            font-family: inherit;
             min-width: 150px;
         }
 
         .club-filter-select:hover,
         .club-filter-select:focus {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.35);
             outline: none;
         }
 
         .club-filter-select option {
-            color: #1f2a3d;
+            color: #1a1a2e;
         }
 
         /* Aircraft info styling */
@@ -893,6 +965,7 @@
         /* Mobile responsive tooltip */
         @media (max-width: 768px) {
             .flight-preview {
+                position: fixed !important;
                 width: 95vw !important;
                 height: 95vh !important;
                 max-width: none !important;
@@ -920,7 +993,7 @@
             z-index: 10000;
             background: #1a1a1a;
             color: white;
-            border: 1px solid #333;
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             padding: 0;
@@ -933,13 +1006,13 @@
         }
 
         .flight-tooltip-header {
-            background: #2c5aa0;
+            background: #16213e;
             padding: 10px 12px;
             border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .flight-type {
@@ -976,9 +1049,9 @@
 
         .task-score-section {
             margin-top: 16px;
-            background: rgba(44, 90, 160, 0.15);
-            border: 1px solid rgba(44, 90, 160, 0.3);
-            border-radius: 8px;
+            background: rgba(22, 33, 62, 0.2);
+            border: 1px solid rgba(22, 33, 62, 0.3);
+            border-radius: 6px;
             padding: 12px;
         }
 
@@ -1151,15 +1224,54 @@
             background-color: rgba(255,255,255,0.05);
         }
 
+        /* Tip banner for click-for-details */
+        .tip-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            margin: 0 0 8px 0;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 6px;
+            color: #3b82f6;
+            font-size: 0.85em;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+        }
+
+        .tip-banner-icon {
+            font-size: 1em;
+            flex-shrink: 0;
+        }
+
+        .tip-banner-dismiss {
+            background: none;
+            border: none;
+            color: #3b82f6;
+            cursor: pointer;
+            font-size: 1.1em;
+            padding: 0 0 0 8px;
+            opacity: 0.6;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .tip-banner-dismiss:hover {
+            opacity: 1;
+        }
+
         /* Pilot and WeGlide links */
         .pilot-link {
             color: inherit;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .pilot-link:hover {
             text-decoration: underline;
-            color: #0066cc;
+            color: #2563eb;
         }
 
         .weglide-link {
@@ -1169,7 +1281,7 @@
         }
 
         .weglide-link:hover {
-            color: #0066cc;
+            color: #2563eb;
             text-decoration: underline;
         }
 
@@ -1241,17 +1353,17 @@
 
         .custom-tooltip {
             position: absolute;
-            background: #000000;
-            color: #ffffff;
-            padding: 16px 20px;
-            border-radius: 8px;
-            font-size: 14px;
+            background: #16213e;
+            color: #e5e7eb;
+            padding: 14px 18px;
+            border-radius: 6px;
+            font-size: 13px;
             line-height: 1.5;
             min-width: 300px;
             max-width: 450px;
-            box-shadow: 0 6px 20px rgba(0,0,0,1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
             z-index: 10000;
-            border: 3px solid #ffffff;
+            border: 1px solid rgba(255,255,255,0.15);
             font-weight: 400;
             pointer-events: auto;
             white-space: pre-line;
@@ -1288,12 +1400,12 @@
         .custom-tooltip::before {
             content: '';
             position: absolute;
-            top: -11px;
+            top: -9px;
             left: 50%;
             transform: translateX(-50%);
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-bottom: 8px solid #000000;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #16213e;
         }
 
         .custom-tooltip.tooltip-above::before {
@@ -1777,7 +1889,7 @@
 
             .task-stats-table-wrapper {
                 /* Add scrollbar hint on mobile */
-                border-left: 3px solid #007bff;
+                border-left: 3px solid #3b82f6;
             }
 
             .task-stats-table-wrapper::after {
@@ -1834,7 +1946,7 @@
         .task-stats-table .task-weglide {
             text-align: center;
             font-weight: 600;
-            color: #007bff;
+            color: #3b82f6;
         }
 
         .task-description {
@@ -2056,11 +2168,11 @@
                 background: #fff;
             }
             .leaderboard th:nth-child(-n+3) {
-                background: #f8f9fa;
+                background: #fafbfc;
                 z-index: 7;
             }
             .leaderboard tbody tr:hover td:nth-child(-n+3) {
-                background: #f8f9fa;
+                background: #f8fafc;
             }
             .leaderboard th:nth-child(3),
             .leaderboard td:nth-child(3) {
@@ -2093,7 +2205,7 @@
             <div class="header-content">
                 
                 <div class="header-text">
-                    <h1>🏆 Soaring Association of Canada Leaderboard</h1>
+                    <h1>Soaring Association of Canada Leaderboard</h1>
                     <p id="scoringDescription">Best 5 flights per pilot • <span class="scoring-tooltip" data-tooltip="sacdsc">SAC-DSC scoring</span> • Oct 1, 2025 - Sept 30, 2026</p>
                 
                 </div>
@@ -2155,7 +2267,13 @@
                 <h3>Error Loading Data</h3>
                 <p id="errorMessage">Unable to load leaderboard data.</p>
             </div>
-            
+
+            <div class="tip-banner" id="tipBanner" style="display: none;">
+                <span class="tip-banner-icon">💡</span>
+                <span>Click on flight cells or pilot names for more details</span>
+                <button class="tip-banner-dismiss" onclick="dismissTipBanner()" title="Dismiss">&times;</button>
+            </div>
+
             <table id="leaderboardTable" style="display: none;">
                 <thead>
                     <tr>
@@ -3083,7 +3201,7 @@ No maximum distance bonus`,
             }
 
             return `
-                <td class="flight-cell${bhcCellClass}" onmouseenter="showFlightPreview(${flight.id}, event)" onmouseleave="hideFlightPreview(event)">
+                <td class="flight-cell${bhcCellClass}" onclick="showFlightPreview(${flight.id}, event)">
                     <div class="flight-details">
                         <div class="flight-points">${flight.points.toFixed(1)} pts${declaredBadge}${triangleTypeBadge}</div>
                         <div class="flight-distance">${flight.distance.toFixed(1)} km</div>
@@ -3531,44 +3649,42 @@ No maximum distance bonus`,
             cancelPilotPreviewHide();
             pilotPreviewTrigger = triggerElement || null;
 
-            pilotPreviewTimeout = setTimeout(() => {
-                pilotPreviewTimeout = null;
+            // No delay for click-based tooltips
+            if (pilotPreviewElement) {
+                pilotPreviewElement.remove();
+                pilotPreviewElement = null;
+            }
+
+            const tooltipContent = createPilotTooltip(pilotId, pilotName);
+            pilotPreviewElement = document.createElement('div');
+            pilotPreviewElement.className = 'flight-preview';
+            pilotPreviewElement.id = 'pilot-preview';
+            pilotPreviewElement.innerHTML = tooltipContent;
+            pilotPreviewElement.style.pointerEvents = 'auto';
+            pilotPreviewElement.style.zIndex = '10000';
+            pilotPreviewElement.style.opacity = '0';
+            pilotPreviewElement.dataset.pilotId = String(pilotId);
+
+            document.body.appendChild(pilotPreviewElement);
+
+            // Stop clicks inside tooltip from closing it
+            pilotPreviewElement.addEventListener('click', function(e) { e.stopPropagation(); });
+
+            // Center the tooltip in the viewport (accounting for scroll with position: absolute)
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
+
+            pilotPreviewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
+            pilotPreviewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
+            pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
+
+            requestAnimationFrame(() => {
                 if (pilotPreviewElement) {
-                    pilotPreviewElement.remove();
-                    pilotPreviewElement = null;
+                    pilotPreviewElement.style.opacity = '1';
                 }
-
-                const tooltipContent = createPilotTooltip(pilotId, pilotName);
-                pilotPreviewElement = document.createElement('div');
-                pilotPreviewElement.className = 'flight-preview';
-                pilotPreviewElement.id = 'pilot-preview';
-                pilotPreviewElement.innerHTML = tooltipContent;
-                pilotPreviewElement.style.pointerEvents = 'auto';
-                pilotPreviewElement.style.zIndex = '10000';
-                pilotPreviewElement.style.opacity = '0';
-                pilotPreviewElement.dataset.pilotId = String(pilotId);
-
-                document.body.appendChild(pilotPreviewElement);
-
-                pilotPreviewElement.addEventListener('mouseenter', cancelPilotPreviewHide);
-                pilotPreviewElement.addEventListener('mouseleave', () => hidePilotPreview(null));
-
-                // Center the tooltip in the viewport (accounting for scroll with position: absolute)
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-                const viewportHeight = window.innerHeight;
-                const viewportWidth = window.innerWidth;
-
-                pilotPreviewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
-                pilotPreviewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
-                pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
-
-                requestAnimationFrame(() => {
-                    if (pilotPreviewElement) {
-                        pilotPreviewElement.style.opacity = '1';
-                    }
-                });
-            }, 250);
+            });
         }
 
         function hidePilotPreview(evt, immediate = false) {
@@ -3576,68 +3692,40 @@ No maximum distance bonus`,
                 clearTimeout(pilotPreviewTimeout);
                 pilotPreviewTimeout = null;
             }
-
-            if (immediate) {
-                cancelPilotPreviewHide();
-                removePilotPreview();
-                return;
-            }
-
             cancelPilotPreviewHide();
-
-            const eventObj = evt || window.event || null;
-
-            if (eventObj) {
-                const related = eventObj.relatedTarget || eventObj.toElement || null;
-                if (related) {
-                    if (pilotPreviewElement && pilotPreviewElement.contains(related)) {
-                        return;
-                    }
-                    if (pilotPreviewTrigger && pilotPreviewTrigger.contains(related)) {
-                        return;
-                    }
-                }
-            }
-
-            pilotPreviewHideTimeout = setTimeout(() => {
-                if (!pilotPreviewElement) return;
-                if (pilotPreviewElement.matches(':hover')) return;
-                removePilotPreview();
-            }, 600);
+            removePilotPreview();
         }
 
         function pilotHoverEnter(event, pilotId, pilotName, element) {
-            if (!SUPPORTS_HOVER_POINTER) return;
-            showPilotPreview(pilotId, pilotName, element);
+            // Hover tooltips disabled - using click instead
         }
 
         function pilotHoverLeave(event) {
-            if (!SUPPORTS_HOVER_POINTER) return;
-            hidePilotPreview(event);
+            // Hover tooltips disabled - using click instead
         }
 
         function pilotFocus(event, pilotId, pilotName, element) {
-            showPilotPreview(pilotId, pilotName, element);
+            // Focus tooltips disabled - using click instead
         }
 
         function pilotBlur(event) {
-            hidePilotPreview(event);
+            // Blur tooltips disabled - using click instead
         }
 
         function pilotLinkTap(event, pilotId, pilotName, element) {
-            if (SUPPORTS_HOVER_POINTER) {
-                return true;
-            }
-
-            if (pilotPreviewElement && pilotPreviewElement.dataset && pilotPreviewElement.dataset.pilotId === String(pilotId)) {
-                hidePilotPreview(null, true);
-                return true;
-            }
-
             if (event) {
                 event.preventDefault();
                 event.stopPropagation();
             }
+
+            // If this pilot's tooltip is already open, close it
+            if (pilotPreviewElement && pilotPreviewElement.dataset && pilotPreviewElement.dataset.pilotId === String(pilotId)) {
+                hidePilotPreview(null, true);
+                return false;
+            }
+
+            // Close any existing flight tooltip first
+            hideFlightPreview(null, true);
 
             showPilotPreview(pilotId, pilotName, element);
             return false;
@@ -3668,44 +3756,37 @@ No maximum distance bonus`,
             }
             cancelFlightHide();
 
-            const hoveredElement = event && typeof event.clientX === 'number' && typeof event.clientY === 'number'
-                ? document.elementFromPoint(event.clientX, event.clientY)
-                : null;
-            if ((Date.now() < suppressFlightTooltipUntil) ||
-                (hoveredElement && hoveredElement.closest && hoveredElement.closest('.weglide-link'))) {
+            // If clicking the WeGlide link inside the cell, don't show tooltip
+            if (event && event.target && event.target.closest && event.target.closest('.weglide-link')) {
                 return;
             }
 
-            previewTimeout = setTimeout(() => {
-                const liveHoveredElement = event && typeof event.clientX === 'number' && typeof event.clientY === 'number'
-                    ? document.elementFromPoint(event.clientX, event.clientY)
-                    : null;
-                if ((Date.now() < suppressFlightTooltipUntil) ||
-                    (liveHoveredElement && liveHoveredElement.closest && liveHoveredElement.closest('.weglide-link'))) {
-                    previewTimeout = null;
-                    return;
-                }
+            // If this flight's tooltip is already open, close it (toggle behavior)
+            if (previewElement && previewElement.dataset && previewElement.dataset.flightId === String(flightId)) {
+                hideFlightPreview(null, true);
+                return;
+            }
 
-                // Find the flight data in our current leaderboard
-                let basicFlightData = null;
-                for (const pilot of leaderboard) {
-                    const flight = pilot.bestFlights.find(f => f.id === flightId);
-                    if (flight) {
-                        basicFlightData = { ...flight, pilot: pilot.pilot };
-                        break;
-                    }
-                }
+            // Close any existing pilot tooltip
+            hidePilotPreview(null, true);
 
-                // Find detailed flight data from the loaded dataset
-                const detailedFlight = detailedFlightData.find(f => f.id === flightId);
-
-                if (basicFlightData && detailedFlight) {
-                    showFlightTooltip(basicFlightData, detailedFlight, event);
-                } else if (basicFlightData) {
-                    showFlightTooltip(basicFlightData, null, event);
+            // No delay for click-based tooltips
+            let basicFlightData = null;
+            for (const pilot of leaderboard) {
+                const flight = pilot.bestFlights.find(f => f.id === flightId);
+                if (flight) {
+                    basicFlightData = { ...flight, pilot: pilot.pilot };
+                    break;
                 }
-                previewTimeout = null;
-            }, 650);
+            }
+
+            const detailedFlight = detailedFlightData.find(f => f.id === flightId);
+
+            if (basicFlightData && detailedFlight) {
+                showFlightTooltip(basicFlightData, detailedFlight, event);
+            } else if (basicFlightData) {
+                showFlightTooltip(basicFlightData, null, event);
+            }
         }
 
         function suppressFlightTooltip(event) {
@@ -3726,6 +3807,7 @@ No maximum distance bonus`,
             previewElement = document.createElement('div');
             previewElement.className = 'flight-preview';
             previewElement.style.pointerEvents = 'auto';
+            previewElement.dataset.flightId = String(flightData.id || '');
 
         // Determine task status and scoring type separately
         let taskStatusBadge = '';
@@ -4231,8 +4313,8 @@ No maximum distance bonus`,
 
             document.body.appendChild(previewElement);
 
-            previewElement.addEventListener('mouseenter', cancelFlightHide);
-            previewElement.addEventListener('mouseleave', (evt) => hideFlightPreview(evt));
+            // Stop clicks inside tooltip from closing it
+            previewElement.addEventListener('click', function(e) { e.stopPropagation(); });
 
             const positionCenteredInChildViewport = () => {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
@@ -4342,29 +4424,11 @@ No maximum distance bonus`,
                 clearTimeout(previewTimeout);
                 previewTimeout = null;
             }
-
-            if (immediate) {
-                cancelFlightHide();
-                if (previewElement) {
-                    previewElement.remove();
-                    previewElement = null;
-                }
-                return;
-            }
-
             cancelFlightHide();
-
-            const related = evt ? (evt.relatedTarget || evt.toElement || null) : null;
-            if (related && previewElement && previewElement.contains(related)) {
-                return; // Moving into tooltip; keep open
+            if (previewElement) {
+                previewElement.remove();
+                previewElement = null;
             }
-
-            flightHideTimeout = setTimeout(() => {
-                if (previewElement && !previewElement.matches(':hover')) {
-                    previewElement.remove();
-                    previewElement = null;
-                }
-            }, 300);
         }
 
         function closeFlightTooltip(event) {
@@ -4467,18 +4531,18 @@ No maximum distance bonus`,
                     }
                 }
 
-                // Create pilot name with link to WeGlide profile
+                // Create pilot name with click-to-popup (WeGlide link is on the popup)
                 let pilotName;
                 const safePilotNameAttr = pilot.pilot ? pilot.pilot.replace(/'/g, "\'") : '';
                 if (isSilverCGull) {
                     // For Silver C-Gull, check if pilotId is available
                     if (pilot.userId) {
-                        pilotName = `<a href="https://www.weglide.org/user/${pilot.userId}" target="_blank" class="pilot-link" onmouseenter="pilotHoverEnter(event, '${pilot.userId}', '${safePilotNameAttr}', this)" onmouseleave="pilotHoverLeave(event)" onfocus="pilotFocus(event, '${pilot.userId}', '${safePilotNameAttr}', this)" onblur="pilotBlur(event)" onclick="return pilotLinkTap(event, '${pilot.userId}', '${safePilotNameAttr}', this)">${pilot.pilot}</a>`;
+                        pilotName = `<span class="pilot-link" onclick="pilotLinkTap(event, '${pilot.userId}', '${safePilotNameAttr}', this)">${pilot.pilot}</span>`;
                     } else {
                         pilotName = pilot.pilot;
                     }
                 } else {
-                    pilotName = `<a href="https://www.weglide.org/user/${pilot.pilotId}" target="_blank" class="pilot-link" onmouseenter="pilotHoverEnter(event, '${pilot.pilotId}', '${safePilotNameAttr}', this)" onmouseleave="pilotHoverLeave(event)" onfocus="pilotFocus(event, '${pilot.pilotId}', '${safePilotNameAttr}', this)" onblur="pilotBlur(event)" onclick="return pilotLinkTap(event, '${pilot.pilotId}', '${safePilotNameAttr}', this)">${pilot.pilot}</a>`;
+                    pilotName = `<span class="pilot-link" onclick="pilotLinkTap(event, '${pilot.pilotId}', '${safePilotNameAttr}', this)">${pilot.pilot}</span>`;
                 }
 
                 // Add verification status for under 200 hrs mode
@@ -5581,6 +5645,38 @@ No maximum distance bonus`,
             }
         });
 
+        // Click outside to dismiss any open tooltip
+        document.addEventListener('click', function(e) {
+            // Don't dismiss if clicking inside a tooltip (handled by stopPropagation on tooltip)
+            // Don't dismiss if clicking a flight cell or pilot link (those have their own handlers)
+            if (e.target.closest && (e.target.closest('.flight-cell') || e.target.closest('.pilot-link'))) {
+                return;
+            }
+            if (previewElement) {
+                hideFlightPreview(null, true);
+            }
+            if (pilotPreviewElement) {
+                hidePilotPreview(null, true);
+            }
+        });
+
+        // Tip banner management
+        function showTipBanner() {
+            const tipBanner = document.getElementById('tipBanner');
+            if (tipBanner && !localStorage.getItem('sac-leaderboard-tip-dismissed')) {
+                tipBanner.style.display = 'flex';
+            }
+        }
+
+        function dismissTipBanner() {
+            const tipBanner = document.getElementById('tipBanner');
+            if (tipBanner) {
+                tipBanner.style.opacity = '0';
+                setTimeout(() => { tipBanner.style.display = 'none'; }, 300);
+                localStorage.setItem('sac-leaderboard-tip-dismissed', '1');
+            }
+        }
+
         const ALLOW_PUBLIC_VERIFICATION_WRITE = true;
         const VERIFICATION_STATE_ENDPOINT = '/api/verification-state';
         const VERIFICATION_REQUEST_ENDPOINT = '/api/request-verification';
@@ -5961,6 +6057,7 @@ No maximum distance bonus`,
             calculateTaskTypeStats();
             setupLeaderboardDragScroll();
             updateLeaderboardOverflowState();
+            showTipBanner();
             window.addEventListener('resize', updateLeaderboardOverflowState);
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));

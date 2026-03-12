@@ -2733,7 +2733,7 @@ No maximum distance bonus\`,
             }
 
             return \`
-                <td class="flight-cell\${bhcCellClass}" onmouseenter="showFlightPreview(\${flight.id}, event)" onmouseleave="hideFlightPreview(event)">
+                <td class="flight-cell\${bhcCellClass}" onclick="showFlightPreview(\${flight.id}, event)">
                     <div class="flight-details">
                         <div class="flight-points">\${flight.points.toFixed(1)} pts\${declaredBadge}\${triangleTypeBadge}</div>
                         <div class="flight-distance">\${flight.distance.toFixed(1)} km</div>
@@ -3181,44 +3181,42 @@ No maximum distance bonus\`,
             cancelPilotPreviewHide();
             pilotPreviewTrigger = triggerElement || null;
 
-            pilotPreviewTimeout = setTimeout(() => {
-                pilotPreviewTimeout = null;
+            // No delay for click-based tooltips
+            if (pilotPreviewElement) {
+                pilotPreviewElement.remove();
+                pilotPreviewElement = null;
+            }
+
+            const tooltipContent = createPilotTooltip(pilotId, pilotName);
+            pilotPreviewElement = document.createElement('div');
+            pilotPreviewElement.className = 'flight-preview';
+            pilotPreviewElement.id = 'pilot-preview';
+            pilotPreviewElement.innerHTML = tooltipContent;
+            pilotPreviewElement.style.pointerEvents = 'auto';
+            pilotPreviewElement.style.zIndex = '10000';
+            pilotPreviewElement.style.opacity = '0';
+            pilotPreviewElement.dataset.pilotId = String(pilotId);
+
+            document.body.appendChild(pilotPreviewElement);
+
+            // Stop clicks inside tooltip from closing it
+            pilotPreviewElement.addEventListener('click', function(e) { e.stopPropagation(); });
+
+            // Center the tooltip in the viewport (accounting for scroll with position: absolute)
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
+
+            pilotPreviewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
+            pilotPreviewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
+            pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
+
+            requestAnimationFrame(() => {
                 if (pilotPreviewElement) {
-                    pilotPreviewElement.remove();
-                    pilotPreviewElement = null;
+                    pilotPreviewElement.style.opacity = '1';
                 }
-
-                const tooltipContent = createPilotTooltip(pilotId, pilotName);
-                pilotPreviewElement = document.createElement('div');
-                pilotPreviewElement.className = 'flight-preview';
-                pilotPreviewElement.id = 'pilot-preview';
-                pilotPreviewElement.innerHTML = tooltipContent;
-                pilotPreviewElement.style.pointerEvents = 'auto';
-                pilotPreviewElement.style.zIndex = '10000';
-                pilotPreviewElement.style.opacity = '0';
-                pilotPreviewElement.dataset.pilotId = String(pilotId);
-
-                document.body.appendChild(pilotPreviewElement);
-
-                pilotPreviewElement.addEventListener('mouseenter', cancelPilotPreviewHide);
-                pilotPreviewElement.addEventListener('mouseleave', () => hidePilotPreview(null));
-
-                // Center the tooltip in the viewport (accounting for scroll with position: absolute)
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-                const viewportHeight = window.innerHeight;
-                const viewportWidth = window.innerWidth;
-
-                pilotPreviewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
-                pilotPreviewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
-                pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
-
-                requestAnimationFrame(() => {
-                    if (pilotPreviewElement) {
-                        pilotPreviewElement.style.opacity = '1';
-                    }
-                });
-            }, 250);
+            });
         }
 
         function hidePilotPreview(evt, immediate = false) {
@@ -3226,71 +3224,28 @@ No maximum distance bonus\`,
                 clearTimeout(pilotPreviewTimeout);
                 pilotPreviewTimeout = null;
             }
-
-            if (immediate) {
-                cancelPilotPreviewHide();
-                removePilotPreview();
-                return;
-            }
-
             cancelPilotPreviewHide();
-
-            const eventObj = evt || window.event || null;
-
-            if (eventObj) {
-                const related = eventObj.relatedTarget || eventObj.toElement || null;
-                if (related) {
-                    if (pilotPreviewElement && pilotPreviewElement.contains(related)) {
-                        return;
-                    }
-                    if (pilotPreviewTrigger && pilotPreviewTrigger.contains(related)) {
-                        return;
-                    }
-                }
-            }
-
-            pilotPreviewHideTimeout = setTimeout(() => {
-                if (!pilotPreviewElement) return;
-                if (pilotPreviewElement.matches(':hover')) return;
-                removePilotPreview();
-            }, 600);
+            removePilotPreview();
         }
 
         function pilotHoverEnter(event, pilotId, pilotName, element) {
-            if (!SUPPORTS_HOVER_POINTER) return;
-            showPilotPreview(pilotId, pilotName, element);
+            // Hover tooltips disabled - using click instead
         }
 
         function pilotHoverLeave(event) {
-            if (!SUPPORTS_HOVER_POINTER) return;
-            hidePilotPreview(event);
+            // Hover tooltips disabled - using click instead
         }
 
         function pilotFocus(event, pilotId, pilotName, element) {
-            showPilotPreview(pilotId, pilotName, element);
+            // Hover tooltips disabled - using click instead
         }
 
         function pilotBlur(event) {
-            hidePilotPreview(event);
+            // Hover tooltips disabled - using click instead
         }
 
         function pilotLinkTap(event, pilotId, pilotName, element) {
-            if (SUPPORTS_HOVER_POINTER) {
-                return true;
-            }
-
-            if (pilotPreviewElement && pilotPreviewElement.dataset && pilotPreviewElement.dataset.pilotId === String(pilotId)) {
-                hidePilotPreview(null, true);
-                return true;
-            }
-
-            if (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            showPilotPreview(pilotId, pilotName, element);
-            return false;
+            // Hover tooltips disabled - using click instead
         }
 
         function closePilotTooltip(event) {
@@ -3318,44 +3273,37 @@ No maximum distance bonus\`,
             }
             cancelFlightHide();
 
-            const hoveredElement = event && typeof event.clientX === 'number' && typeof event.clientY === 'number'
-                ? document.elementFromPoint(event.clientX, event.clientY)
-                : null;
-            if ((Date.now() < suppressFlightTooltipUntil) ||
-                (hoveredElement && hoveredElement.closest && hoveredElement.closest('.weglide-link'))) {
+            // If clicking the WeGlide link inside the cell, don't show tooltip
+            if (event && event.target && event.target.closest && event.target.closest('.weglide-link')) {
                 return;
             }
 
-            previewTimeout = setTimeout(() => {
-                const liveHoveredElement = event && typeof event.clientX === 'number' && typeof event.clientY === 'number'
-                    ? document.elementFromPoint(event.clientX, event.clientY)
-                    : null;
-                if ((Date.now() < suppressFlightTooltipUntil) ||
-                    (liveHoveredElement && liveHoveredElement.closest && liveHoveredElement.closest('.weglide-link'))) {
-                    previewTimeout = null;
-                    return;
-                }
+            // If this flight's tooltip is already open, close it (toggle behavior)
+            if (previewElement && previewElement.dataset && previewElement.dataset.flightId === String(flightId)) {
+                hideFlightPreview(null, true);
+                return;
+            }
 
-                // Find the flight data in our current leaderboard
-                let basicFlightData = null;
-                for (const pilot of leaderboard) {
-                    const flight = pilot.bestFlights.find(f => f.id === flightId);
-                    if (flight) {
-                        basicFlightData = { ...flight, pilot: pilot.pilot };
-                        break;
-                    }
-                }
+            // Close any existing pilot tooltip
+            hidePilotPreview(null, true);
 
-                // Find detailed flight data from the loaded dataset
-                const detailedFlight = detailedFlightData.find(f => f.id === flightId);
-
-                if (basicFlightData && detailedFlight) {
-                    showFlightTooltip(basicFlightData, detailedFlight, event);
-                } else if (basicFlightData) {
-                    showFlightTooltip(basicFlightData, null, event);
+            // No delay for click-based tooltips
+            let basicFlightData = null;
+            for (const pilot of leaderboard) {
+                const flight = pilot.bestFlights.find(f => f.id === flightId);
+                if (flight) {
+                    basicFlightData = { ...flight, pilot: pilot.pilot };
+                    break;
                 }
-                previewTimeout = null;
-            }, 650);
+            }
+
+            const detailedFlight = detailedFlightData.find(f => f.id === flightId);
+
+            if (basicFlightData && detailedFlight) {
+                showFlightTooltip(basicFlightData, detailedFlight, event);
+            } else if (basicFlightData) {
+                showFlightTooltip(basicFlightData, null, event);
+            }
         }
 
         function suppressFlightTooltip(event) {
@@ -3376,6 +3324,7 @@ No maximum distance bonus\`,
             previewElement = document.createElement('div');
             previewElement.className = 'flight-preview';
             previewElement.style.pointerEvents = 'auto';
+            previewElement.dataset.flightId = String(flightData.id || '');
 
         // Determine task status and scoring type separately
         let taskStatusBadge = '';
@@ -3881,8 +3830,8 @@ No maximum distance bonus\`,
 
             document.body.appendChild(previewElement);
 
-            previewElement.addEventListener('mouseenter', cancelFlightHide);
-            previewElement.addEventListener('mouseleave', (evt) => hideFlightPreview(evt));
+            // Stop clicks inside tooltip from closing it
+            previewElement.addEventListener('click', function(e) { e.stopPropagation(); });
 
             const positionCenteredInChildViewport = () => {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
@@ -3992,29 +3941,11 @@ No maximum distance bonus\`,
                 clearTimeout(previewTimeout);
                 previewTimeout = null;
             }
-
-            if (immediate) {
-                cancelFlightHide();
-                if (previewElement) {
-                    previewElement.remove();
-                    previewElement = null;
-                }
-                return;
-            }
-
             cancelFlightHide();
-
-            const related = evt ? (evt.relatedTarget || evt.toElement || null) : null;
-            if (related && previewElement && previewElement.contains(related)) {
-                return; // Moving into tooltip; keep open
+            if (previewElement) {
+                previewElement.remove();
+                previewElement = null;
             }
-
-            flightHideTimeout = setTimeout(() => {
-                if (previewElement && !previewElement.matches(':hover')) {
-                    previewElement.remove();
-                    previewElement = null;
-                }
-            }, 300);
         }
 
         function closeFlightTooltip(event) {
@@ -4123,12 +4054,12 @@ No maximum distance bonus\`,
                 if (isSilverCGull) {
                     // For Silver C-Gull, check if pilotId is available
                     if (pilot.userId) {
-                        pilotName = \`<a href="https://www.weglide.org/user/\${pilot.userId}" target="_blank" class="pilot-link" onmouseenter="pilotHoverEnter(event, '\${pilot.userId}', '\${safePilotNameAttr}', this)" onmouseleave="pilotHoverLeave(event)" onfocus="pilotFocus(event, '\${pilot.userId}', '\${safePilotNameAttr}', this)" onblur="pilotBlur(event)" onclick="return pilotLinkTap(event, '\${pilot.userId}', '\${safePilotNameAttr}', this)">\${pilot.pilot}</a>\`;
+                        pilotName = \`<span class="pilot-link" onclick="showPilotPreview('\${pilot.userId}', '\${safePilotNameAttr}', event)">\${pilot.pilot}</span>\`;
                     } else {
                         pilotName = pilot.pilot;
                     }
                 } else {
-                    pilotName = \`<a href="https://www.weglide.org/user/\${pilot.pilotId}" target="_blank" class="pilot-link" onmouseenter="pilotHoverEnter(event, '\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onmouseleave="pilotHoverLeave(event)" onfocus="pilotFocus(event, '\${pilot.pilotId}', '\${safePilotNameAttr}', this)" onblur="pilotBlur(event)" onclick="return pilotLinkTap(event, '\${pilot.pilotId}', '\${safePilotNameAttr}', this)">\${pilot.pilot}</a>\`;
+                    pilotName = \`<span class="pilot-link" onclick="showPilotPreview('\${pilot.pilotId}', '\${safePilotNameAttr}', event)">\${pilot.pilot}</span>\`;
                 }
 
                 // Add verification status for under 200 hrs mode
@@ -5224,6 +5155,38 @@ No maximum distance bonus\`,
         }
 
         // Add keyboard shortcut for admin panel (Ctrl+Shift+A)
+        // Click outside to dismiss any open tooltip
+        document.addEventListener('click', function(e) {
+            // Don't dismiss if clicking inside a tooltip (handled by stopPropagation on tooltip)
+            // Don't dismiss if clicking a flight cell or pilot link (those have their own handlers)
+            if (e.target.closest && (e.target.closest('.flight-cell') || e.target.closest('.pilot-link'))) {
+                return;
+            }
+            if (previewElement) {
+                hideFlightPreview(null, true);
+            }
+            if (pilotPreviewElement) {
+                hidePilotPreview(null, true);
+            }
+        });
+
+        // Tip banner management
+        function showTipBanner() {
+            const tipBanner = document.getElementById('tipBanner');
+            if (tipBanner && !localStorage.getItem('sac-leaderboard-tip-dismissed')) {
+                tipBanner.style.display = 'flex';
+            }
+        }
+
+        function dismissTipBanner() {
+            const tipBanner = document.getElementById('tipBanner');
+            if (tipBanner) {
+                tipBanner.style.opacity = '0';
+                setTimeout(() => { tipBanner.style.display = 'none'; }, 300);
+                localStorage.setItem('sac-leaderboard-tip-dismissed', '1');
+            }
+        }
+
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.shiftKey && e.key === 'A') {
                 e.preventDefault();
@@ -5611,6 +5574,7 @@ No maximum distance bonus\`,
             calculateTaskTypeStats();
             setupLeaderboardDragScroll();
             updateLeaderboardOverflowState();
+            showTipBanner();
             window.addEventListener('resize', updateLeaderboardOverflowState);
 
             document.getElementById('combinedBtn').addEventListener('click', () => switchScoringMode('mixed'));
@@ -5672,7 +5636,7 @@ No maximum distance bonus\`,
                     const pilotCell = row.querySelector('td:nth-child(2)'); // Pilot name column
                     if (pilotCell) {
                         // Look for the pilot link first (this preserves the structure)
-                        const pilotLink = pilotCell.querySelector('a.pilot-link');
+                        const pilotLink = pilotCell.querySelector('.pilot-link');
 
                         if (pilotLink && pilotLink.textContent.match(regex)) {
                             searchMatches.push({ row, cell: pilotCell, rowIndex });
@@ -5880,23 +5844,24 @@ No maximum distance bonus\`,
         }
 
         .secondary-toggle-label {
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.55);
             margin-right: 6px;
+            font-size: 0.82em;
         }
 
         .toggle-btn.secondary {
             padding: 4px 10px;
-            font-size: 0.85em;
+            font-size: 0.78em;
             border-width: 1px;
-            opacity: 0.85;
-            color: rgba(255, 255, 255, 0.9);
-            border-color: rgba(255, 255, 255, 0.5);
+            opacity: 0.75;
+            color: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .toggle-btn.secondary.active {
             opacity: 1;
-            border-color: rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .triangle-type-badge {
@@ -6041,22 +6006,19 @@ No maximum distance bonus\`,
 
         /* Find button */
         .find-btn {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #28a745, #20c997);
+            padding: 7px 16px;
+            background: #16213e;
             color: white;
-            border: none;
-            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+            transition: all 0.15s ease;
         }
 
         .find-btn:hover {
-            background: linear-gradient(135deg, #218838, #1ea080);
-            box-shadow: 0 3px 6px rgba(40, 167, 69, 0.4);
-            transform: translateY(-1px);
+            background: #1e2d50;
         }
 
         /* Floating search overlay */
@@ -6071,63 +6033,66 @@ No maximum distance bonus\`,
         .search-widget {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid #e0e0e0;
-            padding: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+            border: 1px solid #e5e7eb;
+            padding: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            min-width: 300px;
+            gap: 6px;
+            min-width: 280px;
         }
 
         #searchInput {
             flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
+            padding: 7px 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 13px;
+            font-family: inherit;
             outline: none;
         }
 
         #searchInput:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
         }
 
         #nextBtn {
-            padding: 8px 12px;
-            background: #007bff;
+            padding: 7px 12px;
+            background: #16213e;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
+            font-family: inherit;
         }
 
         #nextBtn:hover:not(:disabled) {
-            background: #0056b3;
+            background: #1e2d50;
         }
 
         #nextBtn:disabled {
-            background: #ccc;
+            background: #d1d5db;
             cursor: not-allowed;
         }
 
         #closeBtn {
-            padding: 8px 10px;
-            background: #dc3545;
+            padding: 7px 10px;
+            background: #6b7280;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
             line-height: 1;
+            font-family: inherit;
         }
 
         #closeBtn:hover {
-            background: #c82333;
+            background: #4b5563;
         }
 
         #searchStatus {
@@ -6144,14 +6109,14 @@ No maximum distance bonus\`,
 
         /* Search highlight */
         .search-highlight {
-            background: #ffeb3b !important;
-            font-weight: bold;
-            border-radius: 3px;
-            padding: 2px 4px;
+            background: #fef3c7 !important;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 3px;
         }
 
         .search-current {
-            background: #ff5722 !important;
+            background: #3b82f6 !important;
             color: white;
         }
 
@@ -6187,9 +6152,9 @@ No maximum distance bonus\`,
         }
 
         .pilot-tooltip-header {
-            background: #f8f9fa;
+            background: #fafbfc;
             padding: 12px 15px;
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid #e5e7eb;
             border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
@@ -6205,7 +6170,7 @@ No maximum distance bonus\`,
 
         .weglide-profile-link {
             font-size: 11px;
-            color: #007bff;
+            color: #3b82f6;
             text-decoration: none;
             font-weight: 500;
         }
@@ -6278,92 +6243,96 @@ No maximum distance bonus\`,
         }
 
         .pilot-highlight {
-            background: #ffeb3b !important;
-            font-weight: bold;
-            border-radius: 3px;
-            padding: 2px 4px;
+            background: #fef3c7 !important;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 3px;
         }
 
         .pilot-current {
-            background: #ff5722 !important;
+            background: #3b82f6 !important;
             color: white !important;
         }
 
         .toggle-btn {
-            padding: 8px 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 20px;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.75);
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
             font-weight: 500;
         }
 
         .toggle-btn:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.3);
+            color: white;
         }
 
         .toggle-btn.active {
-            background: rgba(255,255,255,0.9);
-            color: #2c5aa0;
-            border-color: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.92);
+            color: #16213e;
+            border-color: rgba(255,255,255,0.92);
+            font-weight: 600;
         }
 
         /* Filter button - visually distinct from scoring buttons */
         .filter-btn {
-            padding: 8px 16px;
-            border: 2px solid rgba(255,193,7,0.5);
-            background: rgba(255,193,7,0.1);
-            color: #ffc107;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,193,7,0.35);
+            background: rgba(255,193,7,0.08);
+            color: rgba(255,213,79,0.9);
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
             font-weight: 500;
             position: relative;
         }
 
         .filter-btn::before {
-            content: "🔍";
-            margin-right: 6px;
-            font-size: 0.8em;
+            content: "Filter";
+            margin-right: 0;
+            font-size: 1em;
         }
 
         .filter-btn:hover {
-            background: rgba(255,193,7,0.2);
-            border-color: rgba(255,193,7,0.7);
+            background: rgba(255,193,7,0.15);
+            border-color: rgba(255,193,7,0.5);
         }
 
         .filter-btn.active {
-            background: rgba(255,193,7,0.9);
-            color: #333;
-            border-color: rgba(255,193,7,0.9);
+            background: rgba(255,193,7,0.85);
+            color: #1a1a2e;
+            border-color: rgba(255,193,7,0.85);
+            font-weight: 600;
         }
 
         .club-filter-select {
-            padding: 8px 14px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 10px;
+            padding: 7px 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.85);
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9em;
+            font-size: 0.82em;
             font-weight: 500;
+            font-family: inherit;
             min-width: 150px;
         }
 
         .club-filter-select:hover,
         .club-filter-select:focus {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.35);
             outline: none;
         }
 
         .club-filter-select option {
-            color: #1f2a3d;
+            color: #1a1a2e;
         }
 
         /* Aircraft info styling */
@@ -6407,6 +6376,7 @@ No maximum distance bonus\`,
         /* Mobile responsive tooltip */
         @media (max-width: 768px) {
             .flight-preview {
+                position: fixed !important;
                 width: 95vw !important;
                 height: 95vh !important;
                 max-width: none !important;
@@ -6434,7 +6404,7 @@ No maximum distance bonus\`,
             z-index: 10000;
             background: #1a1a1a;
             color: white;
-            border: 1px solid #333;
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             padding: 0;
@@ -6447,13 +6417,13 @@ No maximum distance bonus\`,
         }
 
         .flight-tooltip-header {
-            background: #2c5aa0;
+            background: #16213e;
             padding: 10px 12px;
             border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .flight-type {
@@ -6490,9 +6460,9 @@ No maximum distance bonus\`,
 
         .task-score-section {
             margin-top: 16px;
-            background: rgba(44, 90, 160, 0.15);
-            border: 1px solid rgba(44, 90, 160, 0.3);
-            border-radius: 8px;
+            background: rgba(22, 33, 62, 0.2);
+            border: 1px solid rgba(22, 33, 62, 0.3);
+            border-radius: 6px;
             padding: 12px;
         }
 
@@ -6669,11 +6639,12 @@ No maximum distance bonus\`,
         .pilot-link {
             color: inherit;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .pilot-link:hover {
             text-decoration: underline;
-            color: #0066cc;
+            color: #2563eb;
         }
 
         .weglide-link {
@@ -6683,7 +6654,7 @@ No maximum distance bonus\`,
         }
 
         .weglide-link:hover {
-            color: #0066cc;
+            color: #2563eb;
             text-decoration: underline;
         }
 
@@ -6755,17 +6726,17 @@ No maximum distance bonus\`,
 
         .custom-tooltip {
             position: absolute;
-            background: #000000;
-            color: #ffffff;
-            padding: 16px 20px;
-            border-radius: 8px;
-            font-size: 14px;
+            background: #16213e;
+            color: #e5e7eb;
+            padding: 14px 18px;
+            border-radius: 6px;
+            font-size: 13px;
             line-height: 1.5;
             min-width: 300px;
             max-width: 450px;
-            box-shadow: 0 6px 20px rgba(0,0,0,1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
             z-index: 10000;
-            border: 3px solid #ffffff;
+            border: 1px solid rgba(255,255,255,0.15);
             font-weight: 400;
             pointer-events: auto;
             white-space: pre-line;
@@ -6802,19 +6773,19 @@ No maximum distance bonus\`,
         .custom-tooltip::before {
             content: '';
             position: absolute;
-            top: -11px;
+            top: -9px;
             left: 50%;
             transform: translateX(-50%);
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-bottom: 8px solid #000000;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #16213e;
         }
 
         .custom-tooltip.tooltip-above::before {
             top: auto;
-            bottom: -11px;
+            bottom: -9px;
             border-bottom: none;
-            border-top: 8px solid #000000;
+            border-top: 7px solid #16213e;
         }
 
         /* Mobile-specific styles */
@@ -7291,7 +7262,7 @@ No maximum distance bonus\`,
 
             .task-stats-table-wrapper {
                 /* Add scrollbar hint on mobile */
-                border-left: 3px solid #007bff;
+                border-left: 3px solid #3b82f6;
             }
 
             .task-stats-table-wrapper::after {
@@ -7348,7 +7319,7 @@ No maximum distance bonus\`,
         .task-stats-table .task-weglide {
             text-align: center;
             font-weight: 600;
-            color: #007bff;
+            color: #3b82f6;
         }
 
         .task-description {
@@ -7570,11 +7541,11 @@ No maximum distance bonus\`,
                 background: #fff;
             }
             .leaderboard th:nth-child(-n+3) {
-                background: #f8f9fa;
+                background: #fafbfc;
                 z-index: 7;
             }
             .leaderboard tbody tr:hover td:nth-child(-n+3) {
-                background: #f8f9fa;
+                background: #f8fafc;
             }
             .leaderboard th:nth-child(3),
             .leaderboard td:nth-child(3) {
