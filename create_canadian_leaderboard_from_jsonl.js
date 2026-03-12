@@ -5338,8 +5338,8 @@ No maximum distance bonus\`,
                         <input type="email" id="verificationEmail" placeholder="you@example.com" />
                         <label for="verificationEmail">Email address</label>
                     </div>
-                    <p style="font-size: 0.9em; color: #888;">This is a self-declaration system. Your age at the time of achieving Silver C will be calculated.</p>
-                    <p style="font-size: 0.9em; color: #888;">\${VERIFICATION_REQUEST_MESSAGE}</p>
+                    <p style="font-size: 0.92em; color: #aaa;">This is a self-declaration system. Your age at the time of achieving Silver C will be calculated.</p>
+                    <p style="font-size: 0.92em; color: #aaa;">\${VERIFICATION_REQUEST_MESSAGE}</p>
                     <div class="form-buttons">
                         <button class="submit-btn" onclick="submitDOBVerification('\${pilotId}', '\${pilotName}')">Send verification link</button>
                         <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
@@ -5492,11 +5492,11 @@ No maximum distance bonus\`,
                         <input type="email" id="verificationEmail" placeholder="you@example.com" />
                         <label for="verificationEmail">Email address</label>
                     </div>
-                    <p style="font-size: 0.9em; color: #888;">
+                    <p style="font-size: 0.92em; color: #aaa;">
                         Self-declaration system. If you enter ≥200 hours, you'll be removed from the Under 200 Hours eligibility list.
                         \${weglideHoursSinceStart > 0 ? 'Pre-filled with WeGlide calculation - please verify or correct.' : ''}
                     </p>
-                    <p style="font-size: 0.9em; color: #888;">\${VERIFICATION_REQUEST_MESSAGE}</p>
+                    <p style="font-size: 0.92em; color: #aaa;">\${VERIFICATION_REQUEST_MESSAGE}</p>
                     <div class="form-buttons">
                         <button class="submit-btn" onclick="submitVerification('\${pilotId}', '\${pilotName}')">Send verification link</button>
                         <button class="cancel-btn" onclick="closeVerificationForm()">Cancel</button>
@@ -5870,18 +5870,18 @@ No maximum distance bonus\`,
 
         .secondary-toggle-label {
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(255, 255, 255, 0.7);
             margin-right: 6px;
-            font-size: 0.82em;
+            font-size: 0.85em;
         }
 
         .toggle-btn.secondary {
             padding: 4px 10px;
-            font-size: 0.78em;
+            font-size: 0.82em;
             border-width: 1px;
-            opacity: 0.75;
-            color: rgba(255, 255, 255, 0.8);
-            border-color: rgba(255, 255, 255, 0.15);
+            opacity: 0.85;
+            color: rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
         .toggle-btn.secondary.active {
@@ -6216,7 +6216,7 @@ No maximum distance bonus\`,
             margin: 0 0 8px 0;
             font-size: 12px;
             font-weight: 600;
-            color: #666;
+            color: #999;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -6235,7 +6235,7 @@ No maximum distance bonus\`,
 
         .pilot-stat .stat-label {
             font-size: 11px;
-            color: #666;
+            color: #999;
             font-weight: 500;
         }
 
@@ -6281,13 +6281,13 @@ No maximum distance bonus\`,
 
         .toggle-btn {
             padding: 7px 16px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.06);
-            color: rgba(255,255,255,0.75);
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.88);
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.15s ease;
-            font-size: 0.82em;
+            font-size: 0.85em;
             font-weight: 500;
         }
 
@@ -6368,8 +6368,8 @@ No maximum distance bonus\`,
         }
 
         .flight-aircraft {
-            font-size: 0.8em;
-            color: #888;
+            font-size: 0.85em;
+            color: #a0a0a0;
             font-style: italic;
         }
 
@@ -6598,9 +6598,9 @@ No maximum distance bonus\`,
 
         .stats-header {
             font-weight: bold;
-            font-size: 0.85em;
+            font-size: 0.88em;
             margin-bottom: 6px;
-            color: #ccc;
+            color: #ddd;
         }
 
         .stats-grid {
@@ -6618,11 +6618,11 @@ No maximum distance bonus\`,
         .stat-item {
             display: flex;
             justify-content: space-between;
-            font-size: 0.8em;
+            font-size: 0.85em;
         }
 
         .stat-label {
-            color: #aaa;
+            color: #bbb;
         }
 
         .clickable-stat-label {
@@ -6673,8 +6673,8 @@ No maximum distance bonus\`,
         }
 
         .weglide-link {
-            font-size: 0.8em;
-            color: #666;
+            font-size: 0.85em;
+            color: #999;
             text-decoration: none;
         }
 
@@ -6690,8 +6690,8 @@ No maximum distance bonus\`,
         }
 
         .flight-location {
-            font-size: 0.8em;
-            color: #666;
+            font-size: 0.85em;
+            color: #999;
         }
 
         /* Trophy section styling */
@@ -6981,7 +6981,7 @@ No maximum distance bonus\`,
         }
 
         .verification-form p {
-            color: #666;
+            color: #999;
             line-height: 1.5;
             margin: 15px 0;
         }
@@ -6989,7 +6989,7 @@ No maximum distance bonus\`,
         .verification-form label {
             display: block;
             margin-top: 6px;
-            color: #666;
+            color: #999;
             font-size: 0.9em;
         }
 
@@ -7099,8 +7099,8 @@ No maximum distance bonus\`,
         }
 
         .trophy-desc {
-            color: #ccc;
-            font-size: 0.9em;
+            color: #ddd;
+            font-size: 0.92em;
             margin: 0 0 12px 0;
             font-style: italic;
         }
@@ -7171,15 +7171,15 @@ No maximum distance bonus\`,
         }
 
         .calculation-note {
-            color: #aaa;
-            font-size: 0.65em;
+            color: #bbb;
+            font-size: 0.75em;
             margin: 4px 0 0 0;
             font-style: italic;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         .no-winner {
-            color: #888;
+            color: #aaa;
             font-style: italic;
             margin: 8px 0;
         }
@@ -7348,7 +7348,7 @@ No maximum distance bonus\`,
         }
 
         .task-description {
-            color: #666;
+            color: #999;
         }
 
         .mock-notice {
