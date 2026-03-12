@@ -1794,13 +1794,13 @@ async function processCanadianFlights() {
             .replace(/Soaring Association of Canada/g, 'Soaring Association of Canada')
             .replace(/gfa_logo\.png/g, 'sac_logo.png')
             .replace(/<p>Data from WeGlide API • (?:Australian|Canadian) (?:gliding season|online competition season) runs[^<]*<\/p>/g, '<p id="seasonFooterText">Data from WeGlide API • Canadian online competition season runs __CURRENT_SEASON_LONG__</p>')
-            .replace(/Best 5 flights per pilot • Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring')
+            .replace(/Best 5 flights per pilot (?:•|&middot;) Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring')
             .replace(/Scoring uses the higher of Free flight or Task \(declared\) scoring for each flight/g, 'Scoring uses the higher of Free flight or WeGlide Task scoring for each flight')
             .replace(/<p>Scoring uses the higher of Free flight or (?:Task \(declared\)|WeGlide Task) scoring for each flight<\/p>\s*/g, '')
             // Remove the logo image
             .replace(/<img src="[^"]*logo[^"]*"[^>]*>/g, '')
             // Add ID to scoring description for dynamic updates
-            .replace(/<p>Best 5 flights per pilot • Higher of WeGlide Task or Free scoring<\/p>/g, '<p id="scoringDescription">__SCORING_DESCRIPTION_COMBINED__</p>\n                ')
+            .replace(/<p(?: id="scoringDescription")?>Best 5 flights per pilot (?:(?:•|&middot;)) Higher of WeGlide Task or Free scoring<\/p>/g, '<p id="scoringDescription">__SCORING_DESCRIPTION_COMBINED__</p>\n                ')
             // Replace season period with task stats
             .replace(/<div class="stat">\s*<span class="stat-number" id="seasonPeriod">Oct 2024 - Sep 2025<\/span>\s*<span class="stat-label">Season Period<\/span>\s*<\/div>/g,
                 `<div class="stat" onclick="toggleTaskStatsSection()" style="cursor: pointer;" title="Click to view task type statistics">
@@ -2069,7 +2069,7 @@ Official scoring requires an IGC-approved recorder.
 Scoring:
 • 1 point per km of declared triangle distance
 • FAI triangles get a 30% bonus
-• Score is then multiplied by 100 ÷ OLC index
+• Score is then multiplied by 100 ÷ WeGlide index
 • Start altitude may not be more than 1000 m above finish altitude\`,
             free: \`WeGlide Free
 1.0 point per km, up to 6 legs
@@ -2110,7 +2110,7 @@ Official scoring requires an IGC-approved recorder.
 Scoring:
 • 1 point per km of declared triangle distance
 • FAI triangles get a 30% bonus
-• Score is then multiplied by 100 ÷ OLC index
+• Score is then multiplied by 100 ÷ WeGlide index
 • Start altitude may not be more than 1000 m above finish altitude\`,
             free: \`WeGlide Free
 1.0 point per km, up to 6 legs
@@ -2281,12 +2281,28 @@ No maximum distance bonus\`,
             };
         }
 
-        function getPilotEligibilityHours(pilotId) {
+        function getPilotVerificationHoursSummary(pilotId) {
             const hoursSummary = getPilotHoursSummary(pilotId);
-            if (typeof hoursSummary.combinedHoursBeforeCutoff === 'number') {
-                return hoursSummary.combinedHoursBeforeCutoff;
-            }
-            return Math.max(0, hoursSummary.weglideHours - calculateWeGlideHoursSinceStart(pilotId));
+            const combined = getPilotCombinedHoursData(pilotId);
+            const weglideHoursBeforeCutoff = combined && typeof combined.weglideHoursBeforeCutoff === 'number'
+                ? combined.weglideHoursBeforeCutoff
+                : Math.max(0, hoursSummary.weglideHours - calculateWeGlideHoursSinceStart(pilotId));
+            const olcOnlyHoursBeforeCutoff = combined && typeof combined.olcOnlyHoursBeforeCutoff === 'number'
+                ? combined.olcOnlyHoursBeforeCutoff
+                : 0;
+            const combinedHoursBeforeCutoff = typeof hoursSummary.combinedHoursBeforeCutoff === 'number'
+                ? hoursSummary.combinedHoursBeforeCutoff
+                : weglideHoursBeforeCutoff;
+
+            return {
+                weglideHours: weglideHoursBeforeCutoff,
+                olcOnlyHours: olcOnlyHoursBeforeCutoff,
+                combinedHours: combinedHoursBeforeCutoff
+            };
+        }
+
+        function getPilotEligibilityHours(pilotId) {
+            return getPilotVerificationHoursSummary(pilotId).combinedHours;
         }
 
         function isWithinSeason(dateString) {
@@ -2882,6 +2898,7 @@ No maximum distance bonus\`,
         // Switch between scoring modes
         function switchScoringMode(mode) {
             currentScoringMode = mode;
+            const scoringDescriptionEl = document.getElementById('scoringDescription');
 
             const updateStatsFromLeaderboard = (list) => {
                 if (!Array.isArray(list)) return;
@@ -2901,7 +2918,7 @@ No maximum distance bonus\`,
 
             if (mode === 'mixed') {
                 leaderboard = mixedLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_COMBINED;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_COMBINED;
 
                 updateStatsFromLeaderboard(leaderboard);
 
@@ -2914,7 +2931,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'free') {
                 leaderboard = freeLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_FREE;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_FREE;
 
                 updateStatsFromLeaderboard(leaderboard);
 
@@ -2928,7 +2945,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'bhc') {
                 leaderboard = bhcLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_BHC;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_BHC;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2939,7 +2956,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'sprint') {
                 leaderboard = sprintLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Sprint scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Sprint scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2950,7 +2967,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'triangle') {
                 leaderboard = triangleLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Triangle scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Triangle scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2961,7 +2978,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'out_return') {
                 leaderboard = outReturnLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Out & Return scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Out & Return scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2972,7 +2989,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'out') {
                 leaderboard = outLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Out (Goal) scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Out (Goal) scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2983,7 +3000,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
 
                 const totalPoints = getLeaderboardPointsTotal(leaderboard);
                 const silverKms = leaderboard.reduce((sum, pilot) => {
@@ -2998,7 +3015,7 @@ No maximum distance bonus\`,
                 });
             } else {
                 leaderboard = freeLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_FREE;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_FREE;
 
                 updateHeadlineStats({
                     pilotCount: ` + totalPilots + `,
@@ -5451,6 +5468,7 @@ No maximum distance bonus\`,
 
                 const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
                 const hoursSummary = getPilotHoursSummary(pilotId);
+                const verificationHoursSummary = getPilotVerificationHoursSummary(pilotId);
                 const estimatedOct1Hours = getPilotEligibilityHours(pilotId);
 
                 if (hoursSummary.combinedHours > 0) {
@@ -5459,12 +5477,13 @@ No maximum distance bonus\`,
                         pilotName: pilot.pilot,
                         picHours: estimatedOct1Hours,
                         verifiedDate: new Date().toISOString(),
-                        dataSource: hoursSummary.olcOnlyHours > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
+                        dataSource: verificationHoursSummary.olcOnlyHours > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
                         eligible: estimatedOct1Hours < 200,
                         calculation: {
-                            totalCombinedHours: hoursSummary.combinedHours,
-                            totalWeGlideHours: hoursSummary.weglideHours,
-                            olcOnlyHours: hoursSummary.olcOnlyHours,
+                            cutoffDate: VERIFICATION_CUTOFF_DATE.toISOString().slice(0, 10),
+                            totalCombinedHours: verificationHoursSummary.combinedHours,
+                            totalWeGlideHours: verificationHoursSummary.weglideHours,
+                            olcOnlyHours: verificationHoursSummary.olcOnlyHours,
                             hoursSinceOct1: weglideHoursSinceStart,
                             estimatedOct1Hours: estimatedOct1Hours
                         }
@@ -5481,6 +5500,7 @@ No maximum distance bonus\`,
         function showVerificationForm(pilotId, pilotName) {
             const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
             const hoursSummary = getPilotHoursSummary(pilotId);
+            const verificationHoursSummary = getPilotVerificationHoursSummary(pilotId);
             const estimatedOct1Hours = getPilotEligibilityHours(pilotId);
 
             const overlay = document.createElement('div');
@@ -5494,9 +5514,9 @@ No maximum distance bonus\`,
                     \${hoursSummary.combinedHours > 0 ? \`
                     <div class="weglide-calculation" style="background: rgba(0,123,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
                         <strong>Hours summary:</strong><br>
-                        Combined hours: \${hoursSummary.combinedHours.toFixed(1)}h<br>
-                        WeGlide hours: \${hoursSummary.weglideHours.toFixed(1)}h<br>
-                        OLC-only hours: \${hoursSummary.olcOnlyHours.toFixed(1)}h<br>
+                        Combined hours: \${verificationHoursSummary.combinedHours.toFixed(1)}h<br>
+                        WeGlide hours: \${verificationHoursSummary.weglideHours.toFixed(1)}h<br>
+                        OLC-only hours: \${verificationHoursSummary.olcOnlyHours.toFixed(1)}h<br>
                         <strong>Estimated hours: \${estimatedOct1Hours.toFixed(1)}h</strong>
                     </div>
                     \` : ''}
@@ -5572,6 +5592,11 @@ No maximum distance bonus\`,
         }
 
         async function loadVerificationsFromDatabase() {
+            if (!window.location || !/^https?:$/i.test(window.location.protocol)) {
+                console.info('Skipping verification API load outside http/https context.');
+                return;
+            }
+
             try {
                 const response = await fetch(VERIFICATION_STATE_ENDPOINT, {
                     headers: {
@@ -5880,23 +5905,24 @@ No maximum distance bonus\`,
         }
 
         .secondary-toggle-label {
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.55);
             margin-right: 6px;
+            font-size: 0.82em;
         }
 
         .toggle-btn.secondary {
             padding: 4px 10px;
-            font-size: 0.85em;
+            font-size: 0.78em;
             border-width: 1px;
-            opacity: 0.85;
-            color: rgba(255, 255, 255, 0.9);
-            border-color: rgba(255, 255, 255, 0.5);
+            opacity: 0.75;
+            color: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .toggle-btn.secondary.active {
             opacity: 1;
-            border-color: rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .triangle-type-badge {
@@ -6041,22 +6067,19 @@ No maximum distance bonus\`,
 
         /* Find button */
         .find-btn {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #28a745, #20c997);
+            padding: 7px 16px;
+            background: #16213e;
             color: white;
-            border: none;
-            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+            transition: all 0.15s ease;
         }
 
         .find-btn:hover {
-            background: linear-gradient(135deg, #218838, #1ea080);
-            box-shadow: 0 3px 6px rgba(40, 167, 69, 0.4);
-            transform: translateY(-1px);
+            background: #1e2d50;
         }
 
         /* Floating search overlay */
@@ -6071,63 +6094,66 @@ No maximum distance bonus\`,
         .search-widget {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid #e0e0e0;
-            padding: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+            border: 1px solid #e5e7eb;
+            padding: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            min-width: 300px;
+            gap: 6px;
+            min-width: 280px;
         }
 
         #searchInput {
             flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
+            padding: 7px 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 13px;
+            font-family: inherit;
             outline: none;
         }
 
         #searchInput:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
         }
 
         #nextBtn {
-            padding: 8px 12px;
-            background: #007bff;
+            padding: 7px 12px;
+            background: #16213e;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
+            font-family: inherit;
         }
 
         #nextBtn:hover:not(:disabled) {
-            background: #0056b3;
+            background: #1e2d50;
         }
 
         #nextBtn:disabled {
-            background: #ccc;
+            background: #d1d5db;
             cursor: not-allowed;
         }
 
         #closeBtn {
-            padding: 8px 10px;
-            background: #dc3545;
+            padding: 7px 10px;
+            background: #6b7280;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
             line-height: 1;
+            font-family: inherit;
         }
 
         #closeBtn:hover {
-            background: #c82333;
+            background: #4b5563;
         }
 
         #searchStatus {
@@ -6144,14 +6170,14 @@ No maximum distance bonus\`,
 
         /* Search highlight */
         .search-highlight {
-            background: #ffeb3b !important;
-            font-weight: bold;
-            border-radius: 3px;
-            padding: 2px 4px;
+            background: #fef3c7 !important;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 3px;
         }
 
         .search-current {
-            background: #ff5722 !important;
+            background: #3b82f6 !important;
             color: white;
         }
 
@@ -6187,9 +6213,9 @@ No maximum distance bonus\`,
         }
 
         .pilot-tooltip-header {
-            background: #f8f9fa;
+            background: #fafbfc;
             padding: 12px 15px;
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid #e5e7eb;
             border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
@@ -6205,7 +6231,7 @@ No maximum distance bonus\`,
 
         .weglide-profile-link {
             font-size: 11px;
-            color: #007bff;
+            color: #3b82f6;
             text-decoration: none;
             font-weight: 500;
         }
@@ -6278,92 +6304,96 @@ No maximum distance bonus\`,
         }
 
         .pilot-highlight {
-            background: #ffeb3b !important;
-            font-weight: bold;
-            border-radius: 3px;
-            padding: 2px 4px;
+            background: #fef3c7 !important;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 1px 3px;
         }
 
         .pilot-current {
-            background: #ff5722 !important;
+            background: #3b82f6 !important;
             color: white !important;
         }
 
         .toggle-btn {
-            padding: 8px 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 20px;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.75);
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
             font-weight: 500;
         }
 
         .toggle-btn:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.3);
+            color: white;
         }
 
         .toggle-btn.active {
-            background: rgba(255,255,255,0.9);
-            color: #2c5aa0;
-            border-color: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.92);
+            color: #16213e;
+            border-color: rgba(255,255,255,0.92);
+            font-weight: 600;
         }
 
         /* Filter button - visually distinct from scoring buttons */
         .filter-btn {
-            padding: 8px 16px;
-            border: 2px solid rgba(255,193,7,0.5);
-            background: rgba(255,193,7,0.1);
-            color: #ffc107;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,193,7,0.35);
+            background: rgba(255,193,7,0.08);
+            color: rgba(255,213,79,0.9);
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
+            transition: all 0.15s ease;
+            font-size: 0.82em;
             font-weight: 500;
             position: relative;
         }
 
         .filter-btn::before {
-            content: "🔍";
-            margin-right: 6px;
-            font-size: 0.8em;
+            content: "Filter";
+            margin-right: 0;
+            font-size: 1em;
         }
 
         .filter-btn:hover {
-            background: rgba(255,193,7,0.2);
-            border-color: rgba(255,193,7,0.7);
+            background: rgba(255,193,7,0.15);
+            border-color: rgba(255,193,7,0.5);
         }
 
         .filter-btn.active {
-            background: rgba(255,193,7,0.9);
-            color: #333;
-            border-color: rgba(255,193,7,0.9);
+            background: rgba(255,193,7,0.85);
+            color: #1a1a2e;
+            border-color: rgba(255,193,7,0.85);
+            font-weight: 600;
         }
 
         .club-filter-select {
-            padding: 8px 14px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 10px;
+            padding: 7px 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.85);
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9em;
+            font-size: 0.82em;
             font-weight: 500;
+            font-family: inherit;
             min-width: 150px;
         }
 
         .club-filter-select:hover,
         .club-filter-select:focus {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.35);
             outline: none;
         }
 
         .club-filter-select option {
-            color: #1f2a3d;
+            color: #1a1a2e;
         }
 
         /* Aircraft info styling */
@@ -6447,13 +6477,13 @@ No maximum distance bonus\`,
         }
 
         .flight-tooltip-header {
-            background: #2c5aa0;
+            background: #16213e;
             padding: 10px 12px;
             border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .flight-type {
@@ -6490,9 +6520,9 @@ No maximum distance bonus\`,
 
         .task-score-section {
             margin-top: 16px;
-            background: rgba(44, 90, 160, 0.15);
-            border: 1px solid rgba(44, 90, 160, 0.3);
-            border-radius: 8px;
+            background: rgba(22, 33, 62, 0.2);
+            border: 1px solid rgba(22, 33, 62, 0.3);
+            border-radius: 6px;
             padding: 12px;
         }
 
@@ -6673,7 +6703,7 @@ No maximum distance bonus\`,
 
         .pilot-link:hover {
             text-decoration: underline;
-            color: #0066cc;
+            color: #2563eb;
         }
 
         .weglide-link {
@@ -6683,7 +6713,7 @@ No maximum distance bonus\`,
         }
 
         .weglide-link:hover {
-            color: #0066cc;
+            color: #2563eb;
             text-decoration: underline;
         }
 
@@ -6755,17 +6785,17 @@ No maximum distance bonus\`,
 
         .custom-tooltip {
             position: absolute;
-            background: #000000;
-            color: #ffffff;
-            padding: 16px 20px;
-            border-radius: 8px;
-            font-size: 14px;
+            background: #16213e;
+            color: #e5e7eb;
+            padding: 14px 18px;
+            border-radius: 6px;
+            font-size: 13px;
             line-height: 1.5;
             min-width: 300px;
             max-width: 450px;
-            box-shadow: 0 6px 20px rgba(0,0,0,1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
             z-index: 10000;
-            border: 3px solid #ffffff;
+            border: 1px solid rgba(255,255,255,0.15);
             font-weight: 400;
             pointer-events: auto;
             white-space: pre-line;
@@ -6802,19 +6832,19 @@ No maximum distance bonus\`,
         .custom-tooltip::before {
             content: '';
             position: absolute;
-            top: -11px;
+            top: -9px;
             left: 50%;
             transform: translateX(-50%);
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-bottom: 8px solid #000000;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #16213e;
         }
 
         .custom-tooltip.tooltip-above::before {
             top: auto;
-            bottom: -11px;
+            bottom: -9px;
             border-bottom: none;
-            border-top: 8px solid #000000;
+            border-top: 7px solid #16213e;
         }
 
         /* Mobile-specific styles */
@@ -7291,7 +7321,7 @@ No maximum distance bonus\`,
 
             .task-stats-table-wrapper {
                 /* Add scrollbar hint on mobile */
-                border-left: 3px solid #007bff;
+                border-left: 3px solid #3b82f6;
             }
 
             .task-stats-table-wrapper::after {
@@ -7348,7 +7378,7 @@ No maximum distance bonus\`,
         .task-stats-table .task-weglide {
             text-align: center;
             font-weight: 600;
-            color: #007bff;
+            color: #3b82f6;
         }
 
         .task-description {
@@ -7570,11 +7600,11 @@ No maximum distance bonus\`,
                 background: #fff;
             }
             .leaderboard th:nth-child(-n+3) {
-                background: #f8f9fa;
+                background: #fafbfc;
                 z-index: 7;
             }
             .leaderboard tbody tr:hover td:nth-child(-n+3) {
-                background: #f8f9fa;
+                background: #f8fafc;
             }
             .leaderboard th:nth-child(3),
             .leaderboard td:nth-child(3) {
@@ -7815,8 +7845,11 @@ No maximum distance bonus\`,
                 const totalCombinedHours = combinedHours && typeof combinedHours.combinedHours === 'number'
                     ? combinedHours.combinedHours
                     : totalWeGlideHours;
-                const olcOnlyHours = combinedHours && typeof combinedHours.olcOnlyHours === 'number'
-                    ? combinedHours.olcOnlyHours
+                const totalWeGlideHoursBeforeCutoff = combinedHours && typeof combinedHours.weglideHoursBeforeCutoff === 'number'
+                    ? combinedHours.weglideHoursBeforeCutoff
+                    : Math.max(0, totalWeGlideHours - hoursSinceStart);
+                const olcOnlyHoursBeforeCutoff = combinedHours && typeof combinedHours.olcOnlyHoursBeforeCutoff === 'number'
+                    ? combinedHours.olcOnlyHoursBeforeCutoff
                     : 0;
                 const estimatedOct1Hours = combinedHours && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
                     ? combinedHours.combinedHoursBeforeCutoff
@@ -7830,13 +7863,13 @@ No maximum distance bonus\`,
                         pilotName: pilot.pilot,
                         picHours: parseFloat(estimatedOct1Hours.toFixed(1)),
                         verifiedDate: new Date().toISOString(),
-                        dataSource: olcOnlyHours > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
+                        dataSource: olcOnlyHoursBeforeCutoff > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
                         eligible: estimatedOct1Hours < 200,
                         calculation: {
                             cutoffDate: verificationCutoffDate,
-                            totalCombinedHours: parseFloat(totalCombinedHours.toFixed(1)),
-                            totalWeGlideHours: parseFloat(totalWeGlideHours.toFixed(1)),
-                            olcOnlyHours: parseFloat(olcOnlyHours.toFixed(1)),
+                            totalCombinedHours: parseFloat(estimatedOct1Hours.toFixed(1)),
+                            totalWeGlideHours: parseFloat(totalWeGlideHoursBeforeCutoff.toFixed(1)),
+                            olcOnlyHours: parseFloat(olcOnlyHoursBeforeCutoff.toFixed(1)),
                             hoursSinceOct1: parseFloat(hoursSinceStart.toFixed(1)),
                             estimatedOct1Hours: parseFloat(estimatedOct1Hours.toFixed(1))
                         }
