@@ -1794,13 +1794,13 @@ async function processCanadianFlights() {
             .replace(/Soaring Association of Canada/g, 'Soaring Association of Canada')
             .replace(/gfa_logo\.png/g, 'sac_logo.png')
             .replace(/<p>Data from WeGlide API • (?:Australian|Canadian) (?:gliding season|online competition season) runs[^<]*<\/p>/g, '<p id="seasonFooterText">Data from WeGlide API • Canadian online competition season runs __CURRENT_SEASON_LONG__</p>')
-            .replace(/Best 5 flights per pilot • Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring')
+            .replace(/Best 5 flights per pilot (?:•|&middot;) Higher of Free or Task scoring/g, 'Best 5 flights per pilot • Higher of WeGlide Task or Free scoring')
             .replace(/Scoring uses the higher of Free flight or Task \(declared\) scoring for each flight/g, 'Scoring uses the higher of Free flight or WeGlide Task scoring for each flight')
             .replace(/<p>Scoring uses the higher of Free flight or (?:Task \(declared\)|WeGlide Task) scoring for each flight<\/p>\s*/g, '')
             // Remove the logo image
             .replace(/<img src="[^"]*logo[^"]*"[^>]*>/g, '')
             // Add ID to scoring description for dynamic updates
-            .replace(/<p>Best 5 flights per pilot • Higher of WeGlide Task or Free scoring<\/p>/g, '<p id="scoringDescription">__SCORING_DESCRIPTION_COMBINED__</p>\n                ')
+            .replace(/<p(?: id="scoringDescription")?>Best 5 flights per pilot (?:(?:•|&middot;)) Higher of WeGlide Task or Free scoring<\/p>/g, '<p id="scoringDescription">__SCORING_DESCRIPTION_COMBINED__</p>\n                ')
             // Replace season period with task stats
             .replace(/<div class="stat">\s*<span class="stat-number" id="seasonPeriod">Oct 2024 - Sep 2025<\/span>\s*<span class="stat-label">Season Period<\/span>\s*<\/div>/g,
                 `<div class="stat" onclick="toggleTaskStatsSection()" style="cursor: pointer;" title="Click to view task type statistics">
@@ -2069,7 +2069,7 @@ Official scoring requires an IGC-approved recorder.
 Scoring:
 • 1 point per km of declared triangle distance
 • FAI triangles get a 30% bonus
-• Score is then multiplied by 100 ÷ OLC index
+• Score is then multiplied by 100 ÷ WeGlide index
 • Start altitude may not be more than 1000 m above finish altitude\`,
             free: \`WeGlide Free
 1.0 point per km, up to 6 legs
@@ -2110,7 +2110,7 @@ Official scoring requires an IGC-approved recorder.
 Scoring:
 • 1 point per km of declared triangle distance
 • FAI triangles get a 30% bonus
-• Score is then multiplied by 100 ÷ OLC index
+• Score is then multiplied by 100 ÷ WeGlide index
 • Start altitude may not be more than 1000 m above finish altitude\`,
             free: \`WeGlide Free
 1.0 point per km, up to 6 legs
@@ -2281,12 +2281,28 @@ No maximum distance bonus\`,
             };
         }
 
-        function getPilotEligibilityHours(pilotId) {
+        function getPilotVerificationHoursSummary(pilotId) {
             const hoursSummary = getPilotHoursSummary(pilotId);
-            if (typeof hoursSummary.combinedHoursBeforeCutoff === 'number') {
-                return hoursSummary.combinedHoursBeforeCutoff;
-            }
-            return Math.max(0, hoursSummary.weglideHours - calculateWeGlideHoursSinceStart(pilotId));
+            const combined = getPilotCombinedHoursData(pilotId);
+            const weglideHoursBeforeCutoff = combined && typeof combined.weglideHoursBeforeCutoff === 'number'
+                ? combined.weglideHoursBeforeCutoff
+                : Math.max(0, hoursSummary.weglideHours - calculateWeGlideHoursSinceStart(pilotId));
+            const olcOnlyHoursBeforeCutoff = combined && typeof combined.olcOnlyHoursBeforeCutoff === 'number'
+                ? combined.olcOnlyHoursBeforeCutoff
+                : 0;
+            const combinedHoursBeforeCutoff = typeof hoursSummary.combinedHoursBeforeCutoff === 'number'
+                ? hoursSummary.combinedHoursBeforeCutoff
+                : weglideHoursBeforeCutoff;
+
+            return {
+                weglideHours: weglideHoursBeforeCutoff,
+                olcOnlyHours: olcOnlyHoursBeforeCutoff,
+                combinedHours: combinedHoursBeforeCutoff
+            };
+        }
+
+        function getPilotEligibilityHours(pilotId) {
+            return getPilotVerificationHoursSummary(pilotId).combinedHours;
         }
 
         function isWithinSeason(dateString) {
@@ -2882,6 +2898,7 @@ No maximum distance bonus\`,
         // Switch between scoring modes
         function switchScoringMode(mode) {
             currentScoringMode = mode;
+            const scoringDescriptionEl = document.getElementById('scoringDescription');
 
             const updateStatsFromLeaderboard = (list) => {
                 if (!Array.isArray(list)) return;
@@ -2901,7 +2918,7 @@ No maximum distance bonus\`,
 
             if (mode === 'mixed') {
                 leaderboard = mixedLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_COMBINED;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_COMBINED;
 
                 updateStatsFromLeaderboard(leaderboard);
 
@@ -2914,7 +2931,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'free') {
                 leaderboard = freeLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_FREE;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_FREE;
 
                 updateStatsFromLeaderboard(leaderboard);
 
@@ -2928,7 +2945,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'bhc') {
                 leaderboard = bhcLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_BHC;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_BHC;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2939,7 +2956,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'sprint') {
                 leaderboard = sprintLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Sprint scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Sprint scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2950,7 +2967,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'triangle') {
                 leaderboard = triangleLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Triangle scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Triangle scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2961,7 +2978,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'out_return') {
                 leaderboard = outReturnLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Out & Return scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Out & Return scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2972,7 +2989,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'out') {
                 leaderboard = outLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Top 3 flights per pilot • WeGlide Out (Goal) scoring • ' + SEASON_LABEL;
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Top 3 flights per pilot • WeGlide Out (Goal) scoring • ' + SEASON_LABEL;
                 updateStatsFromLeaderboard(leaderboard);
                 updateTaskStats('mixed', {
                     totalPilots: ` + totalPilots + `,
@@ -2983,7 +3000,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
-                document.getElementById('scoringDescription').textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
 
                 const totalPoints = getLeaderboardPointsTotal(leaderboard);
                 const silverKms = leaderboard.reduce((sum, pilot) => {
@@ -2998,7 +3015,7 @@ No maximum distance bonus\`,
                 });
             } else {
                 leaderboard = freeLeaderboard;
-                document.getElementById('scoringDescription').innerHTML = SCORING_DESCRIPTION_FREE;
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = SCORING_DESCRIPTION_FREE;
 
                 updateHeadlineStats({
                     pilotCount: ` + totalPilots + `,
@@ -5414,6 +5431,7 @@ No maximum distance bonus\`,
 
                 const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
                 const hoursSummary = getPilotHoursSummary(pilotId);
+                const verificationHoursSummary = getPilotVerificationHoursSummary(pilotId);
                 const estimatedOct1Hours = getPilotEligibilityHours(pilotId);
 
                 if (hoursSummary.combinedHours > 0) {
@@ -5422,12 +5440,13 @@ No maximum distance bonus\`,
                         pilotName: pilot.pilot,
                         picHours: estimatedOct1Hours,
                         verifiedDate: new Date().toISOString(),
-                        dataSource: hoursSummary.olcOnlyHours > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
+                        dataSource: verificationHoursSummary.olcOnlyHours > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
                         eligible: estimatedOct1Hours < 200,
                         calculation: {
-                            totalCombinedHours: hoursSummary.combinedHours,
-                            totalWeGlideHours: hoursSummary.weglideHours,
-                            olcOnlyHours: hoursSummary.olcOnlyHours,
+                            cutoffDate: VERIFICATION_CUTOFF_DATE.toISOString().slice(0, 10),
+                            totalCombinedHours: verificationHoursSummary.combinedHours,
+                            totalWeGlideHours: verificationHoursSummary.weglideHours,
+                            olcOnlyHours: verificationHoursSummary.olcOnlyHours,
                             hoursSinceOct1: weglideHoursSinceStart,
                             estimatedOct1Hours: estimatedOct1Hours
                         }
@@ -5444,6 +5463,7 @@ No maximum distance bonus\`,
         function showVerificationForm(pilotId, pilotName) {
             const weglideHoursSinceStart = calculateWeGlideHoursSinceStart(pilotId);
             const hoursSummary = getPilotHoursSummary(pilotId);
+            const verificationHoursSummary = getPilotVerificationHoursSummary(pilotId);
             const estimatedOct1Hours = getPilotEligibilityHours(pilotId);
 
             const overlay = document.createElement('div');
@@ -5457,9 +5477,9 @@ No maximum distance bonus\`,
                     \${hoursSummary.combinedHours > 0 ? \`
                     <div class="weglide-calculation" style="background: rgba(0,123,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
                         <strong>Hours summary:</strong><br>
-                        Combined hours: \${hoursSummary.combinedHours.toFixed(1)}h<br>
-                        WeGlide hours: \${hoursSummary.weglideHours.toFixed(1)}h<br>
-                        OLC-only hours: \${hoursSummary.olcOnlyHours.toFixed(1)}h<br>
+                        Combined hours: \${verificationHoursSummary.combinedHours.toFixed(1)}h<br>
+                        WeGlide hours: \${verificationHoursSummary.weglideHours.toFixed(1)}h<br>
+                        OLC-only hours: \${verificationHoursSummary.olcOnlyHours.toFixed(1)}h<br>
                         <strong>Estimated hours: \${estimatedOct1Hours.toFixed(1)}h</strong>
                     </div>
                     \` : ''}
@@ -5535,6 +5555,11 @@ No maximum distance bonus\`,
         }
 
         async function loadVerificationsFromDatabase() {
+            if (!window.location || !/^https?:$/i.test(window.location.protocol)) {
+                console.info('Skipping verification API load outside http/https context.');
+                return;
+            }
+
             try {
                 const response = await fetch(VERIFICATION_STATE_ENDPOINT, {
                     headers: {
@@ -7786,8 +7811,11 @@ No maximum distance bonus\`,
                 const totalCombinedHours = combinedHours && typeof combinedHours.combinedHours === 'number'
                     ? combinedHours.combinedHours
                     : totalWeGlideHours;
-                const olcOnlyHours = combinedHours && typeof combinedHours.olcOnlyHours === 'number'
-                    ? combinedHours.olcOnlyHours
+                const totalWeGlideHoursBeforeCutoff = combinedHours && typeof combinedHours.weglideHoursBeforeCutoff === 'number'
+                    ? combinedHours.weglideHoursBeforeCutoff
+                    : Math.max(0, totalWeGlideHours - hoursSinceStart);
+                const olcOnlyHoursBeforeCutoff = combinedHours && typeof combinedHours.olcOnlyHoursBeforeCutoff === 'number'
+                    ? combinedHours.olcOnlyHoursBeforeCutoff
                     : 0;
                 const estimatedOct1Hours = combinedHours && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
                     ? combinedHours.combinedHoursBeforeCutoff
@@ -7801,13 +7829,13 @@ No maximum distance bonus\`,
                         pilotName: pilot.pilot,
                         picHours: parseFloat(estimatedOct1Hours.toFixed(1)),
                         verifiedDate: new Date().toISOString(),
-                        dataSource: olcOnlyHours > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
+                        dataSource: olcOnlyHoursBeforeCutoff > 0 ? 'combined-hours-calculated' : 'weglide-calculated',
                         eligible: estimatedOct1Hours < 200,
                         calculation: {
                             cutoffDate: verificationCutoffDate,
-                            totalCombinedHours: parseFloat(totalCombinedHours.toFixed(1)),
-                            totalWeGlideHours: parseFloat(totalWeGlideHours.toFixed(1)),
-                            olcOnlyHours: parseFloat(olcOnlyHours.toFixed(1)),
+                            totalCombinedHours: parseFloat(estimatedOct1Hours.toFixed(1)),
+                            totalWeGlideHours: parseFloat(totalWeGlideHoursBeforeCutoff.toFixed(1)),
+                            olcOnlyHours: parseFloat(olcOnlyHoursBeforeCutoff.toFixed(1)),
                             hoursSinceOct1: parseFloat(hoursSinceStart.toFixed(1)),
                             estimatedOct1Hours: parseFloat(estimatedOct1Hours.toFixed(1))
                         }
