@@ -3219,14 +3219,9 @@ No maximum distance bonus\`,
             // Stop clicks inside tooltip from closing it
             pilotPreviewElement.addEventListener('click', function(e) { e.stopPropagation(); });
 
-            // Center the tooltip in the viewport (accounting for scroll with position: absolute)
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
-
-            pilotPreviewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
-            pilotPreviewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
+            // Center in viewport — position:fixed so no scroll offsets needed
+            pilotPreviewElement.style.left = '50%';
+            pilotPreviewElement.style.top = '50%';
             pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
 
             requestAnimationFrame(() => {
@@ -3850,100 +3845,35 @@ No maximum distance bonus\`,
             // Stop clicks inside tooltip from closing it
             previewElement.addEventListener('click', function(e) { e.stopPropagation(); });
 
-            const positionCenteredInChildViewport = () => {
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-                const viewportHeight = window.innerHeight;
-                const viewportWidth = window.innerWidth;
-                previewElement.style.left = (scrollX + viewportWidth / 2) + 'px';
-                previewElement.style.top = (scrollY + viewportHeight / 2) + 'px';
+            // position:fixed — all coords are viewport-relative, no scroll offsets needed
+            const positionCentered = () => {
+                previewElement.style.left = '50%';
+                previewElement.style.top = '50%';
                 previewElement.style.transform = 'translate(-50%, -50%)';
             };
 
             const positionNearPointer = () => {
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-                const viewportHeight = window.innerHeight;
                 const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
                 const pointerX = event && typeof event.clientX === 'number' ? event.clientX : viewportWidth / 2;
                 const pointerY = event && typeof event.clientY === 'number' ? event.clientY : viewportHeight / 2;
                 const tooltipRect = previewElement.getBoundingClientRect();
                 const margin = 12;
-                const desiredLeft = scrollX + pointerX;
-                const desiredTop = scrollY + pointerY + 16;
-                const minLeft = scrollX + (tooltipRect.width / 2) + margin;
-                const maxLeft = scrollX + viewportWidth - (tooltipRect.width / 2) - margin;
+                const desiredLeft = pointerX;
+                const desiredTop = pointerY + 16;
+                const minLeft = (tooltipRect.width / 2) + margin;
+                const maxLeft = viewportWidth - (tooltipRect.width / 2) - margin;
                 const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), maxLeft);
-                const maxTop = scrollY + viewportHeight - tooltipRect.height - margin;
-                const clampedTop = Math.min(
-                    Math.max(desiredTop, scrollY + margin),
-                    Math.max(scrollY + margin, maxTop)
-                );
+                const maxTop = viewportHeight - tooltipRect.height - margin;
+                const clampedTop = Math.min(Math.max(desiredTop, margin), Math.max(margin, maxTop));
 
                 previewElement.style.left = clampedLeft + 'px';
                 previewElement.style.top = clampedTop + 'px';
                 previewElement.style.transform = 'translate(-50%, 0)';
             };
 
-            const positionCenteredFromParentViewport = (payload) => {
-                if (!payload || !payload.iframeRect) return;
-                const iframeLeft = Number(payload.iframeRect.left);
-                const iframeTop = Number(payload.iframeRect.top);
-                const parentViewportWidth = Number(payload.parentViewportWidth);
-                const parentViewportHeight = Number(payload.parentViewportHeight);
-                if (!Number.isFinite(iframeLeft) || !Number.isFinite(iframeTop) ||
-                    !Number.isFinite(parentViewportWidth) || !Number.isFinite(parentViewportHeight)) {
-                    return;
-                }
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-                const viewportHeight = window.innerHeight;
-                const viewportWidth = window.innerWidth;
-                const tooltipRect = previewElement.getBoundingClientRect();
-                const margin = 12;
-
-                const centerXInChild = (parentViewportWidth / 2) - iframeLeft;
-                const centerYInChild = (parentViewportHeight / 2) - iframeTop;
-                const desiredLeft = scrollX + centerXInChild;
-                const desiredTop = scrollY + centerYInChild;
-                const minLeft = scrollX + (tooltipRect.width / 2) + margin;
-                const maxLeft = scrollX + viewportWidth - (tooltipRect.width / 2) - margin;
-                const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), maxLeft);
-                const minTop = scrollY + (tooltipRect.height / 2) + margin;
-                const maxTop = scrollY + viewportHeight - (tooltipRect.height / 2) - margin;
-                const clampedTop = Math.min(Math.max(desiredTop, minTop), maxTop);
-
-                previewElement.style.left = clampedLeft + 'px';
-                previewElement.style.top = clampedTop + 'px';
-                previewElement.style.transform = 'translate(-50%, -50%)';
-            };
-
-            if (window.parent === window) {
-                positionCenteredInChildViewport();
-            } else {
-                const activePreview = previewElement;
-                positionNearPointer();
-
-                const requestId = 'sac-vp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
-                let timeoutId;
-                const handleViewportResponse = (messageEvent) => {
-                    const data = messageEvent && messageEvent.data;
-                    if (!data || data.type !== 'sac-parent-viewport' || data.requestId !== requestId) {
-                        return;
-                    }
-                    window.removeEventListener('message', handleViewportResponse);
-                    if (timeoutId) clearTimeout(timeoutId);
-                    if (!previewElement || previewElement !== activePreview) return;
-                    positionCenteredFromParentViewport(data);
-                };
-
-                window.addEventListener('message', handleViewportResponse);
-                timeoutId = setTimeout(() => {
-                    window.removeEventListener('message', handleViewportResponse);
-                }, 150);
-
-                window.parent.postMessage({ type: 'sac-request-parent-viewport', requestId }, '*');
-            }
+            // position:fixed centers in whatever viewport is visible (works in iframes too)
+            positionCentered();
 
             // Fade in the tooltip
             setTimeout(() => {
@@ -5204,10 +5134,15 @@ No maximum distance bonus\`,
             }
         }
 
+        // Add keyboard shortcut for admin panel (Ctrl+Shift+A), and Escape to close modals
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.shiftKey && e.key === 'A') {
                 e.preventDefault();
                 showAdminPanel();
+            }
+            if (e.key === 'Escape') {
+                if (previewElement) hideFlightPreview(null, true);
+                if (pilotPreviewElement) hidePilotPreview(null, true);
             }
         });
 
@@ -5837,12 +5772,6 @@ No maximum distance bonus\`,
 
         // Add CSS for toggle buttons and award badges
         const toggleCSS = `
-        /* Position context for absolute tooltips in iframe */
-        body {
-            position: relative;
-            min-height: 100vh;
-        }
-
         /* Scoring toggle buttons */
         .scoring-toggle {
             margin: 20px 0;
@@ -6178,7 +6107,7 @@ No maximum distance bonus\`,
 
         .pilot-tooltip-header {
             background: #fafbfc;
-            padding: 12px 15px;
+            padding: 12px 44px 12px 15px;
             border-bottom: 1px solid #e5e7eb;
             border-radius: 8px 8px 0 0;
             display: flex;
@@ -6374,7 +6303,7 @@ No maximum distance bonus\`,
         }
 
 
-        /* Close button for mobile */
+        /* Close button for flight modal */
         .tooltip-close-btn {
             position: absolute;
             top: 10px;
@@ -6388,7 +6317,7 @@ No maximum distance bonus\`,
             cursor: pointer;
             font-size: 18px;
             line-height: 1;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10001;
@@ -6401,20 +6330,12 @@ No maximum distance bonus\`,
         /* Mobile responsive tooltip */
         @media (max-width: 768px) {
             .flight-preview {
-                position: fixed !important;
                 width: 95vw !important;
                 height: 95vh !important;
                 max-width: none !important;
                 max-height: none !important;
-                left: 50% !important;
-                top: 50% !important;
-                transform: translate(-50%, -50%) !important;
                 border-radius: 8px;
                 overflow-y: auto;
-            }
-
-            .tooltip-close-btn {
-                display: flex;
             }
 
             .flight-tooltip-content {
@@ -6425,7 +6346,7 @@ No maximum distance bonus\`,
 
         /* Flight preview tooltip */
         .flight-preview {
-            position: absolute;
+            position: fixed;
             z-index: 10000;
             background: #1a1a1a;
             color: white;
