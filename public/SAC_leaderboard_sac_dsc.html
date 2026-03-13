@@ -706,11 +706,18 @@
         }
 
         /* Pilot profile tooltips */
+        /* The pilot tooltip sits inside a .flight-preview wrapper — make that wrapper transparent */
+        #pilot-preview.flight-preview {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
         .pilot-tooltip {
             background: white;
-            border: 1px solid #ddd;
+            border: 1px solid #d0d5dd;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
             padding: 0;
             min-width: 300px;
             max-width: 400px;
@@ -819,7 +826,7 @@
             }
 
             .pilot-tooltip-header {
-                padding: 10px 12px;
+                padding: 10px 44px 10px 12px;
             }
 
             .pilot-stats-section {
@@ -962,9 +969,9 @@
         @media (max-width: 768px) {
             .flight-preview {
                 width: 95vw !important;
-                height: 95vh !important;
+                height: auto !important;
                 max-width: none !important;
-                max-height: none !important;
+                max-height: min(95vh, 700px) !important;
                 border-radius: 8px;
                 overflow-y: auto;
             }
@@ -986,8 +993,6 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             padding: 0;
             max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.2s ease;
@@ -995,11 +1000,12 @@
 
         .flight-tooltip-header {
             background: #16213e;
-            padding: 10px 12px;
+            padding: 10px 48px 10px 12px;
             border-radius: 8px 8px 0 0;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
             align-items: center;
+            gap: 6px;
             font-size: 0.85em;
         }
 
@@ -3630,6 +3636,80 @@ No maximum distance bonus`,
         let pilotPreviewHideTimeout;
         let pilotPreviewTrigger;
 
+        // Centers a modal element in the visible viewport.
+        // Standalone: uses position:fixed + 50%/50% (pure CSS, no JS coords needed).
+        // In iframe (no-scroll/auto-resize): the iframe's viewport == the full content height,
+        // so position:fixed would place the modal at the doc midpoint, not the visible screen.
+        // Fix: postMessage to get the parent viewport rect, then switch to position:absolute
+        // with scrollY + centerYInChild to land in the visible portion.
+        function positionModalCenteredInViewport(el, onPositioned) {
+            // Default: fixed + centered (works standalone)
+            el.style.position = 'fixed';
+            el.style.left = '50%';
+            el.style.top = '50%';
+            el.style.transform = 'translate(-50%, -50%)';
+
+            if (window.parent === window) {
+                // Not in an iframe — fixed positioning is correct, fire callback now
+                if (onPositioned) requestAnimationFrame(onPositioned);
+                return;
+            }
+
+            // In an iframe — request parent viewport info to reposition correctly
+            const requestId = 'sac-modal-vp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+            let timeoutId;
+            const handleResponse = (messageEvent) => {
+                const data = messageEvent && messageEvent.data;
+                if (!data || data.type !== 'sac-parent-viewport' || data.requestId !== requestId) return;
+                window.removeEventListener('message', handleResponse);
+                if (timeoutId) clearTimeout(timeoutId);
+                if (!el || !el.isConnected) return;
+
+                const iframeLeft = Number(data.iframeRect && data.iframeRect.left);
+                const iframeTop = Number(data.iframeRect && data.iframeRect.top);
+                const parentVW = Number(data.parentViewportWidth);
+                const parentVH = Number(data.parentViewportHeight);
+
+                if (!Number.isFinite(iframeLeft) || !Number.isFinite(iframeTop) ||
+                    !Number.isFinite(parentVW) || !Number.isFinite(parentVH)) {
+                    if (onPositioned) requestAnimationFrame(onPositioned);
+                    return;
+                }
+
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const elRect = el.getBoundingClientRect();
+                const margin = 12;
+
+                const centerXInChild = (parentVW / 2) - iframeLeft;
+                const centerYInChild = (parentVH / 2) - iframeTop;
+                const desiredLeft = scrollX + centerXInChild;
+                const desiredTop = scrollY + centerYInChild;
+                const minLeft = scrollX + (elRect.width / 2) + margin;
+                const maxLeft = scrollX + window.innerWidth - (elRect.width / 2) - margin;
+                const minTop = scrollY + (elRect.height / 2) + margin;
+                const maxTop = scrollY + window.innerHeight - (elRect.height / 2) - margin;
+                const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), Math.max(minLeft, maxLeft));
+                const clampedTop = Math.min(Math.max(desiredTop, minTop), Math.max(minTop, maxTop));
+
+                el.style.position = 'absolute';
+                el.style.left = clampedLeft + 'px';
+                el.style.top = clampedTop + 'px';
+                el.style.transform = 'translate(-50%, -50%)';
+
+                if (onPositioned) requestAnimationFrame(onPositioned);
+            };
+
+            window.addEventListener('message', handleResponse);
+            // Fallback: if no response in 200ms, show with fixed positioning anyway
+            timeoutId = setTimeout(() => {
+                window.removeEventListener('message', handleResponse);
+                if (el && el.isConnected && onPositioned) requestAnimationFrame(onPositioned);
+            }, 200);
+
+            window.parent.postMessage({ type: 'sac-request-parent-viewport', requestId }, '*');
+        }
+
         function cancelPilotPreviewHide() {
             if (pilotPreviewHideTimeout) {
                 clearTimeout(pilotPreviewHideTimeout);
@@ -3675,12 +3755,8 @@ No maximum distance bonus`,
             // Stop clicks inside tooltip from closing it
             pilotPreviewElement.addEventListener('click', function(e) { e.stopPropagation(); });
 
-            // Center in viewport — position:fixed so no scroll offsets needed
-            pilotPreviewElement.style.left = '50%';
-            pilotPreviewElement.style.top = '50%';
-            pilotPreviewElement.style.transform = 'translate(-50%, -50%)';
-
-            requestAnimationFrame(() => {
+            // Center in viewport — handles both standalone and iframe embedding
+            positionModalCenteredInViewport(pilotPreviewElement, function() {
                 if (pilotPreviewElement) {
                     pilotPreviewElement.style.opacity = '1';
                 }
@@ -3818,7 +3894,6 @@ No maximum distance bonus`,
         let taskScoreHtml = '';
 
             if (detailedFlight) {
-
                 // Task status badge - check if a task was declared in the original flight
                 if (detailedFlight.hasTask) {
                     if (detailedFlight.taskAchieved) {
@@ -3827,31 +3902,10 @@ No maximum distance bonus`,
                         taskStatusBadge = '<span class="flight-type declared-incomplete">✗ Task Declared</span>';
                     }
                 }
-
-                // Scoring type badge - check the actual contestType used
-                if (flightData.contestType === 'ca' || flightData.contestType === 'au') {
-                    scoringTypeBadge = '<span class="flight-type declared">Task Score</span>';
-                } else if (flightData.contestType === 'declaration') {
-                    scoringTypeBadge = '<span class="flight-type declared">Declaration Score</span>';
-                } else if (flightData.contestType === 'bhc') {
-                    scoringTypeBadge = '<span class="flight-type declared">BHC Score</span>';
-                } else {
-                    scoringTypeBadge = '<span class="flight-type free">Free Score</span>';
-                }
             } else {
                 // Fallback for flights without detailed data
                 if (flightData.declared) {
                     taskStatusBadge = '<span class="flight-type declared">✓ Task Declared</span>';
-                }
-                // Use the actual contestType from the flight data
-                if (flightData.contestType === 'ca' || flightData.contestType === 'au') {
-                    scoringTypeBadge = '<span class="flight-type declared">Task Score</span>';
-                } else if (flightData.contestType === 'declaration') {
-                    scoringTypeBadge = '<span class="flight-type declared">Declaration Score</span>';
-                } else if (flightData.contestType === 'bhc') {
-                    scoringTypeBadge = '<span class="flight-type declared">BHC Score</span>';
-                } else {
-                    scoringTypeBadge = '<span class="flight-type free">Free Score</span>';
                 }
             }
 
@@ -3921,7 +3975,7 @@ No maximum distance bonus`,
 
                 detailedStatsHtml = `
                     <div class="stats-section">
-                        <div class="stats-header">Flight Performance (${isTaskMode ? 'Task' : 'Free'})</div>
+                        <div class="stats-header">Flight Performance ${isTaskMode ? 'DSC' : 'Free'}</div>
                         <div class="stats-grid-3col">
                             <div class="stat-item">
                                 <span class="stat-label">Glide Ratio:</span>
@@ -3978,7 +4032,7 @@ No maximum distance bonus`,
                         </div>
                     </div>
                     <div class="stats-section">
-                        <div class="stats-header">Time & Wind</div>
+                        <div class="stats-header">Time &amp; Wind</div>
                         <div class="stats-grid-3col">
                             ${isTaskMode && stats.task_duration !== stats.total_duration ? `
                                 <div class="stat-item">
@@ -4018,7 +4072,7 @@ No maximum distance bonus`,
                         </div>
                     </div>
                     <div class="stats-section">
-                        <div class="stats-header">Efficiency & Risk</div>
+                        <div class="stats-header">Efficiency &amp; Risk</div>
                         <div class="stats-grid-3col">
                             <div class="stat-item">
                                 <span class="stat-label">Thermal Attempts:</span>
@@ -4160,7 +4214,7 @@ No maximum distance bonus`,
 
                     taskScoreHtml = `
                         <div class="task-score-section">
-                            <div class="task-score-header">Task & Scores</div>
+                            <div class="task-score-header">Task &amp; Scores</div>
                             <div class="task-score-grid">
                                 <div class="task-score-item">
                                     <span class="task-score-label">Task Length</span>
@@ -4258,7 +4312,7 @@ No maximum distance bonus`,
 
             taskScoreHtml = `
                 <div class="task-score-section">
-                    <div class="task-score-header">Task & Scores</div>
+                    <div class="task-score-header">Task &amp; Scores</div>
                     <div class="task-score-grid">
                         <div class="task-score-item">
                             <span class="task-score-label">Task Length</span>
@@ -4316,42 +4370,12 @@ No maximum distance bonus`,
             // Stop clicks inside tooltip from closing it
             previewElement.addEventListener('click', function(e) { e.stopPropagation(); });
 
-            // position:fixed — all coords are viewport-relative, no scroll offsets needed
-            const positionCentered = () => {
-                previewElement.style.left = '50%';
-                previewElement.style.top = '50%';
-                previewElement.style.transform = 'translate(-50%, -50%)';
-            };
-
-            const positionNearPointer = () => {
-                const viewportWidth = window.innerWidth;
-                const viewportHeight = window.innerHeight;
-                const pointerX = event && typeof event.clientX === 'number' ? event.clientX : viewportWidth / 2;
-                const pointerY = event && typeof event.clientY === 'number' ? event.clientY : viewportHeight / 2;
-                const tooltipRect = previewElement.getBoundingClientRect();
-                const margin = 12;
-                const desiredLeft = pointerX;
-                const desiredTop = pointerY + 16;
-                const minLeft = (tooltipRect.width / 2) + margin;
-                const maxLeft = viewportWidth - (tooltipRect.width / 2) - margin;
-                const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), maxLeft);
-                const maxTop = viewportHeight - tooltipRect.height - margin;
-                const clampedTop = Math.min(Math.max(desiredTop, margin), Math.max(margin, maxTop));
-
-                previewElement.style.left = clampedLeft + 'px';
-                previewElement.style.top = clampedTop + 'px';
-                previewElement.style.transform = 'translate(-50%, 0)';
-            };
-
-            // position:fixed centers in whatever viewport is visible (works in iframes too)
-            positionCentered();
-
-            // Fade in the tooltip
-            setTimeout(() => {
+            // Center in viewport — handles both standalone and iframe embedding
+            positionModalCenteredInViewport(previewElement, function() {
                 if (previewElement) {
                     previewElement.style.opacity = '1';
                 }
-            }, 10);
+            });
         }
 
         function hideFlightPreview(evt, immediate = false) {
