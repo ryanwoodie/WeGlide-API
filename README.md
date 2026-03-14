@@ -29,9 +29,13 @@ Required production env vars:
 
 - `UPDATE_TOKEN`
 - `GITHUB_TOKEN`
-- `BLOB_READ_WRITE_TOKEN`
 - `SEASON_START`
 - `SEASON_END`
+
+Optional fallback env vars:
+
+- `BLOB_READ_WRITE_TOKEN`
+- `ENABLE_BLOB_FALLBACK`
 
 ## Local-Only Material
 

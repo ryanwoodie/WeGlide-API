@@ -15,6 +15,7 @@ Thumbs.db
 .history/
 .claude/
 .gemini/
+CLAUDE.md
 
 # Temporary processing files
 enhancement_log.txt
@@ -58,6 +59,7 @@ pilot_pic_hours_verification.json
 
 # Log files
 *.txt
+openapi (1).json
 
 # Images
 *.png
@@ -66,3 +68,13 @@ pilot_pic_hours_verification.json
 claude-conversation-*.md
 .vercel
 .env*.local
+
+# Local sample / scratch outputs
+bhc_ca_sample/
+bhc_au_sample/canadian_combined_hours.json
+bhc_au_sample/canadian_user_durations.json
+registration_C-GFBO_flights.json
+fr4_bhc_candidates.json
+fr4_declared_bhc_like.json
+public/canadian_user_durations.json
+public/weglide_club_metadata.json

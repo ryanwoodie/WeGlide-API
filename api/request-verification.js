@@ -111,9 +111,13 @@ module.exports = async (req, res) => {
         });
     } catch (error) {
         console.error('[request-verification] Error:', error);
-        return res.status(400).json({
+        const statusCode = error.code === 'EMAIL_CONFIG_ERROR' || error.code === 'EAUTH'
+            ? 503
+            : 400;
+
+        return res.status(statusCode).json({
             ok: false,
-            error: error.message || 'Failed to request verification'
+            error: error.publicMessage || 'Failed to request verification'
         });
     }
 };
