@@ -676,6 +676,23 @@
       "url": "http://vancouversoaring.com"
     }
   },
+  "35350": {
+    "total_flight_duration": 920042,
+    "total_free_distance": 8601.23,
+    "avg_speed": 39.38,
+    "flight_count": 195,
+    "avg_glide_speed": 97.3,
+    "avg_glide_detour": 2.5,
+    "achievement_count": 0,
+    "name": "Kevin Forsyth",
+    "gender": "M",
+    "club": {
+      "id": 1363,
+      "name": "Vancouver Soaring Association",
+      "region": "CA-BC",
+      "url": "http://vancouversoaring.com"
+    }
+  },
   "35351": {
     "total_flight_duration": 251332,
     "total_free_distance": 2722.5,
