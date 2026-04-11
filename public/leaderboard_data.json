@@ -49228,6 +49228,136 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1035467,
+      "user": {
+        "id": 35367,
+        "name": "Christian Boulay"
+      },
+      "date": "2026-04-11",
+      "distance": 4.58,
+      "duration": 281,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 6.47,
+          "distance": 4.58,
+          "speed": 110.66,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.37,
+          "distance": 0.69,
+          "speed": 0.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 4.98,
+          "distance": 4.58,
+          "speed": 124.91,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 4.54,
+          "distance": 4.18,
+          "speed": 114,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 6.97,
+          "distance": 4.58,
+          "speed": 124.91,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
+    },
+    {
+      "id": 1035464,
+      "user": {
+        "id": 35367,
+        "name": "Christian Boulay"
+      },
+      "date": "2026-04-11",
+      "distance": 4.98,
+      "duration": 289,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 6.92,
+          "distance": 5.07,
+          "speed": 109.29,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.23,
+          "distance": 0.43,
+          "speed": 0.21,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 4.71,
+          "distance": 4.33,
+          "speed": 93.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 5.41,
+          "distance": 4.98,
+          "speed": 109.32,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 7.04,
+          "distance": 4.98,
+          "speed": 109.32,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -54608,12 +54738,12 @@
   ],
   "meta": {
     "totalPilots": 81,
-    "totalFlights": 202,
-    "totalKms": 20419,
+    "totalFlights": 204,
+    "totalKms": 20428,
     "totalTasksDeclared": 64,
     "totalTasksCompleted": 2,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-04-11T17:40:11.096Z"
+    "generatedAt": "2026-04-11T17:50:11.567Z"
   }
 }
