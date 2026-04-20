@@ -49901,6 +49901,71 @@
         "name": "Hope",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1047143,
+      "user": {
+        "id": 35433,
+        "name": "Kevin Klock"
+      },
+      "date": "2026-04-17",
+      "distance": 14.18,
+      "duration": 1088,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 17.75,
+          "distance": 14.18,
+          "speed": 61.88,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.59,
+          "distance": 1.1,
+          "speed": 0.55,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 7.21,
+          "distance": 6.56,
+          "speed": 36,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 7.9,
+          "distance": 7.19,
+          "speed": 39.82,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 13.74,
+          "distance": 12.5,
+          "speed": 57.32,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hope",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -55350,12 +55415,12 @@
   ],
   "meta": {
     "totalPilots": 81,
-    "totalFlights": 207,
-    "totalKms": 20625,
+    "totalFlights": 208,
+    "totalKms": 20639,
     "totalTasksDeclared": 65,
     "totalTasksCompleted": 2,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-04-20T17:00:18.909Z"
+    "generatedAt": "2026-04-20T19:00:17.279Z"
   }
 }
