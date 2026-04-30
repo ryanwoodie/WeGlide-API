@@ -7450,6 +7450,31 @@
       "awards": []
     },
     {
+      "pilot": "Struan",
+      "pilotId": 35776,
+      "totalPoints": 173.87,
+      "totalDistance": 161,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1062124,
+          "userId": 35776,
+          "date": "2026-04-29",
+          "distance": 161,
+          "speed": 83.25,
+          "points": 173.87,
+          "takeoff": "Brooks",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Tom Coulson",
       "pilotId": 35963,
       "totalPoints": 172.52,
@@ -9729,6 +9754,30 @@
           "aircraftKind": "MG",
           "aircraftName": "DG 600M 18m",
           "dmstIndex": 116
+        }
+      ]
+    },
+    {
+      "pilot": "Struan",
+      "pilotId": 35776,
+      "totalPoints": 66.43,
+      "totalDistance": 141.83,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1062124,
+          "userId": 35776,
+          "date": "2026-04-29",
+          "distance": 141.83,
+          "speed": 70.92,
+          "points": 66.43,
+          "takeoff": "Brooks",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
         }
       ]
     },
@@ -13752,6 +13801,30 @@
       ]
     },
     {
+      "pilot": "Struan",
+      "pilotId": 35776,
+      "totalPoints": 87.22,
+      "totalDistance": 95.07,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1062124,
+          "userId": 35776,
+          "date": "2026-04-29",
+          "distance": 95.07,
+          "speed": 51.41,
+          "points": 87.22,
+          "takeoff": "Brooks",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
+        }
+      ]
+    },
+    {
       "pilot": "Richard Noel",
       "pilotId": 35496,
       "totalPoints": 84.18,
@@ -16906,6 +16979,30 @@
           "aircraftKind": "GL",
           "aircraftName": "PIK-20 B",
           "dmstIndex": 102
+        }
+      ]
+    },
+    {
+      "pilot": "Struan",
+      "pilotId": 35776,
+      "totalPoints": 107.94,
+      "totalDistance": 117.65,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1062124,
+          "userId": 35776,
+          "date": "2026-04-29",
+          "distance": 117.65,
+          "speed": 62.09,
+          "points": 107.94,
+          "takeoff": "Brooks",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
         }
       ]
     },
@@ -43656,6 +43753,72 @@
         "dmstIndex": 120
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1062124,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 36.9,
+        "thermal_avg": 2.03,
+        "glide_speed": 127.86,
+        "glide_speed_lift": 121.2,
+        "glide_speed_sink": 132.34,
+        "altitude_avg": 2357,
+        "agl_avg": 1520,
+        "thermal_count": 13,
+        "thermal_gain": 3714,
+        "thermal_radius": 121.69,
+        "thermal_start_agl": 1423,
+        "thermal_bank": 35.33,
+        "glide_percentage": 0.73,
+        "glide_percentage_lift": 0.4,
+        "duration": 6962,
+        "thermal_time": 1830,
+        "glide_time": 5096,
+        "wind_speed": 26.85,
+        "wind_direction": 340,
+        "attempt_count": 1,
+        "attempt_avg": 0.89,
+        "attempt_speed_loss": 0.43,
+        "below_1000_agl": 0.0744,
+        "below_800_agl": 0.0312,
+        "below_600_agl": 0.0162,
+        "below_400_agl": 0.0093,
+        "below_200_agl": 0.0019,
+        "below_100_agl": 0,
+        "track_distance": 180.99,
+        "glide_detour": 1.12,
+        "glide_distance": 8.42,
+        "glide_alt_avg": 2360,
+        "end_time": "2026-04-29T23:07:14+00:00",
+        "start_time": "2026-04-29T21:11:12+00:00",
+        "finish_alt": 981
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 504.54,
+        "type": "TR",
+        "typeLabel": "FAI Triangle",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 173.87,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 161,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 504.54,
+        "weglideFreeDistance": 161,
+        "dmstIndex": 109
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -60415,6 +60578,66 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1062124,
+      "user": {
+        "id": 35776,
+        "name": "Struan"
+      },
+      "date": "2026-04-29",
+      "distance": 161,
+      "duration": 7374,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "TR",
+        "from_igcfile": true,
+        "distance": 504.54
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 173.87,
+          "distance": 161,
+          "speed": 83.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 66.43,
+          "distance": 141.83,
+          "speed": 70.92,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 87.22,
+          "distance": 95.07,
+          "speed": 51.41,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 107.94,
+          "distance": 117.65,
+          "speed": 62.09,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Brooks",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -63389,6 +63612,30 @@
           "contestType": "free",
           "aircraftKind": "GL",
           "aircraftName": "DG 200 17m",
+          "dmstIndex": 109
+        }
+      ]
+    },
+    {
+      "pilot": "Struan",
+      "pilotId": 35776,
+      "totalPoints": 173.87,
+      "totalDistance": 161,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1062124,
+          "userId": 35776,
+          "date": "2026-04-29",
+          "distance": 161,
+          "speed": 83.25,
+          "points": 173.87,
+          "takeoff": "Brooks",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
           "dmstIndex": 109
         }
       ]
@@ -67348,13 +67595,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 94,
-    "totalFlights": 257,
-    "totalKms": 34981,
-    "totalTasksDeclared": 83,
+    "totalPilots": 95,
+    "totalFlights": 258,
+    "totalKms": 35142,
+    "totalTasksDeclared": 84,
     "totalTasksCompleted": 4,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-04-30T00:00:22.842Z"
+    "generatedAt": "2026-04-30T12:50:16.637Z"
   }
 }
