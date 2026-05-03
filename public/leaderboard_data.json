@@ -65785,6 +65785,71 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1069735,
+      "user": {
+        "id": 22746,
+        "name": "Frédéric Bourgault"
+      },
+      "date": "2026-05-03",
+      "distance": 9.32,
+      "duration": 465,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 11.06,
+          "distance": 9.32,
+          "speed": 99.27,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 1.7,
+          "distance": 3.4,
+          "speed": 1.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 5.81,
+          "distance": 5.81,
+          "speed": 113.06,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 4.59,
+          "distance": 4.59,
+          "speed": 90.3,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 8.63,
+          "distance": 8.63,
+          "speed": 91.92,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -73322,12 +73387,12 @@
   ],
   "meta": {
     "totalPilots": 99,
-    "totalFlights": 287,
-    "totalKms": 38424,
+    "totalFlights": 288,
+    "totalKms": 38433,
     "totalTasksDeclared": 94,
     "totalTasksCompleted": 5,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-03T21:50:17.984Z"
+    "generatedAt": "2026-05-03T21:55:11.571Z"
   }
 }
