@@ -3700,1388 +3700,7 @@
     }
   },
   "pilotVerifications": {
-    "picHoursVerifications": {
-      "2070": {
-        "pilotName": "Christopher Michael Gough",
-        "picHours": 1451.4,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1451.4,
-          "totalWeGlideHours": 1346.4,
-          "olcOnlyHours": 105,
-          "hoursSinceOct1": 6.5,
-          "estimatedOct1Hours": 1451.4
-        }
-      },
-      "2074": {
-        "pilotName": "Patrick McMahon",
-        "picHours": 541.8,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 541.8,
-          "totalWeGlideHours": 367.6,
-          "olcOnlyHours": 174.1,
-          "hoursSinceOct1": 2.8,
-          "estimatedOct1Hours": 541.8
-        }
-      },
-      "5450": {
-        "pilotName": "Steve Godreau",
-        "picHours": 140.4,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 140.4,
-          "totalWeGlideHours": 109.7,
-          "olcOnlyHours": 30.8,
-          "hoursSinceOct1": 3.4,
-          "estimatedOct1Hours": 140.4
-        }
-      },
-      "6303": {
-        "pilotName": "Kelvin Cole",
-        "picHours": 124.2,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 124.2,
-          "totalWeGlideHours": 123.9,
-          "olcOnlyHours": 0.3,
-          "hoursSinceOct1": 7.6,
-          "estimatedOct1Hours": 124.2
-        }
-      },
-      "8839": {
-        "pilotName": "Bob Katz",
-        "picHours": 707.5,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 707.5,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 707.5,
-          "hoursSinceOct1": 4.2,
-          "estimatedOct1Hours": 707.5
-        }
-      },
-      "8848": {
-        "pilotName": "Andre R. Pepin",
-        "picHours": 5152.5,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 5152.5,
-          "totalWeGlideHours": 4611.7,
-          "olcOnlyHours": 540.8,
-          "hoursSinceOct1": 43.6,
-          "estimatedOct1Hours": 5152.5
-        }
-      },
-      "10764": {
-        "pilotName": "Denis Nolan",
-        "picHours": 221.6,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 221.6,
-          "totalWeGlideHours": 77.6,
-          "olcOnlyHours": 144,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 221.6
-        }
-      },
-      "12276": {
-        "pilotName": "Artur Siwic",
-        "picHours": 141.1,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 141.1,
-          "totalWeGlideHours": 56.3,
-          "olcOnlyHours": 84.8,
-          "hoursSinceOct1": 4.4,
-          "estimatedOct1Hours": 141.1
-        }
-      },
-      "12901": {
-        "pilotName": "Mike Morgulis",
-        "picHours": 274,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 274,
-          "totalWeGlideHours": 24.8,
-          "olcOnlyHours": 249.2,
-          "hoursSinceOct1": 5,
-          "estimatedOct1Hours": 274
-        }
-      },
-      "13284": {
-        "pilotName": "Mark Luscher",
-        "picHours": 268.7,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 268.7,
-          "totalWeGlideHours": 258.8,
-          "olcOnlyHours": 9.9,
-          "hoursSinceOct1": 0.6,
-          "estimatedOct1Hours": 268.7
-        }
-      },
-      "13388": {
-        "pilotName": "Paulo Matioli",
-        "picHours": 16.8,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 16.8,
-          "totalWeGlideHours": 16.6,
-          "olcOnlyHours": 0.1,
-          "hoursSinceOct1": 5,
-          "estimatedOct1Hours": 16.8
-        }
-      },
-      "13987": {
-        "pilotName": "Mohammad Reza Darvish",
-        "picHours": 71.8,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 71.8,
-          "totalWeGlideHours": 25.5,
-          "olcOnlyHours": 46.4,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 71.8
-        }
-      },
-      "15888": {
-        "pilotName": "Daniel Nazarko",
-        "picHours": 119,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 119,
-          "totalWeGlideHours": 116.5,
-          "olcOnlyHours": 2.5,
-          "hoursSinceOct1": 15.2,
-          "estimatedOct1Hours": 119
-        }
-      },
-      "15929": {
-        "pilotName": "Chester Fitchett",
-        "picHours": 637.4,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 637.4,
-          "totalWeGlideHours": 633.4,
-          "olcOnlyHours": 4,
-          "hoursSinceOct1": 20.3,
-          "estimatedOct1Hours": 637.4
-        }
-      },
-      "16605": {
-        "pilotName": "Ward Clapham",
-        "picHours": 399.1,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 399.1,
-          "totalWeGlideHours": 303.6,
-          "olcOnlyHours": 95.5,
-          "hoursSinceOct1": 4.1,
-          "estimatedOct1Hours": 399.1
-        }
-      },
-      "17026": {
-        "pilotName": "Bryan Swansburg",
-        "picHours": 467.2,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 467.2,
-          "totalWeGlideHours": 187.6,
-          "olcOnlyHours": 279.7,
-          "hoursSinceOct1": 14.2,
-          "estimatedOct1Hours": 467.2
-        }
-      },
-      "18113": {
-        "pilotName": "Patrice gravel",
-        "picHours": 887.2,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 887.2,
-          "totalWeGlideHours": 797.1,
-          "olcOnlyHours": 90.1,
-          "hoursSinceOct1": 5.2,
-          "estimatedOct1Hours": 887.2
-        }
-      },
-      "20723": {
-        "pilotName": "Ryan Wood",
-        "picHours": 251,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 251,
-          "totalWeGlideHours": 209.9,
-          "olcOnlyHours": 41.1,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 251
-        }
-      },
-      "21011": {
-        "pilotName": "Martin Dennis",
-        "picHours": 1502.6,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1502.6,
-          "totalWeGlideHours": 161.7,
-          "olcOnlyHours": 1340.9,
-          "hoursSinceOct1": 16.9,
-          "estimatedOct1Hours": 1502.6
-        }
-      },
-      "21219": {
-        "pilotName": "Kerry Kirby",
-        "picHours": 572.9,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 572.9,
-          "totalWeGlideHours": 3.1,
-          "olcOnlyHours": 569.8,
-          "hoursSinceOct1": 8.8,
-          "estimatedOct1Hours": 572.9
-        }
-      },
-      "21317": {
-        "pilotName": "Brian Pirie",
-        "picHours": 62.6,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 62.6,
-          "totalWeGlideHours": 62.5,
-          "olcOnlyHours": 0.1,
-          "hoursSinceOct1": 12.7,
-          "estimatedOct1Hours": 62.6
-        }
-      },
-      "21574": {
-        "pilotName": "Warwick Patterson",
-        "picHours": 142.5,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 142.5,
-          "totalWeGlideHours": 118.5,
-          "olcOnlyHours": 24,
-          "hoursSinceOct1": 4.2,
-          "estimatedOct1Hours": 142.5
-        }
-      },
-      "22077": {
-        "pilotName": "Sasha Pejic",
-        "picHours": 390.6,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 390.6,
-          "totalWeGlideHours": 388.2,
-          "olcOnlyHours": 2.4,
-          "hoursSinceOct1": 15.5,
-          "estimatedOct1Hours": 390.6
-        }
-      },
-      "22081": {
-        "pilotName": "Predrag Kupcevic",
-        "picHours": 406.4,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 406.4,
-          "totalWeGlideHours": 85.7,
-          "olcOnlyHours": 320.7,
-          "hoursSinceOct1": 2.5,
-          "estimatedOct1Hours": 406.4
-        }
-      },
-      "22232": {
-        "pilotName": "Gregory Zak",
-        "picHours": 440.6,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 440.6,
-          "totalWeGlideHours": 438.7,
-          "olcOnlyHours": 1.9,
-          "hoursSinceOct1": 1.5,
-          "estimatedOct1Hours": 440.6
-        }
-      },
-      "22746": {
-        "pilotName": "Frédéric Bourgault",
-        "picHours": 317.4,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 317.4,
-          "totalWeGlideHours": 316.1,
-          "olcOnlyHours": 1.3,
-          "hoursSinceOct1": 21.5,
-          "estimatedOct1Hours": 317.4
-        }
-      },
-      "22923": {
-        "pilotName": "John Mulder",
-        "picHours": 487.9,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 487.9,
-          "totalWeGlideHours": 430.3,
-          "olcOnlyHours": 57.6,
-          "hoursSinceOct1": 4,
-          "estimatedOct1Hours": 487.9
-        }
-      },
-      "23330": {
-        "pilotName": "Guy Gauthier",
-        "picHours": 160.7,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 160.7,
-          "totalWeGlideHours": 144.8,
-          "olcOnlyHours": 16,
-          "hoursSinceOct1": 2.8,
-          "estimatedOct1Hours": 160.7
-        }
-      },
-      "23352": {
-        "pilotName": "T. Link",
-        "picHours": 18.1,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 18.1,
-          "totalWeGlideHours": 13.4,
-          "olcOnlyHours": 4.6,
-          "hoursSinceOct1": 0.7,
-          "estimatedOct1Hours": 18.1
-        }
-      },
-      "23521": {
-        "pilotName": "Ray Troppmann",
-        "picHours": 365.7,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 365.7,
-          "totalWeGlideHours": 165.4,
-          "olcOnlyHours": 200.3,
-          "hoursSinceOct1": 3.8,
-          "estimatedOct1Hours": 365.7
-        }
-      },
-      "23795": {
-        "pilotName": "Pascal Hayet",
-        "picHours": 1027.1,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1027.1,
-          "totalWeGlideHours": 819.5,
-          "olcOnlyHours": 207.6,
-          "hoursSinceOct1": 3,
-          "estimatedOct1Hours": 1027.1
-        }
-      },
-      "24793": {
-        "pilotName": "Gabriel Duford",
-        "picHours": 1567.5,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1567.5,
-          "totalWeGlideHours": 1250.4,
-          "olcOnlyHours": 317.1,
-          "hoursSinceOct1": 6,
-          "estimatedOct1Hours": 1567.5
-        }
-      },
-      "24930": {
-        "pilotName": "Sergey Skobkarev",
-        "picHours": 663.2,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 663.2,
-          "totalWeGlideHours": 654.3,
-          "olcOnlyHours": 8.9,
-          "hoursSinceOct1": 15.7,
-          "estimatedOct1Hours": 663.2
-        }
-      },
-      "25019": {
-        "pilotName": "Daan Wynberg",
-        "picHours": 389.9,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 389.9,
-          "totalWeGlideHours": 2.9,
-          "olcOnlyHours": 387,
-          "hoursSinceOct1": 11.1,
-          "estimatedOct1Hours": 389.9
-        }
-      },
-      "25114": {
-        "pilotName": "Joshua Peace",
-        "picHours": 90.5,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 90.5,
-          "totalWeGlideHours": 84.2,
-          "olcOnlyHours": 6.4,
-          "hoursSinceOct1": 11.8,
-          "estimatedOct1Hours": 90.5
-        }
-      },
-      "25782": {
-        "pilotName": "Thomas Breitenmoser",
-        "picHours": 107.8,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 107.8,
-          "totalWeGlideHours": 107.4,
-          "olcOnlyHours": 0.3,
-          "hoursSinceOct1": 0.3,
-          "estimatedOct1Hours": 107.8
-        }
-      },
-      "26583": {
-        "pilotName": "James Wood",
-        "picHours": 66.5,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 66.5,
-          "totalWeGlideHours": 34.8,
-          "olcOnlyHours": 31.7,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 66.5
-        }
-      },
-      "27586": {
-        "pilotName": "Mark A. Schneider",
-        "picHours": 1489,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1489,
-          "totalWeGlideHours": 31.4,
-          "olcOnlyHours": 1457.6,
-          "hoursSinceOct1": 5,
-          "estimatedOct1Hours": 1489
-        }
-      },
-      "27891": {
-        "pilotName": "Jay Carle Brodeur",
-        "picHours": 0,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 0,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 3,
-          "estimatedOct1Hours": 0
-        }
-      },
-      "27904": {
-        "pilotName": "Ronald M.B. Smith",
-        "picHours": 388.4,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 388.4,
-          "totalWeGlideHours": 386.3,
-          "olcOnlyHours": 2.1,
-          "hoursSinceOct1": 37.7,
-          "estimatedOct1Hours": 388.4
-        }
-      },
-      "29394": {
-        "pilotName": "Michael McKay",
-        "picHours": 147.8,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 147.8,
-          "totalWeGlideHours": 140.7,
-          "olcOnlyHours": 7.1,
-          "hoursSinceOct1": 15.6,
-          "estimatedOct1Hours": 147.8
-        }
-      },
-      "32274": {
-        "pilotName": "Harry  Peters",
-        "picHours": 1778.8,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1778.8,
-          "totalWeGlideHours": 185.5,
-          "olcOnlyHours": 1593.3,
-          "hoursSinceOct1": 12.5,
-          "estimatedOct1Hours": 1778.8
-        }
-      },
-      "32345": {
-        "pilotName": "Michael Stieber",
-        "picHours": 1442.5,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1442.5,
-          "totalWeGlideHours": 1420.8,
-          "olcOnlyHours": 21.7,
-          "hoursSinceOct1": 8.1,
-          "estimatedOct1Hours": 1442.5
-        }
-      },
-      "33962": {
-        "pilotName": "Charlie Pastuszka",
-        "picHours": 270.8,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 270.8,
-          "totalWeGlideHours": 4.6,
-          "olcOnlyHours": 266.2,
-          "hoursSinceOct1": 8.5,
-          "estimatedOct1Hours": 270.8
-        }
-      },
-      "34532": {
-        "pilotName": "Rob Williams",
-        "picHours": 140.1,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 140.1,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 140.1,
-          "hoursSinceOct1": 1.9,
-          "estimatedOct1Hours": 140.1
-        }
-      },
-      "34953": {
-        "pilotName": "Jean Lapierre",
-        "picHours": 641.7,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 641.7,
-          "totalWeGlideHours": 79.8,
-          "olcOnlyHours": 561.9,
-          "hoursSinceOct1": 3.4,
-          "estimatedOct1Hours": 641.7
-        }
-      },
-      "35091": {
-        "pilotName": "François Tanguay",
-        "picHours": 1041.3,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1041.3,
-          "totalWeGlideHours": 1026.4,
-          "olcOnlyHours": 14.9,
-          "hoursSinceOct1": 13.3,
-          "estimatedOct1Hours": 1041.3
-        }
-      },
-      "35092": {
-        "pilotName": "Tim Daniel",
-        "picHours": 216.4,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 216.4,
-          "totalWeGlideHours": 113.2,
-          "olcOnlyHours": 103.3,
-          "hoursSinceOct1": 1.1,
-          "estimatedOct1Hours": 216.4
-        }
-      },
-      "35152": {
-        "pilotName": "Gary Hill",
-        "picHours": 283.3,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 283.3,
-          "totalWeGlideHours": 128.3,
-          "olcOnlyHours": 155,
-          "hoursSinceOct1": 2.7,
-          "estimatedOct1Hours": 283.3
-        }
-      },
-      "35288": {
-        "pilotName": "Frank Pilz",
-        "picHours": 1196.9,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1196.9,
-          "totalWeGlideHours": 1173.1,
-          "olcOnlyHours": 23.8,
-          "hoursSinceOct1": 5,
-          "estimatedOct1Hours": 1196.9
-        }
-      },
-      "35337": {
-        "pilotName": "Mike North",
-        "picHours": 1005.6,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1005.6,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 1005.6,
-          "hoursSinceOct1": 18.3,
-          "estimatedOct1Hours": 1005.6
-        }
-      },
-      "35350": {
-        "pilotName": "Kevin Forsyth",
-        "picHours": 270.1,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 270.1,
-          "totalWeGlideHours": 254.3,
-          "olcOnlyHours": 15.8,
-          "hoursSinceOct1": 1.2,
-          "estimatedOct1Hours": 270.1
-        }
-      },
-      "35351": {
-        "pilotName": "Éric Raissac",
-        "picHours": 67.3,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 67.3,
-          "totalWeGlideHours": 67.1,
-          "olcOnlyHours": 0.1,
-          "hoursSinceOct1": 2.7,
-          "estimatedOct1Hours": 67.3
-        }
-      },
-      "35367": {
-        "pilotName": "Christian Boulay",
-        "picHours": 320.4,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 320.4,
-          "totalWeGlideHours": 298.9,
-          "olcOnlyHours": 21.5,
-          "hoursSinceOct1": 9.6,
-          "estimatedOct1Hours": 320.4
-        }
-      },
-      "35385": {
-        "pilotName": "Gustavo Tanoni",
-        "picHours": 957.5,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 957.5,
-          "totalWeGlideHours": 934.7,
-          "olcOnlyHours": 22.8,
-          "hoursSinceOct1": 6.7,
-          "estimatedOct1Hours": 957.5
-        }
-      },
-      "35395": {
-        "pilotName": "Marco Solo",
-        "picHours": 17.7,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 17.7,
-          "totalWeGlideHours": 16.7,
-          "olcOnlyHours": 0.9,
-          "hoursSinceOct1": 2.7,
-          "estimatedOct1Hours": 17.7
-        }
-      },
-      "35400": {
-        "pilotName": "Ionel Anton",
-        "picHours": 104.2,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 104.2,
-          "totalWeGlideHours": 103.3,
-          "olcOnlyHours": 0.9,
-          "hoursSinceOct1": 5.3,
-          "estimatedOct1Hours": 104.2
-        }
-      },
-      "35423": {
-        "pilotName": "James Kingdon",
-        "picHours": 464.8,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 464.8,
-          "totalWeGlideHours": 443.8,
-          "olcOnlyHours": 20.9,
-          "hoursSinceOct1": 5.6,
-          "estimatedOct1Hours": 464.8
-        }
-      },
-      "35426": {
-        "pilotName": "Omar Duric",
-        "picHours": 144.9,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 144.9,
-          "totalWeGlideHours": 134.5,
-          "olcOnlyHours": 10.4,
-          "hoursSinceOct1": 14.9,
-          "estimatedOct1Hours": 144.9
-        }
-      },
-      "35427": {
-        "pilotName": "Marc-André Rathé",
-        "picHours": 39.1,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 39.1,
-          "totalWeGlideHours": 37.6,
-          "olcOnlyHours": 1.5,
-          "hoursSinceOct1": 8.4,
-          "estimatedOct1Hours": 39.1
-        }
-      },
-      "35431": {
-        "pilotName": "Csaba Balazs",
-        "picHours": 130.2,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 130.2,
-          "totalWeGlideHours": 79.5,
-          "olcOnlyHours": 50.7,
-          "hoursSinceOct1": 4.4,
-          "estimatedOct1Hours": 130.2
-        }
-      },
-      "35433": {
-        "pilotName": "Kevin Klock",
-        "picHours": 43,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 43,
-          "totalWeGlideHours": 42.9,
-          "olcOnlyHours": 0.1,
-          "hoursSinceOct1": 20.6,
-          "estimatedOct1Hours": 43
-        }
-      },
-      "35436": {
-        "pilotName": "Nick Bonniere",
-        "picHours": 3010.4,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 3010.4,
-          "totalWeGlideHours": 198.6,
-          "olcOnlyHours": 2811.9,
-          "hoursSinceOct1": 35.6,
-          "estimatedOct1Hours": 3010.4
-        }
-      },
-      "35437": {
-        "pilotName": "Ali Askari",
-        "picHours": 16.9,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 16.9,
-          "totalWeGlideHours": 4.8,
-          "olcOnlyHours": 12,
-          "hoursSinceOct1": 2.8,
-          "estimatedOct1Hours": 16.9
-        }
-      },
-      "35461": {
-        "pilotName": "Gregory Wilson",
-        "picHours": 10.2,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 10.2,
-          "totalWeGlideHours": 10.2,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 2.5,
-          "estimatedOct1Hours": 10.2
-        }
-      },
-      "35496": {
-        "pilotName": "Richard Noel",
-        "picHours": 1088.8,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1088.8,
-          "totalWeGlideHours": 813.9,
-          "olcOnlyHours": 274.9,
-          "hoursSinceOct1": 8.3,
-          "estimatedOct1Hours": 1088.8
-        }
-      },
-      "35546": {
-        "pilotName": "Philippe Laflamme",
-        "picHours": 344.8,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 344.8,
-          "totalWeGlideHours": 333,
-          "olcOnlyHours": 11.8,
-          "hoursSinceOct1": 4.1,
-          "estimatedOct1Hours": 344.8
-        }
-      },
-      "35556": {
-        "pilotName": "Lucas Aguenier",
-        "picHours": 11.6,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 11.6,
-          "totalWeGlideHours": 2,
-          "olcOnlyHours": 9.6,
-          "hoursSinceOct1": 1,
-          "estimatedOct1Hours": 11.6
-        }
-      },
-      "35558": {
-        "pilotName": "Pierre Cypihot",
-        "picHours": 1146.6,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1146.6,
-          "totalWeGlideHours": 1082.4,
-          "olcOnlyHours": 64.2,
-          "hoursSinceOct1": 6,
-          "estimatedOct1Hours": 1146.6
-        }
-      },
-      "35573": {
-        "pilotName": "Luc Paquette",
-        "picHours": 133.5,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 133.5,
-          "totalWeGlideHours": 133.1,
-          "olcOnlyHours": 0.4,
-          "hoursSinceOct1": 3.3,
-          "estimatedOct1Hours": 133.5
-        }
-      },
-      "35605": {
-        "pilotName": "Craig Pitchell",
-        "picHours": 1.9,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1.9,
-          "totalWeGlideHours": 1.9,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 1.9
-        }
-      },
-      "35610": {
-        "pilotName": "Tim Fulcher",
-        "picHours": 578.7,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 578.7,
-          "totalWeGlideHours": 476.5,
-          "olcOnlyHours": 102.2,
-          "hoursSinceOct1": 0.7,
-          "estimatedOct1Hours": 578.7
-        }
-      },
-      "35644": {
-        "pilotName": "Christian Hamel",
-        "picHours": 1190.9,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1190.9,
-          "totalWeGlideHours": 1174,
-          "olcOnlyHours": 16.9,
-          "hoursSinceOct1": 15.5,
-          "estimatedOct1Hours": 1190.9
-        }
-      },
-      "35660": {
-        "pilotName": "Pierre Gavillet",
-        "picHours": 1899.6,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1899.6,
-          "totalWeGlideHours": 1867,
-          "olcOnlyHours": 32.5,
-          "hoursSinceOct1": 13.2,
-          "estimatedOct1Hours": 1899.6
-        }
-      },
-      "35709": {
-        "pilotName": "Ray Ochitwa",
-        "picHours": 839.5,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 839.5,
-          "totalWeGlideHours": 43.8,
-          "olcOnlyHours": 795.7,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 839.5
-        }
-      },
-      "35714": {
-        "pilotName": "Lee Fasken",
-        "picHours": 677,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 677,
-          "totalWeGlideHours": 665.2,
-          "olcOnlyHours": 11.8,
-          "hoursSinceOct1": 7.4,
-          "estimatedOct1Hours": 677
-        }
-      },
-      "35759": {
-        "pilotName": "Patrick Kessler",
-        "picHours": 374.1,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 374.1,
-          "totalWeGlideHours": 1.9,
-          "olcOnlyHours": 372.2,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 374.1
-        }
-      },
-      "35763": {
-        "pilotName": "Alain Bouliane",
-        "picHours": 53.1,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 53.1,
-          "totalWeGlideHours": 49.4,
-          "olcOnlyHours": 3.7,
-          "hoursSinceOct1": 7.8,
-          "estimatedOct1Hours": 53.1
-        }
-      },
-      "35777": {
-        "pilotName": "Thomas Chester",
-        "picHours": 29.5,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 29.5,
-          "totalWeGlideHours": 1.4,
-          "olcOnlyHours": 28.1,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 29.5
-        }
-      },
-      "35810": {
-        "pilotName": "Tim Wood",
-        "picHours": 1498,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1498,
-          "totalWeGlideHours": 1.7,
-          "olcOnlyHours": 1496.3,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 1498
-        }
-      },
-      "35822": {
-        "pilotName": "Michel Rochette",
-        "picHours": 213.4,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 213.4,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 213.4,
-          "hoursSinceOct1": 2,
-          "estimatedOct1Hours": 213.4
-        }
-      },
-      "35942": {
-        "pilotName": "Travis Klassen",
-        "picHours": 5.9,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 5.9,
-          "totalWeGlideHours": 5.9,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 1.2,
-          "estimatedOct1Hours": 5.9
-        }
-      },
-      "35963": {
-        "pilotName": "Tom Coulson",
-        "picHours": 74,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 74,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 74,
-          "hoursSinceOct1": 2.3,
-          "estimatedOct1Hours": 74
-        }
-      },
-      "35992": {
-        "pilotName": "Jeff Slingerland",
-        "picHours": 2.9,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 2.9,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 2.9,
-          "hoursSinceOct1": 0.8,
-          "estimatedOct1Hours": 2.9
-        }
-      },
-      "36013": {
-        "pilotName": "Ian Grant",
-        "picHours": 284.3,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 284.3,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 284.3,
-          "hoursSinceOct1": 3.1,
-          "estimatedOct1Hours": 284.3
-        }
-      },
-      "36028": {
-        "pilotName": "Nicholas Bertrand",
-        "picHours": 22.6,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 22.6,
-          "totalWeGlideHours": 11.2,
-          "olcOnlyHours": 11.4,
-          "hoursSinceOct1": 1.3,
-          "estimatedOct1Hours": 22.6
-        }
-      },
-      "36033": {
-        "pilotName": "Antoine  Latulippe",
-        "picHours": 107.1,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 107.1,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 107.1,
-          "hoursSinceOct1": 9,
-          "estimatedOct1Hours": 107.1
-        }
-      },
-      "36054": {
-        "pilotName": "Jean-François Latulippe",
-        "picHours": 218,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 218,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 218,
-          "hoursSinceOct1": 3.6,
-          "estimatedOct1Hours": 218
-        }
-      },
-      "36083": {
-        "pilotName": "Justin Latour",
-        "picHours": 0,
-        "verifiedDate": "2026-05-06T21:03:31.260Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 0,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 3.7,
-          "estimatedOct1Hours": 0
-        }
-      },
-      "36101": {
-        "pilotName": "Harrison Breeze",
-        "picHours": 0,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 0,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 1.2,
-          "estimatedOct1Hours": 0
-        }
-      },
-      "36137": {
-        "pilotName": "Gerald Ince",
-        "picHours": 541.4,
-        "verifiedDate": "2026-05-06T21:03:31.261Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 541.4,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 541.4,
-          "hoursSinceOct1": 2.2,
-          "estimatedOct1Hours": 541.4
-        }
-      },
-      "36138": {
-        "pilotName": "Mark Rakowitz",
-        "picHours": 198.1,
-        "verifiedDate": "2026-05-06T21:03:31.259Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 198.1,
-          "totalWeGlideHours": 197.5,
-          "olcOnlyHours": 0.6,
-          "hoursSinceOct1": 7.1,
-          "estimatedOct1Hours": 198.1
-        }
-      }
-    },
+    "picHoursVerifications": {},
     "dobVerifications": {}
   },
   "pilotProfiles": {
@@ -7058,7 +5677,7 @@
     {
       "pilot": "Mike North",
       "pilotId": 35337,
-      "totalPoints": 1068.98,
+      "totalPoints": 1061.13,
       "totalDistance": 892.8299999999999,
       "flightCount": 3,
       "bestFlights": [
@@ -7068,14 +5687,14 @@
           "date": "2026-04-26",
           "distance": 340.05,
           "speed": 73.47,
-          "points": 400.23,
+          "points": 392.38,
           "takeoff": "Pendleton GATGC",
           "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100
+          "aircraftKind": "GL",
+          "aircraftName": "PIK-20 B",
+          "dmstIndex": 102
         },
         {
           "id": 1064783,
@@ -7526,50 +6145,10 @@
       "awards": []
     },
     {
-      "pilot": "Michael Stieber",
-      "pilotId": 32345,
-      "totalPoints": 686.38,
-      "totalDistance": 654.5799999999999,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1055692,
-          "userId": 32345,
-          "date": "2026-04-26",
-          "distance": 386.3,
-          "speed": 97.42,
-          "points": 404.33,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 400 17m",
-          "dmstIndex": 109
-        },
-        {
-          "id": 1069991,
-          "userId": 32345,
-          "date": "2026-05-03",
-          "distance": 268.28,
-          "speed": 68.24,
-          "points": 282.05,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 400 17m",
-          "dmstIndex": 109
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 658.55,
-      "totalDistance": 613.1300000000001,
+      "totalPoints": 687.41,
+      "totalDistance": 624.6700000000001,
       "flightCount": 4,
       "bestFlights": [
         {
@@ -7621,9 +6200,9 @@
           "id": 1067676,
           "userId": 25114,
           "date": "2026-05-02",
-          "distance": 86.18,
-          "speed": 62.92,
-          "points": 89.9,
+          "distance": 97.72,
+          "speed": 60.96,
+          "points": 118.76,
           "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
@@ -7631,6 +6210,46 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 19",
           "dmstIndex": 100
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Michael Stieber",
+      "pilotId": 32345,
+      "totalPoints": 686.38,
+      "totalDistance": 654.5799999999999,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1055692,
+          "userId": 32345,
+          "date": "2026-04-26",
+          "distance": 386.3,
+          "speed": 97.42,
+          "points": 404.33,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
+        },
+        {
+          "id": 1069991,
+          "userId": 32345,
+          "date": "2026-05-03",
+          "distance": 268.28,
+          "speed": 68.24,
+          "points": 282.05,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
         }
       ],
       "awards": []
@@ -9046,31 +7665,6 @@
       "awards": []
     },
     {
-      "pilot": "Jean-François Latulippe",
-      "pilotId": 36054,
-      "totalPoints": 198.22,
-      "totalDistance": 183.57,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1069734,
-          "userId": 36054,
-          "date": "2026-05-03",
-          "distance": 183.57,
-          "speed": 56.28,
-          "points": 198.22,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Patrick McMahon",
       "pilotId": 2074,
       "totalPoints": 195.67,
@@ -9121,6 +7715,56 @@
       "awards": []
     },
     {
+      "pilot": "Jean-François Latulippe",
+      "pilotId": 36054,
+      "totalPoints": 191.38,
+      "totalDistance": 183.57,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1069734,
+          "userId": 36054,
+          "date": "2026-05-03",
+          "distance": 183.57,
+          "speed": 56.28,
+          "points": 191.38,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Artur Siwic",
+      "pilotId": 12276,
+      "totalPoints": 188,
+      "totalDistance": 170.33,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1054366,
+          "userId": 12276,
+          "date": "2026-04-25",
+          "distance": 170.33,
+          "speed": 42.4,
+          "points": 188,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 300",
+          "dmstIndex": 104
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Predrag Kupcevic",
       "pilotId": 22081,
       "totalPoints": 181.45,
@@ -9166,31 +7810,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus b 15m",
           "dmstIndex": 110
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Artur Siwic",
-      "pilotId": 12276,
-      "totalPoints": 179.38,
-      "totalDistance": 170.33,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1054366,
-          "userId": 12276,
-          "date": "2026-04-25",
-          "distance": 170.33,
-          "speed": 42.4,
-          "points": 179.38,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 200 17m",
-          "dmstIndex": 109
         }
       ],
       "awards": []
@@ -10229,7 +8848,7 @@
     {
       "pilot": "Mike North",
       "pilotId": 35337,
-      "totalPoints": 219.48000000000002,
+      "totalPoints": 218.23000000000002,
       "totalDistance": 443.01,
       "flightCount": 3,
       "bestFlights": [
@@ -10239,14 +8858,14 @@
           "date": "2026-04-26",
           "distance": 169.22,
           "speed": 84.61,
-          "points": 84.61,
+          "points": 83.36,
           "takeoff": "Pendleton GATGC",
           "region": "CA-ON",
           "declared": false,
           "contestType": "sprint",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100
+          "aircraftKind": "GL",
+          "aircraftName": "PIK-20 B",
+          "dmstIndex": 102
         },
         {
           "id": 1064783,
@@ -10739,8 +9358,8 @@
     {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 148.49,
-      "totalDistance": 296.97,
+      "totalPoints": 154.29000000000002,
+      "totalDistance": 308.58000000000004,
       "flightCount": 3,
       "bestFlights": [
         {
@@ -10774,13 +9393,13 @@
           "dmstIndex": 100
         },
         {
-          "id": 920728,
+          "id": 1067676,
           "userId": 25114,
-          "date": "2025-10-11",
-          "distance": 75.74,
-          "speed": 37.87,
-          "points": 37.87,
-          "takeoff": "Cowley",
+          "date": "2026-05-02",
+          "distance": 87.35,
+          "speed": 43.67,
+          "points": 43.67,
+          "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
           "contestType": "sprint",
@@ -12149,7 +10768,7 @@
     {
       "pilot": "Artur Siwic",
       "pilotId": 12276,
-      "totalPoints": 52.57,
+      "totalPoints": 54.48,
       "totalDistance": 112.23,
       "flightCount": 1,
       "bestFlights": [
@@ -12159,14 +10778,14 @@
           "date": "2026-04-25",
           "distance": 112.23,
           "speed": 56.12,
-          "points": 52.57,
+          "points": 54.48,
           "takeoff": "Hope",
           "region": "CA-BC",
           "declared": false,
           "contestType": "sprint",
           "aircraftKind": "GL",
-          "aircraftName": "DG 200 17m",
-          "dmstIndex": 109
+          "aircraftName": "DG 300",
+          "dmstIndex": 104
         }
       ]
     },
@@ -12338,7 +10957,7 @@
     {
       "pilot": "Jean-François Latulippe",
       "pilotId": 36054,
-      "totalPoints": 49.36,
+      "totalPoints": 48.04,
       "totalDistance": 107.61,
       "flightCount": 1,
       "bestFlights": [
@@ -12348,14 +10967,14 @@
           "date": "2026-05-03",
           "distance": 107.61,
           "speed": 53.8,
-          "points": 49.36,
+          "points": 48.04,
           "takeoff": "St-Dominique CVVC",
           "region": "CA-QC",
           "declared": false,
           "contestType": "sprint",
           "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116
         }
       ]
     },
@@ -13735,7 +12354,7 @@
     {
       "pilot": "Mike North",
       "pilotId": 35337,
-      "totalPoints": 623.3000000000001,
+      "totalPoints": 619.37,
       "totalDistance": 631.75,
       "flightCount": 3,
       "bestFlights": [
@@ -13775,14 +12394,14 @@
           "date": "2026-04-26",
           "distance": 200.59,
           "speed": 47.41,
-          "points": 200.59,
+          "points": 196.66,
           "takeoff": "Pendleton GATGC",
           "region": "CA-ON",
           "declared": false,
           "contestType": "triangle",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100
+          "aircraftKind": "GL",
+          "aircraftName": "PIK-20 B",
+          "dmstIndex": 102
         }
       ]
     },
@@ -14732,6 +13351,60 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 203.40999999999997,
+      "totalDistance": 203.40999999999997,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 920728,
+          "userId": 25114,
+          "date": "2025-10-11",
+          "distance": 78.71,
+          "speed": 33.92,
+          "points": 78.71,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100
+        },
+        {
+          "id": 1067676,
+          "userId": 25114,
+          "date": "2026-05-02",
+          "distance": 70.13,
+          "speed": 43.39,
+          "points": 70.13,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100
+        },
+        {
+          "id": 915153,
+          "userId": 25114,
+          "date": "2025-10-07",
+          "distance": 54.57,
+          "speed": 21.76,
+          "points": 54.57,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100
+        }
+      ]
+    },
+    {
       "pilot": "Martin Dennis",
       "pilotId": 21011,
       "totalPoints": 188.19,
@@ -14977,60 +13650,6 @@
           "aircraftKind": "MG",
           "aircraftName": "Ventus cM 17.6m",
           "dmstIndex": 115
-        }
-      ]
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 145.67000000000002,
-      "totalDistance": 145.67000000000002,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 920728,
-          "userId": 25114,
-          "date": "2025-10-11",
-          "distance": 78.71,
-          "speed": 33.92,
-          "points": 78.71,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100
-        },
-        {
-          "id": 915153,
-          "userId": 25114,
-          "date": "2025-10-07",
-          "distance": 54.57,
-          "speed": 21.76,
-          "points": 54.57,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100
-        },
-        {
-          "id": 1067676,
-          "userId": 25114,
-          "date": "2026-05-02",
-          "distance": 12.39,
-          "speed": 115.55,
-          "points": 12.39,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100
         }
       ]
     },
@@ -15643,7 +14262,7 @@
     {
       "pilot": "Jean-François Latulippe",
       "pilotId": 36054,
-      "totalPoints": 114.39,
+      "totalPoints": 110.45,
       "totalDistance": 128.12,
       "flightCount": 1,
       "bestFlights": [
@@ -15653,14 +14272,14 @@
           "date": "2026-05-03",
           "distance": 128.12,
           "speed": 45.82,
-          "points": 114.39,
+          "points": 110.45,
           "takeoff": "St-Dominique CVVC",
           "region": "CA-QC",
           "declared": false,
           "contestType": "triangle",
           "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116
         }
       ]
     },
@@ -16010,6 +14629,30 @@
       ]
     },
     {
+      "pilot": "Artur Siwic",
+      "pilotId": 12276,
+      "totalPoints": 80.75,
+      "totalDistance": 83.98,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1054366,
+          "userId": 12276,
+          "date": "2026-04-25",
+          "distance": 83.98,
+          "speed": 43.7,
+          "points": 80.75,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 300",
+          "dmstIndex": 104
+        }
+      ]
+    },
+    {
       "pilot": "John Mulder",
       "pilotId": 22923,
       "totalPoints": 78.44,
@@ -16084,30 +14727,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus b 15m",
           "dmstIndex": 110
-        }
-      ]
-    },
-    {
-      "pilot": "Artur Siwic",
-      "pilotId": 12276,
-      "totalPoints": 77.05,
-      "totalDistance": 83.98,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1054366,
-          "userId": 12276,
-          "date": "2026-04-25",
-          "distance": 83.98,
-          "speed": 43.7,
-          "points": 77.05,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 200 17m",
-          "dmstIndex": 109
         }
       ]
     },
@@ -17712,7 +16331,7 @@
     {
       "pilot": "Mike North",
       "pilotId": 35337,
-      "totalPoints": 455.73,
+      "totalPoints": 452.35,
       "totalDistance": 461.39000000000004,
       "flightCount": 3,
       "bestFlights": [
@@ -17722,14 +16341,14 @@
           "date": "2026-04-26",
           "distance": 172.47,
           "speed": 38.76,
-          "points": 172.47,
+          "points": 169.09,
           "takeoff": "Pendleton GATGC",
           "region": "CA-ON",
           "declared": false,
           "contestType": "out_return",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100
+          "aircraftKind": "GL",
+          "aircraftName": "PIK-20 B",
+          "dmstIndex": 102
         },
         {
           "id": 1064783,
@@ -18547,6 +17166,60 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 187.17999999999998,
+      "totalDistance": 187.17999999999998,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 915153,
+          "userId": 25114,
+          "date": "2025-10-07",
+          "distance": 69.67,
+          "speed": 91.87,
+          "points": 69.67,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100
+        },
+        {
+          "id": 1067676,
+          "userId": 25114,
+          "date": "2026-05-02",
+          "distance": 65.47,
+          "speed": 43.37,
+          "points": 65.47,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100
+        },
+        {
+          "id": 920728,
+          "userId": 25114,
+          "date": "2025-10-11",
+          "distance": 52.04,
+          "speed": 23.73,
+          "points": 52.04,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100
+        }
+      ]
+    },
+    {
       "pilot": "Gabriel Duford",
       "pilotId": 24793,
       "totalPoints": 159.68,
@@ -18771,45 +17444,6 @@
           "aircraftKind": "GL",
           "aircraftName": "ASG 29 18m",
           "dmstIndex": 121
-        }
-      ]
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 121.71000000000001,
-      "totalDistance": 121.71000000000001,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 915153,
-          "userId": 25114,
-          "date": "2025-10-07",
-          "distance": 69.67,
-          "speed": 91.87,
-          "points": 69.67,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100
-        },
-        {
-          "id": 920728,
-          "userId": 25114,
-          "date": "2025-10-11",
-          "distance": 52.04,
-          "speed": 23.73,
-          "points": 52.04,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100
         }
       ]
     },
@@ -19735,30 +18369,6 @@
       ]
     },
     {
-      "pilot": "Jean-François Latulippe",
-      "pilotId": 36054,
-      "totalPoints": 61.7,
-      "totalDistance": 69.1,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1069734,
-          "userId": 36054,
-          "date": "2026-05-03",
-          "distance": 69.1,
-          "speed": 27.97,
-          "points": 61.7,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112
-        }
-      ]
-    },
-    {
       "pilot": "Gary Hill",
       "pilotId": 35152,
       "totalPoints": 61.6,
@@ -19803,6 +18413,54 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 24",
           "dmstIndex": 106
+        }
+      ]
+    },
+    {
+      "pilot": "Jean-François Latulippe",
+      "pilotId": 36054,
+      "totalPoints": 59.57,
+      "totalDistance": 69.1,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1069734,
+          "userId": 36054,
+          "date": "2026-05-03",
+          "distance": 69.1,
+          "speed": 27.97,
+          "points": 59.57,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116
+        }
+      ]
+    },
+    {
+      "pilot": "Artur Siwic",
+      "pilotId": 12276,
+      "totalPoints": 55.65,
+      "totalDistance": 57.88,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1054366,
+          "userId": 12276,
+          "date": "2026-04-25",
+          "distance": 57.88,
+          "speed": 56.64,
+          "points": 55.65,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 300",
+          "dmstIndex": 104
         }
       ]
     },
@@ -19890,30 +18548,6 @@
           "aircraftKind": "GL",
           "aircraftName": "DG 500 20m",
           "dmstIndex": 104
-        }
-      ]
-    },
-    {
-      "pilot": "Artur Siwic",
-      "pilotId": 12276,
-      "totalPoints": 53.1,
-      "totalDistance": 57.88,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1054366,
-          "userId": 12276,
-          "date": "2026-04-25",
-          "distance": 57.88,
-          "speed": 56.64,
-          "points": 53.1,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 200 17m",
-          "dmstIndex": 109
         }
       ]
     },
@@ -20745,45 +19379,6 @@
   ],
   "outLeaderboard": [
     {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 137.75,
-      "totalDistance": 137.75,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1069785,
-          "userId": 25114,
-          "date": "2026-05-03",
-          "distance": 97.95,
-          "speed": 47.24,
-          "points": 97.95,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100
-        },
-        {
-          "id": 1067676,
-          "userId": 25114,
-          "date": "2026-05-02",
-          "distance": 39.8,
-          "speed": 95.46,
-          "points": 39.8,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100
-        }
-      ]
-    },
-    {
       "pilot": "Andre R. Pepin",
       "pilotId": 8848,
       "totalPoints": 137.18,
@@ -20873,6 +19468,30 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-50 Puchacz",
           "dmstIndex": 84
+        }
+      ]
+    },
+    {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 97.95,
+      "totalDistance": 97.95,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1069785,
+          "userId": 25114,
+          "date": "2026-05-03",
+          "distance": 97.95,
+          "speed": 47.24,
+          "points": 97.95,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100
         }
       ]
     },
@@ -40351,18 +38970,18 @@
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 123.73,
-        "freePoints": 179.38,
-        "auPoints": 123.73,
+        "taskContestPoints": 129.68,
+        "freePoints": 188,
+        "auPoints": 129.68,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 123.73394495412843,
+        "dmstFreePoints": 129.68269230769232,
         "dmstFreeDistance": 134.87,
-        "dmstTaskActualPoints": 194.3119266055046,
-        "dmstTaskPotentialPoints": 252.60550458715596,
+        "dmstTaskActualPoints": 203.65384615384616,
+        "dmstTaskPotentialPoints": 264.75,
         "dmstTaskDistance": 211.8,
         "weglideFreeDistance": 170.33,
-        "dmstIndex": 109
+        "dmstIndex": 104
       },
       "bhcInfo": null
     },
@@ -41757,11 +40376,11 @@
         "attempt_speed_loss": 1.79,
         "below_1000_agl": 0.053,
         "below_800_agl": 0.0349,
-        "below_600_agl": 0.0168,
+        "below_600_agl": 0.0166,
         "below_400_agl": 0.0133,
         "below_200_agl": 0.0043,
         "below_100_agl": 0.002,
-        "track_distance": 369.51,
+        "track_distance": 369.5,
         "glide_detour": 1.09,
         "glide_distance": 7.51,
         "glide_alt_avg": 2102,
@@ -41816,18 +40435,18 @@
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 330.45,
-        "freePoints": 400.23,
-        "auPoints": 330.45,
+        "taskContestPoints": 323.97,
+        "freePoints": 392.38,
+        "auPoints": 323.97,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 330.45,
+        "dmstFreePoints": 323.9705882352941,
         "dmstFreeDistance": 330.45,
-        "dmstTaskActualPoints": 330.45,
-        "dmstTaskPotentialPoints": 330.45,
+        "dmstTaskActualPoints": 323.9705882352941,
+        "dmstTaskPotentialPoints": 323.9705882352941,
         "dmstTaskDistance": 330.45,
         "weglideFreeDistance": 340.05,
-        "dmstIndex": 100
+        "dmstIndex": 102
       },
       "bhcInfo": null
     },
@@ -44369,100 +42988,100 @@
       "hasTask": false,
       "bestContestType": "free",
       "freeStats": {
-        "glide_ratio": 30.93,
-        "thermal_avg": 1.06,
-        "glide_speed": 129.48,
-        "glide_speed_lift": 125.61,
-        "glide_speed_sink": 131.92,
-        "altitude_avg": 2006,
-        "agl_avg": 901,
-        "thermal_count": 10,
-        "thermal_gain": 2012,
-        "thermal_radius": 116.3,
-        "thermal_start_agl": 883,
-        "thermal_bank": 38.11,
+        "glide_ratio": 37.16,
+        "thermal_avg": 1.2,
+        "glide_speed": 128.75,
+        "glide_speed_lift": 124.7,
+        "glide_speed_sink": 131.6,
+        "altitude_avg": 1992,
+        "agl_avg": 880,
+        "thermal_count": 11,
+        "thermal_gain": 2727,
+        "thermal_radius": 117.53,
+        "thermal_start_agl": 842,
+        "thermal_bank": 37.84,
         "glide_percentage": 0.55,
-        "glide_percentage_lift": 0.38,
-        "duration": 4931,
-        "thermal_time": 1896,
-        "glide_time": 2690,
-        "wind_speed": 10.17,
-        "wind_direction": 172,
+        "glide_percentage_lift": 0.41,
+        "duration": 5771,
+        "thermal_time": 2279,
+        "glide_time": 3147,
+        "wind_speed": 10.58,
+        "wind_direction": 169,
         "attempt_count": 8,
         "attempt_avg": 0.01,
-        "attempt_speed_loss": 4.73,
-        "below_1000_agl": 0.5849,
-        "below_800_agl": 0.3391,
-        "below_600_agl": 0.2371,
-        "below_400_agl": 0.0475,
-        "below_200_agl": 0.0071,
-        "below_100_agl": 0.0002,
-        "track_distance": 96.75,
-        "glide_detour": 1.12,
-        "glide_distance": 3.74,
-        "glide_alt_avg": 2024,
+        "attempt_speed_loss": 3.87,
+        "below_1000_agl": 0.5961,
+        "below_800_agl": 0.3594,
+        "below_600_agl": 0.2563,
+        "below_400_agl": 0.0704,
+        "below_200_agl": 0.0175,
+        "below_100_agl": 0.0045,
+        "track_distance": 112.55,
+        "glide_detour": 1.15,
+        "glide_distance": 4.32,
+        "glide_alt_avg": 2005,
         "end_time": "2026-05-02T22:16:51+00:00",
-        "start_time": "2026-05-02T20:54:40+00:00",
+        "start_time": "2026-05-02T20:40:40+00:00",
         "finish_alt": 1232
       },
       "taskStats": {
-        "glide_ratio": 28.89,
-        "thermal_avg": 1.06,
-        "glide_speed": 129.48,
-        "glide_speed_lift": 125.61,
-        "glide_speed_sink": 131.92,
-        "altitude_avg": 2006,
-        "agl_avg": 901,
-        "thermal_count": 10,
-        "thermal_gain": 2012,
-        "thermal_radius": 116.3,
-        "thermal_start_agl": 883,
-        "thermal_bank": 38.11,
+        "glide_ratio": 25.75,
+        "thermal_avg": 1.2,
+        "glide_speed": 128.3,
+        "glide_speed_lift": 124.46,
+        "glide_speed_sink": 131,
+        "altitude_avg": 1985,
+        "agl_avg": 873,
+        "thermal_count": 11,
+        "thermal_gain": 2727,
+        "thermal_radius": 117.53,
+        "thermal_start_agl": 842,
+        "thermal_bank": 37.84,
         "glide_percentage": 0.55,
-        "glide_percentage_lift": 0.38,
-        "duration": 4931,
-        "thermal_time": 1896,
-        "glide_time": 2690,
-        "wind_speed": 10.17,
-        "wind_direction": 172,
+        "glide_percentage_lift": 0.4,
+        "duration": 5819,
+        "thermal_time": 2279,
+        "glide_time": 3195,
+        "wind_speed": 10.58,
+        "wind_direction": 169,
         "attempt_count": 8,
         "attempt_avg": 0.01,
-        "attempt_speed_loss": 4.42,
-        "below_1000_agl": 0.5849,
-        "below_800_agl": 0.3391,
-        "below_600_agl": 0.2371,
-        "below_400_agl": 0.0475,
-        "below_200_agl": 0.0071,
-        "below_100_agl": 0.0002,
-        "track_distance": 96.75,
-        "glide_detour": 1.2,
-        "glide_distance": 3.74,
-        "glide_alt_avg": 2024,
-        "end_time": "2026-05-02T22:16:51+00:00",
-        "start_time": "2026-05-02T20:54:40+00:00",
-        "finish_alt": 1232,
-        "task_duration": 4931,
-        "total_duration": 4931
+        "attempt_speed_loss": 2.73,
+        "below_1000_agl": 0.5994,
+        "below_800_agl": 0.3647,
+        "below_600_agl": 0.2624,
+        "below_400_agl": 0.078,
+        "below_200_agl": 0.0256,
+        "below_100_agl": 0.0127,
+        "track_distance": 113.87,
+        "glide_detour": 1.62,
+        "glide_distance": 4.31,
+        "glide_alt_avg": 1992,
+        "end_time": "2026-05-02T22:17:39+00:00",
+        "start_time": "2026-05-02T20:40:40+00:00",
+        "finish_alt": 1138,
+        "task_duration": 5819,
+        "total_duration": 5771
       },
       "taskInfo": {
         "hasTask": false,
-        "distanceKm": 80.5,
+        "distanceKm": 70.13,
         "type": null,
         "typeLabel": "No task declared",
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 80.5,
-        "freePoints": 89.9,
-        "auPoints": 80.5,
+        "taskContestPoints": 98.18,
+        "freePoints": 118.76,
+        "auPoints": 98.18,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 80.5,
-        "dmstFreeDistance": 80.5,
-        "dmstTaskActualPoints": 80.5,
-        "dmstTaskPotentialPoints": 80.5,
-        "dmstTaskDistance": 80.5,
-        "weglideFreeDistance": 86.18,
+        "dmstFreePoints": 98.18199999999999,
+        "dmstFreeDistance": 70.13,
+        "dmstTaskActualPoints": 98.18199999999999,
+        "dmstTaskPotentialPoints": 98.18199999999999,
+        "dmstTaskDistance": 70.13,
+        "weglideFreeDistance": 97.72,
         "dmstIndex": 100
       },
       "bhcInfo": null
@@ -44972,18 +43591,18 @@
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 160.15,
-        "freePoints": 198.22,
-        "auPoints": 160.15,
+        "taskContestPoints": 154.63,
+        "freePoints": 191.38,
+        "auPoints": 154.63,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 160.14999999999998,
+        "dmstFreePoints": 154.62758620689655,
         "dmstFreeDistance": 128.12,
-        "dmstTaskActualPoints": 160.14999999999998,
-        "dmstTaskPotentialPoints": 160.14999999999998,
+        "dmstTaskActualPoints": 154.62758620689655,
+        "dmstTaskPotentialPoints": 154.62758620689655,
         "dmstTaskDistance": 128.12,
         "weglideFreeDistance": 183.57,
-        "dmstIndex": 112
+        "dmstIndex": 116
       },
       "bhcInfo": null
     },
@@ -61916,7 +60535,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 179.38,
+          "points": 188,
           "distance": 170.33,
           "speed": 42.4,
           "score": {
@@ -61925,7 +60544,7 @@
         },
         {
           "name": "sprint",
-          "points": 52.57,
+          "points": 54.48,
           "distance": 112.23,
           "speed": 56.12,
           "score": {
@@ -61934,7 +60553,7 @@
         },
         {
           "name": "triangle",
-          "points": 77.05,
+          "points": 80.75,
           "distance": 83.98,
           "speed": 43.7,
           "score": {
@@ -61943,7 +60562,7 @@
         },
         {
           "name": "out_return",
-          "points": 53.1,
+          "points": 55.65,
           "distance": 57.88,
           "speed": 56.64,
           "score": {
@@ -61952,7 +60571,7 @@
         },
         {
           "name": "ca",
-          "points": 123.73,
+          "points": 129.68,
           "distance": 134.87,
           "speed": 44.98,
           "score": {
@@ -63045,7 +61664,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 211.45,
+          "points": 207.3,
           "distance": 187.33,
           "speed": 46.83,
           "score": {
@@ -63054,7 +61673,7 @@
         },
         {
           "name": "sprint",
-          "points": 52.27,
+          "points": 51.5,
           "distance": 104.54,
           "speed": 52.27,
           "score": {
@@ -63063,7 +61682,7 @@
         },
         {
           "name": "triangle",
-          "points": 80.4,
+          "points": 78.82,
           "distance": 80.4,
           "speed": 20.23,
           "score": {
@@ -63072,7 +61691,7 @@
         },
         {
           "name": "out_return",
-          "points": 98.68,
+          "points": 96.75,
           "distance": 98.68,
           "speed": 42.2,
           "score": {
@@ -63081,7 +61700,7 @@
         },
         {
           "name": "ca",
-          "points": 171.2,
+          "points": 167.84,
           "distance": 171.2,
           "speed": 42.79,
           "score": {
@@ -63110,7 +61729,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 400.23,
+          "points": 392.38,
           "distance": 340.05,
           "speed": 73.47,
           "score": {
@@ -63119,7 +61738,7 @@
         },
         {
           "name": "sprint",
-          "points": 84.61,
+          "points": 83.36,
           "distance": 169.22,
           "speed": 84.61,
           "score": {
@@ -63128,7 +61747,7 @@
         },
         {
           "name": "triangle",
-          "points": 200.59,
+          "points": 196.66,
           "distance": 200.59,
           "speed": 47.41,
           "score": {
@@ -63137,7 +61756,7 @@
         },
         {
           "name": "out_return",
-          "points": 172.47,
+          "points": 169.09,
           "distance": 172.47,
           "speed": 38.76,
           "score": {
@@ -63146,7 +61765,7 @@
         },
         {
           "name": "ca",
-          "points": 330.45,
+          "points": 323.97,
           "distance": 330.45,
           "speed": 73.07,
           "score": {
@@ -63759,7 +62378,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 2.43,
+          "points": 2.38,
           "distance": 1.8,
           "speed": 122.26,
           "score": {
@@ -63777,7 +62396,7 @@
         },
         {
           "name": "out_return",
-          "points": 2.17,
+          "points": 2.12,
           "distance": 1.95,
           "speed": 226.45,
           "score": {
@@ -63786,7 +62405,7 @@
         },
         {
           "name": "ca",
-          "points": 2.82,
+          "points": 2.76,
           "distance": 1.95,
           "speed": 226.45,
           "score": {
@@ -65068,7 +63687,7 @@
         "name": "Joshua Peace"
       },
       "date": "2026-05-02",
-      "distance": 86.18,
+      "distance": 97.72,
       "duration": 5834,
       "taskDeclared": false,
       "taskCompleted": false,
@@ -65077,45 +63696,45 @@
       "contest": [
         {
           "name": "free",
-          "points": 89.9,
-          "distance": 86.18,
-          "speed": 62.92,
+          "points": 118.76,
+          "distance": 97.72,
+          "speed": 60.96,
           "score": {
             "declared": false
           }
         },
         {
           "name": "sprint",
-          "points": 36.67,
-          "distance": 73.35,
-          "speed": 36.67,
+          "points": 43.67,
+          "distance": 87.35,
+          "speed": 43.67,
           "score": {
             "declared": false
           }
         },
         {
           "name": "triangle",
-          "points": 12.39,
-          "distance": 12.39,
-          "speed": 115.55,
+          "points": 70.13,
+          "distance": 70.13,
+          "speed": 43.39,
           "score": {
             "declared": false
           }
         },
         {
-          "name": "out",
-          "points": 39.8,
-          "distance": 39.8,
-          "speed": 95.46,
+          "name": "out_return",
+          "points": 65.47,
+          "distance": 65.47,
+          "speed": 43.37,
           "score": {
             "declared": false
           }
         },
         {
           "name": "ca",
-          "points": 80.5,
-          "distance": 80.5,
-          "speed": 58.77,
+          "points": 98.18,
+          "distance": 70.13,
+          "speed": 43.39,
           "score": {
             "declared": false
           }
@@ -65406,7 +64025,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 198.22,
+          "points": 191.38,
           "distance": 183.57,
           "speed": 56.28,
           "score": {
@@ -65415,7 +64034,7 @@
         },
         {
           "name": "sprint",
-          "points": 49.36,
+          "points": 48.04,
           "distance": 107.61,
           "speed": 53.8,
           "score": {
@@ -65424,7 +64043,7 @@
         },
         {
           "name": "triangle",
-          "points": 114.39,
+          "points": 110.45,
           "distance": 128.12,
           "speed": 45.82,
           "score": {
@@ -65433,7 +64052,7 @@
         },
         {
           "name": "out_return",
-          "points": 61.7,
+          "points": 59.57,
           "distance": 69.1,
           "speed": 27.97,
           "score": {
@@ -65442,7 +64061,7 @@
         },
         {
           "name": "ca",
-          "points": 160.15,
+          "points": 154.63,
           "distance": 128.12,
           "speed": 45.82,
           "score": {
@@ -67528,7 +66147,7 @@
     {
       "pilot": "Mike North",
       "pilotId": 35337,
-      "totalPoints": 1068.98,
+      "totalPoints": 1061.13,
       "totalDistance": 892.8299999999999,
       "flightCount": 3,
       "bestFlights": [
@@ -67538,14 +66157,14 @@
           "date": "2026-04-26",
           "distance": 340.05,
           "speed": 73.47,
-          "points": 400.23,
+          "points": 392.38,
           "takeoff": "Pendleton GATGC",
           "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100
+          "aircraftKind": "GL",
+          "aircraftName": "PIK-20 B",
+          "dmstIndex": 102
         },
         {
           "id": 1064783,
@@ -68018,49 +66637,10 @@
       ]
     },
     {
-      "pilot": "Michael Stieber",
-      "pilotId": 32345,
-      "totalPoints": 686.38,
-      "totalDistance": 654.5799999999999,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1055692,
-          "userId": 32345,
-          "date": "2026-04-26",
-          "distance": 386.3,
-          "speed": 97.42,
-          "points": 404.33,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 400 17m",
-          "dmstIndex": 109
-        },
-        {
-          "id": 1069991,
-          "userId": 32345,
-          "date": "2026-05-03",
-          "distance": 268.28,
-          "speed": 68.24,
-          "points": 282.05,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 400 17m",
-          "dmstIndex": 109
-        }
-      ]
-    },
-    {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 658.55,
-      "totalDistance": 613.1300000000001,
+      "totalPoints": 687.41,
+      "totalDistance": 624.6700000000001,
       "flightCount": 4,
       "bestFlights": [
         {
@@ -68112,9 +66692,9 @@
           "id": 1067676,
           "userId": 25114,
           "date": "2026-05-02",
-          "distance": 86.18,
-          "speed": 62.92,
-          "points": 89.9,
+          "distance": 97.72,
+          "speed": 60.96,
+          "points": 118.76,
           "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
@@ -68122,6 +66702,45 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 19",
           "dmstIndex": 100
+        }
+      ]
+    },
+    {
+      "pilot": "Michael Stieber",
+      "pilotId": 32345,
+      "totalPoints": 686.38,
+      "totalDistance": 654.5799999999999,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1055692,
+          "userId": 32345,
+          "date": "2026-04-26",
+          "distance": 386.3,
+          "speed": 97.42,
+          "points": 404.33,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
+        },
+        {
+          "id": 1069991,
+          "userId": 32345,
+          "date": "2026-05-03",
+          "distance": 268.28,
+          "speed": 68.24,
+          "points": 282.05,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109
         }
       ]
     },
@@ -69980,30 +68599,6 @@
       ]
     },
     {
-      "pilot": "Jean-François Latulippe",
-      "pilotId": 36054,
-      "totalPoints": 198.22,
-      "totalDistance": 183.57,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1069734,
-          "userId": 36054,
-          "date": "2026-05-03",
-          "distance": 183.57,
-          "speed": 56.28,
-          "points": 198.22,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112
-        }
-      ]
-    },
-    {
       "pilot": "Patrick McMahon",
       "pilotId": 2074,
       "totalPoints": 195.67,
@@ -70048,6 +68643,54 @@
           "aircraftKind": "GL",
           "aircraftName": "Duo Discus",
           "dmstIndex": 112
+        }
+      ]
+    },
+    {
+      "pilot": "Jean-François Latulippe",
+      "pilotId": 36054,
+      "totalPoints": 191.38,
+      "totalDistance": 183.57,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1069734,
+          "userId": 36054,
+          "date": "2026-05-03",
+          "distance": 183.57,
+          "speed": 56.28,
+          "points": 191.38,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116
+        }
+      ]
+    },
+    {
+      "pilot": "Artur Siwic",
+      "pilotId": 12276,
+      "totalPoints": 188,
+      "totalDistance": 170.33,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1054366,
+          "userId": 12276,
+          "date": "2026-04-25",
+          "distance": 170.33,
+          "speed": 42.4,
+          "points": 188,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 300",
+          "dmstIndex": 104
         }
       ]
     },
@@ -70126,30 +68769,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus b 15m",
           "dmstIndex": 110
-        }
-      ]
-    },
-    {
-      "pilot": "Artur Siwic",
-      "pilotId": 12276,
-      "totalPoints": 179.38,
-      "totalDistance": 170.33,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1054366,
-          "userId": 12276,
-          "date": "2026-04-25",
-          "distance": 170.33,
-          "speed": 42.4,
-          "points": 179.38,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 200 17m",
-          "dmstIndex": 109
         }
       ]
     },
@@ -71934,7 +70553,7 @@
     {
       "pilot": "Mike North",
       "pilotId": 35337,
-      "totalPoints": 922.24,
+      "totalPoints": 915.76,
       "totalDistance": 761.6099999999999,
       "flightCount": 3,
       "bestFlights": [
@@ -71944,14 +70563,14 @@
           "date": "2026-04-26",
           "distance": 330.45,
           "speed": 73.07,
-          "points": 330.45,
+          "points": 323.97,
           "takeoff": "Pendleton GATGC",
           "region": "CA-ON",
           "declared": false,
           "contestType": "ca",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100
+          "aircraftKind": "GL",
+          "aircraftName": "PIK-20 B",
+          "dmstIndex": 102
         },
         {
           "id": 1064783,
@@ -72435,8 +71054,8 @@
     {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 551.27,
-      "totalDistance": 519.79,
+      "totalPoints": 568.95,
+      "totalDistance": 509.42,
       "flightCount": 4,
       "bestFlights": [
         {
@@ -72488,9 +71107,9 @@
           "id": 1067676,
           "userId": 25114,
           "date": "2026-05-02",
-          "distance": 80.5,
-          "speed": 58.77,
-          "points": 80.5,
+          "distance": 70.13,
+          "speed": 43.39,
+          "points": 98.18,
           "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
@@ -73639,30 +72258,6 @@
       ]
     },
     {
-      "pilot": "Jean-François Latulippe",
-      "pilotId": 36054,
-      "totalPoints": 160.15,
-      "totalDistance": 128.12,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1069734,
-          "userId": 36054,
-          "date": "2026-05-03",
-          "distance": 128.12,
-          "speed": 45.82,
-          "points": 160.15,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112
-        }
-      ]
-    },
-    {
       "pilot": "Csaba Balazs",
       "pilotId": 35431,
       "totalPoints": 124.27,
@@ -73683,6 +72278,30 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 24",
           "dmstIndex": 106
+        }
+      ]
+    },
+    {
+      "pilot": "Jean-François Latulippe",
+      "pilotId": 36054,
+      "totalPoints": 154.63,
+      "totalDistance": 128.12,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1069734,
+          "userId": 36054,
+          "date": "2026-05-03",
+          "distance": 128.12,
+          "speed": 45.82,
+          "points": 154.63,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116
         }
       ]
     },
@@ -73857,7 +72476,7 @@
     {
       "pilot": "Artur Siwic",
       "pilotId": 12276,
-      "totalPoints": 123.73,
+      "totalPoints": 129.68,
       "totalDistance": 134.87,
       "flightCount": 1,
       "bestFlights": [
@@ -73867,14 +72486,14 @@
           "date": "2026-04-25",
           "distance": 134.87,
           "speed": 44.98,
-          "points": 123.73,
+          "points": 129.68,
           "takeoff": "Hope",
           "region": "CA-BC",
           "declared": false,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "DG 200 17m",
-          "dmstIndex": 109
+          "aircraftName": "DG 300",
+          "dmstIndex": 104
         }
       ]
     },
@@ -74170,11 +72789,11 @@
   "meta": {
     "totalPilots": 103,
     "totalFlights": 305,
-    "totalKms": 39549,
+    "totalKms": 39561,
     "totalTasksDeclared": 102,
     "totalTasksCompleted": 5,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-06T21:03:50.622Z"
+    "generatedAt": "2026-05-06T21:04:17.143Z"
   }
 }
