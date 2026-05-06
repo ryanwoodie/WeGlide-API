@@ -46,9 +46,11 @@ function findPrimaryTaskContest(flight, requirePoints = true) {
     return findContestByNames(
         flight,
         ['ca', 'au'],
-        requirePoints
-            ? (contest) => typeof contest.points === 'number' && contest.points > 0
-            : null
+        (contest) => {
+            if (contest.valid === false) return false;
+            if (requirePoints && !(typeof contest.points === 'number' && contest.points > 0)) return false;
+            return true;
+        }
     );
 }
 
@@ -56,9 +58,11 @@ function findDeclaredTaskContest(flight, requirePoints = false) {
     const declarationContest = findContestByNames(
         flight,
         ['declaration'],
-        requirePoints
-            ? (contest) => typeof contest.points === 'number' && contest.points > 0
-            : null
+        (contest) => {
+            if (contest.valid === false) return false;
+            if (requirePoints && !(typeof contest.points === 'number' && contest.points > 0)) return false;
+            return true;
+        }
     );
     if (declarationContest?.score?.declared === true) {
         return declarationContest;
@@ -85,8 +89,8 @@ function calculateBestScore(flight) {
 
     // Find the task/declaration/free contests specifically
     const auContest = findPrimaryTaskContest(flight, true);
-    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
-    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
+    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.valid !== false && contest.points > 0);
+    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.valid !== false && contest.points > 0);
 
     let bestContest = null;
     let bestScore = 0;
@@ -116,6 +120,7 @@ function calculateBestScore(flight) {
     // If no au/declaration/free found, fall back to any other contest with points
     if (!bestContest) {
         flight.contest.forEach(contest => {
+            if (contest.valid === false) return;
             if (contest.points && contest.points > bestScore) {
                 bestScore = contest.points;
                 bestContest = contest;
@@ -147,7 +152,7 @@ function calculateFreeScore(flight) {
     }
 
     // Only use Free contest
-    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
+    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.valid !== false && contest.points > 0);
 
     if (freeContest) {
         return {
@@ -169,7 +174,7 @@ function calculateContestScore(flight, contestName) {
 
     const contest = contestName === 'ca'
         ? findPrimaryTaskContest(flight, true)
-        : flight.contest.find(c => c && c.name === contestName && typeof c.points === 'number' && c.points > 0);
+        : flight.contest.find(c => c && c.name === contestName && c.valid !== false && typeof c.points === 'number' && c.points > 0);
     if (!contest) {
         return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
     }
