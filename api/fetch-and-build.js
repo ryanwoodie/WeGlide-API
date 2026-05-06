@@ -913,7 +913,7 @@ async function syncArtifactsToGitHub(artifacts) {
         method: 'POST',
         headers: Object.assign({ 'Content-Type': 'application/json' }, githubHeaders()),
         body: JSON.stringify({
-            message: `Auto-update leaderboard - ${timestamp}`,
+            message: `Auto-update leaderboard - ${timestamp} [skip ci]`,
             tree: treeData.sha,
             parents: [currentCommitSha]
         })
