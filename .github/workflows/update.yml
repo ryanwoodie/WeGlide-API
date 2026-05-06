@@ -4,10 +4,25 @@ on:
   push:
     branches:
       - main
+    # Skip pushes that only touch bot-generated artifacts to avoid feedback loops.
+    paths-ignore:
+      - 'public/SAC_leaderboard*.html'
+      - 'public/leaderboard_data.json'
+      - 'canadian_flights_*.jsonl'
+      - 'canadian_user_profiles.json'
+      - 'canadian_combined_hours.json'
+      - 'pilot_pic_hours_verification.json'
+      - 'weglide_club_metadata.json'
+      - 'canadian_user_durations.json'
   schedule:
     # Run daily at 03:00 UTC for a deep check
     - cron: '0 3 * * *'
   workflow_dispatch:
+
+# Belt-and-braces: never let two runs pile up.
+concurrency:
+  group: update-leaderboard
+  cancel-in-progress: false
 
 jobs:
   update:
