@@ -305,10 +305,56 @@ async function loadPersistentText(filename) {
     }
 }
 
+function extractContestFingerprint(flight, contestName) {
+    if (!flight || !Array.isArray(flight.contest)) return null;
+    // For 'ca' the WeGlide listing endpoint may return either 'ca' or 'au' depending on country.
+    const names = contestName === 'ca' ? ['ca', 'au'] : [contestName];
+    for (const n of names) {
+        const c = flight.contest.find(e => e && e.name === n);
+        if (c) {
+            return {
+                points: typeof c.points === 'number' ? c.points : null,
+                distance: typeof c.distance === 'number' ? c.distance : null,
+                speed: typeof c.speed === 'number' ? c.speed : null
+            };
+        }
+    }
+    return null;
+}
+
+function fingerprintsDiffer(a, b) {
+    if (!a && !b) return false;
+    if (!a || !b) return true;
+    const eq = (x, y) => {
+        const xv = x ?? 0;
+        const yv = y ?? 0;
+        return Math.abs(xv - yv) < 0.01;
+    };
+    return !(eq(a.points, b.points) && eq(a.distance, b.distance) && eq(a.speed, b.speed));
+}
+
 async function loadExistingFlights() {
     const ids = new Set();
+    const fingerprints = new Map();
     let total = 0;
     let latestDate = null;
+
+    const ingest = (flight) => {
+        total += 1;
+        if (flight.id) {
+            ids.add(flight.id);
+            fingerprints.set(flight.id, {
+                free: extractContestFingerprint(flight, 'free'),
+                ca: extractContestFingerprint(flight, 'ca')
+            });
+        }
+        if (flight.scoring_date) {
+            const ts = Date.parse(flight.scoring_date);
+            if (!Number.isNaN(ts) && (!latestDate || ts > latestDate)) {
+                latestDate = ts;
+            }
+        }
+    };
 
     let sourceStream;
     if (fs.existsSync(DATASET_FILE)) {
@@ -319,39 +365,20 @@ async function loadExistingFlights() {
             const trimmed = line.trim();
             if (!trimmed) continue;
             try {
-                const flight = JSON.parse(trimmed);
-                total += 1;
-                if (flight.id) {
-                    ids.add(flight.id);
-                }
-                if (flight.scoring_date) {
-                    const timestamp = Date.parse(flight.scoring_date);
-                    if (!Number.isNaN(timestamp) && (!latestDate || timestamp > latestDate)) {
-                        latestDate = timestamp;
-                    }
-                }
+                ingest(JSON.parse(trimmed));
             } catch (error) {
                 log('Skipping invalid flight row:', error.message);
             }
         }
     } else {
         const text = await loadPersistentText(DATASET_BLOB_KEY);
-        if (!text) return { ids, total, latestDate };
-        // Simulate streaming by iterating lines
+        if (!text) return { ids, total, latestDate, fingerprints };
         const lines = text.split('\n');
         for (const line of lines) {
             const trimmed = line.trim();
             if (!trimmed) continue;
             try {
-                const flight = JSON.parse(trimmed);
-                total += 1;
-                if (flight.id) ids.add(flight.id);
-                if (flight.scoring_date) {
-                    const ts = Date.parse(flight.scoring_date);
-                    if (!Number.isNaN(ts) && (!latestDate || ts > latestDate)) {
-                        latestDate = ts;
-                    }
-                }
+                ingest(JSON.parse(trimmed));
             } catch (error) {
                 log('Skipping invalid flight row:', error.message);
             }
@@ -361,11 +388,12 @@ async function loadExistingFlights() {
     return {
         ids,
         total,
-        latestDate: latestDate ? new Date(latestDate).toISOString() : null
+        latestDate: latestDate ? new Date(latestDate).toISOString() : null,
+        fingerprints
     };
 }
 
-function buildFlightListUrl({ limit, skip }) {
+function buildFlightListUrl({ limit, skip, contest }) {
     const params = new URLSearchParams({
         country_id_in: 'CA',
         scoring_date_start: SEASON_START,
@@ -374,8 +402,61 @@ function buildFlightListUrl({ limit, skip }) {
         skip: String(skip),
         order_by: '-created'
     });
+    if (contest) {
+        params.set('contest', contest);
+    }
 
     return `${WEGLIDE_API_BASE}/v1/flight?${params.toString()}`;
+}
+
+async function detectChangedFlights(existing, contestName) {
+    const changed = new Map(); // id -> { contestName, before, after }
+    let pagesScanned = 0;
+    for (let batch = 0; ; batch++) {
+        const skip = batch * FLIGHT_BATCH_SIZE;
+        const url = buildFlightListUrl({ limit: FLIGHT_BATCH_SIZE, skip, contest: contestName });
+        let flights;
+        try {
+            flights = await jsonRequest(url);
+        } catch (error) {
+            log(`[change-detect/${contestName}] Failed at skip ${skip}: ${error.message}`);
+            break;
+        }
+        if (!Array.isArray(flights) || flights.length === 0) break;
+        pagesScanned += 1;
+
+        for (const flight of flights) {
+            if (!flight || typeof flight.id !== 'number') continue;
+            if (!existing.ids.has(flight.id)) continue;
+            const stored = existing.fingerprints.get(flight.id) || {};
+            const storedFp = stored[contestName] || null;
+            const liveFp = flight.contest
+                ? {
+                    points: typeof flight.contest.points === 'number' ? flight.contest.points : null,
+                    distance: typeof flight.contest.distance === 'number' ? flight.contest.distance : null,
+                    speed: typeof flight.contest.speed === 'number' ? flight.contest.speed : null
+                }
+                : null;
+            if (fingerprintsDiffer(storedFp, liveFp)) {
+                if (!changed.has(flight.id)) {
+                    changed.set(flight.id, { contestName, before: storedFp, after: liveFp });
+                }
+            }
+        }
+
+        if (flights.length < FLIGHT_BATCH_SIZE) break;
+        await delay(200);
+    }
+    log(`[change-detect/${contestName}] scanned ${pagesScanned} page(s), found ${changed.size} changed flight(s).`);
+    for (const [id, diff] of changed) {
+        const before = diff.before || { points: null, distance: null, speed: null };
+        const after = diff.after || { points: null, distance: null, speed: null };
+        log(`[change-detect/${contestName}] flight ${id}: ` +
+            `points ${before.points} -> ${after.points}, ` +
+            `distance ${before.distance} -> ${after.distance}, ` +
+            `speed ${before.speed} -> ${after.speed}`);
+    }
+    return changed;
 }
 
 async function fetchRecentFlights(existingIds, limitOverride) {
@@ -453,6 +534,39 @@ async function appendFlightsToDataset(newFlightDetails) {
         stream.write(payload);
         stream.end();
     });
+}
+
+async function replaceFlightsInDataset(updatedFlightDetails) {
+    if (!updatedFlightDetails.length) return 0;
+    if (!fs.existsSync(DATASET_FILE)) {
+        const datasetText = await loadPersistentText(DATASET_BLOB_KEY);
+        if (datasetText) {
+            fs.writeFileSync(DATASET_FILE, datasetText);
+        } else {
+            return 0;
+        }
+    }
+
+    const replacements = new Map(updatedFlightDetails.map(f => [f.id, f]));
+    const text = fs.readFileSync(DATASET_FILE, 'utf8');
+    const lines = text.split('\n');
+    let replacedCount = 0;
+    const outLines = lines.map(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return line;
+        try {
+            const flight = JSON.parse(trimmed);
+            if (flight && replacements.has(flight.id)) {
+                replacedCount += 1;
+                return JSON.stringify(replacements.get(flight.id));
+            }
+        } catch (e) {
+            // leave malformed lines untouched
+        }
+        return line;
+    });
+    fs.writeFileSync(DATASET_FILE, outLines.join('\n'));
+    return replacedCount;
 }
 
 async function loadProfiles() {
@@ -896,9 +1010,31 @@ async function runFetchAndBuild(options = {}) {
         const newFlights = await fetchRecentFlights(existing.ids, options.limitOverride);
         summary.meta.newFlights = newFlights.length;
 
-        if (newFlights.length === 0 && !options.forceBuild) {
+        // Sweep listings for re-analyzed flights — twice, once per contest.
+        const changedAcrossSweeps = new Map();
+        for (const contestName of ['free', 'ca']) {
+            const changed = await detectChangedFlights(existing, contestName);
+            for (const [id, diff] of changed) {
+                if (!changedAcrossSweeps.has(id)) {
+                    changedAcrossSweeps.set(id, []);
+                }
+                changedAcrossSweeps.get(id).push(diff);
+            }
+        }
+        const newIdSet = new Set(newFlights.map(f => f.id));
+        const changedIds = [...changedAcrossSweeps.keys()].filter(id => !newIdSet.has(id));
+        summary.meta.changedFlights = changedIds.length;
+        if (changedIds.length) {
+            summary.meta.changedFlightDetails = changedIds.map(id => ({
+                id,
+                diffs: changedAcrossSweeps.get(id)
+            }));
+            log(`Detected ${changedIds.length} re-analyzed flight(s) needing detail refresh: ${changedIds.join(', ')}`);
+        }
+
+        if (newFlights.length === 0 && changedIds.length === 0 && !options.forceBuild) {
             summary.status = 'no_changes';
-            summary.message = 'No new flights detected';
+            summary.message = 'No new or changed flights detected';
             return summary;
         }
 
@@ -915,6 +1051,17 @@ async function runFetchAndBuild(options = {}) {
 
             await appendFlightsToDataset(flightDetails);
             summary.meta.datasetUpdated = true;
+        }
+
+        if (changedIds.length > 0) {
+            const changedDetails = await fetchFlightDetails(changedIds.map(id => ({ id })));
+            summary.meta.changedDetailsFetched = changedDetails.length;
+            if (changedDetails.length) {
+                const replaced = await replaceFlightsInDataset(changedDetails);
+                summary.meta.datasetUpdated = true;
+                summary.meta.changedFlightsReplaced = replaced;
+                log(`Replaced ${replaced} re-analyzed flight(s) in dataset.`);
+            }
         }
 
         const profiles = await loadProfiles();
