@@ -37,6 +37,7 @@ const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
 // WeGlide pagination expects skip to be a multiple of 100, so we page in 100-flight blocks
 const FLIGHT_BATCH_SIZE = 100;
 const FLIGHT_DETAIL_DELAY_MS = Number(trimEnv(process.env.FLIGHT_DETAIL_DELAY_MS, 200));
+const RECENT_REFRESH_DAYS = Number(trimEnv(process.env.RECENT_REFRESH_DAYS, 14));
 const DEFAULT_OLC_DB_PATH = path.resolve(process.cwd(), '../OLC-downloader/olc_stats.sqlite');
 const OLC_DB_PATH = trimEnv(process.env.OLC_DB_PATH, fs.existsSync(DEFAULT_OLC_DB_PATH) ? DEFAULT_OLC_DB_PATH : '');
 
@@ -336,6 +337,7 @@ function fingerprintsDiffer(a, b) {
 async function loadExistingFlights() {
     const ids = new Set();
     const fingerprints = new Map();
+    const takeoffTimes = new Map();
     let total = 0;
     let latestDate = null;
 
@@ -347,6 +349,10 @@ async function loadExistingFlights() {
                 free: extractContestFingerprint(flight, 'free'),
                 ca: extractContestFingerprint(flight, 'ca')
             });
+            const takeoffMs = flight.takeoff_time ? Date.parse(flight.takeoff_time) : NaN;
+            if (Number.isFinite(takeoffMs)) {
+                takeoffTimes.set(flight.id, takeoffMs);
+            }
         }
         if (flight.scoring_date) {
             const ts = Date.parse(flight.scoring_date);
@@ -389,8 +395,22 @@ async function loadExistingFlights() {
         ids,
         total,
         latestDate: latestDate ? new Date(latestDate).toISOString() : null,
-        fingerprints
+        fingerprints,
+        takeoffTimes
     };
+}
+
+// Recent-window backstop: return flight IDs whose takeoff is within the last
+// `days` days. Catches WeGlide flag-only validity flips that the listing-based
+// change-detector misses (its diff only sees points/distance/speed).
+function findRecentWindowIds(existing, days) {
+    const out = new Set();
+    if (!existing || !existing.takeoffTimes || days <= 0) return out;
+    const cutoffMs = Date.now() - days * 24 * 60 * 60 * 1000;
+    for (const [id, takeoffMs] of existing.takeoffTimes) {
+        if (takeoffMs >= cutoffMs) out.add(id);
+    }
+    return out;
 }
 
 function buildFlightListUrl({ limit, skip, contest }) {
@@ -1032,7 +1052,23 @@ async function runFetchAndBuild(options = {}) {
             log(`Detected ${changedIds.length} re-analyzed flight(s) needing detail refresh: ${changedIds.join(', ')}`);
         }
 
-        if (newFlights.length === 0 && changedIds.length === 0 && !options.forceBuild) {
+        // Backstop refresh — handles flag-only flips that change-detection misses.
+        // fullRefresh: re-pull every stored flight (weekly).
+        // Otherwise: re-pull every flight whose takeoff is within RECENT_REFRESH_DAYS days.
+        const recentRefreshDays = options.fullRefresh ? null : RECENT_REFRESH_DAYS;
+        const refreshSet = options.fullRefresh
+            ? new Set(existing.ids)
+            : findRecentWindowIds(existing, recentRefreshDays);
+        // exclude IDs already covered by new-flight or change-detection paths
+        for (const id of newIdSet) refreshSet.delete(id);
+        for (const id of changedIds) refreshSet.delete(id);
+        summary.meta.refreshMode = options.fullRefresh ? 'full' : `last_${RECENT_REFRESH_DAYS}_days`;
+        summary.meta.refreshFlights = refreshSet.size;
+        if (refreshSet.size) {
+            log(`Backstop refresh (${summary.meta.refreshMode}): ${refreshSet.size} flight(s) to refetch.`);
+        }
+
+        if (newFlights.length === 0 && changedIds.length === 0 && refreshSet.size === 0 && !options.forceBuild) {
             summary.status = 'no_changes';
             summary.message = 'No new or changed flights detected';
             return summary;
@@ -1053,14 +1089,15 @@ async function runFetchAndBuild(options = {}) {
             summary.meta.datasetUpdated = true;
         }
 
-        if (changedIds.length > 0) {
-            const changedDetails = await fetchFlightDetails(changedIds.map(id => ({ id })));
-            summary.meta.changedDetailsFetched = changedDetails.length;
-            if (changedDetails.length) {
-                const replaced = await replaceFlightsInDataset(changedDetails);
+        const refreshIds = [...changedIds, ...refreshSet];
+        if (refreshIds.length > 0) {
+            const refreshDetails = await fetchFlightDetails(refreshIds.map(id => ({ id })));
+            summary.meta.refreshDetailsFetched = refreshDetails.length;
+            if (refreshDetails.length) {
+                const replaced = await replaceFlightsInDataset(refreshDetails);
                 summary.meta.datasetUpdated = true;
-                summary.meta.changedFlightsReplaced = replaced;
-                log(`Replaced ${replaced} re-analyzed flight(s) in dataset.`);
+                summary.meta.flightsReplaced = replaced;
+                log(`Replaced ${replaced} flight(s) in dataset (${changedIds.length} change-detected, ${refreshSet.size} window-refresh).`);
             }
         }
 

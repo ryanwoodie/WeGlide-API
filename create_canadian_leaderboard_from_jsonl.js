@@ -46,11 +46,9 @@ function findPrimaryTaskContest(flight, requirePoints = true) {
     return findContestByNames(
         flight,
         ['ca', 'au'],
-        (contest) => {
-            if (contest.valid === false) return false;
-            if (requirePoints && !(typeof contest.points === 'number' && contest.points > 0)) return false;
-            return true;
-        }
+        requirePoints
+            ? (contest) => typeof contest.points === 'number' && contest.points > 0
+            : null
     );
 }
 
@@ -58,11 +56,9 @@ function findDeclaredTaskContest(flight, requirePoints = false) {
     const declarationContest = findContestByNames(
         flight,
         ['declaration'],
-        (contest) => {
-            if (contest.valid === false) return false;
-            if (requirePoints && !(typeof contest.points === 'number' && contest.points > 0)) return false;
-            return true;
-        }
+        requirePoints
+            ? (contest) => typeof contest.points === 'number' && contest.points > 0
+            : null
     );
     if (declarationContest?.score?.declared === true) {
         return declarationContest;
@@ -81,6 +77,42 @@ function isIgcLoggerValidForBhc(flight) {
         (!Array.isArray(flight?.igc_file?.errors) || flight.igc_file.errors.length === 0);
 }
 
+// Collect human-readable reasons WeGlide voids a flight or its contest entry.
+// Returns [] when nothing is wrong. Mirrors WeGlide's contest-ranking gates:
+//  - flight.valid !== true (engine sensor missing, etc.)
+//  - igc_file.errors[type=error] (NO_G_RECORD, etc. — blocks ranking even when
+//    flight.valid is true)
+//  - contest entry's valid === false (late upload / contest-specific void)
+function getFlightErrorReasons(flight, contestEntry) {
+    const reasons = [];
+    const seen = new Set();
+    const pushMsg = (m) => {
+        if (typeof m !== 'string') return;
+        const trimmed = m.trim();
+        if (!trimmed || seen.has(trimmed)) return;
+        seen.add(trimmed);
+        reasons.push(trimmed);
+    };
+
+    if (flight && flight.valid !== true) {
+        const errs = (flight.active_errors || []).filter((e) => e && e.type === 'error');
+        if (errs.length) {
+            for (const e of errs) pushMsg(e && e.msg);
+        } else {
+            pushMsg('Flight marked invalid by WeGlide.');
+        }
+    }
+
+    const igcErrors = ((flight && flight.igc_file && flight.igc_file.errors) || [])
+        .filter((e) => e && e.type === 'error');
+    for (const e of igcErrors) pushMsg(e && e.msg);
+
+    if (contestEntry && contestEntry.valid === false) {
+        pushMsg('Contest entry invalidated (e.g. uploaded after deadline).');
+    }
+    return reasons;
+}
+
 // Function to calculate best score from flight contest data (Mixed scoring)
 function calculateBestScore(flight) {
     if (!flight.contest || !Array.isArray(flight.contest)) {
@@ -89,8 +121,8 @@ function calculateBestScore(flight) {
 
     // Find the task/declaration/free contests specifically
     const auContest = findPrimaryTaskContest(flight, true);
-    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.valid !== false && contest.points > 0);
-    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.valid !== false && contest.points > 0);
+    const declarationContest = findContestByNames(flight, ['declaration'], (contest) => contest.points > 0);
+    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
 
     let bestContest = null;
     let bestScore = 0;
@@ -120,7 +152,6 @@ function calculateBestScore(flight) {
     // If no au/declaration/free found, fall back to any other contest with points
     if (!bestContest) {
         flight.contest.forEach(contest => {
-            if (contest.valid === false) return;
             if (contest.points && contest.points > bestScore) {
                 bestScore = contest.points;
                 bestContest = contest;
@@ -132,51 +163,57 @@ function calculateBestScore(flight) {
         // Mark as declared if using au or declaration contest that was declared
         const isDeclaredTask = ((bestContest.name === 'ca' || bestContest.name === 'au') && isAuDeclared) ||
                               (bestContest.name === 'declaration' && isDeclarationDeclared);
+        const errorReasons = getFlightErrorReasons(flight, bestContest);
 
         return {
             score: bestScore,
             distance: bestContest.distance || 0,
             speed: bestContest.speed || 0,
             contestType: bestContest.name || 'unknown',
-            declared: isDeclaredTask
+            declared: isDeclaredTask,
+            invalid: errorReasons.length > 0,
+            errorReasons
         };
     }
 
-    return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
+    return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, invalid: false, errorReasons: [] };
 }
 
 // Function to calculate Free-only score from flight contest data
 function calculateFreeScore(flight) {
     if (!flight.contest || !Array.isArray(flight.contest)) {
-        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, invalid: false, errorReasons: [] };
     }
 
     // Only use Free contest
-    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.valid !== false && contest.points > 0);
+    const freeContest = flight.contest.find(contest => contest.name === 'free' && contest.points > 0);
 
     if (freeContest) {
+        const errorReasons = getFlightErrorReasons(flight, freeContest);
         return {
             score: freeContest.points,
             distance: freeContest.distance || 0,
             speed: freeContest.speed || 0,
             contestType: 'free',
-            declared: false  // No task badges in Free-only mode
+            declared: false,  // No task badges in Free-only mode
+            invalid: errorReasons.length > 0,
+            errorReasons
         };
     }
 
-    return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
+    return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, invalid: false, errorReasons: [] };
 }
 
 function calculateContestScore(flight, contestName) {
     if (!flight?.contest || !Array.isArray(flight.contest)) {
-        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, invalid: false, errorReasons: [] };
     }
 
     const contest = contestName === 'ca'
         ? findPrimaryTaskContest(flight, true)
-        : flight.contest.find(c => c && c.name === contestName && c.valid !== false && typeof c.points === 'number' && c.points > 0);
+        : flight.contest.find(c => c && c.name === contestName && typeof c.points === 'number' && c.points > 0);
     if (!contest) {
-        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false };
+        return { score: 0, distance: 0, speed: 0, contestType: 'none', declared: false, invalid: false, errorReasons: [] };
     }
 
     const distance = typeof contest.distance === 'number' ? contest.distance
@@ -187,15 +224,18 @@ function calculateContestScore(flight, contestName) {
         : 0;
     const declared = contest?.score?.declared === true;
 
-        const taskCompleted = flight?.task_achieved === true;
-        return {
-            score: contest.points,
-            distance,
-            speed,
-            contestType: contest.name,
-            declared: declared || taskCompleted
-        };
-    }
+    const taskCompleted = flight?.task_achieved === true;
+    const errorReasons = getFlightErrorReasons(flight, contest);
+    return {
+        score: contest.points,
+        distance,
+        speed,
+        contestType: contest.name,
+        declared: declared || taskCompleted,
+        invalid: errorReasons.length > 0,
+        errorReasons
+    };
+}
 
 const TASK_KIND_LABELS = {
     FR4: 'Start, 2-3 Turnpoints, Finish',
@@ -668,7 +708,9 @@ async function processCanadianFlights() {
                             contestType: mixedScoringData.contestType,
                             aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
-                            dmstIndex: flight.dmst_index || null
+                            dmstIndex: flight.dmst_index || null,
+                            invalid: mixedScoringData.invalid === true,
+                            errorReasons: mixedScoringData.errorReasons || []
                         });
                     }
 
@@ -685,9 +727,11 @@ async function processCanadianFlights() {
                             region: flight.takeoff_airport?.region || '',
                             declared: freeScoringData.declared,
                             contestType: freeScoringData.contestType,
-                            aircraftKind: flight.aircraft?.kind || 'unknown',  // Track aircraft type
+                            aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
-                            dmstIndex: flight.dmst_index || null
+                            dmstIndex: flight.dmst_index || null,
+                            invalid: freeScoringData.invalid === true,
+                            errorReasons: freeScoringData.errorReasons || []
                         });
                     }
 
@@ -705,7 +749,9 @@ async function processCanadianFlights() {
                             contestType: sacDscScoringData.contestType,
                             aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
-                            dmstIndex: flight.dmst_index || null
+                            dmstIndex: flight.dmst_index || null,
+                            invalid: sacDscScoringData.invalid === true,
+                            errorReasons: sacDscScoringData.errorReasons || []
                         });
                     }
 
@@ -752,7 +798,9 @@ async function processCanadianFlights() {
                             contestType: sprintScoringData.contestType,
                             aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
-                            dmstIndex: flight.dmst_index || null
+                            dmstIndex: flight.dmst_index || null,
+                            invalid: sprintScoringData.invalid === true,
+                            errorReasons: sprintScoringData.errorReasons || []
                         });
                     }
 
@@ -771,7 +819,9 @@ async function processCanadianFlights() {
                             contestType: triangleScoringData.contestType,
                             aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
-                            dmstIndex: flight.dmst_index || null
+                            dmstIndex: flight.dmst_index || null,
+                            invalid: triangleScoringData.invalid === true,
+                            errorReasons: triangleScoringData.errorReasons || []
                         });
                     }
 
@@ -790,7 +840,9 @@ async function processCanadianFlights() {
                             contestType: outReturnScoringData.contestType,
                             aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
-                            dmstIndex: flight.dmst_index || null
+                            dmstIndex: flight.dmst_index || null,
+                            invalid: outReturnScoringData.invalid === true,
+                            errorReasons: outReturnScoringData.errorReasons || []
                         });
                     }
 
@@ -809,7 +861,9 @@ async function processCanadianFlights() {
                             contestType: outScoringData.contestType,
                             aircraftKind: flight.aircraft?.kind || 'unknown',
                             aircraftName: flight.aircraft?.name || '',
-                            dmstIndex: flight.dmst_index || null
+                            dmstIndex: flight.dmst_index || null,
+                            invalid: outScoringData.invalid === true,
+                            errorReasons: outScoringData.errorReasons || []
                         });
                     }
 
@@ -1047,28 +1101,36 @@ async function processCanadianFlights() {
 
         console.log(`✅ Processed ${totalProcessed} total flights, found ${australianCount} Canadian flights`);
 
-        // Function to generate leaderboard from pilot flights
+        // Function to generate leaderboard from pilot flights.
+        // Invalid flights occupy slots only after all valid flights are taken; they
+        // are shown in bestFlights for display but excluded from totals/flightCount.
         function generateLeaderboard(pilotFlights, maxFlights = 5) {
             const leaderboard = [];
 
             Object.keys(pilotFlights).forEach(pilotName => {
                 const flights = pilotFlights[pilotName];
 
-                // Sort flights by points (descending) and take top N
                 const bestFlights = flights
-                    .sort((a, b) => b.points - a.points)
+                    .slice()
+                    .sort((a, b) => {
+                        const ai = a.invalid ? 1 : 0;
+                        const bi = b.invalid ? 1 : 0;
+                        if (ai !== bi) return ai - bi; // valid first
+                        return b.points - a.points;
+                    })
                     .slice(0, maxFlights);
 
                 if (bestFlights.length > 0) {
-                    const totalPoints = bestFlights.reduce((sum, flight) => sum + flight.points, 0);
-                    const totalDistance = bestFlights.reduce((sum, flight) => sum + flight.distance, 0);
+                    const validBest = bestFlights.filter(f => !f.invalid);
+                    const totalPoints = validBest.reduce((sum, flight) => sum + flight.points, 0);
+                    const totalDistance = validBest.reduce((sum, flight) => sum + flight.distance, 0);
 
                     leaderboard.push({
                         pilot: pilotName,
                         pilotId: bestFlights[0].userId || bestFlights[0].id,
                         totalPoints: totalPoints,
                         totalDistance: totalDistance,
-                        flightCount: bestFlights.length,
+                        flightCount: validBest.length,
                         bestFlights: bestFlights
                     });
                 }
@@ -1223,7 +1285,7 @@ async function processCanadianFlights() {
             let bestMotorGliderPilotId = null;
 
             leaderboard.forEach(pilot => {
-                const flights = pilot.bestFlights || [];
+                const flights = (pilot.bestFlights || []).filter(f => !f.invalid);
 
                 // Separate flights by aircraft type
                 const gliderFlights = flights.filter(f => f.aircraftKind === 'GL');
@@ -1268,32 +1330,29 @@ async function processCanadianFlights() {
         }
 
         const MIN_LEADERBOARD_FLIGHT_POINTS = 50;
-        const filteredFreeLeaderboard = freeLeaderboard.map((pilot) => {
+        // Drop flights below the minimum-points display threshold. Aggregates
+        // (totalPoints/Distance/flightCount) count only flights that are NOT
+        // marked invalid; invalid ones remain in bestFlights for display.
+        const applyMinPointsAndAggregate = (pilot) => {
             const filteredFlights = (pilot.bestFlights || []).filter(f => (f.points || 0) >= MIN_LEADERBOARD_FLIGHT_POINTS);
-            const totalPoints = filteredFlights.reduce((sum, f) => sum + (f.points || 0), 0);
-            const totalDistance = filteredFlights.reduce((sum, f) => sum + (f.distance || 0), 0);
+            const validFlights = filteredFlights.filter(f => !f.invalid);
+            const totalPoints = validFlights.reduce((sum, f) => sum + (f.points || 0), 0);
+            const totalDistance = validFlights.reduce((sum, f) => sum + (f.distance || 0), 0);
             return Object.assign({}, pilot, {
                 bestFlights: filteredFlights,
-                flightCount: filteredFlights.length,
+                flightCount: validFlights.length,
                 totalPoints,
                 totalDistance
             });
-        }).filter(p => p.flightCount > 0);
+        };
+        const filteredFreeLeaderboard = freeLeaderboard.map(applyMinPointsAndAggregate)
+            .filter(p => (p.bestFlights || []).length > 0);
 
         const aircraftAwards = calculateAircraftAwards(filteredFreeLeaderboard);
 
         // Apply minimum score filter before building outputs
-        const filteredSacDscLeaderboard = sacDscLeaderboard.map((pilot) => {
-            const filteredFlights = (pilot.bestFlights || []).filter(f => (f.points || 0) >= MIN_LEADERBOARD_FLIGHT_POINTS);
-            const totalPoints = filteredFlights.reduce((sum, f) => sum + (f.points || 0), 0);
-            const totalDistance = filteredFlights.reduce((sum, f) => sum + (f.distance || 0), 0);
-            return Object.assign({}, pilot, {
-                bestFlights: filteredFlights,
-                flightCount: filteredFlights.length,
-                totalPoints,
-                totalDistance
-            });
-        }).filter(p => p.flightCount > 0);
+        const filteredSacDscLeaderboard = sacDscLeaderboard.map(applyMinPointsAndAggregate)
+            .filter(p => (p.bestFlights || []).length > 0);
 
         const sacDscLeaderboardOutput = filteredSacDscLeaderboard;
         const freeLeaderboardOutput = filteredFreeLeaderboard;
@@ -2736,6 +2795,10 @@ No maximum distance bonus\`,
                 : flight.triangleType === 'other'
                     ? '<span class="triangle-type-badge other">Triangle</span>'
                     : '';
+            const invalidBadge = flight.invalid
+                ? '<span class="invalid-badge" title="Not counted toward total — see flight details for reason">INVALID</span>'
+                : '';
+            const pointsClass = flight.invalid ? 'flight-points invalid-points' : 'flight-points';
             const bhcModeActive = currentScoringMode === 'bhc';
             const bhcCellClass = bhcModeActive && flight.bhcLoggerValid === false ? ' bhc-unofficial' : '';
             const flightUrl = \`https://www.weglide.org/flight/\${flight.id}\`;
@@ -2756,7 +2819,7 @@ No maximum distance bonus\`,
             return \`
                 <td class="flight-cell\${bhcCellClass}" onclick="showFlightPreview(\${flight.id}, event)">
                     <div class="flight-details">
-                        <div class="flight-points">\${flight.points.toFixed(1)} pts\${declaredBadge}\${triangleTypeBadge}</div>
+                        <div class="\${pointsClass}"><span class="points-value">\${flight.points.toFixed(1)} pts</span>\${declaredBadge}\${triangleTypeBadge}\${invalidBadge}</div>
                         <div class="flight-distance">\${flight.distance.toFixed(1)} km</div>
                         <div class="flight-speed">\${flight.speed.toFixed(1)} km/h</div>
                         <div class="flight-date">\${formatDate(flight.date)}</div>
@@ -2776,6 +2839,15 @@ No maximum distance bonus\`,
                 day: 'numeric',
                 timeZone: 'UTC'
             });
+        }
+
+        function escapeHtml(s) {
+            return String(s)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
         }
 
         // Update task stats visibility (now always visible in main stats)
@@ -3879,6 +3951,13 @@ No maximum distance bonus\`,
                                       flightData.aircraftKind === 'MG' ? 'Motor Glider' : flightData.aircraftKind;
             }
 
+            const invalidReasonsHtml = (Array.isArray(flightData.errorReasons) && flightData.errorReasons.length)
+                ? \`<div class="invalid-reasons">
+                        <div class="invalid-reasons-title">Not counted toward total</div>
+                        <ul>\${flightData.errorReasons.map(r => \`<li>\${escapeHtml(String(r))}</li>\`).join('')}</ul>
+                   </div>\`
+                : '';
+
             previewElement.innerHTML = \`
                 <button class="tooltip-close-btn" onclick="closeFlightTooltip(event)">&times;</button>
                 <div class="flight-tooltip-header">
@@ -3887,6 +3966,7 @@ No maximum distance bonus\`,
                     \${statusBadges}
                 </div>
                 <div class="flight-tooltip-content">
+                    \${invalidReasonsHtml}
                     \${flightImageHtml}
                     \${detailedStatsHtml}
                     \${taskScoreHtml}
@@ -3934,9 +4014,10 @@ No maximum distance bonus\`,
             let bestMotorGliderPilotId = null;
 
             visiblePilots.forEach(pilot => {
-                // Separate flights by aircraft type
-                const gliderFlights = pilot.bestFlights.filter(f => f.aircraftKind === 'GL');
-                const motorGliderFlights = pilot.bestFlights.filter(f => f.aircraftKind === 'MG');
+                // Skip invalid flights from aircraft-awards calculation
+                const validFlights = (pilot.bestFlights || []).filter(f => !f.invalid);
+                const gliderFlights = validFlights.filter(f => f.aircraftKind === 'GL');
+                const motorGliderFlights = validFlights.filter(f => f.aircraftKind === 'MG');
 
                 // Calculate total scores for each aircraft type
                 if (gliderFlights.length > 0) {
@@ -5859,6 +5940,53 @@ No maximum distance bonus\`,
             background: #f6e8b1;
             color: #5c4600;
             border-color: #d6c070;
+        }
+
+        .invalid-badge {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 0.72em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: #fde2e2;
+            color: #8a1c1c;
+            border: 1px solid #f1a1a1;
+        }
+
+        .flight-points.invalid-points .points-value {
+            text-decoration: line-through;
+            color: #8a1c1c;
+        }
+
+        .invalid-reasons {
+            background: #fdecec;
+            border: 1px solid #f1a1a1;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+        }
+
+        .invalid-reasons-title {
+            font-weight: 700;
+            color: #8a1c1c;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-size: 0.78em;
+            margin-bottom: 6px;
+        }
+
+        .invalid-reasons ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #5a1212;
+            font-size: 0.92em;
+        }
+
+        .invalid-reasons li + li {
+            margin-top: 4px;
         }
 
         .bhc-meta-badge {

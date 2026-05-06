@@ -1,0 +1,26 @@
+name: Weekly Full Rebuild
+
+on:
+  schedule:
+    # Sundays at 04:00 UTC — full re-pull of every stored flight to catch
+    # WeGlide flag flips that the daily change-detection sweep can't see.
+    - cron: '0 4 * * 0'
+  workflow_dispatch:
+
+# Share the concurrency group with the daily workflow so a full rebuild
+# never overlaps an incremental one.
+concurrency:
+  group: update-leaderboard
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Vercel Endpoint (full refresh)
+        env:
+          TOKEN: ${{ secrets.UPDATE_TOKEN }}
+        run: |
+          curl -X POST "https://sac-leaderboard.vercel.app/api/trigger-update?force=true&fullRefresh=true" \
+          -H "x-update-token: $TOKEN" \
+          --fail
