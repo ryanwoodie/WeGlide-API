@@ -2385,6 +2385,7 @@
                         <button class="filter-btn" id="under200Btn">&lt; 200 hrs PIC</button>
                         <button class="filter-btn" id="juniorBtn">Junior</button>
                         <button class="filter-btn" id="seniorBtn">Senior</button>
+                        <button class="filter-btn" id="womenBtn">Women</button>
                         <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>
                         <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>
                     </div>
@@ -2452,6 +2453,7 @@
         let under200Enabled = false;
         let juniorEnabled = false;
         let seniorEnabled = false;
+        let womenEnabled = false;
         let selectedClub = 'all';
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SUPPORTS_HOVER_POINTER = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
@@ -3240,14 +3242,41 @@ No maximum distance bonus`,
         }
 
         function applyAgeCategoryFilters(list) {
-            if (!juniorEnabled && !seniorEnabled) return list;
-            if (juniorEnabled) {
-                return list.filter(pilot => getPilotProfileFlag(pilot, 'is_junior'));
+            if (!juniorEnabled && !seniorEnabled && !womenEnabled) return list;
+            return list.filter((pilot) => {
+                if (juniorEnabled && !getPilotProfileFlag(pilot, 'is_junior')) {
+                    return false;
+                }
+                if (seniorEnabled && !getPilotProfileFlag(pilot, 'is_senior')) {
+                    return false;
+                }
+                if (womenEnabled) {
+                    const pilotId = pilot?.pilotId || pilot?.userId;
+                    const profile = getPilotProfile(pilotId);
+                    if (String(profile?.gender || '').toUpperCase() !== 'F') {
+                        return false;
+                    }
+                }
+                return true;
+            });
+        }
+
+        function refreshDemographicFilterButtons() {
+            const juniorBtn = document.getElementById('juniorBtn');
+            if (juniorBtn) {
+                juniorBtn.classList.toggle('active', juniorEnabled);
+                updateJuniorButtonLabel();
             }
-            if (seniorEnabled) {
-                return list.filter(pilot => getPilotProfileFlag(pilot, 'is_senior'));
+            const seniorBtn = document.getElementById('seniorBtn');
+            if (seniorBtn) {
+                seniorBtn.classList.toggle('active', seniorEnabled);
+                updateSeniorButtonLabel();
             }
-            return list;
+            const womenBtn = document.getElementById('womenBtn');
+            if (womenBtn) {
+                womenBtn.classList.toggle('active', womenEnabled);
+                updateWomenButtonLabel();
+            }
         }
 
         async function loadLeaderboard() {
@@ -3702,6 +3731,11 @@ No maximum distance bonus`,
             if (seniorBtn) {
                 seniorBtn.classList.toggle('active', seniorEnabled);
                 if (typeof updateSeniorButtonLabel === 'function') updateSeniorButtonLabel();
+            }
+            const womenBtn = document.getElementById('womenBtn');
+            if (womenBtn) {
+                womenBtn.classList.toggle('active', womenEnabled);
+                if (typeof updateWomenButtonLabel === 'function') updateWomenButtonLabel();
             }
 
             updateTaskStats(mode, calculateDisplayedTaskStats(leaderboard));
@@ -4645,7 +4679,7 @@ No maximum distance bonus`,
             const isSilverCGull = leaderboard === silverCGullLeaderboard;
             const visible = applyAgeCategoryFilters(applyUnder200Filter(applyClubFilter(leaderboard)));
             const clubFilterActive = selectedClub !== 'all';
-            const ageCategoryFilterActive = juniorEnabled || seniorEnabled;
+            const ageCategoryFilterActive = juniorEnabled || seniorEnabled || womenEnabled;
             const isThreeFlightMode = currentScoringMode === 'sprint' || currentScoringMode === 'triangle' || currentScoringMode === 'out_return' || currentScoringMode === 'out';
             const maxFlightsToShow = currentScoringMode === 'bhc' ? 1 : (isThreeFlightMode ? 3 : 5);
 
@@ -4895,6 +4929,12 @@ No maximum distance bonus`,
             const btn = document.getElementById('seniorBtn');
             if (!btn) return;
             btn.textContent = seniorEnabled ? 'Senior (ON)' : 'Senior';
+        }
+
+        function updateWomenButtonLabel() {
+            const btn = document.getElementById('womenBtn');
+            if (!btn) return;
+            btn.textContent = womenEnabled ? 'Women (ON)' : 'Women';
         }
 
         // Trophy calculation functions
@@ -5676,16 +5716,7 @@ No maximum distance bonus`,
                 seniorEnabled = false;
             }
 
-            const juniorBtn = document.getElementById('juniorBtn');
-            if (juniorBtn) {
-                juniorBtn.classList.toggle('active', juniorEnabled);
-            }
-            const seniorBtn = document.getElementById('seniorBtn');
-            if (seniorBtn) {
-                seniorBtn.classList.toggle('active', seniorEnabled);
-            }
-            updateJuniorButtonLabel();
-            updateSeniorButtonLabel();
+            refreshDemographicFilterButtons();
             buildLeaderboard();
             setTimeout(() => {
                 if (typeof addTooltipListeners === 'function') addTooltipListeners();
@@ -5698,16 +5729,16 @@ No maximum distance bonus`,
                 juniorEnabled = false;
             }
 
-            const juniorBtn = document.getElementById('juniorBtn');
-            if (juniorBtn) {
-                juniorBtn.classList.toggle('active', juniorEnabled);
-            }
-            const seniorBtn = document.getElementById('seniorBtn');
-            if (seniorBtn) {
-                seniorBtn.classList.toggle('active', seniorEnabled);
-            }
-            updateJuniorButtonLabel();
-            updateSeniorButtonLabel();
+            refreshDemographicFilterButtons();
+            buildLeaderboard();
+            setTimeout(() => {
+                if (typeof addTooltipListeners === 'function') addTooltipListeners();
+            }, 0);
+        }
+
+        function setWomenFilter(enabled) {
+            womenEnabled = enabled;
+            refreshDemographicFilterButtons();
             buildLeaderboard();
             setTimeout(() => {
                 if (typeof addTooltipListeners === 'function') addTooltipListeners();
@@ -6337,6 +6368,13 @@ No maximum distance bonus`,
                     setSeniorFilter(!seniorEnabled);
                 });
                 updateSeniorButtonLabel();
+            }
+            const womenBtn = document.getElementById('womenBtn');
+            if (womenBtn) {
+                womenBtn.addEventListener('click', () => {
+                    setWomenFilter(!womenEnabled);
+                });
+                updateWomenButtonLabel();
             }
 
             // Search overlay functionality
