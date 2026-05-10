@@ -83605,6 +83605,71 @@
         "name": "Pendleton GATGC",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1079280,
+      "user": {
+        "id": 22077,
+        "name": "Sasha Pejic"
+      },
+      "date": "2026-05-10",
+      "distance": 27.98,
+      "duration": 1915,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 32.63,
+          "distance": 27.98,
+          "speed": 84.57,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 2.42,
+          "distance": 4.84,
+          "speed": 2.42,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 15.51,
+          "distance": 15.51,
+          "speed": 55.89,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 16.66,
+          "distance": 16.66,
+          "speed": 67.16,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 23.26,
+          "distance": 23.26,
+          "speed": 71.26,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cu Nim",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -94212,12 +94277,12 @@
   ],
   "meta": {
     "totalPilots": 115,
-    "totalFlights": 360,
-    "totalKms": 57204,
+    "totalFlights": 361,
+    "totalKms": 57232,
     "totalTasksDeclared": 123,
     "totalTasksCompleted": 8,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-10T21:10:51.957Z"
+    "generatedAt": "2026-05-10T21:40:49.461Z"
   }
 }
