@@ -3316,7 +3316,32 @@ No maximum distance bonus\`,
         // so position:fixed would place the modal at the doc midpoint, not the visible screen.
         // Fix: postMessage to get the parent viewport rect, then switch to position:absolute
         // with scrollY + centerYInChild to land in the visible portion.
-        function positionModalCenteredInViewport(el, onPositioned) {
+        function positionModalNearClickAnchor(el, anchorEvent) {
+            if (!el || !anchorEvent || typeof anchorEvent.clientX !== 'number' || typeof anchorEvent.clientY !== 'number') {
+                return false;
+            }
+
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const elRect = el.getBoundingClientRect();
+            const margin = 12;
+            const halfWidth = elRect.width / 2;
+            const halfHeight = elRect.height / 2;
+            const maxLeft = scrollX + window.innerWidth - halfWidth - margin;
+            const maxTop = scrollY + window.innerHeight - halfHeight - margin;
+            const desiredLeft = scrollX + anchorEvent.clientX;
+            const desiredTop = scrollY + anchorEvent.clientY;
+            const clampedLeft = Math.min(Math.max(desiredLeft, scrollX + halfWidth + margin), Math.max(scrollX + halfWidth + margin, maxLeft));
+            const clampedTop = Math.min(Math.max(desiredTop, scrollY + halfHeight + margin), Math.max(scrollY + halfHeight + margin, maxTop));
+
+            el.style.position = 'absolute';
+            el.style.left = clampedLeft + 'px';
+            el.style.top = clampedTop + 'px';
+            el.style.transform = 'translate(-50%, -50%)';
+            return true;
+        }
+
+        function positionModalCenteredInViewport(el, onPositioned, anchorEvent) {
             // Default: fixed + centered (works standalone)
             el.style.position = 'fixed';
             el.style.left = '50%';
@@ -3378,6 +3403,7 @@ No maximum distance bonus\`,
             // Fallback: if no response in 200ms, show with fixed positioning anyway
             timeoutId = setTimeout(() => {
                 window.removeEventListener('message', handleResponse);
+                positionModalNearClickAnchor(el, anchorEvent);
                 if (el && el.isConnected && onPositioned) requestAnimationFrame(onPositioned);
             }, 200);
 
@@ -3434,7 +3460,7 @@ No maximum distance bonus\`,
                 if (pilotPreviewElement) {
                     pilotPreviewElement.style.opacity = '1';
                 }
-            });
+            }, triggerElement);
         }
 
         function hidePilotPreview(evt, immediate = false) {
@@ -4042,7 +4068,7 @@ No maximum distance bonus\`,
                 if (previewElement) {
                     previewElement.style.opacity = '1';
                 }
-            });
+            }, event);
         }
 
         function hideFlightPreview(evt, immediate = false) {
@@ -7966,6 +7992,9 @@ No maximum distance bonus\`,
         // Write the Canadian SAC leaderboard HTML variants
         fs.writeFileSync(resolvePath('SAC_leaderboard.html'), combinedHTML);
         fs.writeFileSync(resolvePath('SAC_leaderboard_sac_dsc.html'), sacDscHTML);
+        fs.mkdirSync(resolvePath('public'), { recursive: true });
+        fs.writeFileSync(resolvePath('public/SAC_leaderboard.html'), combinedHTML);
+        fs.writeFileSync(resolvePath('public/SAC_leaderboard_sac_dsc.html'), sacDscHTML);
 
         // Write the consolidated JSON data for the web component
         const leaderboardData = {
@@ -8001,6 +8030,7 @@ No maximum distance bonus\`,
             }
         };
         fs.writeFileSync(resolvePath('leaderboard_data.json'), JSON.stringify(leaderboardData, null, 2));
+        fs.writeFileSync(resolvePath('public/leaderboard_data.json'), JSON.stringify(leaderboardData, null, 2));
         console.log('✅ Created leaderboard_data.json for API');
 
         console.log('✅ Created SAC_leaderboard.html, SAC_leaderboard_sac_dsc.html, and leaderboard_data.json');
