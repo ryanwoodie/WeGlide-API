@@ -24,9 +24,6 @@
  *   VERIFICATION_TOKEN_SECRET required for token signing
  */
 
-const fs = require('fs');
-const path = require('path');
-
 const {
     computeNotificationCandidates,
     buildMessageLinks,
@@ -36,8 +33,6 @@ const {
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
 const { sendUserMessage } = require('../lib/weglide-message');
 
-const LEADERBOARD_DATA_FILE = process.env.LEADERBOARD_DATA_FILE
-    || path.join('public', 'leaderboard_data.json');
 const MAX_SENDS_PER_RUN = 1;
 
 function isAuthorized(req) {
@@ -49,16 +44,15 @@ function isAuthorized(req) {
     return true;
 }
 
-function loadLeaderboardData() {
-    const localPath = path.isAbsolute(LEADERBOARD_DATA_FILE)
-        ? LEADERBOARD_DATA_FILE
-        : path.join(process.cwd(), LEADERBOARD_DATA_FILE);
-    if (!fs.existsSync(localPath)) {
-        const error = new Error(`Leaderboard data file not found: ${localPath}`);
-        error.code = 'LEADERBOARD_DATA_MISSING';
+async function loadLeaderboardData(baseUrl) {
+    const url = `${baseUrl}/leaderboard_data.json`;
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) {
+        const error = new Error(`Leaderboard data fetch failed: ${response.status} ${response.statusText} (${url})`);
+        error.code = 'LEADERBOARD_DATA_FETCH_FAILED';
         throw error;
     }
-    return JSON.parse(fs.readFileSync(localPath, 'utf8'));
+    return response.json();
 }
 
 function resolveBaseUrl(req) {
@@ -91,9 +85,9 @@ module.exports = async (req, res) => {
             ? Math.max(1, Math.min(50, parseInt(req.query.topN, 10) || DEFAULT_TOP_N))
             : DEFAULT_TOP_N;
 
-        const leaderboardData = loadLeaderboardData();
-        const state = await loadVerificationState();
         const baseUrl = resolveBaseUrl(req);
+        const leaderboardData = await loadLeaderboardData(baseUrl);
+        const state = await loadVerificationState();
 
         const result = computeNotificationCandidates({ leaderboardData, state, topN });
 
