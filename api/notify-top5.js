@@ -41,8 +41,9 @@ const LEADERBOARD_DATA_FILE = process.env.LEADERBOARD_DATA_FILE
 const MAX_SENDS_PER_RUN = 1;
 
 function isAuthorized(req) {
+    const expected = (process.env.UPDATE_TOKEN || '').trim();
     const providedToken = (req.headers['x-update-token'] || req.query?.token || req.body?.token || '').trim();
-    if (process.env.UPDATE_TOKEN && providedToken !== process.env.UPDATE_TOKEN) {
+    if (expected && providedToken !== expected) {
         return false;
     }
     return true;
