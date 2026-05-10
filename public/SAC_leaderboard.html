@@ -897,10 +897,11 @@
             background: white;
             border: 1px solid #d0d5dd;
             border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             padding: 0;
-            min-width: 300px;
-            max-width: 400px;
+            min-width: 320px;
+            width: min(500px, calc(100vw - 32px));
+            max-width: 500px;
             font-size: 13px;
             line-height: 1.4;
             position: relative;
@@ -1137,6 +1138,22 @@
 
         .tooltip-close-btn:hover {
             background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Dim backdrop shown behind flight + pilot detail popups */
+        .detail-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .detail-modal-backdrop.visible {
+            opacity: 1;
         }
 
         /* Mobile responsive tooltip */
@@ -3852,52 +3869,87 @@ No maximum distance bonus`,
         let pilotPreviewElement;
         let pilotPreviewHideTimeout;
         let pilotPreviewTrigger;
+        let detailModalBackdrop;
 
-        // Centers a modal element in the visible viewport.
-        // Standalone: uses position:fixed + 50%/50% (pure CSS, no JS coords needed).
-        // In iframe (no-scroll/auto-resize): the iframe's viewport == the full content height,
-        // so position:fixed would place the modal at the doc midpoint, not the visible screen.
-        // Fix: postMessage to get the parent viewport rect, then switch to position:absolute
-        // with scrollY + centerYInChild to land in the visible portion.
-        function positionModalNearClickAnchor(el, anchorEvent) {
-            if (!el || !anchorEvent || typeof anchorEvent.clientX !== 'number' || typeof anchorEvent.clientY !== 'number') {
+        function showDetailModalBackdrop() {
+            if (detailModalBackdrop) return detailModalBackdrop;
+            const backdrop = document.createElement('div');
+            backdrop.className = 'detail-modal-backdrop';
+            backdrop.addEventListener('click', () => {
+                hidePilotPreview(null, true);
+                hideFlightPreview(null, true);
+            });
+            document.body.appendChild(backdrop);
+            void backdrop.offsetWidth;
+            backdrop.classList.add('visible');
+            detailModalBackdrop = backdrop;
+            return backdrop;
+        }
+
+        function hideDetailModalBackdrop() {
+            if (!detailModalBackdrop) return;
+            const backdrop = detailModalBackdrop;
+            detailModalBackdrop = null;
+            backdrop.classList.remove('visible');
+            setTimeout(() => {
+                if (backdrop && backdrop.parentNode) backdrop.parentNode.removeChild(backdrop);
+            }, 200);
+        }
+
+        function applyParentViewportPositionTo(el, payload) {
+            if (!el || !payload || !payload.iframeRect) return false;
+            const iframeLeft = Number(payload.iframeRect.left);
+            const iframeTop = Number(payload.iframeRect.top);
+            const parentVW = Number(payload.parentViewportWidth);
+            const parentVH = Number(payload.parentViewportHeight);
+            if (!Number.isFinite(iframeLeft) || !Number.isFinite(iframeTop) ||
+                !Number.isFinite(parentVW) || !Number.isFinite(parentVH)) {
                 return false;
             }
 
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            el.style.top = '-9999px';
+            el.style.transform = 'translate(-50%, -50%)';
+
+            const elRect = el.getBoundingClientRect();
             const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
             const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            const elRect = el.getBoundingClientRect();
             const margin = 12;
-            const halfWidth = elRect.width / 2;
-            const halfHeight = elRect.height / 2;
-            const maxLeft = scrollX + window.innerWidth - halfWidth - margin;
-            const maxTop = scrollY + window.innerHeight - halfHeight - margin;
-            const desiredLeft = scrollX + anchorEvent.clientX;
-            const desiredTop = scrollY + anchorEvent.clientY;
-            const clampedLeft = Math.min(Math.max(desiredLeft, scrollX + halfWidth + margin), Math.max(scrollX + halfWidth + margin, maxLeft));
-            const clampedTop = Math.min(Math.max(desiredTop, scrollY + halfHeight + margin), Math.max(scrollY + halfHeight + margin, maxTop));
 
-            el.style.position = 'absolute';
+            const centerXInChild = (parentVW / 2) - iframeLeft;
+            const centerYInChild = (parentVH / 2) - iframeTop;
+            const desiredLeft = scrollX + centerXInChild;
+            const desiredTop = scrollY + centerYInChild;
+            const minLeft = scrollX + (elRect.width / 2) + margin;
+            const maxLeft = scrollX + window.innerWidth - (elRect.width / 2) - margin;
+            const minTop = scrollY + (elRect.height / 2) + margin;
+            const maxTop = scrollY + window.innerHeight - (elRect.height / 2) - margin;
+            const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), Math.max(minLeft, maxLeft));
+            const clampedTop = Math.min(Math.max(desiredTop, minTop), Math.max(minTop, maxTop));
+
             el.style.left = clampedLeft + 'px';
             el.style.top = clampedTop + 'px';
-            el.style.transform = 'translate(-50%, -50%)';
             return true;
         }
 
-        function positionModalCenteredInViewport(el, onPositioned, anchorEvent) {
-            // Default: fixed + centered (works standalone)
-            el.style.position = 'fixed';
-            el.style.left = '50%';
-            el.style.top = '50%';
-            el.style.transform = 'translate(-50%, -50%)';
+        function positionModalCenteredInViewport(el, onPositioned) {
+            if (!el) return;
 
             if (window.parent === window) {
-                // Not in an iframe — fixed positioning is correct, fire callback now
+                el.style.position = 'fixed';
+                el.style.left = '50%';
+                el.style.top = '50%';
+                el.style.transform = 'translate(-50%, -50%)';
                 if (onPositioned) requestAnimationFrame(onPositioned);
                 return;
             }
 
-            // In an iframe — request parent viewport info to reposition correctly
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            el.style.top = '-9999px';
+            el.style.transform = 'translate(-50%, -50%)';
+
             const requestId = 'sac-modal-vp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
             let timeoutId;
             const handleResponse = (messageEvent) => {
@@ -3906,49 +3958,18 @@ No maximum distance bonus`,
                 window.removeEventListener('message', handleResponse);
                 if (timeoutId) clearTimeout(timeoutId);
                 if (!el || !el.isConnected) return;
-
-                const iframeLeft = Number(data.iframeRect && data.iframeRect.left);
-                const iframeTop = Number(data.iframeRect && data.iframeRect.top);
-                const parentVW = Number(data.parentViewportWidth);
-                const parentVH = Number(data.parentViewportHeight);
-
-                if (!Number.isFinite(iframeLeft) || !Number.isFinite(iframeTop) ||
-                    !Number.isFinite(parentVW) || !Number.isFinite(parentVH)) {
-                    if (onPositioned) requestAnimationFrame(onPositioned);
-                    return;
-                }
-
-                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const elRect = el.getBoundingClientRect();
-                const margin = 12;
-
-                const centerXInChild = (parentVW / 2) - iframeLeft;
-                const centerYInChild = (parentVH / 2) - iframeTop;
-                const desiredLeft = scrollX + centerXInChild;
-                const desiredTop = scrollY + centerYInChild;
-                const minLeft = scrollX + (elRect.width / 2) + margin;
-                const maxLeft = scrollX + window.innerWidth - (elRect.width / 2) - margin;
-                const minTop = scrollY + (elRect.height / 2) + margin;
-                const maxTop = scrollY + window.innerHeight - (elRect.height / 2) - margin;
-                const clampedLeft = Math.min(Math.max(desiredLeft, minLeft), Math.max(minLeft, maxLeft));
-                const clampedTop = Math.min(Math.max(desiredTop, minTop), Math.max(minTop, maxTop));
-
-                el.style.position = 'absolute';
-                el.style.left = clampedLeft + 'px';
-                el.style.top = clampedTop + 'px';
-                el.style.transform = 'translate(-50%, -50%)';
-
+                applyParentViewportPositionTo(el, data);
                 if (onPositioned) requestAnimationFrame(onPositioned);
             };
 
             window.addEventListener('message', handleResponse);
-            // Fallback: if no response in 200ms, show with fixed positioning anyway
             timeoutId = setTimeout(() => {
                 window.removeEventListener('message', handleResponse);
-                positionModalNearClickAnchor(el, anchorEvent);
-                if (el && el.isConnected && onPositioned) requestAnimationFrame(onPositioned);
-            }, 200);
+                if (el && el.isConnected) {
+                    el.style.opacity = '0';
+                    el.remove();
+                }
+            }, 500);
 
             window.parent.postMessage({ type: 'sac-request-parent-viewport', requestId }, '*');
         }
@@ -3967,6 +3988,7 @@ No maximum distance bonus`,
                 pilotPreviewElement = null;
             }
             pilotPreviewTrigger = null;
+            if (!previewElement) hideDetailModalBackdrop();
         }
 
         function showPilotPreview(pilotId, pilotName, triggerElement) {
@@ -3993,6 +4015,7 @@ No maximum distance bonus`,
             pilotPreviewElement.style.opacity = '0';
             pilotPreviewElement.dataset.pilotId = String(pilotId);
 
+            showDetailModalBackdrop();
             document.body.appendChild(pilotPreviewElement);
 
             // Stop clicks inside tooltip from closing it
@@ -4601,6 +4624,7 @@ No maximum distance bonus`,
                 </div>
             `;
 
+            showDetailModalBackdrop();
             document.body.appendChild(previewElement);
 
             // Stop clicks inside tooltip from closing it
@@ -4624,6 +4648,7 @@ No maximum distance bonus`,
                 previewElement.remove();
                 previewElement = null;
             }
+            if (!pilotPreviewElement) hideDetailModalBackdrop();
         }
 
         function closeFlightTooltip(event) {
@@ -6607,6 +6632,6 @@ No maximum distance bonus`,
         })();
     </script>
         
-<!-- Generated at 2026-05-10T17:39:32.797Z -->
+<!-- Generated at 2026-05-10T18:05:55.231Z -->
 </body>
 </html>
