@@ -403,17 +403,17 @@
             border-color: #16213e;
         }
 
-        /* Mobile responsive tooltip */
+        /* Mobile responsive tooltip — sizing only.
+           Position is set by JS (positionModalCenteredInViewport) so that the
+           iframe-embedded path (parent-viewport math) isn't overridden by
+           !important. The standalone path also sets fixed/50% inline, so
+           dropping the position !important here doesn't regress mobile. */
         @media (max-width: 768px) {
             .flight-preview {
-                position: fixed !important;
                 width: 95vw !important;
                 height: 95vh !important;
                 max-width: none !important;
                 max-height: none !important;
-                left: 50% !important;
-                top: 50% !important;
-                transform: translate(-50%, -50%) !important;
                 border-radius: 8px;
                 overflow-y: auto;
             }
@@ -6632,6 +6632,6 @@ No maximum distance bonus`,
         })();
     </script>
         
-<!-- Generated at 2026-05-10T18:40:47.267Z -->
+<!-- Generated at 2026-05-10T18:42:24.529Z -->
 </body>
 </html>
