@@ -631,7 +631,18 @@ async function fetchUserProfiles(pilotIds) {
                 result.push(...data);
             }
         } catch (error) {
-            log(`Failed to fetch user profiles for chunk starting at index ${i}: ${error.message}`);
+            log(`Failed to fetch user profiles batch starting at index ${i}: ${error.message}; trying individual user endpoints`);
+            for (const pilotId of chunk) {
+                try {
+                    const data = await jsonRequest(`${WEGLIDE_API_BASE}/v1/user/${pilotId}`);
+                    if (data && typeof data.id === 'number') {
+                        result.push(data);
+                    }
+                } catch (individualError) {
+                    log(`Failed to fetch user profile ${pilotId}: ${individualError.message}`);
+                }
+                await delay(100);
+            }
         }
         await delay(200);
     }
@@ -1131,6 +1142,8 @@ async function runFetchAndBuild(options = {}) {
                         achievement_count: profile.achievement_count || 0,
                         name: profile.name || '',
                         gender: profile.gender || '',
+                        is_junior: profile.is_junior === true,
+                        is_senior: profile.is_senior === true,
                         club: profile.club || null
                     };
                 }

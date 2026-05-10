@@ -1570,13 +1570,41 @@ async function processCanadianFlights() {
         async function fetchUserProfilesServer(pilotIds) {
             const durations = {};
             const profiles = {};
+            const profileFromUser = (u) => ({
+                total_flight_duration: u.total_flight_duration || 0,
+                total_free_distance: u.total_free_distance || 0,
+                avg_speed: u.avg_speed || 0,
+                flight_count: u.flight_count || 0,
+                avg_glide_speed: u.avg_glide_speed || 0,
+                avg_glide_detour: u.avg_glide_detour || 0,
+                achievement_count: u.achievement_count || 0,
+                name: u.name || '',
+                gender: u.gender || '',
+                is_junior: u.is_junior === true,
+                is_senior: u.is_senior === true,
+                club: u.club || {},
+                home_airport: u.home_airport || {}
+            });
+            const requestHeaders = {
+                'accept': 'application/json, text/plain, */*',
+                'accept-language': 'en-US,en;q=0.9',
+                'origin': 'https://www.weglide.org',
+                'referer': 'https://www.weglide.org/',
+                'sec-ch-ua': '"Chromium";v="126", "Google Chrome";v="126", "Not-A.Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"macOS"',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-site',
+                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+            };
             const chunk = 100;
             for (let i = 0; i < pilotIds.length; i += chunk) {
                 const slice = pilotIds.slice(i, i + chunk);
                 const url = `https://api.weglide.org/v1/user?id_in=${slice.join(',')}`;
                 try {
-                    const resp = await fetch(url);
-                    if (!resp.ok) continue;
+                    const resp = await fetch(url, { headers: requestHeaders });
+                    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
                     const arr = await resp.json();
                     arr.forEach(u => {
                         if (u && typeof u.id === 'number') {
@@ -1585,23 +1613,25 @@ async function processCanadianFlights() {
                                 durations[u.id] = u.total_flight_duration;
                             }
                             // Store full profile data for tooltips
-                            profiles[u.id] = {
-                                total_flight_duration: u.total_flight_duration || 0,
-                                total_free_distance: u.total_free_distance || 0,
-                                avg_speed: u.avg_speed || 0,
-                                flight_count: u.flight_count || 0,
-                                avg_glide_speed: u.avg_glide_speed || 0,
-                                avg_glide_detour: u.avg_glide_detour || 0,
-                                achievement_count: u.achievement_count || 0,
-                                name: u.name || '',
-                                gender: u.gender || '',
-                                club: u.club || {},
-                                home_airport: u.home_airport || {}
-                            };
+                            profiles[u.id] = profileFromUser(u);
                         }
                     });
                 } catch (e) {
-                    console.warn('Server-side profile fetch failed for batch:', e.message || e);
+                    console.warn('Server-side profile batch fetch failed; falling back to individual requests:', e.message || e);
+                    for (const pilotId of slice) {
+                        try {
+                            const resp = await fetch(`https://api.weglide.org/v1/user/${pilotId}`, { headers: requestHeaders });
+                            if (!resp.ok) continue;
+                            const u = await resp.json();
+                            if (u && typeof u.id === 'number') {
+                                if (typeof u.total_flight_duration === 'number') {
+                                    durations[u.id] = u.total_flight_duration;
+                                }
+                                profiles[u.id] = profileFromUser(u);
+                            }
+                        } catch (error) {
+                        }
+                    }
                 }
             }
             return { durations, profiles };
@@ -1911,6 +1941,8 @@ async function processCanadianFlights() {
         let currentScoringMode = 'mixed';
         const HOURS_200_SEC = 200 * 3600;
         let under200Enabled = false;
+        let juniorEnabled = false;
+        let seniorEnabled = false;
         let selectedClub = 'all';
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SUPPORTS_HOVER_POINTER = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
@@ -2692,6 +2724,23 @@ No maximum distance bonus\`,
             return list.filter(p => getPilotEligibilityHours(p.pilotId) < 200);
         }
 
+        function getPilotProfileFlag(pilot, flagName) {
+            const pilotId = pilot?.pilotId || pilot?.userId;
+            const profile = getPilotProfile(pilotId);
+            return profile && profile[flagName] === true;
+        }
+
+        function applyAgeCategoryFilters(list) {
+            if (!juniorEnabled && !seniorEnabled) return list;
+            if (juniorEnabled) {
+                return list.filter(pilot => getPilotProfileFlag(pilot, 'is_junior'));
+            }
+            if (seniorEnabled) {
+                return list.filter(pilot => getPilotProfileFlag(pilot, 'is_senior'));
+            }
+            return list;
+        }
+
         async function loadLeaderboard() {
             try {
                 // Embedded leaderboard data
@@ -3134,6 +3183,16 @@ No maximum distance bonus\`,
             if (underBtn) {
                 underBtn.classList.toggle('active', under200Enabled);
                 if (typeof updateUnder200ButtonLabel === 'function') updateUnder200ButtonLabel();
+            }
+            const juniorBtn = document.getElementById('juniorBtn');
+            if (juniorBtn) {
+                juniorBtn.classList.toggle('active', juniorEnabled);
+                if (typeof updateJuniorButtonLabel === 'function') updateJuniorButtonLabel();
+            }
+            const seniorBtn = document.getElementById('seniorBtn');
+            if (seniorBtn) {
+                seniorBtn.classList.toggle('active', seniorEnabled);
+                if (typeof updateSeniorButtonLabel === 'function') updateSeniorButtonLabel();
             }
 
             updateTaskStats(mode, calculateDisplayedTaskStats(leaderboard));
@@ -4049,8 +4108,9 @@ No maximum distance bonus\`,
             tbody.innerHTML = '';
             const isFreeMode = leaderboard === freeLeaderboard;
             const isSilverCGull = leaderboard === silverCGullLeaderboard;
-            const visible = applyUnder200Filter(applyClubFilter(leaderboard));
+            const visible = applyAgeCategoryFilters(applyUnder200Filter(applyClubFilter(leaderboard)));
             const clubFilterActive = selectedClub !== 'all';
+            const ageCategoryFilterActive = juniorEnabled || seniorEnabled;
             const isThreeFlightMode = currentScoringMode === 'sprint' || currentScoringMode === 'triangle' || currentScoringMode === 'out_return' || currentScoringMode === 'out';
             const maxFlightsToShow = currentScoringMode === 'bhc' ? 1 : (isThreeFlightMode ? 3 : 5);
 
@@ -4058,6 +4118,8 @@ No maximum distance bonus\`,
                 const emptyRow = document.createElement('tr');
                 const emptyMessage = clubFilterActive
                     ? 'No matching flights logged yet for ' + selectedClub
+                    : ageCategoryFilterActive
+                        ? 'No matching pilots found for the selected age category'
                     : 'No matching flights found';
                 emptyRow.innerHTML = '<td colspan="8" style="text-align: center; color: #6c757d; padding: 24px 12px;">' + emptyMessage + '</td>';
                 tbody.appendChild(emptyRow);
@@ -4218,8 +4280,8 @@ No maximum distance bonus\`,
 
             toggleFlightColumns(maxFlightsToShow);
 
-            // Update stats based on current visibility (only for <200 hour filter or Silver C-Gull mode)
-            if (under200Enabled || clubFilterActive || isSilverCGull) {
+            // Update stats based on current visibility when any filter is active.
+            if (under200Enabled || clubFilterActive || ageCategoryFilterActive || isSilverCGull) {
                 const visibleStatsList = visible;
                 const visiblePilotCount = currentScoringMode === 'bhc' && !isSilverCGull
                     ? new Set(visibleStatsList.map((pilot) => String(pilot.pilotId || pilot.userId || pilot.pilot || ''))).size
@@ -4286,6 +4348,18 @@ No maximum distance bonus\`,
             const btn = document.getElementById('under200Btn');
             if (!btn) return;
             btn.textContent = under200Enabled ? '< 200 hrs PIC (ON)' : '< 200 hrs PIC';
+        }
+
+        function updateJuniorButtonLabel() {
+            const btn = document.getElementById('juniorBtn');
+            if (!btn) return;
+            btn.textContent = juniorEnabled ? 'Junior (ON)' : 'Junior';
+        }
+
+        function updateSeniorButtonLabel() {
+            const btn = document.getElementById('seniorBtn');
+            if (!btn) return;
+            btn.textContent = seniorEnabled ? 'Senior (ON)' : 'Senior';
         }
 
         // Trophy calculation functions
@@ -5061,6 +5135,50 @@ No maximum distance bonus\`,
             }, 0);
         }
 
+        function setJuniorFilter(enabled) {
+            juniorEnabled = enabled;
+            if (enabled) {
+                seniorEnabled = false;
+            }
+
+            const juniorBtn = document.getElementById('juniorBtn');
+            if (juniorBtn) {
+                juniorBtn.classList.toggle('active', juniorEnabled);
+            }
+            const seniorBtn = document.getElementById('seniorBtn');
+            if (seniorBtn) {
+                seniorBtn.classList.toggle('active', seniorEnabled);
+            }
+            updateJuniorButtonLabel();
+            updateSeniorButtonLabel();
+            buildLeaderboard();
+            setTimeout(() => {
+                if (typeof addTooltipListeners === 'function') addTooltipListeners();
+            }, 0);
+        }
+
+        function setSeniorFilter(enabled) {
+            seniorEnabled = enabled;
+            if (enabled) {
+                juniorEnabled = false;
+            }
+
+            const juniorBtn = document.getElementById('juniorBtn');
+            if (juniorBtn) {
+                juniorBtn.classList.toggle('active', juniorEnabled);
+            }
+            const seniorBtn = document.getElementById('seniorBtn');
+            if (seniorBtn) {
+                seniorBtn.classList.toggle('active', seniorEnabled);
+            }
+            updateJuniorButtonLabel();
+            updateSeniorButtonLabel();
+            buildLeaderboard();
+            setTimeout(() => {
+                if (typeof addTooltipListeners === 'function') addTooltipListeners();
+            }, 0);
+        }
+
         function activateUnder200FromTrophy() {
             setUnder200Filter(true, { forceMixedMode: true });
             const leaderboardElement = document.querySelector('.leaderboard');
@@ -5671,6 +5789,20 @@ No maximum distance bonus\`,
                 });
                 updateUnder200ButtonLabel();
             }
+            const juniorBtn = document.getElementById('juniorBtn');
+            if (juniorBtn) {
+                juniorBtn.addEventListener('click', () => {
+                    setJuniorFilter(!juniorEnabled);
+                });
+                updateJuniorButtonLabel();
+            }
+            const seniorBtn = document.getElementById('seniorBtn');
+            if (seniorBtn) {
+                seniorBtn.addEventListener('click', () => {
+                    setSeniorFilter(!seniorEnabled);
+                });
+                updateSeniorButtonLabel();
+            }
 
             // Search overlay functionality
             let searchMatches = [];
@@ -5868,7 +6000,7 @@ No maximum distance bonus\`,
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle">\n                    <div class="primary-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <button class="filter-btn" id="under200Btn">⚬ < 200 hrs PIC</button>\n                        <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div>\n                <div class="scoring-toggle">\n                    <div class="secondary-toggle-row">\n                        <span class="secondary-toggle-label">Other contests:</span>\n                        <button class="toggle-btn secondary" id="bhcBtn">BHC</button>\n                        <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                        <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                        <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                        <button class="toggle-btn secondary" id="outBtn">Out</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
+            '$1</div><div class="scoring-toggle contest-toggle">\n                    <div class="contest-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <div class="other-contests-group">\n                            <span class="secondary-toggle-label">Other contests:</span>\n                            <button class="toggle-btn secondary" id="bhcBtn">BHC</button>\n                            <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                            <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                            <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                            <button class="toggle-btn secondary" id="outBtn">Out</button>\n                        </div>\n                    </div>\n                </div>\n                <div class="scoring-toggle filter-toggle">\n                    <div class="filter-toggle-row">\n                        <span class="filter-toggle-label">Filters:</span>\n                        <button class="filter-btn" id="under200Btn">&lt; 200 hrs PIC</button>\n                        <button class="filter-btn" id="juniorBtn">Junior</button>\n                        <button class="filter-btn" id="seniorBtn">Senior</button>\n                        <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
         );
 
         // Placeholder for combined toggle label so variants can customise text
@@ -5887,6 +6019,16 @@ No maximum distance bonus\`,
             flex-wrap: wrap;
         }
 
+        .contest-toggle {
+            margin-bottom: 10px;
+        }
+
+        .filter-toggle {
+            margin-top: 10px;
+        }
+
+        .contest-toggle-row,
+        .filter-toggle-row,
         .primary-toggle-row,
         .secondary-toggle-row {
             display: flex;
@@ -5901,11 +6043,41 @@ No maximum distance bonus\`,
             font-size: 0.85em;
         }
 
+        .other-contests-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            min-width: 0;
+            max-width: 100%;
+        }
+
         .secondary-toggle-label {
             font-weight: 500;
             color: rgba(255, 255, 255, 0.7);
             margin-right: 6px;
             font-size: 0.85em;
+        }
+
+        @media (max-width: 520px) {
+            .other-contests-group {
+                flex-basis: 100%;
+                margin-top: 2px;
+            }
+
+            .other-contests-group .secondary-toggle-label {
+                flex-basis: 100%;
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+
+        .filter-toggle-label {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.78);
+            margin-right: 2px;
+            font-size: 0.9em;
         }
 
         .toggle-btn.secondary {
@@ -6403,12 +6575,6 @@ No maximum distance bonus\`,
             font-size: 0.82em;
             font-weight: 500;
             position: relative;
-        }
-
-        .filter-btn::before {
-            content: "Filter";
-            margin-right: 0;
-            font-size: 1em;
         }
 
         .filter-btn:hover {
