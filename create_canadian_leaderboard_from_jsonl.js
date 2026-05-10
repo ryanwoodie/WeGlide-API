@@ -1943,6 +1943,7 @@ async function processCanadianFlights() {
         let under200Enabled = false;
         let juniorEnabled = false;
         let seniorEnabled = false;
+        let womenEnabled = false;
         let selectedClub = 'all';
         const IS_TOUCH_DEVICE = (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches));
         const SUPPORTS_HOVER_POINTER = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
@@ -2731,14 +2732,41 @@ No maximum distance bonus\`,
         }
 
         function applyAgeCategoryFilters(list) {
-            if (!juniorEnabled && !seniorEnabled) return list;
-            if (juniorEnabled) {
-                return list.filter(pilot => getPilotProfileFlag(pilot, 'is_junior'));
+            if (!juniorEnabled && !seniorEnabled && !womenEnabled) return list;
+            return list.filter((pilot) => {
+                if (juniorEnabled && !getPilotProfileFlag(pilot, 'is_junior')) {
+                    return false;
+                }
+                if (seniorEnabled && !getPilotProfileFlag(pilot, 'is_senior')) {
+                    return false;
+                }
+                if (womenEnabled) {
+                    const pilotId = pilot?.pilotId || pilot?.userId;
+                    const profile = getPilotProfile(pilotId);
+                    if (String(profile?.gender || '').toUpperCase() !== 'F') {
+                        return false;
+                    }
+                }
+                return true;
+            });
+        }
+
+        function refreshDemographicFilterButtons() {
+            const juniorBtn = document.getElementById('juniorBtn');
+            if (juniorBtn) {
+                juniorBtn.classList.toggle('active', juniorEnabled);
+                updateJuniorButtonLabel();
             }
-            if (seniorEnabled) {
-                return list.filter(pilot => getPilotProfileFlag(pilot, 'is_senior'));
+            const seniorBtn = document.getElementById('seniorBtn');
+            if (seniorBtn) {
+                seniorBtn.classList.toggle('active', seniorEnabled);
+                updateSeniorButtonLabel();
             }
-            return list;
+            const womenBtn = document.getElementById('womenBtn');
+            if (womenBtn) {
+                womenBtn.classList.toggle('active', womenEnabled);
+                updateWomenButtonLabel();
+            }
         }
 
         async function loadLeaderboard() {
@@ -3193,6 +3221,11 @@ No maximum distance bonus\`,
             if (seniorBtn) {
                 seniorBtn.classList.toggle('active', seniorEnabled);
                 if (typeof updateSeniorButtonLabel === 'function') updateSeniorButtonLabel();
+            }
+            const womenBtn = document.getElementById('womenBtn');
+            if (womenBtn) {
+                womenBtn.classList.toggle('active', womenEnabled);
+                if (typeof updateWomenButtonLabel === 'function') updateWomenButtonLabel();
             }
 
             updateTaskStats(mode, calculateDisplayedTaskStats(leaderboard));
@@ -4136,7 +4169,7 @@ No maximum distance bonus\`,
             const isSilverCGull = leaderboard === silverCGullLeaderboard;
             const visible = applyAgeCategoryFilters(applyUnder200Filter(applyClubFilter(leaderboard)));
             const clubFilterActive = selectedClub !== 'all';
-            const ageCategoryFilterActive = juniorEnabled || seniorEnabled;
+            const ageCategoryFilterActive = juniorEnabled || seniorEnabled || womenEnabled;
             const isThreeFlightMode = currentScoringMode === 'sprint' || currentScoringMode === 'triangle' || currentScoringMode === 'out_return' || currentScoringMode === 'out';
             const maxFlightsToShow = currentScoringMode === 'bhc' ? 1 : (isThreeFlightMode ? 3 : 5);
 
@@ -4386,6 +4419,12 @@ No maximum distance bonus\`,
             const btn = document.getElementById('seniorBtn');
             if (!btn) return;
             btn.textContent = seniorEnabled ? 'Senior (ON)' : 'Senior';
+        }
+
+        function updateWomenButtonLabel() {
+            const btn = document.getElementById('womenBtn');
+            if (!btn) return;
+            btn.textContent = womenEnabled ? 'Women (ON)' : 'Women';
         }
 
         // Trophy calculation functions
@@ -5167,16 +5206,7 @@ No maximum distance bonus\`,
                 seniorEnabled = false;
             }
 
-            const juniorBtn = document.getElementById('juniorBtn');
-            if (juniorBtn) {
-                juniorBtn.classList.toggle('active', juniorEnabled);
-            }
-            const seniorBtn = document.getElementById('seniorBtn');
-            if (seniorBtn) {
-                seniorBtn.classList.toggle('active', seniorEnabled);
-            }
-            updateJuniorButtonLabel();
-            updateSeniorButtonLabel();
+            refreshDemographicFilterButtons();
             buildLeaderboard();
             setTimeout(() => {
                 if (typeof addTooltipListeners === 'function') addTooltipListeners();
@@ -5189,16 +5219,16 @@ No maximum distance bonus\`,
                 juniorEnabled = false;
             }
 
-            const juniorBtn = document.getElementById('juniorBtn');
-            if (juniorBtn) {
-                juniorBtn.classList.toggle('active', juniorEnabled);
-            }
-            const seniorBtn = document.getElementById('seniorBtn');
-            if (seniorBtn) {
-                seniorBtn.classList.toggle('active', seniorEnabled);
-            }
-            updateJuniorButtonLabel();
-            updateSeniorButtonLabel();
+            refreshDemographicFilterButtons();
+            buildLeaderboard();
+            setTimeout(() => {
+                if (typeof addTooltipListeners === 'function') addTooltipListeners();
+            }, 0);
+        }
+
+        function setWomenFilter(enabled) {
+            womenEnabled = enabled;
+            refreshDemographicFilterButtons();
             buildLeaderboard();
             setTimeout(() => {
                 if (typeof addTooltipListeners === 'function') addTooltipListeners();
@@ -5829,6 +5859,13 @@ No maximum distance bonus\`,
                 });
                 updateSeniorButtonLabel();
             }
+            const womenBtn = document.getElementById('womenBtn');
+            if (womenBtn) {
+                womenBtn.addEventListener('click', () => {
+                    setWomenFilter(!womenEnabled);
+                });
+                updateWomenButtonLabel();
+            }
 
             // Search overlay functionality
             let searchMatches = [];
@@ -6026,7 +6063,7 @@ No maximum distance bonus\`,
         // Add scoring toggle buttons and trophy section after the stats section
         australianHTML = australianHTML.replace(
             /(<div class="stats">.*?<\/div>\s*)<\/div>/s,
-            '$1</div><div class="scoring-toggle contest-toggle">\n                    <div class="contest-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <div class="other-contests-group">\n                            <span class="secondary-toggle-label">Other contests:</span>\n                            <button class="toggle-btn secondary" id="bhcBtn">BHC</button>\n                            <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                            <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                            <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                            <button class="toggle-btn secondary" id="outBtn">Out</button>\n                        </div>\n                    </div>\n                </div>\n                <div class="scoring-toggle filter-toggle">\n                    <div class="filter-toggle-row">\n                        <span class="filter-toggle-label">Filters:</span>\n                        <button class="filter-btn" id="under200Btn">&lt; 200 hrs PIC</button>\n                        <button class="filter-btn" id="juniorBtn">Junior</button>\n                        <button class="filter-btn" id="seniorBtn">Senior</button>\n                        <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
+            '$1</div><div class="scoring-toggle contest-toggle">\n                    <div class="contest-toggle-row">\n                        <button class="toggle-btn active" id="combinedBtn">Combined Scoring</button>\n                        <button class="toggle-btn" id="freeBtn">Free Contest</button>\n                        <div class="other-contests-group">\n                            <span class="secondary-toggle-label">Other contests:</span>\n                            <button class="toggle-btn secondary" id="bhcBtn">BHC</button>\n                            <button class="toggle-btn secondary" id="sprintBtn">Sprint</button>\n                            <button class="toggle-btn secondary" id="triangleBtn">Triangle</button>\n                            <button class="toggle-btn secondary" id="outReturnBtn">Out &amp; Return</button>\n                            <button class="toggle-btn secondary" id="outBtn">Out</button>\n                        </div>\n                    </div>\n                </div>\n                <div class="scoring-toggle filter-toggle">\n                    <div class="filter-toggle-row">\n                        <span class="filter-toggle-label">Filters:</span>\n                        <button class="filter-btn" id="under200Btn">&lt; 200 hrs PIC</button>\n                        <button class="filter-btn" id="juniorBtn">Junior</button>\n                        <button class="filter-btn" id="seniorBtn">Senior</button>\n                        <button class="filter-btn" id="womenBtn">Women</button>\n                        <select id="clubFilterSelect" class="club-filter-select" aria-label="Filter leaderboard by club"><option value="all">All clubs</option></select>\n                        <button class="find-btn" id="openSearchBtn" title="Find pilot">🔍 Find</button>\n                    </div>\n                </div><div id="searchOverlay" class="search-overlay" style="display: none;"><div class="search-widget"><input type="text" id="searchInput" placeholder="Find pilot..." autocomplete="off"><button id="nextBtn">Next</button><button id="closeBtn">✕</button><div id="searchStatus"></div></div></div><div class="trophy-section"><div class="trophy-header" onclick="toggleTrophySection()"><h3>🏆 Trophy Standings <span class="toggle-arrow" id="trophyArrow">▶</span></h3></div><div class="trophy-content" id="trophyContent" style="display: none;"><p style="font-size: 0.85em; color: #fff; margin: 10px 0 15px 0; text-align: center;">(Unofficial year-to-date standings - will change as more flights are logged)</p><div id="trophyWinners">Loading trophy winners...</div></div></div><div class="task-stats-section" id="taskStatsSection" style="display: none;"><div class="task-stats-header"><h5>📊 Task Type Statistics <button class="close-btn" onclick="closeTaskStatsSection()" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 10px;">✕</button></h5></div><div class="task-stats-content" id="taskStatsContent"><div class="task-stats-table-wrapper"><table class="task-stats-table"><thead><tr><th>Task Type</th><th>Description</th><th>Total</th><th>Finished</th><th>IGC Task</th><th>IGC Completed</th><th>WeGlide Task</th><th>WeGlide Completed</th></tr></thead><tbody id="taskStatsTableBody"></tbody></table></div></div></div><p class="mock-notice"></p>'
         );
 
         // Placeholder for combined toggle label so variants can customise text
