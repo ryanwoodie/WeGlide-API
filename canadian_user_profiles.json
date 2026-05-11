@@ -463,6 +463,25 @@
       "url": "https://www.canadianrockiessoaring.com"
     }
   },
+  "21186": {
+    "total_flight_duration": 8538,
+    "total_free_distance": 135.36,
+    "avg_speed": 60.18,
+    "flight_count": 1,
+    "avg_glide_speed": 109.4,
+    "avg_glide_detour": 1.24,
+    "achievement_count": 0,
+    "name": "david cole",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1345,
+      "name": "Toronto Soaring Club",
+      "region": "CA-ON",
+      "url": "http://toronto-soaring.ca"
+    }
+  },
   "21219": {
     "total_flight_duration": 42811,
     "total_free_distance": 756.96,
