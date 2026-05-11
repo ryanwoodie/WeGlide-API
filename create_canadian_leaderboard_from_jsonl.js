@@ -5809,6 +5809,35 @@ No maximum distance bonus\`,
             }
         }
 
+        function applyUrlParams() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const contest = (params.get('contest') || '').toLowerCase();
+                const contestModeMap = {
+                    'sac-dsc': 'mixed',
+                    'mixed': 'mixed',
+                    'combined': 'mixed',
+                    'free': 'free',
+                    'bhc': 'bhc',
+                    'sprint': 'sprint',
+                    'triangle': 'triangle',
+                    'out_return': 'out_return',
+                    'out-return': 'out_return',
+                    'out': 'out'
+                };
+                const targetMode = contestModeMap[contest];
+                if (targetMode && targetMode !== currentScoringMode) {
+                    switchScoringMode(targetMode);
+                }
+                const under200 = (params.get('under200') || '').toLowerCase();
+                if ((under200 === '1' || under200 === 'true') && typeof setUnder200Filter === 'function') {
+                    setUnder200Filter(true);
+                }
+            } catch (err) {
+                console.warn('URL param init failed:', err);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', async function() {
             updateSeasonFooterText();
 
@@ -5874,6 +5903,8 @@ No maximum distance bonus\`,
                 });
                 updateWomenButtonLabel();
             }
+
+            applyUrlParams();
 
             // Search overlay functionality
             let searchMatches = [];
