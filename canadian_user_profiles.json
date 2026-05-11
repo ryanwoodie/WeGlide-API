@@ -2119,6 +2119,25 @@
       "url": "https://www.canadianrockiessoaring.com"
     }
   },
+  "38085": {
+    "total_flight_duration": 504525,
+    "total_free_distance": 8400.52,
+    "avg_speed": 63.16,
+    "flight_count": 36,
+    "avg_glide_speed": 116.84,
+    "avg_glide_detour": 1.16,
+    "achievement_count": 7,
+    "name": "Marco Martins",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    }
+  },
   "38390": {
     "total_flight_duration": 9511,
     "total_free_distance": 188.2,
