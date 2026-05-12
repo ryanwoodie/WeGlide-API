@@ -454,7 +454,30 @@ async function fetchProfilesForIds(ids, batchSize, delayMs) {
         const chunk = chunks[index];
         const url = `https://api.weglide.org/v1/user?id_in=${chunk.join(',')}`;
         log(`Fetching profile batch ${index + 1}/${chunks.length} (${chunk.length} pilots)`);
-        const rows = await fetchJson(url);
+        let rows;
+        try {
+            rows = await fetchJson(url);
+        } catch (error) {
+            if (!String(error.message || '').includes('HTTP 405')) {
+                throw error;
+            }
+            log(`Batch profile endpoint rejected GET; falling back to ${chunk.length} single-user requests`);
+            rows = [];
+            for (let idIndex = 0; idIndex < chunk.length; idIndex++) {
+                try {
+                    const profile = await fetchJson(`https://api.weglide.org/v1/user/${chunk[idIndex]}`);
+                    rows.push(profile);
+                } catch (singleError) {
+                    if (!String(singleError.message || '').includes('HTTP 404')) {
+                        throw singleError;
+                    }
+                    log(`Skipping missing WeGlide user ${chunk[idIndex]}`);
+                }
+                if (idIndex < chunk.length - 1) {
+                    await delay(delayMs);
+                }
+            }
+        }
         if (Array.isArray(rows)) {
             rows.forEach(profile => {
                 if (profile && typeof profile.id === 'number') {
@@ -1069,7 +1092,8 @@ GROUP BY fp.pilot_id, p.display_name, f.date_of_flight;
     return Array.from(groupedRows.values());
 }
 
-function loadWeGlideDailyTotals(dbPath) {
+function loadWeGlideDailyTotals(dbPath, roles = ['pilot']) {
+    const roleList = roles.map(sqlValue).join(', ');
     return sqliteQueryJson(dbPath, `
 SELECT
     fp.pilot_id,
@@ -1082,7 +1106,7 @@ JOIN flights f ON f.flight_tid = fp.flight_tid
 JOIN pilots p ON p.pilot_id = fp.pilot_id
 JOIN weglide_sync_pilots wsp ON wsp.pilot_id = fp.pilot_id
 WHERE fp.pilot_id LIKE 'wg:%'
-  AND fp.role IN ('pilot', 'co_user')
+  AND fp.role IN (${roleList})
   AND wsp.is_canadian = 1
   AND f.date_of_flight IS NOT NULL
 GROUP BY fp.pilot_id, p.display_name, f.date_of_flight;
@@ -1452,7 +1476,8 @@ function combinedSecondsBeforeCutoff(weglidePilot, olcPilot, cutoffDate) {
 
 function buildCombinedHoursExport(dbPath, cutoffDate) {
     const effectiveCutoffDate = cutoffDate || currentVerificationCutoffDate();
-    const weglideDaily = summarizePilotDays(loadWeGlideDailyTotals(dbPath));
+    const weglideDaily = summarizePilotDays(loadWeGlideDailyTotals(dbPath, ['pilot']));
+    const weglideCoUserDaily = summarizePilotDays(loadWeGlideDailyTotals(dbPath, ['co_user']));
     const olcDaily = summarizePilotDays(loadOlcDailyTotals(dbPath));
     const matchRows = sqliteQueryJson(dbPath, `
 SELECT weglide_pilot_id, olc_pilot_id, match_kind
@@ -1467,6 +1492,7 @@ FROM pilot_name_matches;
         }
 
         const weglidePilot = weglideDaily.get(match.weglide_pilot_id);
+        const weglideCoUser = weglideCoUserDaily.get(match.weglide_pilot_id);
         const olcPilot = match.olc_pilot_id ? olcDaily.get(match.olc_pilot_id) : null;
         if (!weglidePilot && !olcPilot) {
             return;
@@ -1475,6 +1501,7 @@ FROM pilot_name_matches;
         matchedWeglideIds.add(match.weglide_pilot_id);
         const total = combinedSecondsFromPilots(weglidePilot, olcPilot);
         const beforeCutoff = combinedSecondsBeforeCutoff(weglidePilot, olcPilot, effectiveCutoffDate);
+        const coUserBeforeCutoff = combinedSecondsBeforeCutoff(weglideCoUser, null, effectiveCutoffDate);
         const weglideUserId = Number(String(match.weglide_pilot_id).replace(/^wg:/, ''));
         if (!Number.isInteger(weglideUserId)) {
             return;
@@ -1487,10 +1514,12 @@ FROM pilot_name_matches;
             pilotName: olcPilot?.display_name || weglidePilot?.display_name || 'Unknown Pilot',
             matchKind: match.olc_pilot_id ? match.match_kind : 'weglide_only',
             weglideHours: Number((((weglidePilot?.total_seconds || 0) / 3600)).toFixed(2)),
+            weglideCoPilotHours: Number((((weglideCoUser?.total_seconds || 0) / 3600)).toFixed(2)),
             olcHours: Number((((olcPilot?.total_seconds || 0) / 3600)).toFixed(2)),
             olcOnlyHours: Number(((total.olcOnlySeconds / 3600)).toFixed(2)),
             combinedHours: Number(((total.combinedSeconds / 3600)).toFixed(2)),
             weglideHoursBeforeCutoff: Number((((beforeCutoff.weglideSeconds || 0) / 3600)).toFixed(2)),
+            weglideCoPilotHoursBeforeCutoff: Number((((coUserBeforeCutoff.weglideSeconds || 0) / 3600)).toFixed(2)),
             olcOnlyHoursBeforeCutoff: Number((((beforeCutoff.olcOnlySeconds || 0) / 3600)).toFixed(2)),
             combinedHoursBeforeCutoff: Number(((beforeCutoff.combinedSeconds / 3600)).toFixed(2)),
             eligibleUnder200: (beforeCutoff.combinedSeconds / 3600) < 200
@@ -1502,6 +1531,8 @@ FROM pilot_name_matches;
             return;
         }
         const beforeCutoff = combinedSecondsBeforeCutoff(weglidePilot, null, effectiveCutoffDate);
+        const weglideCoUser = weglideCoUserDaily.get(weglidePilot.pilot_id);
+        const coUserBeforeCutoff = combinedSecondsBeforeCutoff(weglideCoUser, null, effectiveCutoffDate);
         const weglideUserId = Number(String(weglidePilot.pilot_id).replace(/^wg:/, ''));
         if (!Number.isInteger(weglideUserId)) {
             return;
@@ -1514,10 +1545,12 @@ FROM pilot_name_matches;
             pilotName: weglidePilot.display_name,
             matchKind: 'weglide_only',
             weglideHours: Number(((weglidePilot.total_seconds / 3600)).toFixed(2)),
+            weglideCoPilotHours: Number((((weglideCoUser?.total_seconds || 0) / 3600)).toFixed(2)),
             olcHours: 0,
             olcOnlyHours: 0,
             combinedHours: Number(((weglidePilot.total_seconds / 3600)).toFixed(2)),
             weglideHoursBeforeCutoff: Number((((beforeCutoff.weglideSeconds || 0) / 3600)).toFixed(2)),
+            weglideCoPilotHoursBeforeCutoff: Number((((coUserBeforeCutoff.weglideSeconds || 0) / 3600)).toFixed(2)),
             olcOnlyHoursBeforeCutoff: 0,
             combinedHoursBeforeCutoff: Number(((beforeCutoff.combinedSeconds / 3600)).toFixed(2)),
             eligibleUnder200: (beforeCutoff.combinedSeconds / 3600) < 200

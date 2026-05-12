@@ -1978,7 +1978,13 @@ async function processCanadianFlights() {
         const AUTO_PIC_DATA_SOURCES = new Set(['weglide-calculated', 'combined-hours-calculated']);
 
         function isPicHoursVerifiedEntry(entry) {
-            return !!(entry && entry.dataSource && !AUTO_PIC_DATA_SOURCES.has(entry.dataSource));
+            return !!(
+                entry &&
+                entry.dataSource &&
+                !AUTO_PIC_DATA_SOURCES.has(entry.dataSource) &&
+                entry.eligible !== false &&
+                (typeof entry.picHours !== 'number' || entry.picHours < 200)
+            );
         }
 
         function isDobVerifiedEntry(entry) {
@@ -2362,16 +2368,26 @@ No maximum distance bonus\`,
             if (!combined) {
                 return {
                     weglideHours,
+                    weglideCoPilotHours: 0,
                     olcOnlyHours: 0,
                     combinedHours: weglideHours,
                     combinedHoursBeforeCutoff: null
                 };
             }
 
+            const hasRoleSplit = typeof combined.weglideCoPilotHours === 'number';
+            const displayWeglideHours = hasRoleSplit
+                ? asNumber(combined.weglideHours, weglideHours)
+                : weglideHours;
+            const olcOnlyHours = asNumber(combined.olcOnlyHours, Math.max(0, asNumber(combined.combinedHours, displayWeglideHours) - displayWeglideHours));
+
             return {
-                weglideHours: asNumber(combined.weglideHours, weglideHours),
-                olcOnlyHours: asNumber(combined.olcOnlyHours, Math.max(0, asNumber(combined.combinedHours, weglideHours) - weglideHours)),
-                combinedHours: asNumber(combined.combinedHours, weglideHours),
+                weglideHours: displayWeglideHours,
+                weglideCoPilotHours: asNumber(combined.weglideCoPilotHours, 0),
+                olcOnlyHours,
+                combinedHours: hasRoleSplit
+                    ? asNumber(combined.combinedHours, displayWeglideHours)
+                    : displayWeglideHours + olcOnlyHours,
                 combinedHoursBeforeCutoff: typeof combined.combinedHoursBeforeCutoff === 'number'
                     ? combined.combinedHoursBeforeCutoff
                     : null
@@ -2399,6 +2415,15 @@ No maximum distance bonus\`,
         }
 
         function getPilotEligibilityHours(pilotId) {
+            const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
+            if (verificationData && verificationData.dataSource && !AUTO_PIC_DATA_SOURCES.has(verificationData.dataSource)) {
+                if (verificationData.eligible === false) {
+                    return 200;
+                }
+                if (typeof verificationData.picHours === 'number' && Number.isFinite(verificationData.picHours)) {
+                    return verificationData.picHours;
+                }
+            }
             return getPilotVerificationHoursSummary(pilotId).combinedHours;
         }
 
@@ -2615,15 +2640,19 @@ No maximum distance bonus\`,
 
             tooltipContent += \`
                 <div class="pilot-stats-section">
-                    <h5>⏱ Hours</h5>
+                    <h5>⏱ Hours (up to Oct 1, 2025)</h5>
                     <div class="pilot-stats-grid">
                         <div class="pilot-stat">
                             <span class="stat-label">Combined</span>
                             <span class="stat-value">\${hoursSummary.combinedHours.toFixed(1)}h</span>
                         </div>
                         <div class="pilot-stat">
-                            <span class="stat-label">WeGlide</span>
+                            <span class="stat-label">WeGlide PIC</span>
                             <span class="stat-value">\${hoursSummary.weglideHours.toFixed(1)}h</span>
+                        </div>
+                        <div class="pilot-stat">
+                            <span class="stat-label">Co-pilot</span>
+                            <span class="stat-value">\${hoursSummary.weglideCoPilotHours.toFixed(1)}h</span>
                         </div>
                         <div class="pilot-stat">
                             <span class="stat-label">OLC-only</span>
@@ -5699,7 +5728,7 @@ No maximum distance bonus\`,
                     <div class="weglide-calculation" style="background: rgba(0,123,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
                         <strong>Hours summary:</strong><br>
                         Combined hours: \${verificationHoursSummary.combinedHours.toFixed(1)}h<br>
-                        WeGlide hours: \${verificationHoursSummary.weglideHours.toFixed(1)}h<br>
+                        WeGlide PIC hours: \${verificationHoursSummary.weglideHours.toFixed(1)}h<br>
                         OLC-only hours: \${verificationHoursSummary.olcOnlyHours.toFixed(1)}h<br>
                         <strong>Estimated hours: \${estimatedOct1Hours.toFixed(1)}h</strong>
                     </div>

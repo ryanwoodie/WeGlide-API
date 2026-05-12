@@ -1157,8 +1157,8 @@ async function runFetchAndBuild(options = {}) {
         summary.meta.seasonSecondsCalculated = Object.keys(seasonSecondsMap).length;
 
         let olcSyncSummary = { skipped: true, reason: 'No OLC sync attempted' };
-        if (newPilotIds.length || !fs.existsSync(COMBINED_HOURS_FILE)) {
-            olcSyncSummary = await runOlcCombinedHoursSync(newPilotIds);
+        if (options.fullRefresh || newPilotIds.length || !fs.existsSync(COMBINED_HOURS_FILE)) {
+            olcSyncSummary = await runOlcCombinedHoursSync(options.fullRefresh ? [] : newPilotIds);
         }
         summary.meta.olcSync = olcSyncSummary;
 
