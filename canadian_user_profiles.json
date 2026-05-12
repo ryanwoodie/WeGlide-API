@@ -1656,6 +1656,25 @@
       "logo": "club/863.png"
     }
   },
+  "35577": {
+    "total_flight_duration": 1100497,
+    "total_free_distance": 25749.23,
+    "avg_speed": 91.96,
+    "flight_count": 90,
+    "avg_glide_speed": 153.88,
+    "avg_glide_detour": 1.24,
+    "achievement_count": 24,
+    "name": "Jean Yves Germain",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 947,
+      "name": "CVV de Québec",
+      "region": "CA-QC",
+      "url": "https://www.cvvq.net"
+    }
+  },
   "35605": {
     "total_flight_duration": 6644,
     "total_free_distance": 52.75,
