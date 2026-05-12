@@ -2233,5 +2233,19 @@
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
     }
+  },
+  "38969": {
+    "total_flight_duration": 20510,
+    "total_free_distance": 424.76,
+    "avg_speed": 78.43,
+    "flight_count": 1,
+    "avg_glide_speed": 132.7,
+    "avg_glide_detour": 1.14,
+    "achievement_count": 4,
+    "name": "Alain Thirion",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": null
   }
 }
