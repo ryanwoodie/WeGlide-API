@@ -7929,6 +7929,50 @@
       "awards": []
     },
     {
+      "pilot": "Patrice gravel",
+      "pilotId": 18113,
+      "totalPoints": 1156.15,
+      "totalDistance": 1072.1100000000001,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1080532,
+          "userId": 18113,
+          "date": "2026-05-12",
+          "distance": 652.44,
+          "speed": 90.52,
+          "points": 700.6,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1065082,
+          "userId": 18113,
+          "date": "2026-05-01",
+          "distance": 419.67,
+          "speed": 83.66,
+          "points": 455.55,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Mark Rakowitz",
       "pilotId": 36138,
       "totalPoints": 1127.1299999999999,
@@ -9358,52 +9402,6 @@
           "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Patrice gravel",
-      "pilotId": 18113,
-      "totalPoints": 455.55,
-      "totalDistance": 419.67,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1065082,
-          "userId": 18113,
-          "date": "2026-05-01",
-          "distance": 419.67,
-          "speed": 83.66,
-          "points": 455.55,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus c 17.6m",
-          "dmstIndex": 115,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080532,
-          "userId": 18113,
-          "date": "2026-05-12",
-          "distance": 652.03,
-          "speed": 94.62,
-          "points": 700.24,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ],
       "awards": []
@@ -13123,6 +13121,49 @@
       ]
     },
     {
+      "pilot": "Patrice gravel",
+      "pilotId": 18113,
+      "totalPoints": 187.92,
+      "totalDistance": 418.12,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1080532,
+          "userId": 18113,
+          "date": "2026-05-12",
+          "distance": 214.32,
+          "speed": 107.16,
+          "points": 96.32,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1065082,
+          "userId": 18113,
+          "date": "2026-05-01",
+          "distance": 203.8,
+          "speed": 101.9,
+          "points": 91.6,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Sasha Pejic",
       "pilotId": 22077,
       "totalPoints": 185.74,
@@ -14323,51 +14364,6 @@
           "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Patrice gravel",
-      "pilotId": 18113,
-      "totalPoints": 91.6,
-      "totalDistance": 203.8,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1065082,
-          "userId": 18113,
-          "date": "2026-05-01",
-          "distance": 203.8,
-          "speed": 101.9,
-          "points": 91.6,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus c 17.6m",
-          "dmstIndex": 115,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080532,
-          "userId": 18113,
-          "date": "2026-05-12",
-          "distance": 214.32,
-          "speed": 107.16,
-          "points": 96.32,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -17603,6 +17599,49 @@
       ]
     },
     {
+      "pilot": "Patrice gravel",
+      "pilotId": 18113,
+      "totalPoints": 746.27,
+      "totalDistance": 858.21,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1080532,
+          "userId": 18113,
+          "date": "2026-05-12",
+          "distance": 510.83,
+          "speed": 84.63,
+          "points": 444.2,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1065082,
+          "userId": 18113,
+          "date": "2026-05-01",
+          "distance": 347.38,
+          "speed": 69.95,
+          "points": 302.07,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Michael Stieber",
       "pilotId": 32345,
       "totalPoints": 744.6,
@@ -18826,51 +18865,6 @@
           "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Patrice gravel",
-      "pilotId": 18113,
-      "totalPoints": 302.07,
-      "totalDistance": 347.38,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1065082,
-          "userId": 18113,
-          "date": "2026-05-01",
-          "distance": 347.38,
-          "speed": 69.95,
-          "points": 302.07,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus c 17.6m",
-          "dmstIndex": 115,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080532,
-          "userId": 18113,
-          "date": "2026-05-12",
-          "distance": 510.83,
-          "speed": 74.13,
-          "points": 444.2,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -23429,6 +23423,49 @@
       ]
     },
     {
+      "pilot": "Patrice gravel",
+      "pilotId": 18113,
+      "totalPoints": 557.94,
+      "totalDistance": 641.63,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1080532,
+          "userId": 18113,
+          "date": "2026-05-12",
+          "distance": 369.2,
+          "speed": 61.18,
+          "points": 321.04,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1065082,
+          "userId": 18113,
+          "date": "2026-05-01",
+          "distance": 272.43,
+          "speed": 63.43,
+          "points": 236.9,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Mark A. Schneider",
       "pilotId": 27586,
       "totalPoints": 554.27,
@@ -24515,51 +24552,6 @@
           "dmstIndex": 109,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Patrice gravel",
-      "pilotId": 18113,
-      "totalPoints": 236.9,
-      "totalDistance": 272.43,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1065082,
-          "userId": 18113,
-          "date": "2026-05-01",
-          "distance": 272.43,
-          "speed": 63.43,
-          "points": 236.9,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus c 17.6m",
-          "dmstIndex": 115,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080532,
-          "userId": 18113,
-          "date": "2026-05-12",
-          "distance": 368.8,
-          "speed": 63.97,
-          "points": 320.7,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -63962,80 +63954,80 @@
       "hasTask": true,
       "bestContestType": "free",
       "freeStats": {
-        "glide_ratio": 48.75,
-        "thermal_avg": 1.68,
-        "glide_speed": 158.04,
-        "glide_speed_lift": 150.11,
-        "glide_speed_sink": 162.28,
-        "altitude_avg": 1820,
-        "agl_avg": 1637,
-        "thermal_count": 48,
-        "thermal_gain": 13468,
-        "thermal_radius": 133.16,
-        "thermal_start_agl": 1508,
-        "thermal_bank": 37.1,
-        "glide_percentage": 0.66,
+        "glide_ratio": 48.42,
+        "thermal_avg": 1.64,
+        "glide_speed": 157.29,
+        "glide_speed_lift": 149.32,
+        "glide_speed_sink": 161.57,
+        "altitude_avg": 1799,
+        "agl_avg": 1622,
+        "thermal_count": 50,
+        "thermal_gain": 14482,
+        "thermal_radius": 134.14,
+        "thermal_start_agl": 1487,
+        "thermal_bank": 36.66,
+        "glide_percentage": 0.64,
         "glide_percentage_lift": 0.33,
-        "duration": 24807,
-        "thermal_time": 8004,
-        "glide_time": 16260,
-        "wind_speed": 10.38,
-        "wind_direction": 280,
-        "attempt_count": 14,
-        "attempt_avg": -0.35,
-        "attempt_speed_loss": 2.12,
-        "below_1000_agl": 0,
-        "below_800_agl": 0,
+        "duration": 25947,
+        "thermal_time": 8826,
+        "glide_time": 16542,
+        "wind_speed": 10.49,
+        "wind_direction": 284,
+        "attempt_count": 16,
+        "attempt_avg": -0.42,
+        "attempt_speed_loss": 2.07,
+        "below_1000_agl": 0.0046,
+        "below_800_agl": 0.0009,
         "below_600_agl": 0,
         "below_400_agl": 0,
         "below_200_agl": 0,
         "below_100_agl": 0,
-        "track_distance": 713.8,
-        "glide_detour": 1.09,
-        "glide_distance": 10.81,
-        "glide_alt_avg": 1804,
+        "track_distance": 722.73,
+        "glide_detour": 1.11,
+        "glide_distance": 10.24,
+        "glide_alt_avg": 1793,
         "end_time": "2026-05-12T21:28:20+00:00",
-        "start_time": "2026-05-12T14:34:53+00:00",
+        "start_time": "2026-05-12T14:15:53+00:00",
         "finish_alt": 1667
       },
       "taskStats": {
-        "glide_ratio": 38.67,
-        "thermal_avg": 1.65,
-        "glide_speed": 158.01,
-        "glide_speed_lift": 150,
-        "glide_speed_sink": 162.28,
-        "altitude_avg": 1819,
-        "agl_avg": 1637,
-        "thermal_count": 48,
-        "thermal_gain": 13593,
-        "thermal_radius": 134.03,
-        "thermal_start_agl": 1508,
-        "thermal_bank": 36.92,
-        "glide_percentage": 0.65,
-        "glide_percentage_lift": 0.33,
-        "duration": 24807,
-        "thermal_time": 8217,
-        "glide_time": 16047,
-        "wind_speed": 10.38,
-        "wind_direction": 280,
-        "attempt_count": 14,
-        "attempt_avg": -0.35,
-        "attempt_speed_loss": 1.66,
-        "below_1000_agl": 0,
+        "glide_ratio": 44.49,
+        "thermal_avg": 1.63,
+        "glide_speed": 158.9,
+        "glide_speed_lift": 150.71,
+        "glide_speed_sink": 163.22,
+        "altitude_avg": 1794,
+        "agl_avg": 1597,
+        "thermal_count": 43,
+        "thermal_gain": 12279,
+        "thermal_radius": 131.97,
+        "thermal_start_agl": 1470,
+        "thermal_bank": 37.09,
+        "glide_percentage": 0.63,
+        "glide_percentage_lift": 0.32,
+        "duration": 21729,
+        "thermal_time": 7533,
+        "glide_time": 13758,
+        "wind_speed": 9.85,
+        "wind_direction": 286,
+        "attempt_count": 13,
+        "attempt_avg": -0.44,
+        "attempt_speed_loss": 1.74,
+        "below_1000_agl": 0.0001,
         "below_800_agl": 0,
         "below_600_agl": 0,
         "below_400_agl": 0,
         "below_200_agl": 0,
         "below_100_agl": 0,
-        "track_distance": 704.31,
-        "glide_detour": 1.38,
-        "glide_distance": 10.66,
-        "glide_alt_avg": 1804,
-        "end_time": "2026-05-12T21:24:47+00:00",
-        "start_time": "2026-05-12T14:31:20+00:00",
-        "finish_alt": 1833,
-        "task_duration": 24807,
-        "total_duration": 24807
+        "track_distance": 607.26,
+        "glide_detour": 1.19,
+        "glide_distance": 9.98,
+        "glide_alt_avg": 1787,
+        "end_time": "2026-05-12T20:22:11+00:00",
+        "start_time": "2026-05-12T14:20:02+00:00",
+        "finish_alt": 1737,
+        "task_duration": 21729,
+        "total_duration": 25947
       },
       "taskInfo": {
         "hasTask": true,
@@ -64046,7 +64038,7 @@
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
         "taskContestPoints": 621.88,
-        "freePoints": 700.24,
+        "freePoints": 700.6,
         "auPoints": 621.88,
         "declarationPoints": null,
         "bestContestType": "free",
@@ -64055,7 +64047,7 @@
         "dmstTaskActualPoints": 116.31043478260871,
         "dmstTaskPotentialPoints": 143.1513043478261,
         "dmstTaskDistance": 102.89,
-        "weglideFreeDistance": 652.03,
+        "weglideFreeDistance": 652.44,
         "dmstIndex": 115
       },
       "bhcInfo": null
@@ -89915,7 +89907,7 @@
         "name": "Patrice gravel"
       },
       "date": "2026-05-12",
-      "distance": 652.03,
+      "distance": 652.44,
       "duration": 26973,
       "taskDeclared": true,
       "taskCompleted": false,
@@ -89928,9 +89920,9 @@
       "contest": [
         {
           "name": "free",
-          "points": 700.24,
-          "distance": 652.03,
-          "speed": 94.62,
+          "points": 700.6,
+          "distance": 652.44,
+          "speed": 90.52,
           "score": {
             "declared": false
           }
@@ -89948,16 +89940,16 @@
           "name": "triangle",
           "points": 444.2,
           "distance": 510.83,
-          "speed": 74.13,
+          "speed": 84.63,
           "score": {
             "declared": false
           }
         },
         {
           "name": "out_return",
-          "points": 320.7,
-          "distance": 368.8,
-          "speed": 63.97,
+          "points": 321.04,
+          "distance": 369.2,
+          "speed": 61.18,
           "score": {
             "declared": false
           }
@@ -89966,7 +89958,7 @@
           "name": "ca",
           "points": 621.88,
           "distance": 510.83,
-          "speed": 74.13,
+          "speed": 84.63,
           "score": {
             "declared": false
           }
@@ -91892,6 +91884,49 @@
       ]
     },
     {
+      "pilot": "Patrice gravel",
+      "pilotId": 18113,
+      "totalPoints": 1156.15,
+      "totalDistance": 1072.1100000000001,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1080532,
+          "userId": 18113,
+          "date": "2026-05-12",
+          "distance": 652.44,
+          "speed": 90.52,
+          "points": 700.6,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1065082,
+          "userId": 18113,
+          "date": "2026-05-01",
+          "distance": 419.67,
+          "speed": 83.66,
+          "points": 455.55,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Mark Rakowitz",
       "pilotId": 36138,
       "totalPoints": 1127.1299999999999,
@@ -93434,51 +93469,6 @@
           "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Patrice gravel",
-      "pilotId": 18113,
-      "totalPoints": 455.55,
-      "totalDistance": 419.67,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1065082,
-          "userId": 18113,
-          "date": "2026-05-01",
-          "distance": 419.67,
-          "speed": 83.66,
-          "points": 455.55,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus c 17.6m",
-          "dmstIndex": 115,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080532,
-          "userId": 18113,
-          "date": "2026-05-12",
-          "distance": 652.03,
-          "speed": 94.62,
-          "points": 700.24,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -98435,6 +98425,49 @@
       ]
     },
     {
+      "pilot": "Patrice gravel",
+      "pilotId": 18113,
+      "totalPoints": 1044.78,
+      "totalDistance": 858.21,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1080532,
+          "userId": 18113,
+          "date": "2026-05-12",
+          "distance": 510.83,
+          "speed": 84.63,
+          "points": 621.88,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1065082,
+          "userId": 18113,
+          "date": "2026-05-01",
+          "distance": 347.38,
+          "speed": 69.95,
+          "points": 422.9,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus c 17.6m",
+          "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Mark A. Schneider",
       "pilotId": 27586,
       "totalPoints": 1029.6299999999999,
@@ -99599,51 +99632,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "Patrice gravel",
-      "pilotId": 18113,
-      "totalPoints": 422.9,
-      "totalDistance": 347.38,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1065082,
-          "userId": 18113,
-          "date": "2026-05-01",
-          "distance": 347.38,
-          "speed": 69.95,
-          "points": 422.9,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus c 17.6m",
-          "dmstIndex": 115,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080532,
-          "userId": 18113,
-          "date": "2026-05-12",
-          "distance": 510.83,
-          "speed": 74.13,
-          "points": 621.88,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "MG",
-          "aircraftName": "Ventus cM 17.6m",
-          "dmstIndex": 115,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ]
@@ -101797,6 +101785,6 @@
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-13T06:29:49.434Z"
+    "generatedAt": "2026-05-13T15:01:55.583Z"
   }
 }
