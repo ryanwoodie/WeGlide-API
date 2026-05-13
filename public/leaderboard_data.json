@@ -4291,12 +4291,657 @@
   },
   "pilotVerifications": {
     "picHoursVerifications": {
+      "2070": {
+        "pilotName": "Christopher Michael Gough",
+        "picHours": 1450.1,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1450.1,
+          "totalWeGlideHours": 1345.1,
+          "olcOnlyHours": 105,
+          "hoursSinceOct1": 6.5,
+          "estimatedOct1Hours": 1450.1
+        }
+      },
+      "2074": {
+        "pilotName": "Patrick McMahon",
+        "picHours": 527.2,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 527.2,
+          "totalWeGlideHours": 353.1,
+          "olcOnlyHours": 174.1,
+          "hoursSinceOct1": 6.1,
+          "estimatedOct1Hours": 527.2
+        }
+      },
+      "4806": {
+        "pilotName": "Luke Szczepaniak",
+        "picHours": 2167.5,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 2167.5,
+          "totalWeGlideHours": 1939.2,
+          "olcOnlyHours": 228.3,
+          "hoursSinceOct1": 14,
+          "estimatedOct1Hours": 2167.5
+        }
+      },
+      "5450": {
+        "pilotName": "Steve Godreau",
+        "picHours": 140.4,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 140.4,
+          "totalWeGlideHours": 109.7,
+          "olcOnlyHours": 30.8,
+          "hoursSinceOct1": 3.4,
+          "estimatedOct1Hours": 140.4
+        }
+      },
+      "5582": {
+        "pilotName": "Jay Allardyce",
+        "picHours": 892,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 892,
+          "totalWeGlideHours": 712.7,
+          "olcOnlyHours": 179.3,
+          "hoursSinceOct1": 6.6,
+          "estimatedOct1Hours": 892
+        }
+      },
+      "6074": {
+        "pilotName": "Ben Hornett",
+        "picHours": 335.1,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 335.1,
+          "totalWeGlideHours": 179,
+          "olcOnlyHours": 156.1,
+          "hoursSinceOct1": 3.7,
+          "estimatedOct1Hours": 335.1
+        }
+      },
+      "6084": {
+        "pilotName": "Tyler Paradis",
+        "picHours": 94.7,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 94.7,
+          "totalWeGlideHours": 70.6,
+          "olcOnlyHours": 24.1,
+          "hoursSinceOct1": 2.6,
+          "estimatedOct1Hours": 94.7
+        }
+      },
+      "6303": {
+        "pilotName": "Kelvin Cole",
+        "picHours": 124.2,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 124.2,
+          "totalWeGlideHours": 123.9,
+          "olcOnlyHours": 0.3,
+          "hoursSinceOct1": 7.6,
+          "estimatedOct1Hours": 124.2
+        }
+      },
+      "8839": {
+        "pilotName": "Bob Katz",
+        "picHours": 707.5,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 707.5,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 707.5,
+          "hoursSinceOct1": 4.2,
+          "estimatedOct1Hours": 707.5
+        }
+      },
+      "8848": {
+        "pilotName": "Andre R. Pepin",
+        "picHours": 5152.5,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 5152.5,
+          "totalWeGlideHours": 4611.7,
+          "olcOnlyHours": 540.8,
+          "hoursSinceOct1": 59.7,
+          "estimatedOct1Hours": 5152.5
+        }
+      },
+      "10764": {
+        "pilotName": "Denis Nolan",
+        "picHours": 221.6,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 221.6,
+          "totalWeGlideHours": 77.6,
+          "olcOnlyHours": 144,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 221.6
+        }
+      },
+      "12276": {
+        "pilotName": "Artur Siwic",
+        "picHours": 141.1,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 141.1,
+          "totalWeGlideHours": 56.3,
+          "olcOnlyHours": 84.8,
+          "hoursSinceOct1": 4.4,
+          "estimatedOct1Hours": 141.1
+        }
+      },
+      "12854": {
+        "pilotName": "Robert Frith",
+        "picHours": 866.9,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 866.9,
+          "totalWeGlideHours": 43.2,
+          "olcOnlyHours": 823.7,
+          "hoursSinceOct1": 0.5,
+          "estimatedOct1Hours": 866.9
+        }
+      },
+      "12901": {
+        "pilotName": "Mike Morgulis",
+        "picHours": 274,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 274,
+          "totalWeGlideHours": 24.8,
+          "olcOnlyHours": 249.2,
+          "hoursSinceOct1": 5,
+          "estimatedOct1Hours": 274
+        }
+      },
+      "13284": {
+        "pilotName": "Mark Luscher",
+        "picHours": 268.7,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 268.7,
+          "totalWeGlideHours": 258.8,
+          "olcOnlyHours": 9.9,
+          "hoursSinceOct1": 0.6,
+          "estimatedOct1Hours": 268.7
+        }
+      },
+      "13388": {
+        "pilotName": "Paulo Matioli",
+        "picHours": 16.8,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 16.8,
+          "totalWeGlideHours": 16.6,
+          "olcOnlyHours": 0.1,
+          "hoursSinceOct1": 7.8,
+          "estimatedOct1Hours": 16.8
+        }
+      },
+      "13987": {
+        "pilotName": "Mohammad Reza Darvish",
+        "picHours": 64.1,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 64.1,
+          "totalWeGlideHours": 17.7,
+          "olcOnlyHours": 46.4,
+          "hoursSinceOct1": 2.6,
+          "estimatedOct1Hours": 64.1
+        }
+      },
+      "15888": {
+        "pilotName": "Daniel Nazarko",
+        "picHours": 116.8,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 116.8,
+          "totalWeGlideHours": 114.3,
+          "olcOnlyHours": 2.5,
+          "hoursSinceOct1": 16.2,
+          "estimatedOct1Hours": 116.8
+        }
+      },
+      "15929": {
+        "pilotName": "Chester Fitchett",
+        "picHours": 637.4,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 637.4,
+          "totalWeGlideHours": 633.4,
+          "olcOnlyHours": 4,
+          "hoursSinceOct1": 20.3,
+          "estimatedOct1Hours": 637.4
+        }
+      },
+      "16605": {
+        "pilotName": "Ward Clapham",
+        "picHours": 396.4,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 396.4,
+          "totalWeGlideHours": 295.7,
+          "olcOnlyHours": 100.6,
+          "hoursSinceOct1": 4.1,
+          "estimatedOct1Hours": 396.4
+        }
+      },
+      "17026": {
+        "pilotName": "Bryan Swansburg",
+        "picHours": 467.2,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 467.2,
+          "totalWeGlideHours": 187.6,
+          "olcOnlyHours": 279.7,
+          "hoursSinceOct1": 14.2,
+          "estimatedOct1Hours": 467.2
+        }
+      },
+      "18113": {
+        "pilotName": "Patrice gravel",
+        "picHours": 887.2,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 887.2,
+          "totalWeGlideHours": 797.1,
+          "olcOnlyHours": 90.1,
+          "hoursSinceOct1": 12.7,
+          "estimatedOct1Hours": 887.2
+        }
+      },
+      "20706": {
+        "pilotName": "Jerzy Szemplinski",
+        "picHours": 2239.3,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 2239.3,
+          "totalWeGlideHours": 7,
+          "olcOnlyHours": 2232.3,
+          "hoursSinceOct1": 8.6,
+          "estimatedOct1Hours": 2239.3
+        }
+      },
       "20723": {
         "pilotName": "Ryan Wood",
         "picHours": 200,
         "verifiedDate": "2026-05-10T22:38:59.483Z",
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "21011": {
+        "pilotName": "Martin Dennis",
+        "picHours": 1502.6,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1502.6,
+          "totalWeGlideHours": 161.7,
+          "olcOnlyHours": 1340.9,
+          "hoursSinceOct1": 31.1,
+          "estimatedOct1Hours": 1502.6
+        }
+      },
+      "21186": {
+        "pilotName": "david cole",
+        "picHours": 932.7,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 932.7,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 932.7,
+          "hoursSinceOct1": 2.4,
+          "estimatedOct1Hours": 932.7
+        }
+      },
+      "21219": {
+        "pilotName": "Kerry Kirby",
+        "picHours": 572.9,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 572.9,
+          "totalWeGlideHours": 3.1,
+          "olcOnlyHours": 569.8,
+          "hoursSinceOct1": 8.8,
+          "estimatedOct1Hours": 572.9
+        }
+      },
+      "21317": {
+        "pilotName": "Brian Pirie",
+        "picHours": 62.6,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 62.6,
+          "totalWeGlideHours": 62.5,
+          "olcOnlyHours": 0.1,
+          "hoursSinceOct1": 12.7,
+          "estimatedOct1Hours": 62.6
+        }
+      },
+      "21574": {
+        "pilotName": "Warwick Patterson",
+        "picHours": 142.5,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 142.5,
+          "totalWeGlideHours": 115.1,
+          "olcOnlyHours": 27.4,
+          "hoursSinceOct1": 4.2,
+          "estimatedOct1Hours": 142.5
+        }
+      },
+      "22077": {
+        "pilotName": "Sasha Pejic",
+        "picHours": 390.6,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 390.6,
+          "totalWeGlideHours": 388.2,
+          "olcOnlyHours": 2.4,
+          "hoursSinceOct1": 16.1,
+          "estimatedOct1Hours": 390.6
+        }
+      },
+      "22081": {
+        "pilotName": "Predrag Kupcevic",
+        "picHours": 406.4,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 406.4,
+          "totalWeGlideHours": 85.7,
+          "olcOnlyHours": 320.7,
+          "hoursSinceOct1": 2.5,
+          "estimatedOct1Hours": 406.4
+        }
+      },
+      "22232": {
+        "pilotName": "Gregory Zak",
+        "picHours": 436.6,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 436.6,
+          "totalWeGlideHours": 434.7,
+          "olcOnlyHours": 1.9,
+          "hoursSinceOct1": 3.6,
+          "estimatedOct1Hours": 436.6
+        }
+      },
+      "22746": {
+        "pilotName": "Frédéric Bourgault",
+        "picHours": 317.4,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 317.4,
+          "totalWeGlideHours": 316.1,
+          "olcOnlyHours": 1.3,
+          "hoursSinceOct1": 26.8,
+          "estimatedOct1Hours": 317.4
+        }
+      },
+      "22923": {
+        "pilotName": "John Mulder",
+        "picHours": 487.9,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 487.9,
+          "totalWeGlideHours": 430.3,
+          "olcOnlyHours": 57.6,
+          "hoursSinceOct1": 7.5,
+          "estimatedOct1Hours": 487.9
+        }
+      },
+      "23246": {
+        "pilotName": "Dragan Zubovic",
+        "picHours": 376.7,
+        "verifiedDate": "2026-05-13T16:44:25.775Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 376.7,
+          "totalWeGlideHours": 44.8,
+          "olcOnlyHours": 331.9,
+          "hoursSinceOct1": 10.7,
+          "estimatedOct1Hours": 376.7
+        }
+      },
+      "23330": {
+        "pilotName": "Guy Gauthier",
+        "picHours": 160.7,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 160.7,
+          "totalWeGlideHours": 144.8,
+          "olcOnlyHours": 16,
+          "hoursSinceOct1": 2.8,
+          "estimatedOct1Hours": 160.7
+        }
+      },
+      "23352": {
+        "pilotName": "Thomas Link",
+        "picHours": 18.1,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 18.1,
+          "totalWeGlideHours": 13.4,
+          "olcOnlyHours": 4.6,
+          "hoursSinceOct1": 1.2,
+          "estimatedOct1Hours": 18.1
+        }
+      },
+      "23521": {
+        "pilotName": "Ray Troppmann",
+        "picHours": 365.7,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 365.7,
+          "totalWeGlideHours": 162.1,
+          "olcOnlyHours": 203.6,
+          "hoursSinceOct1": 3.8,
+          "estimatedOct1Hours": 365.7
+        }
+      },
+      "23795": {
+        "pilotName": "Pascal Hayet",
+        "picHours": 1027.1,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1027.1,
+          "totalWeGlideHours": 819.5,
+          "olcOnlyHours": 207.6,
+          "hoursSinceOct1": 3,
+          "estimatedOct1Hours": 1027.1
+        }
+      },
+      "23829": {
+        "pilotName": "Jesse Miller",
+        "picHours": 269.7,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 269.7,
+          "totalWeGlideHours": 266.4,
+          "olcOnlyHours": 3.2,
+          "hoursSinceOct1": 6.5,
+          "estimatedOct1Hours": 269.7
+        }
+      },
+      "24793": {
+        "pilotName": "Gabriel Duford",
+        "picHours": 1567.5,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1567.5,
+          "totalWeGlideHours": 1250.4,
+          "olcOnlyHours": 317.1,
+          "hoursSinceOct1": 10.9,
+          "estimatedOct1Hours": 1567.5
+        }
+      },
+      "24930": {
+        "pilotName": "Sergey Skobkarev",
+        "picHours": 663.2,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 663.2,
+          "totalWeGlideHours": 654.3,
+          "olcOnlyHours": 8.9,
+          "hoursSinceOct1": 15.7,
+          "estimatedOct1Hours": 663.2
+        }
+      },
+      "25002": {
+        "pilotName": "Sean Christie",
+        "picHours": 93.2,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 93.2,
+          "totalWeGlideHours": 33.6,
+          "olcOnlyHours": 59.6,
+          "hoursSinceOct1": 2.6,
+          "estimatedOct1Hours": 93.2
+        }
+      },
+      "25019": {
+        "pilotName": "Daan Wynberg",
+        "picHours": 389.9,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 389.9,
+          "totalWeGlideHours": 2.9,
+          "olcOnlyHours": 387,
+          "hoursSinceOct1": 11.1,
+          "estimatedOct1Hours": 389.9
+        }
       },
       "25114": {
         "pilotName": "Joshua Peace",
@@ -4305,12 +4950,1122 @@
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
       },
+      "25782": {
+        "pilotName": "Thomas Breitenmoser",
+        "picHours": 107.8,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 107.8,
+          "totalWeGlideHours": 107.4,
+          "olcOnlyHours": 0.3,
+          "hoursSinceOct1": 0.3,
+          "estimatedOct1Hours": 107.8
+        }
+      },
+      "26583": {
+        "pilotName": "James Wood",
+        "picHours": 66.5,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 66.5,
+          "totalWeGlideHours": 34.8,
+          "olcOnlyHours": 31.7,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 66.5
+        }
+      },
+      "27586": {
+        "pilotName": "Mark A. Schneider",
+        "picHours": 1489,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1489,
+          "totalWeGlideHours": 31.4,
+          "olcOnlyHours": 1457.6,
+          "hoursSinceOct1": 16.1,
+          "estimatedOct1Hours": 1489
+        }
+      },
+      "27891": {
+        "pilotName": "Jay Carle Brodeur",
+        "picHours": 0,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "weglide-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 0,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 0,
+          "hoursSinceOct1": 3,
+          "estimatedOct1Hours": 0
+        }
+      },
+      "27904": {
+        "pilotName": "Ronald M.B. Smith",
+        "picHours": 388.4,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 388.4,
+          "totalWeGlideHours": 386.3,
+          "olcOnlyHours": 2.1,
+          "hoursSinceOct1": 50.5,
+          "estimatedOct1Hours": 388.4
+        }
+      },
       "29394": {
         "pilotName": "Michael McKay",
         "picHours": 200,
         "verifiedDate": "2026-05-13T15:42:52.258Z",
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "29869": {
+        "pilotName": "Denis Pepin",
+        "picHours": 1148.6,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1148.6,
+          "totalWeGlideHours": 1051,
+          "olcOnlyHours": 97.6,
+          "hoursSinceOct1": 3.6,
+          "estimatedOct1Hours": 1148.6
+        }
+      },
+      "32274": {
+        "pilotName": "Harry  Peters",
+        "picHours": 1778.8,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1778.8,
+          "totalWeGlideHours": 185.5,
+          "olcOnlyHours": 1593.3,
+          "hoursSinceOct1": 17.7,
+          "estimatedOct1Hours": 1778.8
+        }
+      },
+      "32345": {
+        "pilotName": "Michael Stieber",
+        "picHours": 1391.7,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1391.7,
+          "totalWeGlideHours": 1370,
+          "olcOnlyHours": 21.7,
+          "hoursSinceOct1": 15.7,
+          "estimatedOct1Hours": 1391.7
+        }
+      },
+      "32676": {
+        "pilotName": "Amanda Vella",
+        "picHours": 19.6,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 19.6,
+          "totalWeGlideHours": 19.4,
+          "olcOnlyHours": 0.2,
+          "hoursSinceOct1": 1.3,
+          "estimatedOct1Hours": 19.6
+        }
+      },
+      "33962": {
+        "pilotName": "Charlie Pastuszka",
+        "picHours": 270.8,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 270.8,
+          "totalWeGlideHours": 4.6,
+          "olcOnlyHours": 266.2,
+          "hoursSinceOct1": 12.5,
+          "estimatedOct1Hours": 270.8
+        }
+      },
+      "34532": {
+        "pilotName": "Rob Williams",
+        "picHours": 140.1,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 140.1,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 140.1,
+          "hoursSinceOct1": 1.9,
+          "estimatedOct1Hours": 140.1
+        }
+      },
+      "34953": {
+        "pilotName": "Jean Lapierre",
+        "picHours": 641.7,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 641.7,
+          "totalWeGlideHours": 79.8,
+          "olcOnlyHours": 561.9,
+          "hoursSinceOct1": 6.7,
+          "estimatedOct1Hours": 641.7
+        }
+      },
+      "35091": {
+        "pilotName": "François Tanguay",
+        "picHours": 1041.3,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1041.3,
+          "totalWeGlideHours": 1026.4,
+          "olcOnlyHours": 14.9,
+          "hoursSinceOct1": 18.7,
+          "estimatedOct1Hours": 1041.3
+        }
+      },
+      "35092": {
+        "pilotName": "Tim Daniel",
+        "picHours": 216.4,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 216.4,
+          "totalWeGlideHours": 113.2,
+          "olcOnlyHours": 103.3,
+          "hoursSinceOct1": 1.1,
+          "estimatedOct1Hours": 216.4
+        }
+      },
+      "35152": {
+        "pilotName": "Gary Hill",
+        "picHours": 283.3,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 283.3,
+          "totalWeGlideHours": 128.3,
+          "olcOnlyHours": 155,
+          "hoursSinceOct1": 2.7,
+          "estimatedOct1Hours": 283.3
+        }
+      },
+      "35288": {
+        "pilotName": "Frank Pilz",
+        "picHours": 1196.9,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1196.9,
+          "totalWeGlideHours": 1173.1,
+          "olcOnlyHours": 23.8,
+          "hoursSinceOct1": 5,
+          "estimatedOct1Hours": 1196.9
+        }
+      },
+      "35296": {
+        "pilotName": "Joseph Tam",
+        "picHours": 103.1,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 103.1,
+          "totalWeGlideHours": 102,
+          "olcOnlyHours": 1,
+          "hoursSinceOct1": 4.7,
+          "estimatedOct1Hours": 103.1
+        }
+      },
+      "35326": {
+        "pilotName": "François Proulx",
+        "picHours": 454.6,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 454.6,
+          "totalWeGlideHours": 442.9,
+          "olcOnlyHours": 11.6,
+          "hoursSinceOct1": 7.1,
+          "estimatedOct1Hours": 454.6
+        }
+      },
+      "35337": {
+        "pilotName": "Mike North",
+        "picHours": 1005.6,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1005.6,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 1005.6,
+          "hoursSinceOct1": 23.7,
+          "estimatedOct1Hours": 1005.6
+        }
+      },
+      "35350": {
+        "pilotName": "Kevin Forsyth",
+        "picHours": 270.1,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 270.1,
+          "totalWeGlideHours": 254.3,
+          "olcOnlyHours": 15.8,
+          "hoursSinceOct1": 1.2,
+          "estimatedOct1Hours": 270.1
+        }
+      },
+      "35351": {
+        "pilotName": "Éric Raissac",
+        "picHours": 67.3,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 67.3,
+          "totalWeGlideHours": 67.1,
+          "olcOnlyHours": 0.1,
+          "hoursSinceOct1": 6,
+          "estimatedOct1Hours": 67.3
+        }
+      },
+      "35367": {
+        "pilotName": "Christian Boulay",
+        "picHours": 320.4,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 320.4,
+          "totalWeGlideHours": 298.9,
+          "olcOnlyHours": 21.5,
+          "hoursSinceOct1": 13.1,
+          "estimatedOct1Hours": 320.4
+        }
+      },
+      "35385": {
+        "pilotName": "Gustavo Tanoni",
+        "picHours": 957.5,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 957.5,
+          "totalWeGlideHours": 934.7,
+          "olcOnlyHours": 22.8,
+          "hoursSinceOct1": 14.7,
+          "estimatedOct1Hours": 957.5
+        }
+      },
+      "35395": {
+        "pilotName": "Marco Solo",
+        "picHours": 17.7,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 17.7,
+          "totalWeGlideHours": 16.7,
+          "olcOnlyHours": 0.9,
+          "hoursSinceOct1": 2.7,
+          "estimatedOct1Hours": 17.7
+        }
+      },
+      "35400": {
+        "pilotName": "Ionel Anton",
+        "picHours": 104.2,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 104.2,
+          "totalWeGlideHours": 103.3,
+          "olcOnlyHours": 0.9,
+          "hoursSinceOct1": 5.3,
+          "estimatedOct1Hours": 104.2
+        }
+      },
+      "35420": {
+        "pilotName": "David philip",
+        "picHours": 141.2,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 141.2,
+          "totalWeGlideHours": 14,
+          "olcOnlyHours": 127.2,
+          "hoursSinceOct1": 3.9,
+          "estimatedOct1Hours": 141.2
+        }
+      },
+      "35423": {
+        "pilotName": "James Kingdon",
+        "picHours": 464.8,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 464.8,
+          "totalWeGlideHours": 443.8,
+          "olcOnlyHours": 20.9,
+          "hoursSinceOct1": 5.6,
+          "estimatedOct1Hours": 464.8
+        }
+      },
+      "35426": {
+        "pilotName": "Omar Duric",
+        "picHours": 144.9,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 144.9,
+          "totalWeGlideHours": 134.5,
+          "olcOnlyHours": 10.4,
+          "hoursSinceOct1": 14.9,
+          "estimatedOct1Hours": 144.9
+        }
+      },
+      "35427": {
+        "pilotName": "Marc-André Rathé",
+        "picHours": 39.1,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 39.1,
+          "totalWeGlideHours": 37.6,
+          "olcOnlyHours": 1.5,
+          "hoursSinceOct1": 10.9,
+          "estimatedOct1Hours": 39.1
+        }
+      },
+      "35430": {
+        "pilotName": "Susan Snell",
+        "picHours": 145.8,
+        "verifiedDate": "2026-05-13T16:44:25.775Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 145.8,
+          "totalWeGlideHours": 139.3,
+          "olcOnlyHours": 6.6,
+          "hoursSinceOct1": 1.8,
+          "estimatedOct1Hours": 145.8
+        }
+      },
+      "35431": {
+        "pilotName": "Csaba Balazs",
+        "picHours": 130.2,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 130.2,
+          "totalWeGlideHours": 79.5,
+          "olcOnlyHours": 50.7,
+          "hoursSinceOct1": 7.6,
+          "estimatedOct1Hours": 130.2
+        }
+      },
+      "35433": {
+        "pilotName": "Kevin Klock",
+        "picHours": 43,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 43,
+          "totalWeGlideHours": 42.9,
+          "olcOnlyHours": 0.1,
+          "hoursSinceOct1": 20.6,
+          "estimatedOct1Hours": 43
+        }
+      },
+      "35434": {
+        "pilotName": "Paul Payette",
+        "picHours": 23,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 23,
+          "totalWeGlideHours": 20,
+          "olcOnlyHours": 3,
+          "hoursSinceOct1": 3.2,
+          "estimatedOct1Hours": 23
+        }
+      },
+      "35436": {
+        "pilotName": "Nick Bonniere",
+        "picHours": 3010.4,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 3010.4,
+          "totalWeGlideHours": 198.6,
+          "olcOnlyHours": 2811.9,
+          "hoursSinceOct1": 42.8,
+          "estimatedOct1Hours": 3010.4
+        }
+      },
+      "35437": {
+        "pilotName": "Ali Askari",
+        "picHours": 16.9,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 16.9,
+          "totalWeGlideHours": 4.8,
+          "olcOnlyHours": 12,
+          "hoursSinceOct1": 3.8,
+          "estimatedOct1Hours": 16.9
+        }
+      },
+      "35461": {
+        "pilotName": "Gregory Wilson",
+        "picHours": 10.2,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 10.2,
+          "totalWeGlideHours": 10.2,
+          "olcOnlyHours": 0,
+          "hoursSinceOct1": 4.4,
+          "estimatedOct1Hours": 10.2
+        }
+      },
+      "35484": {
+        "pilotName": "Jim Miller",
+        "picHours": 455.6,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 455.6,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 455.6,
+          "hoursSinceOct1": 3.5,
+          "estimatedOct1Hours": 455.6
+        }
+      },
+      "35496": {
+        "pilotName": "Richard Noel",
+        "picHours": 1088.8,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1088.8,
+          "totalWeGlideHours": 813.9,
+          "olcOnlyHours": 274.9,
+          "hoursSinceOct1": 22.3,
+          "estimatedOct1Hours": 1088.8
+        }
+      },
+      "35546": {
+        "pilotName": "Philippe Laflamme",
+        "picHours": 344.8,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 344.8,
+          "totalWeGlideHours": 333,
+          "olcOnlyHours": 11.8,
+          "hoursSinceOct1": 4.1,
+          "estimatedOct1Hours": 344.8
+        }
+      },
+      "35556": {
+        "pilotName": "Lucas Aguenier",
+        "picHours": 11.6,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 11.6,
+          "totalWeGlideHours": 2,
+          "olcOnlyHours": 9.6,
+          "hoursSinceOct1": 1,
+          "estimatedOct1Hours": 11.6
+        }
+      },
+      "35558": {
+        "pilotName": "Pierre Cypihot",
+        "picHours": 1146.6,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1146.6,
+          "totalWeGlideHours": 1082.4,
+          "olcOnlyHours": 64.2,
+          "hoursSinceOct1": 17.8,
+          "estimatedOct1Hours": 1146.6
+        }
+      },
+      "35573": {
+        "pilotName": "Luc Paquette",
+        "picHours": 133.5,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 133.5,
+          "totalWeGlideHours": 133.1,
+          "olcOnlyHours": 0.4,
+          "hoursSinceOct1": 3.3,
+          "estimatedOct1Hours": 133.5
+        }
+      },
+      "35577": {
+        "pilotName": "Jean Yves Germain",
+        "picHours": 512.8,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 512.8,
+          "totalWeGlideHours": 272,
+          "olcOnlyHours": 240.7,
+          "hoursSinceOct1": 4.2,
+          "estimatedOct1Hours": 512.8
+        }
+      },
+      "35605": {
+        "pilotName": "Craig Pitchell",
+        "picHours": 1.9,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "weglide-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1.9,
+          "totalWeGlideHours": 1.9,
+          "olcOnlyHours": 0,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 1.9
+        }
+      },
+      "35610": {
+        "pilotName": "Tim Fulcher",
+        "picHours": 578.7,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 578.7,
+          "totalWeGlideHours": 476.5,
+          "olcOnlyHours": 102.2,
+          "hoursSinceOct1": 0.7,
+          "estimatedOct1Hours": 578.7
+        }
+      },
+      "35644": {
+        "pilotName": "Christian Hamel",
+        "picHours": 1190.9,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1190.9,
+          "totalWeGlideHours": 1174,
+          "olcOnlyHours": 16.9,
+          "hoursSinceOct1": 32,
+          "estimatedOct1Hours": 1190.9
+        }
+      },
+      "35654": {
+        "pilotName": "Frederic Couturier",
+        "picHours": 108.1,
+        "verifiedDate": "2026-05-13T16:44:25.775Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 108.1,
+          "totalWeGlideHours": 103,
+          "olcOnlyHours": 5.1,
+          "hoursSinceOct1": 9.8,
+          "estimatedOct1Hours": 108.1
+        }
+      },
+      "35660": {
+        "pilotName": "Pierre Gavillet",
+        "picHours": 1899.6,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1899.6,
+          "totalWeGlideHours": 1867,
+          "olcOnlyHours": 32.5,
+          "hoursSinceOct1": 22.3,
+          "estimatedOct1Hours": 1899.6
+        }
+      },
+      "35709": {
+        "pilotName": "Ray Ochitwa",
+        "picHours": 839.5,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 839.5,
+          "totalWeGlideHours": 43.8,
+          "olcOnlyHours": 795.7,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 839.5
+        }
+      },
+      "35714": {
+        "pilotName": "Lee Fasken",
+        "picHours": 677,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 677,
+          "totalWeGlideHours": 665.2,
+          "olcOnlyHours": 11.8,
+          "hoursSinceOct1": 7.4,
+          "estimatedOct1Hours": 677
+        }
+      },
+      "35759": {
+        "pilotName": "Patrick Kessler",
+        "picHours": 374.1,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 374.1,
+          "totalWeGlideHours": 1.9,
+          "olcOnlyHours": 372.2,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 374.1
+        }
+      },
+      "35763": {
+        "pilotName": "Alain Bouliane",
+        "picHours": 53.1,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 53.1,
+          "totalWeGlideHours": 49.4,
+          "olcOnlyHours": 3.7,
+          "hoursSinceOct1": 7.8,
+          "estimatedOct1Hours": 53.1
+        }
+      },
+      "35776": {
+        "pilotName": "Struan Vaughan",
+        "picHours": 883.3,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 883.3,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 883.3,
+          "hoursSinceOct1": 4.5,
+          "estimatedOct1Hours": 883.3
+        }
+      },
+      "35777": {
+        "pilotName": "Thomas Chester",
+        "picHours": 29.5,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 29.5,
+          "totalWeGlideHours": 1.4,
+          "olcOnlyHours": 28.1,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 29.5
+        }
+      },
+      "35810": {
+        "pilotName": "Tim Wood",
+        "picHours": 1498,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1498,
+          "totalWeGlideHours": 1.7,
+          "olcOnlyHours": 1496.3,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 1498
+        }
+      },
+      "35822": {
+        "pilotName": "Michel Rochette",
+        "picHours": 213.4,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 213.4,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 213.4,
+          "hoursSinceOct1": 2,
+          "estimatedOct1Hours": 213.4
+        }
+      },
+      "35848": {
+        "pilotName": "Rob Ballantyne",
+        "picHours": 189.3,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 189.3,
+          "totalWeGlideHours": 183.6,
+          "olcOnlyHours": 5.7,
+          "hoursSinceOct1": 2.9,
+          "estimatedOct1Hours": 189.3
+        }
+      },
+      "35963": {
+        "pilotName": "Tom Coulson",
+        "picHours": 74,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 74,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 74,
+          "hoursSinceOct1": 2.3,
+          "estimatedOct1Hours": 74
+        }
+      },
+      "35992": {
+        "pilotName": "Jeff Slingerland",
+        "picHours": 2.9,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 2.9,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 2.9,
+          "hoursSinceOct1": 0.8,
+          "estimatedOct1Hours": 2.9
+        }
+      },
+      "36013": {
+        "pilotName": "Ian Grant",
+        "picHours": 284.3,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 284.3,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 284.3,
+          "hoursSinceOct1": 7.6,
+          "estimatedOct1Hours": 284.3
+        }
+      },
+      "36028": {
+        "pilotName": "Nicholas Bertrand",
+        "picHours": 22.6,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 22.6,
+          "totalWeGlideHours": 11.2,
+          "olcOnlyHours": 11.4,
+          "hoursSinceOct1": 1.3,
+          "estimatedOct1Hours": 22.6
+        }
+      },
+      "36033": {
+        "pilotName": "Antoine  Latulippe",
+        "picHours": 107.1,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 107.1,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 107.1,
+          "hoursSinceOct1": 12.7,
+          "estimatedOct1Hours": 107.1
+        }
+      },
+      "36054": {
+        "pilotName": "Jean-François Latulippe",
+        "picHours": 218,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 218,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 218,
+          "hoursSinceOct1": 3.6,
+          "estimatedOct1Hours": 218
+        }
+      },
+      "36083": {
+        "pilotName": "Justin Latour",
+        "picHours": 0,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "weglide-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 0,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 0,
+          "hoursSinceOct1": 4.7,
+          "estimatedOct1Hours": 0
+        }
+      },
+      "36101": {
+        "pilotName": "Harrison Breeze",
+        "picHours": 0,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "weglide-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 0,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 0,
+          "hoursSinceOct1": 1.2,
+          "estimatedOct1Hours": 0
+        }
+      },
+      "36137": {
+        "pilotName": "Gerald Ince",
+        "picHours": 541.4,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 541.4,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 541.4,
+          "hoursSinceOct1": 2.2,
+          "estimatedOct1Hours": 541.4
+        }
+      },
+      "36138": {
+        "pilotName": "Mark Rakowitz",
+        "picHours": 198.1,
+        "verifiedDate": "2026-05-13T16:44:25.771Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 198.1,
+          "totalWeGlideHours": 197.5,
+          "olcOnlyHours": 0.6,
+          "hoursSinceOct1": 14.2,
+          "estimatedOct1Hours": 198.1
+        }
+      },
+      "36868": {
+        "pilotName": "Martin Chicoine",
+        "picHours": 4.8,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "weglide-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 4.8,
+          "totalWeGlideHours": 4.8,
+          "olcOnlyHours": 0,
+          "hoursSinceOct1": 1.8,
+          "estimatedOct1Hours": 4.8
+        }
+      },
+      "37746": {
+        "pilotName": "Gordon Spurgeon",
+        "picHours": 495.8,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 495.8,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 495.8,
+          "hoursSinceOct1": 14.5,
+          "estimatedOct1Hours": 495.8
+        }
+      },
+      "38085": {
+        "pilotName": "Marco Martins",
+        "picHours": 135.4,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 135.4,
+          "totalWeGlideHours": 135.1,
+          "olcOnlyHours": 0.4,
+          "hoursSinceOct1": 5.1,
+          "estimatedOct1Hours": 135.4
+        }
+      },
+      "38390": {
+        "pilotName": "Luc Savoie",
+        "picHours": 466.8,
+        "verifiedDate": "2026-05-13T16:44:25.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 466.8,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 466.8,
+          "hoursSinceOct1": 2.6,
+          "estimatedOct1Hours": 466.8
+        }
+      },
+      "38767": {
+        "pilotName": "Reginald Braithwaite",
+        "picHours": 13,
+        "verifiedDate": "2026-05-13T16:44:25.775Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 13,
+          "totalWeGlideHours": 9.5,
+          "olcOnlyHours": 3.5,
+          "hoursSinceOct1": 1.4,
+          "estimatedOct1Hours": 13
+        }
+      },
+      "38833": {
+        "pilotName": "Elliot Côté",
+        "picHours": 6.1,
+        "verifiedDate": "2026-05-13T16:44:25.774Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 6.1,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 6.1,
+          "hoursSinceOct1": 3.1,
+          "estimatedOct1Hours": 6.1
+        }
+      },
+      "38969": {
+        "pilotName": "Alain Thirion",
+        "picHours": 1761.3,
+        "verifiedDate": "2026-05-13T16:44:25.772Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 1761.3,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 1761.3,
+          "hoursSinceOct1": 5.7,
+          "estimatedOct1Hours": 1761.3
+        }
       }
     },
     "dobVerifications": {}
@@ -102080,6 +103835,6 @@
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-13T16:44:25.722Z"
+    "generatedAt": "2026-05-13T16:46:51.447Z"
   }
 }
