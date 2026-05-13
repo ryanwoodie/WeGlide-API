@@ -8,10 +8,6 @@
   ],
   "crons": [
     {
-      "path": "/api/check-flights",
-      "schedule": "0 3 * * *"
-    },
-    {
       "path": "/api/cron-notify-top5",
       "schedule": "0 16 * * *"
     }
