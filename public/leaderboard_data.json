@@ -4303,6 +4303,13 @@
         "verifiedDate": "2026-05-11T05:03:08.686Z",
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "29394": {
+        "pilotName": "Michael McKay",
+        "picHours": 200,
+        "verifiedDate": "2026-05-13T15:42:52.258Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
       }
     },
     "dobVerifications": {}
@@ -101785,6 +101792,6 @@
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-13T15:01:55.583Z"
+    "generatedAt": "2026-05-13T15:44:05.625Z"
   }
 }
