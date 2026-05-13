@@ -25,8 +25,13 @@
  * Outside that window the endpoint returns 200 without calling WeGlide or
  * writing state.
  *
+ * Vercel Cron calls this endpoint directly. When Authorization matches
+ * Bearer CRON_SECRET, the request is treated as send mode without requiring
+ * query params.
+ *
  * Env:
  *   UPDATE_TOKEN              auth gate (same as api/trigger-update.js)
+ *   CRON_SECRET               auth gate for Vercel Cron invocations
  *   PUBLIC_BASE_URL           base URL for verify/dismiss/leaderboard links
  *                             in message bodies (e.g. https://sac-leaderboard.vercel.app)
  *   WEGLIDE_USERNAME, WEGLIDE_PASSWORD  required for send mode
@@ -54,6 +59,22 @@ function isAuthorized(req) {
         return false;
     }
     return true;
+}
+
+function getHeader(req, name) {
+    const target = name.toLowerCase();
+    const headers = req.headers || {};
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === target) {
+            return Array.isArray(value) ? value[0] : value;
+        }
+    }
+    return '';
+}
+
+function isAuthorizedCron(req) {
+    const secret = (process.env.CRON_SECRET || '').trim();
+    return Boolean(secret) && getHeader(req, 'authorization') === `Bearer ${secret}`;
 }
 
 async function loadLeaderboardData(baseUrl) {
@@ -110,12 +131,13 @@ module.exports = async (req, res) => {
     if (req.method !== 'GET' && req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
-    if (!isAuthorized(req)) {
+    const cronAuthorized = isAuthorizedCron(req);
+    if (!cronAuthorized && !isAuthorized(req)) {
         return res.status(401).json({ error: 'Unauthorized' });
     }
 
     try {
-        const sendRequested = isTrueish((req.query?.send || '').toString().toLowerCase());
+        const sendRequested = cronAuthorized || isTrueish((req.query?.send || '').toString().toLowerCase());
         if (sendRequested) {
             const notifyWindow = getNotifyWindowStatus();
             if (!notifyWindow.inWindow) {

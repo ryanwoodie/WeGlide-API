@@ -8,7 +8,7 @@
   ],
   "crons": [
     {
-      "path": "/api/cron-notify-top5",
+      "path": "/api/notify-top5",
       "schedule": "0 16 * * *"
     }
   ],
