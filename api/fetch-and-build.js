@@ -126,17 +126,39 @@ async function blobFetchText(key) {
     return readBlobStreamAsText(result.stream);
 }
 
-function loadCombinedHoursCache() {
+function emptyCombinedHoursPayload() {
+    return {
+        generatedAt: null,
+        cutoffDate: SEASON_BASELINE_DATE,
+        pilots: {},
+        olcNameTotals: {},
+        olcNameDuplicates: {}
+    };
+}
+
+function loadCombinedHoursPayload() {
     if (!fs.existsSync(COMBINED_HOURS_FILE)) {
-        return {};
+        return emptyCombinedHoursPayload();
     }
     try {
         const payload = JSON.parse(fs.readFileSync(COMBINED_HOURS_FILE, 'utf8'));
-        return payload && payload.pilots ? payload.pilots : {};
+        return Object.assign(emptyCombinedHoursPayload(), payload || {}, {
+            pilots: payload && payload.pilots ? payload.pilots : {},
+            olcNameTotals: payload && payload.olcNameTotals ? payload.olcNameTotals : {},
+            olcNameDuplicates: payload && payload.olcNameDuplicates ? payload.olcNameDuplicates : {}
+        });
     } catch (error) {
         log(`Failed to parse combined hours cache: ${error.message}`);
-        return {};
+        return emptyCombinedHoursPayload();
     }
+}
+
+function writeCombinedHoursPayload(payload) {
+    fs.writeFileSync(COMBINED_HOURS_FILE, `${JSON.stringify(payload, null, 2)}\n`);
+}
+
+function loadCombinedHoursCache() {
+    return loadCombinedHoursPayload().pilots;
 }
 
 async function runOlcCombinedHoursSync(pilotIds) {
@@ -660,6 +682,17 @@ function persistProfiles(profiles) {
     fs.writeFileSync(PROFILES_FILE, serialized);
 }
 
+function asciiName(value) {
+    return String(value || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^\x00-\x7F]/g, '');
+}
+
+function compactName(value) {
+    return asciiName(value).toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
 function compactProfile(profile) {
     return {
         total_flight_duration: profile.total_flight_duration || 0,
@@ -676,6 +709,82 @@ function compactProfile(profile) {
         club: profile.club || null,
         message_enabled: profile.message_enabled !== false
     };
+}
+
+async function applyOlcNameTotalsToProfiles({ profiles, pilotIds }) {
+    if (!pilotIds.length) {
+        return { skipped: true, reason: 'no new pilots' };
+    }
+
+    const payload = loadCombinedHoursPayload();
+    const summary = {
+        skipped: false,
+        source: 'olcNameTotals',
+        matched: 0,
+        skippedExisting: 0,
+        skippedNoProfile: 0,
+        skippedNoName: 0,
+        skippedNoOlcNameTotal: 0
+    };
+    let changed = false;
+
+    for (const pilotId of pilotIds) {
+        const key = String(pilotId);
+        if (payload.pilots[key]) {
+            summary.skippedExisting += 1;
+            continue;
+        }
+
+        const profile = profiles[key] || profiles[pilotId];
+        if (!profile) {
+            summary.skippedNoProfile += 1;
+            continue;
+        }
+
+        const normalizedName = compactName(profile.name);
+        if (!normalizedName) {
+            summary.skippedNoName += 1;
+            continue;
+        }
+
+        const match = payload.olcNameTotals[normalizedName];
+        if (!match) {
+            summary.skippedNoOlcNameTotal += 1;
+            continue;
+        }
+
+        const olcHours = Number(match.olcHours) || 0;
+        const olcHoursBeforeCutoff = Number(match.olcHoursBeforeCutoff) || 0;
+        payload.pilots[key] = {
+            pilotId: Number(pilotId),
+            weglidePilotId: `wg:${pilotId}`,
+            olcPilotId: match.olcPilotId,
+            pilotName: profile.name || match.pilotName || '',
+            matchKind: 'olc_name_only',
+            normalizedName,
+            weglideHours: 0,
+            weglideCoPilotHours: 0,
+            olcHours,
+            olcOnlyHours: olcHours,
+            combinedHours: olcHours,
+            weglideHoursBeforeCutoff: 0,
+            weglideCoPilotHoursBeforeCutoff: 0,
+            olcOnlyHoursBeforeCutoff: olcHoursBeforeCutoff,
+            combinedHoursBeforeCutoff: olcHoursBeforeCutoff,
+            eligibleUnder200: olcHoursBeforeCutoff < 200,
+            dataSource: 'olc-name-totals'
+        };
+        changed = true;
+        summary.matched += 1;
+    }
+
+    if (changed) {
+        payload.generatedAt = payload.generatedAt || new Date().toISOString();
+        payload.cutoffDate = payload.cutoffDate || SEASON_BASELINE_DATE;
+        writeCombinedHoursPayload(payload);
+    }
+
+    return summary;
 }
 
 async function notifyNoClubPilots({ flightDetails, profiles }) {
@@ -1294,6 +1403,7 @@ async function runFetchAndBuild(options = {}) {
             olcSyncSummary = await runOlcCombinedHoursSync(options.fullRefresh ? [] : newPilotIds);
         }
         summary.meta.olcSync = olcSyncSummary;
+        summary.meta.olcNameTotalsMatch = await applyOlcNameTotalsToProfiles({ profiles, pilotIds: newPilotIds });
 
         const combinedHoursMap = loadCombinedHoursCache();
         summary.meta.combinedHoursCachedPilots = Object.keys(combinedHoursMap).length;

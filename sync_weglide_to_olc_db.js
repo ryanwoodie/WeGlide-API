@@ -1557,10 +1557,48 @@ FROM pilot_name_matches;
         };
     });
 
+    const olcNameTotals = {};
+    const olcNameDuplicates = {};
+    const olcByNormalizedName = new Map();
+    olcDaily.forEach(olcPilot => {
+        const normalizedName = olcPilot.normalized_name;
+        if (!normalizedName) {
+            return;
+        }
+        if (!olcByNormalizedName.has(normalizedName)) {
+            olcByNormalizedName.set(normalizedName, []);
+        }
+        olcByNormalizedName.get(normalizedName).push(olcPilot);
+    });
+
+    olcByNormalizedName.forEach((matches, normalizedName) => {
+        if (matches.length !== 1) {
+            olcNameDuplicates[normalizedName] = matches.map(olcPilot => ({
+                olcPilotId: olcPilot.pilot_id,
+                pilotName: olcPilot.display_name
+            }));
+            return;
+        }
+
+        const olcPilot = matches[0];
+        const beforeCutoff = combinedSecondsBeforeCutoff(null, olcPilot, effectiveCutoffDate);
+        olcNameTotals[normalizedName] = {
+            normalizedName,
+            olcPilotId: olcPilot.pilot_id,
+            pilotName: olcPilot.display_name,
+            olcHours: Number((((olcPilot.total_seconds || 0) / 3600)).toFixed(2)),
+            olcHoursBeforeCutoff: Number((((beforeCutoff.olcOnlySeconds || 0) / 3600)).toFixed(2)),
+            flightCount: olcPilot.flight_count || 0,
+            eligibleUnder200: (beforeCutoff.olcOnlySeconds / 3600) < 200
+        };
+    });
+
     return {
         generatedAt: new Date().toISOString(),
         cutoffDate: effectiveCutoffDate,
-        pilots
+        pilots,
+        olcNameTotals,
+        olcNameDuplicates
     };
 }
 
