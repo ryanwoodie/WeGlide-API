@@ -5,7 +5,11 @@ const readline = require('readline');
 const { spawn } = require('child_process');
 const { get: getBlob, list: listBlobs } = require('@vercel/blob');
 const { buildNoClubAlertCandidates } = require('../lib/club-alert');
-const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
+const {
+    loadVerificationState,
+    sanitizeVerificationState,
+    saveVerificationState
+} = require('../lib/verification-store');
 const { sendUserMessage } = require('../lib/weglide-message');
 
 // Default to GitHub-backed persistence. Blob fallback is opt-in because list() is billed
@@ -28,6 +32,7 @@ const TMP_DIR = RUNNING_ON_VERCEL ? '/tmp' : process.cwd();
 const DATASET_FILE = path.join(TMP_DIR, process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
 const PROFILES_FILE = path.join(TMP_DIR, process.env.CANADIAN_PROFILES_FILE || 'canadian_user_profiles.json');
 const COMBINED_HOURS_FILE = path.join(TMP_DIR, process.env.CANADIAN_COMBINED_HOURS_FILE || 'canadian_combined_hours.json');
+const PILOT_VERIFICATION_FILE = path.join(TMP_DIR, 'pilot_pic_hours_verification.json');
 const LOCK_FILE = path.join('/tmp', 'fetch_and_build.lock');
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
@@ -159,6 +164,53 @@ function writeCombinedHoursPayload(payload) {
 
 function loadCombinedHoursCache() {
     return loadCombinedHoursPayload().pilots;
+}
+
+async function hydrateVerificationCacheForBuild() {
+    const empty = {
+        picHoursVerifications: {},
+        dobVerifications: {}
+    };
+    let automaticState = empty;
+
+    try {
+        let text = null;
+        if (fs.existsSync(PILOT_VERIFICATION_FILE)) {
+            text = fs.readFileSync(PILOT_VERIFICATION_FILE, 'utf8');
+        } else {
+            text = await loadPersistentText('pilot_pic_hours_verification.json');
+        }
+        if (text) {
+            const parsed = JSON.parse(text);
+            automaticState = {
+                picHoursVerifications: parsed.picHoursVerifications || {},
+                dobVerifications: parsed.dobVerifications || {}
+            };
+        }
+    } catch (error) {
+        log(`Failed to load automatic verification cache: ${error.message}`);
+    }
+
+    const manualState = sanitizeVerificationState(await loadVerificationState());
+    const mergedState = {
+        picHoursVerifications: {
+            ...(automaticState.picHoursVerifications || {}),
+            ...(manualState.picHoursVerifications || {})
+        },
+        dobVerifications: {
+            ...(automaticState.dobVerifications || {}),
+            ...(manualState.dobVerifications || {})
+        }
+    };
+
+    fs.writeFileSync(PILOT_VERIFICATION_FILE, `${JSON.stringify(mergedState, null, 2)}\n`);
+
+    return {
+        automaticPicCount: Object.keys(automaticState.picHoursVerifications || {}).length,
+        manualPicCount: Object.keys(manualState.picHoursVerifications || {}).length,
+        mergedPicCount: Object.keys(mergedState.picHoursVerifications || {}).length,
+        manualDobCount: Object.keys(manualState.dobVerifications || {}).length
+    };
 }
 
 async function runOlcCombinedHoursSync(pilotIds) {
@@ -1416,6 +1468,8 @@ async function runFetchAndBuild(options = {}) {
 
         const firebaseSummary = await uploadPilotVerifications(newProfiles, seasonSecondsMap, combinedHoursMap);
         summary.meta.firebase = firebaseSummary;
+
+        summary.meta.verificationCache = await hydrateVerificationCacheForBuild();
 
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
