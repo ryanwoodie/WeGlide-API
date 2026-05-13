@@ -1403,7 +1403,13 @@ async function runFetchAndBuild(options = {}) {
             olcSyncSummary = await runOlcCombinedHoursSync(options.fullRefresh ? [] : newPilotIds);
         }
         summary.meta.olcSync = olcSyncSummary;
-        summary.meta.olcNameTotalsMatch = await applyOlcNameTotalsToProfiles({ profiles, pilotIds: newPilotIds });
+        const olcBackfillPilotIds = options.fullRefresh
+            ? Object.keys(profiles).map(id => Number(id)).filter(id => Number.isFinite(id))
+            : newPilotIds;
+        summary.meta.olcNameTotalsMatch = await applyOlcNameTotalsToProfiles({
+            profiles,
+            pilotIds: olcBackfillPilotIds
+        });
 
         const combinedHoursMap = loadCombinedHoursCache();
         summary.meta.combinedHoursCachedPilots = Object.keys(combinedHoursMap).length;
