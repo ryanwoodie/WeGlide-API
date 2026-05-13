@@ -4289,7 +4289,22 @@
     }
   },
   "pilotVerifications": {
-    "picHoursVerifications": {},
+    "picHoursVerifications": {
+      "20723": {
+        "pilotName": "Ryan Wood",
+        "picHours": 200,
+        "verifiedDate": "2026-05-10T22:38:59.483Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "25114": {
+        "pilotName": "Joshua Peace",
+        "picHours": 200,
+        "verifiedDate": "2026-05-11T05:03:08.686Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
+      }
+    },
     "dobVerifications": {}
   },
   "pilotProfiles": {
@@ -101782,6 +101797,6 @@
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-13T05:22:43.392Z"
+    "generatedAt": "2026-05-13T05:25:01.129Z"
   }
 }
