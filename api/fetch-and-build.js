@@ -4,6 +4,9 @@ const https = require('https');
 const readline = require('readline');
 const { spawn } = require('child_process');
 const { get: getBlob, list: listBlobs } = require('@vercel/blob');
+const { buildNoClubAlertCandidates } = require('../lib/club-alert');
+const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
+const { sendUserMessage } = require('../lib/weglide-message');
 
 // Default to GitHub-backed persistence. Blob fallback is opt-in because list() is billed
 // as an advanced operation and the dataset/profiles already sync back to the repo.
@@ -40,6 +43,8 @@ const FLIGHT_DETAIL_DELAY_MS = Number(trimEnv(process.env.FLIGHT_DETAIL_DELAY_MS
 const RECENT_REFRESH_DAYS = Number(trimEnv(process.env.RECENT_REFRESH_DAYS, 14));
 const DEFAULT_OLC_DB_PATH = path.resolve(process.cwd(), '../OLC-downloader/olc_stats.sqlite');
 const OLC_DB_PATH = trimEnv(process.env.OLC_DB_PATH, fs.existsSync(DEFAULT_OLC_DB_PATH) ? DEFAULT_OLC_DB_PATH : '');
+const NO_CLUB_ALERTS_ENABLED = /^(1|true|yes)$/i.test(trimEnv(process.env.ENABLE_NO_CLUB_ALERTS, ''));
+const MAX_NO_CLUB_ALERT_SENDS_PER_RUN = Number(trimEnv(process.env.MAX_NO_CLUB_ALERT_SENDS_PER_RUN, 1));
 
 let globalLogBuffer = [];
 function log(...args) {
@@ -655,6 +660,136 @@ function persistProfiles(profiles) {
     fs.writeFileSync(PROFILES_FILE, serialized);
 }
 
+function compactProfile(profile) {
+    return {
+        total_flight_duration: profile.total_flight_duration || 0,
+        total_free_distance: profile.total_free_distance || 0,
+        avg_speed: profile.avg_speed || 0,
+        flight_count: profile.flight_count || 0,
+        avg_glide_speed: profile.avg_glide_speed || 0,
+        avg_glide_detour: profile.avg_glide_detour || 0,
+        achievement_count: profile.achievement_count || 0,
+        name: profile.name || '',
+        gender: profile.gender || '',
+        is_junior: profile.is_junior === true,
+        is_senior: profile.is_senior === true,
+        club: profile.club || null,
+        message_enabled: profile.message_enabled !== false
+    };
+}
+
+async function notifyNoClubPilots({ flightDetails, profiles }) {
+    if (!flightDetails.length) {
+        return { enabled: NO_CLUB_ALERTS_ENABLED, candidates: 0, sent: [], skipped: true, reason: 'no new flights' };
+    }
+
+    const pilotIds = Array.from(new Set(flightDetails
+        .map(flight => flight?.user?.id)
+        .filter(id => typeof id === 'number')));
+
+    if (!pilotIds.length) {
+        return { enabled: NO_CLUB_ALERTS_ENABLED, candidates: 0, sent: [], skipped: true, reason: 'no pilot ids' };
+    }
+
+    const alertProfiles = await fetchUserProfiles(pilotIds);
+    let profilesChanged = false;
+    alertProfiles.forEach(profile => {
+        if (profile && typeof profile.id === 'number') {
+            profiles[profile.id] = compactProfile(profile);
+            profilesChanged = true;
+        }
+    });
+    if (profilesChanged) {
+        persistProfiles(profiles);
+    }
+
+    const state = await loadVerificationState();
+    const candidates = buildNoClubAlertCandidates({ flights: flightDetails, profiles, state });
+    const enabledCandidates = candidates.filter(candidate => {
+        const profile = profiles[String(candidate.pilotId)] || {};
+        return profile.message_enabled !== false;
+    });
+
+    const summary = {
+        enabled: NO_CLUB_ALERTS_ENABLED,
+        candidates: enabledCandidates.length,
+        skippedMessageDisabled: candidates.length - enabledCandidates.length,
+        sent: [],
+        failures: [],
+        dryRun: !NO_CLUB_ALERTS_ENABLED,
+        sendCap: Math.max(0, MAX_NO_CLUB_ALERT_SENDS_PER_RUN),
+        candidatePreviews: enabledCandidates.map(candidate => ({
+            pilotId: candidate.pilotId,
+            pilotName: candidate.pilotName,
+            latestFlightId: candidate.latestFlightId,
+            latestFlightDate: candidate.latestFlightDate,
+            takeoffRegions: candidate.takeoffRegions,
+            bilingual: candidate.bilingual,
+            messageBody: candidate.messageBody
+        }))
+    };
+
+    if (!NO_CLUB_ALERTS_ENABLED || summary.sendCap <= 0 || !enabledCandidates.length) {
+        return summary;
+    }
+
+    const toSend = enabledCandidates.slice(0, summary.sendCap);
+    for (const candidate of toSend) {
+        const startedAt = new Date().toISOString();
+        try {
+            log('[no-club-alert] sending', JSON.stringify({
+                pilotId: candidate.pilotId,
+                pilotName: candidate.pilotName,
+                latestFlightId: candidate.latestFlightId,
+                bilingual: candidate.bilingual
+            }));
+            const sendResponse = await sendUserMessage({
+                recipientId: candidate.pilotId,
+                message: candidate.messageBody
+            });
+
+            const stateNow = await loadVerificationState();
+            stateNow.notifiedNoClubPilots = stateNow.notifiedNoClubPilots || {};
+            stateNow.notifiedNoClubPilots[String(candidate.pilotId)] = {
+                pilotName: candidate.pilotName,
+                notifiedAt: startedAt,
+                channel: 'weglide-direct-message',
+                weglideStatus: sendResponse.status,
+                latestFlightId: candidate.latestFlightId,
+                latestFlightDate: candidate.latestFlightDate,
+                takeoffRegions: candidate.takeoffRegions,
+                bilingual: candidate.bilingual
+            };
+
+            const persistResult = await saveVerificationState(
+                stateNow,
+                `chore: notify missing-club pilot ${candidate.pilotName} (${candidate.pilotId})`
+            );
+
+            summary.sent.push({
+                pilotId: candidate.pilotId,
+                pilotName: candidate.pilotName,
+                latestFlightId: candidate.latestFlightId,
+                bilingual: candidate.bilingual,
+                statePersisted: Boolean(persistResult && persistResult.persisted),
+                statePersistTarget: persistResult?.target,
+                weglideStatus: sendResponse.status
+            });
+        } catch (error) {
+            summary.failures.push({
+                pilotId: candidate.pilotId,
+                pilotName: candidate.pilotName,
+                error: error.message,
+                code: error.code,
+                status: error.status
+            });
+            log('[no-club-alert] send failed', JSON.stringify(summary.failures[summary.failures.length - 1]));
+        }
+    }
+
+    return summary;
+}
+
 async function computeSeasonSecondsForPilots(pilotIds) {
     const totals = {};
     if (!pilotIds.length) {
@@ -1132,26 +1267,24 @@ async function runFetchAndBuild(options = {}) {
             newProfiles = await fetchUserProfiles(newPilotIds);
             newProfiles.forEach(profile => {
                 if (profile && typeof profile.id === 'number') {
-                    profiles[profile.id] = {
-                        total_flight_duration: profile.total_flight_duration || 0,
-                        total_free_distance: profile.total_free_distance || 0,
-                        avg_speed: profile.avg_speed || 0,
-                        flight_count: profile.flight_count || 0,
-                        avg_glide_speed: profile.avg_glide_speed || 0,
-                        avg_glide_detour: profile.avg_glide_detour || 0,
-                        achievement_count: profile.achievement_count || 0,
-                        name: profile.name || '',
-                        gender: profile.gender || '',
-                        is_junior: profile.is_junior === true,
-                        is_senior: profile.is_senior === true,
-                        club: profile.club || null
-                    };
+                    profiles[profile.id] = compactProfile(profile);
                 }
             });
             persistProfiles(profiles);
         }
 
         summary.meta.profilesUpdated = newProfiles.length;
+
+        try {
+            summary.meta.noClubAlert = await notifyNoClubPilots({ flightDetails, profiles });
+        } catch (error) {
+            summary.meta.noClubAlert = {
+                enabled: NO_CLUB_ALERTS_ENABLED,
+                status: 'error',
+                error: error.message
+            };
+            log('[no-club-alert] failed:', error.message);
+        }
 
         const seasonSecondsMap = await computeSeasonSecondsForPilots(newPilotIds);
         summary.meta.seasonSecondsCalculated = Object.keys(seasonSecondsMap).length;
