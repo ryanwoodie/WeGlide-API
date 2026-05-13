@@ -4267,6 +4267,25 @@
       "olcOnlyHoursBeforeCutoff": 6.14,
       "combinedHoursBeforeCutoff": 6.14,
       "eligibleUnder200": true
+    },
+    "38969": {
+      "pilotId": 38969,
+      "weglidePilotId": "wg:38969",
+      "olcPilotId": "18047",
+      "pilotName": "Alain Thirion",
+      "matchKind": "olc_name_only",
+      "normalizedName": "alainthirion",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 1761.3,
+      "olcOnlyHours": 1761.3,
+      "combinedHours": 1761.3,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 1761.3,
+      "combinedHoursBeforeCutoff": 1761.3,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
     }
   },
   "pilotVerifications": {
@@ -101763,6 +101782,6 @@
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-13T04:43:52.561Z"
+    "generatedAt": "2026-05-13T04:46:13.476Z"
   }
 }
