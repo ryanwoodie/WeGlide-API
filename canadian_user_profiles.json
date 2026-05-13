@@ -1292,11 +1292,11 @@
     }
   },
   "35385": {
-    "total_flight_duration": 3396607,
-    "total_free_distance": 47111.79,
-    "avg_speed": 52.57,
-    "flight_count": 257,
-    "avg_glide_speed": 109.98,
+    "total_flight_duration": 3418010,
+    "total_free_distance": 47541.09,
+    "avg_speed": 52.72,
+    "flight_count": 258,
+    "avg_glide_speed": 110.11,
     "avg_glide_detour": 1.25,
     "achievement_count": 13,
     "name": "Gustavo Tanoni",
@@ -1309,7 +1309,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "35395": {
     "total_flight_duration": 77092,
