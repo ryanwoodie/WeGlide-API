@@ -233,6 +233,26 @@
       "url": "http://vancouversoaring.com"
     }
   },
+  "12854": {
+    "total_flight_duration": 157226,
+    "total_free_distance": 1874.95,
+    "avg_speed": 50.16,
+    "flight_count": 22,
+    "avg_glide_speed": 116.57,
+    "avg_glide_detour": 1.44,
+    "achievement_count": 0,
+    "name": "Robert Frith",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 849,
+      "name": "Alberni Valley Soaring Association",
+      "region": "CA-BC",
+      "url": "http://www.avsa.ca"
+    },
+    "message_enabled": true
+  },
   "12901": {
     "total_flight_duration": 107356,
     "total_free_distance": 1736.27,
