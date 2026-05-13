@@ -1620,13 +1620,13 @@
     }
   },
   "35558": {
-    "total_flight_duration": 3918039,
-    "total_free_distance": 58982.6,
-    "avg_speed": 57.49,
-    "flight_count": 284,
-    "avg_glide_speed": 107.23,
+    "total_flight_duration": 3960577,
+    "total_free_distance": 59772.35,
+    "avg_speed": 57.67,
+    "flight_count": 286,
+    "avg_glide_speed": 107.37,
     "avg_glide_detour": 1.22,
-    "achievement_count": 15,
+    "achievement_count": 17,
     "name": "Pierre Cypihot",
     "gender": "M",
     "is_junior": false,
@@ -1636,7 +1636,8 @@
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
       "url": "https://montrealsoaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "35573": {
     "total_flight_duration": 491188,
