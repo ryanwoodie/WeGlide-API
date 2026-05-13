@@ -1,6 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const {
+    loadVerificationState,
+    sanitizeVerificationState
+} = require('./lib/verification-store');
 
 function getCurrentVerificationCutoffDate() {
     const now = new Date();
@@ -1860,8 +1864,8 @@ async function processCanadianFlights() {
             console.warn('⚠️ Could not load/save pilot profile data:', e.message || e);
         }
 
-        // Load cached pilot verification data if present. Manual email-link
-        // verifications are loaded live from the API when the page boots.
+        // Load cached automatic verification data, then overlay manual/self-claim
+        // state so generated JSON and the first render match the verification API.
         let pilotVerificationData = {
             picHoursVerifications: {},
             dobVerifications: {}
@@ -1876,6 +1880,22 @@ async function processCanadianFlights() {
             }
         } catch (e) {
             console.warn('⚠️ Could not load cached verification calculations:', e.message || e);
+        }
+        try {
+            const manualVerificationState = sanitizeVerificationState(await loadVerificationState());
+            pilotVerificationData = {
+                picHoursVerifications: {
+                    ...(pilotVerificationData.picHoursVerifications || {}),
+                    ...(manualVerificationState.picHoursVerifications || {})
+                },
+                dobVerifications: {
+                    ...(pilotVerificationData.dobVerifications || {}),
+                    ...(manualVerificationState.dobVerifications || {})
+                }
+            };
+            console.log(`ℹ️ Merged ${Object.keys(manualVerificationState.picHoursVerifications || {}).length} manual PIC verification(s)`);
+        } catch (e) {
+            console.warn('⚠️ Could not load manual verification state:', e.message || e);
         }
 
         // Read the Canadian HTML template
