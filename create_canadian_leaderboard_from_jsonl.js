@@ -5812,6 +5812,7 @@ No maximum distance bonus\`,
 
             try {
                 const response = await fetch(VERIFICATION_STATE_ENDPOINT, {
+                    cache: 'no-store',
                     headers: {
                         'Accept': 'application/json'
                     }
@@ -5833,6 +5834,12 @@ No maximum distance bonus\`,
 
                 console.log(\`Loaded \${Object.keys(remoteData.picHoursVerifications || {}).length} PIC hour verifications from API\`);
                 console.log(\`Loaded \${Object.keys(remoteData.dobVerifications || {}).length} DOB verifications from API\`);
+                if (document.getElementById('leaderboardBody') && typeof buildLeaderboard === 'function') {
+                    buildLeaderboard();
+                    if (typeof calculateTrophyWinners === 'function') {
+                        calculateTrophyWinners();
+                    }
+                }
             } catch (error) {
                 console.error('Failed to load verifications from API:', error);
             }
