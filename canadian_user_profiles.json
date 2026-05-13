@@ -926,13 +926,13 @@
     }
   },
   "27904": {
-    "total_flight_duration": 1548089,
-    "total_free_distance": 19418.05,
-    "avg_speed": 48.94,
-    "flight_count": 81,
-    "avg_glide_speed": 120.8,
+    "total_flight_duration": 1572562,
+    "total_free_distance": 19878.7,
+    "avg_speed": 49.38,
+    "flight_count": 82,
+    "avg_glide_speed": 120.85,
     "avg_glide_detour": 1.4,
-    "achievement_count": 13,
+    "achievement_count": 14,
     "name": "Ronald M.B. Smith",
     "gender": "M",
     "is_junior": false,
@@ -942,7 +942,8 @@
       "name": "Gatineau Gliding Club",
       "region": "CA-ON",
       "url": "https://www.gatineauglidingclub.ca"
-    }
+    },
+    "message_enabled": true
   },
   "29394": {
     "total_flight_duration": 585018,
