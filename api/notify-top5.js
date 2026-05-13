@@ -18,8 +18,12 @@
  *      verified, not already notified) — the filter cannot bypass them.
  *
  * Hard cap: 1 message per request invocation. Combined with the cron's
- * ~5 min cadence this drains the queue in N*5 minutes for N candidates,
- * with each send checked individually against runaway-messaging risk.
+ * cadence this drains the queue gradually, with each send checked individually
+ * against runaway-messaging risk.
+ *
+ * Send-mode requests are time-gated to 11:00 <= time < 20:00 America/New_York.
+ * Outside that window the endpoint returns 200 without calling WeGlide or
+ * writing state.
  *
  * Env:
  *   UPDATE_TOKEN              auth gate (same as api/trigger-update.js)
@@ -39,6 +43,9 @@ const { loadVerificationState, saveVerificationState } = require('../lib/verific
 const { sendUserMessage } = require('../lib/weglide-message');
 
 const MAX_SENDS_PER_RUN = 1;
+const NOTIFY_WINDOW_TIME_ZONE = 'America/New_York';
+const NOTIFY_WINDOW_START_HOUR = 11;
+const NOTIFY_WINDOW_END_HOUR = 20;
 
 function isAuthorized(req) {
     const expected = (process.env.UPDATE_TOKEN || '').trim();
@@ -76,6 +83,29 @@ function isTrueish(v) {
     return v === '1' || v === 'true' || v === 'yes';
 }
 
+function getNotifyWindowStatus(now = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: NOTIFY_WINDOW_TIME_ZONE,
+        hour: 'numeric',
+        minute: 'numeric',
+        hourCycle: 'h23'
+    }).formatToParts(now);
+    const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    const hour = Number(values.hour);
+    const minute = Number(values.minute);
+    const inWindow = Number.isFinite(hour) &&
+        hour >= NOTIFY_WINDOW_START_HOUR &&
+        hour < NOTIFY_WINDOW_END_HOUR;
+
+    return {
+        inWindow,
+        timeZone: NOTIFY_WINDOW_TIME_ZONE,
+        localTime: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`,
+        windowStart: `${String(NOTIFY_WINDOW_START_HOUR).padStart(2, '0')}:00`,
+        windowEnd: `${String(NOTIFY_WINDOW_END_HOUR).padStart(2, '0')}:00`
+    };
+}
+
 module.exports = async (req, res) => {
     if (req.method !== 'GET' && req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
@@ -86,6 +116,21 @@ module.exports = async (req, res) => {
 
     try {
         const sendRequested = isTrueish((req.query?.send || '').toString().toLowerCase());
+        if (sendRequested) {
+            const notifyWindow = getNotifyWindowStatus();
+            if (!notifyWindow.inWindow) {
+                return res.status(200).json({
+                    ok: true,
+                    mode: 'send',
+                    sent: [],
+                    skipped: true,
+                    reason: 'outside_notify_window',
+                    note: `Top-5 sends are limited to ${notifyWindow.windowStart}-${notifyWindow.windowEnd} ${notifyWindow.timeZone}.`,
+                    notifyWindow
+                });
+            }
+        }
+
         const topN = req.query?.topN
             ? Math.max(1, Math.min(50, parseInt(req.query.topN, 10) || DEFAULT_TOP_N))
             : DEFAULT_TOP_N;
