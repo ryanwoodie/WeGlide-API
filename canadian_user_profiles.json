@@ -1062,13 +1062,13 @@
     }
   },
   "33962": {
-    "total_flight_duration": 47125,
-    "total_free_distance": 1173.85,
-    "avg_speed": 95.66,
-    "flight_count": 4,
-    "avg_glide_speed": 130.89,
-    "avg_glide_detour": 1.1,
-    "achievement_count": 7,
+    "total_flight_duration": 67251,
+    "total_free_distance": 1544.23,
+    "avg_speed": 88.34,
+    "flight_count": 6,
+    "avg_glide_speed": 131.59,
+    "avg_glide_detour": 1.14,
+    "achievement_count": 8,
     "name": "Charlie Pastuszka",
     "gender": "M",
     "is_junior": false,
@@ -1078,7 +1078,8 @@
       "name": "Canadian Rockies Soaring Club",
       "region": "CA-BC",
       "url": "https://www.canadianrockiessoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "34532": {
     "total_flight_duration": 6784,
