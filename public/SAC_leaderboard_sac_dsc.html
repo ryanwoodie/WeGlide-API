@@ -2936,9 +2936,6 @@ No maximum distance bonus`,
 
             return {
                 weglideHours: weglideHoursBeforeCutoff,
-                weglideCoPilotHours: combined && typeof combined.weglideCoPilotHoursBeforeCutoff === 'number'
-                    ? combined.weglideCoPilotHoursBeforeCutoff
-                    : 0,
                 olcOnlyHours: olcOnlyHoursBeforeCutoff,
                 combinedHours: combinedHoursBeforeCutoff
             };
@@ -3157,7 +3154,7 @@ No maximum distance bonus`,
         function createPilotTooltip(pilotId, pilotName) {
             const profile = getPilotProfile(pilotId);
             const currentYearStats = calculateCurrentYearStats(pilotId);
-            const hoursSummary = getPilotVerificationHoursSummary(pilotId);
+            const hoursSummary = getPilotHoursSummary(pilotId);
 
             let tooltipContent = `
                 <div class="pilot-tooltip" role="dialog" aria-label="${pilotName} season summary">
@@ -6702,6 +6699,6 @@ No maximum distance bonus`,
         })();
     </script>
         
-<!-- Generated at 2026-05-14T00:51:05.237Z -->
+<!-- Generated at 2026-05-14T01:24:54.868Z -->
 </body>
 </html>
