@@ -1604,11 +1604,11 @@
     }
   },
   "35496": {
-    "total_flight_duration": 3152870,
-    "total_free_distance": 55840.33,
-    "avg_speed": 69.26,
-    "flight_count": 261,
-    "avg_glide_speed": 119.99,
+    "total_flight_duration": 3195783,
+    "total_free_distance": 56665.04,
+    "avg_speed": 69.3,
+    "flight_count": 264,
+    "avg_glide_speed": 120,
     "avg_glide_detour": 1.14,
     "achievement_count": 26,
     "name": "Richard Noel",
@@ -1620,7 +1620,8 @@
       "name": "CVV de Québec",
       "region": "CA-QC",
       "url": "https://www.cvvq.net"
-    }
+    },
+    "message_enabled": true
   },
   "35546": {
     "total_flight_duration": 1213543,
