@@ -79,11 +79,11 @@
     }
   },
   "5582": {
-    "total_flight_duration": 2571252,
-    "total_free_distance": 48344.01,
-    "avg_speed": 71.19,
-    "flight_count": 169,
-    "avg_glide_speed": 125.19,
+    "total_flight_duration": 2597208,
+    "total_free_distance": 48861.31,
+    "avg_speed": 71.24,
+    "flight_count": 171,
+    "avg_glide_speed": 125.25,
     "avg_glide_detour": 1.2,
     "achievement_count": 15,
     "name": "Jay Allardyce",
@@ -95,7 +95,8 @@
       "name": "Winnipeg Gliding Club",
       "region": "CA-MB",
       "url": "https://www.wgc.mb.ca"
-    }
+    },
+    "message_enabled": true
   },
   "6074": {
     "total_flight_duration": 657656,
