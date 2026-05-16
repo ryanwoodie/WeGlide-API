@@ -1,10 +1,10 @@
 {
   "2070": {
-    "total_flight_duration": 4865980,
-    "total_free_distance": 106816.62,
-    "avg_speed": 83.48,
-    "flight_count": 346,
-    "avg_glide_speed": 138.67,
+    "total_flight_duration": 4868514,
+    "total_free_distance": 106835.49,
+    "avg_speed": 83.45,
+    "flight_count": 347,
+    "avg_glide_speed": 138.65,
     "avg_glide_detour": 1.18,
     "achievement_count": 27,
     "name": "Christopher Michael Gough",
@@ -17,7 +17,8 @@
       "region": "CA-AB",
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
-    }
+    },
+    "message_enabled": true
   },
   "2074": {
     "total_flight_duration": 1293257,
