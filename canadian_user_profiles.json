@@ -1575,13 +1575,13 @@
     }
   },
   "35461": {
-    "total_flight_duration": 45759,
-    "total_free_distance": 382.65,
-    "avg_speed": 31.31,
-    "flight_count": 4,
-    "avg_glide_speed": 105.18,
-    "avg_glide_detour": 1.93,
-    "achievement_count": 3,
+    "total_flight_duration": 59743,
+    "total_free_distance": 544.27,
+    "avg_speed": 34.1,
+    "flight_count": 6,
+    "avg_glide_speed": 104.52,
+    "avg_glide_detour": 1.74,
+    "achievement_count": 5,
     "name": "Gregory Wilson",
     "gender": "M",
     "is_junior": true,
@@ -1591,7 +1591,8 @@
       "name": "Toronto Soaring Club",
       "region": "CA-ON",
       "url": "http://toronto-soaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "35484": {
     "total_flight_duration": 12480,

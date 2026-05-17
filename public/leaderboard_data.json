@@ -81,7 +81,7 @@
     "35434": 83322,
     "35436": 868765,
     "35437": 27464,
-    "35461": 45759,
+    "35461": 59743,
     "35484": 12480,
     "35496": 3207007,
     "35546": 1227236,
@@ -5894,13 +5894,13 @@
       }
     },
     "35461": {
-      "total_flight_duration": 45759,
-      "total_free_distance": 382.65,
-      "avg_speed": 31.31,
-      "flight_count": 4,
-      "avg_glide_speed": 105.18,
-      "avg_glide_detour": 1.93,
-      "achievement_count": 3,
+      "total_flight_duration": 59743,
+      "total_free_distance": 544.27,
+      "avg_speed": 34.1,
+      "flight_count": 6,
+      "avg_glide_speed": 104.52,
+      "avg_glide_detour": 1.74,
+      "achievement_count": 5,
       "name": "Gregory Wilson",
       "gender": "M",
       "is_junior": true,
@@ -5910,7 +5910,8 @@
         "name": "Toronto Soaring Club",
         "region": "CA-ON",
         "url": "http://toronto-soaring.ca"
-      }
+      },
+      "message_enabled": true
     },
     "35484": {
       "total_flight_duration": 12480,
@@ -6668,7 +6669,7 @@
       "message_enabled": true
     }
   },
-  "flightClubs": "{\"880360\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"880377\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"882227\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"882584\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"882587\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"884430\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885537\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"885550\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885665\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"885674\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886405\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886672\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"886715\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"886747\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"886755\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886768\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886770\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886771\":{\"clubId\":1254,\"name\":\"Saskatoon Soaring Club\",\"region\":\"\"},\"887730\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"888729\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888730\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888923\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"889905\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"897237\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897578\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897603\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897605\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897713\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897716\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897722\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"902692\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"903380\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"903403\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"906106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"906595\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"906638\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906641\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906873\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906933\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"906951\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"908899\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909771\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909772\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909822\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909839\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"909870\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909886\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909887\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909888\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909894\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"909905\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909911\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909912\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"909923\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909938\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909943\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"911531\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"912530\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"912976\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"913101\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"913845\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"913862\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"914711\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"915136\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915144\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915148\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915153\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915156\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916098\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"916419\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916584\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"916938\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"916939\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916943\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917028\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"917030\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917033\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917034\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917041\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"918186\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"918201\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"918255\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918386\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918389\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918394\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918400\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"919211\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"919590\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919848\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"919904\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919905\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"920217\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920228\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"920326\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920331\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920436\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920615\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920621\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920623\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920649\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920709\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920714\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920715\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920718\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"920720\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920727\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920728\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920732\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"921113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"922107\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922109\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922252\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"923235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923238\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923242\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"925565\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"925579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925655\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925657\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926620\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926767\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926957\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926973\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"927001\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927005\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927034\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927045\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"929155\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"930864\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930865\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930866\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"932241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932244\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"937188\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"938446\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938480\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938516\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938812\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"938981\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940361\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940414\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940475\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"940526\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940527\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940528\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"947845\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"947848\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"948702\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"950374\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"956345\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"956348\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"959528\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"968963\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"994912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994913\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994914\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"996438\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996439\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996440\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996441\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1027738\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1028772\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1029872\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1029873\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1032041\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1035421\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035431\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035433\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1037609\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1046963\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1047372\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047384\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047982\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1049585\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1049615\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1049643\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051401\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1051788\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051868\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051875\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051930\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051993\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1052011\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1053342\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053413\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053415\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053430\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053463\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053487\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1053734\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1053791\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1054366\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1055467\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1055632\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055675\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055689\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055691\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055692\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1055705\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055712\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055720\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055725\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055726\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055728\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1056004\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1057387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1057456\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057457\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057505\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1058027\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1059897\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1059904\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061984\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061989\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1064146\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1064783\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064844\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064867\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1064926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1065039\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1065082\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066015\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066903\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066904\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066905\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1067631\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1067650\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067651\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067652\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067662\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1067676\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069400\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1069537\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069710\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069730\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069734\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069754\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069755\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1069779\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069785\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069786\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069787\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069834\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069991\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1070016\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1070604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1071244\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1071559\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071560\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071629\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071633\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071635\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071639\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1072253\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072256\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072257\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072258\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072259\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072792\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1072813\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072818\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072825\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1073818\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1074033\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074112\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074121\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074130\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074132\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074312\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074313\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074314\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074315\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074316\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076704\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076709\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1076721\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076768\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076942\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077037\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077038\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077040\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1077050\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077086\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077088\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077091\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1077094\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077101\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077102\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077103\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077105\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077108\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077109\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077110\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077111\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077116\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077118\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1077143\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077862\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1077947\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1078147\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078149\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078153\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1079106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1079252\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1079316\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1079321\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079341\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079362\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079396\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079400\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079401\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079568\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079775\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1079859\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1079870\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079871\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1079872\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1080421\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080422\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080434\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080488\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080517\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080518\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080521\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080528\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080529\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080531\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1080532\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080535\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080536\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080542\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080551\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080552\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080555\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080916\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081134\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081135\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081809\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1082649\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1082861\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1084268\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1084500\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1085224\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1085230\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086201\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086531\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086690\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086707\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086709\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086713\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1086726\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086807\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086834\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1086835\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1086837\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"}}",
+  "flightClubs": "{\"880360\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"880377\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"882227\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"882584\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"882587\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"884430\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885537\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"885550\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885665\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"885674\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886405\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886672\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"886715\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"886747\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"886755\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886768\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886770\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886771\":{\"clubId\":1254,\"name\":\"Saskatoon Soaring Club\",\"region\":\"\"},\"887730\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"888729\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888730\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888923\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"889905\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"897237\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897578\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897603\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897605\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897713\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897716\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897722\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"902692\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"903380\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"903403\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"906106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"906595\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"906638\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906641\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906873\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906933\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"906951\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"908899\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909771\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909772\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909822\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909839\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"909870\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909886\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909887\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909888\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909894\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"909905\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909911\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909912\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"909923\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909938\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909943\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"911531\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"912530\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"912976\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"913101\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"913845\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"913862\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"914711\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"915136\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915144\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915148\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915153\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915156\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916098\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"916419\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916584\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"916938\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"916939\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916943\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917028\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"917030\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917033\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917034\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917041\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"918186\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"918201\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"918255\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918386\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918389\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918394\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918400\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"919211\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"919590\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919848\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"919904\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919905\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"920217\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920228\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"920326\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920331\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920436\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920615\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920621\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920623\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920649\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920709\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920714\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920715\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920718\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"920720\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920727\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920728\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920732\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"921113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"922107\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922109\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922252\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"923235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923238\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923242\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"925565\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"925579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925655\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925657\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926620\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926767\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926957\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926973\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"927001\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927005\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927034\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927045\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"929155\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"930864\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930865\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930866\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"932241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932244\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"937188\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"938446\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938480\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938516\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938812\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"938981\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940361\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940414\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940475\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"940526\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940527\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940528\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"947845\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"947848\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"948702\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"950374\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"956345\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"956348\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"959528\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"968963\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"994912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994913\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994914\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"996438\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996439\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996440\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996441\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1027738\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1028772\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1029872\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1029873\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1032041\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1035421\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035431\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035433\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1037609\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1046963\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1047372\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047384\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047982\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1049585\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1049615\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1049643\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051401\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1051788\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051868\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051875\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051930\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051993\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1052011\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1053342\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053413\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053415\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053430\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053463\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053487\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1053734\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1053791\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1054366\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1055467\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1055632\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055675\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055689\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055691\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055692\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1055705\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055712\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055720\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055725\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055726\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055728\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1056004\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1057387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1057456\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057457\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057505\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1058027\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1059897\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1059904\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061984\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061989\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1064146\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1064783\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064844\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064867\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1064926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1065039\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1065082\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066015\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066903\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066904\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066905\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1067631\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1067650\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067651\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067652\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067662\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1067676\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069400\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1069537\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069710\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069730\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069734\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069754\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069755\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1069779\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069785\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069786\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069787\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069834\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069991\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1070016\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1070604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1071244\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1071559\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071560\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071629\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071633\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071635\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071639\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1072253\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072256\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072257\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072258\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072259\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072792\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1072813\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072818\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072825\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1073818\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1074033\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074112\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074121\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074130\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074132\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074312\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074313\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074314\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074315\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074316\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076704\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076709\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1076721\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076768\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076942\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077037\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077038\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077040\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1077050\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077086\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077088\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077091\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1077094\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077101\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077102\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077103\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077105\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077108\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077109\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077110\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077111\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077116\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077118\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1077143\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077862\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1077947\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1078147\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078149\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078153\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1079106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1079252\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1079316\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1079321\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079341\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079362\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079396\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079400\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079401\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079568\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079775\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1079859\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1079870\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079871\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1079872\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1080421\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080422\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080434\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080488\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080517\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080518\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080521\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080528\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080529\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080531\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1080532\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080535\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080536\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080542\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080551\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080552\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080555\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080916\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081134\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081135\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081809\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1082649\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1082861\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1084268\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1084500\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1085224\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1085230\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086201\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086531\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086690\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086707\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086709\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086713\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1086726\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086807\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086834\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1086835\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1086837\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1086847\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"}}",
   "clubMetadata": "{\"849\":{\"id\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://www.avsa.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"863\":{\"id\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"CA-QC\",\"url\":\"https://www.avvc.qc.ca\",\"logo\":\"club/863.png\",\"in_league\":\"\",\"lookupMissing\":false},\"907\":{\"id\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"CA-BC\",\"url\":\"https://www.canadianrockiessoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"914\":{\"id\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"CA-AB\",\"url\":\"http://www.cagcsoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"947\":{\"id\":947,\"name\":\"CVV de Québec\",\"region\":\"CA-QC\",\"url\":\"https://www.cvvq.net\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"965\":{\"id\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"CA-AB\",\"url\":\"https://www.cunim.org\",\"logo\":\"club/965.png\",\"in_league\":\"\",\"lookupMissing\":false},\"999\":{\"id\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"CA-AB\",\"url\":\"http://www.edmontonsoaringclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1029\":{\"id\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.gatineauglidingclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1037\":{\"id\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.greatlakesgliding.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1124\":{\"id\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"CA-AB\",\"url\":\"https://www.lethbridgesoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1133\":{\"id\":1133,\"name\":\"London Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://www.londonsoaringclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1168\":{\"id\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://montrealsoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1240\":{\"id\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"CA-ON\",\"url\":\"https://rvss.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1254\":{\"id\":1254,\"name\":\"Saskatoon Soaring Club\",\"region\":\"CA-SK\",\"url\":\"http://www.soar.sk.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1310\":{\"id\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.sosaglidingclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1345\":{\"id\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"CA-ON\",\"url\":\"http://toronto-soaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1363\":{\"id\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://vancouversoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1380\":{\"id\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"AU-QLD\",\"url\":\"https://www.warwickgliding.org\",\"logo\":\"club/1380.png\",\"in_league\":\"AU\",\"lookupMissing\":false},\"1387\":{\"id\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"CA-MB\",\"url\":\"https://www.wgc.mb.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1393\":{\"id\":1393,\"name\":\"York Soaring Association\",\"region\":\"CA-ON\",\"url\":\"https://www.yorksoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1808\":{\"id\":1808,\"name\":\"Prince Albert Gliding and Soaring Club\",\"region\":\"CA-SK\",\"url\":\"https://www.pagsc.ca\",\"logo\":\"club/1808.png\",\"in_league\":\"\",\"lookupMissing\":false}}",
   "aircraftAwards": {
     "bestGliderPilot": "Martin Dennis",
@@ -9865,6 +9866,67 @@
       "awards": []
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 361.90999999999997,
+      "totalDistance": 291.86,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 909923,
+          "userId": 35461,
+          "date": "2025-10-05",
+          "distance": 130.24,
+          "speed": 54.98,
+          "points": 153.69,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086847,
+          "userId": 35461,
+          "date": "2026-05-17",
+          "distance": 106.51,
+          "speed": 44.7,
+          "points": 134.34,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1079400,
+          "userId": 35461,
+          "date": "2026-05-10",
+          "distance": 55.11,
+          "speed": 40.55,
+          "points": 73.88,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Ben Hornett",
       "pilotId": 6074,
       "totalPoints": 375.87,
@@ -10491,50 +10553,6 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-50 Puchacz",
           "dmstIndex": 84,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Gregory Wilson",
-      "pilotId": 35461,
-      "totalPoints": 227.57,
-      "totalDistance": 185.35000000000002,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 909923,
-          "userId": 35461,
-          "date": "2025-10-05",
-          "distance": 130.24,
-          "speed": 54.98,
-          "points": 153.69,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079400,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 55.11,
-          "speed": 40.55,
-          "points": 73.88,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
           "invalid": false,
           "errorReasons": []
         }
@@ -14271,6 +14289,66 @@
       ]
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 118.28999999999999,
+      "totalDistance": 232.99,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 909923,
+          "userId": 35461,
+          "date": "2025-10-05",
+          "distance": 109.62,
+          "speed": 54.81,
+          "points": 54.81,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086847,
+          "userId": 35461,
+          "date": "2026-05-17",
+          "distance": 79.2,
+          "speed": 39.6,
+          "points": 39.6,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1079400,
+          "userId": 35461,
+          "date": "2026-05-10",
+          "distance": 44.17,
+          "speed": 22.09,
+          "points": 23.88,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Brian Pirie",
       "pilotId": 21317,
       "totalPoints": 115.82999999999998,
@@ -14909,66 +14987,6 @@
           "aircraftKind": "MG",
           "aircraftName": "ASG 29 E 18m",
           "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gregory Wilson",
-      "pilotId": 35461,
-      "totalPoints": 85.78,
-      "totalDistance": 167.97000000000003,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 909923,
-          "userId": 35461,
-          "date": "2025-10-05",
-          "distance": 109.62,
-          "speed": 54.81,
-          "points": 54.81,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079400,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 44.17,
-          "speed": 22.09,
-          "points": 23.88,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079396,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 14.18,
-          "speed": 7.09,
-          "points": 7.09,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -20146,6 +20164,66 @@
       ]
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 185.96,
+      "totalDistance": 181.74,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1086847,
+          "userId": 35461,
+          "date": "2026-05-17",
+          "distance": 92.78,
+          "speed": 39.27,
+          "points": 92.78,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 909923,
+          "userId": 35461,
+          "date": "2025-10-05",
+          "distance": 51.02,
+          "speed": 25.06,
+          "points": 51.02,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1079400,
+          "userId": 35461,
+          "date": "2026-05-10",
+          "distance": 37.94,
+          "speed": 35.68,
+          "points": 42.16,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Lee Fasken",
       "pilotId": 35714,
       "totalPoints": 183.14000000000001,
@@ -21102,66 +21180,6 @@
           "contestType": "triangle",
           "aircraftKind": "GL",
           "aircraftName": "G 102 Std. Astir",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gregory Wilson",
-      "pilotId": 35461,
-      "totalPoints": 98.46000000000001,
-      "totalDistance": 94.24000000000001,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 909923,
-          "userId": 35461,
-          "date": "2025-10-05",
-          "distance": 51.02,
-          "speed": 25.06,
-          "points": 51.02,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079400,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 37.94,
-          "speed": 35.68,
-          "points": 42.16,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079396,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 5.28,
-          "speed": 14.17,
-          "points": 5.28,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
@@ -25655,6 +25673,66 @@
       ]
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 217.29999999999998,
+      "totalDistance": 213.33999999999997,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 909923,
+          "userId": 35461,
+          "date": "2025-10-05",
+          "distance": 117.24,
+          "speed": 55.58,
+          "points": 117.24,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086847,
+          "userId": 35461,
+          "date": "2026-05-17",
+          "distance": 60.43,
+          "speed": 25.59,
+          "points": 60.43,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1079400,
+          "userId": 35461,
+          "date": "2026-05-10",
+          "distance": 35.67,
+          "speed": 39.63,
+          "points": 39.63,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
       "totalPoints": 215.46,
@@ -25923,66 +26001,6 @@
           "contestType": "out_return",
           "aircraftKind": "GL",
           "aircraftName": "DG 505 6 Orion",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gregory Wilson",
-      "pilotId": 35461,
-      "totalPoints": 166.9,
-      "totalDistance": 162.94,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 909923,
-          "userId": 35461,
-          "date": "2025-10-05",
-          "distance": 117.24,
-          "speed": 55.58,
-          "points": 117.24,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079400,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 35.67,
-          "speed": 39.63,
-          "points": 39.63,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079396,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 10.03,
-          "speed": 27.63,
-          "points": 10.03,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
@@ -67529,6 +67547,110 @@
         "dmstIndex": 115
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1086847,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 28.7,
+        "thermal_avg": 0.84,
+        "glide_speed": 107.5,
+        "glide_speed_lift": 105.17,
+        "glide_speed_sink": 108.44,
+        "altitude_avg": 1047,
+        "agl_avg": 942,
+        "thermal_count": 16,
+        "thermal_gain": 3611,
+        "thermal_radius": 140.04,
+        "thermal_start_agl": 792,
+        "thermal_bank": 27.68,
+        "glide_percentage": 0.45,
+        "glide_percentage_lift": 0.31,
+        "duration": 8578,
+        "thermal_time": 4300,
+        "glide_time": 3884,
+        "wind_speed": 21.4,
+        "wind_direction": 300,
+        "attempt_count": 7,
+        "attempt_avg": -0.57,
+        "attempt_speed_loss": 2.15,
+        "below_1000_agl": 0.5855,
+        "below_800_agl": 0.2824,
+        "below_600_agl": 0.1609,
+        "below_400_agl": 0.0732,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 115.98,
+        "glide_detour": 1.09,
+        "glide_distance": 4.1,
+        "glide_alt_avg": 1030,
+        "end_time": "2026-05-17T19:53:36+00:00",
+        "start_time": "2026-05-17T17:30:38+00:00",
+        "finish_alt": 364
+      },
+      "taskStats": {
+        "glide_ratio": 23.21,
+        "thermal_avg": 0.84,
+        "glide_speed": 107.53,
+        "glide_speed_lift": 105.14,
+        "glide_speed_sink": 108.5,
+        "altitude_avg": 1042,
+        "agl_avg": 938,
+        "thermal_count": 16,
+        "thermal_gain": 3547,
+        "thermal_radius": 140.77,
+        "thermal_start_agl": 807,
+        "thermal_bank": 27.59,
+        "glide_percentage": 0.47,
+        "glide_percentage_lift": 0.3,
+        "duration": 8506,
+        "thermal_time": 4198,
+        "glide_time": 3974,
+        "wind_speed": 21.48,
+        "wind_direction": 298,
+        "attempt_count": 6,
+        "attempt_avg": -0.7,
+        "attempt_speed_loss": 1.6,
+        "below_1000_agl": 0.5819,
+        "below_800_agl": 0.2763,
+        "below_600_agl": 0.1597,
+        "below_400_agl": 0.0901,
+        "below_200_agl": 0.0111,
+        "below_100_agl": 0.0073,
+        "track_distance": 118.7,
+        "glide_detour": 1.28,
+        "glide_distance": 4.33,
+        "glide_alt_avg": 1006,
+        "end_time": "2026-05-17T19:55:54+00:00",
+        "start_time": "2026-05-17T17:34:08+00:00",
+        "finish_alt": 65,
+        "task_duration": 8506,
+        "total_duration": 8578
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 92.78,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 129.89,
+        "freePoints": 134.34,
+        "auPoints": 129.89,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 129.892,
+        "dmstFreeDistance": 92.78,
+        "dmstTaskActualPoints": 129.892,
+        "dmstTaskPotentialPoints": 129.892,
+        "dmstTaskDistance": 92.78,
+        "weglideFreeDistance": 106.51,
+        "dmstIndex": 100
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -94588,6 +94710,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1086847,
+      "user": {
+        "id": 35461,
+        "name": "Gregory Wilson"
+      },
+      "date": "2026-05-17",
+      "distance": 106.51,
+      "duration": 8872,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 134.34,
+          "distance": 106.51,
+          "speed": 44.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 39.6,
+          "distance": 79.2,
+          "speed": 39.6,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 92.78,
+          "distance": 92.78,
+          "speed": 39.27,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 60.43,
+          "distance": 60.43,
+          "speed": 25.59,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 129.89,
+          "distance": 92.78,
+          "speed": 39.27,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Pendleton GATGC",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -98118,6 +98305,83 @@
       ]
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 382.61999999999995,
+      "totalDistance": 310.56,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 909923,
+          "userId": 35461,
+          "date": "2025-10-05",
+          "distance": 130.24,
+          "speed": 54.98,
+          "points": 153.69,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086847,
+          "userId": 35461,
+          "date": "2026-05-17",
+          "distance": 106.51,
+          "speed": 44.7,
+          "points": 134.34,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1079400,
+          "userId": 35461,
+          "date": "2026-05-10",
+          "distance": 55.11,
+          "speed": 40.55,
+          "points": 73.88,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1079396,
+          "userId": 35461,
+          "date": "2026-05-10",
+          "distance": 18.7,
+          "speed": 43.8,
+          "points": 20.71,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Ben Hornett",
       "pilotId": 6074,
       "totalPoints": 375.87,
@@ -98939,66 +99203,6 @@
           "aircraftKind": "GL",
           "aircraftName": "IS 29 D",
           "dmstIndex": 96,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gregory Wilson",
-      "pilotId": 35461,
-      "totalPoints": 248.28,
-      "totalDistance": 204.05,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 909923,
-          "userId": 35461,
-          "date": "2025-10-05",
-          "distance": 130.24,
-          "speed": 54.98,
-          "points": 153.69,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079400,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 55.11,
-          "speed": 40.55,
-          "points": 73.88,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079396,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 18.7,
-          "speed": 43.8,
-          "points": 20.71,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -104685,6 +104889,66 @@
       ]
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 341.31999999999994,
+      "totalDistance": 247.95999999999998,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 909923,
+          "userId": 35461,
+          "date": "2025-10-05",
+          "distance": 117.24,
+          "speed": 55.58,
+          "points": 152.41,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086847,
+          "userId": 35461,
+          "date": "2026-05-17",
+          "distance": 92.78,
+          "speed": 39.27,
+          "points": 129.89,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-48 Jantar Std. 2",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1079400,
+          "userId": 35461,
+          "date": "2026-05-10",
+          "distance": 37.94,
+          "speed": 35.68,
+          "points": 59.02,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Jean Yves Germain",
       "pilotId": 35577,
       "totalPoints": 354.34,
@@ -105221,49 +105485,6 @@
           "aircraftKind": "GL",
           "aircraftName": "DG 500 20m",
           "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gregory Wilson",
-      "pilotId": 35461,
-      "totalPoints": 211.43,
-      "totalDistance": 155.18,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 909923,
-          "userId": 35461,
-          "date": "2025-10-05",
-          "distance": 117.24,
-          "speed": 55.58,
-          "points": 152.41,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-48 Jantar Std. 2",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1079400,
-          "userId": 35461,
-          "date": "2026-05-10",
-          "distance": 37.94,
-          "speed": 35.68,
-          "points": 59.02,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
           "invalid": false,
           "errorReasons": []
         }
@@ -106526,12 +106747,12 @@
   ],
   "meta": {
     "totalPilots": 123,
-    "totalFlights": 413,
-    "totalKms": 70228,
+    "totalFlights": 414,
+    "totalKms": 70334,
     "totalTasksDeclared": 140,
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-17T22:20:57.086Z"
+    "generatedAt": "2026-05-17T22:35:51.959Z"
   }
 }
