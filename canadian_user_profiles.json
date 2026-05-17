@@ -410,13 +410,13 @@
     }
   },
   "18113": {
-    "total_flight_duration": 2888069,
-    "total_free_distance": 53583.43,
-    "avg_speed": 70.2,
-    "flight_count": 190,
-    "avg_glide_speed": 133.54,
+    "total_flight_duration": 2926462,
+    "total_free_distance": 54372.43,
+    "avg_speed": 70.31,
+    "flight_count": 192,
+    "avg_glide_speed": 133.71,
     "avg_glide_detour": 1.23,
-    "achievement_count": 16,
+    "achievement_count": 17,
     "name": "Patrice gravel",
     "gender": "M",
     "is_junior": false,
@@ -426,7 +426,8 @@
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
       "url": "https://montrealsoaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "20706": {
     "total_flight_duration": 68922,
@@ -2326,5 +2327,25 @@
     "is_junior": false,
     "is_senior": true,
     "club": null
+  },
+  "38988": {
+    "total_flight_duration": 3715,
+    "total_free_distance": 31.88,
+    "avg_speed": 37.33,
+    "flight_count": 2,
+    "avg_glide_speed": 93.92,
+    "avg_glide_detour": 1.03,
+    "achievement_count": 0,
+    "name": "James Hanna",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca"
+    },
+    "message_enabled": true
   }
 }
