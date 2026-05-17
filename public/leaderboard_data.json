@@ -39,8 +39,8 @@
     "23352": 50838,
     "23521": 597383,
     "23795": 2961163,
-    "23829": 1001770,
-    "24793": 4540650,
+    "23829": 1012388,
+    "24793": 4555384,
     "24930": 2412096,
     "25002": 130211,
     "25019": 50289,
@@ -57,7 +57,7 @@
     "32676": 74299,
     "33962": 67251,
     "34532": 6784,
-    "34953": 311600,
+    "34953": 322127,
     "35091": 3762572,
     "35092": 411460,
     "35152": 471586,
@@ -5074,11 +5074,11 @@
       }
     },
     "23829": {
-      "total_flight_duration": 1001770,
-      "total_free_distance": 18077.38,
-      "avg_speed": 68.83,
-      "flight_count": 77,
-      "avg_glide_speed": 128.36,
+      "total_flight_duration": 1012388,
+      "total_free_distance": 18300.51,
+      "avg_speed": 68.96,
+      "flight_count": 78,
+      "avg_glide_speed": 128.35,
       "avg_glide_detour": 1.24,
       "achievement_count": 22,
       "name": "Jesse Miller",
@@ -5090,13 +5090,14 @@
         "name": "SOSA Gliding Club",
         "region": "CA-ON",
         "url": "https://www.sosaglidingclub.com"
-      }
+      },
+      "message_enabled": true
     },
     "24793": {
-      "total_flight_duration": 4540650,
-      "total_free_distance": 87444,
-      "avg_speed": 73.15,
-      "flight_count": 314,
+      "total_flight_duration": 4555384,
+      "total_free_distance": 87739.61,
+      "avg_speed": 73.16,
+      "flight_count": 315,
       "avg_glide_speed": 125.9,
       "avg_glide_detour": 1.19,
       "achievement_count": 27,
@@ -5110,7 +5111,8 @@
         "region": "CA-QC",
         "url": "https://www.avvc.qc.ca",
         "logo": "club/863.png"
-      }
+      },
+      "message_enabled": true
     },
     "24930": {
       "total_flight_duration": 2412096,
@@ -5421,13 +5423,13 @@
       }
     },
     "34953": {
-      "total_flight_duration": 311600,
-      "total_free_distance": 6141.97,
-      "avg_speed": 74.06,
-      "flight_count": 24,
-      "avg_glide_speed": 126.08,
+      "total_flight_duration": 322127,
+      "total_free_distance": 6330.77,
+      "avg_speed": 73.88,
+      "flight_count": 25,
+      "avg_glide_speed": 126.29,
       "avg_glide_detour": 1.19,
-      "achievement_count": 6,
+      "achievement_count": 7,
       "name": "Jean Lapierre",
       "gender": "M",
       "is_junior": false,
@@ -5438,7 +5440,8 @@
         "region": "CA-QC",
         "url": "https://www.avvc.qc.ca",
         "logo": "club/863.png"
-      }
+      },
+      "message_enabled": true
     },
     "35091": {
       "total_flight_duration": 3762572,
@@ -6641,7 +6644,7 @@
       "club": null
     }
   },
-  "flightClubs": "{\"880360\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"880377\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"882227\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"882584\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"882587\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"884430\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885537\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"885550\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885665\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"885674\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886405\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886672\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"886715\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"886747\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"886755\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886768\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886770\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886771\":{\"clubId\":1254,\"name\":\"Saskatoon Soaring Club\",\"region\":\"\"},\"887730\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"888729\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888730\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888923\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"889905\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"897237\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897578\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897603\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897605\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897713\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897716\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897722\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"902692\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"903380\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"903403\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"906106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"906595\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"906638\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906641\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906873\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906933\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"906951\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"908899\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909771\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909772\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909822\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909839\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"909870\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909886\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909887\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909888\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909894\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"909905\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909911\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909912\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"909923\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909938\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909943\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"911531\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"912530\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"912976\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"913101\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"913845\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"913862\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"914711\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"915136\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915144\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915148\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915153\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915156\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916098\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"916419\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916584\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"916938\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"916939\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916943\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917028\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"917030\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917033\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917034\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917041\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"918186\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"918201\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"918255\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918386\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918389\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918394\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918400\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"919211\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"919590\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919848\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"919904\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919905\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"920217\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920228\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"920326\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920331\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920436\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920615\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920621\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920623\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920649\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920709\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920714\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920715\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920718\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"920720\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920727\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920728\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920732\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"921113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"922107\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922109\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922252\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"923235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923238\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923242\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"925565\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"925579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925655\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925657\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926620\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926767\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926957\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926973\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"927001\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927005\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927034\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927045\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"929155\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"930864\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930865\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930866\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"932241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932244\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"937188\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"938446\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938479\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938480\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938516\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938812\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"938981\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940361\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940414\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940475\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"940526\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940527\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940528\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"947845\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"947848\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"948702\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"950374\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"956345\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"956348\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"959528\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"968963\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"994912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994913\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994914\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"996438\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996439\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996440\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996441\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1027738\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1028772\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1029872\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1029873\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1032041\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1035421\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035431\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035433\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1037609\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1046963\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1047372\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047384\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047982\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1049585\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1049615\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1049643\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051401\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1051788\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051868\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051875\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051930\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051993\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1052011\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1053342\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053413\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053415\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053430\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053463\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053487\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1053734\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1053791\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1054366\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1055467\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1055632\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055675\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055689\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055691\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055692\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1055705\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055712\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055720\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055725\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055726\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055728\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1056004\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1057387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1057456\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057457\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057505\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1058027\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1059897\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1059904\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061984\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061989\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1064146\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1064783\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064844\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064867\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1064926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1065039\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1065082\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066015\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066903\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066904\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066905\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1067631\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1067650\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067651\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067652\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067662\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1067676\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069400\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1069537\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069710\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069716\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069730\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069734\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069754\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069755\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1069779\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069785\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069786\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069787\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069834\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069991\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1070016\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1070604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1071244\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1071559\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071560\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071629\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071633\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071635\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071639\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1072253\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072256\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072257\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072258\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072259\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072792\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1072813\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072818\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072825\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1073818\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1074033\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074112\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074121\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074130\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074132\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074312\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074313\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074314\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074315\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074316\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076704\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076709\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1076721\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076768\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076942\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077037\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077038\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077040\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1077050\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077086\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077088\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077091\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1077094\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077101\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077102\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077103\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077105\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077108\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077109\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077110\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077111\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077116\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077118\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1077143\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077862\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1077947\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1078147\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078149\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078153\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1079106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1079252\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1079316\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1079321\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079341\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079362\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079396\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079400\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079401\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079568\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079775\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1079859\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1079870\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079871\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1079872\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1080421\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080422\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080434\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080488\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080517\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080518\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080521\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080528\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080529\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080531\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1080532\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080535\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080536\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080542\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080551\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080552\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080555\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080916\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081134\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081135\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081809\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1082649\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1082861\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1084268\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1084500\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1085224\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1085230\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086201\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086531\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086690\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"}}",
+  "flightClubs": "{\"880360\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"880377\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"882227\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"882584\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"882587\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"884430\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885537\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"885550\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"885665\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"885674\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886405\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886672\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"886715\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"886747\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"886755\":{\"clubId\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"\"},\"886768\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886770\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"886771\":{\"clubId\":1254,\"name\":\"Saskatoon Soaring Club\",\"region\":\"\"},\"887730\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"888729\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888730\":{\"clubId\":1133,\"name\":\"London Soaring Club\",\"region\":\"\"},\"888923\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"889905\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"897237\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897578\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897603\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897605\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897713\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"897716\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"897722\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"902692\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"903380\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"903403\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"906106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"906595\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"906638\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906641\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"906873\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"906933\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"906951\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"908899\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909771\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909772\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909822\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909839\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"909870\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909886\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909887\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909888\":{\"clubId\":1393,\"name\":\"York Soaring Association\",\"region\":\"\"},\"909894\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"909905\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909911\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909912\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"909923\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"909926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"909938\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"909943\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"911531\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"912530\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"912976\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"913101\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"913845\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"913862\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"914711\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"915136\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915144\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915148\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915153\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"915156\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916098\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"916235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"916419\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916584\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"916938\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"916939\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"916943\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917028\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"917030\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917033\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"917034\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"917041\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"918186\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"918201\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"918255\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918386\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918389\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"918394\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"918400\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"919211\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"919590\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919848\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"919904\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"919905\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"920217\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920228\":{\"clubId\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"\"},\"920326\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920331\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"920436\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920615\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920621\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920623\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920649\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920709\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920714\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920715\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920718\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"920720\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920727\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"920728\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"920732\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"921113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"922107\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922109\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"922252\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"923235\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923238\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"923242\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"925565\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"925579\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925655\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"925657\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926620\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926767\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926957\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"926973\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"927001\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927005\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927034\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"927045\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"929155\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"930864\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930865\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"930866\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"932241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"932244\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"937188\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"938446\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938479\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938480\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938516\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"938812\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"938981\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940361\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940414\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"940475\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"940526\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940527\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"940528\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"947845\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"947848\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"948702\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"950374\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"956345\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"956348\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"959528\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"968963\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"994912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994913\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"994914\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"996438\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996439\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996440\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"996441\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1027738\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1028772\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1029872\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1029873\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1032041\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1035421\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035431\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1035433\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1037609\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1046963\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1047372\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047384\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1047982\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1049585\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1049615\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1049643\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051401\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1051788\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051868\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051875\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1051930\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1051993\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1052011\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1053342\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053413\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053415\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053430\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1053463\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1053487\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1053734\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1053791\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1054366\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1055467\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1055632\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055675\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055689\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055691\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055692\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1055705\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1055712\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055720\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1055725\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055726\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1055728\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1056004\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1057387\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1057456\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057457\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1057505\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1058027\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1059897\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1059904\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061984\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1061989\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1064146\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1064783\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064844\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1064867\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1064926\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1065039\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1065082\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066015\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1066903\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066904\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1066905\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1067631\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1067650\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067651\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067652\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1067662\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1067676\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069400\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1069537\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069710\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069716\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069730\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069734\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069754\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1069755\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1069779\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069785\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069786\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1069787\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069834\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1069991\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1070016\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1070604\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1071244\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1071559\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071560\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071629\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071633\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1071635\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1071639\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1072253\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072256\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072257\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072258\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072259\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1072792\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1072813\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072818\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1072825\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1073818\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1074033\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074112\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074121\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074130\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074132\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074312\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074313\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074314\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074315\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1074316\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076704\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1076709\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1076721\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076768\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076902\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1076942\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077037\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077038\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1077040\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1077050\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077086\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1077088\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077091\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1077094\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077101\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077102\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077103\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077105\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077108\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077109\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077110\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1077111\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1077113\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077116\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1077118\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1077143\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1077862\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1077947\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1078147\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078149\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1078153\":{\"clubId\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"\"},\"1079106\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1079252\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1079316\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1079321\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079341\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079362\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079396\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079400\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079401\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079568\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1079775\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1079859\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1079870\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1079871\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1079872\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1080421\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080422\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080434\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080488\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080517\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1080518\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080521\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080528\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080529\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1080531\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1080532\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080535\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1080536\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080542\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080551\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080552\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1080555\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1080916\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081134\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081135\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1081809\":{\"clubId\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"\"},\"1082649\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1082861\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1084268\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1084500\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1085224\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1085230\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086201\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086531\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1086690\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086707\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086709\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1086713\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"}}",
   "clubMetadata": "{\"849\":{\"id\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://www.avsa.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"863\":{\"id\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"CA-QC\",\"url\":\"https://www.avvc.qc.ca\",\"logo\":\"club/863.png\",\"in_league\":\"\",\"lookupMissing\":false},\"907\":{\"id\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"CA-BC\",\"url\":\"https://www.canadianrockiessoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"914\":{\"id\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"CA-AB\",\"url\":\"http://www.cagcsoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"947\":{\"id\":947,\"name\":\"CVV de Québec\",\"region\":\"CA-QC\",\"url\":\"https://www.cvvq.net\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"965\":{\"id\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"CA-AB\",\"url\":\"https://www.cunim.org\",\"logo\":\"club/965.png\",\"in_league\":\"\",\"lookupMissing\":false},\"999\":{\"id\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"CA-AB\",\"url\":\"http://www.edmontonsoaringclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1029\":{\"id\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.gatineauglidingclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1037\":{\"id\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.greatlakesgliding.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1124\":{\"id\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"CA-AB\",\"url\":\"https://www.lethbridgesoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1133\":{\"id\":1133,\"name\":\"London Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://www.londonsoaringclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1168\":{\"id\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://montrealsoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1240\":{\"id\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"CA-ON\",\"url\":\"https://rvss.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1254\":{\"id\":1254,\"name\":\"Saskatoon Soaring Club\",\"region\":\"CA-SK\",\"url\":\"http://www.soar.sk.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1310\":{\"id\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.sosaglidingclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1345\":{\"id\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"CA-ON\",\"url\":\"http://toronto-soaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1363\":{\"id\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://vancouversoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1380\":{\"id\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"AU-QLD\",\"url\":\"https://www.warwickgliding.org\",\"logo\":\"club/1380.png\",\"in_league\":\"AU\",\"lookupMissing\":false},\"1387\":{\"id\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"CA-MB\",\"url\":\"https://www.wgc.mb.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1393\":{\"id\":1393,\"name\":\"York Soaring Association\",\"region\":\"CA-ON\",\"url\":\"https://www.yorksoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1808\":{\"id\":1808,\"name\":\"Prince Albert Gliding and Soaring Club\",\"region\":\"CA-SK\",\"url\":\"https://www.pagsc.ca\",\"logo\":\"club/1808.png\",\"in_league\":\"\",\"lookupMissing\":false}}",
   "aircraftAwards": {
     "bestGliderPilot": "Martin Dennis",
@@ -7960,6 +7963,84 @@
       "awards": []
     },
     {
+      "pilot": "Gabriel Duford",
+      "pilotId": 24793,
+      "totalPoints": 1193.4,
+      "totalDistance": 1187.6100000000001,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1076902,
+          "userId": 24793,
+          "date": "2026-05-09",
+          "distance": 534.77,
+          "speed": 111.1,
+          "points": 540.27,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086709,
+          "userId": 24793,
+          "date": "2026-05-17",
+          "distance": 295.61,
+          "speed": 77.13,
+          "points": 282.16,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1055467,
+          "userId": 24793,
+          "date": "2026-04-26",
+          "distance": 223,
+          "speed": 84.82,
+          "points": 235.32,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 920436,
+          "userId": 24793,
+          "date": "2025-10-11",
+          "distance": 134.23,
+          "speed": 62.85,
+          "points": 135.65,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Charlie Pastuszka",
       "pilotId": 33962,
       "totalPoints": 1179.22,
@@ -8455,60 +8536,43 @@
       "awards": []
     },
     {
-      "pilot": "Gabriel Duford",
-      "pilotId": 24793,
-      "totalPoints": 911.2399999999999,
-      "totalDistance": 892,
-      "flightCount": 3,
+      "pilot": "Jesse Miller",
+      "pilotId": 23829,
+      "totalPoints": 905.94,
+      "totalDistance": 836.31,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1076902,
-          "userId": 24793,
-          "date": "2026-05-09",
-          "distance": 534.77,
-          "speed": 111.1,
-          "points": 540.27,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1074112,
+          "userId": 23829,
+          "date": "2026-05-08",
+          "distance": 613.18,
+          "speed": 98.01,
+          "points": 659.22,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1055467,
-          "userId": 24793,
-          "date": "2026-04-26",
-          "distance": 223,
-          "speed": 84.82,
-          "points": 235.32,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1086713,
+          "userId": 23829,
+          "date": "2026-05-17",
+          "distance": 223.13,
+          "speed": 81.22,
+          "points": 246.72,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 920436,
-          "userId": 24793,
-          "date": "2025-10-11",
-          "distance": 134.23,
-          "speed": 62.85,
-          "points": 135.65,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20 16.6m",
+          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -8916,33 +8980,6 @@
       "awards": []
     },
     {
-      "pilot": "Jesse Miller",
-      "pilotId": 23829,
-      "totalPoints": 659.22,
-      "totalDistance": 613.18,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1074112,
-          "userId": 23829,
-          "date": "2026-05-08",
-          "distance": 613.18,
-          "speed": 98.01,
-          "points": 659.22,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Ian Grant",
       "pilotId": 36013,
       "totalPoints": 656.72,
@@ -9105,6 +9142,69 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Jean Lapierre",
+      "pilotId": 34953,
+      "totalPoints": 490.63,
+      "totalDistance": 466.86,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1076768,
+          "userId": 34953,
+          "date": "2026-05-09",
+          "distance": 278.06,
+          "speed": 86.68,
+          "points": 299.49,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086707,
+          "userId": 34953,
+          "date": "2026-05-17",
+          "distance": 188.8,
+          "speed": 68.34,
+          "points": 191.14,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 897237,
+          "userId": 34953,
+          "date": "2025-10-01",
+          "distance": 184.39,
+          "speed": 71.17,
+          "points": 200.65,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 600M 18m",
+          "dmstIndex": 116,
+          "invalid": true,
+          "errorReasons": [
+            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ],
@@ -9868,52 +9968,6 @@
           "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Jean Lapierre",
-      "pilotId": 34953,
-      "totalPoints": 299.49,
-      "totalDistance": 278.06,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1076768,
-          "userId": 34953,
-          "date": "2026-05-09",
-          "distance": 278.06,
-          "speed": 86.68,
-          "points": 299.49,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 600 18m",
-          "dmstIndex": 116,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 897237,
-          "userId": 34953,
-          "date": "2025-10-01",
-          "distance": 184.39,
-          "speed": 71.17,
-          "points": 200.65,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 600M 18m",
-          "dmstIndex": 116,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ],
       "awards": []
@@ -12735,6 +12789,66 @@
       ]
     },
     {
+      "pilot": "Gabriel Duford",
+      "pilotId": 24793,
+      "totalPoints": 236.61,
+      "totalDistance": 547.75,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1076902,
+          "userId": 24793,
+          "date": "2026-05-09",
+          "distance": 230.47,
+          "speed": 115.23,
+          "points": 99.56,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086709,
+          "userId": 24793,
+          "date": "2026-05-17",
+          "distance": 162.56,
+          "speed": 81.28,
+          "points": 70.22,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1055467,
+          "userId": 24793,
+          "date": "2026-04-26",
+          "distance": 154.72,
+          "speed": 77.36,
+          "points": 66.83,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Charlie Pastuszka",
       "pilotId": 33962,
       "totalPoints": 235.01999999999998,
@@ -13095,66 +13209,6 @@
       ]
     },
     {
-      "pilot": "Gabriel Duford",
-      "pilotId": 24793,
-      "totalPoints": 209.32,
-      "totalDistance": 484.57,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1076902,
-          "userId": 24793,
-          "date": "2026-05-09",
-          "distance": 230.47,
-          "speed": 115.23,
-          "points": 99.56,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1055467,
-          "userId": 24793,
-          "date": "2026-04-26",
-          "distance": 154.72,
-          "speed": 77.36,
-          "points": 66.83,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 920436,
-          "userId": 24793,
-          "date": "2025-10-11",
-          "distance": 99.38,
-          "speed": 49.69,
-          "points": 42.93,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Richard Noel",
       "pilotId": 35496,
       "totalPoints": 201.64,
@@ -13338,6 +13392,49 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus c 17.6m",
           "dmstIndex": 115,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Jesse Miller",
+      "pilotId": 23829,
+      "totalPoints": 187,
+      "totalDistance": 404.27,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1074112,
+          "userId": 23829,
+          "date": "2026-05-08",
+          "distance": 243.05,
+          "speed": 121.53,
+          "points": 113.05,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086713,
+          "userId": 23829,
+          "date": "2026-05-17",
+          "distance": 161.22,
+          "speed": 80.61,
+          "points": 73.95,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20 16.6m",
+          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -13790,6 +13887,66 @@
       ]
     },
     {
+      "pilot": "Jean Lapierre",
+      "pilotId": 34953,
+      "totalPoints": 147.73000000000002,
+      "totalDistance": 326.31,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1076768,
+          "userId": 34953,
+          "date": "2026-05-09",
+          "distance": 182.87,
+          "speed": 91.44,
+          "points": 81.64,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086707,
+          "userId": 34953,
+          "date": "2026-05-17",
+          "distance": 119.43,
+          "speed": 59.72,
+          "points": 53.32,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1069730,
+          "userId": 34953,
+          "date": "2026-05-03",
+          "distance": 24.01,
+          "speed": 12.01,
+          "points": 12.77,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Struan Vaughan",
       "pilotId": 35776,
       "totalPoints": 147.15,
@@ -14142,32 +14299,6 @@
       ]
     },
     {
-      "pilot": "Jesse Miller",
-      "pilotId": 23829,
-      "totalPoints": 113.05,
-      "totalDistance": 243.05,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1074112,
-          "userId": 23829,
-          "date": "2026-05-08",
-          "distance": 243.05,
-          "speed": 121.53,
-          "points": 113.05,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Philippe Laflamme",
       "pilotId": 35546,
       "totalPoints": 111.25,
@@ -14490,68 +14621,6 @@
           "dmstIndex": 90,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Jean Lapierre",
-      "pilotId": 34953,
-      "totalPoints": 94.41,
-      "totalDistance": 206.88,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1076768,
-          "userId": 34953,
-          "date": "2026-05-09",
-          "distance": 182.87,
-          "speed": 91.44,
-          "points": 81.64,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 600 18m",
-          "dmstIndex": 116,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1069730,
-          "userId": 34953,
-          "date": "2026-05-03",
-          "distance": 24.01,
-          "speed": 12.01,
-          "points": 12.77,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 21",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 897237,
-          "userId": 34953,
-          "date": "2025-10-01",
-          "distance": 151.07,
-          "speed": 75.53,
-          "points": 67.44,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 600M 18m",
-          "dmstIndex": 116,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -18372,6 +18441,66 @@
       ]
     },
     {
+      "pilot": "Gabriel Duford",
+      "pilotId": 24793,
+      "totalPoints": 623.95,
+      "totalDistance": 754.99,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1076902,
+          "userId": 24793,
+          "date": "2026-05-09",
+          "distance": 396.51,
+          "speed": 82.38,
+          "points": 327.69,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1055467,
+          "userId": 24793,
+          "date": "2026-04-26",
+          "distance": 205.79,
+          "speed": 77.8,
+          "points": 170.07,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086709,
+          "userId": 24793,
+          "date": "2026-05-17",
+          "distance": 152.69,
+          "speed": 42.02,
+          "points": 126.19,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Mike North",
       "pilotId": 35337,
       "totalPoints": 619.37,
@@ -18469,66 +18598,6 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 27",
           "dmstIndex": 114,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gabriel Duford",
-      "pilotId": 24793,
-      "totalPoints": 580.15,
-      "totalDistance": 701.99,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1076902,
-          "userId": 24793,
-          "date": "2026-05-09",
-          "distance": 396.51,
-          "speed": 82.38,
-          "points": 327.69,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1055467,
-          "userId": 24793,
-          "date": "2026-04-26",
-          "distance": 205.79,
-          "speed": 77.8,
-          "points": 170.07,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 920436,
-          "userId": 24793,
-          "date": "2025-10-11",
-          "distance": 99.69,
-          "speed": 43.42,
-          "points": 82.39,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
           "invalid": false,
           "errorReasons": []
         }
@@ -18649,6 +18718,49 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Jesse Miller",
+      "pilotId": 23829,
+      "totalPoints": 497.61,
+      "totalDistance": 550.54,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1074112,
+          "userId": 23829,
+          "date": "2026-05-08",
+          "distance": 373.22,
+          "speed": 59.39,
+          "points": 339.29,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086713,
+          "userId": 23829,
+          "date": "2026-05-17",
+          "distance": 177.32,
+          "speed": 64.51,
+          "points": 158.32,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20 16.6m",
+          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -19118,32 +19230,6 @@
       ]
     },
     {
-      "pilot": "Jesse Miller",
-      "pilotId": 23829,
-      "totalPoints": 339.29,
-      "totalDistance": 373.22,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1074112,
-          "userId": 23829,
-          "date": "2026-05-08",
-          "distance": 373.22,
-          "speed": 59.39,
-          "points": 339.29,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Kerry Kirby",
       "pilotId": 21219,
       "totalPoints": 337.55,
@@ -19250,6 +19336,66 @@
           "aircraftKind": "GL",
           "aircraftName": "DG 505 6 Orion",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Jean Lapierre",
+      "pilotId": 34953,
+      "totalPoints": 298.85999999999996,
+      "totalDistance": 345.49,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1076768,
+          "userId": 34953,
+          "date": "2026-05-09",
+          "distance": 231.18,
+          "speed": 72.36,
+          "points": 199.29,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086707,
+          "userId": 34953,
+          "date": "2026-05-17",
+          "distance": 109.75,
+          "speed": 39.55,
+          "points": 94.61,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1069730,
+          "userId": 34953,
+          "date": "2026-05-03",
+          "distance": 4.56,
+          "speed": 43.78,
+          "points": 4.96,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -19681,68 +19827,6 @@
           "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Jean Lapierre",
-      "pilotId": 34953,
-      "totalPoints": 204.25,
-      "totalDistance": 235.74,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1076768,
-          "userId": 34953,
-          "date": "2026-05-09",
-          "distance": 231.18,
-          "speed": 72.36,
-          "points": 199.29,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 600 18m",
-          "dmstIndex": 116,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1069730,
-          "userId": 34953,
-          "date": "2026-05-03",
-          "distance": 4.56,
-          "speed": 43.78,
-          "points": 4.96,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 21",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 897237,
-          "userId": 34953,
-          "date": "2025-10-01",
-          "distance": 161.23,
-          "speed": 66.65,
-          "points": 138.99,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 600M 18m",
-          "dmstIndex": 116,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -24232,6 +24316,66 @@
       ]
     },
     {
+      "pilot": "Gabriel Duford",
+      "pilotId": 24793,
+      "totalPoints": 503.31,
+      "totalDistance": 609.01,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1076902,
+          "userId": 24793,
+          "date": "2026-05-09",
+          "distance": 319.61,
+          "speed": 66.52,
+          "points": 264.14,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086709,
+          "userId": 24793,
+          "date": "2026-05-17",
+          "distance": 163.3,
+          "speed": 56.38,
+          "points": 134.96,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1055467,
+          "userId": 24793,
+          "date": "2026-04-26",
+          "distance": 126.1,
+          "speed": 47.89,
+          "points": 104.21,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Mark Rakowitz",
       "pilotId": 36138,
       "totalPoints": 495.66999999999996,
@@ -24592,60 +24736,43 @@
       ]
     },
     {
-      "pilot": "Gabriel Duford",
-      "pilotId": 24793,
-      "totalPoints": 423.81999999999994,
-      "totalDistance": 512.83,
-      "flightCount": 3,
+      "pilot": "Jesse Miller",
+      "pilotId": 23829,
+      "totalPoints": 417.81,
+      "totalDistance": 461.64,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1076902,
-          "userId": 24793,
-          "date": "2026-05-09",
-          "distance": 319.61,
-          "speed": 66.52,
-          "points": 264.14,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1074112,
+          "userId": 23829,
+          "date": "2026-05-08",
+          "distance": 346.55,
+          "speed": 64.9,
+          "points": 315.05,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "out_return",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1055467,
-          "userId": 24793,
-          "date": "2026-04-26",
-          "distance": 126.1,
-          "speed": 47.89,
-          "points": 104.21,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1086713,
+          "userId": 23829,
+          "date": "2026-05-17",
+          "distance": 115.09,
+          "speed": 41.87,
+          "points": 102.76,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "out_return",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 920436,
-          "userId": 24793,
-          "date": "2025-10-11",
-          "distance": 67.12,
-          "speed": 37.03,
-          "points": 55.47,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20 16.6m",
+          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -24809,32 +24936,6 @@
           "aircraftKind": "MG",
           "aircraftName": "ASG 29 E 18m",
           "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Jesse Miller",
-      "pilotId": 23829,
-      "totalPoints": 315.05,
-      "totalDistance": 346.55,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1074112,
-          "userId": 23829,
-          "date": "2026-05-08",
-          "distance": 346.55,
-          "speed": 64.9,
-          "points": 315.05,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         }
@@ -25181,6 +25282,68 @@
           "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Jean Lapierre",
+      "pilotId": 34953,
+      "totalPoints": 233.03000000000003,
+      "totalDistance": 270.32,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1076768,
+          "userId": 34953,
+          "date": "2026-05-09",
+          "distance": 183.92,
+          "speed": 57.79,
+          "points": 158.55,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086707,
+          "userId": 34953,
+          "date": "2026-05-17",
+          "distance": 86.4,
+          "speed": 41.16,
+          "points": 74.48,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 897237,
+          "userId": 34953,
+          "date": "2025-10-01",
+          "distance": 137.54,
+          "speed": 57.37,
+          "points": 118.57,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 600M 18m",
+          "dmstIndex": 116,
+          "invalid": true,
+          "errorReasons": [
+            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
+          ]
         }
       ]
     },
@@ -25628,51 +25791,6 @@
           "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Jean Lapierre",
-      "pilotId": 34953,
-      "totalPoints": 158.55,
-      "totalDistance": 183.92,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1076768,
-          "userId": 34953,
-          "date": "2026-05-09",
-          "distance": 183.92,
-          "speed": 57.79,
-          "points": 158.55,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 600 18m",
-          "dmstIndex": 116,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 897237,
-          "userId": 34953,
-          "date": "2025-10-01",
-          "distance": 137.54,
-          "speed": 57.37,
-          "points": 118.57,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 600M 18m",
-          "dmstIndex": 116,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -66538,6 +66656,318 @@
         "dmstIndex": 102
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1086713,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 51.13,
+        "thermal_avg": 1.41,
+        "glide_speed": 127.79,
+        "glide_speed_lift": 120.8,
+        "glide_speed_sink": 132.53,
+        "altitude_avg": 1414,
+        "agl_avg": 1071,
+        "thermal_count": 18,
+        "thermal_gain": 3331,
+        "thermal_radius": 113.78,
+        "thermal_start_agl": 1033,
+        "thermal_bank": 33.22,
+        "glide_percentage": 0.71,
+        "glide_percentage_lift": 0.4,
+        "duration": 9890,
+        "thermal_time": 2364,
+        "glide_time": 7045,
+        "wind_speed": 13.68,
+        "wind_direction": 242,
+        "attempt_count": 11,
+        "attempt_avg": 0.41,
+        "attempt_speed_loss": 4.15,
+        "below_1000_agl": 0.3129,
+        "below_800_agl": 0.0624,
+        "below_600_agl": 0.0243,
+        "below_400_agl": 0.0121,
+        "below_200_agl": 0.0001,
+        "below_100_agl": 0,
+        "track_distance": 250.08,
+        "glide_detour": 1.12,
+        "glide_distance": 6.62,
+        "glide_alt_avg": 1399,
+        "end_time": "2026-05-17T20:27:40+00:00",
+        "start_time": "2026-05-17T17:42:50+00:00",
+        "finish_alt": 489
+      },
+      "taskStats": {
+        "glide_ratio": 39.15,
+        "thermal_avg": 1.41,
+        "glide_speed": 127.79,
+        "glide_speed_lift": 120.9,
+        "glide_speed_sink": 132.43,
+        "altitude_avg": 1404,
+        "agl_avg": 1061,
+        "thermal_count": 18,
+        "thermal_gain": 3331,
+        "thermal_radius": 113.78,
+        "thermal_start_agl": 1033,
+        "thermal_bank": 33.22,
+        "glide_percentage": 0.72,
+        "glide_percentage_lift": 0.4,
+        "duration": 9896,
+        "thermal_time": 2364,
+        "glide_time": 7084,
+        "wind_speed": 13.78,
+        "wind_direction": 242,
+        "attempt_count": 10,
+        "attempt_avg": 0.44,
+        "attempt_speed_loss": 3.05,
+        "below_1000_agl": 0.3212,
+        "below_800_agl": 0.0735,
+        "below_600_agl": 0.0354,
+        "below_400_agl": 0.0232,
+        "below_200_agl": 0.0112,
+        "below_100_agl": 0.0053,
+        "track_distance": 251.46,
+        "glide_detour": 1.42,
+        "glide_distance": 6.79,
+        "glide_alt_avg": 1384,
+        "end_time": "2026-05-17T20:29:30+00:00",
+        "start_time": "2026-05-17T17:44:34+00:00",
+        "finish_alt": 282,
+        "task_duration": 9896,
+        "total_duration": 9890
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 177.32,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 221.65,
+        "freePoints": 246.72,
+        "auPoints": 221.65,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 221.64999999999995,
+        "dmstFreeDistance": 177.32,
+        "dmstTaskActualPoints": 221.64999999999995,
+        "dmstTaskPotentialPoints": 221.64999999999995,
+        "dmstTaskDistance": 177.32,
+        "weglideFreeDistance": 223.13,
+        "dmstIndex": 112
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1086709,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 49.14,
+        "thermal_avg": 1.66,
+        "glide_speed": 125.94,
+        "glide_speed_lift": 123.09,
+        "glide_speed_sink": 128.1,
+        "altitude_avg": 1674,
+        "agl_avg": 1569,
+        "thermal_count": 22,
+        "thermal_gain": 5897,
+        "thermal_radius": 111.34,
+        "thermal_start_agl": 1456,
+        "thermal_bank": 38.7,
+        "glide_percentage": 0.73,
+        "glide_percentage_lift": 0.41,
+        "duration": 13798,
+        "thermal_time": 3548,
+        "glide_time": 10117,
+        "wind_speed": 27.24,
+        "wind_direction": 288,
+        "attempt_count": 3,
+        "attempt_avg": 0.36,
+        "attempt_speed_loss": 0.75,
+        "below_1000_agl": 0.0545,
+        "below_800_agl": 0.0367,
+        "below_600_agl": 0.0113,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 353.92,
+        "glide_detour": 1.2,
+        "glide_distance": 8.78,
+        "glide_alt_avg": 1691,
+        "end_time": "2026-05-17T20:26:58+00:00",
+        "start_time": "2026-05-17T16:37:00+00:00",
+        "finish_alt": 650
+      },
+      "taskStats": {
+        "glide_ratio": 48.45,
+        "thermal_avg": 1.63,
+        "glide_speed": 126.9,
+        "glide_speed_lift": 123.96,
+        "glide_speed_sink": 129.15,
+        "altitude_avg": 1721,
+        "agl_avg": 1615,
+        "thermal_count": 20,
+        "thermal_gain": 4758,
+        "thermal_radius": 113.02,
+        "thermal_start_agl": 1500,
+        "thermal_bank": 39.11,
+        "glide_percentage": 0.76,
+        "glide_percentage_lift": 0.41,
+        "duration": 12458,
+        "thermal_time": 2921,
+        "glide_time": 9464,
+        "wind_speed": 27.69,
+        "wind_direction": 287,
+        "attempt_count": 3,
+        "attempt_avg": 0.08,
+        "attempt_speed_loss": 0.48,
+        "below_1000_agl": 0.016,
+        "below_800_agl": 0.0031,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 333.6,
+        "glide_detour": 1.19,
+        "glide_distance": 10.03,
+        "glide_alt_avg": 1729,
+        "end_time": "2026-05-17T20:22:01+00:00",
+        "start_time": "2026-05-17T16:54:23+00:00",
+        "finish_alt": 855,
+        "task_duration": 12458,
+        "total_duration": 13798
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 279.27,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 230.8,
+        "freePoints": 282.16,
+        "auPoints": 230.8,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 230.80165289256198,
+        "dmstFreeDistance": 279.27,
+        "dmstTaskActualPoints": 230.80165289256198,
+        "dmstTaskPotentialPoints": 230.80165289256198,
+        "dmstTaskDistance": 279.27,
+        "weglideFreeDistance": 295.61,
+        "dmstIndex": 121
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1086707,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 30.6,
+        "thermal_avg": 1.73,
+        "glide_speed": 132.42,
+        "glide_speed_lift": 121.69,
+        "glide_speed_sink": 139.47,
+        "altitude_avg": 1633,
+        "agl_avg": 1572,
+        "thermal_count": 15,
+        "thermal_gain": 4839,
+        "thermal_radius": 169.91,
+        "thermal_start_agl": 1464,
+        "thermal_bank": 24.48,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.52,
+        "duration": 9946,
+        "thermal_time": 2793,
+        "glide_time": 6937,
+        "wind_speed": 32.18,
+        "wind_direction": 302,
+        "attempt_count": 7,
+        "attempt_avg": 1.54,
+        "attempt_speed_loss": 1.51,
+        "below_1000_agl": 0.0393,
+        "below_800_agl": 0.0335,
+        "below_600_agl": 0.0251,
+        "below_400_agl": 0.0127,
+        "below_200_agl": 0.0011,
+        "below_100_agl": 0,
+        "track_distance": 255.16,
+        "glide_detour": 1.35,
+        "glide_distance": 6.65,
+        "glide_alt_avg": 1619,
+        "end_time": "2026-05-17T20:40:04+00:00",
+        "start_time": "2026-05-17T17:54:18+00:00",
+        "finish_alt": 235
+      },
+      "taskStats": {
+        "glide_ratio": 26.61,
+        "thermal_avg": 1.73,
+        "glide_speed": 132.42,
+        "glide_speed_lift": 121.69,
+        "glide_speed_sink": 139.47,
+        "altitude_avg": 1633,
+        "agl_avg": 1572,
+        "thermal_count": 15,
+        "thermal_gain": 4839,
+        "thermal_radius": 169.91,
+        "thermal_start_agl": 1464,
+        "thermal_bank": 24.48,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.52,
+        "duration": 9946,
+        "thermal_time": 2793,
+        "glide_time": 6937,
+        "wind_speed": 32.18,
+        "wind_direction": 302,
+        "attempt_count": 7,
+        "attempt_avg": 1.54,
+        "attempt_speed_loss": 1.31,
+        "below_1000_agl": 0.0393,
+        "below_800_agl": 0.0335,
+        "below_600_agl": 0.0251,
+        "below_400_agl": 0.0127,
+        "below_200_agl": 0.0011,
+        "below_100_agl": 0,
+        "track_distance": 255.16,
+        "glide_detour": 1.55,
+        "glide_distance": 6.65,
+        "glide_alt_avg": 1619,
+        "end_time": "2026-05-17T20:40:04+00:00",
+        "start_time": "2026-05-17T17:54:18+00:00",
+        "finish_alt": 235,
+        "task_duration": 9946,
+        "total_duration": 9946
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 164.18,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 141.53,
+        "freePoints": 191.14,
+        "auPoints": 141.53,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 141.5344827586207,
+        "dmstFreeDistance": 164.18,
+        "dmstTaskActualPoints": 141.5344827586207,
+        "dmstTaskPotentialPoints": 141.5344827586207,
+        "dmstTaskDistance": 164.18,
+        "weglideFreeDistance": 188.8,
+        "dmstIndex": 116
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -93073,6 +93503,201 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1086713,
+      "user": {
+        "id": 23829,
+        "name": "Jesse Miller"
+      },
+      "date": "2026-05-17",
+      "distance": 223.13,
+      "duration": 10618,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 246.72,
+          "distance": 223.13,
+          "speed": 81.22,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 73.95,
+          "distance": 161.22,
+          "speed": 80.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 158.32,
+          "distance": 177.32,
+          "speed": 64.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 102.76,
+          "distance": 115.09,
+          "speed": 41.87,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 221.65,
+          "distance": 177.32,
+          "speed": 64.51,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1086709,
+      "user": {
+        "id": 24793,
+        "name": "Gabriel Duford"
+      },
+      "date": "2026-05-17",
+      "distance": 295.61,
+      "duration": 14734,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 282.16,
+          "distance": 295.61,
+          "speed": 77.13,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 70.22,
+          "distance": 162.56,
+          "speed": 81.28,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 126.19,
+          "distance": 152.69,
+          "speed": 42.02,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 134.96,
+          "distance": 163.3,
+          "speed": 56.38,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 230.8,
+          "distance": 279.27,
+          "speed": 80.7,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
+    },
+    {
+      "id": 1086707,
+      "user": {
+        "id": 34953,
+        "name": "Jean Lapierre"
+      },
+      "date": "2026-05-17",
+      "distance": 188.8,
+      "duration": 10527,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 191.14,
+          "distance": 188.8,
+          "speed": 68.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 53.32,
+          "distance": 119.43,
+          "speed": 59.72,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 94.61,
+          "distance": 109.75,
+          "speed": 39.55,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 74.48,
+          "distance": 86.4,
+          "speed": 41.16,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 141.53,
+          "distance": 164.18,
+          "speed": 59.43,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -94550,6 +95175,83 @@
       ]
     },
     {
+      "pilot": "Gabriel Duford",
+      "pilotId": 24793,
+      "totalPoints": 1193.4,
+      "totalDistance": 1187.6100000000001,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1076902,
+          "userId": 24793,
+          "date": "2026-05-09",
+          "distance": 534.77,
+          "speed": 111.1,
+          "points": 540.27,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086709,
+          "userId": 24793,
+          "date": "2026-05-17",
+          "distance": 295.61,
+          "speed": 77.13,
+          "points": 282.16,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1055467,
+          "userId": 24793,
+          "date": "2026-04-26",
+          "distance": 223,
+          "speed": 84.82,
+          "points": 235.32,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 920436,
+          "userId": 24793,
+          "date": "2025-10-11",
+          "distance": 134.23,
+          "speed": 62.85,
+          "points": 135.65,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Charlie Pastuszka",
       "pilotId": 33962,
       "totalPoints": 1179.22,
@@ -95057,60 +95759,43 @@
       ]
     },
     {
-      "pilot": "Gabriel Duford",
-      "pilotId": 24793,
-      "totalPoints": 911.2399999999999,
-      "totalDistance": 892,
-      "flightCount": 3,
+      "pilot": "Jesse Miller",
+      "pilotId": 23829,
+      "totalPoints": 905.94,
+      "totalDistance": 836.31,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1076902,
-          "userId": 24793,
-          "date": "2026-05-09",
-          "distance": 534.77,
-          "speed": 111.1,
-          "points": 540.27,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1074112,
+          "userId": 23829,
+          "date": "2026-05-08",
+          "distance": 613.18,
+          "speed": 98.01,
+          "points": 659.22,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1055467,
-          "userId": 24793,
-          "date": "2026-04-26",
-          "distance": 223,
-          "speed": 84.82,
-          "points": 235.32,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1086713,
+          "userId": 23829,
+          "date": "2026-05-17",
+          "distance": 223.13,
+          "speed": 81.22,
+          "points": 246.72,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 920436,
-          "userId": 24793,
-          "date": "2025-10-11",
-          "distance": 134.23,
-          "speed": 62.85,
-          "points": 135.65,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20 16.6m",
+          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -95528,32 +96213,6 @@
       ]
     },
     {
-      "pilot": "Jesse Miller",
-      "pilotId": 23829,
-      "totalPoints": 659.22,
-      "totalDistance": 613.18,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1074112,
-          "userId": 23829,
-          "date": "2026-05-08",
-          "distance": 613.18,
-          "speed": 98.01,
-          "points": 659.22,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Ian Grant",
       "pilotId": 36013,
       "totalPoints": 656.72,
@@ -95731,6 +96390,85 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
+      "pilot": "Jean Lapierre",
+      "pilotId": 34953,
+      "totalPoints": 532.39,
+      "totalDistance": 503.91,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1076768,
+          "userId": 34953,
+          "date": "2026-05-09",
+          "distance": 278.06,
+          "speed": 86.68,
+          "points": 299.49,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086707,
+          "userId": 34953,
+          "date": "2026-05-17",
+          "distance": 188.8,
+          "speed": 68.34,
+          "points": 191.14,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1069730,
+          "userId": 34953,
+          "date": "2026-05-03",
+          "distance": 37.05,
+          "speed": 71.17,
+          "points": 41.76,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 897237,
+          "userId": 34953,
+          "date": "2025-10-01",
+          "distance": 184.39,
+          "speed": 71.17,
+          "points": 200.65,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 600M 18m",
+          "dmstIndex": 116,
+          "invalid": true,
+          "errorReasons": [
+            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ]
@@ -96649,68 +97387,6 @@
           "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Jean Lapierre",
-      "pilotId": 34953,
-      "totalPoints": 341.25,
-      "totalDistance": 315.11,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1076768,
-          "userId": 34953,
-          "date": "2026-05-09",
-          "distance": 278.06,
-          "speed": 86.68,
-          "points": 299.49,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 600 18m",
-          "dmstIndex": 116,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1069730,
-          "userId": 34953,
-          "date": "2026-05-03",
-          "distance": 37.05,
-          "speed": 71.17,
-          "points": 41.76,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 21",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 897237,
-          "userId": 34953,
-          "date": "2025-10-01",
-          "distance": 184.39,
-          "speed": 71.17,
-          "points": 200.65,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 600M 18m",
-          "dmstIndex": 116,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -101384,6 +102060,83 @@
       ]
     },
     {
+      "pilot": "Gabriel Duford",
+      "pilotId": 24793,
+      "totalPoints": 1043.01,
+      "totalDistance": 981.26,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1076902,
+          "userId": 24793,
+          "date": "2026-05-09",
+          "distance": 396.51,
+          "speed": 82.38,
+          "points": 458.77,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1055467,
+          "userId": 24793,
+          "date": "2026-04-26",
+          "distance": 205.79,
+          "speed": 77.8,
+          "points": 238.1,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086709,
+          "userId": 24793,
+          "date": "2026-05-17",
+          "distance": 279.27,
+          "speed": 80.7,
+          "points": 230.8,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 920436,
+          "userId": 24793,
+          "date": "2025-10-11",
+          "distance": 99.69,
+          "speed": 43.42,
+          "points": 115.34,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "MG",
+          "aircraftName": "ASG 29 Es 18m",
+          "dmstIndex": 121,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Mark A. Schneider",
       "pilotId": 27586,
       "totalPoints": 1029.6299999999999,
@@ -101932,66 +102685,6 @@
       ]
     },
     {
-      "pilot": "Gabriel Duford",
-      "pilotId": 24793,
-      "totalPoints": 812.21,
-      "totalDistance": 701.99,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1076902,
-          "userId": 24793,
-          "date": "2026-05-09",
-          "distance": 396.51,
-          "speed": 82.38,
-          "points": 458.77,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1055467,
-          "userId": 24793,
-          "date": "2026-04-26",
-          "distance": 205.79,
-          "speed": 77.8,
-          "points": 238.1,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 920436,
-          "userId": 24793,
-          "date": "2025-10-11",
-          "distance": 99.69,
-          "speed": 43.42,
-          "points": 115.34,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "MG",
-          "aircraftName": "ASG 29 Es 18m",
-          "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "François Tanguay",
       "pilotId": 35091,
       "totalPoints": 751.0500000000001,
@@ -102080,6 +102773,49 @@
           "aircraftKind": "GL",
           "aircraftName": "LAK-17A 18m",
           "dmstIndex": 119,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Jesse Miller",
+      "pilotId": 23829,
+      "totalPoints": 712.6,
+      "totalDistance": 717.3699999999999,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1074112,
+          "userId": 23829,
+          "date": "2026-05-08",
+          "distance": 540.05,
+          "speed": 88.13,
+          "points": 490.95,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086713,
+          "userId": 23829,
+          "date": "2026-05-17",
+          "distance": 177.32,
+          "speed": 64.51,
+          "points": 221.65,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20 16.6m",
+          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -102437,32 +103173,6 @@
       ]
     },
     {
-      "pilot": "Jesse Miller",
-      "pilotId": 23829,
-      "totalPoints": 490.95,
-      "totalDistance": 540.05,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1074112,
-          "userId": 23829,
-          "date": "2026-05-08",
-          "distance": 540.05,
-          "speed": 88.13,
-          "points": 490.95,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Kerry Kirby",
       "pilotId": 21219,
       "totalPoints": 472.57,
@@ -102545,6 +103255,68 @@
           "dmstIndex": 108,
           "invalid": false,
           "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Jean Lapierre",
+      "pilotId": 34953,
+      "totalPoints": 420.53999999999996,
+      "totalDistance": 395.36,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1076768,
+          "userId": 34953,
+          "date": "2026-05-09",
+          "distance": 231.18,
+          "speed": 72.36,
+          "points": 279.01,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086707,
+          "userId": 34953,
+          "date": "2026-05-17",
+          "distance": 164.18,
+          "speed": 59.43,
+          "points": 141.53,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 600 18m",
+          "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 897237,
+          "userId": 34953,
+          "date": "2025-10-01",
+          "distance": 161.23,
+          "speed": 66.65,
+          "points": 194.59,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 600M 18m",
+          "dmstIndex": 116,
+          "invalid": true,
+          "errorReasons": [
+            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
+          ]
         }
       ]
     },
@@ -103080,51 +103852,6 @@
           "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Jean Lapierre",
-      "pilotId": 34953,
-      "totalPoints": 279.01,
-      "totalDistance": 231.18,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1076768,
-          "userId": 34953,
-          "date": "2026-05-09",
-          "distance": 231.18,
-          "speed": 72.36,
-          "points": 279.01,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 600 18m",
-          "dmstIndex": 116,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 897237,
-          "userId": 34953,
-          "date": "2025-10-01",
-          "distance": 161.23,
-          "speed": 66.65,
-          "points": 194.59,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 600M 18m",
-          "dmstIndex": 116,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
         }
       ]
     },
@@ -104815,12 +105542,12 @@
   ],
   "meta": {
     "totalPilots": 122,
-    "totalFlights": 405,
-    "totalKms": 69053,
+    "totalFlights": 408,
+    "totalKms": 69761,
     "totalTasksDeclared": 139,
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-17T20:41:00.025Z"
+    "generatedAt": "2026-05-17T20:50:54.136Z"
   }
 }

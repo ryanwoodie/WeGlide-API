@@ -756,11 +756,11 @@
     }
   },
   "23829": {
-    "total_flight_duration": 1001770,
-    "total_free_distance": 18077.38,
-    "avg_speed": 68.83,
-    "flight_count": 77,
-    "avg_glide_speed": 128.36,
+    "total_flight_duration": 1012388,
+    "total_free_distance": 18300.51,
+    "avg_speed": 68.96,
+    "flight_count": 78,
+    "avg_glide_speed": 128.35,
     "avg_glide_detour": 1.24,
     "achievement_count": 22,
     "name": "Jesse Miller",
@@ -772,13 +772,14 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "24793": {
-    "total_flight_duration": 4540650,
-    "total_free_distance": 87444,
-    "avg_speed": 73.15,
-    "flight_count": 314,
+    "total_flight_duration": 4555384,
+    "total_free_distance": 87739.61,
+    "avg_speed": 73.16,
+    "flight_count": 315,
     "avg_glide_speed": 125.9,
     "avg_glide_detour": 1.19,
     "achievement_count": 27,
@@ -792,7 +793,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "24930": {
     "total_flight_duration": 2412096,
@@ -1103,13 +1105,13 @@
     }
   },
   "34953": {
-    "total_flight_duration": 311600,
-    "total_free_distance": 6141.97,
-    "avg_speed": 74.06,
-    "flight_count": 24,
-    "avg_glide_speed": 126.08,
+    "total_flight_duration": 322127,
+    "total_free_distance": 6330.77,
+    "avg_speed": 73.88,
+    "flight_count": 25,
+    "avg_glide_speed": 126.29,
     "avg_glide_detour": 1.19,
-    "achievement_count": 6,
+    "achievement_count": 7,
     "name": "Jean Lapierre",
     "gender": "M",
     "is_junior": false,
@@ -1120,7 +1122,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "35091": {
     "total_flight_duration": 3762572,
