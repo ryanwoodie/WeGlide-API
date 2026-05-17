@@ -2245,6 +2245,27 @@
       "url": "https://www.gatineauglidingclub.ca"
     }
   },
+  "38506": {
+    "total_flight_duration": 1444,
+    "total_free_distance": 15.2,
+    "avg_speed": 45.98,
+    "flight_count": 1,
+    "avg_glide_speed": 87.8,
+    "avg_glide_detour": 0.99,
+    "achievement_count": 0,
+    "name": "Marco Côté",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 863,
+      "name": "Association de Vol a Voile Champlain",
+      "region": "CA-QC",
+      "url": "https://www.avvc.qc.ca",
+      "logo": "club/863.png"
+    },
+    "message_enabled": true
+  },
   "38767": {
     "total_flight_duration": 39163,
     "total_free_distance": 452.24,
@@ -2265,12 +2286,12 @@
     }
   },
   "38833": {
-    "total_flight_duration": 11024,
-    "total_free_distance": 106.91,
-    "avg_speed": 39.85,
-    "flight_count": 1,
-    "avg_glide_speed": 100.78,
-    "avg_glide_detour": 1.4,
+    "total_flight_duration": 13378,
+    "total_free_distance": 130.62,
+    "avg_speed": 40.41,
+    "flight_count": 2,
+    "avg_glide_speed": 97.36,
+    "avg_glide_detour": 1.34,
     "achievement_count": 1,
     "name": "Elliot Côté",
     "gender": "M",
@@ -2282,7 +2303,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "38969": {
     "total_flight_duration": 20510,
