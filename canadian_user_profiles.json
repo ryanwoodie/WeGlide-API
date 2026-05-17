@@ -1220,11 +1220,11 @@
     }
   },
   "35326": {
-    "total_flight_duration": 1701266,
-    "total_free_distance": 24849.84,
-    "avg_speed": 58.29,
-    "flight_count": 150,
-    "avg_glide_speed": 118.76,
+    "total_flight_duration": 1719917,
+    "total_free_distance": 25156.2,
+    "avg_speed": 58.35,
+    "flight_count": 151,
+    "avg_glide_speed": 118.8,
     "avg_glide_detour": 1.47,
     "achievement_count": 24,
     "name": "François Proulx",
@@ -1236,7 +1236,8 @@
       "name": "CVV de Québec",
       "region": "CA-QC",
       "url": "https://www.cvvq.net"
-    }
+    },
+    "message_enabled": true
   },
   "35337": {
     "total_flight_duration": 65809,
