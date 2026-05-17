@@ -1302,11 +1302,11 @@
     }
   },
   "35367": {
-    "total_flight_duration": 1123046,
-    "total_free_distance": 9336.13,
-    "avg_speed": 34.1,
-    "flight_count": 122,
-    "avg_glide_speed": 115.4,
+    "total_flight_duration": 1134832,
+    "total_free_distance": 9473.25,
+    "avg_speed": 34.2,
+    "flight_count": 123,
+    "avg_glide_speed": 115.42,
     "avg_glide_detour": 1.53,
     "achievement_count": 7,
     "name": "Christian Boulay",
@@ -1319,7 +1319,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "35385": {
     "total_flight_duration": 3418010,
