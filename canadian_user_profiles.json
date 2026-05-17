@@ -1840,12 +1840,12 @@
     }
   },
   "35759": {
-    "total_flight_duration": 6656,
-    "total_free_distance": 42.89,
-    "avg_speed": 26.03,
-    "flight_count": 2,
-    "avg_glide_speed": 94.02,
-    "avg_glide_detour": 1.84,
+    "total_flight_duration": 21528,
+    "total_free_distance": 217.84,
+    "avg_speed": 49.56,
+    "flight_count": 3,
+    "avg_glide_speed": 109.15,
+    "avg_glide_detour": 1.47,
     "achievement_count": 0,
     "name": "Patrick Kessler",
     "gender": "M",
@@ -1856,7 +1856,8 @@
       "name": "CVV de Québec",
       "region": "CA-QC",
       "url": "https://www.cvvq.net"
-    }
+    },
+    "message_enabled": true
   },
   "35763": {
     "total_flight_duration": 205782,
