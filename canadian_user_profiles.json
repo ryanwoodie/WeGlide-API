@@ -1627,13 +1627,13 @@
     "message_enabled": true
   },
   "35546": {
-    "total_flight_duration": 1213543,
-    "total_free_distance": 13514.04,
-    "avg_speed": 43.99,
-    "flight_count": 160,
-    "avg_glide_speed": 102.01,
+    "total_flight_duration": 1227236,
+    "total_free_distance": 13668.75,
+    "avg_speed": 43.97,
+    "flight_count": 161,
+    "avg_glide_speed": 102.16,
     "avg_glide_detour": 1.39,
-    "achievement_count": 0,
+    "achievement_count": 1,
     "name": "Philippe Laflamme",
     "gender": "M",
     "is_junior": false,
@@ -1644,7 +1644,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "35558": {
     "total_flight_duration": 3960577,
