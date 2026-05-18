@@ -1248,13 +1248,13 @@
     "message_enabled": true
   },
   "35337": {
-    "total_flight_duration": 65809,
-    "total_free_distance": 1080.16,
-    "avg_speed": 60.6,
-    "flight_count": 4,
-    "avg_glide_speed": 106.56,
-    "avg_glide_detour": 1.12,
-    "achievement_count": 4,
+    "total_flight_duration": 93977,
+    "total_free_distance": 1532.23,
+    "avg_speed": 60.29,
+    "flight_count": 6,
+    "avg_glide_speed": 105.66,
+    "avg_glide_detour": 1.1,
+    "achievement_count": 7,
     "name": "Mike North",
     "gender": "M",
     "is_junior": false,
@@ -1264,7 +1264,8 @@
       "name": "Gatineau Gliding Club",
       "region": "CA-ON",
       "url": "https://www.gatineauglidingclub.ca"
-    }
+    },
+    "message_enabled": true
   },
   "35350": {
     "total_flight_duration": 920042,
