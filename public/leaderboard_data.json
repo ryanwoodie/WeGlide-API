@@ -9,7 +9,7 @@
     "6084": 263574,
     "6303": 473457,
     "8839": 15001,
-    "8848": 16817223,
+    "8848": 16833147,
     "10764": 416685,
     "12276": 218584,
     "12854": 181351,
@@ -4495,10 +4495,10 @@
       }
     },
     "8848": {
-      "total_flight_duration": 16817223,
-      "total_free_distance": 312097.05,
+      "total_flight_duration": 16833147,
+      "total_free_distance": 312362.56,
       "avg_speed": 71.34,
-      "flight_count": 1131,
+      "flight_count": 1132,
       "avg_glide_speed": 120.55,
       "avg_glide_detour": 1.22,
       "achievement_count": 23,
@@ -95892,6 +95892,71 @@
         "name": "Port Alberni",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1086911,
+      "user": {
+        "id": 8848,
+        "name": "Andre R. Pepin"
+      },
+      "date": "2026-05-17",
+      "distance": 265.51,
+      "duration": 15924,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 259.17,
+          "distance": 265.51,
+          "speed": 65.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 64.81,
+          "distance": 151.99,
+          "speed": 76,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 144.37,
+          "distance": 177.57,
+          "speed": 46.66,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 101.9,
+          "distance": 125.34,
+          "speed": 35.54,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 202.11,
+          "distance": 177.57,
+          "speed": 46.66,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -108013,12 +108078,12 @@
   ],
   "meta": {
     "totalPilots": 123,
-    "totalFlights": 420,
-    "totalKms": 71285,
+    "totalFlights": 421,
+    "totalKms": 71551,
     "totalTasksDeclared": 140,
     "totalTasksCompleted": 9,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-18T01:55:51.629Z"
+    "generatedAt": "2026-05-18T02:20:50.776Z"
   }
 }
