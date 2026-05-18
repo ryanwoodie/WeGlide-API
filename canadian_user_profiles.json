@@ -1522,12 +1522,12 @@
     }
   },
   "35434": {
-    "total_flight_duration": 83322,
-    "total_free_distance": 494.52,
-    "avg_speed": 23.89,
-    "flight_count": 8,
-    "avg_glide_speed": 96.68,
-    "avg_glide_detour": 2.27,
+    "total_flight_duration": 92185,
+    "total_free_distance": 561.64,
+    "avg_speed": 24.33,
+    "flight_count": 9,
+    "avg_glide_speed": 97.52,
+    "avg_glide_detour": 2.22,
     "achievement_count": 4,
     "name": "Paul Payette",
     "gender": "M",
@@ -1538,7 +1538,8 @@
       "name": "Toronto Soaring Club",
       "region": "CA-ON",
       "url": "http://toronto-soaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "35436": {
     "total_flight_duration": 868765,
