@@ -915,13 +915,13 @@
     }
   },
   "27586": {
-    "total_flight_duration": 145423,
-    "total_free_distance": 3182.23,
-    "avg_speed": 83.36,
-    "flight_count": 8,
-    "avg_glide_speed": 138.4,
-    "avg_glide_detour": 1.21,
-    "achievement_count": 4,
+    "total_flight_duration": 187985,
+    "total_free_distance": 4035.74,
+    "avg_speed": 82.02,
+    "flight_count": 10,
+    "avg_glide_speed": 138.34,
+    "avg_glide_detour": 1.25,
+    "achievement_count": 8,
     "name": "Mark A. Schneider",
     "gender": "M",
     "is_junior": false,
@@ -931,7 +931,8 @@
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
       "url": "https://montrealsoaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "27891": {
     "total_flight_duration": 10744,
