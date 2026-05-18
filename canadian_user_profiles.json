@@ -392,11 +392,11 @@
     }
   },
   "17026": {
-    "total_flight_duration": 726516,
-    "total_free_distance": 13622.72,
-    "avg_speed": 78.98,
-    "flight_count": 52,
-    "avg_glide_speed": 127.84,
+    "total_flight_duration": 738742,
+    "total_free_distance": 13847.58,
+    "avg_speed": 78.95,
+    "flight_count": 53,
+    "avg_glide_speed": 127.71,
     "avg_glide_detour": 1.3,
     "achievement_count": 13,
     "name": "Bryan Swansburg",
@@ -408,7 +408,8 @@
       "name": "Vancouver Soaring Association",
       "region": "CA-BC",
       "url": "http://vancouversoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "18113": {
     "total_flight_duration": 2926462,
