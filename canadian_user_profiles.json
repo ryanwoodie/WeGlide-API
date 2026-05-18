@@ -275,11 +275,11 @@
     }
   },
   "13284": {
-    "total_flight_duration": 933871,
-    "total_free_distance": 12061.92,
-    "avg_speed": 50.48,
-    "flight_count": 159,
-    "avg_glide_speed": 107.51,
+    "total_flight_duration": 939068,
+    "total_free_distance": 12118.3,
+    "avg_speed": 50.43,
+    "flight_count": 160,
+    "avg_glide_speed": 107.52,
     "avg_glide_detour": 1.31,
     "achievement_count": 10,
     "name": "Mark Luscher",
@@ -291,7 +291,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "13388": {
     "total_flight_duration": 75111,
