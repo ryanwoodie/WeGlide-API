@@ -646,11 +646,11 @@
     "message_enabled": true
   },
   "22923": {
-    "total_flight_duration": 1570946,
-    "total_free_distance": 24725.72,
-    "avg_speed": 61.41,
-    "flight_count": 186,
-    "avg_glide_speed": 129.67,
+    "total_flight_duration": 1582796,
+    "total_free_distance": 24968.68,
+    "avg_speed": 61.56,
+    "flight_count": 187,
+    "avg_glide_speed": 129.79,
     "avg_glide_detour": 1.23,
     "achievement_count": 7,
     "name": "John Mulder",
@@ -662,7 +662,8 @@
       "name": "Central Alberta Gliding Club",
       "region": "CA-AB",
       "url": "http://www.cagcsoaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "23246": {
     "total_flight_duration": 181930,
