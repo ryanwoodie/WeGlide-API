@@ -256,12 +256,12 @@
     "message_enabled": true
   },
   "12901": {
-    "total_flight_duration": 107356,
-    "total_free_distance": 1736.27,
-    "avg_speed": 62.63,
-    "flight_count": 10,
-    "avg_glide_speed": 119.76,
-    "avg_glide_detour": 1.15,
+    "total_flight_duration": 118083,
+    "total_free_distance": 1884.52,
+    "avg_speed": 61.88,
+    "flight_count": 11,
+    "avg_glide_speed": 120.01,
+    "avg_glide_detour": 1.16,
     "achievement_count": 5,
     "name": "Mike Morgulis",
     "gender": "M",
@@ -272,7 +272,8 @@
       "name": "Toronto Soaring Club",
       "region": "CA-ON",
       "url": "http://toronto-soaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "13284": {
     "total_flight_duration": 939068,
