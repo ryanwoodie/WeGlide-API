@@ -824,11 +824,11 @@
     "message_enabled": true
   },
   "24930": {
-    "total_flight_duration": 2412096,
-    "total_free_distance": 35540.77,
+    "total_flight_duration": 2423011,
+    "total_free_distance": 35706.06,
     "avg_speed": 57.86,
-    "flight_count": 246,
-    "avg_glide_speed": 129.33,
+    "flight_count": 247,
+    "avg_glide_speed": 129.31,
     "avg_glide_detour": 1.65,
     "achievement_count": 24,
     "name": "Sergey Skobkarev",
@@ -840,7 +840,8 @@
       "name": "Vancouver Soaring Association",
       "region": "CA-BC",
       "url": "http://vancouversoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "25002": {
     "total_flight_duration": 130211,
@@ -2379,6 +2380,27 @@
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
       "url": "https://montrealsoaring.ca"
+    },
+    "message_enabled": true
+  },
+  "39209": {
+    "total_flight_duration": 14245,
+    "total_free_distance": 91.94,
+    "avg_speed": 24.04,
+    "flight_count": 1,
+    "avg_glide_speed": 95.41,
+    "avg_glide_detour": 1.71,
+    "achievement_count": 0,
+    "name": "Yvon Saucier",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     },
     "message_enabled": true
   }

@@ -4168,6 +4168,25 @@
       "combinedHoursBeforeCutoff": 1761.3,
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
+    },
+    "39209": {
+      "pilotId": 39209,
+      "weglidePilotId": "wg:39209",
+      "olcPilotId": "71927",
+      "pilotName": "Yvon Saucier",
+      "matchKind": "olc_name_only",
+      "normalizedName": "yvonsaucier",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 462.47,
+      "olcOnlyHours": 462.47,
+      "combinedHours": 462.47,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 462.47,
+      "combinedHoursBeforeCutoff": 462.47,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
