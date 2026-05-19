@@ -705,12 +705,12 @@
     }
   },
   "23352": {
-    "total_flight_duration": 50838,
-    "total_free_distance": 486.18,
-    "avg_speed": 42.79,
-    "flight_count": 28,
-    "avg_glide_speed": 88.09,
-    "avg_glide_detour": 1.25,
+    "total_flight_duration": 57995,
+    "total_free_distance": 562.55,
+    "avg_speed": 43.98,
+    "flight_count": 32,
+    "avg_glide_speed": 90.22,
+    "avg_glide_detour": 1.29,
     "achievement_count": 2,
     "name": "Thomas Link",
     "gender": "M",
@@ -721,7 +721,8 @@
       "name": "Central Alberta Gliding Club",
       "region": "CA-AB",
       "url": "http://www.cagcsoaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "23521": {
     "total_flight_duration": 597383,
