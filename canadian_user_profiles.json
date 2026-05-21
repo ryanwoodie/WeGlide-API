@@ -1000,12 +1000,12 @@
     "message_enabled": true
   },
   "29394": {
-    "total_flight_duration": 585018,
-    "total_free_distance": 8529.74,
-    "avg_speed": 58.24,
-    "flight_count": 49,
-    "avg_glide_speed": 122.93,
-    "avg_glide_detour": 1.29,
+    "total_flight_duration": 593374,
+    "total_free_distance": 8596.53,
+    "avg_speed": 57.88,
+    "flight_count": 50,
+    "avg_glide_speed": 123.13,
+    "avg_glide_detour": 1.3,
     "achievement_count": 16,
     "name": "Michael McKay",
     "gender": "M",
@@ -1016,7 +1016,8 @@
       "name": "Gatineau Gliding Club",
       "region": "CA-ON",
       "url": "https://www.gatineauglidingclub.ca"
-    }
+    },
+    "message_enabled": true
   },
   "29869": {
     "total_flight_duration": 3796792,
