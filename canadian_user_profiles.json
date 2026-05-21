@@ -492,11 +492,11 @@
     }
   },
   "21011": {
-    "total_flight_duration": 680536,
-    "total_free_distance": 17041.02,
-    "avg_speed": 97.52,
-    "flight_count": 41,
-    "avg_glide_speed": 162.72,
+    "total_flight_duration": 705756,
+    "total_free_distance": 17665.44,
+    "avg_speed": 97.59,
+    "flight_count": 43,
+    "avg_glide_speed": 162.86,
     "avg_glide_detour": 1.11,
     "achievement_count": 18,
     "name": "Martin Dennis",
@@ -508,7 +508,8 @@
       "name": "Canadian Rockies Soaring Club",
       "region": "CA-BC",
       "url": "https://www.canadianrockiessoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "21186": {
     "total_flight_duration": 8538,
