@@ -549,12 +549,12 @@
     }
   },
   "21317": {
-    "total_flight_duration": 270712,
-    "total_free_distance": 2158.74,
-    "avg_speed": 31.66,
-    "flight_count": 23,
-    "avg_glide_speed": 93.46,
-    "avg_glide_detour": 1.36,
+    "total_flight_duration": 280854,
+    "total_free_distance": 2264.43,
+    "avg_speed": 32.11,
+    "flight_count": 24,
+    "avg_glide_speed": 93.68,
+    "avg_glide_detour": 1.35,
     "achievement_count": 9,
     "name": "Brian Pirie",
     "gender": "M",
@@ -565,7 +565,8 @@
       "name": "Gatineau Gliding Club",
       "region": "CA-ON",
       "url": "https://www.gatineauglidingclub.ca"
-    }
+    },
+    "message_enabled": true
   },
   "21574": {
     "total_flight_duration": 507720,
@@ -1647,11 +1648,11 @@
     }
   },
   "35496": {
-    "total_flight_duration": 3207007,
-    "total_free_distance": 56869.29,
-    "avg_speed": 69.3,
-    "flight_count": 265,
-    "avg_glide_speed": 119.99,
+    "total_flight_duration": 3225232,
+    "total_free_distance": 57186.89,
+    "avg_speed": 69.27,
+    "flight_count": 266,
+    "avg_glide_speed": 119.96,
     "avg_glide_detour": 1.14,
     "achievement_count": 26,
     "name": "Richard Noel",
