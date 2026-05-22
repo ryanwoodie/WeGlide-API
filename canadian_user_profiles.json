@@ -354,13 +354,13 @@
     }
   },
   "15929": {
-    "total_flight_duration": 2353286,
-    "total_free_distance": 59592.54,
-    "avg_speed": 102.63,
-    "flight_count": 126,
-    "avg_glide_speed": 146.3,
+    "total_flight_duration": 2373559,
+    "total_free_distance": 60110.81,
+    "avg_speed": 102.55,
+    "flight_count": 127,
+    "avg_glide_speed": 146.42,
     "avg_glide_detour": 1.21,
-    "achievement_count": 38,
+    "achievement_count": 39,
     "name": "Chester Fitchett",
     "gender": "M",
     "is_junior": false,
@@ -371,7 +371,8 @@
       "region": "CA-AB",
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
-    }
+    },
+    "message_enabled": true
   },
   "16605": {
     "total_flight_duration": 1092175,
