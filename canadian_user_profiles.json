@@ -1477,13 +1477,13 @@
     }
   },
   "35427": {
-    "total_flight_duration": 165547,
-    "total_free_distance": 1808.96,
-    "avg_speed": 47.04,
-    "flight_count": 65,
-    "avg_glide_speed": 107.03,
+    "total_flight_duration": 189567,
+    "total_free_distance": 2116.85,
+    "avg_speed": 47.57,
+    "flight_count": 67,
+    "avg_glide_speed": 107.78,
     "avg_glide_detour": 1.25,
-    "achievement_count": 6,
+    "achievement_count": 10,
     "name": "Marc-André Rathé",
     "gender": "M",
     "is_junior": false,
@@ -1494,7 +1494,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "35430": {
     "total_flight_duration": 507803,
