@@ -2123,13 +2123,13 @@
     }
   },
   "36054": {
-    "total_flight_duration": 13012,
-    "total_free_distance": 183.57,
-    "avg_speed": 56.28,
-    "flight_count": 1,
-    "avg_glide_speed": 124.08,
-    "avg_glide_detour": 1.37,
-    "achievement_count": 0,
+    "total_flight_duration": 24296,
+    "total_free_distance": 376.95,
+    "avg_speed": 60.01,
+    "flight_count": 2,
+    "avg_glide_speed": 125.99,
+    "avg_glide_detour": 1.31,
+    "achievement_count": 2,
     "name": "Jean-François Latulippe",
     "gender": "M",
     "is_junior": false,
@@ -2140,7 +2140,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "36083": {
     "total_flight_duration": 16952,
