@@ -690,12 +690,12 @@
     "message_enabled": true
   },
   "23246": {
-    "total_flight_duration": 181930,
-    "total_free_distance": 3704.99,
-    "avg_speed": 76.71,
-    "flight_count": 14,
-    "avg_glide_speed": 135.61,
-    "avg_glide_detour": 1.21,
+    "total_flight_duration": 195033,
+    "total_free_distance": 3928.28,
+    "avg_speed": 76.08,
+    "flight_count": 15,
+    "avg_glide_speed": 135.11,
+    "avg_glide_detour": 1.22,
     "achievement_count": 9,
     "name": "Dragan Zubovic",
     "gender": "M",
@@ -706,7 +706,8 @@
       "name": "Vancouver Soaring Association",
       "region": "CA-BC",
       "url": "http://vancouversoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "23330": {
     "total_flight_duration": 531211,
