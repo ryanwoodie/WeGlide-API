@@ -4187,6 +4187,25 @@
       "combinedHoursBeforeCutoff": 462.47,
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
+    },
+    "39261": {
+      "pilotId": 39261,
+      "weglidePilotId": "wg:39261",
+      "olcPilotId": "26819",
+      "pilotName": "Carole King",
+      "matchKind": "olc_name_only",
+      "normalizedName": "caroleking",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 354.55,
+      "olcOnlyHours": 354.55,
+      "combinedHours": 354.55,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 354.55,
+      "combinedHoursBeforeCutoff": 354.55,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {

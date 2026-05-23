@@ -2442,5 +2442,26 @@
       "logo": "club/1168.png"
     },
     "message_enabled": true
+  },
+  "39261": {
+    "total_flight_duration": 11876,
+    "total_free_distance": 128.57,
+    "avg_speed": 43.23,
+    "flight_count": 1,
+    "avg_glide_speed": 94.51,
+    "avg_glide_detour": 1.28,
+    "achievement_count": 0,
+    "name": "Carole King",
+    "gender": "F",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 863,
+      "name": "Association de Vol a Voile Champlain",
+      "region": "CA-QC",
+      "url": "https://www.avvc.qc.ca",
+      "logo": "club/863.png"
+    },
+    "message_enabled": true
   }
 }
