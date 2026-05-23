@@ -1791,11 +1791,11 @@
     }
   },
   "35644": {
-    "total_flight_duration": 4365718,
-    "total_free_distance": 83572.12,
-    "avg_speed": 72.61,
-    "flight_count": 237,
-    "avg_glide_speed": 122.06,
+    "total_flight_duration": 4393183,
+    "total_free_distance": 84218.72,
+    "avg_speed": 72.7,
+    "flight_count": 238,
+    "avg_glide_speed": 122.11,
     "avg_glide_detour": 1.14,
     "achievement_count": 18,
     "name": "Christian Hamel",
@@ -2397,6 +2397,26 @@
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
       "url": "https://montrealsoaring.ca"
+    },
+    "message_enabled": true
+  },
+  "39194": {
+    "total_flight_duration": 727358,
+    "total_free_distance": 7610.38,
+    "avg_speed": 41.48,
+    "flight_count": 104,
+    "avg_glide_speed": 105.89,
+    "avg_glide_detour": 1.34,
+    "achievement_count": 7,
+    "name": "Philippe Leonard Stang",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1240,
+      "name": "Rideau Valley Soaring",
+      "region": "CA-ON",
+      "url": "https://rvss.ca"
     },
     "message_enabled": true
   },
