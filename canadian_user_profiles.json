@@ -1575,12 +1575,12 @@
     "message_enabled": true
   },
   "35436": {
-    "total_flight_duration": 881738,
-    "total_free_distance": 18795.6,
-    "avg_speed": 79.9,
-    "flight_count": 42,
-    "avg_glide_speed": 126.64,
-    "avg_glide_detour": 1.13,
+    "total_flight_duration": 910158,
+    "total_free_distance": 19477.09,
+    "avg_speed": 80.21,
+    "flight_count": 43,
+    "avg_glide_speed": 126.85,
+    "avg_glide_detour": 1.12,
     "achievement_count": 19,
     "name": "Nick Bonniere",
     "gender": "M",
@@ -1590,7 +1590,8 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     },
     "message_enabled": true
   },
