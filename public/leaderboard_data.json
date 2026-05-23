@@ -33,7 +33,7 @@
     "22077": 1453576,
     "22081": 317501,
     "22232": 1804995,
-    "22746": 1271797,
+    "22746": 1273185,
     "22923": 1582796,
     "23246": 181930,
     "23330": 531211,
@@ -4996,11 +4996,11 @@
       }
     },
     "22746": {
-      "total_flight_duration": 1271797,
-      "total_free_distance": 16177.6,
-      "avg_speed": 52.31,
-      "flight_count": 165,
-      "avg_glide_speed": 118.47,
+      "total_flight_duration": 1273185,
+      "total_free_distance": 16198.23,
+      "avg_speed": 52.32,
+      "flight_count": 167,
+      "avg_glide_speed": 118.48,
       "avg_glide_detour": 1.59,
       "achievement_count": 32,
       "name": "Frédéric Bourgault",
@@ -102014,6 +102014,146 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1091292,
+      "user": {
+        "id": 22746,
+        "name": "Frédéric Bourgault"
+      },
+      "date": "2026-05-22",
+      "distance": 12.78,
+      "duration": 929,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "TR",
+        "from_igcfile": false,
+        "distance": 306.34,
+        "name": "300km Triangle North"
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 14.79,
+          "distance": 12.78,
+          "speed": 62.6,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 2.8,
+          "distance": 5.52,
+          "speed": 2.76,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 5.82,
+          "distance": 5.7,
+          "speed": 65.35,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 6.88,
+          "distance": 6.74,
+          "speed": 78.02,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 11.97,
+          "distance": 11.73,
+          "speed": 57.45,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
+    },
+    {
+      "id": 1091291,
+      "user": {
+        "id": 22746,
+        "name": "Frédéric Bourgault"
+      },
+      "date": "2026-05-22",
+      "distance": 7.85,
+      "duration": 459,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "TR",
+        "from_igcfile": false,
+        "distance": 306.34,
+        "name": "300km Triangle North"
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 9.63,
+          "distance": 7.85,
+          "speed": 94.52,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.72,
+          "distance": 1.41,
+          "speed": 0.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 5.4,
+          "distance": 5.29,
+          "speed": 67.77,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 5.88,
+          "distance": 5.76,
+          "speed": 82.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 7.64,
+          "distance": 5.76,
+          "speed": 82.61,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -114812,12 +114952,12 @@
   ],
   "meta": {
     "totalPilots": 125,
-    "totalFlights": 458,
-    "totalKms": 78818,
-    "totalTasksDeclared": 152,
+    "totalFlights": 460,
+    "totalKms": 78839,
+    "totalTasksDeclared": 154,
     "totalTasksCompleted": 10,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-22T23:21:02.774Z"
+    "generatedAt": "2026-05-23T00:10:59.186Z"
   }
 }
