@@ -1674,6 +1674,27 @@
     },
     "message_enabled": true
   },
+  "35497": {
+    "total_flight_duration": 5554,
+    "total_free_distance": 64.6,
+    "avg_speed": 60.03,
+    "flight_count": 1,
+    "avg_glide_speed": 120.86,
+    "avg_glide_detour": 1.2,
+    "achievement_count": 0,
+    "name": "Bernard Julien",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 863,
+      "name": "Association de Vol a Voile Champlain",
+      "region": "CA-QC",
+      "url": "https://www.avvc.qc.ca",
+      "logo": "club/863.png"
+    },
+    "message_enabled": true
+  },
   "35546": {
     "total_flight_duration": 1239209,
     "total_free_distance": 13824.58,
