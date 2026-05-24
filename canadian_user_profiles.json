@@ -2529,5 +2529,25 @@
       "logo": "club/965.png"
     },
     "message_enabled": true
+  },
+  "39438": {
+    "total_flight_duration": 5068,
+    "total_free_distance": 42.94,
+    "avg_speed": 36.83,
+    "flight_count": 1,
+    "avg_glide_speed": 103.59,
+    "avg_glide_detour": 1.23,
+    "achievement_count": 0,
+    "name": "Keith Hartley",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1387,
+      "name": "Winnipeg Gliding Club",
+      "region": "CA-MB",
+      "url": "https://www.wgc.mb.ca"
+    },
+    "message_enabled": true
   }
 }

@@ -4244,6 +4244,25 @@
       "combinedHoursBeforeCutoff": 257.94,
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
+    },
+    "39438": {
+      "pilotId": 39438,
+      "weglidePilotId": "wg:39438",
+      "olcPilotId": "82562",
+      "pilotName": "Keith Hartley",
+      "matchKind": "olc_name_only",
+      "normalizedName": "keithhartley",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 8.49,
+      "olcOnlyHours": 8.49,
+      "combinedHours": 8.49,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 8.49,
+      "combinedHoursBeforeCutoff": 8.49,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
