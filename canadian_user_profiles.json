@@ -2505,5 +2505,26 @@
       "logo": "club/863.png"
     },
     "message_enabled": true
+  },
+  "39364": {
+    "total_flight_duration": 14444,
+    "total_free_distance": 252.5,
+    "avg_speed": 66.39,
+    "flight_count": 1,
+    "avg_glide_speed": 110.13,
+    "avg_glide_detour": 1.22,
+    "achievement_count": 2,
+    "name": "John Gruber",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 965,
+      "name": "Cu Nim Gliding Club",
+      "region": "CA-AB",
+      "url": "https://www.cunim.org",
+      "logo": "club/965.png"
+    },
+    "message_enabled": true
   }
 }

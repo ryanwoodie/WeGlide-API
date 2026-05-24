@@ -4225,6 +4225,25 @@
       "combinedHoursBeforeCutoff": 354.55,
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
+    },
+    "39364": {
+      "pilotId": 39364,
+      "weglidePilotId": "wg:39364",
+      "olcPilotId": "4079",
+      "pilotName": "John Gruber",
+      "matchKind": "olc_name_only",
+      "normalizedName": "johngruber",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 257.94,
+      "olcOnlyHours": 257.94,
+      "combinedHours": 257.94,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 257.94,
+      "combinedHoursBeforeCutoff": 257.94,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
