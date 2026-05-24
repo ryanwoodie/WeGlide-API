@@ -770,11 +770,11 @@
     }
   },
   "23795": {
-    "total_flight_duration": 2961163,
-    "total_free_distance": 28714.51,
-    "avg_speed": 39.69,
-    "flight_count": 304,
-    "avg_glide_speed": 91.26,
+    "total_flight_duration": 2972988,
+    "total_free_distance": 28814.52,
+    "avg_speed": 39.68,
+    "flight_count": 305,
+    "avg_glide_speed": 91.28,
     "avg_glide_detour": 1.36,
     "achievement_count": 11,
     "name": "Pascal Hayet",
@@ -786,7 +786,8 @@
       "name": "CVV de Québec",
       "region": "CA-QC",
       "url": "https://www.cvvq.net"
-    }
+    },
+    "message_enabled": true
   },
   "23829": {
     "total_flight_duration": 1012388,
