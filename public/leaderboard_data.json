@@ -30,7 +30,7 @@
     "21219": 42811,
     "21317": 280854,
     "21574": 507720,
-    "22077": 1468045,
+    "22077": 1470410,
     "22081": 317501,
     "22232": 1804995,
     "22746": 1273185,
@@ -5000,11 +5000,11 @@
       }
     },
     "22077": {
-      "total_flight_duration": 1468045,
-      "total_free_distance": 20454.81,
-      "avg_speed": 55.03,
-      "flight_count": 133,
-      "avg_glide_speed": 116.61,
+      "total_flight_duration": 1470410,
+      "total_free_distance": 20484.08,
+      "avg_speed": 55.01,
+      "flight_count": 134,
+      "avg_glide_speed": 116.62,
       "avg_glide_detour": 1.37,
       "achievement_count": 27,
       "name": "Sasha Pejic",
@@ -105757,6 +105757,71 @@
         "name": "Starbuck",
         "region": "CA-MB"
       }
+    },
+    {
+      "id": 1096458,
+      "user": {
+        "id": 22077,
+        "name": "Sasha Pejic"
+      },
+      "date": "2026-05-24",
+      "distance": 29.27,
+      "duration": 2365,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 35.14,
+          "distance": 29.27,
+          "speed": 44.57,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 10.42,
+          "distance": 20.84,
+          "speed": 10.42,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 19.57,
+          "distance": 19.57,
+          "speed": 29.8,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 15.99,
+          "distance": 15.99,
+          "speed": 34.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 27.4,
+          "distance": 19.57,
+          "speed": 29.8,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cu Nim",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -119042,12 +119107,12 @@
   ],
   "meta": {
     "totalPilots": 130,
-    "totalFlights": 481,
-    "totalKms": 84039,
+    "totalFlights": 482,
+    "totalKms": 84069,
     "totalTasksDeclared": 160,
     "totalTasksCompleted": 10,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-24T14:36:04.750Z"
+    "generatedAt": "2026-05-24T22:16:07.608Z"
   }
 }
