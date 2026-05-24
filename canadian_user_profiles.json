@@ -1759,11 +1759,11 @@
     }
   },
   "35577": {
-    "total_flight_duration": 1100497,
-    "total_free_distance": 25749.23,
-    "avg_speed": 91.96,
-    "flight_count": 90,
-    "avg_glide_speed": 153.88,
+    "total_flight_duration": 1108436,
+    "total_free_distance": 25849.37,
+    "avg_speed": 91.69,
+    "flight_count": 91,
+    "avg_glide_speed": 153.69,
     "avg_glide_detour": 1.24,
     "achievement_count": 24,
     "name": "Jean Yves Germain",
@@ -1775,7 +1775,8 @@
       "name": "CVV de Québec",
       "region": "CA-QC",
       "url": "https://www.cvvq.net"
-    }
+    },
+    "message_enabled": true
   },
   "35605": {
     "total_flight_duration": 6644,
