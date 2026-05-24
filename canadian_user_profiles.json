@@ -1517,7 +1517,8 @@
       "name": "Winnipeg Gliding Club",
       "region": "CA-MB",
       "url": "https://www.wgc.mb.ca"
-    }
+    },
+    "message_enabled": true
   },
   "35431": {
     "total_flight_duration": 313407,
