@@ -2368,6 +2368,26 @@
     },
     "message_enabled": true
   },
+  "38629": {
+    "total_flight_duration": 5504,
+    "total_free_distance": 57.11,
+    "avg_speed": 45.26,
+    "flight_count": 1,
+    "avg_glide_speed": 114.65,
+    "avg_glide_detour": 1.92,
+    "achievement_count": 0,
+    "name": "Gonda-Bastian Sinagowitz",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 907,
+      "name": "Canadian Rockies Soaring Club",
+      "region": "CA-BC",
+      "url": "https://www.canadianrockiessoaring.com"
+    },
+    "message_enabled": true
+  },
   "38767": {
     "total_flight_duration": 39163,
     "total_free_distance": 452.24,
