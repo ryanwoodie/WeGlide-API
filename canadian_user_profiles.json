@@ -1840,12 +1840,12 @@
     "message_enabled": true
   },
   "35654": {
-    "total_flight_duration": 406033,
-    "total_free_distance": 2952.56,
-    "avg_speed": 31.46,
-    "flight_count": 87,
-    "avg_glide_speed": 93.78,
-    "avg_glide_detour": 2.02,
+    "total_flight_duration": 483498,
+    "total_free_distance": 3806.48,
+    "avg_speed": 33.49,
+    "flight_count": 93,
+    "avg_glide_speed": 95.97,
+    "avg_glide_detour": 1.88,
     "achievement_count": 13,
     "name": "Frederic Couturier",
     "gender": "M",
@@ -1856,7 +1856,8 @@
       "name": "CVV de Québec",
       "region": "CA-QC",
       "url": "https://www.cvvq.net"
-    }
+    },
+    "message_enabled": true
   },
   "35660": {
     "total_flight_duration": 6801408,
