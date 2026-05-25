@@ -218,12 +218,12 @@
     }
   },
   "12276": {
-    "total_flight_duration": 218584,
-    "total_free_distance": 2646.19,
-    "avg_speed": 47.64,
-    "flight_count": 20,
-    "avg_glide_speed": 124.23,
-    "avg_glide_detour": 1.92,
+    "total_flight_duration": 227508,
+    "total_free_distance": 2755.92,
+    "avg_speed": 47.53,
+    "flight_count": 21,
+    "avg_glide_speed": 124.34,
+    "avg_glide_detour": 1.91,
     "achievement_count": 13,
     "name": "Artur Siwic",
     "gender": "M",
@@ -234,7 +234,8 @@
       "name": "Vancouver Soaring Association",
       "region": "CA-BC",
       "url": "http://vancouversoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "12854": {
     "total_flight_duration": 224534,
