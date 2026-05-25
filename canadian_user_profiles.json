@@ -2551,6 +2551,21 @@
     },
     "message_enabled": true
   },
+  "39399": {
+    "total_flight_duration": 15005,
+    "total_free_distance": 101.24,
+    "avg_speed": 27.8,
+    "flight_count": 1,
+    "avg_glide_speed": 113.86,
+    "avg_glide_detour": 1.67,
+    "achievement_count": 1,
+    "name": "Andrzej Konarzewski",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": null,
+    "message_enabled": true
+  },
   "39438": {
     "total_flight_duration": 5068,
     "total_free_distance": 42.94,

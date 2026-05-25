@@ -4245,6 +4245,25 @@
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
     },
+    "39399": {
+      "pilotId": 39399,
+      "weglidePilotId": "wg:39399",
+      "olcPilotId": "13785",
+      "pilotName": "Andrzej Konarzewski",
+      "matchKind": "olc_name_only",
+      "normalizedName": "andrzejkonarzewski",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 519.99,
+      "olcOnlyHours": 519.99,
+      "combinedHours": 519.99,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 519.99,
+      "combinedHoursBeforeCutoff": 519.99,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
+    },
     "39438": {
       "pilotId": 39438,
       "weglidePilotId": "wg:39438",
