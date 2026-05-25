@@ -2406,6 +2406,26 @@
     },
     "message_enabled": true
   },
+  "38955": {
+    "total_flight_duration": 334492,
+    "total_free_distance": 5505.5,
+    "avg_speed": 61.89,
+    "flight_count": 26,
+    "avg_glide_speed": 127.72,
+    "avg_glide_detour": 1.22,
+    "achievement_count": 1,
+    "name": "Jeff Runciman",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 914,
+      "name": "Central Alberta Gliding Club",
+      "region": "CA-AB",
+      "url": "http://www.cagcsoaring.ca"
+    },
+    "message_enabled": true
+  },
   "38969": {
     "total_flight_duration": 41199,
     "total_free_distance": 722.94,
