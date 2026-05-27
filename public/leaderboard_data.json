@@ -56,7 +56,7 @@
     "32274": 731699,
     "32345": 5342326,
     "32676": 74299,
-    "33962": 67251,
+    "33962": 74243,
     "34532": 6784,
     "34934": 4190800,
     "34953": 322127,
@@ -5558,12 +5558,12 @@
       }
     },
     "33962": {
-      "total_flight_duration": 67251,
-      "total_free_distance": 1544.23,
-      "avg_speed": 88.34,
-      "flight_count": 6,
-      "avg_glide_speed": 131.59,
-      "avg_glide_detour": 1.14,
+      "total_flight_duration": 74243,
+      "total_free_distance": 1630.88,
+      "avg_speed": 84.69,
+      "flight_count": 7,
+      "avg_glide_speed": 128.61,
+      "avg_glide_detour": 1.13,
       "achievement_count": 8,
       "name": "Charlie Pastuszka",
       "gender": "M",
@@ -111261,6 +111261,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1101057,
+      "user": {
+        "id": 33962,
+        "name": "Charlie Pastuszka"
+      },
+      "date": "2026-05-27",
+      "distance": 86.65,
+      "duration": 6992,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 121.4,
+          "distance": 86.65,
+          "speed": 48.74,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 42.14,
+          "distance": 71,
+          "speed": 35.5,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 12.43,
+          "distance": 9.82,
+          "speed": 9.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 58.59,
+          "distance": 46.29,
+          "speed": 46.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 103.52,
+          "distance": 81.78,
+          "speed": 45.86,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -125118,12 +125183,12 @@
   ],
   "meta": {
     "totalPilots": 136,
-    "totalFlights": 511,
-    "totalKms": 86519,
+    "totalFlights": 512,
+    "totalKms": 86606,
     "totalTasksDeclared": 169,
     "totalTasksCompleted": 11,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-27T21:46:02.311Z"
+    "generatedAt": "2026-05-27T23:56:03.121Z"
   }
 }
