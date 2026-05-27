@@ -2510,13 +2510,13 @@
     "message_enabled": true
   },
   "38988": {
-    "total_flight_duration": 3715,
-    "total_free_distance": 31.88,
-    "avg_speed": 37.33,
-    "flight_count": 2,
-    "avg_glide_speed": 93.92,
-    "avg_glide_detour": 1.03,
-    "achievement_count": 0,
+    "total_flight_duration": 11797,
+    "total_free_distance": 111.57,
+    "avg_speed": 40.87,
+    "flight_count": 5,
+    "avg_glide_speed": 98.56,
+    "avg_glide_detour": 1.1,
+    "achievement_count": 1,
     "name": "James Hanna",
     "gender": "M",
     "is_junior": false,
@@ -2525,7 +2525,8 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     },
     "message_enabled": true
   },
