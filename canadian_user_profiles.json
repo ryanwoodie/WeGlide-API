@@ -752,13 +752,13 @@
     "message_enabled": true
   },
   "23521": {
-    "total_flight_duration": 597383,
-    "total_free_distance": 10899.6,
-    "avg_speed": 72.64,
-    "flight_count": 71,
-    "avg_glide_speed": 132.36,
+    "total_flight_duration": 606763,
+    "total_free_distance": 11045.19,
+    "avg_speed": 72.5,
+    "flight_count": 72,
+    "avg_glide_speed": 132.35,
     "avg_glide_detour": 1.35,
-    "achievement_count": 14,
+    "achievement_count": 15,
     "name": "Ray Troppmann",
     "gender": "M",
     "is_junior": false,
@@ -768,7 +768,8 @@
       "name": "Edmonton Soaring Club",
       "region": "CA-AB",
       "url": "http://www.edmontonsoaringclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "23795": {
     "total_flight_duration": 2972988,
