@@ -4282,6 +4282,25 @@
       "combinedHoursBeforeCutoff": 8.49,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "39515": {
+      "pilotId": 39515,
+      "weglidePilotId": "wg:39515",
+      "olcPilotId": "10845",
+      "pilotName": "Malcolm Rhodes",
+      "matchKind": "olc_name_only",
+      "normalizedName": "malcolmrhodes",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 679.75,
+      "olcOnlyHours": 679.75,
+      "combinedHours": 679.75,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 679.75,
+      "combinedHoursBeforeCutoff": 679.75,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
