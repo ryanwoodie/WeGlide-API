@@ -1049,11 +1049,11 @@
     }
   },
   "32274": {
-    "total_flight_duration": 731699,
-    "total_free_distance": 17464.85,
-    "avg_speed": 93.5,
-    "flight_count": 43,
-    "avg_glide_speed": 142.08,
+    "total_flight_duration": 745750,
+    "total_free_distance": 17732.29,
+    "avg_speed": 93.16,
+    "flight_count": 44,
+    "avg_glide_speed": 141.97,
     "avg_glide_detour": 1.12,
     "achievement_count": 17,
     "name": "Harry  Peters",
@@ -1065,7 +1065,8 @@
       "name": "Canadian Rockies Soaring Club",
       "region": "CA-BC",
       "url": "https://www.canadianrockiessoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "32345": {
     "total_flight_duration": 5342326,
