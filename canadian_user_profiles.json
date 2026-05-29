@@ -2353,12 +2353,12 @@
     "message_enabled": true
   },
   "37746": {
-    "total_flight_duration": 41505,
-    "total_free_distance": 860.39,
-    "avg_speed": 83.35,
-    "flight_count": 4,
-    "avg_glide_speed": 140.99,
-    "avg_glide_detour": 1.22,
+    "total_flight_duration": 70636,
+    "total_free_distance": 1470.37,
+    "avg_speed": 81.49,
+    "flight_count": 6,
+    "avg_glide_speed": 142.24,
+    "avg_glide_detour": 1.2,
     "achievement_count": 4,
     "name": "Gordon Spurgeon",
     "gender": "M",
@@ -2369,7 +2369,8 @@
       "name": "Canadian Rockies Soaring Club",
       "region": "CA-BC",
       "url": "https://www.canadianrockiessoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "38085": {
     "total_flight_duration": 504525,
