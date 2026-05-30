@@ -136,7 +136,7 @@
     "39209": 57694,
     "39261": 11876,
     "39364": 14444,
-    "39399": 23385,
+    "39399": 34802,
     "39438": 5068,
     "39515": 7290
   },
@@ -7176,12 +7176,12 @@
       "message_enabled": true
     },
     "39399": {
-      "total_flight_duration": 23385,
-      "total_free_distance": 260.19,
-      "avg_speed": 44.46,
-      "flight_count": 2,
-      "avg_glide_speed": 125.34,
-      "avg_glide_detour": 1.45,
+      "total_flight_duration": 34802,
+      "total_free_distance": 453.77,
+      "avg_speed": 50.92,
+      "flight_count": 3,
+      "avg_glide_speed": 127.67,
+      "avg_glide_detour": 1.39,
       "achievement_count": 1,
       "name": "Andrzej Konarzewski",
       "gender": "M",
@@ -10897,6 +10897,67 @@
       "awards": []
     },
     {
+      "pilot": "Andrzej Konarzewski",
+      "pilotId": 39399,
+      "totalPoints": 492.94000000000005,
+      "totalDistance": 453.77,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1104918,
+          "userId": 39399,
+          "date": "2026-05-30",
+          "distance": 193.58,
+          "speed": 63.28,
+          "points": 202.15,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1103059,
+          "userId": 39399,
+          "date": "2026-05-29",
+          "distance": 158.95,
+          "speed": 71.91,
+          "points": 179.94,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1096613,
+          "userId": 39399,
+          "date": "2026-05-24",
+          "distance": 101.24,
+          "speed": 27.8,
+          "points": 110.85,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
       "totalPoints": 471.57,
@@ -12023,50 +12084,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Discus 2b",
           "dmstIndex": 108,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Andrzej Konarzewski",
-      "pilotId": 39399,
-      "totalPoints": 290.78999999999996,
-      "totalDistance": 260.19,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1103059,
-          "userId": 39399,
-          "date": "2026-05-29",
-          "distance": 158.95,
-          "speed": 71.91,
-          "points": 179.94,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1096613,
-          "userId": 39399,
-          "date": "2026-05-24",
-          "distance": 101.24,
-          "speed": 27.8,
-          "points": 110.85,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -16523,6 +16540,66 @@
       ]
     },
     {
+      "pilot": "Andrzej Konarzewski",
+      "pilotId": 39399,
+      "totalPoints": 140.52,
+      "totalDistance": 293.67999999999995,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1104918,
+          "userId": 39399,
+          "date": "2026-05-30",
+          "distance": 129.07,
+          "speed": 64.53,
+          "points": 61.76,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1103059,
+          "userId": 39399,
+          "date": "2026-05-29",
+          "distance": 102.33,
+          "speed": 51.16,
+          "points": 48.96,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1096613,
+          "userId": 39399,
+          "date": "2026-05-24",
+          "distance": 62.28,
+          "speed": 31.14,
+          "points": 29.8,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Robert Frith",
       "pilotId": 12854,
       "totalPoints": 137.23000000000002,
@@ -17798,49 +17875,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Duo Discus",
           "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Andrzej Konarzewski",
-      "pilotId": 39399,
-      "totalPoints": 78.76,
-      "totalDistance": 164.61,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1103059,
-          "userId": 39399,
-          "date": "2026-05-29",
-          "distance": 102.33,
-          "speed": 51.16,
-          "points": 48.96,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1096613,
-          "userId": 39399,
-          "date": "2026-05-24",
-          "distance": 62.28,
-          "speed": 31.14,
-          "points": 29.8,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -23543,6 +23577,66 @@
       ]
     },
     {
+      "pilot": "Andrzej Konarzewski",
+      "pilotId": 39399,
+      "totalPoints": 204.12,
+      "totalDistance": 216.37,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1103059,
+          "userId": 39399,
+          "date": "2026-05-29",
+          "distance": 105.95,
+          "speed": 49.27,
+          "points": 99.95,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1104918,
+          "userId": 39399,
+          "date": "2026-05-30",
+          "distance": 56.21,
+          "speed": 24.09,
+          "points": 53.03,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1096613,
+          "userId": 39399,
+          "date": "2026-05-24",
+          "distance": 54.21,
+          "speed": 16,
+          "points": 51.14,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Bryan Swansburg",
       "pilotId": 17026,
       "totalPoints": 196.91,
@@ -24095,49 +24189,6 @@
           "aircraftKind": "MG",
           "aircraftName": "DG 400 17m",
           "dmstIndex": 109,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Andrzej Konarzewski",
-      "pilotId": 39399,
-      "totalPoints": 151.09,
-      "totalDistance": 160.16,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1103059,
-          "userId": 39399,
-          "date": "2026-05-29",
-          "distance": 105.95,
-          "speed": 49.27,
-          "points": 99.95,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1096613,
-          "userId": 39399,
-          "date": "2026-05-24",
-          "distance": 54.21,
-          "speed": 16,
-          "points": 51.14,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -30116,6 +30167,66 @@
       ]
     },
     {
+      "pilot": "Andrzej Konarzewski",
+      "pilotId": 39399,
+      "totalPoints": 204.91,
+      "totalDistance": 217.21,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1104918,
+          "userId": 39399,
+          "date": "2026-05-30",
+          "distance": 103.48,
+          "speed": 63.72,
+          "points": 97.62,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1103059,
+          "userId": 39399,
+          "date": "2026-05-29",
+          "distance": 70.82,
+          "speed": 32.98,
+          "points": 66.81,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1096613,
+          "userId": 39399,
+          "date": "2026-05-24",
+          "distance": 42.91,
+          "speed": 11.97,
+          "points": 40.48,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Marc-André Rathé",
       "pilotId": 35427,
       "totalPoints": 197.82999999999998,
@@ -31179,49 +31290,6 @@
           "aircraftKind": "GL",
           "aircraftName": "G 102 Std. Astir",
           "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Andrzej Konarzewski",
-      "pilotId": 39399,
-      "totalPoints": 107.28999999999999,
-      "totalDistance": 113.72999999999999,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1103059,
-          "userId": 39399,
-          "date": "2026-05-29",
-          "distance": 70.82,
-          "speed": 32.98,
-          "points": 66.81,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1096613,
-          "userId": 39399,
-          "date": "2026-05-24",
-          "distance": 42.91,
-          "speed": 11.97,
-          "points": 40.48,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -80933,6 +81001,72 @@
         "dmstIndex": 100
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1104918,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 38.77,
+        "thermal_avg": 1.08,
+        "glide_speed": 132.12,
+        "glide_speed_lift": 126.47,
+        "glide_speed_sink": 136.38,
+        "altitude_avg": 1589,
+        "agl_avg": 1337,
+        "thermal_count": 18,
+        "thermal_gain": 3997,
+        "thermal_radius": 118.51,
+        "thermal_start_agl": 1264,
+        "thermal_bank": 41.84,
+        "glide_percentage": 0.6,
+        "glide_percentage_lift": 0.42,
+        "duration": 11012,
+        "thermal_time": 3685,
+        "glide_time": 6648,
+        "wind_speed": 36.29,
+        "wind_direction": 153,
+        "attempt_count": 14,
+        "attempt_avg": -0.01,
+        "attempt_speed_loss": 4.16,
+        "below_1000_agl": 0.0943,
+        "below_800_agl": 0.0421,
+        "below_600_agl": 0.0354,
+        "below_400_agl": 0.0255,
+        "below_200_agl": 0.0054,
+        "below_100_agl": 0,
+        "track_distance": 243.99,
+        "glide_detour": 1.26,
+        "glide_distance": 5.88,
+        "glide_alt_avg": 1561,
+        "end_time": "2026-05-30T21:06:41+00:00",
+        "start_time": "2026-05-30T18:03:09+00:00",
+        "finish_alt": 359
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 202.15,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 193.58,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 193.58,
+        "weglideFreeDistance": 193.58,
+        "dmstIndex": 106
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -116051,6 +116185,62 @@
         "name": "Starbuck",
         "region": "CA-MB"
       }
+    },
+    {
+      "id": 1104918,
+      "user": {
+        "id": 39399,
+        "name": "Andrzej Konarzewski"
+      },
+      "date": "2026-05-30",
+      "distance": 193.58,
+      "duration": 11417,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 202.15,
+          "distance": 193.58,
+          "speed": 63.28,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 61.76,
+          "distance": 129.07,
+          "speed": 64.53,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 53.03,
+          "distance": 56.21,
+          "speed": 24.09,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 97.62,
+          "distance": 103.48,
+          "speed": 63.72,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Starbuck",
+        "region": "CA-MB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -119953,6 +120143,66 @@
       ]
     },
     {
+      "pilot": "Andrzej Konarzewski",
+      "pilotId": 39399,
+      "totalPoints": 492.94000000000005,
+      "totalDistance": 453.77,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1104918,
+          "userId": 39399,
+          "date": "2026-05-30",
+          "distance": 193.58,
+          "speed": 63.28,
+          "points": 202.15,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1103059,
+          "userId": 39399,
+          "date": "2026-05-29",
+          "distance": 158.95,
+          "speed": 71.91,
+          "points": 179.94,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1096613,
+          "userId": 39399,
+          "date": "2026-05-24",
+          "distance": 101.24,
+          "speed": 27.8,
+          "points": 110.85,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus b",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
       "totalPoints": 491.65,
@@ -121301,49 +121551,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Discus 2b",
           "dmstIndex": 108,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Andrzej Konarzewski",
-      "pilotId": 39399,
-      "totalPoints": 290.78999999999996,
-      "totalDistance": 260.19,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1103059,
-          "userId": 39399,
-          "date": "2026-05-29",
-          "distance": 158.95,
-          "speed": 71.91,
-          "points": 179.94,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1096613,
-          "userId": 39399,
-          "date": "2026-05-24",
-          "distance": 101.24,
-          "speed": 27.8,
-          "points": 110.85,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus b",
-          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -130541,12 +130748,12 @@
   ],
   "meta": {
     "totalPilots": 141,
-    "totalFlights": 535,
-    "totalKms": 91878,
+    "totalFlights": 536,
+    "totalKms": 92071,
     "totalTasksDeclared": 178,
     "totalTasksCompleted": 11,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-30T22:41:08.263Z"
+    "generatedAt": "2026-05-30T23:26:08.153Z"
   }
 }
