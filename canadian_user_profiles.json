@@ -336,6 +336,28 @@
       "url": "https://www.sosaglidingclub.com"
     }
   },
+  "14075": {
+    "total_flight_duration": 530756,
+    "total_free_distance": 8254.17,
+    "avg_speed": 62.49,
+    "flight_count": 65,
+    "avg_glide_speed": 126.86,
+    "avg_glide_detour": 1.24,
+    "achievement_count": 18,
+    "name": "Martin Pollex",
+    "gender": "M",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 165,
+      "name": "FG Freudenstadt",
+      "region": "DE-BW",
+      "url": "http://fg-freudenstadt.de",
+      "logo": "club/165.png",
+      "in_league": "BW"
+    },
+    "message_enabled": true
+  },
   "15888": {
     "total_flight_duration": 470051,
     "total_free_distance": 5517.24,
