@@ -2492,6 +2492,26 @@
     },
     "message_enabled": true
   },
+  "38944": {
+    "total_flight_duration": 6099,
+    "total_free_distance": 49.12,
+    "avg_speed": 31.72,
+    "flight_count": 1,
+    "avg_glide_speed": 94.06,
+    "avg_glide_detour": 1.25,
+    "achievement_count": 2,
+    "name": "Ralph Sliger",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 914,
+      "name": "Central Alberta Gliding Club",
+      "region": "CA-AB",
+      "url": "http://www.cagcsoaring.ca"
+    },
+    "message_enabled": true
+  },
   "38955": {
     "total_flight_duration": 334492,
     "total_free_distance": 5505.5,
