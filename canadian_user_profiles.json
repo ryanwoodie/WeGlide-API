@@ -2117,6 +2117,27 @@
     },
     "message_enabled": true
   },
+  "35862": {
+    "total_flight_duration": 3816,
+    "total_free_distance": 22.48,
+    "avg_speed": 23.06,
+    "flight_count": 1,
+    "avg_glide_speed": 86.84,
+    "avg_glide_detour": 2.48,
+    "achievement_count": 1,
+    "name": "Gordon Sorensen",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1157,
+      "name": "Miami Gliders",
+      "region": "US-FL",
+      "url": "https://www.miamigliders.com",
+      "in_league": "U2"
+    },
+    "message_enabled": true
+  },
   "35963": {
     "total_flight_duration": 8424,
     "total_free_distance": 164.06,
