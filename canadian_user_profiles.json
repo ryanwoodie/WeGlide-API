@@ -2335,6 +2335,26 @@
       "url": "https://montrealsoaring.ca"
     }
   },
+  "36602": {
+    "total_flight_duration": 19095,
+    "total_free_distance": 505.69,
+    "avg_speed": 98,
+    "flight_count": 1,
+    "avg_glide_speed": 139.03,
+    "avg_glide_detour": 1.09,
+    "achievement_count": 6,
+    "name": "Joerg Stieber",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "36868": {
     "total_flight_duration": 23602,
     "total_free_distance": 186.77,
