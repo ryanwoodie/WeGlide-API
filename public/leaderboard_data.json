@@ -12,7 +12,7 @@
     "8848": 16911239,
     "10764": 416685,
     "12276": 227508,
-    "12854": 240978,
+    "12854": 248120,
     "12901": 118083,
     "13284": 939068,
     "13388": 75111,
@@ -4716,11 +4716,11 @@
       "message_enabled": true
     },
     "12854": {
-      "total_flight_duration": 240978,
-      "total_free_distance": 2887.45,
-      "avg_speed": 53.98,
-      "flight_count": 32,
-      "avg_glide_speed": 117.59,
+      "total_flight_duration": 248120,
+      "total_free_distance": 2984.1,
+      "avg_speed": 54.35,
+      "flight_count": 33,
+      "avg_glide_speed": 117.65,
       "avg_glide_detour": 1.42,
       "achievement_count": 1,
       "name": "Robert Frith",
@@ -117499,6 +117499,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1104961,
+      "user": {
+        "id": 12854,
+        "name": "Robert Frith"
+      },
+      "date": "2026-05-30",
+      "distance": 96.65,
+      "duration": 7142,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 104.06,
+          "distance": 96.65,
+          "speed": 68.38,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 26.3,
+          "distance": 54.18,
+          "speed": 27.09,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 37.11,
+          "distance": 38.59,
+          "speed": 28.4,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 36.88,
+          "distance": 38.35,
+          "speed": 34.14,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 68.35,
+          "distance": 71.08,
+          "speed": 64.81,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -132175,12 +132240,12 @@
   ],
   "meta": {
     "totalPilots": 142,
-    "totalFlights": 544,
-    "totalKms": 94509,
+    "totalFlights": 545,
+    "totalKms": 94605,
     "totalTasksDeclared": 183,
     "totalTasksCompleted": 11,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-05-31T02:01:07.316Z"
+    "generatedAt": "2026-05-31T02:16:06.764Z"
   }
 }
