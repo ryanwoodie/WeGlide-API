@@ -2341,13 +2341,13 @@
     "message_enabled": true
   },
   "36138": {
-    "total_flight_duration": 762059,
-    "total_free_distance": 11114.49,
-    "avg_speed": 55.67,
-    "flight_count": 57,
-    "avg_glide_speed": 110.54,
+    "total_flight_duration": 784925,
+    "total_free_distance": 11537.39,
+    "avg_speed": 56.06,
+    "flight_count": 58,
+    "avg_glide_speed": 110.73,
     "avg_glide_detour": 1.38,
-    "achievement_count": 9,
+    "achievement_count": 10,
     "name": "Mark Rakowitz",
     "gender": "M",
     "is_junior": false,
@@ -2356,8 +2356,10 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
-    }
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
   },
   "36602": {
     "total_flight_duration": 19095,
