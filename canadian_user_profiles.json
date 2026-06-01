@@ -715,6 +715,26 @@
     },
     "message_enabled": true
   },
+  "23148": {
+    "total_flight_duration": 99315,
+    "total_free_distance": 1446.86,
+    "avg_speed": 56.69,
+    "flight_count": 14,
+    "avg_glide_speed": 109.77,
+    "avg_glide_detour": 1.11,
+    "achievement_count": 4,
+    "name": "mike maskell",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1387,
+      "name": "Winnipeg Gliding Club",
+      "region": "CA-MB",
+      "url": "https://www.wgc.mb.ca"
+    },
+    "message_enabled": true
+  },
   "23246": {
     "total_flight_duration": 195033,
     "total_free_distance": 3928.28,
