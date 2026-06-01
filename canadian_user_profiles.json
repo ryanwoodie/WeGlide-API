@@ -837,11 +837,11 @@
     "message_enabled": true
   },
   "23829": {
-    "total_flight_duration": 1051208,
-    "total_free_distance": 19147.04,
-    "avg_speed": 69.48,
-    "flight_count": 80,
-    "avg_glide_speed": 128.41,
+    "total_flight_duration": 1069987,
+    "total_free_distance": 19644.88,
+    "avg_speed": 70,
+    "flight_count": 81,
+    "avg_glide_speed": 128.81,
     "avg_glide_detour": 1.23,
     "achievement_count": 23,
     "name": "Jesse Miller",
@@ -1609,12 +1609,12 @@
     "message_enabled": true
   },
   "35431": {
-    "total_flight_duration": 313407,
-    "total_free_distance": 4445.76,
-    "avg_speed": 56.2,
-    "flight_count": 27,
-    "avg_glide_speed": 113.57,
-    "avg_glide_detour": 1.31,
+    "total_flight_duration": 331192,
+    "total_free_distance": 4826.59,
+    "avg_speed": 57.54,
+    "flight_count": 28,
+    "avg_glide_speed": 114.74,
+    "avg_glide_detour": 1.29,
     "achievement_count": 9,
     "name": "Csaba Balazs",
     "gender": "M",
@@ -1624,8 +1624,10 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
-    }
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
   },
   "35433": {
     "total_flight_duration": 228766,
