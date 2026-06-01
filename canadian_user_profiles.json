@@ -2802,5 +2802,25 @@
       "url": "https://www.canadianrockiessoaring.com"
     },
     "message_enabled": true
+  },
+  "39717": {
+    "total_flight_duration": 8580,
+    "total_free_distance": 41.45,
+    "avg_speed": 17.98,
+    "flight_count": 1,
+    "avg_glide_speed": 84.4,
+    "avg_glide_detour": 1.23,
+    "achievement_count": 1,
+    "name": "Jasmine Jowahir",
+    "gender": "F",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1345,
+      "name": "Toronto Soaring Club",
+      "region": "CA-ON",
+      "url": "http://toronto-soaring.ca"
+    },
+    "message_enabled": true
   }
 }
