@@ -41,13 +41,13 @@
     }
   },
   "4806": {
-    "total_flight_duration": 7013143,
-    "total_free_distance": 142590.61,
-    "avg_speed": 77.02,
-    "flight_count": 431,
-    "avg_glide_speed": 135.28,
+    "total_flight_duration": 7062345,
+    "total_free_distance": 143843.95,
+    "avg_speed": 77.16,
+    "flight_count": 433,
+    "avg_glide_speed": 135.35,
     "avg_glide_detour": 1.21,
-    "achievement_count": 28,
+    "achievement_count": 30,
     "name": "Luke Szczepaniak",
     "gender": "M",
     "is_junior": false,
@@ -57,7 +57,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "5450": {
     "total_flight_duration": 407130,
