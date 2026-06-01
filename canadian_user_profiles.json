@@ -499,11 +499,11 @@
     }
   },
   "20723": {
-    "total_flight_duration": 883769,
-    "total_free_distance": 13182.72,
-    "avg_speed": 58.58,
-    "flight_count": 92,
-    "avg_glide_speed": 117.44,
+    "total_flight_duration": 895444,
+    "total_free_distance": 13346.62,
+    "avg_speed": 58.47,
+    "flight_count": 93,
+    "avg_glide_speed": 116.83,
     "avg_glide_detour": 1.31,
     "achievement_count": 27,
     "name": "Ryan Wood",
@@ -516,7 +516,8 @@
       "region": "CA-SK",
       "url": "https://www.pagsc.ca",
       "logo": "club/1808.png"
-    }
+    },
+    "message_enabled": true
   },
   "21011": {
     "total_flight_duration": 721640,
