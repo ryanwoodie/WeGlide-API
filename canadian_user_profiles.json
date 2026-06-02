@@ -1055,6 +1055,25 @@
     },
     "message_enabled": true
   },
+  "28158": {
+    "total_flight_duration": 14395,
+    "total_free_distance": 279.33,
+    "avg_speed": 76.64,
+    "flight_count": 1,
+    "avg_glide_speed": 135.04,
+    "avg_glide_detour": 1.26,
+    "achievement_count": 2,
+    "name": "Frederic Chauvin",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 762,
+      "name": "Aeroclub Cantons de l'Est",
+      "region": "CA_ON"
+    },
+    "message_enabled": true
+  },
   "29394": {
     "total_flight_duration": 593374,
     "total_free_distance": 8596.53,
