@@ -1134,11 +1134,11 @@
     "message_enabled": true
   },
   "32345": {
-    "total_flight_duration": 5342326,
-    "total_free_distance": 126195.54,
-    "avg_speed": 88.68,
-    "flight_count": 307,
-    "avg_glide_speed": 140.51,
+    "total_flight_duration": 5396566,
+    "total_free_distance": 127454.49,
+    "avg_speed": 88.64,
+    "flight_count": 309,
+    "avg_glide_speed": 140.43,
     "avg_glide_detour": 1.16,
     "achievement_count": 32,
     "name": "Michael Stieber",
@@ -1150,7 +1150,8 @@
       "name": "Rideau Valley Soaring",
       "region": "CA-ON",
       "url": "https://rvss.ca"
-    }
+    },
+    "message_enabled": true
   },
   "32676": {
     "total_flight_duration": 74299,
