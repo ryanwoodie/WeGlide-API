@@ -2862,5 +2862,26 @@
       "url": "http://toronto-soaring.ca"
     },
     "message_enabled": true
+  },
+  "39760": {
+    "total_flight_duration": 18693,
+    "total_free_distance": 266.74,
+    "avg_speed": 59.82,
+    "flight_count": 1,
+    "avg_glide_speed": 119.47,
+    "avg_glide_detour": 1.31,
+    "achievement_count": 4,
+    "name": "Félix Fortin",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
   }
 }

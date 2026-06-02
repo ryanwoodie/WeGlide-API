@@ -4301,6 +4301,25 @@
       "combinedHoursBeforeCutoff": 679.75,
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
+    },
+    "39760": {
+      "pilotId": 39760,
+      "weglidePilotId": "wg:39760",
+      "olcPilotId": "84612",
+      "pilotName": "Félix Fortin",
+      "matchKind": "olc_name_only",
+      "normalizedName": "felixfortin",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 20.15,
+      "olcOnlyHours": 20.15,
+      "combinedHours": 20.15,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 20.15,
+      "combinedHoursBeforeCutoff": 20.15,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
