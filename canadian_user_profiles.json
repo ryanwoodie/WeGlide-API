@@ -639,12 +639,12 @@
     "message_enabled": true
   },
   "22081": {
-    "total_flight_duration": 317501,
-    "total_free_distance": 8223.04,
-    "avg_speed": 97.64,
-    "flight_count": 21,
-    "avg_glide_speed": 159.22,
-    "avg_glide_detour": 1.15,
+    "total_flight_duration": 330510,
+    "total_free_distance": 8497.2,
+    "avg_speed": 96.85,
+    "flight_count": 22,
+    "avg_glide_speed": 158.47,
+    "avg_glide_detour": 1.16,
     "achievement_count": 27,
     "name": "Predrag Kupcevic",
     "gender": "M",
@@ -655,7 +655,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "22232": {
     "total_flight_duration": 1804995,
