@@ -1772,12 +1772,12 @@
     "message_enabled": true
   },
   "35484": {
-    "total_flight_duration": 12480,
-    "total_free_distance": 129.11,
-    "avg_speed": 49.07,
-    "flight_count": 1,
-    "avg_glide_speed": 103.51,
-    "avg_glide_detour": 1.33,
+    "total_flight_duration": 42498,
+    "total_free_distance": 441.21,
+    "avg_speed": 44.81,
+    "flight_count": 3,
+    "avg_glide_speed": 106.24,
+    "avg_glide_detour": 1.6,
     "achievement_count": 1,
     "name": "Jim Miller",
     "gender": "M",
@@ -1788,7 +1788,8 @@
       "name": "Toronto Soaring Club",
       "region": "CA-ON",
       "url": "http://toronto-soaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "35496": {
     "total_flight_duration": 3263757,
