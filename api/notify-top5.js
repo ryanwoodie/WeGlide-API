@@ -45,6 +45,7 @@ const {
     DEFAULT_TOP_N
 } = require('../lib/notify-top5');
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
+const { createShortLinksForTargets } = require('../lib/short-links');
 const { sendUserMessage } = require('../lib/weglide-message');
 
 const MAX_SENDS_PER_RUN = 1;
@@ -227,20 +228,51 @@ module.exports = async (req, res) => {
         const failures = [];
         for (const candidate of toSend) {
             const startedAt = new Date().toISOString();
+            const stateBeforeSend = await loadVerificationState();
+            const shortLinkResult = createShortLinksForTargets({
+                state: stateBeforeSend,
+                baseUrl,
+                targets: candidate.links,
+                pilotId: candidate.pilotId,
+                pilotName: candidate.pilotName
+            });
+            const shortMessageBody = buildMessageBody({
+                candidate,
+                links: shortLinkResult.shortened
+            });
+            const shortLinkPersistResult = await saveVerificationState(
+                stateBeforeSend,
+                `chore: create short verification links for ${candidate.pilotName} (${candidate.pilotId})`
+            );
+
+            if (!shortLinkPersistResult || !shortLinkPersistResult.persisted) {
+                failures.push({
+                    pilotId: candidate.pilotId,
+                    pilotName: candidate.pilotName,
+                    error: 'Short verification links could not be persisted before send',
+                    code: 'SHORT_LINK_PERSIST_FAILED'
+                });
+                continue;
+            }
+
             console.log('[notify-top5] sending', JSON.stringify({
                 event: 'weglide_send_attempt',
                 pilotId: candidate.pilotId,
                 pilotName: candidate.pilotName,
                 ranks: candidate.ranks,
                 triggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-queue',
-                startedAt
+                startedAt,
+                shortLinks: shortLinkResult.entries.map(entry => ({
+                    purpose: entry.purpose,
+                    expiresAt: entry.expiresAt
+                }))
             }));
 
             let sendResponse;
             try {
                 sendResponse = await sendUserMessage({
                     recipientId: candidate.pilotId,
-                    message: candidate.messageBody
+                    message: shortMessageBody
                 });
             } catch (sendError) {
                 console.error('[notify-top5] send failed', JSON.stringify({
@@ -269,7 +301,7 @@ module.exports = async (req, res) => {
                 weglideStatus: sendResponse.status
             }));
 
-            const stateNow = await loadVerificationState();
+            const stateNow = stateBeforeSend;
             stateNow.notifiedPilots = stateNow.notifiedPilots || {};
             stateNow.notifiedPilots[String(candidate.pilotId)] = {
                 pilotName: candidate.pilotName,
@@ -279,7 +311,11 @@ module.exports = async (req, res) => {
                 notifiedAt: startedAt,
                 channel: 'weglide-direct-message',
                 weglideStatus: sendResponse.status,
-                triggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-queue'
+                triggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-queue',
+                shortLinks: shortLinkResult.entries.map(entry => ({
+                    purpose: entry.purpose,
+                    expiresAt: entry.expiresAt
+                }))
             };
 
             const persistResult = await saveVerificationState(
@@ -300,7 +336,8 @@ module.exports = async (req, res) => {
                 ranks: candidate.ranks,
                 statePersisted: Boolean(persistResult && persistResult.persisted),
                 statePersistTarget: persistResult?.target,
-                weglideStatus: sendResponse.status
+                weglideStatus: sendResponse.status,
+                shortLinksCreated: shortLinkResult.entries.length
             });
         }
 
