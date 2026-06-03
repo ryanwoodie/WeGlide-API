@@ -1334,6 +1334,26 @@
     },
     "message_enabled": true
   },
+  "35272": {
+    "total_flight_duration": 203147,
+    "total_free_distance": 2493.57,
+    "avg_speed": 48.2,
+    "flight_count": 26,
+    "avg_glide_speed": 100.36,
+    "avg_glide_detour": 1.31,
+    "achievement_count": 10,
+    "name": "Brandon Davies",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35288": {
     "total_flight_duration": 4241215,
     "total_free_distance": 61433.72,
