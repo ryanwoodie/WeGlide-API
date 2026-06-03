@@ -1412,6 +1412,26 @@
     },
     "message_enabled": true
   },
+  "35349": {
+    "total_flight_duration": 8956,
+    "total_free_distance": 87.13,
+    "avg_speed": 38.01,
+    "flight_count": 2,
+    "avg_glide_speed": 86.58,
+    "avg_glide_detour": 1.18,
+    "achievement_count": 0,
+    "name": "Kaylee Ainsworth",
+    "gender": "F",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35350": {
     "total_flight_duration": 920042,
     "total_free_distance": 8601.23,
