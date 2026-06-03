@@ -481,13 +481,13 @@
     "message_enabled": true
   },
   "20706": {
-    "total_flight_duration": 68922,
-    "total_free_distance": 1853.18,
-    "avg_speed": 100.03,
-    "flight_count": 5,
-    "avg_glide_speed": 151.12,
+    "total_flight_duration": 137708,
+    "total_free_distance": 3778.02,
+    "avg_speed": 106.89,
+    "flight_count": 9,
+    "avg_glide_speed": 156.09,
     "avg_glide_detour": 1.15,
-    "achievement_count": 10,
+    "achievement_count": 14,
     "name": "Jerzy Szemplinski",
     "gender": "M",
     "is_junior": false,
@@ -497,7 +497,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "20723": {
     "total_flight_duration": 895444,
