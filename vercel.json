@@ -3,7 +3,7 @@
   "routes": [
     { "src": "/widget.js", "dest": "/api/serve-widget.js" },
     { "src": "/api/data", "dest": "/api/serve-data.js" },
-    { "src": "/v/([^/]+)", "dest": "/api/short-link?code=$1" },
+    { "src": "/v/([^/]+)", "dest": "/api/v/$1" },
     { "src": "/sac-dsc", "dest": "/api/serve-leaderboard" },
     { "src": "/", "dest": "/api/serve-leaderboard" }
   ],
