@@ -4497,6 +4497,13 @@
         "verifiedDate": "2026-05-13T15:42:52.258Z",
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "35431": {
+        "pilotName": "Csaba Balazs",
+        "picHours": 200,
+        "verifiedDate": "2026-06-03T11:40:01.715Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
       }
     },
     "dobVerifications": {}
@@ -142766,6 +142773,6 @@
     "totalTasksCompleted": 13,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-03T08:24:11.418Z"
+    "generatedAt": "2026-06-03T11:41:24.285Z"
   }
 }
