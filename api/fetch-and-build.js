@@ -297,7 +297,10 @@ function jsonRequest(url, { method = 'GET', body = null, headers = {} } = {}) {
             res.on('data', chunk => { data += chunk; });
             res.on('end', () => {
                 if (res.statusCode < 200 || res.statusCode >= 300) {
-                    return reject(new Error(`HTTP ${res.statusCode}: ${data || 'No body returned'}`));
+                    const error = new Error(`HTTP ${res.statusCode}: ${data || 'No body returned'}`);
+                    error.statusCode = res.statusCode;
+                    error.responseBody = data;
+                    return reject(error);
                 }
 
                 if (!data) {
@@ -601,6 +604,7 @@ async function fetchFlightDetail(flightId) {
 
 async function fetchFlightDetails(flights) {
     const details = [];
+    const deletedIds = [];
     for (const flight of flights) {
         try {
             const detail = await fetchFlightDetail(flight.id);
@@ -608,11 +612,16 @@ async function fetchFlightDetails(flights) {
                 details.push(detail);
             }
         } catch (error) {
-            log(`Failed to fetch detail for flight ${flight.id}: ${error.message}`);
+            if (error.statusCode === 404) {
+                deletedIds.push(flight.id);
+                log(`Flight ${flight.id} no longer exists on WeGlide; marking for removal.`);
+            } else {
+                log(`Failed to fetch detail for flight ${flight.id}: ${error.message}`);
+            }
         }
         await delay(FLIGHT_DETAIL_DELAY_MS);
     }
-    return details;
+    return { details, deletedIds };
 }
 
 async function appendFlightsToDataset(newFlightDetails) {
@@ -666,6 +675,39 @@ async function replaceFlightsInDataset(updatedFlightDetails) {
     });
     fs.writeFileSync(DATASET_FILE, outLines.join('\n'));
     return replacedCount;
+}
+
+async function removeFlightsFromDataset(deletedIds) {
+    if (!deletedIds.length) return 0;
+    if (!fs.existsSync(DATASET_FILE)) {
+        const datasetText = await loadPersistentText(DATASET_BLOB_KEY);
+        if (datasetText) {
+            fs.writeFileSync(DATASET_FILE, datasetText);
+        } else {
+            return 0;
+        }
+    }
+
+    const deletedSet = new Set(deletedIds);
+    const text = fs.readFileSync(DATASET_FILE, 'utf8');
+    const lines = text.split('\n');
+    let removedCount = 0;
+    const outLines = lines.filter(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return true;
+        try {
+            const flight = JSON.parse(trimmed);
+            if (flight && deletedSet.has(flight.id)) {
+                removedCount += 1;
+                return false;
+            }
+        } catch (e) {
+            // leave malformed lines untouched
+        }
+        return true;
+    });
+    fs.writeFileSync(DATASET_FILE, outLines.join('\n'));
+    return removedCount;
 }
 
 async function loadProfiles() {
@@ -1383,8 +1425,10 @@ async function runFetchAndBuild(options = {}) {
 
         let flightDetails = [];
         if (newFlights.length > 0) {
-            flightDetails = await fetchFlightDetails(newFlights);
+            const newFlightResult = await fetchFlightDetails(newFlights);
+            flightDetails = newFlightResult.details;
             summary.meta.detailsFetched = flightDetails.length;
+            summary.meta.newFlightDetailsDeleted = newFlightResult.deletedIds.length;
 
             if (!flightDetails.length) {
                 summary.status = 'error';
@@ -1398,13 +1442,22 @@ async function runFetchAndBuild(options = {}) {
 
         const refreshIds = [...changedIds, ...refreshSet];
         if (refreshIds.length > 0) {
-            const refreshDetails = await fetchFlightDetails(refreshIds.map(id => ({ id })));
+            const refreshResult = await fetchFlightDetails(refreshIds.map(id => ({ id })));
+            const refreshDetails = refreshResult.details;
+            const deletedIds = refreshResult.deletedIds;
             summary.meta.refreshDetailsFetched = refreshDetails.length;
+            summary.meta.deletedFlights = deletedIds;
             if (refreshDetails.length) {
                 const replaced = await replaceFlightsInDataset(refreshDetails);
                 summary.meta.datasetUpdated = true;
                 summary.meta.flightsReplaced = replaced;
                 log(`Replaced ${replaced} flight(s) in dataset (${changedIds.length} change-detected, ${refreshSet.size} window-refresh).`);
+            }
+            if (deletedIds.length) {
+                const removed = await removeFlightsFromDataset(deletedIds);
+                summary.meta.datasetUpdated = true;
+                summary.meta.flightsRemoved = removed;
+                log(`Removed ${removed} deleted flight(s) from dataset: ${deletedIds.join(', ')}`);
             }
         }
 
