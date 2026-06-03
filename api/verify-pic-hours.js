@@ -15,6 +15,7 @@
 const { verifyVerificationToken } = require('../lib/verification-token');
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
 const { getSeasonStartLabel } = require('../lib/notify-top5');
+const { resolveShortLink, isAllowedShortLinkTarget } = require('../lib/short-links');
 
 function escapeHtml(value) {
     return String(value)
@@ -124,6 +125,19 @@ module.exports = async (req, res) => {
 
     if (req.method === 'GET') {
         try {
+            const shortCode = String(req.query?.c || '').trim();
+            if (shortCode) {
+                const state = await loadVerificationState();
+                const entry = resolveShortLink(state, shortCode);
+                if (!isAllowedShortLinkTarget(entry.targetUrl)) {
+                    throw new Error('Short link target is not allowed.');
+                }
+                res.statusCode = 302;
+                res.setHeader('Location', entry.targetUrl);
+                res.setHeader('Cache-Control', 'no-store');
+                return res.end();
+            }
+
             const token = String(req.query?.token || '').trim();
             const payload = verifyVerificationToken(token);
             if (payload.type !== 'pic-direct') {
