@@ -105,25 +105,6 @@ function isTrueish(v) {
     return v === '1' || v === 'true' || v === 'yes';
 }
 
-function buildFormattingTestMessage() {
-    return `SAC Leaderboard formatting test - please ignore.
-
-Plain-text spacing test:
-Line 1 should be followed by a blank line.
-
-Line 2 should appear as a separate paragraph.
-
-Bullet test:
-• Under 200 hrs PIC? Verify here:
-  https://sac-leaderboard.vercel.app/
-
-• Over 200 hrs PIC? Remove link would appear here:
-  https://sac-leaderboard.vercel.app/
-
-HTML break test below. If this section formats correctly and the plain-text section does not, then WeGlide email is collapsing normal newlines and we should send messages using HTML line breaks instead:
-<br><br>HTML paragraph 1<br><br>HTML paragraph 2<br><br>HTML bullets:<br>• HTML item 1<br>• HTML item 2<br><br>— Ryan Wood, SAC Sporting Committee`;
-}
-
 function getNotifyWindowStatus(now = new Date()) {
     const parts = new Intl.DateTimeFormat('en-US', {
         timeZone: NOTIFY_WINDOW_TIME_ZONE,
@@ -157,22 +138,6 @@ module.exports = async (req, res) => {
     }
 
     try {
-        const formatTestRecipientId = (req.query?.formatTestRecipientId || '').toString().trim();
-        if (formatTestRecipientId && isTrueish((req.query?.sendFormatTest || '').toString().toLowerCase())) {
-            const message = buildFormattingTestMessage();
-            const sendResponse = await sendUserMessage({
-                recipientId: formatTestRecipientId,
-                message
-            });
-            return res.status(200).json({
-                ok: true,
-                mode: 'format-test',
-                recipientId: formatTestRecipientId,
-                weglideStatus: sendResponse.status,
-                messageLength: message.length
-            });
-        }
-
         const sendRequested = cronAuthorized || isTrueish((req.query?.send || '').toString().toLowerCase());
         if (sendRequested) {
             const notifyWindow = getNotifyWindowStatus();
