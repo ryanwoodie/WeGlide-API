@@ -40,8 +40,10 @@
 
 const {
     computeNotificationCandidates,
+    computeReminderCandidates,
     buildMessageLinks,
     buildMessageBody,
+    buildReminderMessageBody,
     DEFAULT_TOP_N
 } = require('../lib/notify-top5');
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
@@ -174,10 +176,23 @@ module.exports = async (req, res) => {
             const links = buildMessageLinks({ baseUrl, candidate });
             return {
                 ...candidate,
+                messageKind: 'initial',
                 messageBody: buildMessageBody({ candidate, links }),
                 links
             };
         });
+        const reminderResult = computeReminderCandidates({ state, leaderboardData });
+        const reminderCandidatesWithMessages = reminderResult.candidates
+            .filter(candidate => !pilotIdFilter || String(candidate.pilotId) === pilotIdFilter)
+            .map(candidate => {
+                const links = buildMessageLinks({ baseUrl, candidate });
+                return {
+                    ...candidate,
+                    messageKind: 'reminder',
+                    messageBody: buildReminderMessageBody({ candidate, links }),
+                    links
+                };
+            });
 
         if (!sendRequested) {
             return res.status(200).json({
@@ -191,20 +206,26 @@ module.exports = async (req, res) => {
                 generatedAt: leaderboardData.meta?.generatedAt || null,
                 counts: {
                     candidates: candidatesWithMessages.length,
+                    remindersDue: reminderCandidatesWithMessages.length,
                     alreadyVerifiedSkipped: result.skipped.alreadyVerified.length,
                     alreadyNotifiedSkipped: result.skipped.alreadyNotified.length,
-                    missingPilotNameSkipped: result.skipped.missingPilotName.length
+                    missingPilotNameSkipped: result.skipped.missingPilotName.length,
+                    remindersAlreadyVerifiedSkipped: reminderResult.skipped.alreadyVerified.length,
+                    remindersAlreadySentSkipped: reminderResult.skipped.alreadyReminded.length,
+                    remindersNotDueSkipped: reminderResult.skipped.notDue.length
                 },
                 candidates: candidatesWithMessages,
+                reminders: reminderCandidatesWithMessages,
                 skipped: result.skipped
             });
         }
 
         // ----- send mode -----
-        if (candidatesWithMessages.length === 0) {
+        const sendQueue = [...candidatesWithMessages, ...reminderCandidatesWithMessages];
+        if (sendQueue.length === 0) {
             const note = pilotIdFilter
-                ? `No candidate matched pilotId=${pilotIdFilter}. Either the pilot is not in the under-200 top-${topN}, has already been verified or notified, or pilotId does not exist.`
-                : 'No candidates to notify. Queue is empty.';
+                ? `No candidate matched pilotId=${pilotIdFilter}. Either the pilot is not in the under-200 top-${topN}, is not due for a reminder, has already been verified, or pilotId does not exist.`
+                : 'No candidates or reminders to notify. Queue is empty.';
             return res.status(200).json({
                 ok: true,
                 mode: 'send',
@@ -213,16 +234,20 @@ module.exports = async (req, res) => {
                 note,
                 counts: {
                     candidates: 0,
+                    remindersDue: 0,
                     alreadyVerifiedSkipped: result.skipped.alreadyVerified.length,
                     alreadyNotifiedSkipped: result.skipped.alreadyNotified.length,
-                    missingPilotNameSkipped: result.skipped.missingPilotName.length
+                    missingPilotNameSkipped: result.skipped.missingPilotName.length,
+                    remindersAlreadyVerifiedSkipped: reminderResult.skipped.alreadyVerified.length,
+                    remindersAlreadySentSkipped: reminderResult.skipped.alreadyReminded.length,
+                    remindersNotDueSkipped: reminderResult.skipped.notDue.length
                 },
                 skipped: result.skipped
             });
         }
 
-        const queueRemaining = candidatesWithMessages.slice(MAX_SENDS_PER_RUN);
-        const toSend = candidatesWithMessages.slice(0, MAX_SENDS_PER_RUN);
+        const queueRemaining = sendQueue.slice(MAX_SENDS_PER_RUN);
+        const toSend = sendQueue.slice(0, MAX_SENDS_PER_RUN);
 
         const sent = [];
         const failures = [];
@@ -234,15 +259,21 @@ module.exports = async (req, res) => {
                 baseUrl,
                 targets: candidate.links,
                 pilotId: candidate.pilotId,
-                pilotName: candidate.pilotName
+                pilotName: candidate.pilotName,
+                ttlSeconds: candidate.messageKind === 'reminder' ? 16 * 24 * 3600 : undefined
             });
             const shortMessageBody = buildMessageBody({
                 candidate,
                 links: shortLinkResult.shortened
             });
+            const outboundMessageBody = candidate.messageKind === 'reminder'
+                ? buildReminderMessageBody({ candidate, links: shortLinkResult.shortened })
+                : shortMessageBody;
             const shortLinkPersistResult = await saveVerificationState(
                 stateBeforeSend,
-                `chore: create short verification links for ${candidate.pilotName} (${candidate.pilotId})`
+                candidate.messageKind === 'reminder'
+                    ? `chore: create reminder short links for ${candidate.pilotName} (${candidate.pilotId})`
+                    : `chore: create short verification links for ${candidate.pilotName} (${candidate.pilotId})`
             );
 
             if (!shortLinkPersistResult || !shortLinkPersistResult.persisted) {
@@ -259,6 +290,7 @@ module.exports = async (req, res) => {
                 event: 'weglide_send_attempt',
                 pilotId: candidate.pilotId,
                 pilotName: candidate.pilotName,
+                messageKind: candidate.messageKind,
                 ranks: candidate.ranks,
                 triggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-queue',
                 startedAt,
@@ -272,7 +304,7 @@ module.exports = async (req, res) => {
             try {
                 sendResponse = await sendUserMessage({
                     recipientId: candidate.pilotId,
-                    message: shortMessageBody
+                    message: outboundMessageBody
                 });
             } catch (sendError) {
                 console.error('[notify-top5] send failed', JSON.stringify({
@@ -303,24 +335,39 @@ module.exports = async (req, res) => {
 
             const stateNow = stateBeforeSend;
             stateNow.notifiedPilots = stateNow.notifiedPilots || {};
-            stateNow.notifiedPilots[String(candidate.pilotId)] = {
-                pilotName: candidate.pilotName,
-                ranks: candidate.ranks,
-                defaultContest: candidate.defaultContest,
-                picHoursEstimate: candidate.picHoursEstimate,
-                notifiedAt: startedAt,
-                channel: 'weglide-direct-message',
-                weglideStatus: sendResponse.status,
-                triggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-queue',
-                shortLinks: shortLinkResult.entries.map(entry => ({
-                    purpose: entry.purpose,
-                    expiresAt: entry.expiresAt
-                }))
-            };
+            if (candidate.messageKind === 'reminder') {
+                stateNow.notifiedPilots[String(candidate.pilotId)] = {
+                    ...(stateNow.notifiedPilots[String(candidate.pilotId)] || {}),
+                    reminderSentAt: startedAt,
+                    reminderWeglideStatus: sendResponse.status,
+                    reminderTriggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-reminder-queue',
+                    reminderShortLinks: shortLinkResult.entries.map(entry => ({
+                        purpose: entry.purpose,
+                        expiresAt: entry.expiresAt
+                    }))
+                };
+            } else {
+                stateNow.notifiedPilots[String(candidate.pilotId)] = {
+                    pilotName: candidate.pilotName,
+                    ranks: candidate.ranks,
+                    defaultContest: candidate.defaultContest,
+                    picHoursEstimate: candidate.picHoursEstimate,
+                    notifiedAt: startedAt,
+                    channel: 'weglide-direct-message',
+                    weglideStatus: sendResponse.status,
+                    triggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-queue',
+                    shortLinks: shortLinkResult.entries.map(entry => ({
+                        purpose: entry.purpose,
+                        expiresAt: entry.expiresAt
+                    }))
+                };
+            }
 
             const persistResult = await saveVerificationState(
                 stateNow,
-                `chore: notify under-200 top-5 pilot ${candidate.pilotName} (${candidate.pilotId})`
+                candidate.messageKind === 'reminder'
+                    ? `chore: remind under-200 top-5 pilot ${candidate.pilotName} (${candidate.pilotId})`
+                    : `chore: notify under-200 top-5 pilot ${candidate.pilotName} (${candidate.pilotId})`
             );
 
             console.log('[notify-top5] state persisted', JSON.stringify({
@@ -333,6 +380,7 @@ module.exports = async (req, res) => {
             sent.push({
                 pilotId: candidate.pilotId,
                 pilotName: candidate.pilotName,
+                messageKind: candidate.messageKind,
                 ranks: candidate.ranks,
                 statePersisted: Boolean(persistResult && persistResult.persisted),
                 statePersistTarget: persistResult?.target,
@@ -351,13 +399,18 @@ module.exports = async (req, res) => {
             queueRemaining: queueRemaining.map(c => ({
                 pilotId: c.pilotId,
                 pilotName: c.pilotName,
+                messageKind: c.messageKind,
                 ranks: c.ranks
             })),
             counts: {
                 candidates: candidatesWithMessages.length,
+                remindersDue: reminderCandidatesWithMessages.length,
                 alreadyVerifiedSkipped: result.skipped.alreadyVerified.length,
                 alreadyNotifiedSkipped: result.skipped.alreadyNotified.length,
-                missingPilotNameSkipped: result.skipped.missingPilotName.length
+                missingPilotNameSkipped: result.skipped.missingPilotName.length,
+                remindersAlreadyVerifiedSkipped: reminderResult.skipped.alreadyVerified.length,
+                remindersAlreadySentSkipped: reminderResult.skipped.alreadyReminded.length,
+                remindersNotDueSkipped: reminderResult.skipped.notDue.length
             },
             skipped: result.skipped
         });
