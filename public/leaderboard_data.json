@@ -4505,6 +4505,13 @@
         "verifiedDate": "2026-06-03T14:10:27.715Z",
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "35437": {
+        "pilotName": "Ali Askari",
+        "picHours": 44.3,
+        "verifiedDate": "2026-06-03T16:22:06.133Z",
+        "eligible": true,
+        "dataSource": "self-submitted-via-direct-message"
       }
     },
     "dobVerifications": {}
@@ -143392,6 +143399,6 @@
     "totalTasksCompleted": 13,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-03T16:05:56.231Z"
+    "generatedAt": "2026-06-03T16:23:21.362Z"
   }
 }
