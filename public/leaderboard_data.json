@@ -4512,6 +4512,13 @@
         "verifiedDate": "2026-06-03T16:22:06.133Z",
         "eligible": true,
         "dataSource": "self-submitted-via-direct-message"
+      },
+      "35461": {
+        "pilotName": "Gregory Wilson",
+        "picHours": 37.3,
+        "verifiedDate": "2026-06-05T04:25:06.553Z",
+        "eligible": true,
+        "dataSource": "self-submitted-via-direct-message"
       }
     },
     "dobVerifications": {}
@@ -143992,6 +143999,6 @@
     "totalTasksCompleted": 13,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-05T02:41:20.427Z"
+    "generatedAt": "2026-06-05T04:26:21.167Z"
   }
 }
