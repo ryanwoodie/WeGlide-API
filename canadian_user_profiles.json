@@ -939,12 +939,12 @@
     }
   },
   "25114": {
-    "total_flight_duration": 592296,
-    "total_free_distance": 9601.55,
-    "avg_speed": 62.62,
-    "flight_count": 53,
-    "avg_glide_speed": 132.61,
-    "avg_glide_detour": 1.32,
+    "total_flight_duration": 597512,
+    "total_free_distance": 9657.24,
+    "avg_speed": 62.48,
+    "flight_count": 54,
+    "avg_glide_speed": 132.43,
+    "avg_glide_detour": 1.31,
     "achievement_count": 24,
     "name": "Joshua Peace",
     "gender": "M",
@@ -956,7 +956,8 @@
       "region": "CA-AB",
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
-    }
+    },
+    "message_enabled": true
   },
   "25782": {
     "total_flight_duration": 387693,
