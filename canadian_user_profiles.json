@@ -482,12 +482,12 @@
     "message_enabled": true
   },
   "20675": {
-    "total_flight_duration": 1045863,
-    "total_free_distance": 18376.23,
-    "avg_speed": 71.64,
-    "flight_count": 87,
-    "avg_glide_speed": 129.82,
-    "avg_glide_detour": 1.27,
+    "total_flight_duration": 987956,
+    "total_free_distance": 17891.92,
+    "avg_speed": 73.54,
+    "flight_count": 79,
+    "avg_glide_speed": 130.76,
+    "avg_glide_detour": 1.25,
     "achievement_count": 21,
     "name": "Pavan K",
     "gender": "M",
@@ -1083,11 +1083,11 @@
   },
   "28158": {
     "total_flight_duration": 14395,
-    "total_free_distance": 279.33,
-    "avg_speed": 76.64,
+    "total_free_distance": 270.09,
+    "avg_speed": 77.88,
     "flight_count": 1,
-    "avg_glide_speed": 135.04,
-    "avg_glide_detour": 1.26,
+    "avg_glide_speed": 137.57,
+    "avg_glide_detour": 1.25,
     "achievement_count": 2,
     "name": "Frederic Chauvin",
     "gender": "M",
@@ -2305,11 +2305,11 @@
     "is_junior": false,
     "is_senior": false,
     "club": {
-      "id": 1157,
-      "name": "Miami Gliders",
-      "region": "US-FL",
-      "url": "https://www.miamigliders.com",
-      "in_league": "U2"
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     },
     "message_enabled": true
   },
