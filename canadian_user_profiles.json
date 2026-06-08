@@ -1277,6 +1277,26 @@
     },
     "message_enabled": true
   },
+  "35081": {
+    "total_flight_duration": 97637,
+    "total_free_distance": 1311.85,
+    "avg_speed": 54.08,
+    "flight_count": 9,
+    "avg_glide_speed": 110.29,
+    "avg_glide_detour": 1.32,
+    "achievement_count": 3,
+    "name": "Ronak Patel",
+    "gender": "M",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35091": {
     "total_flight_duration": 3762572,
     "total_free_distance": 48453.05,
