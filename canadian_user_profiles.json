@@ -197,6 +197,27 @@
     },
     "message_enabled": true
   },
+  "10376": {
+    "total_flight_duration": 403657,
+    "total_free_distance": 7570.79,
+    "avg_speed": 80.85,
+    "flight_count": 31,
+    "avg_glide_speed": 139.11,
+    "avg_glide_detour": 1.18,
+    "achievement_count": 12,
+    "name": "Doug Easton",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1318,
+      "name": "Spokane Soaring Society",
+      "region": "US-WA",
+      "url": "https://spokanesoaring.org",
+      "in_league": "U2"
+    },
+    "message_enabled": true
+  },
   "10764": {
     "total_flight_duration": 416685,
     "total_free_distance": 5688.32,
