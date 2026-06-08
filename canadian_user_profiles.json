@@ -600,11 +600,11 @@
     "message_enabled": true
   },
   "21574": {
-    "total_flight_duration": 507720,
-    "total_free_distance": 7049.61,
-    "avg_speed": 63.41,
-    "flight_count": 104,
-    "avg_glide_speed": 113.89,
+    "total_flight_duration": 516291,
+    "total_free_distance": 7166.99,
+    "avg_speed": 63.63,
+    "flight_count": 107,
+    "avg_glide_speed": 113.8,
     "avg_glide_detour": 1.35,
     "achievement_count": 21,
     "name": "Warwick Patterson",
@@ -615,8 +615,10 @@
       "id": 849,
       "name": "Alberni Valley Soaring Association",
       "region": "CA-BC",
-      "url": "http://www.avsa.ca"
-    }
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
+    },
+    "message_enabled": true
   },
   "22077": {
     "total_flight_duration": 1479462,
