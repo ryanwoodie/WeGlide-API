@@ -23,7 +23,7 @@
     "15929": 2373559,
     "16605": 1092175,
     "17026": 738742,
-    "18113": 2979878,
+    "18113": 2999063,
     "20675": 987956,
     "20706": 158031,
     "20723": 895444,
@@ -51,7 +51,7 @@
     "25114": 597512,
     "25782": 387693,
     "26583": 125303,
-    "27586": 259039,
+    "27586": 275152,
     "27891": 10744,
     "27904": 1616847,
     "28158": 14395,
@@ -4989,11 +4989,11 @@
       "message_enabled": true
     },
     "18113": {
-      "total_flight_duration": 2979878,
-      "total_free_distance": 55594.84,
-      "avg_speed": 70.57,
-      "flight_count": 196,
-      "avg_glide_speed": 133.93,
+      "total_flight_duration": 2999063,
+      "total_free_distance": 55957.56,
+      "avg_speed": 70.58,
+      "flight_count": 197,
+      "avg_glide_speed": 133.91,
       "avg_glide_detour": 1.22,
       "achievement_count": 18,
       "name": "Patrice gravel",
@@ -5549,11 +5549,11 @@
       }
     },
     "27586": {
-      "total_flight_duration": 259039,
-      "total_free_distance": 5401.01,
-      "avg_speed": 80.21,
-      "flight_count": 14,
-      "avg_glide_speed": 138.64,
+      "total_flight_duration": 275152,
+      "total_free_distance": 5646.35,
+      "avg_speed": 79.54,
+      "flight_count": 15,
+      "avg_glide_speed": 138.36,
       "avg_glide_detour": 1.25,
       "achievement_count": 8,
       "name": "Mark A. Schneider",
@@ -151266,6 +151266,140 @@
         "name": "Lancaster",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1115022,
+      "user": {
+        "id": 27586,
+        "name": "Mark A. Schneider"
+      },
+      "date": "2026-06-08",
+      "distance": 245.34,
+      "duration": 16113,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 240.18,
+          "distance": 245.34,
+          "speed": 67.26,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 56.03,
+          "distance": 129.71,
+          "speed": 64.86,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 124.74,
+          "distance": 150.94,
+          "speed": 36.64,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 66.88,
+          "distance": 80.93,
+          "speed": 19.76,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 174.64,
+          "distance": 150.94,
+          "speed": 36.64,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1115021,
+      "user": {
+        "id": 18113,
+        "name": "Patrice gravel"
+      },
+      "date": "2026-06-08",
+      "distance": 362.72,
+      "duration": 19185,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "OR",
+        "from_igcfile": true,
+        "distance": 102.89
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 379.77,
+          "distance": 362.72,
+          "speed": 72.42,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 70.51,
+          "distance": 156.89,
+          "speed": 78.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 214.55,
+          "distance": 246.73,
+          "speed": 51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 124.86,
+          "distance": 143.59,
+          "speed": 53.12,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 300.37,
+          "distance": 246.73,
+          "speed": 51,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -169291,12 +169425,12 @@
   ],
   "meta": {
     "totalPilots": 151,
-    "totalFlights": 764,
-    "totalKms": 147251,
-    "totalTasksDeclared": 275,
+    "totalFlights": 766,
+    "totalKms": 147859,
+    "totalTasksDeclared": 276,
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-08T22:56:00.694Z"
+    "generatedAt": "2026-06-08T23:01:03.530Z"
   }
 }
