@@ -94,7 +94,7 @@
     "35461": 72195,
     "35481": 298847,
     "35484": 42498,
-    "35496": 3279731,
+    "35496": 3297810,
     "35497": 5554,
     "35546": 1239209,
     "35558": 3976743,
@@ -6405,11 +6405,11 @@
       "message_enabled": true
     },
     "35496": {
-      "total_flight_duration": 3279731,
-      "total_free_distance": 58138.95,
-      "avg_speed": 69.2,
-      "flight_count": 270,
-      "avg_glide_speed": 119.85,
+      "total_flight_duration": 3297810,
+      "total_free_distance": 58392.26,
+      "avg_speed": 69.11,
+      "flight_count": 271,
+      "avg_glide_speed": 119.82,
       "avg_glide_detour": 1.14,
       "achievement_count": 27,
       "name": "Richard Noel",
@@ -151652,6 +151652,75 @@
         "name": "Fairmont Hot Springs",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1115036,
+      "user": {
+        "id": 35496,
+        "name": "Richard Noel"
+      },
+      "date": "2026-06-08",
+      "distance": 253.31,
+      "duration": 18079,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 257.46
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 248.41,
+          "distance": 253.31,
+          "speed": 53.58,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 57.02,
+          "distance": 126.87,
+          "speed": 63.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 93.8,
+          "distance": 107.87,
+          "speed": 26.09,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 128.1,
+          "distance": 147.31,
+          "speed": 35.68,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 188.66,
+          "distance": 216.96,
+          "speed": 50.96,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Paquet",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -169711,12 +169780,12 @@
   ],
   "meta": {
     "totalPilots": 151,
-    "totalFlights": 768,
-    "totalKms": 148616,
-    "totalTasksDeclared": 276,
+    "totalFlights": 769,
+    "totalKms": 148870,
+    "totalTasksDeclared": 277,
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-09T00:10:59.349Z"
+    "generatedAt": "2026-06-09T00:31:03.983Z"
   }
 }
