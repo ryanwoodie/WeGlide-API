@@ -982,6 +982,26 @@
     },
     "message_enabled": true
   },
+  "25728": {
+    "total_flight_duration": 51113,
+    "total_free_distance": 1059.2,
+    "avg_speed": 85.69,
+    "flight_count": 4,
+    "avg_glide_speed": 136.53,
+    "avg_glide_detour": 1.23,
+    "achievement_count": 5,
+    "name": "Andrew Corrigan",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "25782": {
     "total_flight_duration": 387693,
     "total_free_distance": 4792.69,
