@@ -94,7 +94,7 @@
     "35461": 72195,
     "35481": 298847,
     "35484": 42498,
-    "35496": 3297810,
+    "35496": 3309321,
     "35497": 5554,
     "35546": 1239209,
     "35558": 3976743,
@@ -6405,11 +6405,11 @@
       "message_enabled": true
     },
     "35496": {
-      "total_flight_duration": 3297810,
-      "total_free_distance": 58392.26,
-      "avg_speed": 69.11,
-      "flight_count": 271,
-      "avg_glide_speed": 119.82,
+      "total_flight_duration": 3309321,
+      "total_free_distance": 58525.4,
+      "avg_speed": 69.01,
+      "flight_count": 272,
+      "avg_glide_speed": 119.76,
       "avg_glide_detour": 1.14,
       "achievement_count": 27,
       "name": "Richard Noel",
@@ -153288,6 +153288,71 @@
         "name": "High River",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1115481,
+      "user": {
+        "id": 35496,
+        "name": "Richard Noel"
+      },
+      "date": "2026-06-09",
+      "distance": 133.14,
+      "duration": 11511,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 129.59,
+          "distance": 133.14,
+          "speed": 42.82,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 38.08,
+          "distance": 84.73,
+          "speed": 42.37,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 38.72,
+          "distance": 44.53,
+          "speed": 17.39,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 69.07,
+          "distance": 79.43,
+          "speed": 31.09,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 100.63,
+          "distance": 115.73,
+          "speed": 38.09,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Paquet",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -171496,12 +171561,12 @@
   ],
   "meta": {
     "totalPilots": 151,
-    "totalFlights": 781,
-    "totalKms": 153272,
+    "totalFlights": 782,
+    "totalKms": 153405,
     "totalTasksDeclared": 282,
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-09T19:11:23.013Z"
+    "generatedAt": "2026-06-09T19:21:19.998Z"
   }
 }
