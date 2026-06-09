@@ -2120,11 +2120,11 @@
     "message_enabled": true
   },
   "35660": {
-    "total_flight_duration": 6801408,
-    "total_free_distance": 115160.95,
-    "avg_speed": 65.36,
-    "flight_count": 391,
-    "avg_glide_speed": 116.18,
+    "total_flight_duration": 6822668,
+    "total_free_distance": 115541.62,
+    "avg_speed": 65.37,
+    "flight_count": 392,
+    "avg_glide_speed": 116.2,
     "avg_glide_detour": 1.21,
     "achievement_count": 23,
     "name": "Pierre Gavillet",
@@ -2135,7 +2135,8 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     },
     "message_enabled": true
   },
