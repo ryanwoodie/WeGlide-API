@@ -79,7 +79,7 @@
     "35350": 920042,
     "35351": 263258,
     "35367": 1134832,
-    "35385": 3439088,
+    "35385": 3450828,
     "35395": 77092,
     "35400": 407830,
     "35420": 64360,
@@ -6106,13 +6106,13 @@
       "message_enabled": true
     },
     "35385": {
-      "total_flight_duration": 3439088,
-      "total_free_distance": 47826.4,
-      "avg_speed": 52.73,
-      "flight_count": 259,
-      "avg_glide_speed": 110.16,
+      "total_flight_duration": 3450828,
+      "total_free_distance": 48011.49,
+      "avg_speed": 52.76,
+      "flight_count": 260,
+      "avg_glide_speed": 110.18,
       "avg_glide_detour": 1.25,
-      "achievement_count": 13,
+      "achievement_count": 14,
       "name": "Gustavo Tanoni",
       "gender": "M",
       "is_junior": false,
@@ -154809,6 +154809,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1115574,
+      "user": {
+        "id": 35385,
+        "name": "Gustavo Tanoni"
+      },
+      "date": "2026-06-09",
+      "distance": 185.09,
+      "duration": 11740,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 189.69,
+          "distance": 185.09,
+          "speed": 61.18,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 56.18,
+          "distance": 128.37,
+          "speed": 64.19,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 113.84,
+          "distance": 135.47,
+          "speed": 45.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 86.12,
+          "distance": 102.48,
+          "speed": 33.54,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 159.38,
+          "distance": 135.47,
+          "speed": 45.33,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -173171,12 +173236,12 @@
   ],
   "meta": {
     "totalPilots": 152,
-    "totalFlights": 791,
-    "totalKms": 154949,
+    "totalFlights": 792,
+    "totalKms": 155135,
     "totalTasksDeclared": 283,
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-10T01:06:16.001Z"
+    "generatedAt": "2026-06-10T01:51:22.729Z"
   }
 }
