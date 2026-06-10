@@ -31,7 +31,7 @@
     "21186": 8538,
     "21219": 42811,
     "21317": 300097,
-    "21574": 516291,
+    "21574": 519898,
     "22077": 1495069,
     "22081": 330510,
     "22232": 1804995,
@@ -5157,11 +5157,11 @@
       "message_enabled": true
     },
     "21574": {
-      "total_flight_duration": 516291,
-      "total_free_distance": 7166.99,
-      "avg_speed": 63.63,
-      "flight_count": 107,
-      "avg_glide_speed": 113.8,
+      "total_flight_duration": 519898,
+      "total_free_distance": 7218.51,
+      "avg_speed": 63.71,
+      "flight_count": 109,
+      "avg_glide_speed": 113.73,
       "avg_glide_detour": 1.35,
       "achievement_count": 21,
       "name": "Warwick Patterson",
@@ -154881,6 +154881,136 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1116138,
+      "user": {
+        "id": 21574,
+        "name": "Warwick Patterson"
+      },
+      "date": "2026-06-10",
+      "distance": 28.5,
+      "duration": 1881,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 37.54,
+          "distance": 28.5,
+          "speed": 81.82,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 5.29,
+          "distance": 9.47,
+          "speed": 4.74,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 14.66,
+          "distance": 12.61,
+          "speed": 62.96,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 11.56,
+          "distance": 9.94,
+          "speed": 49.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 27.29,
+          "distance": 23.47,
+          "speed": 79.56,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1116137,
+      "user": {
+        "id": 21574,
+        "name": "Warwick Patterson"
+      },
+      "date": "2026-06-10",
+      "distance": 23.02,
+      "duration": 1726,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 30.3,
+          "distance": 23.02,
+          "speed": 71.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 1.04,
+          "distance": 1.87,
+          "speed": 0.94,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 11.79,
+          "distance": 10.14,
+          "speed": 39.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 11.33,
+          "distance": 9.74,
+          "speed": 46.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 22.58,
+          "distance": 19.42,
+          "speed": 60.06,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -173243,12 +173373,12 @@
   ],
   "meta": {
     "totalPilots": 152,
-    "totalFlights": 792,
-    "totalKms": 155135,
+    "totalFlights": 794,
+    "totalKms": 155186,
     "totalTasksDeclared": 283,
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-10T16:24:56.444Z"
+    "generatedAt": "2026-06-10T23:56:20.767Z"
   }
 }
