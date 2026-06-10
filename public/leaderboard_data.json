@@ -4523,6 +4523,13 @@
         "verifiedDate": "2026-06-05T04:25:06.553Z",
         "eligible": true,
         "dataSource": "self-submitted-via-direct-message"
+      },
+      "36138": {
+        "pilotName": "Mark Rakowitz",
+        "picHours": 200,
+        "verifiedDate": "2026-06-10T16:23:53.977Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
       }
     },
     "dobVerifications": {}
@@ -173242,6 +173249,6 @@
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-10T16:22:01.122Z"
+    "generatedAt": "2026-06-10T16:24:56.444Z"
   }
 }
