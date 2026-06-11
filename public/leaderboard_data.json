@@ -4503,6 +4503,13 @@
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
       },
+      "35272": {
+        "pilotName": "Brandon Davies",
+        "picHours": 55,
+        "verifiedDate": "2026-06-11T16:20:27.422Z",
+        "eligible": true,
+        "dataSource": "self-submitted-via-direct-message"
+      },
       "35431": {
         "pilotName": "Csaba Balazs",
         "picHours": 200,
@@ -173717,6 +173724,6 @@
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-11T16:16:53.518Z"
+    "generatedAt": "2026-06-11T16:21:34.313Z"
   }
 }
