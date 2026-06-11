@@ -1360,11 +1360,11 @@
     "message_enabled": true
   },
   "35092": {
-    "total_flight_duration": 411460,
-    "total_free_distance": 4925.07,
-    "avg_speed": 49.77,
-    "flight_count": 63,
-    "avg_glide_speed": 111.6,
+    "total_flight_duration": 412175,
+    "total_free_distance": 4935.9,
+    "avg_speed": 49.78,
+    "flight_count": 64,
+    "avg_glide_speed": 111.5,
     "avg_glide_detour": 1.4,
     "achievement_count": 4,
     "name": "Tim Daniel",
@@ -1375,8 +1375,10 @@
       "id": 849,
       "name": "Alberni Valley Soaring Association",
       "region": "CA-BC",
-      "url": "http://www.avsa.ca"
-    }
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
+    },
+    "message_enabled": true
   },
   "35152": {
     "total_flight_duration": 485539,
