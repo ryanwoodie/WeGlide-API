@@ -422,11 +422,11 @@
     "message_enabled": true
   },
   "16605": {
-    "total_flight_duration": 1092175,
-    "total_free_distance": 14568.79,
-    "avg_speed": 55.64,
-    "flight_count": 133,
-    "avg_glide_speed": 112.04,
+    "total_flight_duration": 1103984,
+    "total_free_distance": 14758.77,
+    "avg_speed": 55.71,
+    "flight_count": 134,
+    "avg_glide_speed": 112.09,
     "avg_glide_detour": 1.54,
     "achievement_count": 33,
     "name": "Ward Clapham",
@@ -437,8 +437,10 @@
       "id": 849,
       "name": "Alberni Valley Soaring Association",
       "region": "CA-BC",
-      "url": "http://www.avsa.ca"
-    }
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
+    },
+    "message_enabled": true
   },
   "17026": {
     "total_flight_duration": 738742,
