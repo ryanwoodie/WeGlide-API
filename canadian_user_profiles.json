@@ -2480,12 +2480,12 @@
     "message_enabled": true
   },
   "36083": {
-    "total_flight_duration": 16952,
-    "total_free_distance": 167.12,
-    "avg_speed": 38.65,
-    "flight_count": 5,
-    "avg_glide_speed": 102.03,
-    "avg_glide_detour": 1.26,
+    "total_flight_duration": 19616,
+    "total_free_distance": 189.73,
+    "avg_speed": 38.37,
+    "flight_count": 6,
+    "avg_glide_speed": 101.9,
+    "avg_glide_detour": 1.22,
     "achievement_count": 0,
     "name": "Justin Latour",
     "gender": "M",
@@ -2497,7 +2497,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "36101": {
     "total_flight_duration": 4159,
