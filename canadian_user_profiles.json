@@ -381,13 +381,13 @@
     "message_enabled": true
   },
   "15888": {
-    "total_flight_duration": 470051,
-    "total_free_distance": 5517.24,
-    "avg_speed": 48.57,
-    "flight_count": 52,
-    "avg_glide_speed": 126.22,
-    "avg_glide_detour": 1.74,
-    "achievement_count": 17,
+    "total_flight_duration": 484056,
+    "total_free_distance": 5818.54,
+    "avg_speed": 49.59,
+    "flight_count": 53,
+    "avg_glide_speed": 126.52,
+    "avg_glide_detour": 1.72,
+    "achievement_count": 18,
     "name": "Daniel Nazarko",
     "gender": "M",
     "is_junior": true,
@@ -398,7 +398,8 @@
       "region": "CA-AB",
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
-    }
+    },
+    "message_enabled": true
   },
   "15929": {
     "total_flight_duration": 2373559,
