@@ -565,13 +565,13 @@
     "message_enabled": true
   },
   "21186": {
-    "total_flight_duration": 8538,
-    "total_free_distance": 135.36,
-    "avg_speed": 60.18,
-    "flight_count": 1,
-    "avg_glide_speed": 109.4,
-    "avg_glide_detour": 1.24,
-    "achievement_count": 0,
+    "total_flight_duration": 21302,
+    "total_free_distance": 352.75,
+    "avg_speed": 61.67,
+    "flight_count": 2,
+    "avg_glide_speed": 106.99,
+    "avg_glide_detour": 1.22,
+    "achievement_count": 1,
     "name": "david cole",
     "gender": "M",
     "is_junior": false,
@@ -581,7 +581,8 @@
       "name": "Toronto Soaring Club",
       "region": "CA-ON",
       "url": "http://toronto-soaring.ca"
-    }
+    },
+    "message_enabled": true
   },
   "21219": {
     "total_flight_duration": 42811,
@@ -2621,11 +2622,11 @@
     "message_enabled": true
   },
   "37746": {
-    "total_flight_duration": 87368,
-    "total_free_distance": 1871.12,
-    "avg_speed": 83.57,
-    "flight_count": 7,
-    "avg_glide_speed": 144.01,
+    "total_flight_duration": 91988,
+    "total_free_distance": 1958.19,
+    "avg_speed": 83.44,
+    "flight_count": 8,
+    "avg_glide_speed": 143.58,
     "avg_glide_detour": 1.18,
     "achievement_count": 4,
     "name": "Gordon Spurgeon",
