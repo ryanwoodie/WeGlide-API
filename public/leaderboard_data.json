@@ -128,7 +128,7 @@
     "36101": 4159,
     "36137": 36464,
     "36138": 784925,
-    "36602": 57404,
+    "36602": 68889,
     "36868": 23602,
     "37564": 732992,
     "37746": 91988,
@@ -143,7 +143,7 @@
     "38969": 66437,
     "38988": 11797,
     "39194": 735472,
-    "39209": 92992,
+    "39209": 106551,
     "39261": 11876,
     "39364": 14444,
     "39399": 43623,
@@ -7107,12 +7107,12 @@
       "message_enabled": true
     },
     "36602": {
-      "total_flight_duration": 57404,
-      "total_free_distance": 1572.59,
-      "avg_speed": 101.79,
-      "flight_count": 3,
-      "avg_glide_speed": 143.42,
-      "avg_glide_detour": 1.08,
+      "total_flight_duration": 68889,
+      "total_free_distance": 1824.33,
+      "avg_speed": 98.48,
+      "flight_count": 4,
+      "avg_glide_speed": 142.02,
+      "avg_glide_detour": 1.1,
       "achievement_count": 12,
       "name": "Joerg Stieber",
       "gender": "M",
@@ -7407,12 +7407,12 @@
       "message_enabled": true
     },
     "39209": {
-      "total_flight_duration": 92992,
-      "total_free_distance": 921.28,
-      "avg_speed": 38.45,
-      "flight_count": 7,
-      "avg_glide_speed": 107.69,
-      "avg_glide_detour": 1.46,
+      "total_flight_duration": 106551,
+      "total_free_distance": 1044.27,
+      "avg_speed": 38.26,
+      "flight_count": 9,
+      "avg_glide_speed": 106.56,
+      "avg_glide_detour": 1.45,
       "achievement_count": 5,
       "name": "Yvon Saucier",
       "gender": "M",
@@ -158462,6 +158462,205 @@
         "name": "Cu Nim",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1118525,
+      "user": {
+        "id": 36602,
+        "name": "Joerg Stieber"
+      },
+      "date": "2026-06-13",
+      "distance": 251.74,
+      "duration": 11485,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 354.3
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 248.18,
+          "distance": 251.74,
+          "speed": 81.85,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 74.72,
+          "distance": 172.98,
+          "speed": 86.49,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 133.78,
+          "distance": 161.87,
+          "speed": 56.18,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 136.3,
+          "distance": 164.92,
+          "speed": 69.83,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 196.12,
+          "distance": 237.31,
+          "speed": 83.69,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1118524,
+      "user": {
+        "id": 39209,
+        "name": "Yvon Saucier"
+      },
+      "date": "2026-06-13",
+      "distance": 102.5,
+      "duration": 11848,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 109.71,
+          "distance": 102.5,
+          "speed": 35.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 33.48,
+          "distance": 71.99,
+          "speed": 35.99,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 55.09,
+          "distance": 60.6,
+          "speed": 38.96,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 55.18,
+          "distance": 60.7,
+          "speed": 38.19,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 77.13,
+          "distance": 60.6,
+          "speed": 38.96,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1118522,
+      "user": {
+        "id": 39209,
+        "name": "Yvon Saucier"
+      },
+      "date": "2026-06-13",
+      "distance": 20.49,
+      "duration": 1711,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 21.58,
+          "distance": 20.49,
+          "speed": 49.24,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 6.17,
+          "distance": 13.26,
+          "speed": 6.63,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 9.85,
+          "distance": 10.83,
+          "speed": 33.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 9.44,
+          "distance": 10.38,
+          "speed": 49.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 15.29,
+          "distance": 16.82,
+          "speed": 43.41,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -177203,12 +177402,12 @@
   ],
   "meta": {
     "totalPilots": 152,
-    "totalFlights": 820,
-    "totalKms": 159002,
-    "totalTasksDeclared": 287,
+    "totalFlights": 823,
+    "totalKms": 159376,
+    "totalTasksDeclared": 288,
     "totalTasksCompleted": 15,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-13T22:41:21.412Z"
+    "generatedAt": "2026-06-13T23:26:22.986Z"
   }
 }
