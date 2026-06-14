@@ -4320,6 +4320,25 @@
       "combinedHoursBeforeCutoff": 20.15,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "40038": {
+      "pilotId": 40038,
+      "weglidePilotId": "wg:40038",
+      "olcPilotId": "85176",
+      "pilotName": "Aidan OBrien",
+      "matchKind": "olc_name_only",
+      "normalizedName": "aidanobrien",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 7.23,
+      "olcOnlyHours": 7.23,
+      "combinedHours": 7.23,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 7.23,
+      "combinedHoursBeforeCutoff": 7.23,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {

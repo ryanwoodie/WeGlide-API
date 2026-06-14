@@ -3043,5 +3043,25 @@
       "logo": "club/1168.png"
     },
     "message_enabled": true
+  },
+  "40038": {
+    "total_flight_duration": 6546,
+    "total_free_distance": 46.05,
+    "avg_speed": 27.77,
+    "flight_count": 1,
+    "avg_glide_speed": 63.09,
+    "avg_glide_detour": 1.36,
+    "achievement_count": 1,
+    "name": "Aidan OBrien",
+    "gender": "M",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1345,
+      "name": "Toronto Soaring Club",
+      "region": "CA-ON",
+      "url": "http://toronto-soaring.ca"
+    },
+    "message_enabled": true
   }
 }
