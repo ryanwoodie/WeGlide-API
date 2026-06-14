@@ -128186,75 +128186,6 @@
       }
     },
     {
-      "id": 1077101,
-      "user": {
-        "id": 15888,
-        "name": "Daniel Nazarko"
-      },
-      "date": "2026-05-09",
-      "distance": 56.34,
-      "duration": 3933,
-      "taskDeclared": true,
-      "taskCompleted": false,
-      "task": {
-        "kind": "FR4",
-        "from_igcfile": true,
-        "distance": 212.76
-      },
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 64.58,
-          "distance": 56.34,
-          "speed": 58.12,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 22.94,
-          "distance": 45.88,
-          "speed": 22.94,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 26.45,
-          "distance": 26.45,
-          "speed": 29.48,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out_return",
-          "points": 41.22,
-          "distance": 41.22,
-          "speed": 46.2,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 53.59,
-          "distance": 41.22,
-          "speed": 46.2,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Cu Nim",
-        "region": "CA-AB"
-      }
-    },
-    {
       "id": 1077102,
       "user": {
         "id": 27904,
@@ -180469,12 +180400,12 @@
   ],
   "meta": {
     "totalPilots": 154,
-    "totalFlights": 839,
-    "totalKms": 162234,
-    "totalTasksDeclared": 298,
+    "totalFlights": 838,
+    "totalKms": 162178,
+    "totalTasksDeclared": 297,
     "totalTasksCompleted": 16,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-14T07:27:13.243Z"
+    "generatedAt": "2026-06-14T08:20:48.800Z"
   }
 }
