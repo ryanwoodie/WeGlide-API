@@ -1302,6 +1302,26 @@
     },
     "message_enabled": true
   },
+  "34958": {
+    "total_flight_duration": 2956317,
+    "total_free_distance": 53051.79,
+    "avg_speed": 67.44,
+    "flight_count": 256,
+    "avg_glide_speed": 120.28,
+    "avg_glide_detour": 1.12,
+    "achievement_count": 22,
+    "name": "Rafael Bravo",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35001": {
     "total_flight_duration": 411211,
     "total_free_distance": 6705.33,
