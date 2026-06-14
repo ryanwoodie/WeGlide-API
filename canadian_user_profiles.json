@@ -100,11 +100,11 @@
     "message_enabled": true
   },
   "6074": {
-    "total_flight_duration": 657656,
-    "total_free_distance": 13775.59,
-    "avg_speed": 79.03,
-    "flight_count": 48,
-    "avg_glide_speed": 137.78,
+    "total_flight_duration": 667527,
+    "total_free_distance": 13891.82,
+    "avg_speed": 78.53,
+    "flight_count": 49,
+    "avg_glide_speed": 137.45,
     "avg_glide_detour": 1.18,
     "achievement_count": 20,
     "name": "Ben Hornett",
@@ -117,7 +117,8 @@
       "region": "CA-AB",
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
-    }
+    },
+    "message_enabled": true
   },
   "6084": {
     "total_flight_duration": 263574,
