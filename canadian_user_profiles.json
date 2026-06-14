@@ -240,12 +240,12 @@
     }
   },
   "12276": {
-    "total_flight_duration": 227508,
-    "total_free_distance": 2755.92,
-    "avg_speed": 47.53,
-    "flight_count": 21,
-    "avg_glide_speed": 124.34,
-    "avg_glide_detour": 1.91,
+    "total_flight_duration": 234844,
+    "total_free_distance": 2890.14,
+    "avg_speed": 48.28,
+    "flight_count": 22,
+    "avg_glide_speed": 124.74,
+    "avg_glide_detour": 1.89,
     "achievement_count": 13,
     "name": "Artur Siwic",
     "gender": "M",
@@ -1444,12 +1444,12 @@
     }
   },
   "35296": {
-    "total_flight_duration": 374709,
-    "total_free_distance": 4599.5,
-    "avg_speed": 48.57,
-    "flight_count": 48,
-    "avg_glide_speed": 106.87,
-    "avg_glide_detour": 1.21,
+    "total_flight_duration": 392716,
+    "total_free_distance": 4903.98,
+    "avg_speed": 49.24,
+    "flight_count": 50,
+    "avg_glide_speed": 107.97,
+    "avg_glide_detour": 1.2,
     "achievement_count": 9,
     "name": "Joseph Tam",
     "gender": "M",
@@ -1460,7 +1460,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "35326": {
     "total_flight_duration": 1770831,
