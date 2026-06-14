@@ -688,13 +688,13 @@
     "message_enabled": true
   },
   "22232": {
-    "total_flight_duration": 1804995,
-    "total_free_distance": 24265.39,
-    "avg_speed": 53.43,
-    "flight_count": 276,
-    "avg_glide_speed": 103.36,
+    "total_flight_duration": 1862449,
+    "total_free_distance": 25234.2,
+    "avg_speed": 53.78,
+    "flight_count": 279,
+    "avg_glide_speed": 103.7,
     "avg_glide_detour": 1.28,
-    "achievement_count": 19,
+    "achievement_count": 20,
     "name": "Gregory Zak",
     "gender": "M",
     "is_junior": false,
@@ -704,7 +704,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "22746": {
     "total_flight_duration": 1281399,
