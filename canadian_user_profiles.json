@@ -2324,12 +2324,12 @@
     }
   },
   "35822": {
-    "total_flight_duration": 7113,
-    "total_free_distance": 76.72,
-    "avg_speed": 41.17,
-    "flight_count": 1,
-    "avg_glide_speed": 112.02,
-    "avg_glide_detour": 1.81,
+    "total_flight_duration": 12544,
+    "total_free_distance": 147.36,
+    "avg_speed": 45.88,
+    "flight_count": 2,
+    "avg_glide_speed": 107.09,
+    "avg_glide_detour": 1.52,
     "achievement_count": 0,
     "name": "Michel Rochette",
     "gender": "M",
@@ -2341,7 +2341,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "35848": {
     "total_flight_duration": 706462,
