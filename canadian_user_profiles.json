@@ -486,6 +486,26 @@
     },
     "message_enabled": true
   },
+  "20442": {
+    "total_flight_duration": 10838,
+    "total_free_distance": 125.72,
+    "avg_speed": 43.19,
+    "flight_count": 1,
+    "avg_glide_speed": 102.2,
+    "avg_glide_detour": 1.37,
+    "achievement_count": 1,
+    "name": "Luis Garcia Rodriguez",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1393,
+      "name": "York Soaring Association",
+      "region": "CA-ON",
+      "url": "https://www.yorksoaring.com"
+    },
+    "message_enabled": true
+  },
   "20675": {
     "total_flight_duration": 1018158,
     "total_free_distance": 18328.67,
