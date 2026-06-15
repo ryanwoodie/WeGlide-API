@@ -2049,6 +2049,26 @@
     },
     "message_enabled": true
   },
+  "35578": {
+    "total_flight_duration": 29935,
+    "total_free_distance": 233.86,
+    "avg_speed": 29.91,
+    "flight_count": 4,
+    "avg_glide_speed": 96.24,
+    "avg_glide_detour": 2,
+    "achievement_count": 2,
+    "name": "Eli Pasquali",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 999,
+      "name": "Edmonton Soaring Club",
+      "region": "CA-AB",
+      "url": "http://www.edmontonsoaringclub.com"
+    },
+    "message_enabled": true
+  },
   "35605": {
     "total_flight_duration": 6644,
     "total_free_distance": 52.75,
