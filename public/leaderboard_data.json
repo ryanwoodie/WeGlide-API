@@ -117,7 +117,7 @@
     "35777": 5182,
     "35810": 6138,
     "35822": 12544,
-    "35848": 706462,
+    "35848": 718678,
     "35862": 4760,
     "35963": 8424,
     "35992": 2817,
@@ -6911,12 +6911,12 @@
       "message_enabled": true
     },
     "35848": {
-      "total_flight_duration": 706462,
-      "total_free_distance": 7586.98,
-      "avg_speed": 43.68,
-      "flight_count": 66,
-      "avg_glide_speed": 108.71,
-      "avg_glide_detour": 1.8,
+      "total_flight_duration": 718678,
+      "total_free_distance": 7762.38,
+      "avg_speed": 43.98,
+      "flight_count": 67,
+      "avg_glide_speed": 109,
+      "avg_glide_detour": 1.79,
       "achievement_count": 9,
       "name": "Rob Ballantyne",
       "gender": "M",
@@ -163430,6 +163430,75 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1119816,
+      "user": {
+        "id": 35848,
+        "name": "Rob Ballantyne"
+      },
+      "date": "2026-06-14",
+      "distance": 175.4,
+      "duration": 12216,
+      "taskDeclared": true,
+      "taskCompleted": true,
+      "task": {
+        "kind": "OR",
+        "from_igcfile": true,
+        "distance": 19.84
+      },
+      "task_achieved": true,
+      "contest": [
+        {
+          "name": "free",
+          "points": 174.63,
+          "distance": 175.4,
+          "speed": 62.84,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 51.31,
+          "distance": 118.01,
+          "speed": 59.01,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 94.88,
+          "distance": 113.85,
+          "speed": 53.82,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 68.58,
+          "distance": 82.3,
+          "speed": 42.04,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 132.82,
+          "distance": 113.85,
+          "speed": 53.82,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -182650,12 +182719,12 @@
   ],
   "meta": {
     "totalPilots": 154,
-    "totalFlights": 852,
-    "totalKms": 164725,
-    "totalTasksDeclared": 305,
-    "totalTasksCompleted": 17,
+    "totalFlights": 853,
+    "totalKms": 164900,
+    "totalTasksDeclared": 306,
+    "totalTasksCompleted": 18,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-15T00:11:15.977Z"
+    "generatedAt": "2026-06-15T00:16:15.215Z"
   }
 }
