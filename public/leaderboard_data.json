@@ -164767,71 +164767,6 @@
         "name": "Birch Hills",
         "region": "CA-SK"
       }
-    },
-    {
-      "id": 1119864,
-      "user": {
-        "id": 20675,
-        "name": "Pavan K"
-      },
-      "date": "2026-06-14",
-      "distance": 7.08,
-      "duration": 615,
-      "taskDeclared": false,
-      "taskCompleted": false,
-      "task": null,
-      "task_achieved": false,
-      "contest": [
-        {
-          "name": "free",
-          "points": 10.25,
-          "distance": 7.08,
-          "speed": 48.55,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "sprint",
-          "points": 1.52,
-          "distance": 2.69,
-          "speed": 1.34,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "triangle",
-          "points": 6.41,
-          "distance": 5.45,
-          "speed": 34.6,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "out_return",
-          "points": 4.11,
-          "distance": 3.49,
-          "speed": 35.29,
-          "score": {
-            "declared": false
-          }
-        },
-        {
-          "name": "ca",
-          "points": 8.98,
-          "distance": 5.45,
-          "speed": 34.6,
-          "score": {
-            "declared": false
-          }
-        }
-      ],
-      "takeoff_airport": {
-        "name": "Birch Hills",
-        "region": "CA-SK"
-      }
     }
   ],
   "clubMetadataById": {
@@ -184192,12 +184127,12 @@
   ],
   "meta": {
     "totalPilots": 154,
-    "totalFlights": 862,
-    "totalKms": 166786,
+    "totalFlights": 861,
+    "totalKms": 166779,
     "totalTasksDeclared": 309,
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-15T04:36:28.698Z"
+    "generatedAt": "2026-06-15T09:28:46.059Z"
   }
 }
