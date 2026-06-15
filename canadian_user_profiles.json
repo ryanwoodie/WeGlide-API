@@ -139,6 +139,21 @@
       "url": "http://www.edmontonsoaringclub.com"
     }
   },
+  "6085": {
+    "total_flight_duration": 132619,
+    "total_free_distance": 1852.49,
+    "avg_speed": 54.76,
+    "flight_count": 13,
+    "avg_glide_speed": 124.74,
+    "avg_glide_detour": 1.41,
+    "achievement_count": 6,
+    "name": "Melanie Paradis",
+    "gender": "F",
+    "is_junior": false,
+    "is_senior": false,
+    "club": null,
+    "message_enabled": true
+  },
   "6303": {
     "total_flight_duration": 473457,
     "total_free_distance": 7603.87,

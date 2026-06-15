@@ -7,6 +7,7 @@
     "5582": 2647596,
     "6074": 667527,
     "6084": 263574,
+    "6085": 132619,
     "6303": 473457,
     "8839": 15001,
     "8848": 17009831,
@@ -4704,6 +4705,21 @@
         "region": "CA-AB",
         "url": "http://www.edmontonsoaringclub.com"
       }
+    },
+    "6085": {
+      "total_flight_duration": 132619,
+      "total_free_distance": 1852.49,
+      "avg_speed": 54.76,
+      "flight_count": 13,
+      "avg_glide_speed": 124.74,
+      "avg_glide_detour": 1.41,
+      "achievement_count": 6,
+      "name": "Melanie Paradis",
+      "gender": "F",
+      "is_junior": false,
+      "is_senior": false,
+      "club": null,
+      "message_enabled": true
     },
     "6303": {
       "total_flight_duration": 473457,
@@ -16666,6 +16682,33 @@
       "awards": []
     },
     {
+      "pilot": "Melanie Paradis",
+      "pilotId": 6085,
+      "totalPoints": 94.68,
+      "totalDistance": 84.32,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1120612,
+          "userId": 6085,
+          "date": "2026-06-15",
+          "distance": 84.32,
+          "speed": 39.69,
+          "points": 94.68,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Tim Wood",
       "pilotId": 35810,
       "totalPoints": 88.02,
@@ -24259,6 +24302,32 @@
           "aircraftKind": "GL",
           "aircraftName": "Apis WR",
           "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Melanie Paradis",
+      "pilotId": 6085,
+      "totalPoints": 23.61,
+      "totalDistance": 48.64,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1120612,
+          "userId": 6085,
+          "date": "2026-06-15",
+          "distance": 48.64,
+          "speed": 24.32,
+          "points": 23.61,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -32126,6 +32195,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Melanie Paradis",
+      "pilotId": 6085,
+      "totalPoints": 45.35,
+      "totalDistance": 47.16,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1120612,
+          "userId": 6085,
+          "date": "2026-06-15",
+          "distance": 47.16,
+          "speed": 34.23,
+          "points": 45.35,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -40102,6 +40197,32 @@
           "aircraftKind": "GL",
           "aircraftName": "ASK 13",
           "dmstIndex": 79,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Melanie Paradis",
+      "pilotId": 6085,
+      "totalPoints": 32.49,
+      "totalDistance": 33.79,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1120612,
+          "userId": 6085,
+          "date": "2026-06-15",
+          "distance": 33.79,
+          "speed": 29.07,
+          "points": 32.49,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -108622,6 +108743,72 @@
         "dmstIndex": 111
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1120612,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 35.37,
+        "thermal_avg": 0.77,
+        "glide_speed": 112.51,
+        "glide_speed_lift": 111.44,
+        "glide_speed_sink": 113.42,
+        "altitude_avg": 1971,
+        "agl_avg": 1233,
+        "thermal_count": 10,
+        "thermal_gain": 2339,
+        "thermal_radius": 184.77,
+        "thermal_start_agl": 1023,
+        "thermal_bank": 25.94,
+        "glide_percentage": 0.54,
+        "glide_percentage_lift": 0.47,
+        "duration": 7649,
+        "thermal_time": 3019,
+        "glide_time": 4151,
+        "wind_speed": 9.74,
+        "wind_direction": 231,
+        "attempt_count": 11,
+        "attempt_avg": -0.18,
+        "attempt_speed_loss": 2.65,
+        "below_1000_agl": 0.2651,
+        "below_800_agl": 0.0442,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 129.73,
+        "glide_detour": 1.54,
+        "glide_distance": 3.71,
+        "glide_alt_avg": 1989,
+        "end_time": "2026-06-15T20:58:10+00:00",
+        "start_time": "2026-06-15T18:50:41+00:00",
+        "finish_alt": 1629
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 296.36,
+        "type": "FR4",
+        "typeLabel": "Start, 2-3 Turnpoints, Finish",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 94.68,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 84.32,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 296.36,
+        "weglideFreeDistance": 84.32,
+        "dmstIndex": 104
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -165737,6 +165924,66 @@
         "name": "Chipman",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1120612,
+      "user": {
+        "id": 6085,
+        "name": "Melanie Paradis"
+      },
+      "date": "2026-06-15",
+      "distance": 84.32,
+      "duration": 10892,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 296.36
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 94.68,
+          "distance": 84.32,
+          "speed": 39.69,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 23.61,
+          "distance": 48.64,
+          "speed": 24.32,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 45.35,
+          "distance": 47.16,
+          "speed": 34.23,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 32.49,
+          "distance": 33.79,
+          "speed": 29.07,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Chipman",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -175717,6 +175964,32 @@
       ]
     },
     {
+      "pilot": "Melanie Paradis",
+      "pilotId": 6085,
+      "totalPoints": 94.68,
+      "totalDistance": 84.32,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1120612,
+          "userId": 6085,
+          "date": "2026-06-15",
+          "distance": 84.32,
+          "speed": 39.69,
+          "points": 94.68,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Tim Wood",
       "pilotId": 35810,
       "totalPoints": 88.02,
@@ -185196,13 +185469,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 156,
-    "totalFlights": 867,
-    "totalKms": 167634,
-    "totalTasksDeclared": 312,
+    "totalPilots": 157,
+    "totalFlights": 868,
+    "totalKms": 167718,
+    "totalTasksDeclared": 313,
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-15T21:56:15.516Z"
+    "generatedAt": "2026-06-15T22:06:17.287Z"
   }
 }
