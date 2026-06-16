@@ -1702,6 +1702,26 @@
     },
     "message_enabled": true
   },
+  "35419": {
+    "total_flight_duration": 81464,
+    "total_free_distance": 694.98,
+    "avg_speed": 37.62,
+    "flight_count": 16,
+    "avg_glide_speed": 110.86,
+    "avg_glide_detour": 1.48,
+    "achievement_count": 4,
+    "name": "Ryan Dewsbury",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1393,
+      "name": "York Soaring Association",
+      "region": "CA-ON",
+      "url": "https://www.yorksoaring.com"
+    },
+    "message_enabled": true
+  },
   "35420": {
     "total_flight_duration": 64360,
     "total_free_distance": 873.79,
