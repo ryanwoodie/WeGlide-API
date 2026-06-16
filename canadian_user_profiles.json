@@ -764,6 +764,26 @@
     },
     "message_enabled": true
   },
+  "22801": {
+    "total_flight_duration": 56294,
+    "total_free_distance": 1289.47,
+    "avg_speed": 89.63,
+    "flight_count": 3,
+    "avg_glide_speed": 142.53,
+    "avg_glide_detour": 1.13,
+    "achievement_count": 14,
+    "name": "Paul Parker",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "22923": {
     "total_flight_duration": 1601962,
     "total_free_distance": 25323.89,
