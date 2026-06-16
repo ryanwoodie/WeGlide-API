@@ -100,7 +100,7 @@
     "35461": 72195,
     "35481": 308624,
     "35484": 42498,
-    "35496": 3313852,
+    "35496": 3324612,
     "35497": 5554,
     "35546": 1239209,
     "35558": 3976743,
@@ -6571,11 +6571,11 @@
       "message_enabled": true
     },
     "35496": {
-      "total_flight_duration": 3313852,
-      "total_free_distance": 58579.08,
-      "avg_speed": 68.98,
-      "flight_count": 273,
-      "avg_glide_speed": 119.73,
+      "total_flight_duration": 3324612,
+      "total_free_distance": 58732.85,
+      "avg_speed": 68.94,
+      "flight_count": 274,
+      "avg_glide_speed": 119.69,
       "avg_glide_detour": 1.14,
       "achievement_count": 27,
       "name": "Richard Noel",
@@ -167377,6 +167377,71 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1120989,
+      "user": {
+        "id": 35496,
+        "name": "Richard Noel"
+      },
+      "date": "2026-06-16",
+      "distance": 153.77,
+      "duration": 10760,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 147.56,
+          "distance": 153.77,
+          "speed": 55.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 49.62,
+          "distance": 110.41,
+          "speed": 55.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 42.22,
+          "distance": 48.55,
+          "speed": 16.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 69.25,
+          "distance": 79.64,
+          "speed": 52.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 126.88,
+          "distance": 145.91,
+          "speed": 57.01,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Paquet",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -187030,12 +187095,12 @@
   ],
   "meta": {
     "totalPilots": 159,
-    "totalFlights": 874,
-    "totalKms": 168280,
+    "totalFlights": 875,
+    "totalKms": 168434,
     "totalTasksDeclared": 316,
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-16T18:46:18.207Z"
+    "generatedAt": "2026-06-16T19:11:26.606Z"
   }
 }
