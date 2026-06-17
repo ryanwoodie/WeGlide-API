@@ -2704,12 +2704,12 @@
     "message_enabled": true
   },
   "36868": {
-    "total_flight_duration": 23602,
-    "total_free_distance": 186.77,
-    "avg_speed": 34.44,
-    "flight_count": 9,
-    "avg_glide_speed": 93.71,
-    "avg_glide_detour": 2.28,
+    "total_flight_duration": 36032,
+    "total_free_distance": 223.45,
+    "avg_speed": 25.54,
+    "flight_count": 10,
+    "avg_glide_speed": 90.84,
+    "avg_glide_detour": 3.21,
     "achievement_count": 0,
     "name": "Martin Chicoine",
     "gender": "M",
@@ -2719,8 +2719,10 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
-    }
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
   },
   "37564": {
     "total_flight_duration": 732992,
