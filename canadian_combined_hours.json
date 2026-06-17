@@ -4339,6 +4339,25 @@
       "combinedHoursBeforeCutoff": 7.23,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "40127": {
+      "pilotId": 40127,
+      "weglidePilotId": "wg:40127",
+      "olcPilotId": "85299",
+      "pilotName": "Gérald Wiertz",
+      "matchKind": "olc_name_only",
+      "normalizedName": "geraldwiertz",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 4.1,
+      "olcOnlyHours": 4.1,
+      "combinedHours": 4.1,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 4.1,
+      "combinedHoursBeforeCutoff": 4.1,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {

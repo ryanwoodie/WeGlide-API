@@ -3164,5 +3164,26 @@
       "url": "http://toronto-soaring.ca"
     },
     "message_enabled": true
+  },
+  "40127": {
+    "total_flight_duration": 8456,
+    "total_free_distance": 80.83,
+    "avg_speed": 36.62,
+    "flight_count": 1,
+    "avg_glide_speed": 92.29,
+    "avg_glide_detour": 1.42,
+    "achievement_count": 0,
+    "name": "Gérald Wiertz",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
   }
 }
