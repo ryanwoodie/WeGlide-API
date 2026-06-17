@@ -986,12 +986,12 @@
     "message_enabled": true
   },
   "25002": {
-    "total_flight_duration": 130211,
-    "total_free_distance": 2006.77,
-    "avg_speed": 60.73,
-    "flight_count": 12,
-    "avg_glide_speed": 106.08,
-    "avg_glide_detour": 1.33,
+    "total_flight_duration": 135984,
+    "total_free_distance": 2109.1,
+    "avg_speed": 60.93,
+    "flight_count": 13,
+    "avg_glide_speed": 105.47,
+    "avg_glide_detour": 1.32,
     "achievement_count": 7,
     "name": "Sean Christie",
     "gender": "M",
@@ -1002,7 +1002,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "25019": {
     "total_flight_duration": 50289,
