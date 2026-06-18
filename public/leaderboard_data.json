@@ -69,7 +69,7 @@
     "34934": 4246552,
     "34953": 355951,
     "34958": 2956317,
-    "35001": 435120,
+    "35001": 448770,
     "35081": 108968,
     "35091": 3776658,
     "35092": 420379,
@@ -5971,12 +5971,12 @@
       "message_enabled": true
     },
     "35001": {
-      "total_flight_duration": 435120,
-      "total_free_distance": 7053.64,
-      "avg_speed": 64.9,
-      "flight_count": 58,
-      "avg_glide_speed": 115.11,
-      "avg_glide_detour": 1.33,
+      "total_flight_duration": 448770,
+      "total_free_distance": 7221.43,
+      "avg_speed": 64.58,
+      "flight_count": 59,
+      "avg_glide_speed": 114.58,
+      "avg_glide_detour": 1.34,
       "achievement_count": 16,
       "name": "Tom Weiher",
       "gender": "M",
@@ -171431,6 +171431,71 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1121990,
+      "user": {
+        "id": 35001,
+        "name": "Tom Weiher"
+      },
+      "date": "2026-06-17",
+      "distance": 167.79,
+      "duration": 13650,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 194.45,
+          "distance": 167.79,
+          "speed": 53.46,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 49.23,
+          "distance": 98.46,
+          "speed": 49.23,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 88.87,
+          "distance": 88.87,
+          "speed": 30.88,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 64.51,
+          "distance": 64.51,
+          "speed": 25.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 128.75,
+          "distance": 128.75,
+          "speed": 50.29,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Starbuck",
+        "region": "CA-MB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -191378,12 +191443,12 @@
   ],
   "meta": {
     "totalPilots": 160,
-    "totalFlights": 903,
-    "totalKms": 174366,
+    "totalFlights": 904,
+    "totalKms": 174534,
     "totalTasksDeclared": 325,
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-18T02:31:20.991Z"
+    "generatedAt": "2026-06-18T05:01:33.372Z"
   }
 }
