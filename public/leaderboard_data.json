@@ -4577,6 +4577,13 @@
         "eligible": true,
         "dataSource": "self-submitted-via-direct-message"
       },
+      "35848": {
+        "pilotName": "Rob Ballantyne",
+        "picHours": 200,
+        "verifiedDate": "2026-06-19T16:33:57.906Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
+      },
       "36138": {
         "pilotName": "Mark Rakowitz",
         "picHours": 200,
@@ -192700,6 +192707,6 @@
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-19T16:30:44.430Z"
+    "generatedAt": "2026-06-19T16:35:20.040Z"
   }
 }
