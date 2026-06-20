@@ -2324,6 +2324,26 @@
       "url": "https://www.gatineauglidingclub.ca"
     }
   },
+  "35732": {
+    "total_flight_duration": 8876,
+    "total_free_distance": 89.05,
+    "avg_speed": 40.18,
+    "flight_count": 2,
+    "avg_glide_speed": 97.06,
+    "avg_glide_detour": 1.21,
+    "achievement_count": 1,
+    "name": "Peter Harvey",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 999,
+      "name": "Edmonton Soaring Club",
+      "region": "CA-AB",
+      "url": "http://www.edmontonsoaringclub.com"
+    },
+    "message_enabled": true
+  },
   "35759": {
     "total_flight_duration": 21528,
     "total_free_distance": 217.84,
