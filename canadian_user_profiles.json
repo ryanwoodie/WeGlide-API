@@ -702,6 +702,26 @@
     },
     "message_enabled": true
   },
+  "21928": {
+    "total_flight_duration": 19945,
+    "total_free_distance": 81.79,
+    "avg_speed": 19.35,
+    "flight_count": 2,
+    "avg_glide_speed": 92.26,
+    "avg_glide_detour": 2.2,
+    "achievement_count": 1,
+    "name": "Christopher Xie",
+    "gender": "M",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "22077": {
     "total_flight_duration": 1513231,
     "total_free_distance": 21329.57,
