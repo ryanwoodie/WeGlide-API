@@ -60,6 +60,26 @@
     },
     "message_enabled": true
   },
+  "5342": {
+    "total_flight_duration": 569060,
+    "total_free_distance": 7285.75,
+    "avg_speed": 49.95,
+    "flight_count": 89,
+    "avg_glide_speed": 107.06,
+    "avg_glide_detour": 1.26,
+    "achievement_count": 8,
+    "name": "Rob Russell",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "5450": {
     "total_flight_duration": 407130,
     "total_free_distance": 4666.76,
