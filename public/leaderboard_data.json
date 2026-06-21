@@ -27,7 +27,7 @@
     "17026": 754524,
     "18113": 3012854,
     "20442": 20561,
-    "20675": 1018158,
+    "20675": 1021114,
     "20706": 158031,
     "20723": 910240,
     "21011": 808385,
@@ -5149,13 +5149,13 @@
       "message_enabled": true
     },
     "20675": {
-      "total_flight_duration": 1018158,
-      "total_free_distance": 18328.67,
-      "avg_speed": 73.63,
-      "flight_count": 82,
-      "avg_glide_speed": 130.65,
+      "total_flight_duration": 1021114,
+      "total_free_distance": 18350.76,
+      "avg_speed": 73.48,
+      "flight_count": 83,
+      "avg_glide_speed": 130.46,
       "avg_glide_detour": 1.25,
-      "achievement_count": 22,
+      "achievement_count": 24,
       "name": "Pavan K",
       "gender": "M",
       "is_junior": false,
@@ -176277,6 +176277,144 @@
         "name": "Paquet",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1127243,
+      "user": {
+        "id": 20675,
+        "name": "Pavan K"
+      },
+      "date": "2026-06-20",
+      "distance": 13.11,
+      "duration": 1461,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "OR",
+        "from_igcfile": true,
+        "distance": 3.42
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 19.73,
+          "distance": 13.11,
+          "speed": 34.68,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 5.97,
+          "distance": 9.97,
+          "speed": 4.99,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 7.99,
+          "distance": 6.23,
+          "speed": 16.37,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 14.62,
+          "distance": 11.4,
+          "speed": 30,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 19,
+          "distance": 11.4,
+          "speed": 30,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Birch Hills",
+        "region": "CA-SK"
+      }
+    },
+    {
+      "id": 1127240,
+      "user": {
+        "id": 20675,
+        "name": "Pavan K"
+      },
+      "date": "2026-06-20",
+      "distance": 16.06,
+      "duration": 2110,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "OR",
+        "from_igcfile": true,
+        "distance": 3.42
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 24.1,
+          "distance": 16.06,
+          "speed": 27.41,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 5.4,
+          "distance": 9.02,
+          "speed": 4.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 11.71,
+          "distance": 9.13,
+          "speed": 18.88,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 9.45,
+          "distance": 7.37,
+          "speed": 16.66,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 16.39,
+          "distance": 9.13,
+          "speed": 18.88,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Birch Hills",
+        "region": "CA-SK"
+      }
     }
   ],
   "clubMetadataById": {
@@ -196653,12 +196791,12 @@
   ],
   "meta": {
     "totalPilots": 164,
-    "totalFlights": 945,
-    "totalKms": 183555,
-    "totalTasksDeclared": 340,
+    "totalFlights": 947,
+    "totalKms": 183584,
+    "totalTasksDeclared": 342,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-21T10:11:43.975Z"
+    "generatedAt": "2026-06-21T18:56:43.638Z"
   }
 }
