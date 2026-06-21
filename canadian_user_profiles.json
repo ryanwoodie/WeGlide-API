@@ -2786,6 +2786,27 @@
     },
     "message_enabled": true
   },
+  "37128": {
+    "total_flight_duration": 11996,
+    "total_free_distance": 111.36,
+    "avg_speed": 36.15,
+    "flight_count": 1,
+    "avg_glide_speed": 103.07,
+    "avg_glide_detour": 1.4,
+    "achievement_count": 1,
+    "name": "Glen Rippon",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 849,
+      "name": "Alberni Valley Soaring Association",
+      "region": "CA-BC",
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
+    },
+    "message_enabled": true
+  },
   "37564": {
     "total_flight_duration": 732992,
     "total_free_distance": 10338.66,
