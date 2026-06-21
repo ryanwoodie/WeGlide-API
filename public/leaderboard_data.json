@@ -2,7 +2,7 @@
   "pilotDurations": {
     "2070": 4877929,
     "2074": 1293257,
-    "4806": 7112787,
+    "4806": 7135109,
     "5342": 569060,
     "5450": 407130,
     "5582": 2688980,
@@ -4648,11 +4648,11 @@
       }
     },
     "4806": {
-      "total_flight_duration": 7112787,
-      "total_free_distance": 144962.13,
-      "avg_speed": 77.19,
-      "flight_count": 435,
-      "avg_glide_speed": 135.38,
+      "total_flight_duration": 7135109,
+      "total_free_distance": 145478.23,
+      "avg_speed": 77.22,
+      "flight_count": 436,
+      "avg_glide_speed": 135.39,
       "avg_glide_detour": 1.21,
       "achievement_count": 30,
       "name": "Luke Szczepaniak",
@@ -176668,6 +176668,75 @@
         "name": "Toronto Soaring Club - Conn",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1127545,
+      "user": {
+        "id": 4806,
+        "name": "Luke Szczepaniak"
+      },
+      "date": "2026-06-21",
+      "distance": 516.1,
+      "duration": 22322,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 547.12
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 519.88,
+          "distance": 516.1,
+          "speed": 87.36,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 90.12,
+          "distance": 199.16,
+          "speed": 99.58,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 223.88,
+          "distance": 255.22,
+          "speed": 43.24,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 199.77,
+          "distance": 227.74,
+          "speed": 58.65,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 434.78,
+          "distance": 495.65,
+          "speed": 83.89,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -197093,12 +197162,12 @@
   ],
   "meta": {
     "totalPilots": 164,
-    "totalFlights": 949,
-    "totalKms": 183866,
-    "totalTasksDeclared": 343,
+    "totalFlights": 950,
+    "totalKms": 184383,
+    "totalTasksDeclared": 344,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-21T22:21:22.136Z"
+    "generatedAt": "2026-06-21T22:31:34.089Z"
   }
 }
