@@ -100,7 +100,7 @@
     "35436": 1015172,
     "35437": 56869,
     "35461": 72195,
-    "35481": 321072,
+    "35481": 330919,
     "35484": 42498,
     "35496": 3339245,
     "35497": 5554,
@@ -6610,11 +6610,11 @@
       "message_enabled": true
     },
     "35481": {
-      "total_flight_duration": 321072,
-      "total_free_distance": 3067.87,
-      "avg_speed": 38.33,
-      "flight_count": 37,
-      "avg_glide_speed": 105.37,
+      "total_flight_duration": 330919,
+      "total_free_distance": 3179.94,
+      "avg_speed": 38.59,
+      "flight_count": 39,
+      "avg_glide_speed": 105.8,
       "avg_glide_detour": 1.47,
       "achievement_count": 7,
       "name": "Francois Carrard",
@@ -175315,6 +175315,136 @@
         "name": "Starbuck",
         "region": "CA-MB"
       }
+    },
+    {
+      "id": 1125733,
+      "user": {
+        "id": 35481,
+        "name": "Francois Carrard"
+      },
+      "date": "2026-06-20",
+      "distance": 81.04,
+      "duration": 7016,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 87.19,
+          "distance": 81.04,
+          "speed": 49.65,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 21.77,
+          "distance": 46.8,
+          "speed": 23.4,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 45.07,
+          "distance": 49.58,
+          "speed": 28.6,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 29.18,
+          "distance": 32.1,
+          "speed": 22.19,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 63.1,
+          "distance": 49.58,
+          "speed": 28.6,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Starbuck",
+        "region": "CA-MB"
+      }
+    },
+    {
+      "id": 1125731,
+      "user": {
+        "id": 35481,
+        "name": "Francois Carrard"
+      },
+      "date": "2026-06-20",
+      "distance": 31.03,
+      "duration": 2831,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 33.9,
+          "distance": 31.03,
+          "speed": 43.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 7.73,
+          "distance": 16.62,
+          "speed": 8.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 18.98,
+          "distance": 20.88,
+          "speed": 48.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 15.12,
+          "distance": 16.63,
+          "speed": 38.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 26.91,
+          "distance": 29.6,
+          "speed": 41.82,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Starbuck",
+        "region": "CA-MB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -195605,12 +195735,12 @@
   ],
   "meta": {
     "totalPilots": 163,
-    "totalFlights": 935,
-    "totalKms": 182423,
+    "totalFlights": 937,
+    "totalKms": 182535,
     "totalTasksDeclared": 337,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-21T00:41:38.325Z"
+    "generatedAt": "2026-06-21T00:51:28.291Z"
   }
 }
