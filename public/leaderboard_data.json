@@ -156,7 +156,7 @@
     "39209": 114573,
     "39261": 11876,
     "39364": 14444,
-    "39399": 54776,
+    "39399": 62120,
     "39438": 5068,
     "39515": 70863,
     "39717": 8580,
@@ -7740,12 +7740,12 @@
       "message_enabled": true
     },
     "39399": {
-      "total_flight_duration": 54776,
-      "total_free_distance": 690.24,
-      "avg_speed": 49.44,
-      "flight_count": 5,
-      "avg_glide_speed": 124.32,
-      "avg_glide_detour": 1.34,
+      "total_flight_duration": 62120,
+      "total_free_distance": 793.14,
+      "avg_speed": 50.24,
+      "flight_count": 6,
+      "avg_glide_speed": 123.98,
+      "avg_glide_detour": 1.33,
       "achievement_count": 1,
       "name": "Andrzej Konarzewski",
       "gender": "M",
@@ -176929,6 +176929,62 @@
         "name": "Rockton SOSA On",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1127658,
+      "user": {
+        "id": 39399,
+        "name": "Andrzej Konarzewski"
+      },
+      "date": "2026-06-21",
+      "distance": 102.9,
+      "duration": 7344,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 116.2,
+          "distance": 102.9,
+          "speed": 56.37,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 29.85,
+          "distance": 62.38,
+          "speed": 31.19,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 63.75,
+          "distance": 67.57,
+          "speed": 40.11,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 53.48,
+          "distance": 56.69,
+          "speed": 37.09,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Starbuck",
+        "region": "CA-MB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -197405,12 +197461,12 @@
   ],
   "meta": {
     "totalPilots": 164,
-    "totalFlights": 953,
-    "totalKms": 185234,
+    "totalFlights": 954,
+    "totalKms": 185337,
     "totalTasksDeclared": 346,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-22T01:11:36.186Z"
+    "generatedAt": "2026-06-22T01:36:28.438Z"
   }
 }
