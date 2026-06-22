@@ -119,6 +119,7 @@
     "35709": 157586,
     "35714": 2421190,
     "35732": 8876,
+    "35744": 223467,
     "35759": 29116,
     "35763": 205782,
     "35776": 16206,
@@ -3702,6 +3703,25 @@
       "combinedHoursBeforeCutoff": 0.99,
       "eligibleUnder200": true
     },
+    "35744": {
+      "pilotId": 35744,
+      "weglidePilotId": "wg:35744",
+      "olcPilotId": "54046",
+      "pilotName": "Alex Upchurch",
+      "matchKind": "olc_name_only",
+      "normalizedName": "alexupchurch",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 60.44,
+      "olcOnlyHours": 60.44,
+      "combinedHours": 60.44,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 60.44,
+      "combinedHoursBeforeCutoff": 60.44,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
+    },
     "35748": {
       "pilotId": 35748,
       "weglidePilotId": "wg:35748",
@@ -7010,6 +7030,21 @@
         "region": "CA-AB",
         "url": "http://www.edmontonsoaringclub.com"
       },
+      "message_enabled": true
+    },
+    "35744": {
+      "total_flight_duration": 223467,
+      "total_free_distance": 2601.22,
+      "avg_speed": 49.32,
+      "flight_count": 26,
+      "avg_glide_speed": 107.94,
+      "avg_glide_detour": 1.36,
+      "achievement_count": 2,
+      "name": "Alex Upchurch",
+      "gender": "M",
+      "is_junior": false,
+      "is_senior": true,
+      "club": null,
       "message_enabled": true
     },
     "35759": {
@@ -17100,6 +17135,33 @@
       "awards": []
     },
     {
+      "pilot": "Alex Upchurch",
+      "pilotId": 35744,
+      "totalPoints": 132.39,
+      "totalDistance": 113.85,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1128157,
+          "userId": 35744,
+          "date": "2026-06-21",
+          "distance": 113.85,
+          "speed": 61.86,
+          "points": 132.39,
+          "takeoff": "Arthur",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Jeff Runciman",
       "pilotId": 38955,
       "totalPoints": 128.86,
@@ -24869,6 +24931,32 @@
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
+        }
+      ]
+    },
+    {
+      "pilot": "Alex Upchurch",
+      "pilotId": 35744,
+      "totalPoints": 38.9,
+      "totalDistance": 80.14,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1128157,
+          "userId": 35744,
+          "date": "2026-06-21",
+          "distance": 80.14,
+          "speed": 40.07,
+          "points": 38.9,
+          "takeoff": "Arthur",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
         }
       ]
     },
@@ -33085,6 +33173,32 @@
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
+        }
+      ]
+    },
+    {
+      "pilot": "Alex Upchurch",
+      "pilotId": 35744,
+      "totalPoints": 76.4,
+      "totalDistance": 79.46,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1128157,
+          "userId": 35744,
+          "date": "2026-06-21",
+          "distance": 79.46,
+          "speed": 53.01,
+          "points": 76.4,
+          "takeoff": "Arthur",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
         }
       ]
     },
@@ -41726,6 +41840,32 @@
           "aircraftKind": "GL",
           "aircraftName": "G 102 Astir CS",
           "dmstIndex": 96,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Alex Upchurch",
+      "pilotId": 35744,
+      "totalPoints": 50.92,
+      "totalDistance": 52.96,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1128157,
+          "userId": 35744,
+          "date": "2026-06-21",
+          "distance": 52.96,
+          "speed": 31.97,
+          "points": 50.92,
+          "takeoff": "Arthur",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -114628,6 +114768,72 @@
         "dmstIndex": 85
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1128157,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 37.54,
+        "thermal_avg": 1.15,
+        "glide_speed": 111.49,
+        "glide_speed_lift": 100.4,
+        "glide_speed_sink": 109.76,
+        "altitude_avg": 1534,
+        "agl_avg": 1072,
+        "thermal_count": 12,
+        "thermal_gain": 2070,
+        "thermal_radius": 153.73,
+        "thermal_start_agl": 1052,
+        "thermal_bank": 24.8,
+        "glide_percentage": 0.68,
+        "glide_percentage_lift": 0.3,
+        "duration": 6626,
+        "thermal_time": 1794,
+        "glide_time": 4537,
+        "wind_speed": 15.99,
+        "wind_direction": 270,
+        "attempt_count": 5,
+        "attempt_avg": 0.04,
+        "attempt_speed_loss": 2.88,
+        "below_1000_agl": 0.2839,
+        "below_800_agl": 0.0613,
+        "below_600_agl": 0.0258,
+        "below_400_agl": 0.0177,
+        "below_200_agl": 0.0012,
+        "below_100_agl": 0,
+        "track_distance": 140.51,
+        "glide_detour": 1.23,
+        "glide_distance": 6.43,
+        "glide_alt_avg": 1522,
+        "end_time": "2026-06-21T20:26:13+00:00",
+        "start_time": "2026-06-21T18:35:47+00:00",
+        "finish_alt": 607
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 132.39,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 113.85,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 113.85,
+        "weglideFreeDistance": 113.85,
+        "dmstIndex": 104
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -177844,6 +178050,62 @@
         "name": "Port Alberni",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1128157,
+      "user": {
+        "id": 35744,
+        "name": "Alex Upchurch"
+      },
+      "date": "2026-06-21",
+      "distance": 113.85,
+      "duration": 7278,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 132.39,
+          "distance": 113.85,
+          "speed": 61.86,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 38.9,
+          "distance": 80.14,
+          "speed": 40.07,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 76.4,
+          "distance": 79.46,
+          "speed": 53.01,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 50.92,
+          "distance": 52.96,
+          "speed": 31.97,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Arthur",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -187864,6 +188126,32 @@
           "errorReasons": [
             "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
+        }
+      ]
+    },
+    {
+      "pilot": "Alex Upchurch",
+      "pilotId": 35744,
+      "totalPoints": 132.39,
+      "totalDistance": 113.85,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1128157,
+          "userId": 35744,
+          "date": "2026-06-21",
+          "distance": 113.85,
+          "speed": 61.86,
+          "points": 132.39,
+          "takeoff": "Arthur",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
         }
       ]
     },
@@ -198405,13 +198693,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 165,
-    "totalFlights": 959,
-    "totalKms": 186151,
+    "totalPilots": 166,
+    "totalFlights": 960,
+    "totalKms": 186265,
     "totalTasksDeclared": 348,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-22T09:16:20.097Z"
+    "generatedAt": "2026-06-22T13:51:50.504Z"
   }
 }

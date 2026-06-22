@@ -3538,6 +3538,25 @@
       "combinedHoursBeforeCutoff": 0.99,
       "eligibleUnder200": true
     },
+    "35744": {
+      "pilotId": 35744,
+      "weglidePilotId": "wg:35744",
+      "olcPilotId": "54046",
+      "pilotName": "Alex Upchurch",
+      "matchKind": "olc_name_only",
+      "normalizedName": "alexupchurch",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 60.44,
+      "olcOnlyHours": 60.44,
+      "combinedHours": 60.44,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 60.44,
+      "combinedHoursBeforeCutoff": 60.44,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
+    },
     "35748": {
       "pilotId": 35748,
       "weglidePilotId": "wg:35748",
