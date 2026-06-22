@@ -2365,6 +2365,26 @@
       "url": "https://www.gatineauglidingclub.ca"
     }
   },
+  "35722": {
+    "total_flight_duration": 14985,
+    "total_free_distance": 78.21,
+    "avg_speed": 21.38,
+    "flight_count": 2,
+    "avg_glide_speed": 93.81,
+    "avg_glide_detour": 2.85,
+    "achievement_count": 0,
+    "name": "John Edwards",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35732": {
     "total_flight_duration": 8876,
     "total_free_distance": 89.05,
