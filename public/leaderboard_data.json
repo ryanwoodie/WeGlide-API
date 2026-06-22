@@ -4641,6 +4641,13 @@
         "verifiedDate": "2026-06-10T16:23:53.977Z",
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "38085": {
+        "pilotName": "Marco Martins",
+        "picHours": 200,
+        "verifiedDate": "2026-06-22T17:06:08.809Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
       }
     },
     "dobVerifications": {}
@@ -198700,6 +198707,6 @@
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-22T16:43:14.846Z"
+    "generatedAt": "2026-06-22T17:07:36.786Z"
   }
 }
