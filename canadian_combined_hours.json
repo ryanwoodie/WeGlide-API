@@ -4358,6 +4358,25 @@
       "combinedHoursBeforeCutoff": 4.1,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "40257": {
+      "pilotId": 40257,
+      "weglidePilotId": "wg:40257",
+      "olcPilotId": "44286",
+      "pilotName": "Andrzej Roznowski",
+      "matchKind": "olc_name_only",
+      "normalizedName": "andrzejroznowski",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 148.91,
+      "olcOnlyHours": 148.91,
+      "combinedHours": 148.91,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 148.91,
+      "combinedHoursBeforeCutoff": 148.91,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {

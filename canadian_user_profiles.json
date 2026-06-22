@@ -3268,5 +3268,26 @@
       "logo": "club/1168.png"
     },
     "message_enabled": true
+  },
+  "40257": {
+    "total_flight_duration": 8075,
+    "total_free_distance": 116.72,
+    "avg_speed": 56.91,
+    "flight_count": 1,
+    "avg_glide_speed": 113.42,
+    "avg_glide_detour": 1.36,
+    "achievement_count": 1,
+    "name": "Andrzej Roznowski",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 849,
+      "name": "Alberni Valley Soaring Association",
+      "region": "CA-BC",
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
+    },
+    "message_enabled": true
   }
 }
