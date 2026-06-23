@@ -619,6 +619,10 @@ async function processCanadianFlights() {
     const pilotFlightsOut = {}; // Straight out (goal) contest scoring
     let totalProcessed = 0;
     let australianCount = 0;
+    // Guard against duplicate flight rows in the dataset (the fetch pipeline can
+    // re-append a flight that is already stored). Without this, a duplicated row
+    // occupies two top-N slots and double-counts in a pilot's total points.
+    const seenFlightIds = new Set();
     let australianFlights = []; // Store all flight data for detailed tooltips
     let allFlightData = []; // Store all original flight data for statistics
     let seasonStartDate = null;
@@ -637,6 +641,14 @@ async function processCanadianFlights() {
 
                 try {
                     const flight = JSON.parse(line);
+
+                    // Skip duplicate flight rows so a flight is never counted twice.
+                    if (flight && flight.id != null) {
+                        if (seenFlightIds.has(flight.id)) {
+                            continue;
+                        }
+                        seenFlightIds.add(flight.id);
+                    }
 
                     // All flights in this file are Canadian
                     australianCount++;

@@ -632,7 +632,35 @@ async function appendFlightsToDataset(newFlightDetails) {
         }
     }
 
-    const payload = newFlightDetails.map(flight => JSON.stringify(flight)).join('\n') + '\n';
+    // Backstop against duplicates: the `existing.ids` baseline can lag the persisted
+    // dataset (the bundled repo file is preferred over live GitHub, and auto-commits
+    // use [skip ci] so the bundle never redeploys). Never append an id already present.
+    const existingIds = new Set();
+    if (fs.existsSync(DATASET_FILE)) {
+        const rl = readline.createInterface({
+            input: fs.createReadStream(DATASET_FILE),
+            crlfDelay: Infinity
+        });
+        for await (const line of rl) {
+            const trimmed = line.trim();
+            if (!trimmed) continue;
+            try {
+                const id = JSON.parse(trimmed).id;
+                if (id != null) existingIds.add(id);
+            } catch (e) { /* leave malformed lines untouched */ }
+        }
+    }
+
+    const toAppend = newFlightDetails.filter(flight => flight && flight.id != null && !existingIds.has(flight.id));
+    const skipped = newFlightDetails.length - toAppend.length;
+    if (skipped > 0) {
+        log(`appendFlightsToDataset: skipped ${skipped} flight(s) already present in dataset.`);
+    }
+    if (!toAppend.length) {
+        return;
+    }
+
+    const payload = toAppend.map(flight => JSON.stringify(flight)).join('\n') + '\n';
 
     // Write to the working dataset file in /tmp or local directory
     await new Promise((resolve, reject) => {
