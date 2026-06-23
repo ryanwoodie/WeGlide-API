@@ -2821,6 +2821,27 @@
     },
     "message_enabled": true
   },
+  "37102": {
+    "total_flight_duration": 30680,
+    "total_free_distance": 426.12,
+    "avg_speed": 52.77,
+    "flight_count": 2,
+    "avg_glide_speed": 116.94,
+    "avg_glide_detour": 1.78,
+    "achievement_count": 2,
+    "name": "Les Sainsbury",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 849,
+      "name": "Alberni Valley Soaring Association",
+      "region": "CA-BC",
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
+    },
+    "message_enabled": true
+  },
   "37128": {
     "total_flight_duration": 23644,
     "total_free_distance": 221.77,
