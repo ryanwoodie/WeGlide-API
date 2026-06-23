@@ -1361,14 +1361,22 @@ async function processCanadianFlights() {
                 totalDistance
             });
         };
+        // Re-sort after applyMinPointsAndAggregate: it recomputes totalPoints once
+        // sub-50-point flights are dropped, which can change a pilot's total relative
+        // to generateLeaderboard's original ordering. Without this re-sort, pilots who
+        // lose a sub-50 flight keep their inflated rank position.
+        const byTotalPointsDesc = (a, b) => (b.totalPoints || 0) - (a.totalPoints || 0);
+
         const filteredFreeLeaderboard = freeLeaderboard.map(applyMinPointsAndAggregate)
-            .filter(p => (p.bestFlights || []).length > 0);
+            .filter(p => (p.bestFlights || []).length > 0)
+            .sort(byTotalPointsDesc);
 
         const aircraftAwards = calculateAircraftAwards(filteredFreeLeaderboard);
 
         // Apply minimum score filter before building outputs
         const filteredSacDscLeaderboard = sacDscLeaderboard.map(applyMinPointsAndAggregate)
-            .filter(p => (p.bestFlights || []).length > 0);
+            .filter(p => (p.bestFlights || []).length > 0)
+            .sort(byTotalPointsDesc);
 
         const sacDscLeaderboardOutput = filteredSacDscLeaderboard;
         const freeLeaderboardOutput = filteredFreeLeaderboard;
