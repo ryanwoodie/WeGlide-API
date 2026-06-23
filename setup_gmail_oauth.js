@@ -4,6 +4,10 @@ const { google } = require('googleapis');
 const { GMAIL_API_SCOPE } = require('./lib/verification-email');
 
 const DEFAULT_REDIRECT_URI = process.env.GMAIL_OAUTH_REDIRECT_URI || 'http://127.0.0.1:3005/oauth2callback';
+const OAUTH_SCOPES = [
+    GMAIL_API_SCOPE,
+    'https://www.googleapis.com/auth/userinfo.email'
+];
 
 function getArg(name) {
     const prefix = `--${name}=`;
@@ -117,7 +121,7 @@ async function main() {
     const authUrl = oauth2Client.generateAuthUrl({
         access_type: 'offline',
         prompt: 'consent',
-        scope: [GMAIL_API_SCOPE]
+        scope: OAUTH_SCOPES
     });
 
     console.log('Open this URL and sign into the Gmail account you want the app to send from:');
@@ -133,13 +137,25 @@ async function main() {
         throw new Error('Google did not return a refresh token. Remove prior access for this OAuth client and rerun with prompt=consent.');
     }
 
+    oauth2Client.setCredentials(tokens);
+    const oauth2 = google.oauth2({
+        version: 'v2',
+        auth: oauth2Client
+    });
+    const profile = await oauth2.userinfo.get();
+    const emailAddress = String(profile.data.email || '').trim();
+
+    if (!emailAddress) {
+        throw new Error('Google OAuth completed, but no email address was returned for the authorized account.');
+    }
+
     console.log('Set these Vercel production env vars:');
     console.log(`GMAIL_OAUTH_CLIENT_ID=${config.clientId}`);
     console.log(`GMAIL_OAUTH_CLIENT_SECRET=${config.clientSecret}`);
     console.log(`GMAIL_OAUTH_REFRESH_TOKEN=${tokens.refresh_token}`);
     console.log(`GMAIL_OAUTH_REDIRECT_URI=${config.redirectUri}`);
-    console.log('GMAIL_OAUTH_USER=the_gmail_address_you_authorized@gmail.com');
-    console.log('EMAIL_FROM=the_gmail_address_you_authorized@gmail.com');
+    console.log(`GMAIL_OAUTH_USER=${emailAddress}`);
+    console.log(`EMAIL_FROM=${emailAddress}`);
     console.log('');
     console.log('After setting those, redeploy and verify the request-verification endpoint.');
 }
