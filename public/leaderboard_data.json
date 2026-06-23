@@ -80,7 +80,7 @@
     "35288": 4241215,
     "35296": 392716,
     "35326": 1784627,
-    "35337": 107288,
+    "35337": 112574,
     "35349": 8956,
     "35350": 920042,
     "35351": 263258,
@@ -6259,11 +6259,11 @@
       "message_enabled": true
     },
     "35337": {
-      "total_flight_duration": 107288,
-      "total_free_distance": 1731.17,
-      "avg_speed": 59.8,
-      "flight_count": 7,
-      "avg_glide_speed": 104.47,
+      "total_flight_duration": 112574,
+      "total_free_distance": 1788.94,
+      "avg_speed": 59.45,
+      "flight_count": 8,
+      "avg_glide_speed": 103.96,
       "avg_glide_detour": 1.11,
       "achievement_count": 7,
       "name": "Mike North",
@@ -178595,6 +178595,71 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1129068,
+      "user": {
+        "id": 35337,
+        "name": "Mike North"
+      },
+      "date": "2026-06-21",
+      "distance": 57.77,
+      "duration": 5286,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 68.54,
+          "distance": 57.77,
+          "speed": 50.42,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 17.98,
+          "distance": 36.5,
+          "speed": 18.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 39.67,
+          "distance": 40.46,
+          "speed": 42.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 26.57,
+          "distance": 27.1,
+          "speed": 30.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 55.53,
+          "distance": 40.46,
+          "speed": 42.7,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Pendleton GATGC",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -199228,12 +199293,12 @@
   ],
   "meta": {
     "totalPilots": 167,
-    "totalFlights": 963,
-    "totalKms": 186542,
+    "totalFlights": 964,
+    "totalKms": 186599,
     "totalTasksDeclared": 348,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-23T00:31:43.473Z"
+    "generatedAt": "2026-06-23T00:41:28.496Z"
   }
 }
