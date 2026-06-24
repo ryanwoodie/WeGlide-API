@@ -1822,6 +1822,26 @@
       "url": "https://www.yorksoaring.com"
     }
   },
+  "35424": {
+    "total_flight_duration": 17783,
+    "total_free_distance": 429.86,
+    "avg_speed": 88.45,
+    "flight_count": 1,
+    "avg_glide_speed": 143.4,
+    "avg_glide_detour": 1.07,
+    "achievement_count": 1,
+    "name": "Robert Zachemski",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35426": {
     "total_flight_duration": 537972,
     "total_free_distance": 3909.44,
