@@ -11381,84 +11381,6 @@
       "awards": []
     },
     {
-      "pilot": "Pavan K",
-      "pilotId": 20675,
-      "totalPoints": 1106.77,
-      "totalDistance": 990.6300000000001,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 1094250,
-          "userId": 20675,
-          "date": "2026-05-23",
-          "distance": 322.11,
-          "speed": 84.49,
-          "points": 358.47,
-          "takeoff": "Foremost",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 400 17m",
-          "dmstIndex": 109,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1087932,
-          "userId": 20675,
-          "date": "2026-05-18",
-          "distance": 238.85,
-          "speed": 89.01,
-          "points": 273.76,
-          "takeoff": "Lethbridge County",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 400 17m",
-          "dmstIndex": 109,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1115508,
-          "userId": 20675,
-          "date": "2026-06-08",
-          "distance": 285.42,
-          "speed": 95.71,
-          "points": 263.79,
-          "takeoff": "High River",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 400 17m",
-          "dmstIndex": 109,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1119865,
-          "userId": 20675,
-          "date": "2026-06-14",
-          "distance": 144.25,
-          "speed": 58.03,
-          "points": 210.75,
-          "takeoff": "Birch Hills",
-          "region": "CA-SK",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Ka 6 E",
-          "dmstIndex": 85,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Bryan Swansburg",
       "pilotId": 17026,
       "totalPoints": 1119.6799999999998,
@@ -11649,77 +11571,77 @@
       "awards": []
     },
     {
-      "pilot": "Csaba Balazs",
-      "pilotId": 35431,
-      "totalPoints": 1055.6100000000001,
-      "totalDistance": 911,
+      "pilot": "Pavan K",
+      "pilotId": 20675,
+      "totalPoints": 1106.77,
+      "totalDistance": 990.6300000000001,
       "flightCount": 4,
       "bestFlights": [
         {
-          "id": 1107042,
-          "userId": 35431,
-          "date": "2026-06-01",
-          "distance": 380.83,
-          "speed": 79.71,
-          "points": 422.05,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
+          "id": 1094250,
+          "userId": 20675,
+          "date": "2026-05-23",
+          "distance": 322.11,
+          "speed": 84.49,
+          "points": 358.47,
+          "takeoff": "Foremost",
+          "region": "CA-AB",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 24",
-          "dmstIndex": 106,
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1076709,
-          "userId": 35431,
-          "date": "2026-05-09",
-          "distance": 241.68,
-          "speed": 78.26,
-          "points": 283.6,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
+          "id": 1087932,
+          "userId": 20675,
+          "date": "2026-05-18",
+          "distance": 238.85,
+          "speed": 89.01,
+          "points": 273.76,
+          "takeoff": "Lethbridge County",
+          "region": "CA-AB",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 24",
-          "dmstIndex": 106,
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1107662,
-          "userId": 35431,
-          "date": "2026-06-02",
-          "distance": 141.16,
-          "speed": 44.6,
-          "points": 184.34,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
+          "id": 1115508,
+          "userId": 20675,
+          "date": "2026-06-08",
+          "distance": 285.42,
+          "speed": 95.71,
+          "points": 263.79,
+          "takeoff": "High River",
+          "region": "CA-AB",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 102 Astir CS",
-          "dmstIndex": 96,
+          "aircraftKind": "MG",
+          "aircraftName": "DG 400 17m",
+          "dmstIndex": 109,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1069710,
-          "userId": 35431,
-          "date": "2026-05-03",
-          "distance": 147.33,
-          "speed": 52.76,
-          "points": 165.62,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
+          "id": 1119865,
+          "userId": 20675,
+          "date": "2026-06-14",
+          "distance": 144.25,
+          "speed": 58.03,
+          "points": 210.75,
+          "takeoff": "Birch Hills",
+          "region": "CA-SK",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "ASW 24",
-          "dmstIndex": 106,
+          "aircraftName": "Ka 6 E",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -11910,6 +11832,84 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus 2b",
           "dmstIndex": 114,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Csaba Balazs",
+      "pilotId": 35431,
+      "totalPoints": 1055.6100000000001,
+      "totalDistance": 911,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1107042,
+          "userId": 35431,
+          "date": "2026-06-01",
+          "distance": 380.83,
+          "speed": 79.71,
+          "points": 422.05,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 24",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1076709,
+          "userId": 35431,
+          "date": "2026-05-09",
+          "distance": 241.68,
+          "speed": 78.26,
+          "points": 283.6,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 24",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1107662,
+          "userId": 35431,
+          "date": "2026-06-02",
+          "distance": 141.16,
+          "speed": 44.6,
+          "points": 184.34,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1069710,
+          "userId": 35431,
+          "date": "2026-05-03",
+          "distance": 147.33,
+          "speed": 52.76,
+          "points": 165.62,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 24",
+          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -13250,84 +13250,6 @@
       "awards": []
     },
     {
-      "pilot": "Marc-André Rathé",
-      "pilotId": 35427,
-      "totalPoints": 640.4100000000001,
-      "totalDistance": 537.42,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 1091243,
-          "userId": 35427,
-          "date": "2026-05-22",
-          "distance": 170.62,
-          "speed": 46.99,
-          "points": 201.74,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 4",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080434,
-          "userId": 35427,
-          "date": "2026-05-12",
-          "distance": 137.27,
-          "speed": 56.89,
-          "points": 186.74,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 21",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 918255,
-          "userId": 35427,
-          "date": "2025-10-09",
-          "distance": 115,
-          "speed": 39.94,
-          "points": 136.68,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 4",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1121043,
-          "userId": 35427,
-          "date": "2026-06-16",
-          "distance": 114.53,
-          "speed": 39.94,
-          "points": 115.25,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 4",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Brandon Davies",
       "pilotId": 35272,
       "totalPoints": 685.23,
@@ -13423,6 +13345,50 @@
       "awards": []
     },
     {
+      "pilot": "Ian Grant",
+      "pilotId": 36013,
+      "totalPoints": 656.72,
+      "totalDistance": 602.62,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1077143,
+          "userId": 36013,
+          "date": "2026-05-09",
+          "distance": 393.16,
+          "speed": 93.81,
+          "points": 433.25,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus 2b",
+          "dmstIndex": 108,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1051875,
+          "userId": 36013,
+          "date": "2026-04-24",
+          "distance": 209.46,
+          "speed": 78.65,
+          "points": 223.47,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus 2b",
+          "dmstIndex": 108,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
       "totalPoints": 652.61,
@@ -13467,43 +13433,77 @@
       "awards": []
     },
     {
-      "pilot": "Ian Grant",
-      "pilotId": 36013,
-      "totalPoints": 656.72,
-      "totalDistance": 602.62,
-      "flightCount": 2,
+      "pilot": "Marc-André Rathé",
+      "pilotId": 35427,
+      "totalPoints": 640.4100000000001,
+      "totalDistance": 537.42,
+      "flightCount": 4,
       "bestFlights": [
         {
-          "id": 1077143,
-          "userId": 36013,
-          "date": "2026-05-09",
-          "distance": 393.16,
-          "speed": 93.81,
-          "points": 433.25,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
+          "id": 1091243,
+          "userId": 35427,
+          "date": "2026-05-22",
+          "distance": 170.62,
+          "speed": 46.99,
+          "points": 201.74,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "Discus 2b",
-          "dmstIndex": 108,
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1051875,
-          "userId": 36013,
-          "date": "2026-04-24",
-          "distance": 209.46,
-          "speed": 78.65,
-          "points": 223.47,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
+          "id": 1080434,
+          "userId": 35427,
+          "date": "2026-05-12",
+          "distance": 137.27,
+          "speed": 56.89,
+          "points": 186.74,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "Discus 2b",
-          "dmstIndex": 108,
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 918255,
+          "userId": 35427,
+          "date": "2025-10-09",
+          "distance": 115,
+          "speed": 39.94,
+          "points": 136.68,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1121043,
+          "userId": 35427,
+          "date": "2026-06-16",
+          "distance": 114.53,
+          "speed": 39.94,
+          "points": 115.25,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -14650,52 +14650,6 @@
       "awards": []
     },
     {
-      "pilot": "Ryan Wood",
-      "pilotId": 20723,
-      "totalPoints": 434.99,
-      "totalDistance": 330.87,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1119838,
-          "userId": 20723,
-          "date": "2026-06-14",
-          "distance": 330.87,
-          "speed": 81.26,
-          "points": 434.99,
-          "takeoff": "Birch Hills",
-          "region": "CA-SK",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Std. Libelle",
-          "dmstIndex": 98,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1106224,
-          "userId": 20723,
-          "date": "2026-05-30",
-          "distance": 163.9,
-          "speed": 50.79,
-          "points": 217.35,
-          "takeoff": "Grenfell",
-          "region": "CA-SK",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Swift-Light",
-          "dmstIndex": 76,
-          "invalid": true,
-          "errorReasons": [
-            "No G-Record (Integrity Check) found."
-          ]
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Pascal Hayet",
       "pilotId": 23795,
       "totalPoints": 458.88,
@@ -14791,67 +14745,6 @@
       "awards": []
     },
     {
-      "pilot": "Omar Duric",
-      "pilotId": 35426,
-      "totalPoints": 369.58,
-      "totalDistance": 327.81,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1051868,
-          "userId": 35426,
-          "date": "2026-04-24",
-          "distance": 141.45,
-          "speed": 46.27,
-          "points": 148.66,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 102 Std. Astir",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1064926,
-          "userId": 35426,
-          "date": "2026-05-01",
-          "distance": 110.97,
-          "speed": 26.19,
-          "points": 134.5,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 923235,
-          "userId": 35426,
-          "date": "2025-10-13",
-          "distance": 75.39,
-          "speed": 24.6,
-          "points": 86.42,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 102 Std. Astir",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Artur Siwic",
       "pilotId": 12276,
       "totalPoints": 445.83000000000004,
@@ -14908,6 +14801,52 @@
           "dmstIndex": 107,
           "invalid": false,
           "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Ryan Wood",
+      "pilotId": 20723,
+      "totalPoints": 434.99,
+      "totalDistance": 330.87,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1119838,
+          "userId": 20723,
+          "date": "2026-06-14",
+          "distance": 330.87,
+          "speed": 81.26,
+          "points": 434.99,
+          "takeoff": "Birch Hills",
+          "region": "CA-SK",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Std. Libelle",
+          "dmstIndex": 98,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1106224,
+          "userId": 20723,
+          "date": "2026-05-30",
+          "distance": 163.9,
+          "speed": 50.79,
+          "points": 217.35,
+          "takeoff": "Grenfell",
+          "region": "CA-SK",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Swift-Light",
+          "dmstIndex": 76,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found."
+          ]
         }
       ],
       "awards": []
@@ -15160,19 +15099,36 @@
       "awards": []
     },
     {
-      "pilot": "Kevin Klock",
-      "pilotId": 35433,
-      "totalPoints": 317.62,
-      "totalDistance": 262.55,
-      "flightCount": 4,
+      "pilot": "Omar Duric",
+      "pilotId": 35426,
+      "totalPoints": 369.58,
+      "totalDistance": 327.81,
+      "flightCount": 3,
       "bestFlights": [
         {
-          "id": 1032041,
-          "userId": 35433,
-          "date": "2026-04-06",
-          "distance": 88.74,
-          "speed": 22.44,
-          "points": 110.86,
+          "id": 1051868,
+          "userId": 35426,
+          "date": "2026-04-24",
+          "distance": 141.45,
+          "speed": 46.27,
+          "points": 148.66,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Std. Astir",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1064926,
+          "userId": 35426,
+          "date": "2026-05-01",
+          "distance": 110.97,
+          "speed": 26.19,
+          "points": 134.5,
           "takeoff": "Hope",
           "region": "CA-BC",
           "declared": false,
@@ -15184,53 +15140,19 @@
           "errorReasons": []
         },
         {
-          "id": 923242,
-          "userId": 35433,
+          "id": 923235,
+          "userId": 35426,
           "date": "2025-10-13",
-          "distance": 73.25,
-          "speed": 28.71,
-          "points": 78.87,
+          "distance": 75.39,
+          "speed": 24.6,
+          "points": 86.42,
           "takeoff": "Hope",
           "region": "CA-BC",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "DG 500 20m",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 886768,
-          "userId": 35433,
-          "date": "2025-09-28",
-          "distance": 59.8,
-          "speed": 21.79,
-          "points": 75.95,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 102 Club Astir",
-          "dmstIndex": 91,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 903403,
-          "userId": 35433,
-          "date": "2025-10-03",
-          "distance": 40.76,
-          "speed": 16.47,
-          "points": 51.94,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 102 Club Astir",
-          "dmstIndex": 91,
+          "aircraftName": "G 102 Std. Astir",
+          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -15423,43 +15345,77 @@
       "awards": []
     },
     {
-      "pilot": "Alain Bouliane",
-      "pilotId": 35763,
-      "totalPoints": 287.36,
-      "totalDistance": 257.48,
-      "flightCount": 2,
+      "pilot": "Kevin Klock",
+      "pilotId": 35433,
+      "totalPoints": 317.62,
+      "totalDistance": 262.55,
+      "flightCount": 4,
       "bestFlights": [
         {
-          "id": 918389,
-          "userId": 35763,
-          "date": "2025-10-09",
-          "distance": 131.81,
-          "speed": 39.01,
-          "points": 151.69,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
+          "id": 1032041,
+          "userId": 35433,
+          "date": "2026-04-06",
+          "distance": 88.74,
+          "speed": 22.44,
+          "points": 110.86,
+          "takeoff": "Hope",
+          "region": "CA-BC",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "DG 300",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 923242,
+          "userId": 35433,
+          "date": "2025-10-13",
+          "distance": 73.25,
+          "speed": 28.71,
+          "points": 78.87,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 500 20m",
           "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 897603,
-          "userId": 35763,
-          "date": "2025-10-01",
-          "distance": 125.67,
-          "speed": 40.16,
-          "points": 135.67,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
+          "id": 886768,
+          "userId": 35433,
+          "date": "2025-09-28",
+          "distance": 59.8,
+          "speed": 21.79,
+          "points": 75.95,
+          "takeoff": "Hope",
+          "region": "CA-BC",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "DG 303",
-          "dmstIndex": 105,
+          "aircraftName": "G 102 Club Astir",
+          "dmstIndex": 91,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 903403,
+          "userId": 35433,
+          "date": "2025-10-03",
+          "distance": 40.76,
+          "speed": 16.47,
+          "points": 51.94,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Club Astir",
+          "dmstIndex": 91,
           "invalid": false,
           "errorReasons": []
         }
@@ -15504,94 +15460,6 @@
           "aircraftKind": "GL",
           "aircraftName": "PW 5",
           "dmstIndex": 85,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Elliot Côté",
-      "pilotId": 38833,
-      "totalPoints": 231.51,
-      "totalDistance": 174.54,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1077050,
-          "userId": 38833,
-          "date": "2026-05-09",
-          "distance": 106.91,
-          "speed": 39.85,
-          "points": 141.88,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 21",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1091203,
-          "userId": 38833,
-          "date": "2026-05-22",
-          "distance": 67.63,
-          "speed": 44.72,
-          "points": 89.63,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Paulo Matioli",
-      "pilotId": 13388,
-      "totalPoints": 262.31,
-      "totalDistance": 212.42000000000002,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1066903,
-          "userId": 13388,
-          "date": "2026-05-01",
-          "distance": 161.55,
-          "speed": 50.82,
-          "points": 198.49,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-50 Puchacz",
-          "dmstIndex": 84,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080488,
-          "userId": 13388,
-          "date": "2026-05-12",
-          "distance": 50.87,
-          "speed": 20.68,
-          "points": 63.82,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
           "invalid": false,
           "errorReasons": []
         }
@@ -15697,6 +15565,50 @@
       "awards": []
     },
     {
+      "pilot": "Alain Bouliane",
+      "pilotId": 35763,
+      "totalPoints": 287.36,
+      "totalDistance": 257.48,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 918389,
+          "userId": 35763,
+          "date": "2025-10-09",
+          "distance": 131.81,
+          "speed": 39.01,
+          "points": 151.69,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 300",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 897603,
+          "userId": 35763,
+          "date": "2025-10-01",
+          "distance": 125.67,
+          "speed": 40.16,
+          "points": 135.67,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 303",
+          "dmstIndex": 105,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Frederic Chauvin",
       "pilotId": 28158,
       "totalPoints": 269.39,
@@ -15751,6 +15663,50 @@
       "awards": []
     },
     {
+      "pilot": "Paulo Matioli",
+      "pilotId": 13388,
+      "totalPoints": 262.31,
+      "totalDistance": 212.42000000000002,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1066903,
+          "userId": 13388,
+          "date": "2026-05-01",
+          "distance": 161.55,
+          "speed": 50.82,
+          "points": 198.49,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-50 Puchacz",
+          "dmstIndex": 84,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1080488,
+          "userId": 13388,
+          "date": "2026-05-12",
+          "distance": 50.87,
+          "speed": 20.68,
+          "points": 63.82,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Philippe Leonard Stang",
       "pilotId": 39194,
       "totalPoints": 251.19,
@@ -15788,67 +15744,6 @@
           "aircraftKind": "GL",
           "aircraftName": "LS 4",
           "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Thomas Link",
-      "pilotId": 23352,
-      "totalPoints": 202.17999999999998,
-      "totalDistance": 142.24,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1111892,
-          "userId": 23352,
-          "date": "2026-06-06",
-          "distance": 53.96,
-          "speed": 51.83,
-          "points": 74.72,
-          "takeoff": "Innisfail",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-50 Puchacz",
-          "dmstIndex": 84,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1096569,
-          "userId": 23352,
-          "date": "2026-05-24",
-          "distance": 49.1,
-          "speed": 31.72,
-          "points": 73.8,
-          "takeoff": "Innisfail",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "L23 SuperBlanik 18.2m",
-          "dmstIndex": 80,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1087927,
-          "userId": 23352,
-          "date": "2026-05-18",
-          "distance": 39.18,
-          "speed": 40.71,
-          "points": 53.66,
-          "takeoff": "Innisfail",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-50 Puchacz",
-          "dmstIndex": 84,
           "invalid": false,
           "errorReasons": []
         }
@@ -15965,72 +15860,43 @@
       "awards": []
     },
     {
-      "pilot": "Gregory Zak",
-      "pilotId": 22232,
-      "totalPoints": 129.35,
-      "totalDistance": 117.86,
-      "flightCount": 1,
+      "pilot": "Elliot Côté",
+      "pilotId": 38833,
+      "totalPoints": 231.51,
+      "totalDistance": 174.54,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1074130,
-          "userId": 22232,
-          "date": "2026-05-08",
-          "distance": 117.86,
-          "speed": 64.4,
-          "points": 129.35,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
+          "id": 1077050,
+          "userId": 38833,
+          "date": "2026-05-09",
+          "distance": 106.91,
+          "speed": 39.85,
+          "points": 141.88,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "DG 1000S 18m",
-          "dmstIndex": 106,
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1119705,
-          "userId": 22232,
-          "date": "2026-05-11",
-          "distance": 406.36,
-          "speed": 83.08,
-          "points": 439.24,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
+          "id": 1091203,
+          "userId": 38833,
+          "date": "2026-05-22",
+          "distance": 67.63,
+          "speed": 44.72,
+          "points": 89.63,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "Kestrel 19m",
-          "dmstIndex": 112,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "James Kingdon",
-      "pilotId": 35423,
-      "totalPoints": 164.24,
-      "totalDistance": 153.27,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 909886,
-          "userId": 35423,
-          "date": "2025-10-05",
-          "distance": 153.27,
-          "speed": 44.64,
-          "points": 164.24,
-          "takeoff": "Arthur",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 17",
-          "dmstIndex": 115,
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
           "invalid": false,
           "errorReasons": []
         }
@@ -16126,87 +15992,60 @@
       "awards": []
     },
     {
-      "pilot": "Mark Luscher",
-      "pilotId": 13284,
-      "totalPoints": 117.6,
-      "totalDistance": 108.24000000000001,
-      "flightCount": 2,
+      "pilot": "Thomas Link",
+      "pilotId": 23352,
+      "totalPoints": 202.17999999999998,
+      "totalDistance": 142.24,
+      "flightCount": 3,
       "bestFlights": [
         {
-          "id": 1086874,
-          "userId": 13284,
-          "date": "2026-05-17",
-          "distance": 56.38,
-          "speed": 41.87,
-          "points": 60.09,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
+          "id": 1111892,
+          "userId": 23352,
+          "date": "2026-06-06",
+          "distance": 53.96,
+          "speed": 51.83,
+          "points": 74.72,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
+          "aircraftName": "SZD-50 Puchacz",
+          "dmstIndex": 84,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 886672,
-          "userId": 13284,
-          "date": "2025-09-28",
-          "distance": 51.86,
-          "speed": 38.65,
-          "points": 57.51,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 129.94,
-      "totalDistance": 94.25,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1106101,
-          "userId": 35430,
-          "date": "2026-05-31",
-          "distance": 53.64,
-          "speed": 33,
-          "points": 75.13,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 5",
-          "dmstIndex": 85,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1096555,
-          "userId": 35430,
+          "id": 1096569,
+          "userId": 23352,
           "date": "2026-05-24",
-          "distance": 40.61,
-          "speed": 42.55,
-          "points": 54.81,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
+          "distance": 49.1,
+          "speed": 31.72,
+          "points": 73.8,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86,
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1087927,
+          "userId": 23352,
+          "date": "2026-05-18",
+          "distance": 39.18,
+          "speed": 40.71,
+          "points": 53.66,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-50 Puchacz",
+          "dmstIndex": 84,
           "invalid": false,
           "errorReasons": []
         }
@@ -16280,6 +16119,33 @@
           "aircraftKind": "MG",
           "aircraftName": "Arcus T",
           "dmstIndex": 120,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "James Kingdon",
+      "pilotId": 35423,
+      "totalPoints": 164.24,
+      "totalDistance": 153.27,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 909886,
+          "userId": 35423,
+          "date": "2025-10-05",
+          "distance": 153.27,
+          "speed": 44.64,
+          "points": 164.24,
+          "takeoff": "Arthur",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 17",
+          "dmstIndex": 115,
           "invalid": false,
           "errorReasons": []
         }
@@ -16458,106 +16324,6 @@
       "awards": []
     },
     {
-      "pilot": "Carol Mulder",
-      "pilotId": 37564,
-      "totalPoints": 126.68,
-      "totalDistance": 87.2,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1094126,
-          "userId": 37564,
-          "date": "2026-05-23",
-          "distance": 87.2,
-          "speed": 48.33,
-          "points": 126.68,
-          "takeoff": "Innisfail",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "L23 SuperBlanik 18.2m",
-          "dmstIndex": 80,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Steve Godreau",
-      "pilotId": 5450,
-      "totalPoints": 85.17,
-      "totalDistance": 70.2,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 915156,
-          "userId": 5450,
-          "date": "2025-10-07",
-          "distance": 70.2,
-          "speed": 33.85,
-          "points": 85.17,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin Astir RG",
-          "dmstIndex": 94,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Justin Latour",
-      "pilotId": 36083,
-      "totalPoints": 57.67,
-      "totalDistance": 43.63,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1073818,
-          "userId": 36083,
-          "date": "2026-05-08",
-          "distance": 43.63,
-          "speed": 49.71,
-          "points": 57.67,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1056004,
-          "userId": 36083,
-          "date": "2026-04-25",
-          "distance": 64.53,
-          "speed": 35.35,
-          "points": 64.46,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 500M 20m",
-          "dmstIndex": 104,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Alex Upchurch",
       "pilotId": 35744,
       "totalPoints": 132.39,
@@ -16585,26 +16351,116 @@
       "awards": []
     },
     {
-      "pilot": "Jay Carle Brodeur",
-      "pilotId": 27891,
-      "totalPoints": 93.14,
-      "totalDistance": 79.31,
-      "flightCount": 1,
+      "pilot": "Susan Snell",
+      "pilotId": 35430,
+      "totalPoints": 129.94,
+      "totalDistance": 94.25,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 920621,
-          "userId": 27891,
-          "date": "2025-10-11",
-          "distance": 79.31,
-          "speed": 33.85,
-          "points": 93.14,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1106101,
+          "userId": 35430,
+          "date": "2026-05-31",
+          "distance": 53.64,
+          "speed": 33,
+          "points": 75.13,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "DG 500 20m",
-          "dmstIndex": 104,
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1096555,
+          "userId": 35430,
+          "date": "2026-05-24",
+          "distance": 40.61,
+          "speed": 42.55,
+          "points": 54.81,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Gregory Zak",
+      "pilotId": 22232,
+      "totalPoints": 129.35,
+      "totalDistance": 117.86,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1074130,
+          "userId": 22232,
+          "date": "2026-05-08",
+          "distance": 117.86,
+          "speed": 64.4,
+          "points": 129.35,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 18m",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1119705,
+          "userId": 22232,
+          "date": "2026-05-11",
+          "distance": 406.36,
+          "speed": 83.08,
+          "points": 439.24,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Kestrel 19m",
+          "dmstIndex": 112,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Carol Mulder",
+      "pilotId": 37564,
+      "totalPoints": 126.68,
+      "totalDistance": 87.2,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1094126,
+          "userId": 37564,
+          "date": "2026-05-23",
+          "distance": 87.2,
+          "speed": 48.33,
+          "points": 126.68,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
           "invalid": false,
           "errorReasons": []
         }
@@ -16632,6 +16488,50 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Mark Luscher",
+      "pilotId": 13284,
+      "totalPoints": 117.6,
+      "totalDistance": 108.24000000000001,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1086874,
+          "userId": 13284,
+          "date": "2026-05-17",
+          "distance": 56.38,
+          "speed": 41.87,
+          "points": 60.09,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 886672,
+          "userId": 13284,
+          "date": "2025-09-28",
+          "distance": 51.86,
+          "speed": 38.65,
+          "points": 57.51,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         }
@@ -16693,52 +16593,6 @@
       "awards": []
     },
     {
-      "pilot": "Patrick Kessler",
-      "pilotId": 35759,
-      "totalPoints": 76.19,
-      "totalDistance": 65.94,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1125932,
-          "userId": 35759,
-          "date": "2026-06-20",
-          "distance": 65.94,
-          "speed": 33.08,
-          "points": 76.19,
-          "takeoff": "Paquet",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 1-f neo",
-          "dmstIndex": 101,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1086201,
-          "userId": 35759,
-          "date": "2026-05-15",
-          "distance": 174.95,
-          "speed": 63.67,
-          "points": 194.84,
-          "takeoff": "Paquet",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 1-f neo",
-          "dmstIndex": 101,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Gérald Wiertz",
       "pilotId": 40127,
       "totalPoints": 96.5,
@@ -16759,79 +16613,6 @@
           "aircraftKind": "GL",
           "aircraftName": "DG 300",
           "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Frank Pilz",
-      "pilotId": 35288,
-      "totalPoints": 61.71,
-      "totalDistance": 58.76,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 908899,
-          "userId": 35288,
-          "date": "2025-10-04",
-          "distance": 58.76,
-          "speed": 26.38,
-          "points": 61.71,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 505 22m",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 923238,
-          "userId": 35288,
-          "date": "2025-10-13",
-          "distance": 56.23,
-          "speed": 35.21,
-          "points": 53.39,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 800A/B 18m",
-          "dmstIndex": 119,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
-          ]
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Ray Ochitwa",
-      "pilotId": 35709,
-      "totalPoints": 73.03,
-      "totalDistance": 61.39,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 885674,
-          "userId": 35709,
-          "date": "2025-09-27",
-          "distance": 61.39,
-          "speed": 41.09,
-          "points": 73.03,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 15",
-          "dmstIndex": 97,
           "invalid": false,
           "errorReasons": []
         }
@@ -16969,6 +16750,33 @@
       "awards": []
     },
     {
+      "pilot": "Jay Carle Brodeur",
+      "pilotId": 27891,
+      "totalPoints": 93.14,
+      "totalDistance": 79.31,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 920621,
+          "userId": 27891,
+          "date": "2025-10-11",
+          "distance": 79.31,
+          "speed": 33.85,
+          "points": 93.14,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 500 20m",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Martin Pollex",
       "pilotId": 14075,
       "totalPoints": 92.77,
@@ -17016,6 +16824,33 @@
           "aircraftKind": "GL",
           "aircraftName": "G 102 Astir CS",
           "dmstIndex": 96,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Steve Godreau",
+      "pilotId": 5450,
+      "totalPoints": 85.17,
+      "totalDistance": 70.2,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 915156,
+          "userId": 5450,
+          "date": "2025-10-07",
+          "distance": 70.2,
+          "speed": 33.85,
+          "points": 85.17,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin Astir RG",
+          "dmstIndex": 94,
           "invalid": false,
           "errorReasons": []
         }
@@ -17077,6 +16912,52 @@
       "awards": []
     },
     {
+      "pilot": "Patrick Kessler",
+      "pilotId": 35759,
+      "totalPoints": 76.19,
+      "totalDistance": 65.94,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1125932,
+          "userId": 35759,
+          "date": "2026-06-20",
+          "distance": 65.94,
+          "speed": 33.08,
+          "points": 76.19,
+          "takeoff": "Paquet",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 1-f neo",
+          "dmstIndex": 101,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086201,
+          "userId": 35759,
+          "date": "2026-05-15",
+          "distance": 174.95,
+          "speed": 63.67,
+          "points": 194.84,
+          "takeoff": "Paquet",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 1-f neo",
+          "dmstIndex": 101,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Bernard Julien",
       "pilotId": 35497,
       "totalPoints": 74.91,
@@ -17131,6 +17012,33 @@
       "awards": []
     },
     {
+      "pilot": "Ray Ochitwa",
+      "pilotId": 35709,
+      "totalPoints": 73.03,
+      "totalDistance": 61.39,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 885674,
+          "userId": 35709,
+          "date": "2025-09-27",
+          "distance": 61.39,
+          "speed": 41.09,
+          "points": 73.03,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 15",
+          "dmstIndex": 97,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Marco Solo",
       "pilotId": 35395,
       "totalPoints": 70.51,
@@ -17151,33 +17059,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Discus 2b",
           "dmstIndex": 108,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Jeff Slingerland",
-      "pilotId": 35992,
-      "totalPoints": 51.14,
-      "totalDistance": 40.72,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 916938,
-          "userId": 35992,
-          "date": "2025-10-07",
-          "distance": 40.72,
-          "speed": 101.8,
-          "points": 51.14,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin Astir Trainer FG",
-          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -17225,6 +17106,52 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Frank Pilz",
+      "pilotId": 35288,
+      "totalPoints": 61.71,
+      "totalDistance": 58.76,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 908899,
+          "userId": 35288,
+          "date": "2025-10-04",
+          "distance": 58.76,
+          "speed": 26.38,
+          "points": 61.71,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 505 22m",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 923238,
+          "userId": 35288,
+          "date": "2025-10-13",
+          "distance": 56.23,
+          "speed": 35.21,
+          "points": 53.39,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 800A/B 18m",
+          "dmstIndex": 119,
+          "invalid": true,
+          "errorReasons": [
+            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ],
@@ -17285,6 +17212,52 @@
       "awards": []
     },
     {
+      "pilot": "Justin Latour",
+      "pilotId": 36083,
+      "totalPoints": 57.67,
+      "totalDistance": 43.63,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1073818,
+          "userId": 36083,
+          "date": "2026-05-08",
+          "distance": 43.63,
+          "speed": 49.71,
+          "points": 57.67,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1056004,
+          "userId": 36083,
+          "date": "2026-04-25",
+          "distance": 64.53,
+          "speed": 35.35,
+          "points": 64.46,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 500M 20m",
+          "dmstIndex": 104,
+          "invalid": true,
+          "errorReasons": [
+            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
+          ]
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Aidan OBrien",
       "pilotId": 40038,
       "totalPoints": 57.48,
@@ -17305,6 +17278,33 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-51 Junior",
           "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Jeff Slingerland",
+      "pilotId": 35992,
+      "totalPoints": 51.14,
+      "totalDistance": 40.72,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 916938,
+          "userId": 35992,
+          "date": "2025-10-07",
+          "distance": 40.72,
+          "speed": 101.8,
+          "points": 51.14,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin Astir Trainer FG",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -177661,83 +177661,6 @@
       ]
     },
     {
-      "pilot": "Marc-André Rathé",
-      "pilotId": 35427,
-      "totalPoints": 568.63,
-      "totalDistance": 435.86,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 1091243,
-          "userId": 35427,
-          "date": "2026-05-22",
-          "distance": 130.64,
-          "speed": 33.09,
-          "points": 175.86,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 4",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1080434,
-          "userId": 35427,
-          "date": "2026-05-12",
-          "distance": 115.09,
-          "speed": 52.87,
-          "points": 175.14,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": true,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 21",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 918255,
-          "userId": 35427,
-          "date": "2025-10-09",
-          "distance": 90.5,
-          "speed": 33.08,
-          "points": 121.83,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 4",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1121043,
-          "userId": 35427,
-          "date": "2026-06-16",
-          "distance": 99.63,
-          "speed": 40.86,
-          "points": 95.8,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "LS 4",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Brian Pirie",
       "pilotId": 21317,
       "totalPoints": 598.2099999999999,
@@ -177832,77 +177755,77 @@
       ]
     },
     {
-      "pilot": "Brandon Davies",
-      "pilotId": 35272,
-      "totalPoints": 499.98,
-      "totalDistance": 545.3,
+      "pilot": "Marc-André Rathé",
+      "pilotId": 35427,
+      "totalPoints": 568.63,
+      "totalDistance": 435.86,
       "flightCount": 4,
       "bestFlights": [
         {
-          "id": 1108043,
-          "userId": 35272,
-          "date": "2026-06-02",
-          "distance": 194.39,
-          "speed": 71.94,
-          "points": 172.03,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
+          "id": 1091243,
+          "userId": 35427,
+          "date": "2026-05-22",
+          "distance": 130.64,
+          "speed": 33.09,
+          "points": 175.86,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
           "declared": false,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "Duo Discus XL",
-          "dmstIndex": 113,
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         },
         {
-          "id": 1129103,
-          "userId": 35272,
-          "date": "2026-06-21",
-          "distance": 165.51,
-          "speed": 64.68,
-          "points": 154.68,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Mosquito",
-          "dmstIndex": 107,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1114203,
-          "userId": 35272,
-          "date": "2026-06-07",
-          "distance": 99.18,
-          "speed": 39.43,
-          "points": 92.69,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Mosquito",
-          "dmstIndex": 107,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1118600,
-          "userId": 35272,
-          "date": "2026-06-13",
-          "distance": 86.22,
-          "speed": 52.99,
-          "points": 80.58,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
+          "id": 1080434,
+          "userId": 35427,
+          "date": "2026-05-12",
+          "distance": 115.09,
+          "speed": 52.87,
+          "points": 175.14,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
           "declared": true,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "Mosquito",
-          "dmstIndex": 107,
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 918255,
+          "userId": 35427,
+          "date": "2025-10-09",
+          "distance": 90.5,
+          "speed": 33.08,
+          "points": 121.83,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1121043,
+          "userId": 35427,
+          "date": "2026-06-16",
+          "distance": 99.63,
+          "speed": 40.86,
+          "points": 95.8,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -178014,6 +177937,83 @@
       ]
     },
     {
+      "pilot": "Brandon Davies",
+      "pilotId": 35272,
+      "totalPoints": 499.98,
+      "totalDistance": 545.3,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1108043,
+          "userId": 35272,
+          "date": "2026-06-02",
+          "distance": 194.39,
+          "speed": 71.94,
+          "points": 172.03,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus XL",
+          "dmstIndex": 113,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1129103,
+          "userId": 35272,
+          "date": "2026-06-21",
+          "distance": 165.51,
+          "speed": 64.68,
+          "points": 154.68,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Mosquito",
+          "dmstIndex": 107,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1114203,
+          "userId": 35272,
+          "date": "2026-06-07",
+          "distance": 99.18,
+          "speed": 39.43,
+          "points": 92.69,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Mosquito",
+          "dmstIndex": 107,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1118600,
+          "userId": 35272,
+          "date": "2026-06-13",
+          "distance": 86.22,
+          "speed": 52.99,
+          "points": 80.58,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": true,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Mosquito",
+          "dmstIndex": 107,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
       "totalPoints": 488.32,
@@ -178051,83 +178051,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus b 15m",
           "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Christian Boulay",
-      "pilotId": 35367,
-      "totalPoints": 431.45000000000005,
-      "totalDistance": 326.67,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 1076721,
-          "userId": 35367,
-          "date": "2026-05-09",
-          "distance": 112.71,
-          "speed": 33.65,
-          "points": 148.86,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-55-1 Nexus",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1053463,
-          "userId": 35367,
-          "date": "2026-04-25",
-          "distance": 88.84,
-          "speed": 31.3,
-          "points": 117.34,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-55-1 Nexus",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1086807,
-          "userId": 35367,
-          "date": "2026-05-17",
-          "distance": 86.86,
-          "speed": 28.05,
-          "points": 114.72,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-55-1 Nexus",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 906902,
-          "userId": 35367,
-          "date": "2025-10-04",
-          "distance": 38.26,
-          "speed": 17.23,
-          "points": 50.53,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-55-1 Nexus",
-          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -178214,83 +178137,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Discus 2b",
           "dmstIndex": 108,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Warwick Patterson",
-      "pilotId": 21574,
-      "totalPoints": 407.19,
-      "totalDistance": 313.40999999999997,
-      "flightCount": 4,
-      "bestFlights": [
-        {
-          "id": 1117300,
-          "userId": 21574,
-          "date": "2026-06-12",
-          "distance": 91.94,
-          "speed": 69.07,
-          "points": 149.67,
-          "takeoff": "Port Alberni",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1127615,
-          "userId": 21574,
-          "date": "2026-06-21",
-          "distance": 95.43,
-          "speed": 73.35,
-          "points": 110.97,
-          "takeoff": "Port Alberni",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1123017,
-          "userId": 21574,
-          "date": "2026-06-18",
-          "distance": 65.51,
-          "speed": 61.7,
-          "points": 76.17,
-          "takeoff": "Port Alberni",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1116681,
-          "userId": 21574,
-          "date": "2026-06-11",
-          "distance": 60.53,
-          "speed": 53.38,
-          "points": 70.38,
-          "takeoff": "Port Alberni",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 6",
-          "dmstIndex": 86,
           "invalid": false,
           "errorReasons": []
         }
@@ -178462,6 +178308,83 @@
           "aircraftKind": "GL",
           "aircraftName": "PIK-20 B",
           "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Christian Boulay",
+      "pilotId": 35367,
+      "totalPoints": 431.45000000000005,
+      "totalDistance": 326.67,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1076721,
+          "userId": 35367,
+          "date": "2026-05-09",
+          "distance": 112.71,
+          "speed": 33.65,
+          "points": 148.86,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-55-1 Nexus",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1053463,
+          "userId": 35367,
+          "date": "2026-04-25",
+          "distance": 88.84,
+          "speed": 31.3,
+          "points": 117.34,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-55-1 Nexus",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1086807,
+          "userId": 35367,
+          "date": "2026-05-17",
+          "distance": 86.86,
+          "speed": 28.05,
+          "points": 114.72,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-55-1 Nexus",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 906902,
+          "userId": 35367,
+          "date": "2025-10-04",
+          "distance": 38.26,
+          "speed": 17.23,
+          "points": 50.53,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-55-1 Nexus",
+          "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
         }
@@ -178922,6 +178845,83 @@
       ]
     },
     {
+      "pilot": "Warwick Patterson",
+      "pilotId": 21574,
+      "totalPoints": 407.19,
+      "totalDistance": 313.40999999999997,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1117300,
+          "userId": 21574,
+          "date": "2026-06-12",
+          "distance": 91.94,
+          "speed": 69.07,
+          "points": 149.67,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1127615,
+          "userId": 21574,
+          "date": "2026-06-21",
+          "distance": 95.43,
+          "speed": 73.35,
+          "points": 110.97,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1123017,
+          "userId": 21574,
+          "date": "2026-06-18",
+          "distance": 65.51,
+          "speed": 61.7,
+          "points": 76.17,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1116681,
+          "userId": 21574,
+          "date": "2026-06-11",
+          "distance": 60.53,
+          "speed": 53.38,
+          "points": 70.38,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Ionel Anton",
       "pilotId": 35400,
       "totalPoints": 395.38,
@@ -179257,6 +179257,32 @@
       ]
     },
     {
+      "pilot": "Paul Parker",
+      "pilotId": 22801,
+      "totalPoints": 340.21,
+      "totalDistance": 262.45,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1120956,
+          "userId": 22801,
+          "date": "2026-06-15",
+          "distance": 262.45,
+          "speed": 44.32,
+          "points": 340.21,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Discus 2b",
+          "dmstIndex": 108,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Omar Duric",
       "pilotId": 35426,
       "totalPoints": 291.07,
@@ -179311,32 +179337,6 @@
           "aircraftKind": "GL",
           "aircraftName": "G 102 Std. Astir",
           "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Paul Parker",
-      "pilotId": 22801,
-      "totalPoints": 340.21,
-      "totalDistance": 262.45,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1120956,
-          "userId": 22801,
-          "date": "2026-06-15",
-          "distance": 262.45,
-          "speed": 44.32,
-          "points": 340.21,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Discus 2b",
-          "dmstIndex": 108,
           "invalid": false,
           "errorReasons": []
         }
@@ -179401,6 +179401,230 @@
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
+        }
+      ]
+    },
+    {
+      "pilot": "Lee Fasken",
+      "pilotId": 35714,
+      "totalPoints": 256.40999999999997,
+      "totalDistance": 194.14,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 940475,
+          "userId": 35714,
+          "date": "2025-10-26",
+          "distance": 86.85,
+          "speed": 49.79,
+          "points": 114.71,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 24",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 938812,
+          "userId": 35714,
+          "date": "2025-10-25",
+          "distance": 63.17,
+          "speed": 35.41,
+          "points": 83.43,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 24",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 921113,
+          "userId": 35714,
+          "date": "2025-10-11",
+          "distance": 44.12,
+          "speed": 13.52,
+          "points": 58.27,
+          "takeoff": "Pendleton GATGC",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 24",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Bob Katz",
+      "pilotId": 8839,
+      "totalPoints": 252.56,
+      "totalDistance": 257.61,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1057387,
+          "userId": 8839,
+          "date": "2026-04-27",
+          "distance": 257.61,
+          "speed": 63.66,
+          "points": 252.56,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PIK-20 B",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Glen Rippon",
+      "pilotId": 37128,
+      "totalPoints": 244.38,
+      "totalDistance": 148.37,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1126119,
+          "userId": 37128,
+          "date": "2026-06-20",
+          "distance": 77.3,
+          "speed": 28.44,
+          "points": 127.32,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1127718,
+          "userId": 37128,
+          "date": "2026-06-21",
+          "distance": 71.07,
+          "speed": 29.07,
+          "points": 117.06,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Éric Raissac",
+      "pilotId": 35351,
+      "totalPoints": 228.68,
+      "totalDistance": 220.5,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1077086,
+          "userId": 35351,
+          "date": "2026-05-09",
+          "distance": 111.4,
+          "speed": 35.67,
+          "points": 123.78,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 918394,
+          "userId": 35351,
+          "date": "2025-10-09",
+          "distance": 109.1,
+          "speed": 45.25,
+          "points": 104.9,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 500 20m",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "James Wood",
+      "pilotId": 26583,
+      "totalPoints": 227.72,
+      "totalDistance": 183.8,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1125516,
+          "userId": 26583,
+          "date": "2026-06-20",
+          "distance": 183.8,
+          "speed": 52.39,
+          "points": 227.72,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus XL",
+          "dmstIndex": 113,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "John Gruber",
+      "pilotId": 39364,
+      "totalPoints": 223.86,
+      "totalDistance": 239.53,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1094256,
+          "userId": 39364,
+          "date": "2026-05-23",
+          "distance": 239.53,
+          "speed": 62.96,
+          "points": 223.86,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Mini Nimbus",
+          "dmstIndex": 107,
+          "invalid": false,
+          "errorReasons": []
         }
       ]
     },
@@ -179508,198 +179732,26 @@
       ]
     },
     {
-      "pilot": "Lee Fasken",
-      "pilotId": 35714,
-      "totalPoints": 256.40999999999997,
-      "totalDistance": 194.14,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 940475,
-          "userId": 35714,
-          "date": "2025-10-26",
-          "distance": 86.85,
-          "speed": 49.79,
-          "points": 114.71,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 24",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 938812,
-          "userId": 35714,
-          "date": "2025-10-25",
-          "distance": 63.17,
-          "speed": 35.41,
-          "points": 83.43,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 24",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 921113,
-          "userId": 35714,
-          "date": "2025-10-11",
-          "distance": 44.12,
-          "speed": 13.52,
-          "points": 58.27,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 24",
-          "dmstIndex": 106,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Bob Katz",
-      "pilotId": 8839,
-      "totalPoints": 252.56,
-      "totalDistance": 257.61,
+      "pilot": "Félix Fortin",
+      "pilotId": 39760,
+      "totalPoints": 211.03,
+      "totalDistance": 219.47,
       "flightCount": 1,
       "bestFlights": [
         {
-          "id": 1057387,
-          "userId": 8839,
-          "date": "2026-04-27",
-          "distance": 257.61,
-          "speed": 63.66,
-          "points": 252.56,
+          "id": 1107663,
+          "userId": 39760,
+          "date": "2026-06-01",
+          "distance": 219.47,
+          "speed": 58.38,
+          "points": 211.03,
           "takeoff": "Hawkesbury",
           "region": "CA-ON",
           "declared": false,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "PIK-20 B",
-          "dmstIndex": 102,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Elliot Côté",
-      "pilotId": 38833,
-      "totalPoints": 187.41000000000003,
-      "totalDistance": 122.19,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1077050,
-          "userId": 38833,
-          "date": "2026-05-09",
-          "distance": 78.72,
-          "speed": 30.3,
-          "points": 119.79,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 21",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1091203,
-          "userId": 38833,
-          "date": "2026-05-22",
-          "distance": 43.47,
-          "speed": 28.94,
-          "points": 67.62,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Paulo Matioli",
-      "pilotId": 13388,
-      "totalPoints": 181.38,
-      "totalDistance": 152.36,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1066903,
-          "userId": 13388,
-          "date": "2026-05-01",
-          "distance": 152.36,
-          "speed": 47.93,
-          "points": 181.38,
-          "takeoff": "Pendleton GATGC",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-50 Puchacz",
-          "dmstIndex": 84,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Glen Rippon",
-      "pilotId": 37128,
-      "totalPoints": 244.38,
-      "totalDistance": 148.37,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1126119,
-          "userId": 37128,
-          "date": "2026-06-20",
-          "distance": 77.3,
-          "speed": 28.44,
-          "points": 127.32,
-          "takeoff": "Port Alberni",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 5",
-          "dmstIndex": 85,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1127718,
-          "userId": 37128,
-          "date": "2026-06-21",
-          "distance": 71.07,
-          "speed": 29.07,
-          "points": 117.06,
-          "takeoff": "Port Alberni",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 5",
-          "dmstIndex": 85,
+          "aircraftName": "DG 300",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -179749,127 +179801,6 @@
       ]
     },
     {
-      "pilot": "Éric Raissac",
-      "pilotId": 35351,
-      "totalPoints": 228.68,
-      "totalDistance": 220.5,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1077086,
-          "userId": 35351,
-          "date": "2026-05-09",
-          "distance": 111.4,
-          "speed": 35.67,
-          "points": 123.78,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-51 Junior",
-          "dmstIndex": 90,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 918394,
-          "userId": 35351,
-          "date": "2025-10-09",
-          "distance": 109.1,
-          "speed": 45.25,
-          "points": 104.9,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 500 20m",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "James Wood",
-      "pilotId": 26583,
-      "totalPoints": 227.72,
-      "totalDistance": 183.8,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1125516,
-          "userId": 26583,
-          "date": "2026-06-20",
-          "distance": 183.8,
-          "speed": 52.39,
-          "points": 227.72,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus XL",
-          "dmstIndex": 113,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "John Gruber",
-      "pilotId": 39364,
-      "totalPoints": 223.86,
-      "totalDistance": 239.53,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1094256,
-          "userId": 39364,
-          "date": "2026-05-23",
-          "distance": 239.53,
-          "speed": 62.96,
-          "points": 223.86,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Mini Nimbus",
-          "dmstIndex": 107,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Félix Fortin",
-      "pilotId": 39760,
-      "totalPoints": 211.03,
-      "totalDistance": 219.47,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1107663,
-          "userId": 39760,
-          "date": "2026-06-01",
-          "distance": 219.47,
-          "speed": 58.38,
-          "points": 211.03,
-          "takeoff": "Hawkesbury",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 300",
-          "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Frederic Chauvin",
       "pilotId": 28158,
       "totalPoints": 206.79,
@@ -179890,58 +179821,6 @@
           "aircraftKind": "MG",
           "aircraftName": "ASG 32 Mi",
           "dmstIndex": 120,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Kevin Klock",
-      "pilotId": 35433,
-      "totalPoints": 76.1,
-      "totalDistance": 70.01,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1032041,
-          "userId": 35433,
-          "date": "2026-04-06",
-          "distance": 70.01,
-          "speed": 19.76,
-          "points": 76.1,
-          "takeoff": "Hope",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin 2",
-          "dmstIndex": 92,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "James Kingdon",
-      "pilotId": 35423,
-      "totalPoints": 144.5,
-      "totalDistance": 118.7,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 909886,
-          "userId": 35423,
-          "date": "2025-10-05",
-          "distance": 118.7,
-          "speed": 34.79,
-          "points": 144.5,
-          "takeoff": "Arthur",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 17",
-          "dmstIndex": 115,
           "invalid": false,
           "errorReasons": []
         }
@@ -179991,6 +179870,49 @@
       ]
     },
     {
+      "pilot": "Elliot Côté",
+      "pilotId": 38833,
+      "totalPoints": 187.41000000000003,
+      "totalDistance": 122.19,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1077050,
+          "userId": 38833,
+          "date": "2026-05-09",
+          "distance": 78.72,
+          "speed": 30.3,
+          "points": 119.79,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1091203,
+          "userId": 38833,
+          "date": "2026-05-22",
+          "distance": 43.47,
+          "speed": 28.94,
+          "points": 67.62,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Struan Vaughan",
       "pilotId": 35776,
       "totalPoints": 185.58,
@@ -180017,73 +179939,28 @@
       ]
     },
     {
-      "pilot": "Thomas Link",
-      "pilotId": 23352,
-      "totalPoints": 57.98,
-      "totalDistance": 33.13,
+      "pilot": "Paulo Matioli",
+      "pilotId": 13388,
+      "totalPoints": 181.38,
+      "totalDistance": 152.36,
       "flightCount": 1,
       "bestFlights": [
         {
-          "id": 1096569,
-          "userId": 23352,
-          "date": "2026-05-24",
-          "distance": 33.13,
-          "speed": 23.34,
-          "points": 57.98,
-          "takeoff": "Innisfail",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "L23 SuperBlanik 18.2m",
-          "dmstIndex": 80,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gregory Zak",
-      "pilotId": 22232,
-      "totalPoints": 91.33,
-      "totalDistance": 96.81,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1074130,
-          "userId": 22232,
-          "date": "2026-05-08",
-          "distance": 96.81,
-          "speed": 54.74,
-          "points": 91.33,
-          "takeoff": "Rockton SOSA On",
+          "id": 1066903,
+          "userId": 13388,
+          "date": "2026-05-01",
+          "distance": 152.36,
+          "speed": 47.93,
+          "points": 181.38,
+          "takeoff": "Pendleton GATGC",
           "region": "CA-ON",
           "declared": false,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "DG 1000S 18m",
-          "dmstIndex": 106,
+          "aircraftName": "SZD-50 Puchacz",
+          "dmstIndex": 84,
           "invalid": false,
           "errorReasons": []
-        },
-        {
-          "id": 1119705,
-          "userId": 22232,
-          "date": "2026-05-11",
-          "distance": 285.31,
-          "speed": 62.24,
-          "points": 356.64,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Kestrel 19m",
-          "dmstIndex": 112,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
         }
       ]
     },
@@ -180219,51 +180096,6 @@
       ]
     },
     {
-      "pilot": "Paul Payette",
-      "pilotId": 35434,
-      "totalPoints": 116.55,
-      "totalDistance": 83.25,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1107071,
-          "userId": 35434,
-          "date": "2026-06-01",
-          "distance": 83.25,
-          "speed": 23.39,
-          "points": 116.55,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "G 102 Std. Astir",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 920326,
-          "userId": 35434,
-          "date": "2025-10-04",
-          "distance": 43.05,
-          "speed": 15.76,
-          "points": 60.27,
-          "takeoff": "Toronto Soaring Club - Conn",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "G 102 Std. Astir",
-          "dmstIndex": 100,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
       "pilot": "Luc Savoie",
       "pilotId": 38390,
       "totalPoints": 164.26,
@@ -180335,26 +180167,26 @@
       ]
     },
     {
-      "pilot": "Susan Snell",
-      "pilotId": 35430,
-      "totalPoints": 56.13,
-      "totalDistance": 34.08,
+      "pilot": "James Kingdon",
+      "pilotId": 35423,
+      "totalPoints": 144.5,
+      "totalDistance": 118.7,
       "flightCount": 1,
       "bestFlights": [
         {
-          "id": 1106101,
-          "userId": 35430,
-          "date": "2026-05-31",
-          "distance": 34.08,
-          "speed": 22.29,
-          "points": 56.13,
-          "takeoff": "Starbuck",
-          "region": "CA-MB",
+          "id": 909886,
+          "userId": 35423,
+          "date": "2025-10-05",
+          "distance": 118.7,
+          "speed": 34.79,
+          "points": 144.5,
+          "takeoff": "Arthur",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "PW 5",
-          "dmstIndex": 85,
+          "aircraftName": "ASW 17",
+          "dmstIndex": 115,
           "invalid": false,
           "errorReasons": []
         }
@@ -180482,6 +180314,51 @@
       ]
     },
     {
+      "pilot": "Paul Payette",
+      "pilotId": 35434,
+      "totalPoints": 116.55,
+      "totalDistance": 83.25,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1107071,
+          "userId": 35434,
+          "date": "2026-06-01",
+          "distance": 83.25,
+          "speed": 23.39,
+          "points": 116.55,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Std. Astir",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 920326,
+          "userId": 35434,
+          "date": "2025-10-04",
+          "distance": 43.05,
+          "speed": 15.76,
+          "points": 60.27,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Std. Astir",
+          "dmstIndex": 100,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Luis Garcia Rodriguez",
       "pilotId": 20442,
       "totalPoints": 112.65,
@@ -180553,26 +180430,26 @@
       ]
     },
     {
-      "pilot": "Jay Carle Brodeur",
-      "pilotId": 27891,
-      "totalPoints": 78.78,
-      "totalDistance": 58.52,
+      "pilot": "Peter Harvey",
+      "pilotId": 35732,
+      "totalPoints": 95.13,
+      "totalDistance": 57.76,
       "flightCount": 1,
       "bestFlights": [
         {
-          "id": 920621,
-          "userId": 27891,
-          "date": "2025-10-11",
-          "distance": 58.52,
-          "speed": 25.7,
-          "points": 78.78,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1123925,
+          "userId": 35732,
+          "date": "2026-06-19",
+          "distance": 57.76,
+          "speed": 43.4,
+          "points": 95.13,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
           "declared": false,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "DG 500 20m",
-          "dmstIndex": 104,
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -180605,82 +180482,47 @@
       ]
     },
     {
-      "pilot": "Justin Latour",
-      "pilotId": 36083,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
+      "pilot": "Gregory Zak",
+      "pilotId": 22232,
+      "totalPoints": 91.33,
+      "totalDistance": 96.81,
+      "flightCount": 1,
       "bestFlights": [
         {
-          "id": 1056004,
-          "userId": 36083,
-          "date": "2026-04-25",
-          "distance": 54.66,
-          "speed": 38.14,
-          "points": 52.56,
-          "takeoff": "St-Dominique CVVC",
-          "region": "CA-QC",
+          "id": 1074130,
+          "userId": 22232,
+          "date": "2026-05-08",
+          "distance": 96.81,
+          "speed": 54.74,
+          "points": 91.33,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
           "declared": false,
           "contestType": "ca",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 500M 20m",
-          "dmstIndex": 104,
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 18m",
+          "dmstIndex": 106,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1119705,
+          "userId": 22232,
+          "date": "2026-05-11",
+          "distance": 285.31,
+          "speed": 62.24,
+          "points": 356.64,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Kestrel 19m",
+          "dmstIndex": 112,
           "invalid": true,
           "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
+            "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
-        }
-      ]
-    },
-    {
-      "pilot": "Peter Harvey",
-      "pilotId": 35732,
-      "totalPoints": 95.13,
-      "totalDistance": 57.76,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1123925,
-          "userId": 35732,
-          "date": "2026-06-19",
-          "distance": 57.76,
-          "speed": 43.4,
-          "points": 95.13,
-          "takeoff": "Chipman",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "PW 5",
-          "dmstIndex": 85,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Steve Godreau",
-      "pilotId": 5450,
-      "totalPoints": 54.46,
-      "totalDistance": 51.19,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 915156,
-          "userId": 5450,
-          "date": "2025-10-07",
-          "distance": 51.19,
-          "speed": 24.68,
-          "points": 54.46,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "G 103 Twin Astir RG",
-          "dmstIndex": 94,
-          "invalid": false,
-          "errorReasons": []
         }
       ]
     },
@@ -180711,6 +180553,32 @@
       ]
     },
     {
+      "pilot": "Jay Carle Brodeur",
+      "pilotId": 27891,
+      "totalPoints": 78.78,
+      "totalDistance": 58.52,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 920621,
+          "userId": 27891,
+          "date": "2025-10-11",
+          "distance": 58.52,
+          "speed": 25.7,
+          "points": 78.78,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 500 20m",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Rob Williams",
       "pilotId": 34532,
       "totalPoints": 77.66,
@@ -180731,6 +180599,32 @@
           "aircraftKind": "GL",
           "aircraftName": "DG 300",
           "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Kevin Klock",
+      "pilotId": 35433,
+      "totalPoints": 76.1,
+      "totalDistance": 70.01,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1032041,
+          "userId": 35433,
+          "date": "2026-04-06",
+          "distance": 70.01,
+          "speed": 19.76,
+          "points": 76.1,
+          "takeoff": "Hope",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -180865,6 +180759,32 @@
       ]
     },
     {
+      "pilot": "Thomas Link",
+      "pilotId": 23352,
+      "totalPoints": 57.98,
+      "totalDistance": 33.13,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1096569,
+          "userId": 23352,
+          "date": "2026-05-24",
+          "distance": 33.13,
+          "speed": 23.34,
+          "points": 57.98,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Eli Pasquali",
       "pilotId": 35578,
       "totalPoints": 57.06,
@@ -180885,6 +180805,32 @@
           "aircraftKind": "GL",
           "aircraftName": "Apis WR",
           "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Susan Snell",
+      "pilotId": 35430,
+      "totalPoints": 56.13,
+      "totalDistance": 34.08,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1106101,
+          "userId": 35430,
+          "date": "2026-05-31",
+          "distance": 34.08,
+          "speed": 22.29,
+          "points": 56.13,
+          "takeoff": "Starbuck",
+          "region": "CA-MB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -180976,6 +180922,60 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
+      "pilot": "Steve Godreau",
+      "pilotId": 5450,
+      "totalPoints": 54.46,
+      "totalDistance": 51.19,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 915156,
+          "userId": 5450,
+          "date": "2025-10-07",
+          "distance": 51.19,
+          "speed": 24.68,
+          "points": 54.46,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin Astir RG",
+          "dmstIndex": 94,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Justin Latour",
+      "pilotId": 36083,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1056004,
+          "userId": 36083,
+          "date": "2026-04-25",
+          "distance": 54.66,
+          "speed": 38.14,
+          "points": 52.56,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "MG",
+          "aircraftName": "DG 500M 20m",
+          "dmstIndex": 104,
+          "invalid": true,
+          "errorReasons": [
+            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ]
@@ -181129,6 +181129,6 @@
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-23T23:57:02.178Z"
+    "generatedAt": "2026-06-24T00:09:07.166Z"
   }
 }
