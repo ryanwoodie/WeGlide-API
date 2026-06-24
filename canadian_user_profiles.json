@@ -603,13 +603,13 @@
     "message_enabled": true
   },
   "21011": {
-    "total_flight_duration": 808385,
-    "total_free_distance": 20189.65,
-    "avg_speed": 97.42,
-    "flight_count": 48,
-    "avg_glide_speed": 163.08,
+    "total_flight_duration": 841151,
+    "total_free_distance": 21126.65,
+    "avg_speed": 97.86,
+    "flight_count": 49,
+    "avg_glide_speed": 163.44,
     "avg_glide_detour": 1.11,
-    "achievement_count": 19,
+    "achievement_count": 20,
     "name": "Martin Dennis",
     "gender": "M",
     "is_junior": false,
@@ -2600,12 +2600,12 @@
     "message_enabled": true
   },
   "35963": {
-    "total_flight_duration": 8424,
-    "total_free_distance": 164.06,
-    "avg_speed": 72.45,
-    "flight_count": 1,
-    "avg_glide_speed": 135.43,
-    "avg_glide_detour": 1.14,
+    "total_flight_duration": 19749,
+    "total_free_distance": 418.87,
+    "avg_speed": 78.76,
+    "flight_count": 2,
+    "avg_glide_speed": 135.91,
+    "avg_glide_detour": 1.12,
     "achievement_count": 3,
     "name": "Tom Coulson",
     "gender": "M",
@@ -2616,7 +2616,8 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "35992": {
     "total_flight_duration": 2817,
