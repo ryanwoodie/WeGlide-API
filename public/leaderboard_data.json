@@ -17082,6 +17082,33 @@
       "awards": []
     },
     {
+      "pilot": "David Villeneuve",
+      "pilotId": 23363,
+      "totalPoints": 88.84,
+      "totalDistance": 67.5,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1131214,
+          "userId": 23363,
+          "date": "2026-06-24",
+          "distance": 67.5,
+          "speed": 61.22,
+          "points": 88.84,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Tim Wood",
       "pilotId": 35810,
       "totalPoints": 88.02,
@@ -17777,36 +17804,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "David Villeneuve",
-      "pilotId": 23363,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1131214,
-          "userId": 23363,
-          "date": "2026-06-24",
-          "distance": 61.71,
-          "speed": 63.78,
-          "points": 64.69,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
-          "invalid": true,
-          "errorReasons": [
-            "No Aircraft has been selected.",
-            "Hard time constraint (180.0s) between fixes exceeded at 19:34:50, interval without logging is 409s."
           ]
         }
       ],
@@ -25040,6 +25037,32 @@
       ]
     },
     {
+      "pilot": "David Villeneuve",
+      "pilotId": 23363,
+      "totalPoints": 25.96,
+      "totalDistance": 48.81,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1131214,
+          "userId": 23363,
+          "date": "2026-06-24",
+          "distance": 48.81,
+          "speed": 24.41,
+          "points": 25.96,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Ray Ochitwa",
       "pilotId": 35709,
       "totalPoints": 25.77,
@@ -26546,35 +26569,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "David Villeneuve",
-      "pilotId": 23363,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1131214,
-          "userId": 23363,
-          "date": "2026-06-24",
-          "distance": 38.31,
-          "speed": 19.16,
-          "points": 19.16,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
-          "invalid": true,
-          "errorReasons": [
-            "No Aircraft has been selected.",
-            "Hard time constraint (180.0s) between fixes exceeded at 19:34:50, interval without logging is 409s."
           ]
         }
       ]
@@ -33453,6 +33447,32 @@
       ]
     },
     {
+      "pilot": "David Villeneuve",
+      "pilotId": 23363,
+      "totalPoints": 51.55,
+      "totalDistance": 47.43,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1131214,
+          "userId": 23363,
+          "date": "2026-06-24",
+          "distance": 47.43,
+          "speed": 42.12,
+          "points": 51.55,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Martin Pollex",
       "pilotId": 14075,
       "totalPoints": 49.12,
@@ -35073,35 +35093,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "David Villeneuve",
-      "pilotId": 23363,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1131214,
-          "userId": 23363,
-          "date": "2026-06-24",
-          "distance": 9.06,
-          "speed": 33.35,
-          "points": 9.06,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
-          "invalid": true,
-          "errorReasons": [
-            "No Aircraft has been selected.",
-            "Hard time constraint (180.0s) between fixes exceeded at 19:34:50, interval without logging is 409s."
           ]
         }
       ]
@@ -41552,6 +41543,32 @@
       ]
     },
     {
+      "pilot": "David Villeneuve",
+      "pilotId": 23363,
+      "totalPoints": 47.95,
+      "totalDistance": 44.11,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1131214,
+          "userId": 23363,
+          "date": "2026-06-24",
+          "distance": 44.11,
+          "speed": 39.17,
+          "points": 47.95,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Patrick Kessler",
       "pilotId": 35759,
       "totalPoints": 46.19,
@@ -45642,35 +45659,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "David Villeneuve",
-      "pilotId": 23363,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1131214,
-          "userId": 23363,
-          "date": "2026-06-24",
-          "distance": 23.12,
-          "speed": 52.58,
-          "points": 23.12,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
-          "invalid": true,
-          "errorReasons": [
-            "No Aircraft has been selected.",
-            "Hard time constraint (180.0s) between fixes exceeded at 19:34:50, interval without logging is 409s."
           ]
         }
       ]
@@ -109390,101 +109378,101 @@
       "hasTask": false,
       "bestContestType": "free",
       "freeStats": {
-        "glide_ratio": 30.9,
+        "glide_ratio": 63.86,
         "thermal_avg": 0.94,
-        "glide_speed": 115.9,
-        "glide_speed_lift": 109.19,
-        "glide_speed_sink": 117.06,
-        "altitude_avg": 1114,
-        "agl_avg": 1021,
+        "glide_speed": 113.77,
+        "glide_speed_lift": 106.74,
+        "glide_speed_sink": 116.81,
+        "altitude_avg": 1086,
+        "agl_avg": 990,
         "thermal_count": 7,
-        "thermal_gain": 1019,
-        "thermal_radius": 172.58,
-        "thermal_start_agl": 995,
-        "thermal_bank": 23.64,
-        "glide_percentage": 0.61,
-        "glide_percentage_lift": 0.33,
-        "duration": 3483,
-        "thermal_time": 1085,
-        "glide_time": 2127,
-        "wind_speed": 25.78,
-        "wind_direction": 293,
+        "thermal_gain": 1023,
+        "thermal_radius": 172.14,
+        "thermal_start_agl": 999,
+        "thermal_bank": 23.55,
+        "glide_percentage": 0.66,
+        "glide_percentage_lift": 0.44,
+        "duration": 3969,
+        "thermal_time": 1092,
+        "glide_time": 2606,
+        "wind_speed": 25.47,
+        "wind_direction": 295,
         "attempt_count": 6,
         "attempt_avg": 0.2,
-        "attempt_speed_loss": 5.38,
-        "below_1000_agl": 0.3812,
-        "below_800_agl": 0.1627,
-        "below_600_agl": 0.0439,
-        "below_400_agl": 0.0224,
-        "below_200_agl": 0.0052,
+        "attempt_speed_loss": 4.49,
+        "below_1000_agl": 0.4227,
+        "below_800_agl": 0.1964,
+        "below_600_agl": 0.0678,
+        "below_400_agl": 0.0394,
+        "below_200_agl": 0.0103,
         "below_100_agl": 0,
-        "track_distance": 68.48,
-        "glide_detour": 1.11,
-        "glide_distance": 4.31,
-        "glide_alt_avg": 1081,
+        "track_distance": 82.36,
+        "glide_detour": 1.22,
+        "glide_distance": 4.37,
+        "glide_alt_avg": 1025,
         "end_time": "2026-06-24T19:33:56+00:00",
-        "start_time": "2026-06-24T18:35:53+00:00",
+        "start_time": "2026-06-24T18:27:47+00:00",
         "finish_alt": 215
       },
       "taskStats": {
-        "glide_ratio": 27.78,
+        "glide_ratio": 44.04,
         "thermal_avg": 0.94,
-        "glide_speed": 115.9,
-        "glide_speed_lift": 109.19,
-        "glide_speed_sink": 117.06,
-        "altitude_avg": 1114,
-        "agl_avg": 1021,
+        "glide_speed": 113.44,
+        "glide_speed_lift": 106.79,
+        "glide_speed_sink": 116.43,
+        "altitude_avg": 1075,
+        "agl_avg": 979,
         "thermal_count": 7,
-        "thermal_gain": 1019,
-        "thermal_radius": 172.58,
-        "thermal_start_agl": 995,
-        "thermal_bank": 23.64,
-        "glide_percentage": 0.61,
-        "glide_percentage_lift": 0.33,
-        "duration": 3483,
-        "thermal_time": 1085,
-        "glide_time": 2127,
-        "wind_speed": 25.78,
-        "wind_direction": 293,
+        "thermal_gain": 1023,
+        "thermal_radius": 172.14,
+        "thermal_start_agl": 999,
+        "thermal_bank": 23.55,
+        "glide_percentage": 0.66,
+        "glide_percentage_lift": 0.45,
+        "duration": 4054,
+        "thermal_time": 1092,
+        "glide_time": 2691,
+        "wind_speed": 25.47,
+        "wind_direction": 295,
         "attempt_count": 6,
         "attempt_avg": 0.2,
-        "attempt_speed_loss": 4.84,
-        "below_1000_agl": 0.3812,
-        "below_800_agl": 0.1627,
-        "below_600_agl": 0.0439,
-        "below_400_agl": 0.0224,
-        "below_200_agl": 0.0052,
-        "below_100_agl": 0,
-        "track_distance": 68.48,
-        "glide_detour": 1.23,
-        "glide_distance": 4.31,
-        "glide_alt_avg": 1081,
-        "end_time": "2026-06-24T19:33:56+00:00",
-        "start_time": "2026-06-24T18:35:53+00:00",
-        "finish_alt": 215,
-        "task_duration": 3483,
-        "total_duration": 3483
+        "attempt_speed_loss": 3.02,
+        "below_1000_agl": 0.4295,
+        "below_800_agl": 0.2058,
+        "below_600_agl": 0.0787,
+        "below_400_agl": 0.0507,
+        "below_200_agl": 0.0218,
+        "below_100_agl": 0.0101,
+        "track_distance": 84.8,
+        "glide_detour": 1.79,
+        "glide_distance": 4.43,
+        "glide_alt_avg": 1002,
+        "end_time": "2026-06-24T19:34:38+00:00",
+        "start_time": "2026-06-24T18:27:04+00:00",
+        "finish_alt": 88,
+        "task_duration": 4054,
+        "total_duration": 3969
       },
       "taskInfo": {
         "hasTask": false,
-        "distanceKm": 55.48,
+        "distanceKm": 47.43,
         "type": null,
         "typeLabel": "No task declared",
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 55.48,
-        "freePoints": 64.69,
-        "auPoints": 55.48,
+        "taskContestPoints": 72.18,
+        "freePoints": 88.84,
+        "auPoints": 72.18,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 55.48,
-        "dmstFreeDistance": 55.48,
-        "dmstTaskActualPoints": 55.48,
-        "dmstTaskPotentialPoints": 55.48,
-        "dmstTaskDistance": 55.48,
-        "weglideFreeDistance": 61.71,
-        "dmstIndex": 100
+        "dmstFreePoints": 72.17608695652174,
+        "dmstFreeDistance": 47.43,
+        "dmstTaskActualPoints": 72.17608695652174,
+        "dmstTaskPotentialPoints": 72.17608695652174,
+        "dmstTaskDistance": 47.43,
+        "weglideFreeDistance": 67.5,
+        "dmstIndex": 92
       },
       "bhcInfo": null
     }
@@ -166175,7 +166163,7 @@
         "name": "David Villeneuve"
       },
       "date": "2026-06-24",
-      "distance": 61.71,
+      "distance": 67.5,
       "duration": 4579,
       "taskDeclared": false,
       "taskCompleted": false,
@@ -166184,45 +166172,45 @@
       "contest": [
         {
           "name": "free",
-          "points": 64.69,
-          "distance": 61.71,
-          "speed": 63.78,
+          "points": 88.84,
+          "distance": 67.5,
+          "speed": 61.22,
           "score": {
             "declared": false
           }
         },
         {
           "name": "sprint",
-          "points": 19.16,
-          "distance": 38.31,
-          "speed": 19.16,
+          "points": 25.96,
+          "distance": 48.81,
+          "speed": 24.41,
           "score": {
             "declared": false
           }
         },
         {
           "name": "triangle",
-          "points": 9.06,
-          "distance": 9.06,
-          "speed": 33.35,
+          "points": 51.55,
+          "distance": 47.43,
+          "speed": 42.12,
           "score": {
             "declared": false
           }
         },
         {
-          "name": "out",
-          "points": 23.12,
-          "distance": 23.12,
-          "speed": 52.58,
+          "name": "out_return",
+          "points": 47.95,
+          "distance": 44.11,
+          "speed": 39.17,
           "score": {
             "declared": false
           }
         },
         {
           "name": "ca",
-          "points": 55.48,
-          "distance": 55.48,
-          "speed": 57.34,
+          "points": 72.18,
+          "distance": 47.43,
+          "speed": 42.12,
           "score": {
             "declared": false
           }
@@ -176462,6 +176450,32 @@
       ]
     },
     {
+      "pilot": "David Villeneuve",
+      "pilotId": 23363,
+      "totalPoints": 88.84,
+      "totalDistance": 67.5,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1131214,
+          "userId": 23363,
+          "date": "2026-06-24",
+          "distance": 67.5,
+          "speed": 61.22,
+          "points": 88.84,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Tim Wood",
       "pilotId": 35810,
       "totalPoints": 88.02,
@@ -177769,35 +177783,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "David Villeneuve",
-      "pilotId": 23363,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1131214,
-          "userId": 23363,
-          "date": "2026-06-24",
-          "distance": 61.71,
-          "speed": 63.78,
-          "points": 64.69,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
-          "invalid": true,
-          "errorReasons": [
-            "No Aircraft has been selected.",
-            "Hard time constraint (180.0s) between fixes exceeded at 19:34:50, interval without logging is 409s."
           ]
         }
       ]
@@ -185900,6 +185885,32 @@
       ]
     },
     {
+      "pilot": "David Villeneuve",
+      "pilotId": 23363,
+      "totalPoints": 72.18,
+      "totalDistance": 47.43,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1131214,
+          "userId": 23363,
+          "date": "2026-06-24",
+          "distance": 47.43,
+          "speed": 42.12,
+          "points": 72.18,
+          "takeoff": "Kars/Rideau Valley",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "G 103 Twin 2",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Frederic Couturier",
       "pilotId": 35654,
       "totalPoints": 62.54,
@@ -186388,45 +186399,16 @@
           ]
         }
       ]
-    },
-    {
-      "pilot": "David Villeneuve",
-      "pilotId": 23363,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1131214,
-          "userId": 23363,
-          "date": "2026-06-24",
-          "distance": 55.48,
-          "speed": 57.34,
-          "points": 55.48,
-          "takeoff": "Kars/Rideau Valley",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
-          "invalid": true,
-          "errorReasons": [
-            "No Aircraft has been selected.",
-            "Hard time constraint (180.0s) between fixes exceeded at 19:34:50, interval without logging is 409s."
-          ]
-        }
-      ]
     }
   ],
   "meta": {
     "totalPilots": 170,
     "totalFlights": 862,
-    "totalKms": 169204,
+    "totalKms": 169209,
     "totalTasksDeclared": 300,
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-25T03:01:58.560Z"
+    "generatedAt": "2026-06-25T06:53:10.786Z"
   }
 }
