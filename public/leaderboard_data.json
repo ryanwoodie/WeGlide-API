@@ -157,7 +157,7 @@
     "38969": 76918,
     "38988": 11797,
     "39194": 735472,
-    "39209": 114573,
+    "39209": 119736,
     "39261": 11876,
     "39364": 14444,
     "39399": 62120,
@@ -7804,11 +7804,11 @@
       "message_enabled": true
     },
     "39209": {
-      "total_flight_duration": 114573,
-      "total_free_distance": 1153.22,
-      "avg_speed": 39.24,
-      "flight_count": 10,
-      "avg_glide_speed": 106.84,
+      "total_flight_duration": 119736,
+      "total_free_distance": 1216.89,
+      "avg_speed": 39.64,
+      "flight_count": 11,
+      "avg_glide_speed": 106.62,
       "avg_glide_detour": 1.43,
       "achievement_count": 5,
       "name": "Yvon Saucier",
@@ -164923,6 +164923,71 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1131173,
+      "user": {
+        "id": 39209,
+        "name": "Yvon Saucier"
+      },
+      "date": "2026-06-24",
+      "distance": 63.67,
+      "duration": 5163,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 69.57,
+          "distance": 63.67,
+          "speed": 48.68,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 22.22,
+          "distance": 47.77,
+          "speed": 23.89,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 38.97,
+          "distance": 42.87,
+          "speed": 37.89,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 36.27,
+          "distance": 39.9,
+          "speed": 37.36,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 54.56,
+          "distance": 42.87,
+          "speed": 37.89,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -184969,12 +185034,12 @@
   ],
   "meta": {
     "totalPilots": 169,
-    "totalFlights": 851,
-    "totalKms": 165963,
+    "totalFlights": 852,
+    "totalKms": 166027,
     "totalTasksDeclared": 298,
     "totalTasksCompleted": 19,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-25T00:06:40.441Z"
+    "generatedAt": "2026-06-25T00:11:33.711Z"
   }
 }
