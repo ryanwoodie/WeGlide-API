@@ -213,10 +213,10 @@
     }
   },
   "8848": {
-    "total_flight_duration": 17034376,
-    "total_free_distance": 316895.63,
+    "total_flight_duration": 17054140,
+    "total_free_distance": 317271.03,
     "avg_speed": 71.48,
-    "flight_count": 1140,
+    "flight_count": 1141,
     "avg_glide_speed": 120.69,
     "avg_glide_detour": 1.22,
     "achievement_count": 25,
@@ -1006,11 +1006,11 @@
     "message_enabled": true
   },
   "24930": {
-    "total_flight_duration": 2525059,
-    "total_free_distance": 37802.23,
-    "avg_speed": 58.67,
-    "flight_count": 253,
-    "avg_glide_speed": 130.41,
+    "total_flight_duration": 2545514,
+    "total_free_distance": 38342.41,
+    "avg_speed": 59.01,
+    "flight_count": 254,
+    "avg_glide_speed": 130.9,
     "avg_glide_detour": 1.64,
     "achievement_count": 26,
     "name": "Sergey Skobkarev",
