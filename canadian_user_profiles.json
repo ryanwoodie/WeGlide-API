@@ -924,6 +924,26 @@
     },
     "message_enabled": true
   },
+  "23363": {
+    "total_flight_duration": 131080,
+    "total_free_distance": 1341.38,
+    "avg_speed": 41.81,
+    "flight_count": 22,
+    "avg_glide_speed": 100.32,
+    "avg_glide_detour": 1.24,
+    "achievement_count": 1,
+    "name": "David Villeneuve",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1240,
+      "name": "Rideau Valley Soaring",
+      "region": "CA-ON",
+      "url": "https://rvss.ca"
+    },
+    "message_enabled": true
+  },
   "23521": {
     "total_flight_duration": 630449,
     "total_free_distance": 11449.02,
