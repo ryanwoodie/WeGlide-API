@@ -1524,6 +1524,26 @@
     },
     "message_enabled": true
   },
+  "35118": {
+    "total_flight_duration": 1657198,
+    "total_free_distance": 19266.23,
+    "avg_speed": 46.26,
+    "flight_count": 172,
+    "avg_glide_speed": 105.46,
+    "avg_glide_detour": 1.46,
+    "achievement_count": 6,
+    "name": "George Domaradzki",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1240,
+      "name": "Rideau Valley Soaring",
+      "region": "CA-ON",
+      "url": "https://rvss.ca"
+    },
+    "message_enabled": true
+  },
   "35152": {
     "total_flight_duration": 495829,
     "total_free_distance": 9126.25,
