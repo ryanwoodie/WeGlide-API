@@ -74,7 +74,7 @@
     "34958": 2980301,
     "35001": 487639,
     "35081": 134704,
-    "35091": 3776658,
+    "35091": 3785209,
     "35092": 420379,
     "35118": 1676551,
     "35152": 495829,
@@ -6150,10 +6150,10 @@
       "message_enabled": true
     },
     "35091": {
-      "total_flight_duration": 3776658,
-      "total_free_distance": 48591.89,
-      "avg_speed": 50.12,
-      "flight_count": 293,
+      "total_flight_duration": 3785209,
+      "total_free_distance": 48704.51,
+      "avg_speed": 50.13,
+      "flight_count": 294,
       "avg_glide_speed": 114.99,
       "avg_glide_detour": 1.34,
       "achievement_count": 10,
@@ -172532,6 +172532,71 @@
         "name": "Lachute",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1135955,
+      "user": {
+        "id": 35091,
+        "name": "François Tanguay"
+      },
+      "date": "2026-06-28",
+      "distance": 112.62,
+      "duration": 8551,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 102.8,
+          "distance": 112.62,
+          "speed": 57.43,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 35.33,
+          "distance": 80.73,
+          "speed": 40.37,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 11.08,
+          "distance": 13.19,
+          "speed": 20.21,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 40.79,
+          "distance": 48.54,
+          "speed": 70.75,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 83.37,
+          "distance": 99.21,
+          "speed": 58.76,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -193366,12 +193431,12 @@
   ],
   "meta": {
     "totalPilots": 172,
-    "totalFlights": 903,
-    "totalKms": 176518,
+    "totalFlights": 904,
+    "totalKms": 176631,
     "totalTasksDeclared": 314,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-28T21:16:28.353Z"
+    "generatedAt": "2026-06-28T21:36:39.190Z"
   }
 }
