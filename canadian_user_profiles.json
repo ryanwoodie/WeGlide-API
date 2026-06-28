@@ -662,12 +662,12 @@
     }
   },
   "21317": {
-    "total_flight_duration": 340500,
-    "total_free_distance": 2763.68,
-    "avg_speed": 32.6,
-    "flight_count": 27,
-    "avg_glide_speed": 94.79,
-    "avg_glide_detour": 1.38,
+    "total_flight_duration": 347558,
+    "total_free_distance": 2834.18,
+    "avg_speed": 32.73,
+    "flight_count": 28,
+    "avg_glide_speed": 95.02,
+    "avg_glide_detour": 1.37,
     "achievement_count": 10,
     "name": "Brian Pirie",
     "gender": "M",
@@ -1561,6 +1561,27 @@
       "name": "Edmonton Soaring Club",
       "region": "CA-AB",
       "url": "http://www.edmontonsoaringclub.com"
+    },
+    "message_enabled": true
+  },
+  "35204": {
+    "total_flight_duration": 105516,
+    "total_free_distance": 1073.54,
+    "avg_speed": 38.23,
+    "flight_count": 11,
+    "avg_glide_speed": 96.81,
+    "avg_glide_detour": 1.49,
+    "achievement_count": 3,
+    "name": "Vladimir Ziabrov",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     },
     "message_enabled": true
   },
