@@ -4120,6 +4120,25 @@
       "combinedHoursBeforeCutoff": 495.81,
       "eligibleUnder200": false
     },
+    "37792": {
+      "pilotId": 37792,
+      "weglidePilotId": "wg:37792",
+      "olcPilotId": "66081",
+      "pilotName": "Christopher Andrews",
+      "matchKind": "olc_name_only",
+      "normalizedName": "christopherandrews",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 39.3,
+      "olcOnlyHours": 39.3,
+      "combinedHours": 39.3,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 39.3,
+      "combinedHoursBeforeCutoff": 39.3,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
+    },
     "38085": {
       "pilotId": 38085,
       "weglidePilotId": "wg:38085",
