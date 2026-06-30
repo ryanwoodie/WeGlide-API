@@ -58,7 +58,7 @@
     "25728": 130924,
     "25782": 387693,
     "26583": 138947,
-    "27586": 346449,
+    "27586": 361149,
     "27891": 10744,
     "27904": 1641159,
     "28158": 14395,
@@ -5853,12 +5853,12 @@
       "message_enabled": true
     },
     "27586": {
-      "total_flight_duration": 346449,
-      "total_free_distance": 6966.71,
-      "avg_speed": 77.64,
-      "flight_count": 20,
-      "avg_glide_speed": 138.68,
-      "avg_glide_detour": 1.26,
+      "total_flight_duration": 361149,
+      "total_free_distance": 7222.84,
+      "avg_speed": 77.39,
+      "flight_count": 21,
+      "avg_glide_speed": 138.63,
+      "avg_glide_detour": 1.25,
       "achievement_count": 9,
       "name": "Mark A. Schneider",
       "gender": "M",
@@ -176275,6 +176275,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1136900,
+      "user": {
+        "id": 27586,
+        "name": "Mark A. Schneider"
+      },
+      "date": "2026-06-29",
+      "distance": 256.13,
+      "duration": 14700,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 241.76,
+          "distance": 256.13,
+          "speed": 70.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 66.86,
+          "distance": 154.79,
+          "speed": 77.39,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 100.26,
+          "distance": 121.32,
+          "speed": 33.74,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 122.42,
+          "distance": 148.13,
+          "speed": 41.43,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 187.17,
+          "distance": 226.48,
+          "speed": 62.77,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -197446,12 +197511,12 @@
   ],
   "meta": {
     "totalPilots": 174,
-    "totalFlights": 928,
-    "totalKms": 181552,
+    "totalFlights": 929,
+    "totalKms": 181808,
     "totalTasksDeclared": 319,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-29T23:31:43.999Z"
+    "generatedAt": "2026-06-30T00:21:42.723Z"
   }
 }
