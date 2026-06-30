@@ -11,7 +11,7 @@
     "6085": 132619,
     "6303": 473457,
     "8839": 15001,
-    "8848": 17125870,
+    "8848": 17125871,
     "10376": 553503,
     "10764": 416685,
     "12276": 234844,
@@ -4901,11 +4901,11 @@
       }
     },
     "8848": {
-      "total_flight_duration": 17125870,
-      "total_free_distance": 318808.15,
+      "total_flight_duration": 17125871,
+      "total_free_distance": 318817.75,
       "avg_speed": 71.52,
       "flight_count": 1144,
-      "avg_glide_speed": 120.72,
+      "avg_glide_speed": 120.73,
       "avg_glide_detour": 1.22,
       "achievement_count": 25,
       "name": "Andre R. Pepin",
@@ -177078,14 +177078,14 @@
       }
     },
     {
-      "id": 1136923,
+      "id": 1136924,
       "user": {
         "id": 8848,
         "name": "Andre R. Pepin"
       },
       "date": "2026-06-29",
-      "distance": 342.77,
-      "duration": 20358,
+      "distance": 352.37,
+      "duration": 20359,
       "taskDeclared": false,
       "taskCompleted": false,
       "task": null,
@@ -177093,45 +177093,45 @@
       "contest": [
         {
           "name": "free",
-          "points": 317.56,
-          "distance": 342.77,
-          "speed": 63.33,
+          "points": 326.57,
+          "distance": 352.37,
+          "speed": 65.1,
           "score": {
             "declared": false
           }
         },
         {
           "name": "sprint",
-          "points": 69.11,
-          "distance": 162.06,
-          "speed": 81.03,
+          "points": 73.05,
+          "distance": 171.31,
+          "speed": 85.66,
           "score": {
             "declared": false
           }
         },
         {
           "name": "triangle",
-          "points": 79.14,
-          "distance": 97.34,
-          "speed": 19.47,
+          "points": 79.24,
+          "distance": 97.46,
+          "speed": 19.49,
           "score": {
             "declared": false
           }
         },
         {
           "name": "out_return",
-          "points": 194.41,
-          "distance": 239.12,
-          "speed": 43.81,
+          "points": 200.46,
+          "distance": 246.57,
+          "speed": 45.16,
           "score": {
             "declared": false
           }
         },
         {
           "name": "ca",
-          "points": 257.67,
-          "distance": 316.93,
-          "speed": 58.58,
+          "points": 264.09,
+          "distance": 324.83,
+          "speed": 60.03,
           "score": {
             "declared": false
           }
@@ -198345,11 +198345,11 @@
   "meta": {
     "totalPilots": 174,
     "totalFlights": 936,
-    "totalKms": 183125,
+    "totalKms": 183134,
     "totalTasksDeclared": 320,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-06-30T02:26:36.921Z"
+    "generatedAt": "2026-06-30T02:41:36.613Z"
   }
 }
