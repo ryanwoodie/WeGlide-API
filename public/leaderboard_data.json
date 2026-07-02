@@ -16,7 +16,7 @@
     "10764": 416685,
     "12276": 234844,
     "12854": 362121,
-    "12901": 149173,
+    "12901": 154749,
     "13284": 962861,
     "13388": 75111,
     "13987": 67264,
@@ -5005,11 +5005,11 @@
       "message_enabled": true
     },
     "12901": {
-      "total_flight_duration": 149173,
-      "total_free_distance": 2442.69,
-      "avg_speed": 62.92,
-      "flight_count": 14,
-      "avg_glide_speed": 120.46,
+      "total_flight_duration": 154749,
+      "total_free_distance": 2537.82,
+      "avg_speed": 63.09,
+      "flight_count": 15,
+      "avg_glide_speed": 120.11,
       "avg_glide_detour": 1.16,
       "achievement_count": 6,
       "name": "Mike Morgulis",
@@ -178984,6 +178984,75 @@
         "name": "Toronto Soaring Club - Conn",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1139614,
+      "user": {
+        "id": 12901,
+        "name": "Mike Morgulis"
+      },
+      "date": "2026-07-02",
+      "distance": 95.13,
+      "duration": 5576,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "TR",
+        "from_igcfile": true,
+        "distance": 155.67
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 105.22,
+          "distance": 95.13,
+          "speed": 67.75,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 35.3,
+          "distance": 70.6,
+          "speed": 35.3,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 27.56,
+          "distance": 27.56,
+          "speed": 20.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 50.43,
+          "distance": 50.43,
+          "speed": 37.23,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 86.57,
+          "distance": 86.57,
+          "speed": 61.65,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Toronto Soaring Club - Conn",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -200377,12 +200446,12 @@
   ],
   "meta": {
     "totalPilots": 175,
-    "totalFlights": 945,
-    "totalKms": 184225,
-    "totalTasksDeclared": 326,
+    "totalFlights": 946,
+    "totalKms": 184320,
+    "totalTasksDeclared": 327,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-02T20:56:41.154Z"
+    "generatedAt": "2026-07-02T21:06:37.475Z"
   }
 }
