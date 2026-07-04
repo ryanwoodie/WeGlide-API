@@ -378,12 +378,12 @@
     "message_enabled": true
   },
   "13388": {
-    "total_flight_duration": 75111,
-    "total_free_distance": 655.87,
-    "avg_speed": 38.66,
-    "flight_count": 31,
-    "avg_glide_speed": 92.66,
-    "avg_glide_detour": 1.65,
+    "total_flight_duration": 85755,
+    "total_free_distance": 717.49,
+    "avg_speed": 36.71,
+    "flight_count": 33,
+    "avg_glide_speed": 93.97,
+    "avg_glide_detour": 1.88,
     "achievement_count": 5,
     "name": "Paulo Matioli",
     "gender": "M",
@@ -394,7 +394,8 @@
       "name": "Gatineau Gliding Club",
       "region": "CA-ON",
       "url": "https://www.gatineauglidingclub.ca"
-    }
+    },
+    "message_enabled": true
   },
   "13987": {
     "total_flight_duration": 67264,
