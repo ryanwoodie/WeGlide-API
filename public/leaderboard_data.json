@@ -18307,6 +18307,33 @@
       "awards": []
     },
     {
+      "pilot": "Mircea Pereni",
+      "pilotId": 12230,
+      "totalPoints": 54.42,
+      "totalDistance": 49.7,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1141048,
+          "userId": 12230,
+          "date": "2026-07-03",
+          "distance": 49.7,
+          "speed": 41.31,
+          "points": 54.42,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Jeff Slingerland",
       "pilotId": 35992,
       "totalPoints": 51.14,
@@ -18521,35 +18548,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Mircea Pereni",
-      "pilotId": 12230,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1141048,
-          "userId": 12230,
-          "date": "2026-07-03",
-          "distance": 49.7,
-          "speed": 41.31,
-          "points": 54.42,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 1000M 20m",
-          "dmstIndex": 111,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ],
@@ -26987,6 +26985,32 @@
       ]
     },
     {
+      "pilot": "Mircea Pereni",
+      "pilotId": 12230,
+      "totalPoints": 14.93,
+      "totalDistance": 32.33,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1141048,
+          "userId": 12230,
+          "date": "2026-07-03",
+          "distance": 32.33,
+          "speed": 16.16,
+          "points": 14.93,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Martin Chicoine",
       "pilotId": 36868,
       "totalPoints": 13.86,
@@ -27747,34 +27771,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "Mircea Pereni",
-      "pilotId": 12230,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1141048,
-          "userId": 12230,
-          "date": "2026-07-03",
-          "distance": 32.33,
-          "speed": 16.16,
-          "points": 14.93,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 1000M 20m",
-          "dmstIndex": 111,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ]
@@ -35747,6 +35743,32 @@
       ]
     },
     {
+      "pilot": "Mircea Pereni",
+      "pilotId": 12230,
+      "totalPoints": 32.14,
+      "totalDistance": 35.67,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1141048,
+          "userId": 12230,
+          "date": "2026-07-03",
+          "distance": 35.67,
+          "speed": 25.61,
+          "points": 32.14,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Keith Hartley",
       "pilotId": 39438,
       "totalPoints": 30.45,
@@ -36661,34 +36683,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "Mircea Pereni",
-      "pilotId": 12230,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1141048,
-          "userId": 12230,
-          "date": "2026-07-03",
-          "distance": 35.67,
-          "speed": 25.61,
-          "points": 32.14,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 1000M 20m",
-          "dmstIndex": 111,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ]
@@ -44566,6 +44560,32 @@
       ]
     },
     {
+      "pilot": "Mircea Pereni",
+      "pilotId": 12230,
+      "totalPoints": 18.05,
+      "totalDistance": 20.04,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1141048,
+          "userId": 12230,
+          "date": "2026-07-03",
+          "distance": 20.04,
+          "speed": 42.09,
+          "points": 18.05,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "John Edwards",
       "pilotId": 35722,
       "totalPoints": 14.69,
@@ -44890,34 +44910,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "Mircea Pereni",
-      "pilotId": 12230,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1141048,
-          "userId": 12230,
-          "date": "2026-07-03",
-          "distance": 20.04,
-          "speed": 42.09,
-          "points": 18.05,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 1000M 20m",
-          "dmstIndex": 111,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ]
@@ -191688,6 +191680,32 @@
       ]
     },
     {
+      "pilot": "Mircea Pereni",
+      "pilotId": 12230,
+      "totalPoints": 54.42,
+      "totalDistance": 49.7,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1141048,
+          "userId": 12230,
+          "date": "2026-07-03",
+          "distance": 49.7,
+          "speed": 41.31,
+          "points": 54.42,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Amanda Vella",
       "pilotId": 32676,
       "totalPoints": 53.5,
@@ -192385,34 +192403,6 @@
           "invalid": true,
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
-        }
-      ]
-    },
-    {
-      "pilot": "Mircea Pereni",
-      "pilotId": 12230,
-      "totalPoints": 0,
-      "totalDistance": 0,
-      "flightCount": 0,
-      "bestFlights": [
-        {
-          "id": 1141048,
-          "userId": 12230,
-          "date": "2026-07-03",
-          "distance": 49.7,
-          "speed": 41.31,
-          "points": 54.42,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "MG",
-          "aircraftName": "DG 1000M 20m",
-          "dmstIndex": 111,
-          "invalid": true,
-          "errorReasons": [
-            "No engine sensor found, allowed engine sensors: ['rpm', 'mop', 'enl']."
           ]
         }
       ]
@@ -201617,6 +201607,6 @@
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-04T02:01:40.299Z"
+    "generatedAt": "2026-07-04T06:25:17.528Z"
   }
 }
