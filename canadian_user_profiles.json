@@ -21,13 +21,13 @@
     "message_enabled": true
   },
   "2074": {
-    "total_flight_duration": 1293257,
-    "total_free_distance": 27388.49,
-    "avg_speed": 80.91,
-    "flight_count": 102,
-    "avg_glide_speed": 134.35,
-    "avg_glide_detour": 1.23,
-    "achievement_count": 24,
+    "total_flight_duration": 1406443,
+    "total_free_distance": 31071.84,
+    "avg_speed": 84.58,
+    "flight_count": 109,
+    "avg_glide_speed": 137.16,
+    "avg_glide_detour": 1.22,
+    "achievement_count": 26,
     "name": "Patrick McMahon",
     "gender": "M",
     "is_junior": false,
@@ -38,7 +38,8 @@
       "region": "CA-AB",
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
-    }
+    },
+    "message_enabled": true
   },
   "4806": {
     "total_flight_duration": 7135109,
