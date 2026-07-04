@@ -102,7 +102,7 @@
     "35433": 228766,
     "35434": 118858,
     "35436": 1081015,
-    "35437": 95117,
+    "35437": 99454,
     "35461": 108385,
     "35481": 330919,
     "35484": 42498,
@@ -6733,12 +6733,12 @@
       "message_enabled": true
     },
     "35437": {
-      "total_flight_duration": 95117,
-      "total_free_distance": 1142.63,
-      "avg_speed": 46.52,
-      "flight_count": 11,
-      "avg_glide_speed": 100.07,
-      "avg_glide_detour": 1.28,
+      "total_flight_duration": 99454,
+      "total_free_distance": 1218.74,
+      "avg_speed": 47.58,
+      "flight_count": 12,
+      "avg_glide_speed": 100.46,
+      "avg_glide_detour": 1.27,
       "achievement_count": 2,
       "name": "Ali Askari",
       "gender": "M",
@@ -179749,6 +179749,75 @@
         "name": "Innisfail",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1141028,
+      "user": {
+        "id": 35437,
+        "name": "Ali Askari"
+      },
+      "date": "2026-07-03",
+      "distance": 76.11,
+      "duration": 4337,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "TR",
+        "from_igcfile": true,
+        "distance": 155.67
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 76.11,
+          "distance": 76.11,
+          "speed": 72.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 19.96,
+          "distance": 45.9,
+          "speed": 22.95,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 42.29,
+          "distance": 50.75,
+          "speed": 48.5,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 32.13,
+          "distance": 38.56,
+          "speed": 40.55,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 59.21,
+          "distance": 50.75,
+          "speed": 48.5,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Toronto Soaring Club - Conn",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -201210,12 +201279,12 @@
   ],
   "meta": {
     "totalPilots": 175,
-    "totalFlights": 952,
-    "totalKms": 184707,
-    "totalTasksDeclared": 331,
+    "totalFlights": 953,
+    "totalKms": 184783,
+    "totalTasksDeclared": 332,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-04T00:36:26.186Z"
+    "generatedAt": "2026-07-04T00:51:24.939Z"
   }
 }
