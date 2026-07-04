@@ -275,6 +275,27 @@
       "in_league": "AU"
     }
   },
+  "12230": {
+    "total_flight_duration": 45140,
+    "total_free_distance": 322.72,
+    "avg_speed": 29.6,
+    "flight_count": 11,
+    "avg_glide_speed": 103.45,
+    "avg_glide_detour": 2.07,
+    "achievement_count": 2,
+    "name": "Mircea Pereni",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 965,
+      "name": "Cu Nim Gliding Club",
+      "region": "CA-AB",
+      "url": "https://www.cunim.org",
+      "logo": "club/965.png"
+    },
+    "message_enabled": false
+  },
   "12276": {
     "total_flight_duration": 234844,
     "total_free_distance": 2890.14,
