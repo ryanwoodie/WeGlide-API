@@ -3409,6 +3409,27 @@
     },
     "message_enabled": true
   },
+  "39825": {
+    "total_flight_duration": 5814,
+    "total_free_distance": 104.22,
+    "avg_speed": 71.11,
+    "flight_count": 1,
+    "avg_glide_speed": 133.47,
+    "avg_glide_detour": 1.15,
+    "achievement_count": 4,
+    "name": "Marc Boucher",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 965,
+      "name": "Cu Nim Gliding Club",
+      "region": "CA-AB",
+      "url": "https://www.cunim.org",
+      "logo": "club/965.png"
+    },
+    "message_enabled": true
+  },
   "40038": {
     "total_flight_duration": 14609,
     "total_free_distance": 142.67,
