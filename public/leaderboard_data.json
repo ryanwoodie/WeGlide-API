@@ -162,7 +162,7 @@
     "38969": 76918,
     "38988": 25207,
     "39194": 749644,
-    "39209": 154348,
+    "39209": 156055,
     "39261": 11876,
     "39364": 14444,
     "39399": 62120,
@@ -7940,12 +7940,12 @@
       "message_enabled": true
     },
     "39209": {
-      "total_flight_duration": 154348,
-      "total_free_distance": 1538.75,
-      "avg_speed": 38.99,
-      "flight_count": 15,
-      "avg_glide_speed": 107.37,
-      "avg_glide_detour": 1.42,
+      "total_flight_duration": 156055,
+      "total_free_distance": 1558.76,
+      "avg_speed": 39.13,
+      "flight_count": 16,
+      "avg_glide_speed": 107.34,
+      "avg_glide_detour": 1.41,
       "achievement_count": 5,
       "name": "Yvon Saucier",
       "gender": "M",
@@ -11196,8 +11196,8 @@
     {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 1397.27,
-      "totalDistance": 1189.5800000000002,
+      "totalPoints": 1392.73,
+      "totalDistance": 1187.8400000000001,
       "flightCount": 5,
       "bestFlights": [
         {
@@ -11221,9 +11221,9 @@
           "id": 1142936,
           "userId": 25114,
           "date": "2026-07-04",
-          "distance": 272.99,
-          "speed": 78.3,
-          "points": 324.32,
+          "distance": 271.25,
+          "speed": 89.55,
+          "points": 319.78,
           "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
@@ -29453,8 +29453,8 @@
     {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 557.94,
-      "totalDistance": 557.94,
+      "totalPoints": 548.59,
+      "totalDistance": 548.59,
       "flightCount": 3,
       "bestFlights": [
         {
@@ -29478,9 +29478,9 @@
           "id": 1142936,
           "userId": 25114,
           "date": "2026-07-04",
-          "distance": 171.11,
-          "speed": 48.81,
-          "points": 171.11,
+          "distance": 161.76,
+          "speed": 54.69,
+          "points": 161.76,
           "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
@@ -38022,8 +38022,8 @@
     {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 583.6899999999999,
-      "totalDistance": 567.01,
+      "totalPoints": 578.63,
+      "totalDistance": 561.9499999999999,
       "flightCount": 3,
       "bestFlights": [
         {
@@ -38047,9 +38047,9 @@
           "id": 1142936,
           "userId": 25114,
           "date": "2026-07-04",
-          "distance": 177.44,
-          "speed": 50.83,
-          "points": 177.44,
+          "distance": 172.38,
+          "speed": 57.69,
+          "points": 172.38,
           "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
@@ -117979,80 +117979,80 @@
       "hasTask": true,
       "bestContestType": "free",
       "freeStats": {
-        "glide_ratio": 37.06,
-        "thermal_avg": 1.68,
-        "glide_speed": 138.29,
-        "glide_speed_lift": 131.41,
-        "glide_speed_sink": 142.15,
-        "altitude_avg": 2601,
-        "agl_avg": 1480,
-        "thermal_count": 18,
-        "thermal_gain": 6242,
-        "thermal_radius": 121.26,
-        "thermal_start_agl": 1335,
-        "thermal_bank": 38.13,
-        "glide_percentage": 0.66,
+        "glide_ratio": 39.83,
+        "thermal_avg": 1.94,
+        "glide_speed": 140.29,
+        "glide_speed_lift": 132.99,
+        "glide_speed_sink": 144.37,
+        "altitude_avg": 2689,
+        "agl_avg": 1570,
+        "thermal_count": 16,
+        "thermal_gain": 5547,
+        "thermal_radius": 120.24,
+        "thermal_start_agl": 1428,
+        "thermal_bank": 39.42,
+        "glide_percentage": 0.7,
         "glide_percentage_lift": 0.36,
-        "duration": 12552,
-        "thermal_time": 3711,
-        "glide_time": 8290,
-        "wind_speed": 20.92,
-        "wind_direction": 242,
-        "attempt_count": 17,
-        "attempt_avg": 0.48,
-        "attempt_speed_loss": 3.59,
-        "below_1000_agl": 0.2075,
-        "below_800_agl": 0.1423,
-        "below_600_agl": 0.0652,
-        "below_400_agl": 0.0127,
-        "below_200_agl": 0,
-        "below_100_agl": 0,
-        "track_distance": 318.44,
-        "glide_detour": 1.17,
-        "glide_distance": 7.66,
-        "glide_alt_avg": 2649,
-        "end_time": "2026-07-04T23:03:08+00:00",
-        "start_time": "2026-07-04T19:33:56+00:00",
-        "finish_alt": 1354
+        "duration": 10905,
+        "thermal_time": 2863,
+        "glide_time": 7615,
+        "wind_speed": 21.85,
+        "wind_direction": 244,
+        "attempt_count": 14,
+        "attempt_avg": 0.72,
+        "attempt_speed_loss": 3.65,
+        "below_1000_agl": 0.1264,
+        "below_800_agl": 0.0667,
+        "below_600_agl": 0.0398,
+        "below_400_agl": 0.0289,
+        "below_200_agl": 0.011,
+        "below_100_agl": 0.0066,
+        "track_distance": 296.76,
+        "glide_detour": 1.09,
+        "glide_distance": 8.25,
+        "glide_alt_avg": 2690,
+        "end_time": "2026-07-04T23:05:44+00:00",
+        "start_time": "2026-07-04T20:03:59+00:00",
+        "finish_alt": 1140
       },
       "taskStats": {
-        "glide_ratio": 22.94,
-        "thermal_avg": 1.68,
-        "glide_speed": 138.15,
-        "glide_speed_lift": 131.26,
-        "glide_speed_sink": 142.01,
-        "altitude_avg": 2595,
-        "agl_avg": 1474,
-        "thermal_count": 18,
-        "thermal_gain": 6249,
-        "thermal_radius": 121.33,
-        "thermal_start_agl": 1335,
-        "thermal_bank": 38.05,
-        "glide_percentage": 0.66,
-        "glide_percentage_lift": 0.36,
-        "duration": 12619,
-        "thermal_time": 3718,
-        "glide_time": 8350,
-        "wind_speed": 20.92,
+        "glide_ratio": 34.79,
+        "thermal_avg": 1.96,
+        "glide_speed": 141.02,
+        "glide_speed_lift": 133.53,
+        "glide_speed_sink": 145.15,
+        "altitude_avg": 2723,
+        "agl_avg": 1606,
+        "thermal_count": 14,
+        "thermal_gain": 5236,
+        "thermal_radius": 119.92,
+        "thermal_start_agl": 1455,
+        "thermal_bank": 39.7,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.35,
+        "duration": 10352,
+        "thermal_time": 2675,
+        "glide_time": 7250,
+        "wind_speed": 22.05,
         "wind_direction": 242,
-        "attempt_count": 17,
-        "attempt_avg": 0.48,
-        "attempt_speed_loss": 2.23,
-        "below_1000_agl": 0.2111,
-        "below_800_agl": 0.1463,
-        "below_600_agl": 0.0696,
-        "below_400_agl": 0.0174,
-        "below_200_agl": 0.0013,
+        "attempt_count": 14,
+        "attempt_avg": 0.72,
+        "attempt_speed_loss": 3.4,
+        "below_1000_agl": 0.114,
+        "below_800_agl": 0.056,
+        "below_600_agl": 0.0277,
+        "below_400_agl": 0.0162,
+        "below_200_agl": 0,
         "below_100_agl": 0,
-        "track_distance": 320.43,
-        "glide_detour": 1.87,
-        "glide_distance": 7.63,
-        "glide_alt_avg": 2640,
-        "end_time": "2026-07-04T23:04:08+00:00",
-        "start_time": "2026-07-04T19:33:49+00:00",
-        "finish_alt": 1262,
-        "task_duration": 12619,
-        "total_duration": 12552
+        "track_distance": 283.99,
+        "glide_detour": 1.25,
+        "glide_distance": 8.29,
+        "glide_alt_avg": 2727,
+        "end_time": "2026-07-04T23:03:17+00:00",
+        "start_time": "2026-07-04T20:10:45+00:00",
+        "finish_alt": 1391,
+        "task_duration": 10352,
+        "total_duration": 10905
       },
       "taskInfo": {
         "hasTask": true,
@@ -118062,17 +118062,17 @@
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 239.55,
-        "freePoints": 324.32,
-        "auPoints": 239.55,
+        "taskContestPoints": 227.56,
+        "freePoints": 319.78,
+        "auPoints": 227.56,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 239.554,
-        "dmstFreeDistance": 171.11,
+        "dmstFreePoints": 227.56,
+        "dmstFreeDistance": 227.56,
         "dmstTaskActualPoints": 811.0339999999999,
         "dmstTaskPotentialPoints": 984.8269999999999,
         "dmstTaskDistance": 579.31,
-        "weglideFreeDistance": 272.99,
+        "weglideFreeDistance": 271.25,
         "dmstIndex": 100
       },
       "bhcInfo": null
@@ -181435,7 +181435,7 @@
         "name": "Joshua Peace"
       },
       "date": "2026-07-04",
-      "distance": 272.99,
+      "distance": 271.25,
       "duration": 13295,
       "taskDeclared": true,
       "taskCompleted": false,
@@ -181449,9 +181449,9 @@
       "contest": [
         {
           "name": "free",
-          "points": 324.32,
-          "distance": 272.99,
-          "speed": 78.3,
+          "points": 319.78,
+          "distance": 271.25,
+          "speed": 89.55,
           "score": {
             "declared": false
           }
@@ -181467,27 +181467,27 @@
         },
         {
           "name": "triangle",
-          "points": 171.11,
-          "distance": 171.11,
-          "speed": 48.81,
+          "points": 161.76,
+          "distance": 161.76,
+          "speed": 54.69,
           "score": {
             "declared": false
           }
         },
         {
           "name": "out_return",
-          "points": 177.44,
-          "distance": 177.44,
-          "speed": 50.83,
+          "points": 172.38,
+          "distance": 172.38,
+          "speed": 57.69,
           "score": {
             "declared": false
           }
         },
         {
           "name": "ca",
-          "points": 239.55,
-          "distance": 171.11,
-          "speed": 48.81,
+          "points": 227.56,
+          "distance": 227.56,
+          "speed": 79.14,
           "score": {
             "declared": false
           }
@@ -181496,6 +181496,71 @@
       "takeoff_airport": {
         "name": "Cu Nim",
         "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1142955,
+      "user": {
+        "id": 39209,
+        "name": "Yvon Saucier"
+      },
+      "date": "2026-07-04",
+      "distance": 20.01,
+      "duration": 1707,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 21.22,
+          "distance": 20.01,
+          "speed": 54,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 1.6,
+          "distance": 3.43,
+          "speed": 1.72,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 10.09,
+          "distance": 11.1,
+          "speed": 36.23,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 10.06,
+          "distance": 11.07,
+          "speed": 36.13,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 16.72,
+          "distance": 18.39,
+          "speed": 49.63,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
       }
     }
   ],
@@ -184783,8 +184848,8 @@
     {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 1397.27,
-      "totalDistance": 1189.5800000000002,
+      "totalPoints": 1392.73,
+      "totalDistance": 1187.8400000000001,
       "flightCount": 5,
       "bestFlights": [
         {
@@ -184808,9 +184873,9 @@
           "id": 1142936,
           "userId": 25114,
           "date": "2026-07-04",
-          "distance": 272.99,
-          "speed": 78.3,
-          "points": 324.32,
+          "distance": 271.25,
+          "speed": 89.55,
+          "points": 319.78,
           "takeoff": "Cu Nim",
           "region": "CA-AB",
           "declared": false,
@@ -196613,100 +196678,6 @@
       ]
     },
     {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 1165.16,
-      "totalDistance": 945.4000000000001,
-      "flightCount": 5,
-      "bestFlights": [
-        {
-          "id": 1115038,
-          "userId": 25114,
-          "date": "2026-06-08",
-          "distance": 308.12,
-          "speed": 56.92,
-          "points": 431.37,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1142936,
-          "userId": 25114,
-          "date": "2026-07-04",
-          "distance": 171.11,
-          "speed": 48.81,
-          "points": 239.55,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1069785,
-          "userId": 25114,
-          "date": "2026-05-03",
-          "distance": 219.97,
-          "speed": 67.33,
-          "points": 219.97,
-          "takeoff": "Cu Nim",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 915153,
-          "userId": 25114,
-          "date": "2025-10-07",
-          "distance": 140.61,
-          "speed": 44.09,
-          "points": 140.61,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1119815,
-          "userId": 25114,
-          "date": "2026-06-14",
-          "distance": 105.59,
-          "speed": 58.99,
-          "points": 133.66,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASK 13",
-          "dmstIndex": 79,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Tom Weiher",
       "pilotId": 35001,
       "totalPoints": 1160.02,
@@ -196795,6 +196766,100 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-41 Jantar Std.",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 1153.17,
+      "totalDistance": 1001.8500000000001,
+      "flightCount": 5,
+      "bestFlights": [
+        {
+          "id": 1115038,
+          "userId": 25114,
+          "date": "2026-06-08",
+          "distance": 308.12,
+          "speed": 56.92,
+          "points": 431.37,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1142936,
+          "userId": 25114,
+          "date": "2026-07-04",
+          "distance": 227.56,
+          "speed": 79.14,
+          "points": 227.56,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1069785,
+          "userId": 25114,
+          "date": "2026-05-03",
+          "distance": 219.97,
+          "speed": 67.33,
+          "points": 219.97,
+          "takeoff": "Cu Nim",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 915153,
+          "userId": 25114,
+          "date": "2025-10-07",
+          "distance": 140.61,
+          "speed": 44.09,
+          "points": 140.61,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1119815,
+          "userId": 25114,
+          "date": "2026-06-14",
+          "distance": 105.59,
+          "speed": 58.99,
+          "points": 133.66,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 13",
+          "dmstIndex": 79,
           "invalid": false,
           "errorReasons": []
         }
@@ -203086,12 +203151,12 @@
   ],
   "meta": {
     "totalPilots": 176,
-    "totalFlights": 963,
-    "totalKms": 185543,
+    "totalFlights": 964,
+    "totalKms": 185561,
     "totalTasksDeclared": 334,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-04T23:46:19.358Z"
+    "generatedAt": "2026-07-05T00:36:25.085Z"
   }
 }
