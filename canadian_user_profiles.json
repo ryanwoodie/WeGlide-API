@@ -1485,6 +1485,26 @@
     },
     "message_enabled": true
   },
+  "35037": {
+    "total_flight_duration": 136040,
+    "total_free_distance": 804.66,
+    "avg_speed": 24.45,
+    "flight_count": 17,
+    "avg_glide_speed": 90.68,
+    "avg_glide_detour": 2.03,
+    "achievement_count": 3,
+    "name": "Jimmy Chen",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35081": {
     "total_flight_duration": 134704,
     "total_free_distance": 1925.19,
