@@ -4415,6 +4415,25 @@
       "combinedHoursBeforeCutoff": 148.91,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "40351": {
+      "pilotId": 40351,
+      "weglidePilotId": "wg:40351",
+      "olcPilotId": "53147",
+      "pilotName": "Nicolas Drolet",
+      "matchKind": "olc_name_only",
+      "normalizedName": "nicolasdrolet",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 115.38,
+      "olcOnlyHours": 115.38,
+      "combinedHours": 115.38,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 115.38,
+      "combinedHoursBeforeCutoff": 115.38,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {

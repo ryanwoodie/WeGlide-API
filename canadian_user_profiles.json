@@ -1425,11 +1425,11 @@
     "message_enabled": true
   },
   "34953": {
-    "total_flight_duration": 355951,
-    "total_free_distance": 6897.64,
-    "avg_speed": 72.86,
-    "flight_count": 28,
-    "avg_glide_speed": 125.88,
+    "total_flight_duration": 371531,
+    "total_free_distance": 7200.67,
+    "avg_speed": 72.85,
+    "flight_count": 30,
+    "avg_glide_speed": 126.3,
     "avg_glide_detour": 1.19,
     "achievement_count": 9,
     "name": "Jean Lapierre",
@@ -3509,6 +3509,26 @@
       "region": "CA-BC",
       "url": "http://www.avsa.ca",
       "logo": "club/849.png"
+    },
+    "message_enabled": true
+  },
+  "40351": {
+    "total_flight_duration": 16420,
+    "total_free_distance": 179.38,
+    "avg_speed": 45.89,
+    "flight_count": 2,
+    "avg_glide_speed": 104.43,
+    "avg_glide_detour": 1.37,
+    "achievement_count": 1,
+    "name": "Nicolas Drolet",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 947,
+      "name": "CVV de Québec",
+      "region": "CA-QC",
+      "url": "https://www.cvvq.net"
     },
     "message_enabled": true
   },
