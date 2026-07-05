@@ -155,7 +155,7 @@
     "38085": 522919,
     "38390": 9511,
     "38506": 7082,
-    "38629": 92421,
+    "38629": 98224,
     "38767": 39163,
     "38833": 25729,
     "38944": 6099,
@@ -7820,11 +7820,11 @@
       "message_enabled": true
     },
     "38629": {
-      "total_flight_duration": 92421,
-      "total_free_distance": 2034.58,
-      "avg_speed": 92.98,
-      "flight_count": 7,
-      "avg_glide_speed": 141.1,
+      "total_flight_duration": 98224,
+      "total_free_distance": 2148.69,
+      "avg_speed": 92.29,
+      "flight_count": 8,
+      "avg_glide_speed": 141.18,
       "avg_glide_detour": 1.22,
       "achievement_count": 11,
       "name": "Gonda-Bastian Sinagowitz",
@@ -186042,6 +186042,71 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1144355,
+      "user": {
+        "id": 38629,
+        "name": "Gonda-Bastian Sinagowitz"
+      },
+      "date": "2026-07-05",
+      "distance": 114.11,
+      "duration": 5803,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 105.23,
+          "distance": 114.11,
+          "speed": 81.47,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 42.08,
+          "distance": 96.79,
+          "speed": 48.4,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 11.18,
+          "distance": 13.41,
+          "speed": 12.71,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 50.71,
+          "distance": 60.85,
+          "speed": 58.86,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 91.07,
+          "distance": 109.28,
+          "speed": 78.03,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -207982,12 +208047,12 @@
   ],
   "meta": {
     "totalPilots": 179,
-    "totalFlights": 992,
-    "totalKms": 189757,
+    "totalFlights": 993,
+    "totalKms": 189871,
     "totalTasksDeclared": 340,
     "totalTasksCompleted": 22,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-05T22:56:26.574Z"
+    "generatedAt": "2026-07-05T23:31:38.580Z"
   }
 }
