@@ -121,7 +121,7 @@
     "35644": 4519876,
     "35647": 308716,
     "35654": 483498,
-    "35660": 6920644,
+    "35660": 6937070,
     "35709": 157586,
     "35714": 2421190,
     "35722": 14985,
@@ -7142,11 +7142,11 @@
       "message_enabled": true
     },
     "35660": {
-      "total_flight_duration": 6920644,
-      "total_free_distance": 117499.92,
-      "avg_speed": 65.5,
-      "flight_count": 398,
-      "avg_glide_speed": 116.31,
+      "total_flight_duration": 6937070,
+      "total_free_distance": 117831.44,
+      "avg_speed": 65.53,
+      "flight_count": 399,
+      "avg_glide_speed": 116.35,
       "avg_glide_detour": 1.21,
       "achievement_count": 23,
       "name": "Pierre Gavillet",
@@ -186656,6 +186656,71 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1144389,
+      "user": {
+        "id": 35660,
+        "name": "Pierre Gavillet"
+      },
+      "date": "2026-07-05",
+      "distance": 331.52,
+      "duration": 16426,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 334.26,
+          "distance": 331.52,
+          "speed": 77.52,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 78.39,
+          "distance": 179.12,
+          "speed": 89.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 185.59,
+          "distance": 220.85,
+          "speed": 50.08,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 204.26,
+          "distance": 243.07,
+          "speed": 75.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 265.54,
+          "distance": 243.07,
+          "speed": 75.44,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -208611,12 +208676,12 @@
   ],
   "meta": {
     "totalPilots": 179,
-    "totalFlights": 1002,
-    "totalKms": 192196,
+    "totalFlights": 1003,
+    "totalKms": 192528,
     "totalTasksDeclared": 342,
     "totalTasksCompleted": 23,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-06T01:46:25.729Z"
+    "generatedAt": "2026-07-06T01:51:27.800Z"
   }
 }
