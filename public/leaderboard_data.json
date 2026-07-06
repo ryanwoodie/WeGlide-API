@@ -108,7 +108,7 @@
     "35461": 118970,
     "35481": 330919,
     "35484": 42498,
-    "35496": 3353783,
+    "35496": 3366415,
     "35497": 5554,
     "35546": 1250793,
     "35558": 4048265,
@@ -6879,10 +6879,10 @@
       "message_enabled": true
     },
     "35496": {
-      "total_flight_duration": 3353783,
-      "total_free_distance": 59245.42,
-      "avg_speed": 68.95,
-      "flight_count": 276,
+      "total_flight_duration": 3366415,
+      "total_free_distance": 59464.62,
+      "avg_speed": 68.93,
+      "flight_count": 277,
       "avg_glide_speed": 119.7,
       "avg_glide_detour": 1.14,
       "achievement_count": 27,
@@ -187249,6 +187249,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1145109,
+      "user": {
+        "id": 35496,
+        "name": "Richard Noel"
+      },
+      "date": "2026-07-06",
+      "distance": 219.2,
+      "duration": 12632,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 220.49,
+          "distance": 219.2,
+          "speed": 64.49,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 48.56,
+          "distance": 108.04,
+          "speed": 54.02,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 99.6,
+          "distance": 114.54,
+          "speed": 33.15,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 70.51,
+          "distance": 81.09,
+          "speed": 23.35,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 139.44,
+          "distance": 114.54,
+          "speed": 33.15,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Paquet",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -209238,12 +209303,12 @@
   ],
   "meta": {
     "totalPilots": 179,
-    "totalFlights": 1008,
-    "totalKms": 193885,
+    "totalFlights": 1009,
+    "totalKms": 194104,
     "totalTasksDeclared": 343,
     "totalTasksCompleted": 24,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-06T16:21:45.832Z"
+    "generatedAt": "2026-07-06T20:21:49.222Z"
   }
 }
