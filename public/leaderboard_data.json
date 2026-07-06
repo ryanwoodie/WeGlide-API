@@ -65,7 +65,7 @@
     "28158": 14395,
     "29394": 605974,
     "29869": 3796792,
-    "32274": 847835,
+    "32274": 861444,
     "32345": 5396566,
     "32676": 74299,
     "33962": 173633,
@@ -6018,11 +6018,11 @@
       }
     },
     "32274": {
-      "total_flight_duration": 847835,
-      "total_free_distance": 20520.17,
-      "avg_speed": 94.44,
-      "flight_count": 49,
-      "avg_glide_speed": 142.55,
+      "total_flight_duration": 861444,
+      "total_free_distance": 20844.88,
+      "avg_speed": 94.43,
+      "flight_count": 50,
+      "avg_glide_speed": 142.53,
       "avg_glide_detour": 1.11,
       "achievement_count": 18,
       "name": "Harry  Peters",
@@ -186115,6 +186115,71 @@
         "name": "Pendleton GATGC",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1144364,
+      "user": {
+        "id": 32274,
+        "name": "Harry  Peters"
+      },
+      "date": "2026-07-05",
+      "distance": 324.71,
+      "duration": 13609,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 302.15,
+          "distance": 324.71,
+          "speed": 93.85,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 85.32,
+          "distance": 196.23,
+          "speed": 98.11,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 18.85,
+          "distance": 22.62,
+          "speed": 11.72,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 157.81,
+          "distance": 189.37,
+          "speed": 98.12,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 245.16,
+          "distance": 294.19,
+          "speed": 88.37,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -208055,12 +208120,12 @@
   ],
   "meta": {
     "totalPilots": 179,
-    "totalFlights": 994,
-    "totalKms": 190177,
+    "totalFlights": 995,
+    "totalKms": 190502,
     "totalTasksDeclared": 341,
     "totalTasksCompleted": 23,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-06T00:01:38.606Z"
+    "generatedAt": "2026-07-06T00:11:25.838Z"
   }
 }
