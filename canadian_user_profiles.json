@@ -2743,12 +2743,12 @@
     }
   },
   "36013": {
-    "total_flight_duration": 27501,
-    "total_free_distance": 602.62,
-    "avg_speed": 87.92,
-    "flight_count": 2,
-    "avg_glide_speed": 134.95,
-    "avg_glide_detour": 1.09,
+    "total_flight_duration": 43562,
+    "total_free_distance": 915.55,
+    "avg_speed": 84.44,
+    "flight_count": 3,
+    "avg_glide_speed": 136,
+    "avg_glide_detour": 1.07,
     "achievement_count": 3,
     "name": "Ian Grant",
     "gender": "M",
@@ -2759,7 +2759,8 @@
       "name": "Gatineau Gliding Club",
       "region": "CA-ON",
       "url": "https://www.gatineauglidingclub.ca"
-    }
+    },
+    "message_enabled": true
   },
   "36028": {
     "total_flight_duration": 45100,
