@@ -308,6 +308,25 @@
       "combinedHoursBeforeCutoff": 5152.53,
       "eligibleUnder200": false
     },
+    "9871": {
+      "pilotId": 9871,
+      "weglidePilotId": "wg:9871",
+      "olcPilotId": "13482",
+      "pilotName": "Dennis Vreeken",
+      "matchKind": "olc_name_only",
+      "normalizedName": "dennisvreeken",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 443.52,
+      "olcOnlyHours": 443.52,
+      "combinedHours": 443.52,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 443.52,
+      "combinedHoursBeforeCutoff": 443.52,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
+    },
     "10170": {
       "pilotId": 10170,
       "weglidePilotId": "wg:10170",

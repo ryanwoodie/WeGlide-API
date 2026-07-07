@@ -234,6 +234,29 @@
     },
     "message_enabled": true
   },
+  "9871": {
+    "total_flight_duration": 374266,
+    "total_free_distance": 8566.55,
+    "avg_speed": 86.57,
+    "flight_count": 29,
+    "avg_glide_speed": 140.64,
+    "avg_glide_detour": 1.13,
+    "achievement_count": 15,
+    "name": "Dennis Vreeken",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1259,
+      "name": "Seattle Glider Council",
+      "region": "US-WA",
+      "url": "https://www.seattleglidercouncil.org",
+      "logo": "club/1259.png",
+      "in_league": "U1",
+      "position": 11
+    },
+    "message_enabled": true
+  },
   "10376": {
     "total_flight_duration": 553503,
     "total_free_distance": 10096.18,
