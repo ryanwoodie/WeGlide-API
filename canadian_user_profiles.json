@@ -1369,6 +1369,29 @@
     },
     "message_enabled": true
   },
+  "32470": {
+    "total_flight_duration": 56190,
+    "total_free_distance": 1206.48,
+    "avg_speed": 82.98,
+    "flight_count": 4,
+    "avg_glide_speed": 130.97,
+    "avg_glide_detour": 1.52,
+    "achievement_count": 0,
+    "name": "Tim Martin",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1259,
+      "name": "Seattle Glider Council",
+      "region": "US-WA",
+      "url": "https://www.seattleglidercouncil.org",
+      "logo": "club/1259.png",
+      "in_league": "U1",
+      "position": 11
+    },
+    "message_enabled": false
+  },
   "32676": {
     "total_flight_duration": 74299,
     "total_free_distance": 829.91,
