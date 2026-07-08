@@ -70,7 +70,7 @@
     "32345": 5746543,
     "32470": 56190,
     "32676": 74299,
-    "33962": 178957,
+    "33962": 186457,
     "34532": 6784,
     "34934": 4276025,
     "34953": 371531,
@@ -6165,11 +6165,11 @@
       }
     },
     "33962": {
-      "total_flight_duration": 178957,
-      "total_free_distance": 3977.61,
-      "avg_speed": 84.64,
-      "flight_count": 16,
-      "avg_glide_speed": 129.15,
+      "total_flight_duration": 186457,
+      "total_free_distance": 4073.69,
+      "avg_speed": 83.24,
+      "flight_count": 17,
+      "avg_glide_speed": 128.16,
       "avg_glide_detour": 1.13,
       "achievement_count": 14,
       "name": "Charlie Pastuszka",
@@ -190099,6 +190099,71 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1147015,
+      "user": {
+        "id": 33962,
+        "name": "Charlie Pastuszka"
+      },
+      "date": "2026-07-08",
+      "distance": 96.08,
+      "duration": 7500,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 141.82,
+          "distance": 96.08,
+          "speed": 49.41,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 45.38,
+          "distance": 76.47,
+          "speed": 38.23,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 67.33,
+          "distance": 53.19,
+          "speed": 28.94,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 59.94,
+          "distance": 47.35,
+          "speed": 25.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 107.56,
+          "distance": 84.97,
+          "speed": 43.7,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -212375,12 +212440,12 @@
   ],
   "meta": {
     "totalPilots": 183,
-    "totalFlights": 1027,
-    "totalKms": 199591,
+    "totalFlights": 1028,
+    "totalKms": 199687,
     "totalTasksDeclared": 350,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-08T23:01:44.374Z"
+    "generatedAt": "2026-07-08T23:06:18.844Z"
   }
 }
