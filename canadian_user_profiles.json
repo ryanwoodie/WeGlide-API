@@ -3598,5 +3598,25 @@
       "url": "http://toronto-soaring.ca"
     },
     "message_enabled": true
+  },
+  "40715": {
+    "total_flight_duration": 7439,
+    "total_free_distance": 85.36,
+    "avg_speed": 49.09,
+    "flight_count": 1,
+    "avg_glide_speed": 85.14,
+    "avg_glide_detour": 1.04,
+    "achievement_count": 0,
+    "name": "Lorie Gold",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
   }
 }

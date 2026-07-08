@@ -4453,6 +4453,25 @@
       "combinedHoursBeforeCutoff": 115.38,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "40715": {
+      "pilotId": 40715,
+      "weglidePilotId": "wg:40715",
+      "olcPilotId": "84639",
+      "pilotName": "Lorie Gold",
+      "matchKind": "olc_name_only",
+      "normalizedName": "loriegold",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 2.71,
+      "olcOnlyHours": 2.71,
+      "combinedHours": 2.71,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 2.71,
+      "combinedHoursBeforeCutoff": 2.71,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
