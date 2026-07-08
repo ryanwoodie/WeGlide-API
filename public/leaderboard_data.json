@@ -179,7 +179,8 @@
     "40257": 8075,
     "40351": 16420,
     "40422": 5097,
-    "40715": 2409
+    "40715": 2409,
+    "40731": 8088
   },
   "pilotCombinedHours": {
     "779": {
@@ -8369,6 +8370,21 @@
         "region": "CA-ON",
         "url": "https://www.sosaglidingclub.com"
       },
+      "message_enabled": true
+    },
+    "40731": {
+      "total_flight_duration": 8088,
+      "total_free_distance": 39.89,
+      "avg_speed": 24.25,
+      "flight_count": 1,
+      "avg_glide_speed": 98.12,
+      "avg_glide_detour": 1.76,
+      "achievement_count": 0,
+      "name": "Gulsah Hos",
+      "gender": "F",
+      "is_junior": false,
+      "is_senior": false,
+      "club": null,
       "message_enabled": true
     }
   },
@@ -18810,6 +18826,33 @@
       "awards": []
     },
     {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 51.7,
+      "totalDistance": 39.89,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1146933,
+          "userId": 40731,
+          "date": "2026-07-08",
+          "distance": 39.89,
+          "speed": 24.25,
+          "points": 51.7,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Jeff Slingerland",
       "pilotId": 35992,
       "totalPoints": 51.14,
@@ -27840,6 +27883,32 @@
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
+        }
+      ]
+    },
+    {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 13.62,
+      "totalDistance": 25.19,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1146933,
+          "userId": 40731,
+          "date": "2026-07-08",
+          "distance": 25.19,
+          "speed": 12.6,
+          "points": 13.62,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
         }
       ]
     },
@@ -36936,6 +37005,32 @@
       ]
     },
     {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 24.58,
+      "totalDistance": 22.12,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1146933,
+          "userId": 40731,
+          "date": "2026-07-08",
+          "distance": 22.12,
+          "speed": 14.23,
+          "points": 24.58,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "mike maskell",
       "pilotId": 23148,
       "totalPoints": 24.3,
@@ -45778,6 +45873,32 @@
           "aircraftKind": "GL",
           "aircraftName": "ASK 21",
           "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 19.17,
+      "totalDistance": 17.25,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1146933,
+          "userId": 40731,
+          "date": "2026-07-08",
+          "distance": 17.25,
+          "speed": 22.54,
+          "points": 19.17,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
           "invalid": false,
           "errorReasons": []
         }
@@ -122041,6 +122162,72 @@
         "dmstIndex": 104
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1146933,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 21.98,
+        "thermal_avg": 0.66,
+        "glide_speed": 98.12,
+        "glide_speed_lift": 97.38,
+        "glide_speed_sink": 98.83,
+        "altitude_avg": 1244,
+        "agl_avg": 918,
+        "thermal_count": 13,
+        "thermal_gain": 1983,
+        "thermal_radius": 123.59,
+        "thermal_start_agl": 850,
+        "thermal_bank": 33.85,
+        "glide_percentage": 0.43,
+        "glide_percentage_lift": 0.46,
+        "duration": 5923,
+        "thermal_time": 2990,
+        "glide_time": 2573,
+        "wind_speed": 12.21,
+        "wind_direction": 268,
+        "attempt_count": 7,
+        "attempt_avg": 0.13,
+        "attempt_speed_loss": 1.56,
+        "below_1000_agl": 0.6846,
+        "below_800_agl": 0.2284,
+        "below_600_agl": 0.0105,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 70.13,
+        "glide_detour": 1.76,
+        "glide_distance": 1.96,
+        "glide_alt_avg": 1243,
+        "end_time": "2026-07-08T19:13:56+00:00",
+        "start_time": "2026-07-08T17:35:13+00:00",
+        "finish_alt": 1432
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 51.7,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 39.89,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 39.89,
+        "weglideFreeDistance": 39.89,
+        "dmstIndex": 90
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -189460,6 +189647,62 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1146933,
+      "user": {
+        "id": 40731,
+        "name": "Gulsah Hos"
+      },
+      "date": "2026-07-08",
+      "distance": 39.89,
+      "duration": 8088,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 51.7,
+          "distance": 39.89,
+          "speed": 24.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 13.62,
+          "distance": 25.19,
+          "speed": 12.6,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 24.58,
+          "distance": 22.12,
+          "speed": 14.23,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 19.17,
+          "distance": 17.25,
+          "speed": 22.54,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -201382,6 +201625,32 @@
       ]
     },
     {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 51.7,
+      "totalDistance": 39.89,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1146933,
+          "userId": 40731,
+          "date": "2026-07-08",
+          "distance": 39.89,
+          "speed": 24.25,
+          "points": 51.7,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-51 Junior",
+          "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Jasmine Jowahir",
       "pilotId": 39717,
       "totalPoints": 49.38,
@@ -211675,13 +211944,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 182,
-    "totalFlights": 1024,
-    "totalKms": 199304,
+    "totalPilots": 183,
+    "totalFlights": 1025,
+    "totalKms": 199344,
     "totalTasksDeclared": 349,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-08T19:31:50.643Z"
+    "generatedAt": "2026-07-08T20:31:44.103Z"
   }
 }

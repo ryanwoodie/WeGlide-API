@@ -3618,5 +3618,20 @@
       "url": "https://www.sosaglidingclub.com"
     },
     "message_enabled": true
+  },
+  "40731": {
+    "total_flight_duration": 8088,
+    "total_free_distance": 39.89,
+    "avg_speed": 24.25,
+    "flight_count": 1,
+    "avg_glide_speed": 98.12,
+    "avg_glide_detour": 1.76,
+    "achievement_count": 0,
+    "name": "Gulsah Hos",
+    "gender": "F",
+    "is_junior": false,
+    "is_senior": false,
+    "club": null,
+    "message_enabled": true
   }
 }
