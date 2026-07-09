@@ -2112,6 +2112,26 @@
     },
     "message_enabled": true
   },
+  "35435": {
+    "total_flight_duration": 1382348,
+    "total_free_distance": 21131.04,
+    "avg_speed": 57.53,
+    "flight_count": 127,
+    "avg_glide_speed": 112,
+    "avg_glide_detour": 1.13,
+    "achievement_count": 0,
+    "name": "Raymond Wood",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "35436": {
     "total_flight_duration": 1102225,
     "total_free_distance": 24043.72,
