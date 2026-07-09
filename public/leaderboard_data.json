@@ -19357,14 +19357,14 @@
           "date": "2026-05-12",
           "distance": 134.48,
           "speed": 30.31,
-          "points": 164.81,
+          "points": 152.13,
           "takeoff": "Hawkesbury",
           "region": "CA-ON",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "G 102 Astir CS",
-          "dmstIndex": 96,
+          "aircraftName": "DG 300",
+          "dmstIndex": 104,
           "invalid": true,
           "errorReasons": [
             "No G-Record (Integrity Check) found.",
@@ -29063,14 +29063,14 @@
           "date": "2026-05-12",
           "distance": 66.73,
           "speed": 33.37,
-          "points": 34.4,
+          "points": 32.39,
           "takeoff": "Hawkesbury",
           "region": "CA-ON",
           "declared": false,
           "contestType": "sprint",
           "aircraftKind": "GL",
-          "aircraftName": "G 102 Astir CS",
-          "dmstIndex": 96,
+          "aircraftName": "DG 300",
+          "dmstIndex": 104,
           "invalid": true,
           "errorReasons": [
             "No G-Record (Integrity Check) found.",
@@ -38339,12 +38339,12 @@
       "flightCount": 0,
       "bestFlights": [
         {
-          "id": 1147282,
+          "id": 1147272,
           "userId": 40752,
-          "date": "2026-05-12",
-          "distance": 79.11,
-          "speed": 16.61,
-          "points": 82.41,
+          "date": "2026-05-27",
+          "distance": 74.63,
+          "speed": 19.98,
+          "points": 77.74,
           "takeoff": "Hawkesbury",
           "region": "CA-ON",
           "declared": false,
@@ -38359,19 +38359,19 @@
           ]
         },
         {
-          "id": 1147272,
+          "id": 1147282,
           "userId": 40752,
-          "date": "2026-05-27",
-          "distance": 74.63,
-          "speed": 19.98,
-          "points": 77.74,
+          "date": "2026-05-12",
+          "distance": 79.11,
+          "speed": 16.61,
+          "points": 76.07,
           "takeoff": "Hawkesbury",
           "region": "CA-ON",
           "declared": false,
           "contestType": "triangle",
           "aircraftKind": "GL",
-          "aircraftName": "G 102 Astir CS",
-          "dmstIndex": 96,
+          "aircraftName": "DG 300",
+          "dmstIndex": 104,
           "invalid": true,
           "errorReasons": [
             "No G-Record (Integrity Check) found.",
@@ -47021,14 +47021,14 @@
           "date": "2026-05-12",
           "distance": 58.04,
           "speed": 29.91,
-          "points": 60.46,
+          "points": 55.81,
           "takeoff": "Hawkesbury",
           "region": "CA-ON",
           "declared": false,
           "contestType": "out_return",
           "aircraftKind": "GL",
-          "aircraftName": "G 102 Astir CS",
-          "dmstIndex": 96,
+          "aircraftName": "DG 300",
+          "dmstIndex": 104,
           "invalid": true,
           "errorReasons": [
             "No G-Record (Integrity Check) found.",
@@ -123892,7 +123892,7 @@
         "taskContestUsed": null,
         "taskContestLabel": "Task Score",
         "taskContestPoints": null,
-        "freePoints": 164.81,
+        "freePoints": 152.13,
         "auPoints": null,
         "declarationPoints": null,
         "bestContestType": "free",
@@ -123902,7 +123902,7 @@
         "dmstTaskPotentialPoints": null,
         "dmstTaskDistance": 134.48,
         "weglideFreeDistance": 134.48,
-        "dmstIndex": 96
+        "dmstIndex": 104
       },
       "bhcInfo": null
     },
@@ -192382,7 +192382,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 164.81,
+          "points": 152.13,
           "distance": 134.48,
           "speed": 30.31,
           "score": {
@@ -192391,7 +192391,7 @@
         },
         {
           "name": "sprint",
-          "points": 34.4,
+          "points": 32.39,
           "distance": 66.73,
           "speed": 33.37,
           "score": {
@@ -192400,7 +192400,7 @@
         },
         {
           "name": "triangle",
-          "points": 82.41,
+          "points": 76.07,
           "distance": 79.11,
           "speed": 16.61,
           "score": {
@@ -192409,7 +192409,7 @@
         },
         {
           "name": "out_return",
-          "points": 60.46,
+          "points": 55.81,
           "distance": 58.04,
           "speed": 29.91,
           "score": {
@@ -192438,7 +192438,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 37.12,
+          "points": 34.27,
           "distance": 29.16,
           "speed": 28.43,
           "score": {
@@ -192447,7 +192447,7 @@
         },
         {
           "name": "sprint",
-          "points": 9.27,
+          "points": 8.73,
           "distance": 17.99,
           "speed": 8.99,
           "score": {
@@ -192456,7 +192456,7 @@
         },
         {
           "name": "triangle",
-          "points": 22.5,
+          "points": 20.77,
           "distance": 21.6,
           "speed": 20.95,
           "score": {
@@ -192465,7 +192465,7 @@
         },
         {
           "name": "out_return",
-          "points": 12.66,
+          "points": 11.68,
           "distance": 12.15,
           "speed": 15.48,
           "score": {
@@ -205617,14 +205617,14 @@
           "date": "2026-05-12",
           "distance": 134.48,
           "speed": 30.31,
-          "points": 164.81,
+          "points": 152.13,
           "takeoff": "Hawkesbury",
           "region": "CA-ON",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "G 102 Astir CS",
-          "dmstIndex": 96,
+          "aircraftName": "DG 300",
+          "dmstIndex": 104,
           "invalid": true,
           "errorReasons": [
             "No G-Record (Integrity Check) found.",
@@ -215294,6 +215294,6 @@
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-09T15:01:52.880Z"
+    "generatedAt": "2026-07-09T17:01:06.932Z"
   }
 }
