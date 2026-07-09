@@ -79,7 +79,7 @@
     "35037": 173836,
     "35081": 134704,
     "35091": 3785209,
-    "35092": 427464,
+    "35092": 432510,
     "35118": 1700605,
     "35152": 541901,
     "35204": 138326,
@@ -6347,11 +6347,11 @@
       "message_enabled": true
     },
     "35092": {
-      "total_flight_duration": 427464,
-      "total_free_distance": 5120.95,
-      "avg_speed": 49.89,
-      "flight_count": 68,
-      "avg_glide_speed": 111.25,
+      "total_flight_duration": 432510,
+      "total_free_distance": 5177.24,
+      "avg_speed": 49.84,
+      "flight_count": 69,
+      "avg_glide_speed": 111.27,
       "avg_glide_detour": 1.4,
       "achievement_count": 4,
       "name": "Tim Daniel",
@@ -191176,6 +191176,71 @@
         "name": "Fairmont Hot Springs",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1147055,
+      "user": {
+        "id": 35092,
+        "name": "Tim Daniel"
+      },
+      "date": "2026-07-08",
+      "distance": 56.29,
+      "duration": 5046,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 68.26,
+          "distance": 56.29,
+          "speed": 45.1,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 15.96,
+          "distance": 31.93,
+          "speed": 15.96,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 39.91,
+          "distance": 39.91,
+          "speed": 39.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 34.17,
+          "distance": 34.17,
+          "speed": 32.9,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 55.87,
+          "distance": 39.91,
+          "speed": 39.61,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -213542,12 +213607,12 @@
   ],
   "meta": {
     "totalPilots": 184,
-    "totalFlights": 1034,
-    "totalKms": 201455,
+    "totalFlights": 1035,
+    "totalKms": 201511,
     "totalTasksDeclared": 353,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-09T01:31:31.795Z"
+    "generatedAt": "2026-07-09T02:16:27.523Z"
   }
 }
