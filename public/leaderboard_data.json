@@ -181,7 +181,8 @@
     "40351": 16420,
     "40422": 5097,
     "40715": 2409,
-    "40731": 8088
+    "40731": 8088,
+    "40752": 92032
   },
   "pilotCombinedHours": {
     "779": {
@@ -8405,6 +8406,21 @@
       "achievement_count": 0,
       "name": "Gulsah Hos",
       "gender": "F",
+      "is_junior": false,
+      "is_senior": false,
+      "club": null,
+      "message_enabled": true
+    },
+    "40752": {
+      "total_flight_duration": 92032,
+      "total_free_distance": 773.82,
+      "avg_speed": 33.22,
+      "flight_count": 12,
+      "avg_glide_speed": 103.26,
+      "avg_glide_detour": 1.47,
+      "achievement_count": 1,
+      "name": "Thomas Savoie",
+      "gender": "M",
       "is_junior": false,
       "is_senior": false,
       "club": null,
@@ -19327,6 +19343,117 @@
         }
       ],
       "awards": []
+    },
+    {
+      "pilot": "Thomas Savoie",
+      "pilotId": 40752,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1147282,
+          "userId": 40752,
+          "date": "2026-05-12",
+          "distance": 134.48,
+          "speed": 30.31,
+          "points": 164.81,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147272,
+          "userId": 40752,
+          "date": "2026-05-27",
+          "distance": 116.89,
+          "speed": 31.9,
+          "points": 145.08,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147262,
+          "userId": 40752,
+          "date": "2026-04-24",
+          "distance": 125.45,
+          "speed": 43.6,
+          "points": 132.3,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147287,
+          "userId": 40752,
+          "date": "2026-06-01",
+          "distance": 86.41,
+          "speed": 32.29,
+          "points": 99.11,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "Hard time constraint (180.0s) between fixes exceeded at 15:53:51, interval without logging is 329s.",
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147265,
+          "userId": 40752,
+          "date": "2026-06-01",
+          "distance": 69.76,
+          "speed": 48.33,
+          "points": 82.89,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "Hard time constraint (180.0s) between fixes exceeded at 19:02:11, interval without logging is 185s.",
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
     }
   ],
   "bhcLeaderboard": [
@@ -28903,6 +29030,74 @@
           ]
         }
       ]
+    },
+    {
+      "pilot": "Thomas Savoie",
+      "pilotId": 40752,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1147262,
+          "userId": 40752,
+          "date": "2026-04-24",
+          "distance": 101.17,
+          "speed": 50.59,
+          "points": 46.41,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147282,
+          "userId": 40752,
+          "date": "2026-05-12",
+          "distance": 66.73,
+          "speed": 33.37,
+          "points": 34.4,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147272,
+          "userId": 40752,
+          "date": "2026-05-27",
+          "distance": 61.57,
+          "speed": 30.79,
+          "points": 31.74,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
     }
   ],
   "triangleLeaderboard": [
@@ -38135,6 +38330,74 @@
           ]
         }
       ]
+    },
+    {
+      "pilot": "Thomas Savoie",
+      "pilotId": 40752,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1147282,
+          "userId": 40752,
+          "date": "2026-05-12",
+          "distance": 79.11,
+          "speed": 16.61,
+          "points": 82.41,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147272,
+          "userId": 40752,
+          "date": "2026-05-27",
+          "distance": 74.63,
+          "speed": 19.98,
+          "points": 77.74,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147262,
+          "userId": 40752,
+          "date": "2026-04-24",
+          "distance": 75.74,
+          "speed": 29.99,
+          "points": 67.62,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
     }
   ],
   "outReturnLeaderboard": [
@@ -46744,6 +47007,74 @@
           ]
         }
       ]
+    },
+    {
+      "pilot": "Thomas Savoie",
+      "pilotId": 40752,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1147282,
+          "userId": 40752,
+          "date": "2026-05-12",
+          "distance": 58.04,
+          "speed": 29.91,
+          "points": 60.46,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147262,
+          "userId": 40752,
+          "date": "2026-04-24",
+          "distance": 61.16,
+          "speed": 24.28,
+          "points": 54.61,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147272,
+          "userId": 40752,
+          "date": "2026-05-27",
+          "distance": 44.87,
+          "speed": 16.75,
+          "points": 46.74,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
     }
   ],
   "outLeaderboard": [
@@ -49961,6 +50292,36 @@
           "dmstIndex": 92,
           "invalid": true,
           "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
+      "pilot": "Thomas Savoie",
+      "pilotId": 40752,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1147287,
+          "userId": 40752,
+          "date": "2026-06-01",
+          "distance": 30.97,
+          "speed": 15.68,
+          "points": 32.26,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "Hard time constraint (180.0s) between fixes exceeded at 15:53:51, interval without logging is 329s.",
+            "No G-Record (Integrity Check) found.",
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
@@ -123412,6 +123773,336 @@
         "dmstIndex": 86
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1147287,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 31.73,
+        "thermal_avg": 0.94,
+        "glide_speed": 105.74,
+        "glide_speed_lift": 100.16,
+        "glide_speed_sink": 108.09,
+        "altitude_avg": 1522,
+        "agl_avg": 1397,
+        "thermal_count": 18,
+        "thermal_gain": 4751,
+        "thermal_radius": 108.68,
+        "thermal_start_agl": 1355,
+        "thermal_bank": 38.02,
+        "glide_percentage": 0.44,
+        "glide_percentage_lift": 0.34,
+        "duration": 9635,
+        "thermal_time": 5052,
+        "glide_time": 4206,
+        "wind_speed": 8.02,
+        "wind_direction": 46,
+        "attempt_count": 12,
+        "attempt_avg": 0.4,
+        "attempt_speed_loss": 1.31,
+        "below_1000_agl": 0.2161,
+        "below_800_agl": 0.0568,
+        "below_600_agl": 0.0283,
+        "below_400_agl": 0.0103,
+        "below_200_agl": 0.0039,
+        "below_100_agl": 0.0026,
+        "track_distance": 123.54,
+        "glide_detour": 1.43,
+        "glide_distance": 3.39,
+        "glide_alt_avg": 1634,
+        "end_time": "2026-06-01T18:40:28+00:00",
+        "start_time": "2026-06-01T15:59:53+00:00",
+        "finish_alt": 2276
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 99.11,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 86.41,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 86.41,
+        "weglideFreeDistance": 86.41,
+        "dmstIndex": 96
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1147282,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 15.68,
+        "thermal_avg": 1.3,
+        "glide_speed": 97.96,
+        "glide_speed_lift": 92.99,
+        "glide_speed_sink": 99.52,
+        "altitude_avg": 1489,
+        "agl_avg": 1340,
+        "thermal_count": 24,
+        "thermal_gain": 8819,
+        "thermal_radius": 105.17,
+        "thermal_start_agl": 1165,
+        "thermal_bank": 32.99,
+        "glide_percentage": 0.54,
+        "glide_percentage_lift": 0.22,
+        "duration": 15974,
+        "thermal_time": 6809,
+        "glide_time": 8551,
+        "wind_speed": 16.38,
+        "wind_direction": 272,
+        "attempt_count": 15,
+        "attempt_avg": 0.03,
+        "attempt_speed_loss": 1.21,
+        "below_1000_agl": 0.1378,
+        "below_800_agl": 0.0648,
+        "below_600_agl": 0.0237,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 232.68,
+        "glide_detour": 1.73,
+        "glide_distance": 4.57,
+        "glide_alt_avg": 1538,
+        "end_time": "2026-05-12T20:02:39+00:00",
+        "start_time": "2026-05-12T15:36:25+00:00",
+        "finish_alt": 1570
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 164.81,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 134.48,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 134.48,
+        "weglideFreeDistance": 134.48,
+        "dmstIndex": 96
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1147272,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 22.53,
+        "thermal_avg": 0.87,
+        "glide_speed": 96.77,
+        "glide_speed_lift": 96.54,
+        "glide_speed_sink": 100.26,
+        "altitude_avg": 1291,
+        "agl_avg": 1216,
+        "thermal_count": 26,
+        "thermal_gain": 4839,
+        "thermal_radius": 108.18,
+        "thermal_start_agl": 1146,
+        "thermal_bank": 41.87,
+        "glide_percentage": 0.54,
+        "glide_percentage_lift": 0.27,
+        "duration": 13191,
+        "thermal_time": 5581,
+        "glide_time": 7154,
+        "wind_speed": 21.8,
+        "wind_direction": 340,
+        "attempt_count": 9,
+        "attempt_avg": -0.12,
+        "attempt_speed_loss": 1.14,
+        "below_1000_agl": 0.224,
+        "below_800_agl": 0.1141,
+        "below_600_agl": 0.0265,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 192.3,
+        "glide_detour": 1.65,
+        "glide_distance": 4.11,
+        "glide_alt_avg": 1345,
+        "end_time": "2026-05-27T20:24:33+00:00",
+        "start_time": "2026-05-27T16:44:42+00:00",
+        "finish_alt": 458
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 145.08,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 116.89,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 116.89,
+        "weglideFreeDistance": 116.89,
+        "dmstIndex": 96
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1147265,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 33.98,
+        "thermal_avg": 0.46,
+        "glide_speed": 100.95,
+        "glide_speed_lift": 95.27,
+        "glide_speed_sink": 103.83,
+        "altitude_avg": 1313,
+        "agl_avg": 1207,
+        "thermal_count": 10,
+        "thermal_gain": 1088,
+        "thermal_radius": 119.88,
+        "thermal_start_agl": 1209,
+        "thermal_bank": 32.04,
+        "glide_percentage": 0.5,
+        "glide_percentage_lift": 0.34,
+        "duration": 5196,
+        "thermal_time": 2357,
+        "glide_time": 2574,
+        "wind_speed": 10.38,
+        "wind_direction": 297,
+        "attempt_count": 6,
+        "attempt_avg": -0.1,
+        "attempt_speed_loss": 2.6,
+        "below_1000_agl": 0.3768,
+        "below_800_agl": 0.0393,
+        "below_600_agl": 0.0122,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 72.18,
+        "glide_detour": 1.03,
+        "glide_distance": 2.78,
+        "glide_alt_avg": 1546,
+        "end_time": "2026-06-01T20:20:16+00:00",
+        "start_time": "2026-06-01T18:53:40+00:00",
+        "finish_alt": 662
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 82.89,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 69.76,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 69.76,
+        "weglideFreeDistance": 69.76,
+        "dmstIndex": 96
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1147262,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 22.85,
+        "thermal_avg": 0.96,
+        "glide_speed": 112.49,
+        "glide_speed_lift": 102.62,
+        "glide_speed_sink": 114.45,
+        "altitude_avg": 1190,
+        "agl_avg": 1112,
+        "thermal_count": 14,
+        "thermal_gain": 4828,
+        "thermal_radius": 111.56,
+        "thermal_start_agl": 972,
+        "thermal_bank": 34.52,
+        "glide_percentage": 0.5,
+        "glide_percentage_lift": 0.27,
+        "duration": 10359,
+        "thermal_time": 5041,
+        "glide_time": 5167,
+        "wind_speed": 7.89,
+        "wind_direction": 34,
+        "attempt_count": 4,
+        "attempt_avg": 0.73,
+        "attempt_speed_loss": 0.64,
+        "below_1000_agl": 0.4032,
+        "below_800_agl": 0.2813,
+        "below_600_agl": 0.1648,
+        "below_400_agl": 0.0279,
+        "below_200_agl": 0.0003,
+        "below_100_agl": 0,
+        "track_distance": 161.46,
+        "glide_detour": 1.29,
+        "glide_distance": 5.57,
+        "glide_alt_avg": 1213,
+        "end_time": "2026-04-24T22:41:14+00:00",
+        "start_time": "2026-04-24T19:48:35+00:00",
+        "finish_alt": 203
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 132.3,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 125.45,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 125.45,
+        "weglideFreeDistance": 125.45,
+        "dmstIndex": 112
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -191618,6 +192309,454 @@
         "name": "Port Alberni",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1147287,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-06-01",
+      "distance": 86.41,
+      "duration": 10526,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 99.11,
+          "distance": 86.41,
+          "speed": 32.29,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 28.26,
+          "distance": 54.82,
+          "speed": 27.41,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 30.32,
+          "distance": 29.11,
+          "speed": 39.12,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 32.26,
+          "distance": 30.97,
+          "speed": 15.68,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1147282,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-05-12",
+      "distance": 134.48,
+      "duration": 18575,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 164.81,
+          "distance": 134.48,
+          "speed": 30.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 34.4,
+          "distance": 66.73,
+          "speed": 33.37,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 82.41,
+          "distance": 79.11,
+          "speed": 16.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 60.46,
+          "distance": 58.04,
+          "speed": 29.91,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1147277,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-06-02",
+      "distance": 29.16,
+      "duration": 4098,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 37.12,
+          "distance": 29.16,
+          "speed": 28.43,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 9.27,
+          "distance": 17.99,
+          "speed": 8.99,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 22.5,
+          "distance": 21.6,
+          "speed": 20.95,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 12.66,
+          "distance": 12.15,
+          "speed": 15.48,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1147276,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-06-02",
+      "distance": 49.88,
+      "duration": 3814,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 52.96,
+          "distance": 49.88,
+          "speed": 48.49,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 18,
+          "distance": 37.07,
+          "speed": 18.54,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 6.65,
+          "distance": 6.92,
+          "speed": 14.69,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 25.01,
+          "distance": 26.01,
+          "speed": 55.31,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1147272,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-05-27",
+      "distance": 116.89,
+      "duration": 13687,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 145.08,
+          "distance": 116.89,
+          "speed": 31.9,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 31.74,
+          "distance": 61.57,
+          "speed": 30.79,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 77.74,
+          "distance": 74.63,
+          "speed": 19.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 46.74,
+          "distance": 44.87,
+          "speed": 16.75,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1147265,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-06-01",
+      "distance": 69.76,
+      "duration": 6155,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 82.89,
+          "distance": 69.76,
+          "speed": 48.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 21.3,
+          "distance": 41.33,
+          "speed": 20.66,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 34.06,
+          "distance": 32.7,
+          "speed": 59.76,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 31.7,
+          "distance": 30.43,
+          "speed": 55.61,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1147264,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-05-22",
+      "distance": 49.42,
+      "duration": 8555,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 59.41,
+          "distance": 49.42,
+          "speed": 21.41,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 14.95,
+          "distance": 29.01,
+          "speed": 14.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 26.43,
+          "distance": 25.37,
+          "speed": 12.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 20.05,
+          "distance": 19.25,
+          "speed": 19.25,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1147262,
+      "user": {
+        "id": 40752,
+        "name": "Thomas Savoie"
+      },
+      "date": "2026-04-24",
+      "distance": 125.45,
+      "duration": 10810,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 132.3,
+          "distance": 125.45,
+          "speed": 43.6,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 46.41,
+          "distance": 101.17,
+          "speed": 50.59,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 67.62,
+          "distance": 75.74,
+          "speed": 29.99,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 54.61,
+          "distance": 61.16,
+          "speed": 24.28,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -204464,6 +205603,116 @@
           ]
         }
       ]
+    },
+    {
+      "pilot": "Thomas Savoie",
+      "pilotId": 40752,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1147282,
+          "userId": 40752,
+          "date": "2026-05-12",
+          "distance": 134.48,
+          "speed": 30.31,
+          "points": 164.81,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147272,
+          "userId": 40752,
+          "date": "2026-05-27",
+          "distance": 116.89,
+          "speed": 31.9,
+          "points": 145.08,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147262,
+          "userId": 40752,
+          "date": "2026-04-24",
+          "distance": 125.45,
+          "speed": 43.6,
+          "points": 132.3,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147287,
+          "userId": 40752,
+          "date": "2026-06-01",
+          "distance": 86.41,
+          "speed": 32.29,
+          "points": 99.11,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "Hard time constraint (180.0s) between fixes exceeded at 15:53:51, interval without logging is 329s.",
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1147265,
+          "userId": 40752,
+          "date": "2026-06-01",
+          "distance": 69.76,
+          "speed": 48.33,
+          "points": 82.89,
+          "takeoff": "Hawkesbury",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "G 102 Astir CS",
+          "dmstIndex": 96,
+          "invalid": true,
+          "errorReasons": [
+            "Hard time constraint (180.0s) between fixes exceeded at 19:02:11, interval without logging is 185s.",
+            "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
     }
   ],
   "sacDscLeaderboard": [
@@ -214038,13 +215287,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 184,
-    "totalFlights": 1036,
-    "totalKms": 201560,
+    "totalPilots": 185,
+    "totalFlights": 1044,
+    "totalKms": 202222,
     "totalTasksDeclared": 353,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-09T13:31:58.070Z"
+    "generatedAt": "2026-07-09T15:01:52.880Z"
   }
 }
