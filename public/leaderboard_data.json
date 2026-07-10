@@ -36,7 +36,7 @@
     "21186": 21302,
     "21219": 42811,
     "21317": 363554,
-    "21574": 566443,
+    "21574": 568754,
     "21928": 19945,
     "22077": 1513231,
     "22081": 337484,
@@ -5484,11 +5484,11 @@
       "message_enabled": true
     },
     "21574": {
-      "total_flight_duration": 566443,
-      "total_free_distance": 8030.86,
-      "avg_speed": 64.8,
-      "flight_count": 117,
-      "avg_glide_speed": 114.87,
+      "total_flight_duration": 568754,
+      "total_free_distance": 8067.69,
+      "avg_speed": 64.92,
+      "flight_count": 118,
+      "avg_glide_speed": 114.88,
       "avg_glide_detour": 1.34,
       "achievement_count": 21,
       "name": "Warwick Patterson",
@@ -193315,6 +193315,71 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1148089,
+      "user": {
+        "id": 21574,
+        "name": "Warwick Patterson"
+      },
+      "date": "2026-07-09",
+      "distance": 36.83,
+      "duration": 2311,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 49.22,
+          "distance": 36.83,
+          "speed": 109.67,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 1.83,
+          "distance": 3.27,
+          "speed": 1.64,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 21.31,
+          "distance": 18.33,
+          "speed": 100.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 21.29,
+          "distance": 18.31,
+          "speed": 100.94,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 40.05,
+          "distance": 34.44,
+          "speed": 105.97,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -215932,12 +215997,12 @@
   ],
   "meta": {
     "totalPilots": 186,
-    "totalFlights": 1048,
-    "totalKms": 203006,
+    "totalFlights": 1049,
+    "totalKms": 203043,
     "totalTasksDeclared": 353,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-10T00:31:50.510Z"
+    "generatedAt": "2026-07-10T00:41:27.539Z"
   }
 }
