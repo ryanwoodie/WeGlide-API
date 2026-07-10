@@ -649,11 +649,11 @@
     "message_enabled": true
   },
   "21011": {
-    "total_flight_duration": 924437,
-    "total_free_distance": 23512.69,
-    "avg_speed": 98.91,
-    "flight_count": 53,
-    "avg_glide_speed": 164.21,
+    "total_flight_duration": 936567,
+    "total_free_distance": 23858.93,
+    "avg_speed": 99.12,
+    "flight_count": 54,
+    "avg_glide_speed": 164.2,
     "avg_glide_detour": 1.11,
     "achievement_count": 21,
     "name": "Martin Dennis",
@@ -1813,13 +1813,13 @@
     }
   },
   "35351": {
-    "total_flight_duration": 263258,
-    "total_free_distance": 2853.24,
-    "avg_speed": 41.8,
-    "flight_count": 28,
-    "avg_glide_speed": 98.1,
-    "avg_glide_detour": 1.33,
-    "achievement_count": 2,
+    "total_flight_duration": 281292,
+    "total_free_distance": 3090.43,
+    "avg_speed": 42.47,
+    "flight_count": 30,
+    "avg_glide_speed": 98.82,
+    "avg_glide_detour": 1.32,
+    "achievement_count": 5,
     "name": "Éric Raissac",
     "gender": "M",
     "is_junior": false,
@@ -1830,7 +1830,8 @@
       "region": "CA-QC",
       "url": "https://www.avvc.qc.ca",
       "logo": "club/863.png"
-    }
+    },
+    "message_enabled": true
   },
   "35367": {
     "total_flight_duration": 1158310,
