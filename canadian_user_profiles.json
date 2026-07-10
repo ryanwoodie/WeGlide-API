@@ -3621,6 +3621,26 @@
     },
     "message_enabled": true
   },
+  "40449": {
+    "total_flight_duration": 19227,
+    "total_free_distance": 273.74,
+    "avg_speed": 54.66,
+    "flight_count": 2,
+    "avg_glide_speed": 116.14,
+    "avg_glide_detour": 1.29,
+    "achievement_count": 2,
+    "name": "Alexander Ackerman",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 907,
+      "name": "Canadian Rockies Soaring Club",
+      "region": "CA-BC",
+      "url": "https://www.canadianrockiessoaring.com"
+    },
+    "message_enabled": true
+  },
   "40715": {
     "total_flight_duration": 2409,
     "total_free_distance": 16.69,
