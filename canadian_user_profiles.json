@@ -3691,5 +3691,25 @@
     "is_senior": false,
     "club": null,
     "message_enabled": true
+  },
+  "40804": {
+    "total_flight_duration": 5284,
+    "total_free_distance": 92.9,
+    "avg_speed": 76.08,
+    "flight_count": 12,
+    "avg_glide_speed": 116.21,
+    "avg_glide_detour": 1.05,
+    "achievement_count": 1,
+    "name": "Lethbridge Soaring",
+    "gender": "D",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1124,
+      "name": "Lethbridge Soaring Club",
+      "region": "CA-AB",
+      "url": "https://www.lethbridgesoaring.ca"
+    },
+    "message_enabled": true
   }
 }
