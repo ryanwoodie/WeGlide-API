@@ -35,7 +35,7 @@
     "21011": 936567,
     "21186": 21302,
     "21219": 42811,
-    "21317": 381330,
+    "21317": 396472,
     "21574": 568754,
     "21928": 19945,
     "22077": 1513231,
@@ -5465,12 +5465,12 @@
       }
     },
     "21317": {
-      "total_flight_duration": 381330,
-      "total_free_distance": 3157.66,
-      "avg_speed": 33.17,
-      "flight_count": 30,
-      "avg_glide_speed": 95.62,
-      "avg_glide_detour": 1.37,
+      "total_flight_duration": 396472,
+      "total_free_distance": 3287.56,
+      "avg_speed": 33.12,
+      "flight_count": 31,
+      "avg_glide_speed": 95.74,
+      "avg_glide_detour": 1.38,
       "achievement_count": 11,
       "name": "Brian Pirie",
       "gender": "M",
@@ -201275,6 +201275,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1151852,
+      "user": {
+        "id": 21317,
+        "name": "Brian Pirie"
+      },
+      "date": "2026-07-11",
+      "distance": 129.9,
+      "duration": 15142,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 151.52,
+          "distance": 129.9,
+          "speed": 31.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 36.77,
+          "distance": 74.64,
+          "speed": 37.32,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 80.56,
+          "distance": 82.17,
+          "speed": 20.47,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 54.17,
+          "distance": 55.25,
+          "speed": 13.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 112.78,
+          "distance": 82.17,
+          "speed": 20.47,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Pendleton GATGC",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -224305,12 +224370,12 @@
   ],
   "meta": {
     "totalPilots": 187,
-    "totalFlights": 1114,
-    "totalKms": 217540,
+    "totalFlights": 1115,
+    "totalKms": 217670,
     "totalTasksDeclared": 372,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-11T23:41:49.792Z"
+    "generatedAt": "2026-07-11T23:51:44.642Z"
   }
 }
