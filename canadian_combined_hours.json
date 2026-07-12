@@ -4264,6 +4264,25 @@
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
     },
+    "39251": {
+      "pilotId": 39251,
+      "weglidePilotId": "wg:39251",
+      "olcPilotId": "51244",
+      "pilotName": "Zbigniew Sobolewski",
+      "matchKind": "olc_name_only",
+      "normalizedName": "zbigniewsobolewski",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 627.14,
+      "olcOnlyHours": 627.14,
+      "combinedHours": 627.14,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 627.14,
+      "combinedHoursBeforeCutoff": 627.14,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
+    },
     "39261": {
       "pilotId": 39261,
       "weglidePilotId": "wg:39261",
