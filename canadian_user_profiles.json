@@ -1853,6 +1853,27 @@
     },
     "message_enabled": true
   },
+  "35364": {
+    "total_flight_duration": 328069,
+    "total_free_distance": 4094.28,
+    "avg_speed": 47.25,
+    "flight_count": 33,
+    "avg_glide_speed": 111.58,
+    "avg_glide_detour": 1.34,
+    "achievement_count": 0,
+    "name": "Sylvain Bourque",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 863,
+      "name": "Association de Vol a Voile Champlain",
+      "region": "CA-QC",
+      "url": "https://www.avvc.qc.ca",
+      "logo": "club/863.png"
+    },
+    "message_enabled": true
+  },
   "35367": {
     "total_flight_duration": 1172592,
     "total_free_distance": 9884.41,
