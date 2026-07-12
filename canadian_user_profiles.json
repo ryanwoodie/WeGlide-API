@@ -3443,6 +3443,21 @@
     },
     "message_enabled": true
   },
+  "39303": {
+    "total_flight_duration": 14688,
+    "total_free_distance": 235.7,
+    "avg_speed": 60.05,
+    "flight_count": 1,
+    "avg_glide_speed": 109.77,
+    "avg_glide_detour": 1.35,
+    "achievement_count": 1,
+    "name": "Michel Gingras",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": null,
+    "message_enabled": true
+  },
   "39364": {
     "total_flight_duration": 14444,
     "total_free_distance": 252.5,

@@ -171,6 +171,7 @@
     "39209": 205740,
     "39251": 21217,
     "39261": 39612,
+    "39303": 14688,
     "39364": 14444,
     "39399": 62120,
     "39438": 5068,
@@ -4490,6 +4491,25 @@
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
     },
+    "39303": {
+      "pilotId": 39303,
+      "weglidePilotId": "wg:39303",
+      "olcPilotId": "49833",
+      "pilotName": "Michel Gingras",
+      "matchKind": "olc_name_only",
+      "normalizedName": "michelgingras",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 274.48,
+      "olcOnlyHours": 274.48,
+      "combinedHours": 274.48,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 274.48,
+      "combinedHoursBeforeCutoff": 274.48,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
+    },
     "39364": {
       "pilotId": 39364,
       "weglidePilotId": "wg:39364",
@@ -8220,6 +8240,21 @@
         "url": "https://www.avvc.qc.ca",
         "logo": "club/863.png"
       },
+      "message_enabled": true
+    },
+    "39303": {
+      "total_flight_duration": 14688,
+      "total_free_distance": 235.7,
+      "avg_speed": 60.05,
+      "flight_count": 1,
+      "avg_glide_speed": 109.77,
+      "avg_glide_detour": 1.35,
+      "achievement_count": 1,
+      "name": "Michel Gingras",
+      "gender": "M",
+      "is_junior": false,
+      "is_senior": true,
+      "club": null,
       "message_enabled": true
     },
     "39364": {
@@ -17198,6 +17233,33 @@
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Michel Gingras",
+      "pilotId": 39303,
+      "totalPoints": 345.81,
+      "totalDistance": 235.7,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1154646,
+          "userId": 39303,
+          "date": "2026-07-12",
+          "distance": 235.7,
+          "speed": 60.05,
+          "points": 345.81,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
+          "invalid": false,
+          "errorReasons": []
         }
       ],
       "awards": []
@@ -26728,6 +26790,32 @@
       ]
     },
     {
+      "pilot": "Michel Gingras",
+      "pilotId": 39303,
+      "totalPoints": 68,
+      "totalDistance": 120.7,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1154646,
+          "userId": 39303,
+          "date": "2026-07-12",
+          "distance": 120.7,
+          "speed": 60.35,
+          "points": 68,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Nicolas Drolet",
       "pilotId": 40351,
       "totalPoints": 64.62,
@@ -34950,6 +35038,32 @@
           "aircraftKind": "MG",
           "aircraftName": "ASH 26 E",
           "dmstIndex": 119,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Michel Gingras",
+      "pilotId": 39303,
+      "totalPoints": 228.38,
+      "totalDistance": 194.12,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1154646,
+          "userId": 39303,
+          "date": "2026-07-12",
+          "distance": 194.12,
+          "speed": 50.61,
+          "points": 228.38,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -44973,6 +45087,32 @@
           "aircraftKind": "GL",
           "aircraftName": "LS 8 18m",
           "dmstIndex": 114,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Michel Gingras",
+      "pilotId": 39303,
+      "totalPoints": 180.84,
+      "totalDistance": 153.71,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1154646,
+          "userId": 39303,
+          "date": "2026-07-12",
+          "distance": 153.71,
+          "speed": 40.08,
+          "points": 180.84,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -129993,6 +130133,72 @@
         "dmstIndex": 104
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1154646,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 49.79,
+        "thermal_avg": 1.47,
+        "glide_speed": 109.77,
+        "glide_speed_lift": 107.83,
+        "glide_speed_sink": 111.53,
+        "altitude_avg": 1845,
+        "agl_avg": 1611,
+        "thermal_count": 24,
+        "thermal_gain": 4584,
+        "thermal_radius": 159.5,
+        "thermal_start_agl": 1583,
+        "thermal_bank": 28.04,
+        "glide_percentage": 0.74,
+        "glide_percentage_lift": 0.46,
+        "duration": 14130,
+        "thermal_time": 3111,
+        "glide_time": 10472,
+        "wind_speed": 8.42,
+        "wind_direction": 286,
+        "attempt_count": 14,
+        "attempt_avg": 0.47,
+        "attempt_speed_loss": 2.42,
+        "below_1000_agl": 0.0419,
+        "below_800_agl": 0.0061,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 319.32,
+        "glide_detour": 1.35,
+        "glide_distance": 6.34,
+        "glide_alt_avg": 1849,
+        "end_time": "2026-07-12T20:27:27+00:00",
+        "start_time": "2026-07-12T16:31:57+00:00",
+        "finish_alt": 911
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 345.81,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 235.7,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 235.7,
+        "weglideFreeDistance": 235.7,
+        "dmstIndex": 85
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -204795,6 +205001,62 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1154646,
+      "user": {
+        "id": 39303,
+        "name": "Michel Gingras"
+      },
+      "date": "2026-07-12",
+      "distance": 235.7,
+      "duration": 14688,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 345.81,
+          "distance": 235.7,
+          "speed": 60.05,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 68,
+          "distance": 120.7,
+          "speed": 60.35,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 228.38,
+          "distance": 194.12,
+          "speed": 50.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 180.84,
+          "distance": 153.71,
+          "speed": 40.08,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -214108,6 +214370,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-51 Junior",
           "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Michel Gingras",
+      "pilotId": 39303,
+      "totalPoints": 345.81,
+      "totalDistance": 235.7,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1154646,
+          "userId": 39303,
+          "date": "2026-07-12",
+          "distance": 235.7,
+          "speed": 60.05,
+          "points": 345.81,
+          "takeoff": "St-Dominique CVVC",
+          "region": "CA-QC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -228124,13 +228412,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 190,
-    "totalFlights": 1137,
-    "totalKms": 222056,
+    "totalPilots": 191,
+    "totalFlights": 1138,
+    "totalKms": 222292,
     "totalTasksDeclared": 383,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-12T22:21:51.120Z"
+    "generatedAt": "2026-07-12T22:56:41.856Z"
   }
 }

@@ -4302,6 +4302,25 @@
       "eligibleUnder200": false,
       "dataSource": "olc-name-totals"
     },
+    "39303": {
+      "pilotId": 39303,
+      "weglidePilotId": "wg:39303",
+      "olcPilotId": "49833",
+      "pilotName": "Michel Gingras",
+      "matchKind": "olc_name_only",
+      "normalizedName": "michelgingras",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 274.48,
+      "olcOnlyHours": 274.48,
+      "combinedHours": 274.48,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 274.48,
+      "combinedHoursBeforeCutoff": 274.48,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
+    },
     "39364": {
       "pilotId": 39364,
       "weglidePilotId": "wg:39364",
