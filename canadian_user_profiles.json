@@ -3787,5 +3787,26 @@
       "url": "https://www.lethbridgesoaring.ca"
     },
     "message_enabled": true
+  },
+  "40910": {
+    "total_flight_duration": 10873,
+    "total_free_distance": 88.95,
+    "avg_speed": 36.05,
+    "flight_count": 1,
+    "avg_glide_speed": 103.67,
+    "avg_glide_detour": 1.57,
+    "achievement_count": 0,
+    "name": "Mateusz Kotlinski",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
   }
 }
