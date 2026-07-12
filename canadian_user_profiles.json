@@ -1050,6 +1050,26 @@
     },
     "message_enabled": true
   },
+  "24720": {
+    "total_flight_duration": 64931,
+    "total_free_distance": 1214.58,
+    "avg_speed": 79.06,
+    "flight_count": 5,
+    "avg_glide_speed": 122.94,
+    "avg_glide_detour": 1.16,
+    "achievement_count": 5,
+    "name": "Dale Guenter",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "24793": {
     "total_flight_duration": 4614639,
     "total_free_distance": 88896.66,
