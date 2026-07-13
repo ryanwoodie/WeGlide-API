@@ -4492,6 +4492,25 @@
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
     },
+    "40533": {
+      "pilotId": 40533,
+      "weglidePilotId": "wg:40533",
+      "olcPilotId": "26911",
+      "pilotName": "Jean Lortie",
+      "matchKind": "olc_name_only",
+      "normalizedName": "jeanlortie",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 142.29,
+      "olcOnlyHours": 142.29,
+      "combinedHours": 142.29,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 142.29,
+      "combinedHoursBeforeCutoff": 142.29,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
+    },
     "40715": {
       "pilotId": 40715,
       "weglidePilotId": "wg:40715",

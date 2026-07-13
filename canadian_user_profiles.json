@@ -3759,6 +3759,27 @@
     },
     "message_enabled": true
   },
+  "40533": {
+    "total_flight_duration": 5549,
+    "total_free_distance": 87.96,
+    "avg_speed": 58.36,
+    "flight_count": 1,
+    "avg_glide_speed": 113.86,
+    "avg_glide_detour": 1,
+    "achievement_count": 0,
+    "name": "Jean Lortie",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
+  },
   "40715": {
     "total_flight_duration": 2409,
     "total_free_distance": 16.69,
