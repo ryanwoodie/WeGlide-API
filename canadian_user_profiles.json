@@ -1654,6 +1654,26 @@
     },
     "message_enabled": true
   },
+  "35140": {
+    "total_flight_duration": 117800,
+    "total_free_distance": 907.24,
+    "avg_speed": 30.79,
+    "flight_count": 24,
+    "avg_glide_speed": 93.75,
+    "avg_glide_detour": 1.61,
+    "achievement_count": 5,
+    "name": "Thomas Johnston",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1240,
+      "name": "Rideau Valley Soaring",
+      "region": "CA-ON",
+      "url": "https://rvss.ca"
+    },
+    "message_enabled": true
+  },
   "35152": {
     "total_flight_duration": 541901,
     "total_free_distance": 9976.78,
