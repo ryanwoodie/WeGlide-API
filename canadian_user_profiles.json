@@ -2772,6 +2772,26 @@
       "url": "http://www.avsa.ca"
     }
   },
+  "35809": {
+    "total_flight_duration": 24183,
+    "total_free_distance": 351.29,
+    "avg_speed": 54.78,
+    "flight_count": 2,
+    "avg_glide_speed": 109.97,
+    "avg_glide_detour": 1.16,
+    "achievement_count": 2,
+    "name": "Stan Martin",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1345,
+      "name": "Toronto Soaring Club",
+      "region": "CA-ON",
+      "url": "http://toronto-soaring.ca"
+    },
+    "message_enabled": true
+  },
   "35810": {
     "total_flight_duration": 6138,
     "total_free_distance": 69.25,
