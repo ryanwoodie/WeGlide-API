@@ -1573,13 +1573,13 @@
     "message_enabled": true
   },
   "35081": {
-    "total_flight_duration": 134704,
-    "total_free_distance": 1925.19,
-    "avg_speed": 56.3,
-    "flight_count": 12,
-    "avg_glide_speed": 111.82,
+    "total_flight_duration": 143496,
+    "total_free_distance": 2039.91,
+    "avg_speed": 55.9,
+    "flight_count": 13,
+    "avg_glide_speed": 111.57,
     "avg_glide_detour": 1.26,
-    "achievement_count": 4,
+    "achievement_count": 5,
     "name": "Ronak Patel",
     "gender": "M",
     "is_junior": true,
@@ -2176,11 +2176,11 @@
     "message_enabled": true
   },
   "35436": {
-    "total_flight_duration": 1145790,
-    "total_free_distance": 24787.47,
+    "total_flight_duration": 1169176,
+    "total_free_distance": 25303.86,
     "avg_speed": 81.6,
-    "flight_count": 53,
-    "avg_glide_speed": 128.06,
+    "flight_count": 54,
+    "avg_glide_speed": 128.05,
     "avg_glide_detour": 1.12,
     "achievement_count": 20,
     "name": "Nick Bonniere",
@@ -3157,6 +3157,26 @@
       "name": "Great Lakes Gliding Club",
       "region": "CA-ON",
       "url": "https://www.greatlakesgliding.com"
+    },
+    "message_enabled": true
+  },
+  "37852": {
+    "total_flight_duration": 5554,
+    "total_free_distance": 22.7,
+    "avg_speed": 17.06,
+    "flight_count": 1,
+    "avg_glide_speed": 99.66,
+    "avg_glide_detour": 1.93,
+    "achievement_count": 0,
+    "name": "Matthew Krull",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1240,
+      "name": "Rideau Valley Soaring",
+      "region": "CA-ON",
+      "url": "https://rvss.ca"
     },
     "message_enabled": true
   },
