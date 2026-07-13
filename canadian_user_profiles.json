@@ -2460,13 +2460,13 @@
     "message_enabled": true
   },
   "35605": {
-    "total_flight_duration": 6644,
-    "total_free_distance": 52.75,
-    "avg_speed": 34.45,
-    "flight_count": 3,
-    "avg_glide_speed": 101.14,
-    "avg_glide_detour": 0.95,
-    "achievement_count": 0,
+    "total_flight_duration": 14008,
+    "total_free_distance": 113.88,
+    "avg_speed": 36.28,
+    "flight_count": 5,
+    "avg_glide_speed": 96.41,
+    "avg_glide_detour": 0.98,
+    "achievement_count": 1,
     "name": "Craig Pitchell",
     "gender": "M",
     "is_junior": false,
@@ -2476,7 +2476,8 @@
       "name": "London Soaring Club",
       "region": "CA-ON",
       "url": "https://www.londonsoaringclub.ca"
-    }
+    },
+    "message_enabled": true
   },
   "35610": {
     "total_flight_duration": 1718217,
