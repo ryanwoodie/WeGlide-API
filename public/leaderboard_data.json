@@ -78,7 +78,7 @@
     "34958": 3006409,
     "35001": 487639,
     "35037": 173836,
-    "35081": 143496,
+    "35081": 151868,
     "35091": 3825014,
     "35092": 432510,
     "35118": 1700605,
@@ -6397,11 +6397,11 @@
       "message_enabled": true
     },
     "35081": {
-      "total_flight_duration": 143496,
-      "total_free_distance": 2039.91,
-      "avg_speed": 55.9,
-      "flight_count": 13,
-      "avg_glide_speed": 111.57,
+      "total_flight_duration": 151868,
+      "total_free_distance": 2132.86,
+      "avg_speed": 55.04,
+      "flight_count": 14,
+      "avg_glide_speed": 110.84,
       "avg_glide_detour": 1.26,
       "achievement_count": 5,
       "name": "Ronak Patel",
@@ -211300,6 +211300,71 @@
         "name": "Toronto Soaring Club - Conn",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1156132,
+      "user": {
+        "id": 35081,
+        "name": "Ronak Patel"
+      },
+      "date": "2026-07-13",
+      "distance": 92.95,
+      "duration": 8372,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 110.78,
+          "distance": 92.95,
+          "speed": 41.19,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 31.3,
+          "distance": 62.6,
+          "speed": 31.3,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 59.43,
+          "distance": 59.43,
+          "speed": 26.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 32.73,
+          "distance": 32.73,
+          "speed": 44.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 83.2,
+          "distance": 59.43,
+          "speed": 26.81,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -235331,12 +235396,12 @@
   ],
   "meta": {
     "totalPilots": 197,
-    "totalFlights": 1175,
-    "totalKms": 228603,
+    "totalFlights": 1176,
+    "totalKms": 228696,
     "totalTasksDeclared": 404,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-13T21:36:40.114Z"
+    "generatedAt": "2026-07-13T21:56:51.614Z"
   }
 }
