@@ -17,7 +17,7 @@
     "10764": 416685,
     "12230": 45140,
     "12276": 234844,
-    "12854": 378758,
+    "12854": 387275,
     "12901": 165732,
     "13284": 962861,
     "13388": 95047,
@@ -5165,12 +5165,12 @@
       "message_enabled": true
     },
     "12854": {
-      "total_flight_duration": 378758,
-      "total_free_distance": 4508.54,
-      "avg_speed": 53.3,
-      "flight_count": 44,
-      "avg_glide_speed": 117.93,
-      "avg_glide_detour": 1.43,
+      "total_flight_duration": 387275,
+      "total_free_distance": 4607.65,
+      "avg_speed": 53.21,
+      "flight_count": 45,
+      "avg_glide_speed": 117.68,
+      "avg_glide_detour": 1.42,
       "achievement_count": 4,
       "name": "Robert Frith",
       "gender": "M",
@@ -211365,6 +211365,71 @@
         "name": "Rockton SOSA On",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1156173,
+      "user": {
+        "id": 12854,
+        "name": "Robert Frith"
+      },
+      "date": "2026-07-13",
+      "distance": 99.11,
+      "duration": 8517,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 102.92,
+          "distance": 99.11,
+          "speed": 49.64,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 27.79,
+          "distance": 57.24,
+          "speed": 28.62,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 24.33,
+          "distance": 25.3,
+          "speed": 16.49,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 38.1,
+          "distance": 39.62,
+          "speed": 48.45,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 73.43,
+          "distance": 76.37,
+          "speed": 49.92,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -235396,12 +235461,12 @@
   ],
   "meta": {
     "totalPilots": 197,
-    "totalFlights": 1176,
-    "totalKms": 228696,
+    "totalFlights": 1177,
+    "totalKms": 228795,
     "totalTasksDeclared": 404,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-13T21:56:51.614Z"
+    "generatedAt": "2026-07-14T00:42:01.902Z"
   }
 }
