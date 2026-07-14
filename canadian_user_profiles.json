@@ -3821,6 +3821,26 @@
     },
     "message_enabled": true
   },
+  "40714": {
+    "total_flight_duration": 5324,
+    "total_free_distance": 85.13,
+    "avg_speed": 64.22,
+    "flight_count": 1,
+    "avg_glide_speed": 111.71,
+    "avg_glide_detour": 1.05,
+    "achievement_count": 0,
+    "name": "Alexander Gold",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "40715": {
     "total_flight_duration": 10421,
     "total_free_distance": 58.18,
