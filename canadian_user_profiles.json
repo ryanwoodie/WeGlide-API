@@ -506,11 +506,11 @@
     "message_enabled": true
   },
   "16605": {
-    "total_flight_duration": 1356660,
-    "total_free_distance": 19674.57,
-    "avg_speed": 59.58,
-    "flight_count": 155,
-    "avg_glide_speed": 115.5,
+    "total_flight_duration": 1369617,
+    "total_free_distance": 19888.95,
+    "avg_speed": 59.63,
+    "flight_count": 156,
+    "avg_glide_speed": 115.52,
     "avg_glide_detour": 1.49,
     "achievement_count": 33,
     "name": "Ward Clapham",
@@ -1529,6 +1529,27 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
+  "34993": {
+    "total_flight_duration": 1080881,
+    "total_free_distance": 10818.79,
+    "avg_speed": 41.17,
+    "flight_count": 156,
+    "avg_glide_speed": 97.71,
+    "avg_glide_detour": 1.76,
+    "achievement_count": 5,
+    "name": "Allen Paul",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 849,
+      "name": "Alberni Valley Soaring Association",
+      "region": "CA-BC",
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
     },
     "message_enabled": true
   },
