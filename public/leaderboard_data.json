@@ -157,6 +157,7 @@
     "36868": 40356,
     "37102": 50222,
     "37128": 42301,
+    "37303": 10459,
     "37564": 734924,
     "37746": 280080,
     "37792": 34526,
@@ -7984,6 +7985,21 @@
         "url": "http://www.avsa.ca",
         "logo": "club/849.png"
       },
+      "message_enabled": true
+    },
+    "37303": {
+      "total_flight_duration": 10459,
+      "total_free_distance": 154.71,
+      "avg_speed": 64.25,
+      "flight_count": 2,
+      "avg_glide_speed": 121.54,
+      "avg_glide_detour": 1.17,
+      "achievement_count": 1,
+      "name": "Thad Griffin",
+      "gender": "M",
+      "is_junior": false,
+      "is_senior": true,
+      "club": null,
       "message_enabled": true
     },
     "37564": {
@@ -19387,6 +19403,33 @@
       "awards": []
     },
     {
+      "pilot": "Thad Griffin",
+      "pilotId": 37303,
+      "totalPoints": 98.04,
+      "totalDistance": 78.11,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1158574,
+          "userId": 37303,
+          "date": "2026-07-15",
+          "distance": 78.11,
+          "speed": 68.17,
+          "points": 98.04,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Melanie Paradis",
       "pilotId": 6085,
       "totalPoints": 94.68,
@@ -29414,6 +29457,32 @@
           "aircraftKind": "GL",
           "aircraftName": "LS 4",
           "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Thad Griffin",
+      "pilotId": 37303,
+      "totalPoints": 23.27,
+      "totalDistance": 41.31,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1158574,
+          "userId": 37303,
+          "date": "2026-07-15",
+          "distance": 41.31,
+          "speed": 20.66,
+          "points": 23.27,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -40346,6 +40415,32 @@
       ]
     },
     {
+      "pilot": "Thad Griffin",
+      "pilotId": 37303,
+      "totalPoints": 13.78,
+      "totalDistance": 11.71,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1158574,
+          "userId": 37303,
+          "date": "2026-07-15",
+          "distance": 11.71,
+          "speed": 14.46,
+          "points": 13.78,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Matthew Krull",
       "pilotId": 37852,
       "totalPoints": 13.76,
@@ -49187,6 +49282,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-51 Junior",
           "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Thad Griffin",
+      "pilotId": 37303,
+      "totalPoints": 30.73,
+      "totalDistance": 26.12,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1158574,
+          "userId": 37303,
+          "date": "2026-07-15",
+          "distance": 26.12,
+          "speed": 32.44,
+          "points": 30.73,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -135588,6 +135709,72 @@
         "dmstIndex": 112
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1158574,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 51.73,
+        "thermal_avg": 0.78,
+        "glide_speed": 114.75,
+        "glide_speed_lift": 112.41,
+        "glide_speed_sink": 116.86,
+        "altitude_avg": 1846,
+        "agl_avg": 758,
+        "thermal_count": 8,
+        "thermal_gain": 933,
+        "thermal_radius": 179.2,
+        "thermal_start_agl": 592,
+        "thermal_bank": 29.16,
+        "glide_percentage": 0.65,
+        "glide_percentage_lift": 0.43,
+        "duration": 4125,
+        "thermal_time": 1198,
+        "glide_time": 2697,
+        "wind_speed": 13.5,
+        "wind_direction": 193,
+        "attempt_count": 6,
+        "attempt_avg": -1.23,
+        "attempt_speed_loss": 4.02,
+        "below_1000_agl": 0.7982,
+        "below_800_agl": 0.6522,
+        "below_600_agl": 0.3185,
+        "below_400_agl": 0.0844,
+        "below_200_agl": 0.0112,
+        "below_100_agl": 0,
+        "track_distance": 85.97,
+        "glide_detour": 1.1,
+        "glide_distance": 4.35,
+        "glide_alt_avg": 1830,
+        "end_time": "2026-07-15T23:27:55+00:00",
+        "start_time": "2026-07-15T22:19:10+00:00",
+        "finish_alt": 868
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 98.04,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 78.11,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 78.11,
+        "weglideFreeDistance": 78.11,
+        "dmstIndex": 85
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -214363,6 +214550,62 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1158574,
+      "user": {
+        "id": 37303,
+        "name": "Thad Griffin"
+      },
+      "date": "2026-07-15",
+      "distance": 78.11,
+      "duration": 5165,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 98.04,
+          "distance": 78.11,
+          "speed": 68.17,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 23.27,
+          "distance": 41.31,
+          "speed": 20.66,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 13.78,
+          "distance": 11.71,
+          "speed": 14.46,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 30.73,
+          "distance": 26.12,
+          "speed": 32.44,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -226352,6 +226595,32 @@
           "aircraftKind": "GL",
           "aircraftName": "ASK 21",
           "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Thad Griffin",
+      "pilotId": 37303,
+      "totalPoints": 98.04,
+      "totalDistance": 78.11,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1158574,
+          "userId": 37303,
+          "date": "2026-07-15",
+          "distance": 78.11,
+          "speed": 68.17,
+          "points": 98.04,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 5",
+          "dmstIndex": 85,
           "invalid": false,
           "errorReasons": []
         }
@@ -238571,13 +238840,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 197,
-    "totalFlights": 1197,
-    "totalKms": 232546,
+    "totalPilots": 198,
+    "totalFlights": 1198,
+    "totalKms": 232624,
     "totalTasksDeclared": 408,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-15T23:32:18.409Z"
+    "generatedAt": "2026-07-16T00:12:00.881Z"
   }
 }
