@@ -148,7 +148,7 @@
     "35992": 2817,
     "36013": 43562,
     "36028": 45100,
-    "36033": 111911,
+    "36033": 119569,
     "36054": 69400,
     "36083": 19616,
     "36101": 17198,
@@ -7801,13 +7801,13 @@
       }
     },
     "36033": {
-      "total_flight_duration": 111911,
-      "total_free_distance": 1231.01,
-      "avg_speed": 44.39,
-      "flight_count": 15,
-      "avg_glide_speed": 103.23,
-      "avg_glide_detour": 1.28,
-      "achievement_count": 1,
+      "total_flight_duration": 119569,
+      "total_free_distance": 1281.91,
+      "avg_speed": 43.1,
+      "flight_count": 16,
+      "avg_glide_speed": 102.68,
+      "avg_glide_detour": 1.31,
+      "achievement_count": 2,
       "name": "Antoine  Latulippe",
       "gender": "M",
       "is_junior": false,
@@ -215550,6 +215550,71 @@
         "name": "Paquet",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1160755,
+      "user": {
+        "id": 36033,
+        "name": "Antoine  Latulippe"
+      },
+      "date": "2026-07-17",
+      "distance": 50.9,
+      "duration": 7658,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 60.86,
+          "distance": 50.9,
+          "speed": 25.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 15.06,
+          "distance": 30.12,
+          "speed": 15.06,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 33.21,
+          "distance": 33.21,
+          "speed": 18.76,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 20.87,
+          "distance": 20.87,
+          "speed": 16.97,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 46.49,
+          "distance": 33.21,
+          "speed": 18.76,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -239927,12 +239992,12 @@
   ],
   "meta": {
     "totalPilots": 200,
-    "totalFlights": 1205,
-    "totalKms": 233420,
+    "totalFlights": 1206,
+    "totalKms": 233471,
     "totalTasksDeclared": 408,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-17T20:17:06.753Z"
+    "generatedAt": "2026-07-17T21:56:58.164Z"
   }
 }
