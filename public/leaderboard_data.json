@@ -89,7 +89,7 @@
     "35272": 258219,
     "35288": 4241215,
     "35296": 411310,
-    "35326": 1821327,
+    "35326": 1838413,
     "35337": 186417,
     "35349": 8956,
     "35350": 920042,
@@ -6643,11 +6643,11 @@
       "message_enabled": true
     },
     "35326": {
-      "total_flight_duration": 1821327,
-      "total_free_distance": 26781.56,
-      "avg_speed": 58.7,
-      "flight_count": 159,
-      "avg_glide_speed": 119.16,
+      "total_flight_duration": 1838413,
+      "total_free_distance": 26980.38,
+      "avg_speed": 58.63,
+      "flight_count": 160,
+      "avg_glide_speed": 119.15,
       "avg_glide_detour": 1.46,
       "achievement_count": 24,
       "name": "François Proulx",
@@ -216343,6 +216343,75 @@
         "name": "Paquet",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1160970,
+      "user": {
+        "id": 35326,
+        "name": "François Proulx"
+      },
+      "date": "2026-07-17",
+      "distance": 198.82,
+      "duration": 17086,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 507.35
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 189.53,
+          "distance": 198.82,
+          "speed": 50.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 45.22,
+          "distance": 104.68,
+          "speed": 52.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 84.06,
+          "distance": 101.71,
+          "speed": 24.62,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 65.57,
+          "distance": 79.34,
+          "speed": 19.73,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 128.02,
+          "distance": 154.9,
+          "speed": 39.39,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Paquet",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -240787,12 +240856,12 @@
   ],
   "meta": {
     "totalPilots": 201,
-    "totalFlights": 1211,
-    "totalKms": 233990,
-    "totalTasksDeclared": 408,
+    "totalFlights": 1212,
+    "totalKms": 234189,
+    "totalTasksDeclared": 409,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-18T10:22:03.469Z"
+    "generatedAt": "2026-07-18T12:47:00.526Z"
   }
 }
