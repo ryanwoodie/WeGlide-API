@@ -3967,5 +3967,25 @@
       "logo": "club/1168.png"
     },
     "message_enabled": true
+  },
+  "41104": {
+    "total_flight_duration": 7756,
+    "total_free_distance": 59.79,
+    "avg_speed": 32.74,
+    "flight_count": 1,
+    "avg_glide_speed": 91.12,
+    "avg_glide_detour": 1.39,
+    "achievement_count": 0,
+    "name": "Simon Fleury",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 947,
+      "name": "CVV de Québec",
+      "region": "CA-QC",
+      "url": "https://www.cvvq.net"
+    },
+    "message_enabled": true
   }
 }

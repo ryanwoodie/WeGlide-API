@@ -4529,6 +4529,25 @@
       "combinedHoursBeforeCutoff": 2.71,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "41104": {
+      "pilotId": 41104,
+      "weglidePilotId": "wg:41104",
+      "olcPilotId": "77470",
+      "pilotName": "Simon Fleury",
+      "matchKind": "olc_name_only",
+      "normalizedName": "simonfleury",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 15.61,
+      "olcOnlyHours": 15.61,
+      "combinedHours": 15.61,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 15.61,
+      "combinedHoursBeforeCutoff": 15.61,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
