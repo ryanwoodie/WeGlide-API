@@ -2735,6 +2735,27 @@
     },
     "message_enabled": true
   },
+  "35762": {
+    "total_flight_duration": 3225,
+    "total_free_distance": 23.05,
+    "avg_speed": 29.45,
+    "flight_count": 1,
+    "avg_glide_speed": 100.29,
+    "avg_glide_detour": 1.25,
+    "achievement_count": 0,
+    "name": "Rebecca Taylor",
+    "gender": "F",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
+  },
   "35763": {
     "total_flight_duration": 205782,
     "total_free_distance": 1981.04,
