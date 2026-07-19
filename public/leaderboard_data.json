@@ -20907,17 +20907,16 @@
           "date": "2026-06-28",
           "distance": 56.94,
           "speed": 27.81,
-          "points": 67.29,
+          "points": 82.06,
           "takeoff": "Toronto Soaring Club - Conn",
           "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
+          "aircraftKind": "GL",
+          "aircraftName": "Ka 6",
+          "dmstIndex": 82,
           "invalid": true,
           "errorReasons": [
-            "No Aircraft has been selected.",
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
@@ -31509,17 +31508,16 @@
           "date": "2026-06-28",
           "distance": 42.34,
           "speed": 21.17,
-          "points": 21.17,
+          "points": 24.47,
           "takeoff": "Toronto Soaring Club - Conn",
           "region": "CA-ON",
           "declared": false,
           "contestType": "sprint",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
+          "aircraftKind": "GL",
+          "aircraftName": "Ka 6",
+          "dmstIndex": 82,
           "invalid": true,
           "errorReasons": [
-            "No Aircraft has been selected.",
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
@@ -41766,17 +41764,16 @@
           "date": "2026-06-28",
           "distance": 34.5,
           "speed": 23.25,
-          "points": 34.5,
+          "points": 42.07,
           "takeoff": "Toronto Soaring Club - Conn",
           "region": "CA-ON",
           "declared": false,
           "contestType": "triangle",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
+          "aircraftKind": "GL",
+          "aircraftName": "Ka 6",
+          "dmstIndex": 82,
           "invalid": true,
           "errorReasons": [
-            "No Aircraft has been selected.",
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
@@ -51440,17 +51437,16 @@
           "date": "2026-06-28",
           "distance": 33.22,
           "speed": 17.13,
-          "points": 33.22,
+          "points": 40.51,
           "takeoff": "Toronto Soaring Club - Conn",
           "region": "CA-ON",
           "declared": false,
           "contestType": "out_return",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
+          "aircraftKind": "GL",
+          "aircraftName": "Ka 6",
+          "dmstIndex": 82,
           "invalid": true,
           "errorReasons": [
-            "No Aircraft has been selected.",
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
@@ -137468,11 +137464,11 @@
         "glide_speed_lift": 84.23,
         "glide_speed_sink": 90.53,
         "altitude_avg": 1411,
-        "agl_avg": 871,
+        "agl_avg": 932,
         "thermal_count": 11,
         "thermal_gain": 2296,
         "thermal_radius": 112.26,
-        "thermal_start_agl": 833,
+        "thermal_start_agl": 894,
         "thermal_bank": 23.33,
         "glide_percentage": 0.35,
         "glide_percentage_lift": 0.22,
@@ -137484,11 +137480,11 @@
         "attempt_count": 5,
         "attempt_avg": -0.41,
         "attempt_speed_loss": 1.08,
-        "below_1000_agl": 0.5592,
-        "below_800_agl": 0.4355,
-        "below_600_agl": 0.2214,
-        "below_400_agl": 0.0269,
-        "below_200_agl": 0.0065,
+        "below_1000_agl": 0.5185,
+        "below_800_agl": 0.3867,
+        "below_600_agl": 0.1559,
+        "below_400_agl": 0.0191,
+        "below_200_agl": 0.0016,
         "below_100_agl": 0,
         "track_distance": 64.67,
         "glide_detour": 1.14,
@@ -137508,7 +137504,7 @@
         "taskContestUsed": null,
         "taskContestLabel": "Task Score",
         "taskContestPoints": null,
-        "freePoints": 67.29,
+        "freePoints": 82.06,
         "auPoints": null,
         "declarationPoints": null,
         "bestContestType": "free",
@@ -137518,7 +137514,7 @@
         "dmstTaskPotentialPoints": null,
         "dmstTaskDistance": 56.94,
         "weglideFreeDistance": 56.94,
-        "dmstIndex": 100
+        "dmstIndex": 82
       },
       "bhcInfo": null
     }
@@ -217547,7 +217543,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 67.29,
+          "points": 82.06,
           "distance": 56.94,
           "speed": 27.81,
           "score": {
@@ -217556,7 +217552,7 @@
         },
         {
           "name": "sprint",
-          "points": 21.17,
+          "points": 24.47,
           "distance": 42.34,
           "speed": 21.17,
           "score": {
@@ -217565,7 +217561,7 @@
         },
         {
           "name": "triangle",
-          "points": 34.5,
+          "points": 42.07,
           "distance": 34.5,
           "speed": 23.25,
           "score": {
@@ -217574,7 +217570,7 @@
         },
         {
           "name": "out_return",
-          "points": 33.22,
+          "points": 40.51,
           "distance": 33.22,
           "speed": 17.13,
           "score": {
@@ -231781,17 +231777,16 @@
           "date": "2026-06-28",
           "distance": 56.94,
           "speed": 27.81,
-          "points": 67.29,
+          "points": 82.06,
           "takeoff": "Toronto Soaring Club - Conn",
           "region": "CA-ON",
           "declared": false,
           "contestType": "free",
-          "aircraftKind": "unknown",
-          "aircraftName": "",
-          "dmstIndex": 100,
+          "aircraftKind": "GL",
+          "aircraftName": "Ka 6",
+          "dmstIndex": 82,
           "invalid": true,
           "errorReasons": [
-            "No Aircraft has been selected.",
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
@@ -242121,6 +242116,6 @@
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-19T13:52:00.690Z"
+    "generatedAt": "2026-07-19T16:52:56.378Z"
   }
 }
