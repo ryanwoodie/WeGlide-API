@@ -199,7 +199,8 @@
     "40752": 92032,
     "40804": 5556,
     "40910": 10873,
-    "41104": 7756
+    "41104": 7756,
+    "41164": 8076
   },
   "pilotCombinedHours": {
     "779": {
@@ -8854,6 +8855,26 @@
         "name": "CVV de Québec",
         "region": "CA-QC",
         "url": "https://www.cvvq.net"
+      },
+      "message_enabled": true
+    },
+    "41164": {
+      "total_flight_duration": 8076,
+      "total_free_distance": 56.94,
+      "avg_speed": 27.81,
+      "flight_count": 1,
+      "avg_glide_speed": 89.2,
+      "avg_glide_detour": 1.14,
+      "achievement_count": 0,
+      "name": "Peter Michael Bryce",
+      "gender": "M",
+      "is_junior": false,
+      "is_senior": true,
+      "club": {
+        "id": 1345,
+        "name": "Toronto Soaring Club",
+        "region": "CA-ON",
+        "url": "http://toronto-soaring.ca"
       },
       "message_enabled": true
     }
@@ -20872,6 +20893,36 @@
         }
       ],
       "awards": []
+    },
+    {
+      "pilot": "Peter Michael Bryce",
+      "pilotId": 41164,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1163213,
+          "userId": 41164,
+          "date": "2026-06-28",
+          "distance": 56.94,
+          "speed": 27.81,
+          "points": 67.29,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "unknown",
+          "aircraftName": "",
+          "dmstIndex": 100,
+          "invalid": true,
+          "errorReasons": [
+            "No Aircraft has been selected.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
     }
   ],
   "bhcLeaderboard": [
@@ -31444,6 +31495,35 @@
           ]
         }
       ]
+    },
+    {
+      "pilot": "Peter Michael Bryce",
+      "pilotId": 41164,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1163213,
+          "userId": 41164,
+          "date": "2026-06-28",
+          "distance": 42.34,
+          "speed": 21.17,
+          "points": 21.17,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "unknown",
+          "aircraftName": "",
+          "dmstIndex": 100,
+          "invalid": true,
+          "errorReasons": [
+            "No Aircraft has been selected.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
     }
   ],
   "triangleLeaderboard": [
@@ -41672,6 +41752,35 @@
           ]
         }
       ]
+    },
+    {
+      "pilot": "Peter Michael Bryce",
+      "pilotId": 41164,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1163213,
+          "userId": 41164,
+          "date": "2026-06-28",
+          "distance": 34.5,
+          "speed": 23.25,
+          "points": 34.5,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "unknown",
+          "aircraftName": "",
+          "dmstIndex": 100,
+          "invalid": true,
+          "errorReasons": [
+            "No Aircraft has been selected.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
     }
   ],
   "outReturnLeaderboard": [
@@ -51313,6 +51422,35 @@
           "invalid": true,
           "errorReasons": [
             "No G-Record (Integrity Check) found.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
+      "pilot": "Peter Michael Bryce",
+      "pilotId": 41164,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1163213,
+          "userId": 41164,
+          "date": "2026-06-28",
+          "distance": 33.22,
+          "speed": 17.13,
+          "points": 33.22,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "unknown",
+          "aircraftName": "",
+          "dmstIndex": 100,
+          "invalid": true,
+          "errorReasons": [
+            "No Aircraft has been selected.",
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
@@ -137317,6 +137455,72 @@
         "dmstIndex": 106
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1163213,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 20.29,
+        "thermal_avg": 0.51,
+        "glide_speed": 89.2,
+        "glide_speed_lift": 84.23,
+        "glide_speed_sink": 90.53,
+        "altitude_avg": 1411,
+        "agl_avg": 871,
+        "thermal_count": 11,
+        "thermal_gain": 2296,
+        "thermal_radius": 112.26,
+        "thermal_start_agl": 833,
+        "thermal_bank": 23.33,
+        "glide_percentage": 0.35,
+        "glide_percentage_lift": 0.22,
+        "duration": 7371,
+        "thermal_time": 4485,
+        "glide_time": 2610,
+        "wind_speed": 13.45,
+        "wind_direction": 120,
+        "attempt_count": 5,
+        "attempt_avg": -0.41,
+        "attempt_speed_loss": 1.08,
+        "below_1000_agl": 0.5592,
+        "below_800_agl": 0.4355,
+        "below_600_agl": 0.2214,
+        "below_400_agl": 0.0269,
+        "below_200_agl": 0.0065,
+        "below_100_agl": 0,
+        "track_distance": 64.67,
+        "glide_detour": 1.14,
+        "glide_distance": 2.26,
+        "glide_alt_avg": 1361,
+        "end_time": "2026-06-28T22:11:52+00:00",
+        "start_time": "2026-06-28T20:09:01+00:00",
+        "finish_alt": 664
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 67.29,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 56.94,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 56.94,
+        "weglideFreeDistance": 56.94,
+        "dmstIndex": 100
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -217326,6 +217530,62 @@
         "name": "Cu Nim",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1163213,
+      "user": {
+        "id": 41164,
+        "name": "Peter Michael Bryce"
+      },
+      "date": "2026-06-28",
+      "distance": 56.94,
+      "duration": 8076,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 67.29,
+          "distance": 56.94,
+          "speed": 27.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 21.17,
+          "distance": 42.34,
+          "speed": 21.17,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 34.5,
+          "distance": 34.5,
+          "speed": 23.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 33.22,
+          "distance": 33.22,
+          "speed": 17.13,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Toronto Soaring Club - Conn",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -231507,6 +231767,35 @@
           ]
         }
       ]
+    },
+    {
+      "pilot": "Peter Michael Bryce",
+      "pilotId": 41164,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1163213,
+          "userId": 41164,
+          "date": "2026-06-28",
+          "distance": 56.94,
+          "speed": 27.81,
+          "points": 67.29,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "unknown",
+          "aircraftName": "",
+          "dmstIndex": 100,
+          "invalid": true,
+          "errorReasons": [
+            "No Aircraft has been selected.",
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
     }
   ],
   "sacDscLeaderboard": [
@@ -241825,13 +242114,13 @@
     }
   ],
   "meta": {
-    "totalPilots": 202,
-    "totalFlights": 1216,
-    "totalKms": 234389,
+    "totalPilots": 203,
+    "totalFlights": 1217,
+    "totalKms": 234446,
     "totalTasksDeclared": 410,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-19T05:59:35.051Z"
+    "generatedAt": "2026-07-19T13:52:00.690Z"
   }
 }
