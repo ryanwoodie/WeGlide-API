@@ -127,7 +127,7 @@
     "35605": 14008,
     "35610": 1718217,
     "35641": 184812,
-    "35644": 4594078,
+    "35644": 4615922,
     "35647": 308716,
     "35654": 483498,
     "35660": 6978020,
@@ -7411,11 +7411,11 @@
       "message_enabled": true
     },
     "35644": {
-      "total_flight_duration": 4594078,
-      "total_free_distance": 88640.41,
-      "avg_speed": 73.13,
-      "flight_count": 247,
-      "avg_glide_speed": 122.31,
+      "total_flight_duration": 4615922,
+      "total_free_distance": 89116.12,
+      "avg_speed": 73.17,
+      "flight_count": 248,
+      "avg_glide_speed": 122.3,
       "avg_glide_detour": 1.14,
       "achievement_count": 19,
       "name": "Christian Hamel",
@@ -220809,6 +220809,75 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1166285,
+      "user": {
+        "id": 35644,
+        "name": "Christian Hamel"
+      },
+      "date": "2026-07-20",
+      "distance": 475.71,
+      "duration": 21844,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 324.1
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 467.47,
+          "distance": 475.71,
+          "speed": 83.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 79.35,
+          "distance": 189.64,
+          "speed": 94.82,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 299.74,
+          "distance": 377.67,
+          "speed": 74.75,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 216.28,
+          "distance": 272.51,
+          "speed": 64.49,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 419.63,
+          "distance": 377.67,
+          "speed": 74.75,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -245546,12 +245615,12 @@
   ],
   "meta": {
     "totalPilots": 204,
-    "totalFlights": 1244,
-    "totalKms": 239020,
-    "totalTasksDeclared": 413,
+    "totalFlights": 1245,
+    "totalKms": 239496,
+    "totalTasksDeclared": 414,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-20T20:32:11.413Z"
+    "generatedAt": "2026-07-20T23:26:27.464Z"
   }
 }
