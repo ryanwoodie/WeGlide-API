@@ -154,7 +154,7 @@
     "36054": 69400,
     "36083": 30578,
     "36101": 17198,
-    "36137": 77888,
+    "36137": 85948,
     "36138": 784925,
     "36602": 200182,
     "36868": 40356,
@@ -7949,12 +7949,12 @@
       "message_enabled": true
     },
     "36137": {
-      "total_flight_duration": 77888,
-      "total_free_distance": 1497.61,
-      "avg_speed": 72.34,
-      "flight_count": 6,
-      "avg_glide_speed": 136.3,
-      "avg_glide_detour": 1.14,
+      "total_flight_duration": 85948,
+      "total_free_distance": 1629.44,
+      "avg_speed": 71.48,
+      "flight_count": 7,
+      "avg_glide_speed": 136.91,
+      "avg_glide_detour": 1.13,
       "achievement_count": 7,
       "name": "Gerald Ince",
       "gender": "M",
@@ -220343,6 +220343,71 @@
         "name": "Starbuck",
         "region": "CA-MB"
       }
+    },
+    {
+      "id": 1165398,
+      "user": {
+        "id": 36137,
+        "name": "Gerald Ince"
+      },
+      "date": "2026-07-19",
+      "distance": 131.83,
+      "duration": 8060,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 146.69,
+          "distance": 131.83,
+          "speed": 62.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 50.44,
+          "distance": 109.96,
+          "speed": 54.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 96.62,
+          "distance": 108.21,
+          "speed": 58.18,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 67.73,
+          "distance": 75.86,
+          "speed": 45.01,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 135.26,
+          "distance": 108.21,
+          "speed": 58.18,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cu Nim",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -245080,12 +245145,12 @@
   ],
   "meta": {
     "totalPilots": 204,
-    "totalFlights": 1240,
-    "totalKms": 238626,
+    "totalFlights": 1241,
+    "totalKms": 238758,
     "totalTasksDeclared": 413,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-20T13:26:57.150Z"
+    "generatedAt": "2026-07-20T15:21:58.923Z"
   }
 }
