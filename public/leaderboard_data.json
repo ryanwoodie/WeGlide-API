@@ -11,7 +11,7 @@
     "6085": 132619,
     "6303": 473457,
     "8839": 15001,
-    "8848": 17214359,
+    "8848": 17232531,
     "9871": 374266,
     "10376": 553503,
     "10764": 416685,
@@ -5064,10 +5064,10 @@
       }
     },
     "8848": {
-      "total_flight_duration": 17214359,
-      "total_free_distance": 320671.57,
-      "avg_speed": 71.55,
-      "flight_count": 1148,
+      "total_flight_duration": 17232531,
+      "total_free_distance": 321052.66,
+      "avg_speed": 71.56,
+      "flight_count": 1149,
       "avg_glide_speed": 120.8,
       "avg_glide_detour": 1.22,
       "achievement_count": 25,
@@ -221259,6 +221259,71 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1166628,
+      "user": {
+        "id": 8848,
+        "name": "Andre R. Pepin"
+      },
+      "date": "2026-07-20",
+      "distance": 381.09,
+      "duration": 18172,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 390.73,
+          "distance": 381.09,
+          "speed": 79.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 85.1,
+          "distance": 199.55,
+          "speed": 99.78,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 269.67,
+          "distance": 331.7,
+          "speed": 71.47,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 190.33,
+          "distance": 234.11,
+          "speed": 51.73,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 377.54,
+          "distance": 331.7,
+          "speed": 71.47,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -246030,12 +246095,12 @@
   ],
   "meta": {
     "totalPilots": 204,
-    "totalFlights": 1249,
-    "totalKms": 240173,
+    "totalFlights": 1250,
+    "totalKms": 240554,
     "totalTasksDeclared": 414,
     "totalTasksCompleted": 25,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-21T01:41:40.725Z"
+    "generatedAt": "2026-07-21T01:56:39.547Z"
   }
 }
