@@ -27,7 +27,7 @@
     "15929": 2373559,
     "16605": 1369617,
     "17026": 764863,
-    "18113": 3110526,
+    "18113": 3123186,
     "20442": 46670,
     "20675": 1114901,
     "20706": 158031,
@@ -5398,11 +5398,11 @@
       "message_enabled": true
     },
     "18113": {
-      "total_flight_duration": 3110526,
-      "total_free_distance": 58300.14,
-      "avg_speed": 70.83,
-      "flight_count": 201,
-      "avg_glide_speed": 134.03,
+      "total_flight_duration": 3123186,
+      "total_free_distance": 58469.68,
+      "avg_speed": 70.76,
+      "flight_count": 202,
+      "avg_glide_speed": 133.96,
       "avg_glide_detour": 1.22,
       "achievement_count": 19,
       "name": "Patrice gravel",
@@ -223283,6 +223283,71 @@
         "name": "Rockton SOSA On",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1170737,
+      "user": {
+        "id": 18113,
+        "name": "Patrice gravel"
+      },
+      "date": "2026-07-23",
+      "distance": 169.54,
+      "duration": 12660,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 178.7,
+          "distance": 169.54,
+          "speed": 52.88,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 46.08,
+          "distance": 102.52,
+          "speed": 51.26,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 104.24,
+          "distance": 119.88,
+          "speed": 37.53,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 77.52,
+          "distance": 89.15,
+          "speed": 27.85,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 145.94,
+          "distance": 119.88,
+          "speed": 37.53,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -248223,12 +248288,12 @@
   ],
   "meta": {
     "totalPilots": 205,
-    "totalFlights": 1264,
-    "totalKms": 244171,
+    "totalFlights": 1265,
+    "totalKms": 244341,
     "totalTasksDeclared": 420,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-23T23:06:45.306Z"
+    "generatedAt": "2026-07-23T23:16:35.701Z"
   }
 }
