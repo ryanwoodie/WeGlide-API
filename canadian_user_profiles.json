@@ -340,6 +340,27 @@
     },
     "message_enabled": true
   },
+  "12836": {
+    "total_flight_duration": 2766819,
+    "total_free_distance": 60743.21,
+    "avg_speed": 90.19,
+    "flight_count": 242,
+    "avg_glide_speed": 156.65,
+    "avg_glide_detour": 1.22,
+    "achievement_count": 28,
+    "name": "Fernando Silva",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1159,
+      "name": "Mid-Georgia Soaring Association",
+      "region": "US-GA",
+      "url": "https://www.soar-mgsa.org",
+      "in_league": "U2"
+    },
+    "message_enabled": true
+  },
   "12854": {
     "total_flight_duration": 438092,
     "total_free_distance": 5171.22,
