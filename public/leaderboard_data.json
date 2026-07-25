@@ -99,7 +99,7 @@
     "35364": 328069,
     "35367": 1174062,
     "35379": 19838,
-    "35385": 3535244,
+    "35385": 3537813,
     "35395": 77092,
     "35400": 460817,
     "35419": 99946,
@@ -6857,11 +6857,11 @@
       "message_enabled": true
     },
     "35385": {
-      "total_flight_duration": 3535244,
-      "total_free_distance": 49422.74,
-      "avg_speed": 53,
-      "flight_count": 266,
-      "avg_glide_speed": 110.6,
+      "total_flight_duration": 3537813,
+      "total_free_distance": 49464.1,
+      "avg_speed": 53.01,
+      "flight_count": 267,
+      "avg_glide_speed": 110.61,
       "avg_glide_detour": 1.25,
       "achievement_count": 14,
       "name": "Gustavo Tanoni",
@@ -227663,6 +227663,71 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1174022,
+      "user": {
+        "id": 35385,
+        "name": "Gustavo Tanoni"
+      },
+      "date": "2026-07-25",
+      "distance": 41.36,
+      "duration": 2569,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 40.98,
+          "distance": 41.36,
+          "speed": 64.1,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 9.59,
+          "distance": 21.92,
+          "speed": 10.96,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 20.74,
+          "distance": 24.68,
+          "speed": 53.3,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 18.07,
+          "distance": 21.5,
+          "speed": 46.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 31.37,
+          "distance": 37.33,
+          "speed": 57.85,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -253099,12 +253164,12 @@
   ],
   "meta": {
     "totalPilots": 209,
-    "totalFlights": 1290,
-    "totalKms": 249153,
+    "totalFlights": 1291,
+    "totalKms": 249195,
     "totalTasksDeclared": 433,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-25T19:51:28.827Z"
+    "generatedAt": "2026-07-25T21:36:45.675Z"
   }
 }
