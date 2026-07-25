@@ -97,7 +97,7 @@
     "35350": 920042,
     "35351": 281292,
     "35364": 328069,
-    "35367": 1172592,
+    "35367": 1174062,
     "35379": 19838,
     "35385": 3535244,
     "35395": 77092,
@@ -6816,10 +6816,10 @@
       "message_enabled": true
     },
     "35367": {
-      "total_flight_duration": 1172592,
-      "total_free_distance": 9884.41,
-      "avg_speed": 34.57,
-      "flight_count": 127,
+      "total_flight_duration": 1174062,
+      "total_free_distance": 9898.78,
+      "avg_speed": 34.59,
+      "flight_count": 128,
       "avg_glide_speed": 115.57,
       "avg_glide_detour": 1.53,
       "achievement_count": 7,
@@ -227533,6 +227533,71 @@
         "name": "Toronto Soaring Club - Conn",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1173803,
+      "user": {
+        "id": 35367,
+        "name": "Christian Boulay"
+      },
+      "date": "2026-07-25",
+      "distance": 14.37,
+      "duration": 1470,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 16.55,
+          "distance": 14.37,
+          "speed": 47.03,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.96,
+          "distance": 2.01,
+          "speed": 1,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 9.96,
+          "distance": 10.56,
+          "speed": 32.8,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 6.39,
+          "distance": 6.77,
+          "speed": 27.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 13.95,
+          "distance": 10.56,
+          "speed": 32.8,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "St-Dominique CVVC",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -252969,12 +253034,12 @@
   ],
   "meta": {
     "totalPilots": 209,
-    "totalFlights": 1288,
-    "totalKms": 249086,
+    "totalFlights": 1289,
+    "totalKms": 249100,
     "totalTasksDeclared": 433,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-25T16:27:16.888Z"
+    "generatedAt": "2026-07-25T19:46:48.007Z"
   }
 }
