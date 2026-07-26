@@ -123,7 +123,7 @@
     "35546": 1281434,
     "35558": 4048265,
     "35573": 491188,
-    "35577": 1214503,
+    "35577": 1225619,
     "35578": 29935,
     "35587": 28084,
     "35605": 14008,
@@ -7361,11 +7361,11 @@
       }
     },
     "35577": {
-      "total_flight_duration": 1214503,
-      "total_free_distance": 28486.33,
-      "avg_speed": 91.99,
-      "flight_count": 98,
-      "avg_glide_speed": 154.28,
+      "total_flight_duration": 1225619,
+      "total_free_distance": 28645.94,
+      "avg_speed": 91.75,
+      "flight_count": 99,
+      "avg_glide_speed": 154.15,
       "avg_glide_detour": 1.24,
       "achievement_count": 25,
       "name": "Jean Yves Germain",
@@ -229439,6 +229439,75 @@
         "name": "Kars/Rideau Valley",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1174202,
+      "user": {
+        "id": 35577,
+        "name": "Jean Yves Germain"
+      },
+      "date": "2026-07-25",
+      "distance": 159.61,
+      "duration": 11116,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 216.22
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 152.8,
+          "distance": 159.61,
+          "speed": 62.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 38.03,
+          "distance": 88.04,
+          "speed": 44.02,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 69.64,
+          "distance": 84.26,
+          "speed": 32.13,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 48.55,
+          "distance": 58.74,
+          "speed": 36.65,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 97.49,
+          "distance": 84.26,
+          "speed": 32.13,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Paquet",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -255042,12 +255111,12 @@
   ],
   "meta": {
     "totalPilots": 211,
-    "totalFlights": 1300,
-    "totalKms": 250386,
-    "totalTasksDeclared": 433,
+    "totalFlights": 1301,
+    "totalKms": 250546,
+    "totalTasksDeclared": 434,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-26T03:21:26.759Z"
+    "generatedAt": "2026-07-26T04:26:35.892Z"
   }
 }
