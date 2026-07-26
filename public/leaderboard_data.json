@@ -73,7 +73,7 @@
     "32345": 5763040,
     "32470": 71047,
     "32676": 74299,
-    "33962": 241804,
+    "33962": 254501,
     "34532": 6784,
     "34934": 4276025,
     "34953": 388999,
@@ -6354,13 +6354,13 @@
       }
     },
     "33962": {
-      "total_flight_duration": 241804,
-      "total_free_distance": 5453.49,
-      "avg_speed": 87.49,
-      "flight_count": 29,
-      "avg_glide_speed": 131.98,
+      "total_flight_duration": 254501,
+      "total_free_distance": 5747.85,
+      "avg_speed": 87.88,
+      "flight_count": 31,
+      "avg_glide_speed": 132.64,
       "avg_glide_detour": 1.13,
-      "achievement_count": 16,
+      "achievement_count": 17,
       "name": "Charlie Pastuszka",
       "gender": "M",
       "is_junior": false,
@@ -230838,6 +230838,136 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1175685,
+      "user": {
+        "id": 33962,
+        "name": "Charlie Pastuszka"
+      },
+      "date": "2026-07-26",
+      "distance": 148.94,
+      "duration": 5873,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 149.06,
+          "distance": 148.94,
+          "speed": 98.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 61.41,
+          "distance": 133.87,
+          "speed": 66.94,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 14.33,
+          "distance": 16.05,
+          "speed": 17.38,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 80.37,
+          "distance": 90.01,
+          "speed": 99.15,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 127.76,
+          "distance": 143.09,
+          "speed": 94.21,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1175684,
+      "user": {
+        "id": 33962,
+        "name": "Charlie Pastuszka"
+      },
+      "date": "2026-07-26",
+      "distance": 145.42,
+      "duration": 6824,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 161.19,
+          "distance": 145.42,
+          "speed": 93.02,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 45.14,
+          "distance": 98.4,
+          "speed": 49.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 104.51,
+          "distance": 117.05,
+          "speed": 70.14,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 67.1,
+          "distance": 75.15,
+          "speed": 45.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 146.31,
+          "distance": 117.05,
+          "speed": 70.14,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -256567,12 +256697,12 @@
   ],
   "meta": {
     "totalPilots": 212,
-    "totalFlights": 1310,
-    "totalKms": 252061,
+    "totalFlights": 1312,
+    "totalKms": 252356,
     "totalTasksDeclared": 437,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-26T22:11:33.801Z"
+    "generatedAt": "2026-07-26T23:31:36.832Z"
   }
 }
