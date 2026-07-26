@@ -4172,5 +4172,25 @@
       "url": "http://toronto-soaring.ca"
     },
     "message_enabled": true
+  },
+  "41456": {
+    "total_flight_duration": 12623,
+    "total_free_distance": 158.46,
+    "avg_speed": 47.18,
+    "flight_count": 1,
+    "avg_glide_speed": 104.56,
+    "avg_glide_detour": 1.35,
+    "achievement_count": 0,
+    "name": "Gordon Gregg",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1240,
+      "name": "Rideau Valley Soaring",
+      "region": "CA-ON",
+      "url": "https://rvss.ca"
+    },
+    "message_enabled": true
   }
 }

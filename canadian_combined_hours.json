@@ -4548,6 +4548,25 @@
       "combinedHoursBeforeCutoff": 15.61,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "41456": {
+      "pilotId": 41456,
+      "weglidePilotId": "wg:41456",
+      "olcPilotId": "59744",
+      "pilotName": "Gordon Gregg",
+      "matchKind": "olc_name_only",
+      "normalizedName": "gordongregg",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 219.52,
+      "olcOnlyHours": 219.52,
+      "combinedHours": 219.52,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 219.52,
+      "combinedHoursBeforeCutoff": 219.52,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
