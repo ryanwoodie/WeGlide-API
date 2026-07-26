@@ -3225,6 +3225,26 @@
     },
     "message_enabled": true
   },
+  "37053": {
+    "total_flight_duration": 22478,
+    "total_free_distance": 418.39,
+    "avg_speed": 69.07,
+    "flight_count": 2,
+    "avg_glide_speed": 104.12,
+    "avg_glide_detour": 1.13,
+    "achievement_count": 4,
+    "name": "Martin Brugger",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1345,
+      "name": "Toronto Soaring Club",
+      "region": "CA-ON",
+      "url": "http://toronto-soaring.ca"
+    },
+    "message_enabled": true
+  },
   "37102": {
     "total_flight_duration": 50222,
     "total_free_distance": 718.61,
