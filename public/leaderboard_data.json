@@ -113,7 +113,7 @@
     "35433": 228766,
     "35434": 118858,
     "35435": 1382348,
-    "35436": 1188847,
+    "35436": 1203794,
     "35437": 141636,
     "35461": 148928,
     "35481": 330919,
@@ -7157,11 +7157,11 @@
       "message_enabled": true
     },
     "35436": {
-      "total_flight_duration": 1188847,
-      "total_free_distance": 25644.19,
-      "avg_speed": 81.3,
-      "flight_count": 55,
-      "avg_glide_speed": 127.93,
+      "total_flight_duration": 1203794,
+      "total_free_distance": 25946.64,
+      "avg_speed": 81.24,
+      "flight_count": 56,
+      "avg_glide_speed": 127.87,
       "avg_glide_detour": 1.12,
       "achievement_count": 20,
       "name": "Nick Bonniere",
@@ -229638,6 +229638,75 @@
         "name": "Hawkesbury",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1174553,
+      "user": {
+        "id": 35436,
+        "name": "Nick Bonniere"
+      },
+      "date": "2026-07-25",
+      "distance": 302.45,
+      "duration": 14947,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "RT",
+        "from_igcfile": true,
+        "distance": 818.27
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 299.61,
+          "distance": 302.45,
+          "speed": 76.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 68.01,
+          "distance": 159.49,
+          "speed": 79.75,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 179.05,
+          "distance": 220.23,
+          "speed": 53.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 147.93,
+          "distance": 181.95,
+          "speed": 46.16,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 250.67,
+          "distance": 220.23,
+          "speed": 53.81,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -255258,12 +255327,12 @@
   ],
   "meta": {
     "totalPilots": 211,
-    "totalFlights": 1303,
-    "totalKms": 250956,
-    "totalTasksDeclared": 434,
+    "totalFlights": 1304,
+    "totalKms": 251258,
+    "totalTasksDeclared": 435,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-26T12:46:27.251Z"
+    "generatedAt": "2026-07-26T12:51:26.662Z"
   }
 }
