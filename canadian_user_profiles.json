@@ -4152,5 +4152,25 @@
       "url": "http://toronto-soaring.ca"
     },
     "message_enabled": true
+  },
+  "41454": {
+    "total_flight_duration": 5016,
+    "total_free_distance": 41.83,
+    "avg_speed": 31.82,
+    "flight_count": 1,
+    "avg_glide_speed": 93.38,
+    "avg_glide_detour": 1.1,
+    "achievement_count": 0,
+    "name": "Ethan Schlachter",
+    "gender": "M",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1345,
+      "name": "Toronto Soaring Club",
+      "region": "CA-ON",
+      "url": "http://toronto-soaring.ca"
+    },
+    "message_enabled": true
   }
 }
