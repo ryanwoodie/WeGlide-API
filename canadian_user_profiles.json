@@ -4133,6 +4133,26 @@
     },
     "message_enabled": true
   },
+  "41373": {
+    "total_flight_duration": 2558,
+    "total_free_distance": 34.91,
+    "avg_speed": 53.75,
+    "flight_count": 1,
+    "avg_glide_speed": 102.46,
+    "avg_glide_detour": 0.96,
+    "achievement_count": 2,
+    "name": "Caiden Davis",
+    "gender": "M",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 914,
+      "name": "Central Alberta Gliding Club",
+      "region": "CA-AB",
+      "url": "http://www.cagcsoaring.ca"
+    },
+    "message_enabled": true
+  },
   "41374": {
     "total_flight_duration": 7648,
     "total_free_distance": 34.74,
