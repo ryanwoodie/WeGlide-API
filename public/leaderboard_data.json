@@ -12630,7 +12630,7 @@
     {
       "pilot": "Daniel Nazarko",
       "pilotId": 15888,
-      "totalPoints": 1496.24,
+      "totalPoints": 1496.1899999999998,
       "totalDistance": 1375.1999999999998,
       "flightCount": 5,
       "bestFlights": [
@@ -12640,7 +12640,7 @@
           "date": "2026-07-26",
           "distance": 501.76,
           "speed": 127.21,
-          "points": 515.09,
+          "points": 515.04,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -45840,8 +45840,8 @@
     {
       "pilot": "Daniel Nazarko",
       "pilotId": 15888,
-      "totalPoints": 537.94,
-      "totalDistance": 549.24,
+      "totalPoints": 537.7,
+      "totalDistance": 548.98,
       "flightCount": 3,
       "bestFlights": [
         {
@@ -45865,9 +45865,9 @@
           "id": 1175714,
           "userId": 15888,
           "date": "2026-07-26",
-          "distance": 169.65,
-          "speed": 133.93,
-          "points": 163.12,
+          "distance": 169.39,
+          "speed": 134.79,
+          "points": 162.88,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -144710,7 +144710,7 @@
         "glide_speed_lift": 131.52,
         "glide_speed_sink": 158.51,
         "altitude_avg": 4639,
-        "agl_avg": 3160,
+        "agl_avg": 3183,
         "thermal_count": 0,
         "thermal_gain": 0,
         "glide_percentage": 1,
@@ -144743,7 +144743,7 @@
         "glide_speed_lift": 127.08,
         "glide_speed_sink": 149.68,
         "altitude_avg": 4685,
-        "agl_avg": 3203,
+        "agl_avg": 3226,
         "thermal_count": 0,
         "thermal_gain": 0,
         "glide_percentage": 1,
@@ -144780,7 +144780,7 @@
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
         "taskContestPoints": 342.4,
-        "freePoints": 515.09,
+        "freePoints": 515.04,
         "auPoints": 342.4,
         "declarationPoints": null,
         "bestContestType": "free",
@@ -231365,7 +231365,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 515.09,
+          "points": 515.04,
           "distance": 501.76,
           "speed": 127.21,
           "score": {
@@ -231392,9 +231392,9 @@
         },
         {
           "name": "out_return",
-          "points": 163.12,
-          "distance": 169.65,
-          "speed": 133.93,
+          "points": 162.88,
+          "distance": 169.39,
+          "speed": 134.79,
           "score": {
             "declared": false
           }
@@ -235310,7 +235310,7 @@
     {
       "pilot": "Daniel Nazarko",
       "pilotId": 15888,
-      "totalPoints": 1496.24,
+      "totalPoints": 1496.1899999999998,
       "totalDistance": 1375.1999999999998,
       "flightCount": 5,
       "bestFlights": [
@@ -235320,7 +235320,7 @@
           "date": "2026-07-26",
           "distance": 501.76,
           "speed": 127.21,
-          "points": 515.09,
+          "points": 515.04,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -257281,6 +257281,6 @@
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-27T06:35:22.245Z"
+    "generatedAt": "2026-07-27T16:16:02.771Z"
   }
 }
