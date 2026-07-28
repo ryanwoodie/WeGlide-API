@@ -1,10 +1,10 @@
 {
   "2070": {
-    "total_flight_duration": 5002266,
-    "total_free_distance": 110324.63,
-    "avg_speed": 83.87,
-    "flight_count": 355,
-    "avg_glide_speed": 139.02,
+    "total_flight_duration": 5017768,
+    "total_free_distance": 110577.35,
+    "avg_speed": 83.81,
+    "flight_count": 356,
+    "avg_glide_speed": 138.97,
     "avg_glide_detour": 1.18,
     "achievement_count": 27,
     "name": "Christopher Michael Gough",
@@ -4230,6 +4230,26 @@
       "name": "Rideau Valley Soaring",
       "region": "CA-ON",
       "url": "https://rvss.ca"
+    },
+    "message_enabled": true
+  },
+  "41543": {
+    "total_flight_duration": 19124,
+    "total_free_distance": 162.57,
+    "avg_speed": 33.52,
+    "flight_count": 2,
+    "avg_glide_speed": 100.84,
+    "avg_glide_detour": 1.77,
+    "achievement_count": 3,
+    "name": "Ethan Brown",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 914,
+      "name": "Central Alberta Gliding Club",
+      "region": "CA-AB",
+      "url": "http://www.cagcsoaring.ca"
     },
     "message_enabled": true
   }
