@@ -143,7 +143,7 @@
     "35763": 205782,
     "35776": 16206,
     "35777": 5182,
-    "35809": 45360,
+    "35809": 55408,
     "35810": 6138,
     "35822": 12544,
     "35848": 793362,
@@ -7757,11 +7757,11 @@
       }
     },
     "35809": {
-      "total_flight_duration": 45360,
-      "total_free_distance": 595.41,
-      "avg_speed": 50.25,
-      "flight_count": 5,
-      "avg_glide_speed": 107.73,
+      "total_flight_duration": 55408,
+      "total_free_distance": 721.45,
+      "avg_speed": 49.87,
+      "flight_count": 6,
+      "avg_glide_speed": 106.84,
       "avg_glide_detour": 1.19,
       "achievement_count": 3,
       "name": "Stan Martin",
@@ -232810,6 +232810,75 @@
         "name": "Cowley",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1177117,
+      "user": {
+        "id": 35809,
+        "name": "Stan Martin"
+      },
+      "date": "2026-07-24",
+      "distance": 126.04,
+      "duration": 10048,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 167.27
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 170.03,
+          "distance": 126.04,
+          "speed": 48.12,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 45.66,
+          "distance": 80.37,
+          "speed": 40.19,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 66.61,
+          "distance": 55.95,
+          "speed": 22.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 68.15,
+          "distance": 57.25,
+          "speed": 22.65,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 130.82,
+          "distance": 109.89,
+          "speed": 43.79,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Toronto Soaring Club - Conn",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -258639,12 +258708,12 @@
   ],
   "meta": {
     "totalPilots": 213,
-    "totalFlights": 1325,
-    "totalKms": 255083,
-    "totalTasksDeclared": 441,
+    "totalFlights": 1326,
+    "totalKms": 255209,
+    "totalTasksDeclared": 442,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-28T15:06:34.537Z"
+    "generatedAt": "2026-07-28T15:16:28.440Z"
   }
 }
