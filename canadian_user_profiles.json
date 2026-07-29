@@ -611,6 +611,27 @@
     },
     "message_enabled": true
   },
+  "18693": {
+    "total_flight_duration": 2264799,
+    "total_free_distance": 49959.94,
+    "avg_speed": 85.27,
+    "flight_count": 146,
+    "avg_glide_speed": 145.14,
+    "avg_glide_detour": 1.15,
+    "achievement_count": 45,
+    "name": "Jared Granzow",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 918,
+      "name": "Central Ohio Soaring Association",
+      "region": "US-OH",
+      "url": "https://centralohiosoaring.org",
+      "in_league": "U2"
+    },
+    "message_enabled": true
+  },
   "20442": {
     "total_flight_duration": 46670,
     "total_free_distance": 721.89,
