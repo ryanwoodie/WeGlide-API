@@ -60,7 +60,7 @@
     "24930": 2545514,
     "25002": 192148,
     "25019": 50289,
-    "25114": 788431,
+    "25114": 794223,
     "25728": 178310,
     "25782": 387693,
     "26583": 162107,
@@ -6098,13 +6098,13 @@
       }
     },
     "25114": {
-      "total_flight_duration": 788431,
-      "total_free_distance": 13807.47,
-      "avg_speed": 68.05,
-      "flight_count": 68,
-      "avg_glide_speed": 135.8,
+      "total_flight_duration": 794223,
+      "total_free_distance": 13860.89,
+      "avg_speed": 67.99,
+      "flight_count": 69,
+      "avg_glide_speed": 135.57,
       "avg_glide_detour": 1.26,
-      "achievement_count": 26,
+      "achievement_count": 27,
       "name": "Joshua Peace",
       "gender": "M",
       "is_junior": true,
@@ -235505,6 +235505,71 @@
         "name": "Rockton SOSA On",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1179743,
+      "user": {
+        "id": 25114,
+        "name": "Joshua Peace"
+      },
+      "date": "2026-07-29",
+      "distance": 55.16,
+      "duration": 5792,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 65.44,
+          "distance": 55.16,
+          "speed": 38.81,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 17.72,
+          "distance": 35.44,
+          "speed": 17.72,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 34.25,
+          "distance": 34.25,
+          "speed": 23.32,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 31.34,
+          "distance": 31.34,
+          "speed": 29.23,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 47.95,
+          "distance": 34.25,
+          "speed": 23.32,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -261625,12 +261690,12 @@
   ],
   "meta": {
     "totalPilots": 215,
-    "totalFlights": 1341,
-    "totalKms": 256568,
+    "totalFlights": 1342,
+    "totalKms": 256623,
     "totalTasksDeclared": 446,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-29T19:31:37.746Z"
+    "generatedAt": "2026-07-29T20:06:38.179Z"
   }
 }
