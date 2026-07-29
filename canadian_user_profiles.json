@@ -567,6 +567,29 @@
     },
     "message_enabled": true
   },
+  "17989": {
+    "total_flight_duration": 1848265,
+    "total_free_distance": 42575.96,
+    "avg_speed": 88.29,
+    "flight_count": 133,
+    "avg_glide_speed": 150.15,
+    "avg_glide_detour": 1.18,
+    "achievement_count": 36,
+    "name": "Nelson Howe",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1038,
+      "name": "Greater Boston Soaring Club",
+      "region": "US-MA",
+      "url": "https://soargbsc.com",
+      "logo": "club/1038.png",
+      "in_league": "U1",
+      "position": 9
+    },
+    "message_enabled": true
+  },
   "18113": {
     "total_flight_duration": 3123186,
     "total_free_distance": 58469.68,
