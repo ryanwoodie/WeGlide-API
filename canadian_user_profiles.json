@@ -2841,13 +2841,13 @@
     }
   },
   "35776": {
-    "total_flight_duration": 16206,
-    "total_free_distance": 365.03,
-    "avg_speed": 86.91,
-    "flight_count": 2,
-    "avg_glide_speed": 130.02,
-    "avg_glide_detour": 1.11,
-    "achievement_count": 3,
+    "total_flight_duration": 42968,
+    "total_free_distance": 817.97,
+    "avg_speed": 72.83,
+    "flight_count": 4,
+    "avg_glide_speed": 131.65,
+    "avg_glide_detour": 1.37,
+    "achievement_count": 5,
     "name": "Struan Vaughan",
     "gender": "M",
     "is_junior": false,
@@ -2858,7 +2858,8 @@
       "region": "CA-AB",
       "url": "https://www.cunim.org",
       "logo": "club/965.png"
-    }
+    },
+    "message_enabled": true
   },
   "35777": {
     "total_flight_duration": 5182,
