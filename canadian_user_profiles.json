@@ -1497,13 +1497,13 @@
     "message_enabled": true
   },
   "34532": {
-    "total_flight_duration": 6784,
-    "total_free_distance": 102.27,
-    "avg_speed": 61.29,
-    "flight_count": 1,
-    "avg_glide_speed": 130.79,
-    "avg_glide_detour": 1.21,
-    "achievement_count": 2,
+    "total_flight_duration": 24373,
+    "total_free_distance": 343.33,
+    "avg_speed": 58.03,
+    "flight_count": 3,
+    "avg_glide_speed": 128.08,
+    "avg_glide_detour": 1.26,
+    "achievement_count": 4,
     "name": "Rob Williams",
     "gender": "M",
     "is_junior": false,
@@ -1513,7 +1513,8 @@
       "name": "Vancouver Soaring Association",
       "region": "CA-BC",
       "url": "http://vancouversoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "34934": {
     "total_flight_duration": 4276025,
