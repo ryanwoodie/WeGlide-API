@@ -1,6 +1,6 @@
 {
   "pilotDurations": {
-    "2070": 5017768,
+    "2070": 5032659,
     "2074": 1414793,
     "4806": 7135109,
     "5342": 569060,
@@ -4881,11 +4881,11 @@
   },
   "pilotProfiles": {
     "2070": {
-      "total_flight_duration": 5017768,
-      "total_free_distance": 110577.35,
-      "avg_speed": 83.81,
-      "flight_count": 356,
-      "avg_glide_speed": 138.97,
+      "total_flight_duration": 5032659,
+      "total_free_distance": 110861.6,
+      "avg_speed": 83.77,
+      "flight_count": 357,
+      "avg_glide_speed": 138.92,
       "avg_glide_detour": 1.18,
       "achievement_count": 27,
       "name": "Christopher Michael Gough",
@@ -236488,6 +236488,75 @@
         "name": "Cowley",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1179945,
+      "user": {
+        "id": 2070,
+        "name": "Christopher Michael Gough"
+      },
+      "date": "2026-07-29",
+      "distance": 284.25,
+      "duration": 14891,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 309.13
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 289.73,
+          "distance": 284.25,
+          "speed": 70.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 74.93,
+          "distance": 161.09,
+          "speed": 80.55,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 104.41,
+          "distance": 114.85,
+          "speed": 29.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 106.85,
+          "distance": 117.53,
+          "speed": 36.48,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 229.9,
+          "distance": 252.89,
+          "speed": 62.8,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -262694,12 +262763,12 @@
   ],
   "meta": {
     "totalPilots": 216,
-    "totalFlights": 1347,
-    "totalKms": 257049,
-    "totalTasksDeclared": 449,
+    "totalFlights": 1348,
+    "totalKms": 257333,
+    "totalTasksDeclared": 450,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-29T21:51:13.109Z"
+    "generatedAt": "2026-07-29T23:16:36.328Z"
   }
 }
