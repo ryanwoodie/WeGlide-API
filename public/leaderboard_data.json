@@ -4786,6 +4786,13 @@
   },
   "pilotVerifications": {
     "picHoursVerifications": {
+      "15888": {
+        "pilotName": "Daniel Nazarko",
+        "picHours": 160,
+        "verifiedDate": "2026-07-30T16:14:25.063Z",
+        "eligible": true,
+        "dataSource": "email-verified"
+      },
       "20723": {
         "pilotName": "Ryan Wood",
         "picHours": 200,
@@ -265901,6 +265908,6 @@
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-30T05:46:37.326Z"
+    "generatedAt": "2026-07-30T16:15:57.842Z"
   }
 }
