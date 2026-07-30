@@ -24,7 +24,7 @@
     "13388": 97410,
     "13987": 67264,
     "14075": 557937,
-    "15888": 559546,
+    "15888": 567287,
     "15929": 2373559,
     "16605": 1369617,
     "17026": 764863,
@@ -71,7 +71,7 @@
     "28158": 14395,
     "29394": 617351,
     "29869": 3886954,
-    "32274": 962119,
+    "32274": 977695,
     "32345": 5763040,
     "32470": 71047,
     "32676": 74299,
@@ -5366,11 +5366,11 @@
       "message_enabled": true
     },
     "15888": {
-      "total_flight_duration": 559546,
-      "total_free_distance": 7252.79,
-      "avg_speed": 53.75,
-      "flight_count": 58,
-      "avg_glide_speed": 127.98,
+      "total_flight_duration": 567287,
+      "total_free_distance": 7347.88,
+      "avg_speed": 53.68,
+      "flight_count": 59,
+      "avg_glide_speed": 127.67,
       "avg_glide_detour": 1.67,
       "achievement_count": 24,
       "name": "Daniel Nazarko",
@@ -6320,11 +6320,11 @@
       "message_enabled": true
     },
     "32274": {
-      "total_flight_duration": 962119,
-      "total_free_distance": 23317.18,
-      "avg_speed": 94.54,
-      "flight_count": 55,
-      "avg_glide_speed": 142.83,
+      "total_flight_duration": 977695,
+      "total_free_distance": 23715.71,
+      "avg_speed": 94.61,
+      "flight_count": 56,
+      "avg_glide_speed": 142.91,
       "avg_glide_detour": 1.11,
       "achievement_count": 18,
       "name": "Harry  Peters",
@@ -237602,6 +237602,136 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1179974,
+      "user": {
+        "id": 32274,
+        "name": "Harry  Peters"
+      },
+      "date": "2026-07-29",
+      "distance": 398.53,
+      "duration": 15576,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 377.72,
+          "distance": 398.53,
+          "speed": 99,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 84.54,
+          "distance": 194.45,
+          "speed": 97.22,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 152.05,
+          "distance": 182.46,
+          "speed": 46.04,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 223.65,
+          "distance": 268.38,
+          "speed": 67.85,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 321.44,
+          "distance": 385.73,
+          "speed": 95.77,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1179973,
+      "user": {
+        "id": 15888,
+        "name": "Daniel Nazarko"
+      },
+      "date": "2026-07-29",
+      "distance": 95.09,
+      "duration": 7741,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 102.5,
+          "distance": 95.09,
+          "speed": 48.72,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 32.25,
+          "distance": 69.83,
+          "speed": 34.91,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 56.13,
+          "distance": 62.3,
+          "speed": 45.28,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 41.23,
+          "distance": 45.76,
+          "speed": 33.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 78.58,
+          "distance": 62.3,
+          "speed": 45.28,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -263927,12 +264057,12 @@
   ],
   "meta": {
     "totalPilots": 216,
-    "totalFlights": 1355,
-    "totalKms": 258894,
+    "totalFlights": 1357,
+    "totalKms": 259388,
     "totalTasksDeclared": 451,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-30T00:56:23.681Z"
+    "generatedAt": "2026-07-30T01:11:27.974Z"
   }
 }
