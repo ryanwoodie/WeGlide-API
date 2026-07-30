@@ -43,7 +43,7 @@
     "21317": 396472,
     "21574": 582333,
     "21928": 19945,
-    "22077": 1633764,
+    "22077": 1640780,
     "22081": 354432,
     "22232": 1884919,
     "22746": 1294317,
@@ -5769,11 +5769,11 @@
       "message_enabled": true
     },
     "22077": {
-      "total_flight_duration": 1633764,
-      "total_free_distance": 23307.52,
-      "avg_speed": 56.42,
-      "flight_count": 146,
-      "avg_glide_speed": 119.54,
+      "total_flight_duration": 1640780,
+      "total_free_distance": 23381.27,
+      "avg_speed": 56.36,
+      "flight_count": 147,
+      "avg_glide_speed": 119.6,
       "avg_glide_detour": 1.38,
       "achievement_count": 30,
       "name": "Sasha Pejic",
@@ -240450,6 +240450,71 @@
         "name": "Rockton SOSA On",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1181666,
+      "user": {
+        "id": 22077,
+        "name": "Sasha Pejic"
+      },
+      "date": "2026-07-30",
+      "distance": 73.75,
+      "duration": 7016,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 86.88,
+          "distance": 73.75,
+          "speed": 42.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 20.61,
+          "distance": 41.22,
+          "speed": 20.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 43.78,
+          "distance": 43.78,
+          "speed": 24.1,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 24.41,
+          "distance": 24.41,
+          "speed": 19.61,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 61.29,
+          "distance": 43.78,
+          "speed": 24.1,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -267011,12 +267076,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1378,
-    "totalKms": 262523,
+    "totalFlights": 1379,
+    "totalKms": 262597,
     "totalTasksDeclared": 460,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-30T21:26:39.552Z"
+    "generatedAt": "2026-07-30T21:51:45.815Z"
   }
 }
