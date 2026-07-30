@@ -194,6 +194,29 @@
       "url": "http://www.edmontonsoaringclub.com"
     }
   },
+  "6366": {
+    "total_flight_duration": 863088,
+    "total_free_distance": 17784.4,
+    "avg_speed": 82.3,
+    "flight_count": 61,
+    "avg_glide_speed": 136.47,
+    "avg_glide_detour": 1.15,
+    "achievement_count": 16,
+    "name": "Juan Mandelbaum",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1038,
+      "name": "Greater Boston Soaring Club",
+      "region": "US-MA",
+      "url": "https://soargbsc.com",
+      "logo": "club/1038.png",
+      "in_league": "U1",
+      "position": 9
+    },
+    "message_enabled": true
+  },
   "8839": {
     "total_flight_duration": 15001,
     "total_free_distance": 263.3,
