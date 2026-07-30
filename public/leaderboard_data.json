@@ -19,7 +19,7 @@
     "12230": 53319,
     "12276": 234844,
     "12836": 2766819,
-    "12854": 438092,
+    "12854": 446961,
     "12901": 182915,
     "13284": 969937,
     "13388": 97410,
@@ -175,7 +175,7 @@
     "38085": 522919,
     "38390": 9511,
     "38506": 7082,
-    "38629": 144920,
+    "38629": 154401,
     "38767": 39163,
     "38833": 25729,
     "38944": 6099,
@@ -5267,11 +5267,11 @@
       "message_enabled": true
     },
     "12854": {
-      "total_flight_duration": 438092,
-      "total_free_distance": 5171.22,
-      "avg_speed": 53.17,
-      "flight_count": 49,
-      "avg_glide_speed": 117.24,
+      "total_flight_duration": 446961,
+      "total_free_distance": 5265.61,
+      "avg_speed": 53.15,
+      "flight_count": 50,
+      "avg_glide_speed": 117.19,
       "avg_glide_detour": 1.41,
       "achievement_count": 4,
       "name": "Robert Frith",
@@ -8414,12 +8414,12 @@
       "message_enabled": true
     },
     "38629": {
-      "total_flight_duration": 144920,
-      "total_free_distance": 3161.86,
-      "avg_speed": 89.32,
-      "flight_count": 11,
-      "avg_glide_speed": 142.76,
-      "avg_glide_detour": 1.24,
+      "total_flight_duration": 154401,
+      "total_free_distance": 3374.69,
+      "avg_speed": 89.07,
+      "flight_count": 12,
+      "avg_glide_speed": 143,
+      "avg_glide_detour": 1.25,
       "achievement_count": 12,
       "name": "Gonda-Bastian Sinagowitz",
       "gender": "M",
@@ -18606,6 +18606,69 @@
       "awards": []
     },
     {
+      "pilot": "Eli Pasquali",
+      "pilotId": 35578,
+      "totalPoints": 356.55,
+      "totalDistance": 284.23,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1179987,
+          "userId": 35578,
+          "date": "2026-07-29",
+          "distance": 223.57,
+          "speed": 55.19,
+          "points": 283.44,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1120078,
+          "userId": 35578,
+          "date": "2026-06-14",
+          "distance": 60.66,
+          "speed": 43.77,
+          "points": 73.11,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1179986,
+          "userId": 35578,
+          "date": "2026-07-27",
+          "distance": 75.04,
+          "speed": 51.64,
+          "points": 93.53,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Paul Payette",
       "pilotId": 35434,
       "totalPoints": 348.27,
@@ -18769,69 +18832,6 @@
           "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Eli Pasquali",
-      "pilotId": 35578,
-      "totalPoints": 342.09000000000003,
-      "totalDistance": 284.23,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1179987,
-          "userId": 35578,
-          "date": "2026-07-29",
-          "distance": 223.57,
-          "speed": 55.19,
-          "points": 268.98,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1120078,
-          "userId": 35578,
-          "date": "2026-06-14",
-          "distance": 60.66,
-          "speed": 43.77,
-          "points": 73.11,
-          "takeoff": "Chipman",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis WR",
-          "dmstIndex": 93,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1179986,
-          "userId": 35578,
-          "date": "2026-07-27",
-          "distance": 75.04,
-          "speed": 51.64,
-          "points": 88.76,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
         }
       ],
       "awards": []
@@ -28865,6 +28865,68 @@
       ]
     },
     {
+      "pilot": "Eli Pasquali",
+      "pilotId": 35578,
+      "totalPoints": 89.36999999999999,
+      "totalDistance": 169.35,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1179987,
+          "userId": 35578,
+          "date": "2026-07-29",
+          "distance": 124.1,
+          "speed": 62.05,
+          "points": 65.49,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1120078,
+          "userId": 35578,
+          "date": "2026-06-14",
+          "distance": 45.25,
+          "speed": 22.62,
+          "points": 23.88,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1179986,
+          "userId": 35578,
+          "date": "2026-07-27",
+          "distance": 54.3,
+          "speed": 27.15,
+          "points": 28.65,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Lee Fasken",
       "pilotId": 35714,
       "totalPoints": 89.12,
@@ -28921,68 +28983,6 @@
           "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Eli Pasquali",
-      "pilotId": 35578,
-      "totalPoints": 86.87,
-      "totalDistance": 169.35,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1179987,
-          "userId": 35578,
-          "date": "2026-07-29",
-          "distance": 124.1,
-          "speed": 62.05,
-          "points": 62.99,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1120078,
-          "userId": 35578,
-          "date": "2026-06-14",
-          "distance": 45.25,
-          "speed": 22.62,
-          "points": 23.88,
-          "takeoff": "Chipman",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis WR",
-          "dmstIndex": 93,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1179986,
-          "userId": 35578,
-          "date": "2026-07-27",
-          "distance": 54.3,
-          "speed": 27.15,
-          "points": 27.56,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
         }
       ]
     },
@@ -39445,6 +39445,68 @@
       ]
     },
     {
+      "pilot": "Eli Pasquali",
+      "pilotId": 35578,
+      "totalPoints": 169.76,
+      "totalDistance": 157.88,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1179987,
+          "userId": 35578,
+          "date": "2026-07-29",
+          "distance": 133.44,
+          "speed": 26.76,
+          "points": 143.48,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1120078,
+          "userId": 35578,
+          "date": "2026-06-14",
+          "distance": 24.44,
+          "speed": 52.94,
+          "points": 26.28,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1179986,
+          "userId": 35578,
+          "date": "2026-07-27",
+          "distance": 39.8,
+          "speed": 35.5,
+          "points": 42.8,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Predrag Kupcevic",
       "pilotId": 22081,
       "totalPoints": 168.66,
@@ -39724,68 +39786,6 @@
           "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Eli Pasquali",
-      "pilotId": 35578,
-      "totalPoints": 162.44,
-      "totalDistance": 157.88,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1179987,
-          "userId": 35578,
-          "date": "2026-07-29",
-          "distance": 133.44,
-          "speed": 26.76,
-          "points": 136.16,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1120078,
-          "userId": 35578,
-          "date": "2026-06-14",
-          "distance": 24.44,
-          "speed": 52.94,
-          "points": 26.28,
-          "takeoff": "Chipman",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis WR",
-          "dmstIndex": 93,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1179986,
-          "userId": 35578,
-          "date": "2026-07-27",
-          "distance": 39.8,
-          "speed": 35.5,
-          "points": 40.61,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
         }
       ]
     },
@@ -51685,6 +51685,51 @@
       ]
     },
     {
+      "pilot": "Eli Pasquali",
+      "pilotId": 35578,
+      "totalPoints": 102.52,
+      "totalDistance": 95.34,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1179987,
+          "userId": 35578,
+          "date": "2026-07-29",
+          "distance": 95.34,
+          "speed": 59.85,
+          "points": 102.52,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1179986,
+          "userId": 35578,
+          "date": "2026-07-27",
+          "distance": 45.98,
+          "speed": 41.63,
+          "points": 49.44,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Gregory Zak",
       "pilotId": 22232,
       "totalPoints": 100.22,
@@ -51767,51 +51812,6 @@
           "dmstIndex": 86,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Eli Pasquali",
-      "pilotId": 35578,
-      "totalPoints": 97.29,
-      "totalDistance": 95.34,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1179987,
-          "userId": 35578,
-          "date": "2026-07-29",
-          "distance": 95.34,
-          "speed": 59.85,
-          "points": 97.29,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1179986,
-          "userId": 35578,
-          "date": "2026-07-27",
-          "distance": 45.98,
-          "speed": 41.63,
-          "points": 46.92,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
         }
       ]
     },
@@ -148893,18 +148893,18 @@
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 190.63,
-        "freePoints": 268.98,
-        "auPoints": 190.63,
+        "taskContestPoints": 200.88,
+        "freePoints": 283.44,
+        "auPoints": 200.88,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 190.6285714285714,
+        "dmstFreePoints": 200.87741935483868,
         "dmstFreeDistance": 133.44,
-        "dmstTaskActualPoints": 190.6285714285714,
-        "dmstTaskPotentialPoints": 190.6285714285714,
+        "dmstTaskActualPoints": 200.87741935483868,
+        "dmstTaskPotentialPoints": 200.87741935483868,
         "dmstTaskDistance": 133.44,
         "weglideFreeDistance": 223.57,
-        "dmstIndex": 98
+        "dmstIndex": 93
       },
       "bhcInfo": null
     },
@@ -148997,18 +148997,18 @@
         "completed": false,
         "taskContestUsed": "ca",
         "taskContestLabel": "SAC-DSC Task Score (not finished)",
-        "taskContestPoints": 66.57,
-        "freePoints": 88.76,
-        "auPoints": 66.57,
+        "taskContestPoints": 70.15,
+        "freePoints": 93.53,
+        "auPoints": 70.15,
         "declarationPoints": null,
         "bestContestType": "free",
-        "dmstFreePoints": 66.57142857142857,
+        "dmstFreePoints": 70.1505376344086,
         "dmstFreeDistance": 65.24,
-        "dmstTaskActualPoints": 66.57142857142857,
-        "dmstTaskPotentialPoints": 66.57142857142857,
+        "dmstTaskActualPoints": 70.1505376344086,
+        "dmstTaskPotentialPoints": 70.1505376344086,
         "dmstTaskDistance": 65.24,
         "weglideFreeDistance": 75.04,
-        "dmstIndex": 98
+        "dmstIndex": 93
       },
       "bhcInfo": null
     }
@@ -238500,7 +238500,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 268.98,
+          "points": 283.44,
           "distance": 223.57,
           "speed": 55.19,
           "score": {
@@ -238509,7 +238509,7 @@
         },
         {
           "name": "sprint",
-          "points": 62.99,
+          "points": 65.49,
           "distance": 124.1,
           "speed": 62.05,
           "score": {
@@ -238518,7 +238518,7 @@
         },
         {
           "name": "triangle",
-          "points": 136.16,
+          "points": 143.48,
           "distance": 133.44,
           "speed": 26.76,
           "score": {
@@ -238527,7 +238527,7 @@
         },
         {
           "name": "out_return",
-          "points": 97.29,
+          "points": 102.52,
           "distance": 95.34,
           "speed": 59.85,
           "score": {
@@ -238536,7 +238536,7 @@
         },
         {
           "name": "ca",
-          "points": 190.63,
+          "points": 200.88,
           "distance": 133.44,
           "speed": 26.76,
           "score": {
@@ -238565,7 +238565,7 @@
       "contest": [
         {
           "name": "free",
-          "points": 88.76,
+          "points": 93.53,
           "distance": 75.04,
           "speed": 51.64,
           "score": {
@@ -238574,7 +238574,7 @@
         },
         {
           "name": "sprint",
-          "points": 27.56,
+          "points": 28.65,
           "distance": 54.3,
           "speed": 27.15,
           "score": {
@@ -238583,7 +238583,7 @@
         },
         {
           "name": "triangle",
-          "points": 40.61,
+          "points": 42.8,
           "distance": 39.8,
           "speed": 35.5,
           "score": {
@@ -238592,7 +238592,7 @@
         },
         {
           "name": "out_return",
-          "points": 46.92,
+          "points": 49.44,
           "distance": 45.98,
           "speed": 41.63,
           "score": {
@@ -238601,7 +238601,7 @@
         },
         {
           "name": "ca",
-          "points": 66.57,
+          "points": 70.15,
           "distance": 65.24,
           "speed": 55.6,
           "score": {
@@ -238611,6 +238611,140 @@
       ],
       "takeoff_airport": {
         "name": "Invermere",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1179989,
+      "user": {
+        "id": 38629,
+        "name": "Gonda-Bastian Sinagowitz"
+      },
+      "date": "2026-07-29",
+      "distance": 212.83,
+      "duration": 9481,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 306.35
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 191.93,
+          "distance": 212.83,
+          "speed": 85.43,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 68.17,
+          "distance": 156.8,
+          "speed": 78.4,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 48.56,
+          "distance": 58.27,
+          "speed": 22.78,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 67.78,
+          "distance": 81.33,
+          "speed": 42.64,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 166.61,
+          "distance": 199.93,
+          "speed": 82.15,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1179988,
+      "user": {
+        "id": 12854,
+        "name": "Robert Frith"
+      },
+      "date": "2026-07-29",
+      "distance": 94.39,
+      "duration": 8869,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 103.73,
+          "distance": 94.39,
+          "speed": 52.12,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 26.25,
+          "distance": 54.08,
+          "speed": 27.04,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 43.22,
+          "distance": 44.95,
+          "speed": 28.39,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 36.27,
+          "distance": 37.72,
+          "speed": 40.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 68.2,
+          "distance": 70.93,
+          "speed": 45.05,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
         "region": "CA-BC"
       }
     }
@@ -248413,6 +248547,68 @@
       ]
     },
     {
+      "pilot": "Eli Pasquali",
+      "pilotId": 35578,
+      "totalPoints": 356.55,
+      "totalDistance": 284.23,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1179987,
+          "userId": 35578,
+          "date": "2026-07-29",
+          "distance": 223.57,
+          "speed": 55.19,
+          "points": 283.44,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1120078,
+          "userId": 35578,
+          "date": "2026-06-14",
+          "distance": 60.66,
+          "speed": 43.77,
+          "points": 73.11,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1179986,
+          "userId": 35578,
+          "date": "2026-07-27",
+          "distance": 75.04,
+          "speed": 51.64,
+          "points": 93.53,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Elliot Côté",
       "pilotId": 38833,
       "totalPoints": 352.81,
@@ -248781,68 +248977,6 @@
           "dmstIndex": 106,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Eli Pasquali",
-      "pilotId": 35578,
-      "totalPoints": 342.09000000000003,
-      "totalDistance": 284.23,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1179987,
-          "userId": 35578,
-          "date": "2026-07-29",
-          "distance": 223.57,
-          "speed": 55.19,
-          "points": 268.98,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1120078,
-          "userId": 35578,
-          "date": "2026-06-14",
-          "distance": 60.66,
-          "speed": 43.77,
-          "points": 73.11,
-          "takeoff": "Chipman",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis WR",
-          "dmstIndex": 93,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1179986,
-          "userId": 35578,
-          "date": "2026-07-27",
-          "distance": 75.04,
-          "speed": 51.64,
-          "points": 88.76,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
         }
       ]
     },
@@ -262937,6 +263071,68 @@
       ]
     },
     {
+      "pilot": "Eli Pasquali",
+      "pilotId": 35578,
+      "totalPoints": 257.94,
+      "totalDistance": 186.51,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1179987,
+          "userId": 35578,
+          "date": "2026-07-29",
+          "distance": 133.44,
+          "speed": 26.76,
+          "points": 200.88,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1120078,
+          "userId": 35578,
+          "date": "2026-06-14",
+          "distance": 53.07,
+          "speed": 38.29,
+          "points": 57.06,
+          "takeoff": "Chipman",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1179986,
+          "userId": 35578,
+          "date": "2026-07-27",
+          "distance": 65.24,
+          "speed": 55.6,
+          "points": 70.15,
+          "takeoff": "Invermere",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Apis WR",
+          "dmstIndex": 93,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Lee Fasken",
       "pilotId": 35714,
       "totalPoints": 256.40999999999997,
@@ -263019,68 +263215,6 @@
           "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Eli Pasquali",
-      "pilotId": 35578,
-      "totalPoints": 247.69,
-      "totalDistance": 186.51,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1179987,
-          "userId": 35578,
-          "date": "2026-07-29",
-          "distance": 133.44,
-          "speed": 26.76,
-          "points": 190.63,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1120078,
-          "userId": 35578,
-          "date": "2026-06-14",
-          "distance": 53.07,
-          "speed": 38.29,
-          "points": 57.06,
-          "takeoff": "Chipman",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis WR",
-          "dmstIndex": 93,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1179986,
-          "userId": 35578,
-          "date": "2026-07-27",
-          "distance": 65.24,
-          "speed": 55.6,
-          "points": 66.57,
-          "takeoff": "Invermere",
-          "region": "CA-BC",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Apis 2 15m",
-          "dmstIndex": 98,
-          "invalid": true,
-          "errorReasons": [
-            "Contest entry invalidated (e.g. uploaded after deadline)."
-          ]
         }
       ]
     },
@@ -265036,12 +265170,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1362,
-    "totalKms": 260205,
-    "totalTasksDeclared": 453,
+    "totalFlights": 1364,
+    "totalKms": 260512,
+    "totalTasksDeclared": 454,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-30T02:36:29.978Z"
+    "generatedAt": "2026-07-30T02:41:27.905Z"
   }
 }
