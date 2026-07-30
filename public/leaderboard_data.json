@@ -34,7 +34,7 @@
     "20442": 46670,
     "20675": 1114901,
     "20706": 158031,
-    "20723": 974305,
+    "20723": 994366,
     "21011": 1011027,
     "21116": 1196328,
     "21186": 62834,
@@ -42,7 +42,7 @@
     "21317": 396472,
     "21574": 582333,
     "21928": 19945,
-    "22077": 1616300,
+    "22077": 1633764,
     "22081": 343047,
     "22232": 1884919,
     "22746": 1294317,
@@ -5574,12 +5574,12 @@
       "message_enabled": true
     },
     "20723": {
-      "total_flight_duration": 974305,
-      "total_free_distance": 14662.35,
-      "avg_speed": 58.82,
-      "flight_count": 97,
-      "avg_glide_speed": 117.32,
-      "avg_glide_detour": 1.34,
+      "total_flight_duration": 994366,
+      "total_free_distance": 14898.03,
+      "avg_speed": 58.49,
+      "flight_count": 98,
+      "avg_glide_speed": 117.06,
+      "avg_glide_detour": 1.35,
       "achievement_count": 29,
       "name": "Ryan Wood",
       "gender": "M",
@@ -5738,12 +5738,12 @@
       "message_enabled": true
     },
     "22077": {
-      "total_flight_duration": 1616300,
-      "total_free_distance": 23201.53,
-      "avg_speed": 56.75,
-      "flight_count": 145,
-      "avg_glide_speed": 119.33,
-      "avg_glide_detour": 1.37,
+      "total_flight_duration": 1633764,
+      "total_free_distance": 23307.52,
+      "avg_speed": 56.42,
+      "flight_count": 146,
+      "avg_glide_speed": 119.54,
+      "avg_glide_detour": 1.38,
       "achievement_count": 30,
       "name": "Sasha Pejic",
       "gender": "M",
@@ -237732,6 +237732,141 @@
         "name": "Cowley",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1179976,
+      "user": {
+        "id": 22077,
+        "name": "Sasha Pejic"
+      },
+      "date": "2026-07-27",
+      "distance": 105.99,
+      "duration": 17464,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 121.36,
+          "distance": 105.99,
+          "speed": 25.05,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 27.02,
+          "distance": 54.03,
+          "speed": 27.02,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 51.25,
+          "distance": 51.25,
+          "speed": 12.22,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 41.54,
+          "distance": 41.54,
+          "speed": 10.04,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 73.15,
+          "distance": 73.15,
+          "speed": 20.94,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1179975,
+      "user": {
+        "id": 20723,
+        "name": "Ryan Wood"
+      },
+      "date": "2026-07-29",
+      "distance": 235.68,
+      "duration": 20061,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "TR",
+        "from_igcfile": false,
+        "distance": 307.23,
+        "name": "311km Closed 5-leg"
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 288,
+          "distance": 235.68,
+          "speed": 43.5,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 73.42,
+          "distance": 144.63,
+          "speed": 72.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 158.38,
+          "distance": 155.21,
+          "speed": 48.58,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 181.93,
+          "distance": 178.29,
+          "speed": 56.11,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 236.51,
+          "distance": 178.29,
+          "speed": 56.11,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -264057,12 +264192,12 @@
   ],
   "meta": {
     "totalPilots": 216,
-    "totalFlights": 1357,
-    "totalKms": 259388,
-    "totalTasksDeclared": 451,
+    "totalFlights": 1359,
+    "totalKms": 259730,
+    "totalTasksDeclared": 452,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-30T01:11:27.974Z"
+    "generatedAt": "2026-07-30T01:16:26.829Z"
   }
 }
