@@ -62,7 +62,7 @@
     "25002": 192148,
     "25019": 50289,
     "25114": 794223,
-    "25728": 178310,
+    "25728": 190452,
     "25782": 387693,
     "26583": 162107,
     "27586": 393071,
@@ -6141,13 +6141,13 @@
       "message_enabled": true
     },
     "25728": {
-      "total_flight_duration": 178310,
-      "total_free_distance": 3967.13,
-      "avg_speed": 87.92,
-      "flight_count": 12,
-      "avg_glide_speed": 134.27,
+      "total_flight_duration": 190452,
+      "total_free_distance": 4201.23,
+      "avg_speed": 87.04,
+      "flight_count": 13,
+      "avg_glide_speed": 133.67,
       "avg_glide_detour": 1.21,
-      "achievement_count": 14,
+      "achievement_count": 15,
       "name": "Andrew Corrigan",
       "gender": "M",
       "is_junior": false,
@@ -236687,6 +236687,71 @@
         "name": "Fairmont Hot Springs",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1179965,
+      "user": {
+        "id": 25728,
+        "name": "Andrew Corrigan"
+      },
+      "date": "2026-07-29",
+      "distance": 234.1,
+      "duration": 12142,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 225.81,
+          "distance": 234.1,
+          "speed": 74.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 70.91,
+          "distance": 156.72,
+          "speed": 78.36,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 43.82,
+          "distance": 49.95,
+          "speed": 16.24,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 102.27,
+          "distance": 116.59,
+          "speed": 80.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 193.17,
+          "distance": 220.21,
+          "speed": 72.39,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Invermere",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -262893,12 +262958,12 @@
   ],
   "meta": {
     "totalPilots": 216,
-    "totalFlights": 1350,
-    "totalKms": 258000,
+    "totalFlights": 1351,
+    "totalKms": 258234,
     "totalTasksDeclared": 450,
     "totalTasksCompleted": 26,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-30T00:16:30.198Z"
+    "generatedAt": "2026-07-30T00:26:23.063Z"
   }
 }
