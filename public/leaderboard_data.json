@@ -141,7 +141,7 @@
     "35722": 14985,
     "35732": 8876,
     "35744": 230732,
-    "35759": 72972,
+    "35759": 77944,
     "35762": 3225,
     "35763": 205782,
     "35776": 42968,
@@ -7737,12 +7737,12 @@
       "message_enabled": true
     },
     "35759": {
-      "total_flight_duration": 72972,
-      "total_free_distance": 774.42,
-      "avg_speed": 43.7,
-      "flight_count": 8,
-      "avg_glide_speed": 105.78,
-      "avg_glide_detour": 1.83,
+      "total_flight_duration": 77944,
+      "total_free_distance": 801.96,
+      "avg_speed": 42.3,
+      "flight_count": 9,
+      "avg_glide_speed": 104.74,
+      "avg_glide_detour": 1.9,
       "achievement_count": 1,
       "name": "Patrick Kessler",
       "gender": "M",
@@ -242799,6 +242799,71 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1182707,
+      "user": {
+        "id": 35759,
+        "name": "Patrick Kessler"
+      },
+      "date": "2026-07-31",
+      "distance": 27.54,
+      "duration": 4972,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 31.56,
+          "distance": 27.54,
+          "speed": 22.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 7.77,
+          "distance": 15.66,
+          "speed": 7.83,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 14.31,
+          "distance": 14.45,
+          "speed": 19.73,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 11.02,
+          "distance": 11.13,
+          "speed": 15.27,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 20.44,
+          "distance": 20.64,
+          "speed": 16.07,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Paquet",
+        "region": "CA-QC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -269564,12 +269629,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1396,
-    "totalKms": 265443,
+    "totalFlights": 1397,
+    "totalKms": 265470,
     "totalTasksDeclared": 468,
     "totalTasksCompleted": 27,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-07-31T22:16:48.514Z"
+    "generatedAt": "2026-07-31T23:16:55.630Z"
   }
 }
