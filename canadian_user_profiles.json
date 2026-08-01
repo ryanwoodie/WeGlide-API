@@ -302,11 +302,11 @@
     "message_enabled": true
   },
   "10764": {
-    "total_flight_duration": 416685,
-    "total_free_distance": 5688.32,
-    "avg_speed": 53.45,
-    "flight_count": 63,
-    "avg_glide_speed": 114.84,
+    "total_flight_duration": 433600,
+    "total_free_distance": 5871.04,
+    "avg_speed": 53.17,
+    "flight_count": 70,
+    "avg_glide_speed": 114.18,
     "avg_glide_detour": 1.28,
     "achievement_count": 12,
     "name": "Denis Nolan",
@@ -320,7 +320,8 @@
       "url": "https://www.warwickgliding.org",
       "logo": "club/1380.png",
       "in_league": "AU"
-    }
+    },
+    "message_enabled": true
   },
   "12230": {
     "total_flight_duration": 53319,
