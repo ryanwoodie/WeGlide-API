@@ -43,7 +43,7 @@
     "21317": 396472,
     "21574": 582333,
     "21928": 19945,
-    "22077": 1640780,
+    "22077": 1652476,
     "22081": 354432,
     "22232": 1884919,
     "22746": 1294317,
@@ -5770,11 +5770,11 @@
       "message_enabled": true
     },
     "22077": {
-      "total_flight_duration": 1640780,
-      "total_free_distance": 23381.27,
-      "avg_speed": 56.36,
-      "flight_count": 147,
-      "avg_glide_speed": 119.6,
+      "total_flight_duration": 1652476,
+      "total_free_distance": 23475,
+      "avg_speed": 56.25,
+      "flight_count": 148,
+      "avg_glide_speed": 119.63,
       "avg_glide_detour": 1.38,
       "achievement_count": 30,
       "name": "Sasha Pejic",
@@ -244418,6 +244418,71 @@
         "name": "Cowley",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1184643,
+      "user": {
+        "id": 22077,
+        "name": "Sasha Pejic"
+      },
+      "date": "2026-08-01",
+      "distance": 93.73,
+      "duration": 11696,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 108.2,
+          "distance": 93.73,
+          "speed": 37.77,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 27.12,
+          "distance": 54.24,
+          "speed": 27.12,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 48.23,
+          "distance": 48.23,
+          "speed": 15.62,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 43.92,
+          "distance": 43.92,
+          "speed": 17.63,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 71.47,
+          "distance": 71.47,
+          "speed": 28.8,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -271290,12 +271355,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1408,
-    "totalKms": 266061,
+    "totalFlights": 1409,
+    "totalKms": 266154,
     "totalTasksDeclared": 469,
     "totalTasksCompleted": 27,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-08-01T21:27:01.333Z"
+    "generatedAt": "2026-08-01T21:31:55.176Z"
   }
 }
