@@ -142,11 +142,11 @@
     "message_enabled": true
   },
   "6084": {
-    "total_flight_duration": 263574,
-    "total_free_distance": 4009.99,
-    "avg_speed": 61.07,
-    "flight_count": 33,
-    "avg_glide_speed": 123.85,
+    "total_flight_duration": 267737,
+    "total_free_distance": 4122.89,
+    "avg_speed": 61.82,
+    "flight_count": 34,
+    "avg_glide_speed": 124.15,
     "avg_glide_detour": 1.55,
     "achievement_count": 10,
     "name": "Tyler Paradis",
@@ -158,7 +158,8 @@
       "name": "Edmonton Soaring Club",
       "region": "CA-AB",
       "url": "http://www.edmontonsoaringclub.com"
-    }
+    },
+    "message_enabled": true
   },
   "6085": {
     "total_flight_duration": 132619,
