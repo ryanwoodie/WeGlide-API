@@ -4328,5 +4328,25 @@
       "url": "http://www.cagcsoaring.ca"
     },
     "message_enabled": true
+  },
+  "41886": {
+    "total_flight_duration": 6804,
+    "total_free_distance": 61.88,
+    "avg_speed": 33.06,
+    "flight_count": 1,
+    "avg_glide_speed": 106.67,
+    "avg_glide_detour": 1.66,
+    "achievement_count": 2,
+    "name": "Norman Bruce Aleman",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1124,
+      "name": "Lethbridge Soaring Club",
+      "region": "CA-AB",
+      "url": "https://www.lethbridgesoaring.ca"
+    },
+    "message_enabled": true
   }
 }
