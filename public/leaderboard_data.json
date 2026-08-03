@@ -35,7 +35,7 @@
     "20442": 46670,
     "20675": 1129526,
     "20706": 158031,
-    "20723": 1034428,
+    "20723": 1035171,
     "21011": 1011027,
     "21116": 1196328,
     "21186": 62834,
@@ -5608,10 +5608,10 @@
       "message_enabled": true
     },
     "20723": {
-      "total_flight_duration": 1034428,
-      "total_free_distance": 15565.35,
-      "avg_speed": 58.67,
-      "flight_count": 101,
+      "total_flight_duration": 1035171,
+      "total_free_distance": 15575.47,
+      "avg_speed": 58.68,
+      "flight_count": 102,
       "avg_glide_speed": 116.96,
       "avg_glide_detour": 1.35,
       "achievement_count": 31,
@@ -247073,6 +247073,76 @@
         "name": "Kars/Rideau Valley",
         "region": "CA-ON"
       }
+    },
+    {
+      "id": 1188683,
+      "user": {
+        "id": 20723,
+        "name": "Ryan Wood"
+      },
+      "date": "2026-08-02",
+      "distance": 10.12,
+      "duration": 743,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": false,
+        "distance": 455.82,
+        "name": "532"
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 12.03,
+          "distance": 10.12,
+          "speed": 67.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 1.45,
+          "distance": 2.86,
+          "speed": 1.43,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 5.69,
+          "distance": 5.58,
+          "speed": 55.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 4.04,
+          "distance": 3.96,
+          "speed": 56.35,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 8.22,
+          "distance": 8.06,
+          "speed": 53.63,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -274091,12 +274161,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1425,
-    "totalKms": 268639,
-    "totalTasksDeclared": 475,
+    "totalFlights": 1426,
+    "totalKms": 268649,
+    "totalTasksDeclared": 476,
     "totalTasksCompleted": 27,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-08-03T16:38:52.016Z"
+    "generatedAt": "2026-08-03T20:16:55.643Z"
   }
 }
