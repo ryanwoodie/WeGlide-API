@@ -27,7 +27,7 @@
     "14075": 557937,
     "15888": 569180,
     "15929": 2373559,
-    "16605": 1379749,
+    "16605": 1394819,
     "17026": 764863,
     "17989": 1874335,
     "18113": 3123186,
@@ -5442,10 +5442,10 @@
       "message_enabled": true
     },
     "16605": {
-      "total_flight_duration": 1379749,
-      "total_free_distance": 20037.91,
-      "avg_speed": 59.62,
-      "flight_count": 157,
+      "total_flight_duration": 1394819,
+      "total_free_distance": 20190.52,
+      "avg_speed": 59.49,
+      "flight_count": 158,
       "avg_glide_speed": 115.55,
       "avg_glide_detour": 1.49,
       "achievement_count": 33,
@@ -248080,7 +248080,7 @@
         "name": "Jesse Miller"
       },
       "date": "2026-08-03",
-      "distance": 270.46,
+      "distance": 255.66,
       "duration": 14461,
       "taskDeclared": true,
       "taskCompleted": false,
@@ -248093,9 +248093,9 @@
       "contest": [
         {
           "name": "free",
-          "points": 297.85,
-          "distance": 270.46,
-          "speed": 74.33,
+          "points": 280.54,
+          "distance": 255.66,
+          "speed": 81.64,
           "score": {
             "declared": false
           }
@@ -248111,9 +248111,9 @@
         },
         {
           "name": "triangle",
-          "points": 173.25,
-          "distance": 190.58,
-          "speed": 49.12,
+          "points": 160.39,
+          "distance": 176.43,
+          "speed": 57.98,
           "score": {
             "declared": false
           }
@@ -248129,9 +248129,9 @@
         },
         {
           "name": "ca",
-          "points": 242.56,
-          "distance": 190.58,
-          "speed": 49.12,
+          "points": 226.57,
+          "distance": 249.23,
+          "speed": 79.59,
           "score": {
             "declared": false
           }
@@ -249388,6 +249388,71 @@
       "takeoff_airport": {
         "name": "Rockton SOSA On",
         "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1188868,
+      "user": {
+        "id": 16605,
+        "name": "Ward Clapham"
+      },
+      "date": "2026-08-03",
+      "distance": 152.61,
+      "duration": 15070,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 154.27,
+          "distance": 152.61,
+          "speed": 46.29,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 34.98,
+          "distance": 77.3,
+          "speed": 38.65,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 68,
+          "distance": 77.52,
+          "speed": 23.06,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 44.75,
+          "distance": 51.01,
+          "speed": 17.4,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 106.95,
+          "distance": 121.92,
+          "speed": 36.98,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
       }
     }
   ],
@@ -276575,12 +276640,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1446,
-    "totalKms": 273791,
+    "totalFlights": 1447,
+    "totalKms": 273929,
     "totalTasksDeclared": 489,
     "totalTasksCompleted": 27,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-08-04T01:46:38.684Z"
+    "generatedAt": "2026-08-04T02:11:41.756Z"
   }
 }
