@@ -36,7 +36,7 @@
     "20675": 1129526,
     "20706": 158031,
     "20723": 1035171,
-    "21011": 1011027,
+    "21011": 1026283,
     "21116": 1196328,
     "21186": 62834,
     "21219": 42811,
@@ -5629,11 +5629,11 @@
       "message_enabled": true
     },
     "21011": {
-      "total_flight_duration": 1011027,
-      "total_free_distance": 25720.87,
-      "avg_speed": 98.93,
-      "flight_count": 58,
-      "avg_glide_speed": 163.93,
+      "total_flight_duration": 1026283,
+      "total_free_distance": 26057.6,
+      "avg_speed": 98.79,
+      "flight_count": 59,
+      "avg_glide_speed": 163.79,
       "avg_glide_detour": 1.11,
       "achievement_count": 21,
       "name": "Martin Dennis",
@@ -248745,6 +248745,71 @@
         "name": "Invermere",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1188835,
+      "user": {
+        "id": 21011,
+        "name": "Martin Dennis"
+      },
+      "date": "2026-08-03",
+      "distance": 336.73,
+      "duration": 15256,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 332.35,
+          "distance": 336.73,
+          "speed": 89.15,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 74.27,
+          "distance": 169.71,
+          "speed": 84.86,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 164.61,
+          "distance": 195.89,
+          "speed": 54.95,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 156.57,
+          "distance": 186.32,
+          "speed": 51.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 268.1,
+          "distance": 319.04,
+          "speed": 84.83,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Fairmont Hot Springs",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -275880,12 +275945,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1440,
-    "totalKms": 271793,
+    "totalFlights": 1441,
+    "totalKms": 272130,
     "totalTasksDeclared": 487,
     "totalTasksCompleted": 27,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-08-03T23:16:45.459Z"
+    "generatedAt": "2026-08-04T00:16:45.172Z"
   }
 }
