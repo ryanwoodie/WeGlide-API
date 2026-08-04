@@ -19,7 +19,7 @@
     "12230": 53319,
     "12276": 234844,
     "12836": 2792789,
-    "12854": 446961,
+    "12854": 457185,
     "12901": 182915,
     "13284": 969937,
     "13388": 97410,
@@ -5277,11 +5277,11 @@
       "message_enabled": true
     },
     "12854": {
-      "total_flight_duration": 446961,
-      "total_free_distance": 5265.61,
-      "avg_speed": 53.15,
-      "flight_count": 50,
-      "avg_glide_speed": 117.19,
+      "total_flight_duration": 457185,
+      "total_free_distance": 5377.52,
+      "avg_speed": 52.94,
+      "flight_count": 51,
+      "avg_glide_speed": 117.05,
       "avg_glide_detour": 1.41,
       "achievement_count": 4,
       "name": "Robert Frith",
@@ -249454,6 +249454,75 @@
         "name": "Port Alberni",
         "region": "CA-BC"
       }
+    },
+    {
+      "id": 1188871,
+      "user": {
+        "id": 12854,
+        "name": "Robert Frith"
+      },
+      "date": "2026-08-03",
+      "distance": 111.91,
+      "duration": 10224,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 49.74
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 117.55,
+          "distance": 111.91,
+          "speed": 44.67,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 33.31,
+          "distance": 68.62,
+          "speed": 34.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 33.15,
+          "distance": 34.48,
+          "speed": 12.54,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 40.53,
+          "distance": 42.15,
+          "speed": 19.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 85.53,
+          "distance": 88.95,
+          "speed": 40.81,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -276640,12 +276709,12 @@
   ],
   "meta": {
     "totalPilots": 217,
-    "totalFlights": 1447,
-    "totalKms": 273929,
-    "totalTasksDeclared": 489,
+    "totalFlights": 1448,
+    "totalKms": 274041,
+    "totalTasksDeclared": 490,
     "totalTasksCompleted": 27,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-08-04T02:11:41.756Z"
+    "generatedAt": "2026-08-04T03:26:41.294Z"
   }
 }
