@@ -274,6 +274,25 @@
       "combinedHoursBeforeCutoff": 60.8,
       "eligibleUnder200": true
     },
+    "8109": {
+      "pilotId": 8109,
+      "weglidePilotId": "wg:8109",
+      "olcPilotId": "70655",
+      "pilotName": "Pascal Mourgues",
+      "matchKind": "olc_name_only",
+      "normalizedName": "pascalmourgues",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 6.94,
+      "olcOnlyHours": 6.94,
+      "combinedHours": 6.94,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 6.94,
+      "combinedHoursBeforeCutoff": 6.94,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
+    },
     "8839": {
       "pilotId": 8839,
       "weglidePilotId": "wg:8839",
@@ -4566,6 +4585,25 @@
       "olcOnlyHoursBeforeCutoff": 219.52,
       "combinedHoursBeforeCutoff": 219.52,
       "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
+    },
+    "42065": {
+      "pilotId": 42065,
+      "weglidePilotId": "wg:42065",
+      "olcPilotId": "79281",
+      "pilotName": "Eric Dombrowski",
+      "matchKind": "olc_name_only",
+      "normalizedName": "ericdombrowski",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 89.46,
+      "olcOnlyHours": 89.46,
+      "combinedHours": 89.46,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 89.46,
+      "combinedHoursBeforeCutoff": 89.46,
+      "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
     }
   },
