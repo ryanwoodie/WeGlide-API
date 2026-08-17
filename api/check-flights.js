@@ -2,6 +2,7 @@
  * Vercel Serverless Function: Check for New Canadian Flights
  */
 
+const { get: getBlob } = require('@vercel/blob');
 // fetch is global in Node 18+
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
@@ -70,6 +71,20 @@ async function fetchLatestFlight() {
  * a newer deployment is building.
  */
 async function getUpdateState() {
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+        try {
+            const result = await getBlob(UPDATE_STATE_KEY, {
+                access: 'public',
+                token: process.env.BLOB_READ_WRITE_TOKEN
+            });
+            if (result?.statusCode === 200 && result.stream) {
+                return JSON.parse(await new Response(result.stream).text());
+            }
+        } catch (err) {
+            console.error('[check-flights] Blob update-state read failed:', err);
+        }
+    }
+
     try {
         const text = await fetchGithubRepoText(UPDATE_STATE_KEY);
         if (!text) {

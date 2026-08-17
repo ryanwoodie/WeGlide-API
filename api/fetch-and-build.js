@@ -3,7 +3,7 @@ const path = require('path');
 const https = require('https');
 const readline = require('readline');
 const { spawn } = require('child_process');
-const { get: getBlob, list: listBlobs } = require('@vercel/blob');
+const { get: getBlob, list: listBlobs, put: putBlob } = require('@vercel/blob');
 const { isUpdateAuthorized } = require('../lib/update-auth');
 const { buildNoClubAlertCandidates } = require('../lib/club-alert');
 const {
@@ -13,8 +13,8 @@ const {
 } = require('../lib/verification-store');
 const { sendUserMessage } = require('../lib/weglide-message');
 
-// Default to GitHub-backed persistence. Blob fallback is opt-in because list() is billed
-// as an advanced operation and the dataset/profiles already sync back to the repo.
+// The season dataset is too large for GitHub's Git Data API, so Blob is its
+// canonical runtime store. GitHub remains the source for smaller artifacts.
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN || null;
 const RUNNING_ON_VERCEL = Boolean(process.env.VERCEL);
 const BLOB_FALLBACK_ENABLED = /^(1|true|yes)$/i.test((process.env.ENABLE_BLOB_FALLBACK || '').trim());
@@ -29,6 +29,7 @@ const BOOTSTRAP_FILES = {
 };
 
 const usingBlobFallback = () => Boolean(BLOB_TOKEN) && BLOB_FALLBACK_ENABLED;
+const usingBlobDatasetPersistence = () => Boolean(BLOB_TOKEN);
 const TMP_DIR = RUNNING_ON_VERCEL ? '/tmp' : process.cwd();
 
 const DATASET_FILE = path.join(TMP_DIR, process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
@@ -113,21 +114,30 @@ async function readBlobStreamAsText(stream) {
 }
 
 async function blobFetchText(key) {
-    if (!usingBlobFallback()) return null;
-    const blob = await resolveLatestBlob(key);
-    if (!blob) return null;
+    if (!BLOB_TOKEN) return null;
 
-    const result = await getBlob(blob.url, {
+    let result = await getBlob(key, {
         access: 'public',
         token: BLOB_TOKEN
     });
+
+    // Preserve compatibility with older randomly suffixed blobs, if present.
+    if (!result) {
+        const blob = await resolveLatestBlob(key);
+        if (!blob) return null;
+
+        result = await getBlob(blob.url, {
+            access: 'public',
+            token: BLOB_TOKEN
+        });
+    }
 
     if (!result) {
         return null;
     }
 
     if (result.statusCode !== 200 || !result.stream) {
-        throw new Error(`Blob fetch failed for ${key} (${blob.pathname}): status ${result.statusCode}`);
+        throw new Error(`Blob fetch failed for ${key}: status ${result.statusCode}`);
     }
 
     return readBlobStreamAsText(result.stream);
@@ -359,6 +369,18 @@ async function fetchGithubRepoText(filename) {
 }
 
 async function loadPersistentText(filename) {
+    if (filename === DATASET_BLOB_KEY && usingBlobDatasetPersistence()) {
+        try {
+            const blobText = await blobFetchText(filename);
+            if (blobText) {
+                log(`Loading ${filename} from Vercel Blob persistence...`);
+                return blobText;
+            }
+        } catch (error) {
+            log(`Blob dataset read failed for ${filename}: ${error.message}`);
+        }
+    }
+
     const repoPath = getRepoFilePath(filename);
     if (fs.existsSync(repoPath)) {
         return fs.readFileSync(repoPath, 'utf8');
@@ -455,8 +477,13 @@ async function loadExistingFlights() {
         }
     };
 
+    let persistentText = null;
+    if (RUNNING_ON_VERCEL && usingBlobDatasetPersistence()) {
+        persistentText = await loadPersistentText(DATASET_BLOB_KEY);
+    }
+
     let sourceStream;
-    if (fs.existsSync(DATASET_FILE)) {
+    if (!persistentText && fs.existsSync(DATASET_FILE)) {
         sourceStream = fs.createReadStream(DATASET_FILE);
         const rl = readline.createInterface({ input: sourceStream, crlfDelay: Infinity });
 
@@ -470,9 +497,9 @@ async function loadExistingFlights() {
             }
         }
     } else {
-        const text = await loadPersistentText(DATASET_BLOB_KEY);
-        if (!text) return { ids, total, latestDate, fingerprints, takeoffTimes, latestCreatedAt: null, latestCreatedFlightId };
-        const lines = text.split('\n');
+        persistentText ||= await loadPersistentText(DATASET_BLOB_KEY);
+        if (!persistentText) return { ids, total, latestDate, fingerprints, takeoffTimes, latestCreatedAt: null, latestCreatedFlightId };
+        const lines = persistentText.split('\n');
         for (const line of lines) {
             const trimmed = line.trim();
             if (!trimmed) continue;
@@ -1379,6 +1406,34 @@ async function syncArtifactsToGitHub(artifacts) {
     return { pushed: true, skipped: false, files: changedArtifacts.map(file => file.path) };
 }
 
+async function persistDatasetAndStateToBlob() {
+    if (!usingBlobDatasetPersistence()) {
+        throw new Error('BLOB_READ_WRITE_TOKEN is required for dataset persistence');
+    }
+
+    await putBlob(DATASET_BLOB_KEY, fs.createReadStream(DATASET_FILE), {
+        access: 'public',
+        addRandomSuffix: false,
+        allowOverwrite: true,
+        contentType: 'application/x-ndjson',
+        multipart: true,
+        token: BLOB_TOKEN
+    });
+
+    await putBlob(UPDATE_STATE_KEY, fs.createReadStream(UPDATE_STATE_FILE), {
+        access: 'public',
+        addRandomSuffix: false,
+        allowOverwrite: true,
+        contentType: 'application/json',
+        token: BLOB_TOKEN
+    });
+
+    return {
+        dataset: DATASET_BLOB_KEY,
+        state: UPDATE_STATE_KEY
+    };
+}
+
 async function runLeaderboardBuild() {
     log('Starting leaderboard build (in-process)...');
     
@@ -1441,7 +1496,7 @@ async function runFetchAndBuild(options = {}) {
         const existing = await loadExistingFlights();
         summary.meta.existingFlights = existing.total;
         summary.meta.latestFlightDate = existing.latestDate;
-        summary.meta.persistence = 'github';
+        summary.meta.persistence = 'vercel_blob_and_github';
         summary.meta.blobFallbackEnabled = usingBlobFallback();
 
         await ensureLocalCopiesFromRepo();
@@ -1614,6 +1669,7 @@ async function runFetchAndBuild(options = {}) {
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
         summary.meta.updateStateWritten = writeUpdateState(existing, newFlights);
+        summary.meta.blobPersistence = await persistDatasetAndStateToBlob();
 
         summary.logs = [];
         const publicArtifacts = [
@@ -1622,7 +1678,6 @@ async function runFetchAndBuild(options = {}) {
             { repoPath: 'public/leaderboard_data.json', localPath: path.join(TMP_DIR, 'leaderboard_data.json') }
         ];
         const persistenceArtifacts = [
-            { repoPath: 'canadian_flights_2026_details.jsonl', localPath: DATASET_FILE },
             { repoPath: 'canadian_user_profiles.json', localPath: PROFILES_FILE },
             { repoPath: 'canadian_combined_hours.json', localPath: COMBINED_HOURS_FILE },
             { repoPath: UPDATE_STATE_KEY, localPath: UPDATE_STATE_FILE },
