@@ -1,19 +1,12 @@
 const fetchAndBuild = require('./fetch-and-build');
-
-function isAuthorized(req) {
-    const providedToken = (req.headers['x-update-token'] || req.query?.token || req.body?.token || '').trim();
-    if (process.env.UPDATE_TOKEN && providedToken !== process.env.UPDATE_TOKEN) {
-        return false;
-    }
-    return true;
-}
+const { isUpdateAuthorized } = require('../lib/update-auth');
 
 module.exports = async (req, res) => {
-    if (req.method !== 'POST' && req.method !== 'GET') {
+    if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    if (!isAuthorized(req)) {
+    if (!isUpdateAuthorized(req)) {
         return res.status(401).json({ error: 'Unauthorized' });
     }
 
@@ -21,11 +14,13 @@ module.exports = async (req, res) => {
         const limitOverride = req.query?.max_flights ? parseInt(req.query.max_flights, 10) : undefined;
         const forceBuild = req.query?.force === 'true';
         const fullRefresh = req.query?.fullRefresh === 'true';
+        const newOnly = req.query?.newOnly === 'true';
         const summary = await fetchAndBuild.runFetchAndBuild({
             trigger: req.query?.source || 'manual',
             limitOverride,
             forceBuild,
-            fullRefresh
+            fullRefresh,
+            newOnly
         });
         const statusCode = summary.status === 'error' ? 500 : 200;
         return res.status(statusCode).json(summary);

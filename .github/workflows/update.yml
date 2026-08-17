@@ -1,22 +1,9 @@
 name: Update Leaderboard
 
 on:
-  push:
-    branches:
-      - main
-    # Skip pushes that only touch bot-generated artifacts to avoid feedback loops.
-    paths-ignore:
-      - 'public/SAC_leaderboard*.html'
-      - 'public/leaderboard_data.json'
-      - 'canadian_flights_*.jsonl'
-      - 'canadian_user_profiles.json'
-      - 'canadian_combined_hours.json'
-      - 'pilot_pic_hours_verification.json'
-      - 'weglide_club_metadata.json'
-      - 'canadian_user_durations.json'
   schedule:
-    # Run daily at 03:00 UTC for a deep check
-    - cron: '0 3 * * *'
+    # Run Monday-Saturday. Sunday is handled by the weekly full refresh.
+    - cron: '0 3 * * 1-6'
   workflow_dispatch:
 
 # Belt-and-braces: never let two runs pile up.
@@ -32,6 +19,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.UPDATE_TOKEN }}
         run: |
-          curl -X POST "https://sac-leaderboard.vercel.app/api/trigger-update?force=true" \
-          -H "x-update-token: $TOKEN" \
-          --fail
+          : "${TOKEN:?UPDATE_TOKEN secret is required}"
+          curl -X POST "https://sac-leaderboard.vercel.app/api/trigger-update?source=github-daily" \
+            -H "x-update-token: $TOKEN" \
+            --fail
