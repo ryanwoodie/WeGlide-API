@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "gmail:oauth": "node setup_gmail_oauth.js"
+    "gmail:oauth": "node setup_gmail_oauth.js",
+    "test": "node --test test/*.test.js"
   },
   "dependencies": {
     "@vercel/blob": "^2.3.1",

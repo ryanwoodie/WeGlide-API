@@ -4,6 +4,7 @@ const https = require('https');
 const readline = require('readline');
 const { spawn } = require('child_process');
 const { get: getBlob, list: listBlobs } = require('@vercel/blob');
+const { isUpdateAuthorized } = require('../lib/update-auth');
 const { buildNoClubAlertCandidates } = require('../lib/club-alert');
 const {
     loadVerificationState,
@@ -19,6 +20,7 @@ const RUNNING_ON_VERCEL = Boolean(process.env.VERCEL);
 const BLOB_FALLBACK_ENABLED = /^(1|true|yes)$/i.test((process.env.ENABLE_BLOB_FALLBACK || '').trim());
 const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
 const PROFILES_BLOB_KEY = process.env.PROFILES_BLOB_KEY || 'canadian_user_profiles.json';
+const UPDATE_STATE_KEY = process.env.UPDATE_STATE_KEY || 'canadian_flights_update_state.json';
 const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const BOOTSTRAP_FILES = {
@@ -32,6 +34,7 @@ const TMP_DIR = RUNNING_ON_VERCEL ? '/tmp' : process.cwd();
 const DATASET_FILE = path.join(TMP_DIR, process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
 const PROFILES_FILE = path.join(TMP_DIR, process.env.CANADIAN_PROFILES_FILE || 'canadian_user_profiles.json');
 const COMBINED_HOURS_FILE = path.join(TMP_DIR, process.env.CANADIAN_COMBINED_HOURS_FILE || 'canadian_combined_hours.json');
+const UPDATE_STATE_FILE = path.join(TMP_DIR, UPDATE_STATE_KEY);
 const PILOT_VERIFICATION_FILE = path.join(TMP_DIR, 'pilot_pic_hours_verification.json');
 const LOCK_FILE = path.join('/tmp', 'fetch_and_build.lock');
 
@@ -41,7 +44,6 @@ const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
 const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
 const SEASON_BASELINE_DATE = trimEnv(process.env.SEASON_BASELINE_DATE, '2025-10-01');
 const MAX_FLIGHTS_PER_RUN = Number(trimEnv(process.env.MAX_FLIGHTS_PER_RUN, 150));
-const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
 // WeGlide pagination expects skip to be a multiple of 100, so we page in 100-flight blocks
 const FLIGHT_BATCH_SIZE = 100;
 const FLIGHT_DETAIL_DELAY_MS = Number(trimEnv(process.env.FLIGHT_DETAIL_DELAY_MS, 200));
@@ -422,6 +424,8 @@ async function loadExistingFlights() {
     const takeoffTimes = new Map();
     let total = 0;
     let latestDate = null;
+    let latestCreatedAt = null;
+    let latestCreatedFlightId = null;
 
     const ingest = (flight) => {
         total += 1;
@@ -442,6 +446,13 @@ async function loadExistingFlights() {
                 latestDate = ts;
             }
         }
+        if (flight.created) {
+            const createdMs = Date.parse(flight.created);
+            if (Number.isFinite(createdMs) && (!latestCreatedAt || createdMs > latestCreatedAt)) {
+                latestCreatedAt = createdMs;
+                latestCreatedFlightId = flight.id || null;
+            }
+        }
     };
 
     let sourceStream;
@@ -460,7 +471,7 @@ async function loadExistingFlights() {
         }
     } else {
         const text = await loadPersistentText(DATASET_BLOB_KEY);
-        if (!text) return { ids, total, latestDate, fingerprints };
+        if (!text) return { ids, total, latestDate, fingerprints, takeoffTimes, latestCreatedAt: null, latestCreatedFlightId };
         const lines = text.split('\n');
         for (const line of lines) {
             const trimmed = line.trim();
@@ -478,8 +489,39 @@ async function loadExistingFlights() {
         total,
         latestDate: latestDate ? new Date(latestDate).toISOString() : null,
         fingerprints,
-        takeoffTimes
+        takeoffTimes,
+        latestCreatedAt: latestCreatedAt ? new Date(latestCreatedAt).toISOString() : null,
+        latestCreatedFlightId
     };
+}
+
+function writeUpdateState(existing, newFlights) {
+    const newestNewFlight = newFlights.reduce((latest, flight) => {
+        if (!flight || !flight.id || !flight.created) return latest;
+        if (!latest) return flight;
+        return Date.parse(flight.created) > Date.parse(latest.created) ? flight : latest;
+    }, null);
+
+    const existingCreatedMs = Date.parse(existing.latestCreatedAt);
+    const newestCreatedMs = Date.parse(newestNewFlight?.created);
+    const useNewFlight = newestNewFlight && (
+        !Number.isFinite(existingCreatedMs)
+        || (Number.isFinite(newestCreatedMs) && newestCreatedMs > existingCreatedMs)
+    );
+    const latestFlightId = useNewFlight ? newestNewFlight.id : existing.latestCreatedFlightId;
+    const latestFlightCreatedAt = useNewFlight ? newestNewFlight.created : existing.latestCreatedAt;
+
+    if (!latestFlightId) {
+        log('Skipping update-state write because no latest flight ID is available.');
+        return false;
+    }
+
+    fs.writeFileSync(UPDATE_STATE_FILE, JSON.stringify({
+        latestFlightId,
+        latestFlightCreatedAt,
+        updatedAt: new Date().toISOString()
+    }, null, 2) + '\n');
+    return true;
 }
 
 // Recent-window backstop: return flight IDs whose takeoff is within the last
@@ -1554,6 +1596,7 @@ async function runFetchAndBuild(options = {}) {
 
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
+        summary.meta.updateStateWritten = writeUpdateState(existing, newFlights);
 
         summary.logs = [];
         const publicArtifacts = [
@@ -1565,6 +1608,7 @@ async function runFetchAndBuild(options = {}) {
             { repoPath: 'canadian_flights_2026_details.jsonl', localPath: DATASET_FILE },
             { repoPath: 'canadian_user_profiles.json', localPath: PROFILES_FILE },
             { repoPath: 'canadian_combined_hours.json', localPath: COMBINED_HOURS_FILE },
+            { repoPath: UPDATE_STATE_KEY, localPath: UPDATE_STATE_FILE },
             ...publicArtifacts
         ];
 
@@ -1624,8 +1668,7 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const token = (req.headers['x-update-token'] || req.query?.token || req.body?.token || '').trim();
-    if (UPDATE_TOKEN && token !== UPDATE_TOKEN) {
+    if (!isUpdateAuthorized(req)) {
         return res.status(401).json({ error: 'Unauthorized' });
     }
 

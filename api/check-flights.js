@@ -2,18 +2,16 @@
  * Vercel Serverless Function: Check for New Canadian Flights
  */
 
-const https = require('https');
+const { isUpdateAuthorized } = require('../lib/update-auth');
 // fetch is global in Node 18+
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
 const WEGLIDE_API_BASE = trimEnv(process.env.WEGLIDE_API_BASE, 'https://api.weglide.org');
 const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
 const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
-const UPDATE_TOKEN = trimEnv(process.env.UPDATE_TOKEN, '');
 const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
-
-const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
+const UPDATE_STATE_KEY = process.env.UPDATE_STATE_KEY || 'canadian_flights_update_state.json';
 
 async function fetchGithubRepoText(filename) {
     const encodedPath = filename.split('/').map(segment => encodeURIComponent(segment)).join('/');
@@ -67,77 +65,36 @@ async function fetchLatestFlight() {
 }
 
 /**
- * Get all known flight IDs from the local dataset file
+ * Read the small durable update marker from the canonical GitHub branch.
+ * Never inspect the bundled dataset here: it is large and can be stale while
+ * a newer deployment is building.
  */
-async function getKnownFlightIds() {
-    const fs = require('fs');
-    const path = require('path');
-
+async function getUpdateState() {
     try {
-        const datasetPath = path.join(process.cwd(), DATASET_BLOB_KEY);
-        let text = null;
-
-        if (fs.existsSync(datasetPath)) {
-            text = fs.readFileSync(datasetPath, 'utf8');
-        } else {
-            text = await fetchGithubRepoText(DATASET_BLOB_KEY);
-            if (!text) {
-                console.log('[check-flights] Dataset file not found locally or on GitHub, assuming no flights known yet');
-                return null;
-            }
+        const text = await fetchGithubRepoText(UPDATE_STATE_KEY);
+        if (!text) {
+            console.log('[check-flights] Update state is not initialized yet');
+            return null;
         }
-
-        const lines = text.trim().split('\n');
-
-        if (lines.length === 0) return null;
-
-        const ids = new Set();
-        for (const line of lines) {
-            if (!line.trim()) continue;
-            try {
-                const f = JSON.parse(line);
-                if (f.id) ids.add(f.id);
-            } catch (e) {
-                // Skip malformed lines
-            }
-        }
-
-        return ids; // Return the Set of all known IDs
+        return JSON.parse(text);
     } catch (err) {
-        console.error('[check-flights] Error reading dataset file:', err);
+        console.error('[check-flights] Error reading update state:', err);
         return null;
     }
-}
-
-/**
- * Trigger the fetch-and-build process
- */
-async function triggerBuild() {
-    const base = process.env.VERCEL_URL
-        ? (process.env.VERCEL_URL.startsWith('http') ? process.env.VERCEL_URL : `https://${process.env.VERCEL_URL}`)
-        : 'http://localhost:3000';
-    const url = `${base}/api/fetch-and-build`;
-
-    const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-    };
-
-    if (UPDATE_TOKEN) {
-        options.headers['x-update-token'] = UPDATE_TOKEN;
-    }
-    if (process.env.VERCEL_AUTOMATION_BYPASS_SECRET) {
-        options.headers['x-vercel-protection-bypass'] = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
-    }
-
-    const res = await fetch(url, options);
-    return { status: res.status };
 }
 
 /**
  * Main handler function
  */
 module.exports = async (req, res) => {
+    if (req.method !== 'GET') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+
+    if (!isUpdateAuthorized(req, { allowCronSecret: true })) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
     try {
         // Fetch latest flight from WeGlide
         const latestFlight = await fetchLatestFlight();
@@ -151,36 +108,34 @@ module.exports = async (req, res) => {
 
         const latestFlightId = latestFlight.id;
 
-        // Get all known IDs from local dataset
-        const knownIds = await getKnownFlightIds();
+        const updateState = await getUpdateState();
+        if (!updateState || !updateState.latestFlightId) {
+            return res.status(200).json({
+                status: 'state_unavailable',
+                message: 'Update state will be initialized by the next scheduled batch',
+                latestFlightId,
+                buildTriggered: false
+            });
+        }
 
-        const isNew = !knownIds || !knownIds.has(latestFlightId);
+        const isNew = updateState.latestFlightId !== latestFlightId;
 
         if (isNew) {
-            console.log(`[check-flights] New flight detected: ${latestFlightId}. Triggering build...`);
-
-            // Trigger the build process
-            try {
-                const buildResult = await triggerBuild();
-                return res.status(200).json({
-                    status: 'new_data_available',
-                    message: 'New flight detected, build triggered',
-                    latestFlightId,
-                    buildStatus: buildResult.status
-                });
-            } catch (buildErr) {
-                return res.status(500).json({
-                    status: 'error',
-                    message: 'New flight detected but build trigger failed',
-                    error: buildErr.message
-                });
-            }
+            console.log(`[check-flights] New flight detected: ${latestFlightId}. Waiting for scheduled batch.`);
+            return res.status(200).json({
+                status: 'new_data_available',
+                message: 'New flight detected; the next scheduled batch will process it',
+                latestFlightId,
+                knownLatestFlightId: updateState.latestFlightId,
+                buildTriggered: false
+            });
         } else {
             console.log(`[check-flights] Flight ${latestFlightId} already known.`);
             return res.status(200).json({
                 status: 'no_changes',
                 message: 'No new flights since last check',
-                latestFlightId
+                latestFlightId,
+                buildTriggered: false
             });
         }
 

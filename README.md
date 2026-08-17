@@ -22,8 +22,9 @@ node create_canadian_leaderboard_from_jsonl.js
 ## Deployment Notes
 
 - Production is hosted on Vercel.
-- `/api/check-flights` polls WeGlide for the latest Canadian flight.
-- `/api/fetch-and-build` fetches new flight details, rebuilds the leaderboard, and syncs the updated artifacts back to GitHub.
+- `/api/check-flights` performs an authenticated, read-only poll of WeGlide and the small `canadian_flights_update_state.json` marker. It never launches a rebuild.
+- `/api/trigger-update` accepts authenticated POST requests from the scheduled GitHub workflows and invokes the update pipeline.
+- `/api/fetch-and-build` fetches new flight details, rebuilds the leaderboard, updates the marker, and syncs the artifacts back to GitHub.
 
 Required production env vars:
 
