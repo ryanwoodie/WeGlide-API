@@ -1,0 +1,23 @@
+name: Update On New Flight
+
+on:
+  workflow_dispatch:
+
+# Repeated five-minute detections collapse into one running update and at most
+# one pending follow-up. The follow-up exits quickly when the first run succeeds.
+concurrency:
+  group: update-leaderboard
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process newly posted flights
+        env:
+          TOKEN: ${{ secrets.UPDATE_TOKEN }}
+        run: |
+          : "${TOKEN:?UPDATE_TOKEN secret is required}"
+          curl -X POST "https://sac-leaderboard.vercel.app/api/trigger-update?newOnly=true&source=new-flight" \
+            -H "x-update-token: $TOKEN" \
+            --fail

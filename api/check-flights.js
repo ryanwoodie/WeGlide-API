@@ -2,7 +2,6 @@
  * Vercel Serverless Function: Check for New Canadian Flights
  */
 
-const { isUpdateAuthorized } = require('../lib/update-auth');
 // fetch is global in Node 18+
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
@@ -11,6 +10,7 @@ const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
 const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
 const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
+const GITHUB_UPDATE_WORKFLOW = process.env.GITHUB_UPDATE_WORKFLOW || 'update-on-flight.yml';
 const UPDATE_STATE_KEY = process.env.UPDATE_STATE_KEY || 'canadian_flights_update_state.json';
 
 async function fetchGithubRepoText(filename) {
@@ -84,15 +84,40 @@ async function getUpdateState() {
 }
 
 /**
+ * Dispatch the serialized GitHub workflow instead of starting heavyweight work
+ * in this polling invocation. GitHub concurrency coalesces repeated detections
+ * while an earlier update is still running.
+ */
+async function dispatchNewFlightUpdate() {
+    if (!process.env.GITHUB_TOKEN) {
+        throw new Error('GITHUB_TOKEN is required to dispatch the update workflow');
+    }
+
+    const workflow = encodeURIComponent(GITHUB_UPDATE_WORKFLOW);
+    const url = `https://api.github.com/repos/${GITHUB_REPO}/actions/workflows/${workflow}/dispatches`;
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/vnd.github+json',
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+            'Content-Type': 'application/json',
+            'User-Agent': 'SAC-Leaderboard-Bot/1.0',
+            'X-GitHub-Api-Version': '2022-11-28'
+        },
+        body: JSON.stringify({ ref: GITHUB_BRANCH })
+    });
+
+    if (!response.ok) {
+        throw new Error(`GitHub workflow dispatch failed: ${response.status} ${response.statusText}`);
+    }
+}
+
+/**
  * Main handler function
  */
 module.exports = async (req, res) => {
     if (req.method !== 'GET') {
         return res.status(405).json({ error: 'Method not allowed' });
-    }
-
-    if (!isUpdateAuthorized(req, { allowCronSecret: true })) {
-        return res.status(401).json({ error: 'Unauthorized' });
     }
 
     try {
@@ -121,13 +146,15 @@ module.exports = async (req, res) => {
         const isNew = updateState.latestFlightId !== latestFlightId;
 
         if (isNew) {
-            console.log(`[check-flights] New flight detected: ${latestFlightId}. Waiting for scheduled batch.`);
+            console.log(`[check-flights] New flight detected: ${latestFlightId}. Dispatching serialized update.`);
+            await dispatchNewFlightUpdate();
             return res.status(200).json({
                 status: 'new_data_available',
-                message: 'New flight detected; the next scheduled batch will process it',
+                message: 'New flight detected; an immediate serialized update was dispatched',
                 latestFlightId,
                 knownLatestFlightId: updateState.latestFlightId,
-                buildTriggered: false
+                buildTriggered: true,
+                trigger: 'github_workflow'
             });
         } else {
             console.log(`[check-flights] Flight ${latestFlightId} already known.`);

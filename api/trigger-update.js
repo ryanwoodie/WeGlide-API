@@ -14,11 +14,13 @@ module.exports = async (req, res) => {
         const limitOverride = req.query?.max_flights ? parseInt(req.query.max_flights, 10) : undefined;
         const forceBuild = req.query?.force === 'true';
         const fullRefresh = req.query?.fullRefresh === 'true';
+        const newOnly = req.query?.newOnly === 'true';
         const summary = await fetchAndBuild.runFetchAndBuild({
             trigger: req.query?.source || 'manual',
             limitOverride,
             forceBuild,
-            fullRefresh
+            fullRefresh,
+            newOnly
         });
         const statusCode = summary.status === 'error' ? 500 : 200;
         return res.status(statusCode).json(summary);

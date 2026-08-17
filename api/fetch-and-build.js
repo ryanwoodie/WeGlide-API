@@ -1449,15 +1449,25 @@ async function runFetchAndBuild(options = {}) {
         const newFlights = await fetchRecentFlights(existing.ids, options.limitOverride);
         summary.meta.newFlights = newFlights.length;
 
+        if (options.newOnly && newFlights.length === 0) {
+            summary.status = 'no_changes';
+            summary.message = 'No new flights detected';
+            summary.meta.refreshMode = 'new_only';
+            summary.meta.refreshFlights = 0;
+            return summary;
+        }
+
         // Sweep listings for re-analyzed flights — twice, once per contest.
         const changedAcrossSweeps = new Map();
-        for (const contestName of ['free', 'ca']) {
-            const changed = await detectChangedFlights(existing, contestName);
-            for (const [id, diff] of changed) {
-                if (!changedAcrossSweeps.has(id)) {
-                    changedAcrossSweeps.set(id, []);
+        if (!options.newOnly) {
+            for (const contestName of ['free', 'ca']) {
+                const changed = await detectChangedFlights(existing, contestName);
+                for (const [id, diff] of changed) {
+                    if (!changedAcrossSweeps.has(id)) {
+                        changedAcrossSweeps.set(id, []);
+                    }
+                    changedAcrossSweeps.get(id).push(diff);
                 }
-                changedAcrossSweeps.get(id).push(diff);
             }
         }
         const newIdSet = new Set(newFlights.map(f => f.id));
@@ -1475,13 +1485,20 @@ async function runFetchAndBuild(options = {}) {
         // fullRefresh: re-pull every stored flight (weekly).
         // Otherwise: re-pull every flight whose takeoff is within RECENT_REFRESH_DAYS days.
         const recentRefreshDays = options.fullRefresh ? null : RECENT_REFRESH_DAYS;
-        const refreshSet = options.fullRefresh
-            ? new Set(existing.ids)
-            : findRecentWindowIds(existing, recentRefreshDays);
+        let refreshSet;
+        if (options.newOnly) {
+            refreshSet = new Set();
+        } else if (options.fullRefresh) {
+            refreshSet = new Set(existing.ids);
+        } else {
+            refreshSet = findRecentWindowIds(existing, recentRefreshDays);
+        }
         // exclude IDs already covered by new-flight or change-detection paths
         for (const id of newIdSet) refreshSet.delete(id);
         for (const id of changedIds) refreshSet.delete(id);
-        summary.meta.refreshMode = options.fullRefresh ? 'full' : `last_${RECENT_REFRESH_DAYS}_days`;
+        summary.meta.refreshMode = options.newOnly
+            ? 'new_only'
+            : (options.fullRefresh ? 'full' : `last_${RECENT_REFRESH_DAYS}_days`);
         summary.meta.refreshFlights = refreshSet.size;
         if (refreshSet.size) {
             log(`Backstop refresh (${summary.meta.refreshMode}): ${refreshSet.size} flight(s) to refetch.`);
