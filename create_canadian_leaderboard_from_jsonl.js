@@ -617,6 +617,7 @@ async function processCanadianFlights() {
     const pilotFlightsTriangle = {}; // Triangle contest scoring
     const pilotFlightsOutReturn = {}; // Out & Return contest scoring
     const pilotFlightsOut = {}; // Straight out (goal) contest scoring
+    const pilotDisplayNames = {}; // Latest known display name, keyed by stable WeGlide user ID
     let totalProcessed = 0;
     let australianCount = 0;
     // Guard against duplicate flight rows in the dataset (the fetch pipeline can
@@ -677,30 +678,40 @@ async function processCanadianFlights() {
                         continue;
                     }
 
+                    const pilotId = flight.user?.id;
+                    const pilotKey = pilotId != null ? String(pilotId) : `name:${pilotName}`;
+                    const existingDisplayName = pilotDisplayNames[pilotKey];
+                    if (!existingDisplayName || (flight.scoring_date || '') >= existingDisplayName.date) {
+                        pilotDisplayNames[pilotKey] = {
+                            name: pilotName,
+                            date: flight.scoring_date || ''
+                        };
+                    }
+
                     // Initialize pilot arrays for both scoring modes
-                    if (!pilotFlightsMixed[pilotName]) {
-                        pilotFlightsMixed[pilotName] = [];
+                    if (!pilotFlightsMixed[pilotKey]) {
+                        pilotFlightsMixed[pilotKey] = [];
                     }
-                    if (!pilotFlightsFree[pilotName]) {
-                        pilotFlightsFree[pilotName] = [];
+                    if (!pilotFlightsFree[pilotKey]) {
+                        pilotFlightsFree[pilotKey] = [];
                     }
-                    if (!pilotFlightsSacDsc[pilotName]) {
-                        pilotFlightsSacDsc[pilotName] = [];
+                    if (!pilotFlightsSacDsc[pilotKey]) {
+                        pilotFlightsSacDsc[pilotKey] = [];
                     }
-                    if (!pilotFlightsBhc[pilotName]) {
-                        pilotFlightsBhc[pilotName] = [];
+                    if (!pilotFlightsBhc[pilotKey]) {
+                        pilotFlightsBhc[pilotKey] = [];
                     }
-                    if (!pilotFlightsSprint[pilotName]) {
-                        pilotFlightsSprint[pilotName] = [];
+                    if (!pilotFlightsSprint[pilotKey]) {
+                        pilotFlightsSprint[pilotKey] = [];
                     }
-                    if (!pilotFlightsTriangle[pilotName]) {
-                        pilotFlightsTriangle[pilotName] = [];
+                    if (!pilotFlightsTriangle[pilotKey]) {
+                        pilotFlightsTriangle[pilotKey] = [];
                     }
-                    if (!pilotFlightsOutReturn[pilotName]) {
-                        pilotFlightsOutReturn[pilotName] = [];
+                    if (!pilotFlightsOutReturn[pilotKey]) {
+                        pilotFlightsOutReturn[pilotKey] = [];
                     }
-                    if (!pilotFlightsOut[pilotName]) {
-                        pilotFlightsOut[pilotName] = [];
+                    if (!pilotFlightsOut[pilotKey]) {
+                        pilotFlightsOut[pilotKey] = [];
                     }
 
                     // Calculate scores for both modes
@@ -711,7 +722,7 @@ async function processCanadianFlights() {
 
                     // Add to mixed scoring leaderboard
                     if (mixedScoringData.score > 0) {
-                        pilotFlightsMixed[pilotName].push({
+                        pilotFlightsMixed[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -732,7 +743,7 @@ async function processCanadianFlights() {
 
                     // Add to free-only leaderboard
                     if (freeScoringData.score > 0) {
-                        pilotFlightsFree[pilotName].push({
+                        pilotFlightsFree[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -752,7 +763,7 @@ async function processCanadianFlights() {
                     }
 
                     if (sacDscScoringData.score > 0) {
-                        pilotFlightsSacDsc[pilotName].push({
+                        pilotFlightsSacDsc[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -772,7 +783,7 @@ async function processCanadianFlights() {
                     }
 
                     if (bhcScoringData.score > 0) {
-                        pilotFlightsBhc[pilotName].push({
+                        pilotFlightsBhc[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -801,7 +812,7 @@ async function processCanadianFlights() {
 
                     const sprintScoringData = calculateContestScore(flight, 'sprint');
                     if (sprintScoringData.score > 0) {
-                        pilotFlightsSprint[pilotName].push({
+                        pilotFlightsSprint[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -822,7 +833,7 @@ async function processCanadianFlights() {
 
                     const triangleScoringData = calculateContestScore(flight, 'triangle');
                     if (triangleScoringData.score > 0) {
-                        pilotFlightsTriangle[pilotName].push({
+                        pilotFlightsTriangle[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -843,7 +854,7 @@ async function processCanadianFlights() {
 
                     const outReturnScoringData = calculateContestScore(flight, 'out_return');
                     if (outReturnScoringData.score > 0) {
-                        pilotFlightsOutReturn[pilotName].push({
+                        pilotFlightsOutReturn[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -864,7 +875,7 @@ async function processCanadianFlights() {
 
                     const outScoringData = calculateContestScore(flight, 'out');
                     if (outScoringData.score > 0) {
-                        pilotFlightsOut[pilotName].push({
+                        pilotFlightsOut[pilotKey].push({
                             id: flight.id,
                             userId: flight.user?.id,
                             date: flight.scoring_date,
@@ -1123,8 +1134,8 @@ async function processCanadianFlights() {
         function generateLeaderboard(pilotFlights, maxFlights = 5) {
             const leaderboard = [];
 
-            Object.keys(pilotFlights).forEach(pilotName => {
-                const flights = pilotFlights[pilotName];
+            Object.keys(pilotFlights).forEach(pilotKey => {
+                const flights = pilotFlights[pilotKey];
 
                 const bestFlights = flights
                     .slice()
@@ -1142,7 +1153,7 @@ async function processCanadianFlights() {
                     const totalDistance = validBest.reduce((sum, flight) => sum + flight.distance, 0);
 
                     leaderboard.push({
-                        pilot: pilotName,
+                        pilot: pilotDisplayNames[pilotKey]?.name || pilotKey,
                         pilotId: bestFlights[0].userId || bestFlights[0].id,
                         totalPoints: totalPoints,
                         totalDistance: totalDistance,
@@ -1160,8 +1171,8 @@ async function processCanadianFlights() {
         function generateBhcLeaderboard(pilotFlights) {
             const leaderboard = [];
 
-            Object.keys(pilotFlights).forEach((pilotName) => {
-                const flights = (pilotFlights[pilotName] || []).slice().sort((a, b) => b.points - a.points);
+            Object.keys(pilotFlights).forEach((pilotKey) => {
+                const flights = (pilotFlights[pilotKey] || []).slice().sort((a, b) => b.points - a.points);
                 if (flights.length === 0) {
                     return;
                 }
@@ -1169,7 +1180,7 @@ async function processCanadianFlights() {
                 const bestOverallFlight = flights[0];
                 const bestOfficialFlight = flights.find((flight) => flight.bhcLoggerValid !== false) || null;
                 const buildEntry = (flight, extra = {}) => ({
-                    pilot: pilotName,
+                    pilot: pilotDisplayNames[pilotKey]?.name || pilotKey,
                     pilotId: flight.userId || flight.id,
                     totalPoints: flight.points,
                     totalDistance: flight.distance,
@@ -1520,7 +1531,8 @@ async function processCanadianFlights() {
                     return;
                 }
 
-                pilotSet.add(pilotName);
+                const pilotId = flight.user?.id;
+                pilotSet.add(pilotId != null ? String(pilotId) : `name:${pilotName}`);
                 totalFlights++;
 
                 // Calculate distance from contest data
