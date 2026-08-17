@@ -1668,7 +1668,9 @@ async function runFetchAndBuild(options = {}) {
 
         const buildResult = await runLeaderboardBuild();
         summary.meta.build = { success: true, outputLines: buildResult.stdout.split('\n').length };
-        summary.meta.updateStateWritten = writeUpdateState(existing, newFlights);
+        // Flight-detail responses include the canonical `created` timestamp;
+        // the lightweight listing objects do not always include it.
+        summary.meta.updateStateWritten = writeUpdateState(existing, flightDetails);
         summary.meta.blobPersistence = await persistDatasetAndStateToBlob();
 
         summary.logs = [];
