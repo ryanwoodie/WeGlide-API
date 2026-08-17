@@ -18,6 +18,6 @@ jobs:
           TOKEN: ${{ secrets.UPDATE_TOKEN }}
         run: |
           : "${TOKEN:?UPDATE_TOKEN secret is required}"
-          curl -X POST "https://sac-leaderboard.vercel.app/api/trigger-update?newOnly=true&source=new-flight" \
+          curl --silent --show-error --fail-with-body -X POST "https://sac-leaderboard.vercel.app/api/trigger-update?newOnly=true&source=new-flight" \
             -H "x-update-token: $TOKEN" \
-            --fail
+            --max-time 300
