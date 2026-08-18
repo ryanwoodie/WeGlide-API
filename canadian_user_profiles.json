@@ -857,11 +857,11 @@
     "message_enabled": true
   },
   "21574": {
-    "total_flight_duration": 598318,
-    "total_free_distance": 8439.6,
-    "avg_speed": 64.8,
-    "flight_count": 126,
-    "avg_glide_speed": 114.66,
+    "total_flight_duration": 600592,
+    "total_free_distance": 8459.7,
+    "avg_speed": 64.81,
+    "flight_count": 127,
+    "avg_glide_speed": 114.64,
     "avg_glide_detour": 1.33,
     "achievement_count": 21,
     "name": "Warwick Patterson",
@@ -4355,6 +4355,27 @@
       "name": "Rideau Valley Soaring",
       "region": "CA-ON",
       "url": "https://rvss.ca"
+    },
+    "message_enabled": true
+  },
+  "41485": {
+    "total_flight_duration": 9443,
+    "total_free_distance": 37.58,
+    "avg_speed": 16.11,
+    "flight_count": 2,
+    "avg_glide_speed": 90.05,
+    "avg_glide_detour": 1.08,
+    "achievement_count": 0,
+    "name": "Youssef Filali",
+    "gender": "M",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     },
     "message_enabled": true
   },
