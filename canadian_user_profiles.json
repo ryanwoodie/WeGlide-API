@@ -42,11 +42,11 @@
     "message_enabled": true
   },
   "4806": {
-    "total_flight_duration": 7135109,
-    "total_free_distance": 145478.23,
-    "avg_speed": 77.22,
-    "flight_count": 436,
-    "avg_glide_speed": 135.39,
+    "total_flight_duration": 7143177,
+    "total_free_distance": 145602.93,
+    "avg_speed": 77.2,
+    "flight_count": 437,
+    "avg_glide_speed": 135.36,
     "avg_glide_detour": 1.21,
     "achievement_count": 30,
     "name": "Luke Szczepaniak",
@@ -254,10 +254,10 @@
     }
   },
   "8848": {
-    "total_flight_duration": 17306151,
-    "total_free_distance": 322474.81,
+    "total_flight_duration": 17324203,
+    "total_free_distance": 322832.42,
     "avg_speed": 71.57,
-    "flight_count": 1153,
+    "flight_count": 1154,
     "avg_glide_speed": 120.8,
     "avg_glide_detour": 1.22,
     "achievement_count": 26,
@@ -1361,11 +1361,11 @@
     "message_enabled": true
   },
   "27586": {
-    "total_flight_duration": 393071,
-    "total_free_distance": 7878.09,
-    "avg_speed": 77.48,
-    "flight_count": 23,
-    "avg_glide_speed": 139.32,
+    "total_flight_duration": 427048,
+    "total_free_distance": 8417.46,
+    "avg_speed": 76.16,
+    "flight_count": 25,
+    "avg_glide_speed": 138.71,
     "avg_glide_detour": 1.26,
     "achievement_count": 9,
     "name": "Mark A. Schneider",
@@ -3744,11 +3744,11 @@
     "message_enabled": true
   },
   "39209": {
-    "total_flight_duration": 346602,
-    "total_free_distance": 3551.59,
-    "avg_speed": 39.98,
-    "flight_count": 30,
-    "avg_glide_speed": 108.27,
+    "total_flight_duration": 350835,
+    "total_free_distance": 3589.81,
+    "avg_speed": 39.97,
+    "flight_count": 31,
+    "avg_glide_speed": 108.22,
     "avg_glide_detour": 1.45,
     "achievement_count": 10,
     "name": "Yvon Saucier",
@@ -4451,6 +4451,27 @@
     "gender": "M",
     "is_junior": false,
     "is_senior": false,
+    "club": {
+      "id": 1168,
+      "name": "Montreal Soaring Club",
+      "region": "CA-ON",
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
+    },
+    "message_enabled": true
+  },
+  "42515": {
+    "total_flight_duration": 6276,
+    "total_free_distance": 27.4,
+    "avg_speed": 17.55,
+    "flight_count": 2,
+    "avg_glide_speed": 96.49,
+    "avg_glide_detour": 1.66,
+    "achievement_count": 0,
+    "name": "Daniel perrault",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
     "club": {
       "id": 1168,
       "name": "Montreal Soaring Club",
