@@ -568,10 +568,10 @@
     "message_enabled": true
   },
   "16605": {
-    "total_flight_duration": 1415549,
-    "total_free_distance": 20478.4,
-    "avg_speed": 59.44,
-    "flight_count": 160,
+    "total_flight_duration": 1417997,
+    "total_free_distance": 20515.07,
+    "avg_speed": 59.49,
+    "flight_count": 161,
     "avg_glide_speed": 115.65,
     "avg_glide_detour": 1.48,
     "achievement_count": 33,
@@ -1242,11 +1242,11 @@
     "message_enabled": true
   },
   "25002": {
-    "total_flight_duration": 192148,
-    "total_free_distance": 3071.39,
-    "avg_speed": 62.27,
-    "flight_count": 18,
-    "avg_glide_speed": 106.83,
+    "total_flight_duration": 206489,
+    "total_free_distance": 3364.67,
+    "avg_speed": 63.19,
+    "flight_count": 19,
+    "avg_glide_speed": 107.07,
     "avg_glide_detour": 1.28,
     "achievement_count": 8,
     "name": "Sean Christie",
@@ -1644,11 +1644,11 @@
     "message_enabled": true
   },
   "34958": {
-    "total_flight_duration": 3098055,
-    "total_free_distance": 55731,
-    "avg_speed": 67.62,
-    "flight_count": 266,
-    "avg_glide_speed": 120.59,
+    "total_flight_duration": 3112599,
+    "total_free_distance": 56079.22,
+    "avg_speed": 67.71,
+    "flight_count": 267,
+    "avg_glide_speed": 120.69,
     "avg_glide_detour": 1.12,
     "achievement_count": 22,
     "name": "Rafael Bravo",
@@ -1927,11 +1927,11 @@
     }
   },
   "35296": {
-    "total_flight_duration": 430796,
-    "total_free_distance": 5400.32,
-    "avg_speed": 49.43,
-    "flight_count": 55,
-    "avg_glide_speed": 109.63,
+    "total_flight_duration": 442822,
+    "total_free_distance": 5636.66,
+    "avg_speed": 50.14,
+    "flight_count": 56,
+    "avg_glide_speed": 110.79,
     "avg_glide_detour": 1.21,
     "achievement_count": 9,
     "name": "Joseph Tam",
@@ -2733,12 +2733,12 @@
     "message_enabled": true
   },
   "35647": {
-    "total_flight_duration": 348929,
-    "total_free_distance": 5765.19,
-    "avg_speed": 64.44,
-    "flight_count": 20,
-    "avg_glide_speed": 122.68,
-    "avg_glide_detour": 1.27,
+    "total_flight_duration": 368418,
+    "total_free_distance": 6112.19,
+    "avg_speed": 64.83,
+    "flight_count": 21,
+    "avg_glide_speed": 122.28,
+    "avg_glide_detour": 1.26,
     "achievement_count": 12,
     "name": "Matt Watson",
     "gender": "M",
@@ -2892,11 +2892,11 @@
     "message_enabled": true
   },
   "35759": {
-    "total_flight_duration": 90780,
-    "total_free_distance": 953.56,
-    "avg_speed": 42.86,
-    "flight_count": 11,
-    "avg_glide_speed": 104.53,
+    "total_flight_duration": 95932,
+    "total_free_distance": 1008.85,
+    "avg_speed": 42.94,
+    "flight_count": 12,
+    "avg_glide_speed": 103.8,
     "avg_glide_detour": 1.89,
     "achievement_count": 1,
     "name": "Patrick Kessler",
@@ -3298,12 +3298,12 @@
     "message_enabled": true
   },
   "36602": {
-    "total_flight_duration": 234853,
-    "total_free_distance": 5924.36,
-    "avg_speed": 96.34,
-    "flight_count": 14,
-    "avg_glide_speed": 154.35,
-    "avg_glide_detour": 1.22,
+    "total_flight_duration": 252046,
+    "total_free_distance": 6358.96,
+    "avg_speed": 96.06,
+    "flight_count": 15,
+    "avg_glide_speed": 153.34,
+    "avg_glide_detour": 1.21,
     "achievement_count": 24,
     "name": "Joerg Stieber",
     "gender": "M",
@@ -4478,6 +4478,26 @@
       "region": "CA-ON",
       "url": "https://montrealsoaring.ca",
       "logo": "club/1168.png"
+    },
+    "message_enabled": true
+  },
+  "42621": {
+    "total_flight_duration": 13988,
+    "total_free_distance": 281.7,
+    "avg_speed": 83.54,
+    "flight_count": 1,
+    "avg_glide_speed": 152.51,
+    "avg_glide_detour": 1.08,
+    "achievement_count": 2,
+    "name": "Tom Butts",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
     },
     "message_enabled": true
   }
