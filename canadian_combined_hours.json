@@ -4020,6 +4020,25 @@
       "combinedHoursBeforeCutoff": 1906.56,
       "eligibleUnder200": false
     },
+    "36646": {
+      "pilotId": 36646,
+      "weglidePilotId": "wg:36646",
+      "olcPilotId": "33004",
+      "pilotName": "Bill Cole",
+      "matchKind": "olc_name_only",
+      "normalizedName": "billcole",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 690.36,
+      "olcOnlyHours": 690.36,
+      "combinedHours": 690.36,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 690.36,
+      "combinedHoursBeforeCutoff": 690.36,
+      "eligibleUnder200": false,
+      "dataSource": "olc-name-totals"
+    },
     "36668": {
       "pilotId": 36668,
       "weglidePilotId": "wg:36668",
