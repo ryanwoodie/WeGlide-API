@@ -42,7 +42,7 @@
     "21186": 62834,
     "21219": 42811,
     "21317": 422448,
-    "21574": 605831,
+    "21574": 609078,
     "21928": 19945,
     "22077": 1690498,
     "22081": 379297,
@@ -81,7 +81,7 @@
     "34532": 60612,
     "34934": 4339438,
     "34953": 414927,
-    "34958": 3112599,
+    "34958": 3121184,
     "34993": 1086180,
     "35001": 513282,
     "35037": 185907,
@@ -5821,11 +5821,11 @@
       "message_enabled": true
     },
     "21574": {
-      "total_flight_duration": 605831,
-      "total_free_distance": 8515.35,
-      "avg_speed": 64.82,
-      "flight_count": 129,
-      "avg_glide_speed": 114.58,
+      "total_flight_duration": 609078,
+      "total_free_distance": 8541.47,
+      "avg_speed": 64.76,
+      "flight_count": 130,
+      "avg_glide_speed": 114.54,
       "avg_glide_detour": 1.33,
       "achievement_count": 21,
       "name": "Warwick Patterson",
@@ -6608,11 +6608,11 @@
       "message_enabled": true
     },
     "34958": {
-      "total_flight_duration": 3112599,
-      "total_free_distance": 56079.22,
-      "avg_speed": 67.71,
-      "flight_count": 267,
-      "avg_glide_speed": 120.69,
+      "total_flight_duration": 3121184,
+      "total_free_distance": 56188.01,
+      "avg_speed": 67.66,
+      "flight_count": 268,
+      "avg_glide_speed": 120.66,
       "avg_glide_detour": 1.12,
       "achievement_count": 22,
       "name": "Rafael Bravo",
@@ -278293,6 +278293,140 @@
         "name": "St-Dominique CVVC",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1222572,
+      "user": {
+        "id": 34958,
+        "name": "Rafael Bravo"
+      },
+      "date": "2026-08-27",
+      "distance": 108.79,
+      "duration": 8585,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 144.79
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 114.5,
+          "distance": 108.79,
+          "speed": 48.15,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 29.2,
+          "distance": 62.77,
+          "speed": 31.39,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 52.01,
+          "distance": 57.21,
+          "speed": 31.46,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 36.23,
+          "distance": 39.85,
+          "speed": 29.99,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 73.67,
+          "distance": 81.04,
+          "speed": 41.63,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1222524,
+      "user": {
+        "id": 21574,
+        "name": "Warwick Patterson"
+      },
+      "date": "2026-08-26",
+      "distance": 26.12,
+      "duration": 3247,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 32.67,
+          "distance": 26.12,
+          "speed": 49.39,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 6.69,
+          "distance": 11.98,
+          "speed": 5.99,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 7.66,
+          "distance": 6.59,
+          "speed": 41.04,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 12.13,
+          "distance": 10.43,
+          "speed": 26.22,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 25.03,
+          "distance": 21.53,
+          "speed": 38.01,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
     }
   ],
   "clubMetadataById": {
@@ -306884,12 +307018,12 @@
   ],
   "meta": {
     "totalPilots": 226,
-    "totalFlights": 1707,
-    "totalKms": 309746,
-    "totalTasksDeclared": 550,
+    "totalFlights": 1709,
+    "totalKms": 309881,
+    "totalTasksDeclared": 551,
     "totalTasksCompleted": 29,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-08-27T13:37:51.707Z"
+    "generatedAt": "2026-08-28T14:49:32.390Z"
   }
 }
