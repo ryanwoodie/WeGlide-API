@@ -4624,6 +4624,25 @@
       "combinedHoursBeforeCutoff": 89.46,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "42851": {
+      "pilotId": 42851,
+      "weglidePilotId": "wg:42851",
+      "olcPilotId": "81807",
+      "pilotName": "James Boesch",
+      "matchKind": "olc_name_only",
+      "normalizedName": "jamesboesch",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 19.24,
+      "olcOnlyHours": 19.24,
+      "combinedHours": 19.24,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 19.24,
+      "combinedHoursBeforeCutoff": 19.24,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {

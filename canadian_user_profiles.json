@@ -254,10 +254,10 @@
     }
   },
   "8848": {
-    "total_flight_duration": 17360915,
-    "total_free_distance": 323651,
+    "total_flight_duration": 17381547,
+    "total_free_distance": 324023.95,
     "avg_speed": 71.59,
-    "flight_count": 1156,
+    "flight_count": 1157,
     "avg_glide_speed": 120.82,
     "avg_glide_detour": 1.22,
     "achievement_count": 26,
@@ -1644,11 +1644,11 @@
     "message_enabled": true
   },
   "34958": {
-    "total_flight_duration": 3121184,
-    "total_free_distance": 56188.01,
-    "avg_speed": 67.66,
-    "flight_count": 268,
-    "avg_glide_speed": 120.66,
+    "total_flight_duration": 3142738,
+    "total_free_distance": 56599.25,
+    "avg_speed": 67.67,
+    "flight_count": 269,
+    "avg_glide_speed": 120.68,
     "avg_glide_detour": 1.12,
     "achievement_count": 22,
     "name": "Rafael Bravo",
@@ -2388,11 +2388,11 @@
     "message_enabled": true
   },
   "35436": {
-    "total_flight_duration": 1270579,
-    "total_free_distance": 27408.28,
-    "avg_speed": 81.22,
-    "flight_count": 59,
-    "avg_glide_speed": 127.78,
+    "total_flight_duration": 1289825,
+    "total_free_distance": 27783.54,
+    "avg_speed": 81.13,
+    "flight_count": 60,
+    "avg_glide_speed": 127.67,
     "avg_glide_detour": 1.12,
     "achievement_count": 20,
     "name": "Nick Bonniere",
@@ -3760,12 +3760,12 @@
     "message_enabled": true
   },
   "39209": {
-    "total_flight_duration": 378717,
-    "total_free_distance": 3847.24,
-    "avg_speed": 39.77,
-    "flight_count": 34,
-    "avg_glide_speed": 108.5,
-    "avg_glide_detour": 1.45,
+    "total_flight_duration": 385118,
+    "total_free_distance": 3927.34,
+    "avg_speed": 40.02,
+    "flight_count": 36,
+    "avg_glide_speed": 108.45,
+    "avg_glide_detour": 1.44,
     "achievement_count": 10,
     "name": "Yvon Saucier",
     "gender": "M",
@@ -4164,12 +4164,12 @@
     "message_enabled": true
   },
   "40731": {
-    "total_flight_duration": 33076,
-    "total_free_distance": 148.9,
-    "avg_speed": 18.2,
-    "flight_count": 4,
-    "avg_glide_speed": 99.02,
-    "avg_glide_detour": 2.11,
+    "total_flight_duration": 40135,
+    "total_free_distance": 249.81,
+    "avg_speed": 25.56,
+    "flight_count": 5,
+    "avg_glide_speed": 102.65,
+    "avg_glide_detour": 1.96,
     "achievement_count": 0,
     "name": "Gulsah Hos",
     "gender": "F",
@@ -4235,11 +4235,11 @@
     "message_enabled": true
   },
   "40967": {
-    "total_flight_duration": 40778,
-    "total_free_distance": 278.73,
-    "avg_speed": 27.07,
-    "flight_count": 12,
-    "avg_glide_speed": 105.35,
+    "total_flight_duration": 42023,
+    "total_free_distance": 294.45,
+    "avg_speed": 27.87,
+    "flight_count": 13,
+    "avg_glide_speed": 105.32,
     "avg_glide_detour": 1.14,
     "achievement_count": 0,
     "name": "Gabriel Trahan desgroseilliers",
@@ -4498,12 +4498,12 @@
     "message_enabled": true
   },
   "42515": {
-    "total_flight_duration": 23028,
-    "total_free_distance": 79.47,
-    "avg_speed": 13.95,
-    "flight_count": 4,
-    "avg_glide_speed": 92.99,
-    "avg_glide_detour": 2.87,
+    "total_flight_duration": 31389,
+    "total_free_distance": 152.46,
+    "avg_speed": 19.44,
+    "flight_count": 6,
+    "avg_glide_speed": 92.83,
+    "avg_glide_detour": 2.58,
     "achievement_count": 0,
     "name": "Daniel perrault",
     "gender": "M",
@@ -4555,6 +4555,26 @@
       "name": "London Soaring Club",
       "region": "CA-ON",
       "url": "https://www.londonsoaringclub.ca"
+    },
+    "message_enabled": true
+  },
+  "42851": {
+    "total_flight_duration": 40563,
+    "total_free_distance": 255.92,
+    "avg_speed": 26.07,
+    "flight_count": 9,
+    "avg_glide_speed": 83.43,
+    "avg_glide_detour": 1.59,
+    "achievement_count": 0,
+    "name": "James Boesch",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
     },
     "message_enabled": true
   }
