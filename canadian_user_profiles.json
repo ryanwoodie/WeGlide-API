@@ -1806,6 +1806,26 @@
     },
     "message_enabled": true
   },
+  "35124": {
+    "total_flight_duration": 785960,
+    "total_free_distance": 8548.92,
+    "avg_speed": 43.13,
+    "flight_count": 99,
+    "avg_glide_speed": 117.95,
+    "avg_glide_detour": 1.52,
+    "achievement_count": 9,
+    "name": "Gord Lendrum",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1240,
+      "name": "Rideau Valley Soaring",
+      "region": "CA-ON",
+      "url": "https://rvss.ca"
+    },
+    "message_enabled": true
+  },
   "35140": {
     "total_flight_duration": 122065,
     "total_free_distance": 957.47,
