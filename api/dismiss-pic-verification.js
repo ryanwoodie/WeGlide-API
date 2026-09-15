@@ -2,7 +2,8 @@
  * Vercel Serverless Function: One-click "I'm over 200hr PIC, remove me from
  * the under-200 leaderboard". Records pilotId as ineligible (picHours=200).
  *
- * Token must be type='dismissal' and signed with VERIFICATION_TOKEN_SECRET.
+ * Also accepts type='silver-dismissal' for Silver C-Gull removal only.
+ * Tokens must be signed with VERIFICATION_TOKEN_SECRET.
  * Tokens are issued by the WeGlide direct-message notification flow.
  *
  * Usage (clicked by pilot from a WeGlide DM):
@@ -50,12 +51,14 @@ module.exports = async (req, res) => {
     }
 
     res.setHeader('content-type', 'text/html; charset=utf-8');
+    res.setHeader('cache-control', 'no-store');
+    res.setHeader('referrer-policy', 'no-referrer');
 
     try {
         const token = String(req.query?.token || '').trim();
         const payload = verifyVerificationToken(token);
 
-        if (payload.type !== 'dismissal') {
+        if (!['dismissal', 'silver-dismissal'].includes(payload.type)) {
             return res.status(400).send(renderPage(
                 'Invalid link',
                 'This link is not a dismissal link. Please use the original link from the message.'
@@ -65,22 +68,41 @@ module.exports = async (req, res) => {
             return res.status(400).send(renderPage('Invalid link', 'Token is missing pilot identity.'));
         }
 
-        const state = await loadVerificationState();
+        const isSilver = payload.type === 'silver-dismissal';
+        const state = await loadVerificationState({ requireRemote: true });
         const verifiedDate = new Date().toISOString();
         const pilotName = payload.pilotName || 'Pilot';
 
-        state.picHoursVerifications[String(payload.pilotId)] = {
-            pilotName,
-            picHours: 200,
-            verifiedDate,
-            eligible: false,
-            dataSource: 'self-claim-via-direct-message-dismissal'
-        };
+        if (isSilver) {
+            state.dobVerifications[String(payload.pilotId)] = {
+                pilotName,
+                verifiedDate,
+                eligible: false,
+                reason: 'silver-before-season',
+                dataSource: 'self-claim-via-direct-message-dismissal'
+            };
+        } else {
+            state.picHoursVerifications[String(payload.pilotId)] = {
+                pilotName,
+                picHours: 200,
+                verifiedDate,
+                eligible: false,
+                dataSource: 'self-claim-via-direct-message-dismissal'
+            };
+        }
 
-        await saveVerificationState(
+        const saved = await saveVerificationState(
             state,
-            `chore: dismiss under-200 status for ${pilotName} (${payload.pilotId})`
+            `chore: dismiss ${isSilver ? 'Silver C-Gull' : 'under-200'} status for ${pilotName} (${payload.pilotId})`
         );
+        if (!saved?.persisted) {
+            return res.status(503).send(renderPage('Removal not saved', 'The shared database is temporarily unavailable. Please try this link again later.'));
+        }
+
+        if (isSilver) {
+            return res.status(200).send(renderPage('Removed from Silver C-Gull list',
+                `${pilotName}, you've confirmed that you received your Silver badge before this season. You will no longer appear on the Silver C-Gull candidate list. Your PIC-hours status has not changed.`, true));
+        }
 
         return res.status(200).send(renderPage(
             'Removed from under-200 list',

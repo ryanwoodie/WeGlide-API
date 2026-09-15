@@ -7,6 +7,7 @@ const { computeSilverCandidates, buildSendQueue, buildSilverMessageBody, buildSi
 const { computeNotificationCandidates, MESSAGE_SECTION_GAP } = require('../lib/notify-top5');
 const { isValidDateOfBirth } = require('../lib/dob-validation');
 const root = path.join(__dirname, '..');
+process.env.VERIFICATION_TOKEN_SECRET = 'unit-test-only-not-a-production-secret';
 
 test('generated and future-generated email validators accept real addresses', () => {
     const generator = fs.readFileSync(path.join(root, 'create_canadian_leaderboard_from_jsonl.js'), 'utf8');
@@ -63,8 +64,50 @@ function loadHandler(file, dependencies) {
     return sandbox.module.exports;
 }
 function response() {
-    return { statusCode: 200, status(code) { this.statusCode = code; return this; }, send(body) { this.body = body; return this; }, json(body) { this.body = body; return this; } };
+    return { statusCode: 200, setHeader() {}, status(code) { this.statusCode = code; return this; }, send(body) { this.body = body; return this; }, json(body) { this.body = body; return this; } };
 }
+
+test('signed Silver one-click dismissal leaves PIC unchanged, stops queueing, and supports short links', async () => {
+    const tokens = require('../lib/verification-token');
+    const short = require('../lib/short-links');
+    const candidate = { pilotId: 123, pilotName: 'Test Pilot' };
+    const baseUrl = 'https://sac-leaderboard.vercel.app';
+    const links = buildSilverLinks({ baseUrl, candidate });
+    const token = new URL(links.dismiss).searchParams.get('token');
+    assert.equal(tokens.verifyVerificationToken(token).type, 'silver-dismissal');
+    const state = { dobVerifications: {}, picHoursVerifications: { 123: { eligible: true, picHours: 50 } } };
+    const shortLinks = short.createShortLinksForTargets({ state, baseUrl, targets: links, pilotId: 123 });
+    const code = new URL(shortLinks.shortened.dismiss).searchParams.get('c');
+    const target = short.resolveShortLink(state, code).targetUrl;
+    assert.equal(target, links.dismiss);
+    assert.equal(short.isAllowedShortLinkTarget(target, baseUrl), true);
+    let saves = 0;
+    let persisted = true;
+    const handler = loadHandler('dismiss-pic-verification.js', {
+        '../lib/verification-token': tokens,
+        '../lib/verification-store': { loadVerificationState: async () => state, saveVerificationState: async () => { saves++; return { persisted }; } }
+    });
+    for (let i = 0; i < 2; i++) {
+        const res = response();
+        await handler({ method: 'GET', query: { token } }, res);
+        assert.equal(res.statusCode, 200);
+        assert.match(res.body, /Removed from Silver C-Gull/);
+        assert.deepEqual(state.picHoursVerifications[123], { eligible: true, picHours: 50 });
+        assert.equal(state.dobVerifications[123].eligible, false);
+        assert.equal('dateOfBirth' in state.dobVerifications[123], false);
+    }
+    assert.equal(computeSilverCandidates({ leaderboardData: { silverCgullLeaderboard: [{ userId: 123, pilot: 'Test Pilot' }] }, state }).length, 0);
+    for (const badToken of [token + 'x', tokens.createVerificationToken({ type: 'dob', pilotId: 123 }), tokens.createVerificationToken({ type: 'silver-dismissal', pilotId: 123 }, -60)]) {
+        const res = response();
+        await handler({ method: 'GET', query: { token: badToken } }, res);
+        assert.equal(res.statusCode, 400);
+    }
+    assert.equal(saves, 2);
+    persisted = false;
+    const failed = response();
+    await handler({ method: 'GET', query: { token } }, failed);
+    assert.equal(failed.statusCode, 503);
+});
 
 test('DOB request emails confirmation without verifying; confirmation saves shared DOB only', async () => {
     const state = { verificationRequests: [], dobVerifications: {}, picHoursVerifications: {} };
