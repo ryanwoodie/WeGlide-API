@@ -87,7 +87,9 @@ module.exports = async (req, res) => {
 
     try {
         const body = getRequestBody(req);
-        const payload = body.type === 'dob' ? normalizeDobRequest(body) : normalizePicRequest(body);
+        const payload = body.type === 'silver-dismiss'
+            ? { type: 'silver-dismiss', pilotId: String(body.pilotId || '').trim(), pilotName: String(body.pilotName || '').trim(), email: String(body.email || '').trim().toLowerCase() }
+            : body.type === 'dob' ? normalizeDobRequest(body) : normalizePicRequest(body);
         validateCommonFields(payload);
         const state = await loadVerificationState({ requireRemote: true });
         state.verificationRequests.push({

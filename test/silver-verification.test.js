@@ -96,4 +96,49 @@ test('DOB request emails confirmation without verifying; confirmation saves shar
     await complete({ method: 'GET', query: { token: 'test-token' } }, failed);
     assert.equal(failed.statusCode, 503);
     assert.match(failed.body, /Verification not saved/);
+    persists = true;
+    const removal = response();
+    await request({ method: 'POST', headers: {}, body: { type: 'silver-dismiss', pilotId: '123', pilotName: 'Test Pilot', email: 'test@example.com' } }, removal);
+    assert.equal(removal.statusCode, 200);
+    assert.equal(payload.type, 'silver-dismiss');
+    assert.equal('dateOfBirth' in payload, false);
+    const removed = response();
+    await complete({ method: 'GET', query: { token: 'test-token' } }, removed);
+    assert.equal(removed.statusCode, 200);
+    assert.equal(state.dobVerifications['123'].eligible, false);
+    assert.equal('dateOfBirth' in state.dobVerifications['123'], false);
+    assert.match(removed.body, /removed from the Silver C-Gull/);
+    assert.equal(computeSilverCandidates({ leaderboardData: { silverCgullLeaderboard: [{ userId: 123, pilot: 'Test Pilot' }] }, state }).length, 0);
+});
+
+test('public DOB records reveal neither birth dates nor email and preserve precise age order', () => {
+    const { publicDobVerifications } = require('../lib/public-dob');
+    const entries = {
+        1: { dateOfBirth: '2005-09-10', email: 'private@example.com', pilotName: 'Older' },
+        2: { dateOfBirth: '2005-10-10', email: 'private@example.com', pilotName: 'Younger' },
+        3: { eligible: false, dateOfBirth: '2009-01-01', pilotName: 'Removed' }
+    };
+    const result = publicDobVerifications(entries, [1, 2, 3].map(userId => ({ userId, date: '2026-09-01' })));
+    assert.equal(result[2].awardRank, 1);
+    assert.equal(result[1].awardRank, 2);
+    assert.equal(result[1].ageAtAchievement, 20);
+    assert.equal(result[3].eligible, false);
+    assert.equal(result[3].awardRank, undefined);
+    assert.equal(/dateOfBirth|private@example|2005-/.test(JSON.stringify(result)), false);
+});
+
+test('generated Silver view removes opt-outs and leaves unverified candidates unranked', () => {
+    for (const file of ['SAC_leaderboard.html', 'SAC_leaderboard_sac_dsc.html']) {
+        const html = fs.readFileSync(path.join(root, 'public', file), 'utf8');
+        assert.ok(html.includes('id="silverDismiss"'));
+        assert.ok(html.includes('SAC Awards coordinator'));
+        assert.ok(html.includes("if (isSilverCGull && !hasSilverRank) rankDisplay = ''"));
+        const sortBlock = html.match(/if \(isSilverCGull\) \{\n                const verification = pilot =>[\s\S]*?\n            \}/)[0];
+        const pilots = [{ userId: 1, pilot: 'Zed' }, { userId: 2, pilot: 'Beta' }, { userId: 3, pilot: 'Alpha' }, { userId: 4, pilot: 'Removed' }, { userId: 5, pilot: 'Youngest' }];
+        const ordered = vm.runInNewContext(`let visible = pilots; ${sortBlock}; visible.map(p => p.pilot)`, {
+            pilots, isSilverCGull: true, isDobVerifiedEntry: e => !!e?.verified,
+            pilotVerifications: { dobVerifications: { 1: { verified: true, awardRank: 2 }, 4: { eligible: false }, 5: { verified: true, awardRank: 1 } } }
+        });
+        assert.equal(Array.from(ordered).join(','), 'Youngest,Zed,Alpha,Beta');
+    }
 });

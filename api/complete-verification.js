@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
     try {
         const token = String(req.query?.token || '').trim();
         const payload = verifyVerificationToken(token);
-        if (!['dob', 'pic'].includes(payload.type) || !/^\d+$/.test(payload.pilotId)) {
+        if (!['dob', 'pic', 'silver-dismiss'].includes(payload.type) || !/^\d+$/.test(payload.pilotId)) {
             throw new Error('Invalid verification type or pilot');
         }
         if (payload.type === 'dob' && !isValidDateOfBirth(payload.dateOfBirth)) {
@@ -50,7 +50,16 @@ module.exports = async (req, res) => {
         const state = await loadVerificationState({ requireRemote: true });
         const verifiedDate = new Date().toISOString();
 
-        if (payload.type === 'dob') {
+        if (payload.type === 'silver-dismiss') {
+            state.dobVerifications[payload.pilotId] = {
+                pilotName: payload.pilotName,
+                eligible: false,
+                reason: 'silver-before-season',
+                verifiedDate,
+                dataSource: 'email-verified',
+                email: payload.email
+            };
+        } else if (payload.type === 'dob') {
             state.dobVerifications[payload.pilotId] = {
                 pilotName: payload.pilotName,
                 dateOfBirth: payload.dateOfBirth,
@@ -79,7 +88,9 @@ module.exports = async (req, res) => {
 
         return res.status(200).send(renderPage(
             'Verification confirmed',
-            `${payload.pilotName} has been updated on the SAC Leaderboard.`,
+            payload.type === 'silver-dismiss'
+                ? `${payload.pilotName} has been removed from the Silver C-Gull candidate list.`
+                : `${payload.pilotName} has been updated on the SAC Leaderboard.`,
             true
         ));
     } catch (error) {

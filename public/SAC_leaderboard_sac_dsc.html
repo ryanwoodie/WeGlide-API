@@ -2525,7 +2525,7 @@
         }
 
         function isDobVerifiedEntry(entry) {
-            return !!(entry && entry.dateOfBirth);
+            return !!(entry && entry.verified && entry.eligible !== false);
         }
 
         function updateSeasonFooterText() {
@@ -4744,7 +4744,15 @@ No maximum distance bonus`,
             tbody.innerHTML = '';
             const isFreeMode = leaderboard === freeLeaderboard;
             const isSilverCGull = leaderboard === silverCGullLeaderboard;
-            const visible = applyAgeCategoryFilters(applyUnder200Filter(applyClubFilter(leaderboard)));
+            let visible = applyAgeCategoryFilters(applyUnder200Filter(applyClubFilter(leaderboard)));
+            if (isSilverCGull) {
+                const verification = pilot => pilotVerifications.dobVerifications?.[pilot.userId || pilot.pilotId];
+                visible = visible.filter(pilot => verification(pilot)?.eligible !== false).sort((a, b) => {
+                    const rank = pilot => isDobVerifiedEntry(verification(pilot)) && Number.isFinite(verification(pilot).awardRank)
+                        ? verification(pilot).awardRank : Infinity;
+                    return (rank(a) - rank(b)) || a.pilot.localeCompare(b.pilot);
+                });
+            }
             const clubFilterActive = selectedClub !== 'all';
             const ageCategoryFilterActive = juniorEnabled || seniorEnabled || womenEnabled;
             const isThreeFlightMode = currentScoringMode === 'sprint' || currentScoringMode === 'triangle' || currentScoringMode === 'out_return' || currentScoringMode === 'out';
@@ -4787,7 +4795,9 @@ No maximum distance bonus`,
                     (pilot.isBhcUnofficialRow === true || (bhcLeadFlight && bhcLeadFlight.bhcLoggerValid === false));
 
                 let rankDisplay = 'N/A';
-                if (!isBhcUnofficialRow) {
+                const hasSilverRank = !isSilverCGull || Number.isFinite(pilotVerifications.dobVerifications?.[pilot.userId || pilot.pilotId]?.awardRank);
+                if (isSilverCGull && !hasSilverRank) rankDisplay = '';
+                if (!isBhcUnofficialRow && hasSilverRank) {
                     rankedPosition += 1;
                     rankDisplay = rankedPosition;
                     if (!isFreeMode && !isSilverCGull) {
@@ -4839,7 +4849,8 @@ No maximum distance bonus`,
                     const isUserVerified = isDobVerifiedEntry(verificationData);
 
                     if (isUserVerified) {
-                        verificationBadge = '<div class="verification-badge verified">✓ DOB Verified</div>';
+                        verificationBadge = '<div class="verification-badge verified">✓ Age verified' +
+                            (Number.isFinite(verificationData.ageAtAchievement) ? ' - ' + verificationData.ageAtAchievement + ' at achievement' : '') + '</div>';
                         rowClass = 'verified-row';
                     } else {
                         verificationButton = ALLOW_PUBLIC_VERIFICATION_WRITE
@@ -5117,18 +5128,15 @@ No maximum distance bonus`,
             silverCGullLeaderboard.forEach(pilot => {
                 const verification = getDOBVerificationStatus(pilot);
 
-                if (verification && verification.dateOfBirth) {
-                    // Calculate age at time of achievement
-                    const dob = new Date(verification.dateOfBirth);
-                    const achievementDate = new Date(pilot.date);
-                    const ageAtAchievement = (achievementDate - dob) / (365.25 * 24 * 60 * 60 * 1000);
+                if (verification?.eligible === false) return;
+                if (isDobVerifiedEntry(verification) && Number.isFinite(verification.awardRank)) {
+                    const ageAtAchievement = verification.ageAtAchievement;
 
-                    if (ageAtAchievement < youngestAge) {
-                        youngestAge = ageAtAchievement;
+                    if (verification.awardRank < youngestAge) {
+                        youngestAge = verification.awardRank;
                         youngestVerified = {
                             ...pilot,
-                            ageAtAchievement: Math.floor(ageAtAchievement),
-                            dateOfBirth: verification.dateOfBirth
+                            ageAtAchievement
                         };
                     }
                 } else {
@@ -6120,9 +6128,15 @@ No maximum distance bonus`,
                     <h3>Date of Birth Verification</h3>
                     <p><strong>${pilotName}</strong></p>
                     <p>To be eligible for the Silver C-Gull trophy (youngest to achieve Silver C), please confirm your date of birth:</p>
-                    <div>
+                    <label style="display:flex;align-items:flex-start;gap:8px;margin:16px 0;">
+                        <input type="checkbox" id="silverDismiss" style="width:auto;" onchange="document.getElementById('dobInput').disabled=this.checked;document.getElementById('dobFields').hidden=this.checked;" />
+                        <span>I received my Silver badge before this season. Remove me from the Silver C-Gull candidate list.</span>
+                    </label>
+                    <p>No date of birth is needed for removal. Confirm your request using the link emailed to you.</p>
+                    <div id="dobFields">
                         <input type="date" id="dobInput" max="2010-12-31" />
                         <label for="dobInput">Date of Birth</label>
+                        <p style="font-size:0.85em;">Your date of birth is used only to determine your age for the Silver C-Gull award. It is not displayed publicly or shared with anyone other than the <strong>SAC Awards coordinator</strong>. Your age at achievement may appear in the standings.</p>
                     </div>
                     <div>
                         <input type="email" id="verificationEmail" placeholder="you@example.com" />
@@ -6143,9 +6157,10 @@ No maximum distance bonus`,
             const dobInput = document.getElementById('dobInput');
             const emailInput = document.getElementById('verificationEmail');
             const dateOfBirth = dobInput.value;
+            const dismiss = document.getElementById('silverDismiss').checked;
             const email = emailInput.value.trim().toLowerCase();
 
-            if (!dateOfBirth) {
+            if (!dismiss && !dateOfBirth) {
                 alert('Please enter your date of birth');
                 return;
             }
@@ -6159,7 +6174,7 @@ No maximum distance bonus`,
             const today = new Date();
             const age = (today - dob) / (365.25 * 24 * 60 * 60 * 1000);
 
-            if (age < 14 || age > 100) {
+            if (!dismiss && (age < 14 || age > 100)) {
                 alert('Please enter a valid date of birth');
                 return;
             }
@@ -6171,15 +6186,16 @@ No maximum distance bonus`,
 
             try {
                 await requestVerificationEmail({
-                    type: 'dob',
+                    type: dismiss ? 'silver-dismiss' : 'dob',
                     pilotId: pilotId,
                     pilotName: pilotName,
-                    dateOfBirth: dateOfBirth,
+                    ...(dismiss ? {} : { dateOfBirth }),
                     email: email
                 });
 
                 closeVerificationForm();
-                alert(`A verification link was sent to ${email}. Open it to confirm ${pilotName}'s date of birth.`);
+                alert(dismiss ? 'A confirmation link was emailed to you. Open it to remove yourself from the Silver C-Gull list.' :
+                    'A confirmation link was emailed to you. Open it to confirm your date of birth.');
             } catch (error) {
                 console.error('Failed to request DOB verification:', error);
                 alert(error.message || 'Failed to send verification email. Please try again or contact support.');

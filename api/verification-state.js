@@ -43,7 +43,17 @@ module.exports = async (req, res) => {
             }
         };
 
-        return res.status(200).json(sanitizeVerificationState(merged));
+        const dataPath = path.join(process.cwd(), 'public', 'leaderboard_data.json');
+        let candidates = [];
+        if (fs.existsSync(dataPath)) {
+            candidates = JSON.parse(fs.readFileSync(dataPath, 'utf8')).silverCgullLeaderboard || [];
+        } else {
+            const baseUrl = process.env.PUBLIC_BASE_URL || 'https://sac-leaderboard.vercel.app';
+            const response = await fetch(`${baseUrl}/leaderboard_data.json`, { signal: AbortSignal.timeout(10000) });
+            if (!response.ok) throw new Error('Unable to load Silver candidates');
+            candidates = (await response.json()).silverCgullLeaderboard || [];
+        }
+        return res.status(200).json(sanitizeVerificationState(merged, candidates));
     } catch (error) {
         console.error('[verification-state] Error:', error);
         return res.status(500).json({ error: 'Failed to load verification state' });
