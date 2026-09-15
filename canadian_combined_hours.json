@@ -4643,6 +4643,25 @@
       "combinedHoursBeforeCutoff": 19.24,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "43139": {
+      "pilotId": 43139,
+      "weglidePilotId": "wg:43139",
+      "olcPilotId": "85192",
+      "pilotName": "Lester Pinlac",
+      "matchKind": "olc_name_only",
+      "normalizedName": "lesterpinlac",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 9.48,
+      "olcOnlyHours": 9.48,
+      "combinedHours": 9.48,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 9.48,
+      "combinedHoursBeforeCutoff": 9.48,
+      "eligibleUnder200": true,
+      "dataSource": "olc-name-totals"
     }
   },
   "olcNameTotals": {
