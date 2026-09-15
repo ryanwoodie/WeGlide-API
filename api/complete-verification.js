@@ -1,4 +1,5 @@
 const { verifyVerificationToken } = require('../lib/verification-token');
+const { isValidDateOfBirth } = require('../lib/dob-validation');
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
 
 function renderPage(title, message, success = false) {
@@ -40,7 +41,13 @@ module.exports = async (req, res) => {
     try {
         const token = String(req.query?.token || '').trim();
         const payload = verifyVerificationToken(token);
-        const state = await loadVerificationState();
+        if (!['dob', 'pic'].includes(payload.type) || !/^\d+$/.test(payload.pilotId)) {
+            throw new Error('Invalid verification type or pilot');
+        }
+        if (payload.type === 'dob' && !isValidDateOfBirth(payload.dateOfBirth)) {
+            throw new Error('Invalid date of birth');
+        }
+        const state = await loadVerificationState({ requireRemote: true });
         const verifiedDate = new Date().toISOString();
 
         if (payload.type === 'dob') {
@@ -62,10 +69,13 @@ module.exports = async (req, res) => {
             };
         }
 
-        await saveVerificationState(
+        const persisted = await saveVerificationState(
             state,
             `chore: update verification state for ${payload.pilotName} (${payload.pilotId})`
         );
+        if (!persisted?.persisted) {
+            return res.status(503).send(renderPage('Verification not saved', 'The shared database is temporarily unavailable. Please try this link again later.'));
+        }
 
         return res.status(200).send(renderPage(
             'Verification confirmed',

@@ -1,4 +1,5 @@
 const { createVerificationToken } = require('../lib/verification-token');
+const { isValidDateOfBirth } = require('../lib/dob-validation');
 const { sendVerificationEmail } = require('../lib/verification-email');
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
 
@@ -23,6 +24,7 @@ function isValidEmail(email) {
 }
 
 function getBaseUrl(req) {
+    if (process.env.PUBLIC_BASE_URL) return process.env.PUBLIC_BASE_URL.replace(/\/+$/, '');
     const host = req.headers['x-forwarded-host'] || req.headers.host || process.env.VERCEL_URL;
     const protocol = req.headers['x-forwarded-proto'] || (host && host.includes('localhost') ? 'http' : 'https');
     return `${protocol}://${host}`;
@@ -45,7 +47,7 @@ function normalizePicRequest(body) {
 
 function normalizeDobRequest(body) {
     const dateOfBirth = String(body.dateOfBirth || '').trim();
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(dateOfBirth)) {
+    if (!isValidDateOfBirth(dateOfBirth)) {
         throw new Error('Invalid date of birth');
     }
 
@@ -87,15 +89,18 @@ module.exports = async (req, res) => {
         const body = getRequestBody(req);
         const payload = body.type === 'dob' ? normalizeDobRequest(body) : normalizePicRequest(body);
         validateCommonFields(payload);
-        const state = await loadVerificationState();
+        const state = await loadVerificationState({ requireRemote: true });
         state.verificationRequests.push({
             ...payload,
             ...getRequestMetadata(req)
         });
-        await saveVerificationState(
+        const saved = await saveVerificationState(
             state,
             `chore: log verification request for ${payload.pilotName} (${payload.pilotId})`
         );
+        if (!saved?.persisted) {
+            return res.status(503).json({ ok: false, error: 'Verification storage is temporarily unavailable. Please try again later.' });
+        }
 
         const token = createVerificationToken(payload, 3600);
         const verificationLink = `${getBaseUrl(req)}/api/complete-verification?token=${encodeURIComponent(token)}`;

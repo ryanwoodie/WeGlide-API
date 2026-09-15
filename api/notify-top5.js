@@ -49,6 +49,7 @@ const {
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
 const { createShortLinksForTargets } = require('../lib/short-links');
 const { sendUserMessage } = require('../lib/weglide-message');
+const { computeSilverCandidates, buildSilverLinks, buildSilverMessageBody, buildSendQueue } = require('../lib/notify-silver');
 
 const MAX_SENDS_PER_RUN = 1;
 const NOTIFY_WINDOW_TIME_ZONE = 'America/New_York';
@@ -163,7 +164,7 @@ module.exports = async (req, res) => {
 
         const baseUrl = resolveBaseUrl(req);
         const leaderboardData = await loadLeaderboardData(baseUrl);
-        const state = await loadVerificationState();
+        const state = await loadVerificationState({ requireRemote: true });
 
         const result = computeNotificationCandidates({ leaderboardData, state, topN });
 
@@ -194,6 +195,14 @@ module.exports = async (req, res) => {
                 };
             });
 
+        const silverCandidates = computeSilverCandidates({ leaderboardData, state })
+            .filter(candidate => !pilotIdFilter || String(candidate.pilotId) === pilotIdFilter)
+            .map(candidate => {
+                const links = buildSilverLinks({ baseUrl, candidate });
+                return { ...candidate, links, messageBody: buildSilverMessageBody({ candidate, links }) };
+            });
+        const sendQueue = buildSendQueue(candidatesWithMessages, silverCandidates, reminderCandidatesWithMessages);
+
         if (!sendRequested) {
             return res.status(200).json({
                 ok: true,
@@ -215,13 +224,14 @@ module.exports = async (req, res) => {
                     remindersNotDueSkipped: reminderResult.skipped.notDue.length
                 },
                 candidates: candidatesWithMessages,
+                silverCandidates,
+                queue: sendQueue,
                 reminders: reminderCandidatesWithMessages,
                 skipped: result.skipped
             });
         }
 
         // ----- send mode -----
-        const sendQueue = [...candidatesWithMessages, ...reminderCandidatesWithMessages];
         if (sendQueue.length === 0) {
             const note = pilotIdFilter
                 ? `No candidate matched pilotId=${pilotIdFilter}. Either the pilot is not in the under-200 top-${topN}, is not due for a reminder, has already been verified, or pilotId does not exist.`
@@ -253,7 +263,12 @@ module.exports = async (req, res) => {
         const failures = [];
         for (const candidate of toSend) {
             const startedAt = new Date().toISOString();
-            const stateBeforeSend = await loadVerificationState();
+            const stateBeforeSend = await loadVerificationState({ requireRemote: true });
+            const prior = stateBeforeSend.notifiedPilots?.[String(candidate.pilotId)];
+            if (candidate.messageKind === 'silver'
+                ? stateBeforeSend.dobVerifications?.[candidate.pilotId] || prior?.silverNotifiedAt
+                : stateBeforeSend.picHoursVerifications?.[candidate.pilotId] ||
+                    (candidate.messageKind === 'reminder' ? prior?.reminderSentAt : prior?.notifiedAt)) continue;
             const shortLinkResult = createShortLinksForTargets({
                 state: stateBeforeSend,
                 baseUrl,
@@ -262,13 +277,9 @@ module.exports = async (req, res) => {
                 pilotName: candidate.pilotName,
                 ttlSeconds: candidate.messageKind === 'reminder' ? 16 * 24 * 3600 : undefined
             });
-            const shortMessageBody = buildMessageBody({
-                candidate,
-                links: shortLinkResult.shortened
-            });
-            const outboundMessageBody = candidate.messageKind === 'reminder'
-                ? buildReminderMessageBody({ candidate, links: shortLinkResult.shortened })
-                : shortMessageBody;
+            const messageBuilder = candidate.messageKind === 'silver' ? buildSilverMessageBody
+                : candidate.messageKind === 'reminder' ? buildReminderMessageBody : buildMessageBody;
+            const outboundMessageBody = messageBuilder({ candidate, links: shortLinkResult.shortened });
             const shortLinkPersistResult = await saveVerificationState(
                 stateBeforeSend,
                 candidate.messageKind === 'reminder'
@@ -335,7 +346,14 @@ module.exports = async (req, res) => {
 
             const stateNow = stateBeforeSend;
             stateNow.notifiedPilots = stateNow.notifiedPilots || {};
-            if (candidate.messageKind === 'reminder') {
+            if (candidate.messageKind === 'silver') {
+                stateNow.notifiedPilots[String(candidate.pilotId)] = {
+                    ...(stateNow.notifiedPilots[String(candidate.pilotId)] || {}),
+                    pilotName: candidate.pilotName,
+                    silverNotifiedAt: startedAt,
+                    silverWeglideStatus: sendResponse.status
+                };
+            } else if (candidate.messageKind === 'reminder') {
                 stateNow.notifiedPilots[String(candidate.pilotId)] = {
                     ...(stateNow.notifiedPilots[String(candidate.pilotId)] || {}),
                     reminderSentAt: startedAt,
@@ -348,6 +366,7 @@ module.exports = async (req, res) => {
                 };
             } else {
                 stateNow.notifiedPilots[String(candidate.pilotId)] = {
+                    ...(stateNow.notifiedPilots[String(candidate.pilotId)] || {}),
                     pilotName: candidate.pilotName,
                     ranks: candidate.ranks,
                     defaultContest: candidate.defaultContest,
@@ -365,7 +384,9 @@ module.exports = async (req, res) => {
 
             const persistResult = await saveVerificationState(
                 stateNow,
-                candidate.messageKind === 'reminder'
+                candidate.messageKind === 'silver'
+                    ? `chore: notify Silver C-Gull pilot ${candidate.pilotName} (${candidate.pilotId})`
+                    : candidate.messageKind === 'reminder'
                     ? `chore: remind under-200 top-5 pilot ${candidate.pilotName} (${candidate.pilotId})`
                     : `chore: notify under-200 top-5 pilot ${candidate.pilotName} (${candidate.pilotId})`
             );

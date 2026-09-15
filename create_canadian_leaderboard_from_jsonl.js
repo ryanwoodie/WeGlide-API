@@ -5522,7 +5522,7 @@ No maximum distance bonus\`,
         const VERIFICATION_REQUEST_MESSAGE = 'A confirmation link will be emailed to you. Your claim is only applied after you open that link.';
 
         function isValidVerificationEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
         }
 
         function positionVerificationOverlayFromParentViewport(overlay, payload) {
@@ -5905,6 +5905,7 @@ No maximum distance bonus\`,
                 const params = new URLSearchParams(window.location.search);
                 const contest = (params.get('contest') || '').toLowerCase();
                 const contestModeMap = {
+                    'silvercgull': 'silverCGull',
                     'sac-dsc': 'mixed',
                     'mixed': 'mixed',
                     'combined': 'mixed',
@@ -5924,6 +5925,8 @@ No maximum distance bonus\`,
                 if ((under200 === '1' || under200 === 'true') && typeof setUnder200Filter === 'function') {
                     setUnder200Filter(true);
                 }
+                const dobPilot = silverCGullLeaderboard.find(pilot => String(pilot.userId) === params.get('verifyDob'));
+                if (dobPilot) showDOBVerificationForm(dobPilot.userId, dobPilot.pilot);
             } catch (err) {
                 console.warn('URL param init failed:', err);
             }
