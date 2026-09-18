@@ -568,12 +568,12 @@
     "message_enabled": true
   },
   "16605": {
-    "total_flight_duration": 1433791,
-    "total_free_distance": 20707.53,
-    "avg_speed": 59.42,
-    "flight_count": 163,
-    "avg_glide_speed": 115.66,
-    "avg_glide_detour": 1.49,
+    "total_flight_duration": 1436823,
+    "total_free_distance": 20741.66,
+    "avg_speed": 59.45,
+    "flight_count": 164,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 33,
     "name": "Ward Clapham",
     "gender": "M",
