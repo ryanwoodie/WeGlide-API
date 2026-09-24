@@ -190,7 +190,7 @@
     "38969": 141900,
     "38988": 25207,
     "39194": 749644,
-    "39209": 466749,
+    "39209": 479581,
     "39251": 79670,
     "39261": 48854,
     "39303": 51565,
@@ -8885,10 +8885,10 @@
       "message_enabled": true
     },
     "39209": {
-      "total_flight_duration": 466749,
-      "total_free_distance": 4731.31,
-      "avg_speed": 39.91,
-      "flight_count": 43,
+      "total_flight_duration": 479581,
+      "total_free_distance": 4847.83,
+      "avg_speed": 39.85,
+      "flight_count": 44,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 10,
@@ -307196,6 +307196,71 @@
         "name": "Île Aux Coudres",
         "region": "CA-QC"
       }
+    },
+    {
+      "id": 1244429,
+      "user": {
+        "id": 39209,
+        "name": "Yvon Saucier"
+      },
+      "date": "2026-09-23",
+      "distance": 116.52,
+      "duration": 12832,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 123.64,
+          "distance": 116.52,
+          "speed": 37.5,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 32.31,
+          "distance": 69.47,
+          "speed": 34.73,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 59.03,
+          "distance": 64.93,
+          "speed": 30.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 42.93,
+          "distance": 47.22,
+          "speed": 35.29,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 89.8,
+          "distance": 98.78,
+          "speed": 35.09,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Hawkesbury",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -337205,12 +337270,12 @@
   ],
   "meta": {
     "totalPilots": 235,
-    "totalFlights": 1980,
-    "totalKms": 335629,
+    "totalFlights": 1981,
+    "totalKms": 335746,
     "totalTasksDeclared": 615,
     "totalTasksCompleted": 32,
     "seasonLabel": "Oct 1, 2025 - Sept 30, 2026",
     "freeSeasonLabel": "Oct 1, 2025 - Sept 30, 2026*",
-    "generatedAt": "2026-09-23T08:13:23.789Z"
+    "generatedAt": "2026-09-24T08:03:54.172Z"
   }
 }
