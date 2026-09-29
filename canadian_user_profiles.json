@@ -2509,12 +2509,12 @@
     "message_enabled": true
   },
   "35481": {
-    "total_flight_duration": 368883,
-    "total_free_distance": 3486.37,
-    "avg_speed": 38.21,
-    "flight_count": 44,
-    "avg_glide_speed": 105.43,
-    "avg_glide_detour": 1.48,
+    "total_flight_duration": 375583,
+    "total_free_distance": 3527.03,
+    "avg_speed": 37.96,
+    "flight_count": 45,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 7,
     "name": "Francois Carrard",
     "gender": "M",
