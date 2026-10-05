@@ -959,13 +959,13 @@
     "message_enabled": true
   },
   "22232": {
-    "total_flight_duration": 2034781,
-    "total_free_distance": 28053.91,
-    "avg_speed": 54.91,
-    "flight_count": 333,
+    "total_flight_duration": 2046216,
+    "total_free_distance": 28280.64,
+    "avg_speed": 55.06,
+    "flight_count": 338,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
-    "achievement_count": 20,
+    "achievement_count": 21,
     "name": "Gregory Zak",
     "gender": "M",
     "is_junior": false,
@@ -4737,6 +4737,26 @@
       "region": "CA-BC",
       "url": "http://www.avsa.ca",
       "logo": "club/849.png"
+    },
+    "message_enabled": true
+  },
+  "43468": {
+    "total_flight_duration": 15368,
+    "total_free_distance": 81.73,
+    "avg_speed": 21.78,
+    "flight_count": 1,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 0,
+    "name": "Erich Schuldes",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": true,
+    "club": {
+      "id": 1133,
+      "name": "London Soaring Club",
+      "region": "CA-ON",
+      "url": "https://www.londonsoaringclub.ca"
     },
     "message_enabled": true
   }
