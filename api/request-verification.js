@@ -38,6 +38,7 @@ function normalizePicRequest(body) {
 
     return {
         type: 'pic',
+        seasonId: body.seasonId === '2026-27' ? '2026-27' : '2025-26',
         pilotId: String(body.pilotId || '').trim(),
         pilotName: String(body.pilotName || '').trim(),
         email: String(body.email || '').trim().toLowerCase(),

@@ -1,12 +1,16 @@
 const fs = require('fs');
 const path = require('path');
+const { getSeason } = require('../lib/seasons');
 
 const LEADERBOARD_FILE = 'SAC_leaderboard_sac_dsc.html';
 
 module.exports = async (req, res) => {
     try {
         // Serve from public/ directory
-        const filePath = path.join(process.cwd(), 'public', LEADERBOARD_FILE);
+        let season;
+        try { season = getSeason(req.query?.season); }
+        catch (error) { return res.status(400).send('Unknown soaring season'); }
+        const filePath = path.join(process.cwd(), season.publicDir, LEADERBOARD_FILE);
 
         if (!fs.existsSync(filePath)) {
             return res.status(404).send('Leaderboard not found. Please wait for the next build.');

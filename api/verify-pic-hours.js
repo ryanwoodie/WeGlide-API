@@ -16,6 +16,7 @@ const { verifyVerificationToken } = require('../lib/verification-token');
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
 const { getSeasonStartLabel } = require('../lib/notify-top5');
 const { resolveShortLink, isAllowedShortLinkTarget } = require('../lib/short-links');
+const { CURRENT_SEASON_ID, getSeason } = require('../lib/seasons');
 
 function escapeHtml(value) {
     return String(value)
@@ -182,9 +183,13 @@ module.exports = async (req, res) => {
             const pilotName = payload.pilotName || 'Pilot';
 
             const state = await loadVerificationState();
-            state.picHoursVerifications[String(payload.pilotId)] = {
+            const season = getSeason(payload.seasonId || CURRENT_SEASON_ID);
+            const verificationKey = season.id === '2025-26'
+                ? String(payload.pilotId) : `${season.id}:${payload.pilotId}`;
+            state.picHoursVerifications[verificationKey] = {
                 pilotName,
                 picHours,
+                cutoffDate: season.start,
                 verifiedDate,
                 eligible,
                 dataSource: 'self-submitted-via-direct-message'

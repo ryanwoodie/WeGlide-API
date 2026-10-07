@@ -85,6 +85,7 @@ test('signed Silver one-click dismissal leaves PIC unchanged, stops queueing, an
     let persisted = true;
     const handler = loadHandler('dismiss-pic-verification.js', {
         '../lib/verification-token': tokens,
+        '../lib/seasons': require('../lib/seasons'),
         '../lib/verification-store': { loadVerificationState: async () => state, saveVerificationState: async () => { saves++; return { persisted }; } }
     });
     for (let i = 0; i < 2; i++) {

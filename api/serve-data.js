@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { getSeason } = require('../lib/seasons');
 
 const DATA_FILE = 'leaderboard_data.json';
 
@@ -15,7 +16,10 @@ module.exports = async (req, res) => {
 
     try {
         // Serve from public/ directory
-        const filePath = path.join(process.cwd(), 'public', DATA_FILE);
+        let season;
+        try { season = getSeason(req.query?.season); }
+        catch (error) { return res.status(400).json({ error: 'Unknown soaring season' }); }
+        const filePath = path.join(process.cwd(), season.publicDir, DATA_FILE);
 
         if (!fs.existsSync(filePath)) {
             return res.status(404).json({ error: 'Data not found. Please wait for the next build.' });

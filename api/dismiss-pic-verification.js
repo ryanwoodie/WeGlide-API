@@ -12,6 +12,7 @@
 
 const { verifyVerificationToken } = require('../lib/verification-token');
 const { loadVerificationState, saveVerificationState } = require('../lib/verification-store');
+const { CURRENT_SEASON_ID, getSeason } = require('../lib/seasons');
 
 function escapeHtml(value) {
     return String(value)
@@ -82,9 +83,13 @@ module.exports = async (req, res) => {
                 dataSource: 'self-claim-via-direct-message-dismissal'
             };
         } else {
-            state.picHoursVerifications[String(payload.pilotId)] = {
+            const season = getSeason(payload.seasonId || CURRENT_SEASON_ID);
+            const verificationKey = season.id === '2025-26'
+                ? String(payload.pilotId) : `${season.id}:${payload.pilotId}`;
+            state.picHoursVerifications[verificationKey] = {
                 pilotName,
                 picHours: 200,
+                cutoffDate: season.start,
                 verifiedDate,
                 eligible: false,
                 dataSource: 'self-claim-via-direct-message-dismissal'

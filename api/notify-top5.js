@@ -50,6 +50,34 @@ const { loadVerificationState, saveVerificationState } = require('../lib/verific
 const { createShortLinksForTargets } = require('../lib/short-links');
 const { sendUserMessage } = require('../lib/weglide-message');
 const { computeSilverCandidates, buildSilverLinks, buildSilverMessageBody, buildSendQueue } = require('../lib/notify-silver');
+const { CURRENT_SEASON_ID } = require('../lib/seasons');
+const { selectSeasonPicVerifications } = require('../lib/season-verifications');
+
+function notificationContext(rawState, leaderboardData) {
+    const selected = selectSeasonPicVerifications(rawState, CURRENT_SEASON_ID);
+    const combinedHours = { ...(leaderboardData.pilotCombinedHours || {}) };
+    const confirmed = {};
+    for (const [pilotId, entry] of Object.entries(selected)) {
+        if (entry.dataSource === 'prior-verified-projection') {
+            combinedHours[pilotId] = {
+                ...(combinedHours[pilotId] || {}),
+                combinedHoursBeforeCutoff: entry.picHours,
+                eligibleUnder200: entry.eligible
+            };
+        } else {
+            confirmed[pilotId] = entry;
+        }
+    }
+    const prefix = CURRENT_SEASON_ID + ':';
+    const notifiedPilots = {};
+    for (const [key, entry] of Object.entries(rawState.notifiedPilots || {})) {
+        if (key.startsWith(prefix)) notifiedPilots[key.slice(prefix.length)] = entry;
+    }
+    return {
+        state: { ...rawState, picHoursVerifications: confirmed, notifiedPilots },
+        leaderboardData: { ...leaderboardData, pilotCombinedHours: combinedHours }
+    };
+}
 
 const MAX_SENDS_PER_RUN = 1;
 const NOTIFY_WINDOW_TIME_ZONE = 'America/New_York';
@@ -165,8 +193,9 @@ module.exports = async (req, res) => {
         const baseUrl = resolveBaseUrl(req);
         const leaderboardData = await loadLeaderboardData(baseUrl);
         const state = await loadVerificationState({ requireRemote: true });
+        const current = notificationContext(state, leaderboardData);
 
-        const result = computeNotificationCandidates({ leaderboardData, state, topN });
+        const result = computeNotificationCandidates({ leaderboardData: current.leaderboardData, state: current.state, topN });
 
         let filteredCandidates = result.candidates;
         if (pilotIdFilter) {
@@ -182,7 +211,7 @@ module.exports = async (req, res) => {
                 links
             };
         });
-        const reminderResult = computeReminderCandidates({ state, leaderboardData });
+        const reminderResult = computeReminderCandidates({ state: current.state, leaderboardData: current.leaderboardData });
         const reminderCandidatesWithMessages = reminderResult.candidates
             .filter(candidate => !pilotIdFilter || String(candidate.pilotId) === pilotIdFilter)
             .map(candidate => {
@@ -264,10 +293,13 @@ module.exports = async (req, res) => {
         for (const candidate of toSend) {
             const startedAt = new Date().toISOString();
             const stateBeforeSend = await loadVerificationState({ requireRemote: true });
-            const prior = stateBeforeSend.notifiedPilots?.[String(candidate.pilotId)];
+            const currentBeforeSend = notificationContext(stateBeforeSend, leaderboardData);
+            const prior = candidate.messageKind === 'silver'
+                ? stateBeforeSend.notifiedPilots?.[String(candidate.pilotId)]
+                : currentBeforeSend.state.notifiedPilots?.[String(candidate.pilotId)];
             if (candidate.messageKind === 'silver'
                 ? stateBeforeSend.dobVerifications?.[candidate.pilotId] || prior?.silverNotifiedAt
-                : stateBeforeSend.picHoursVerifications?.[candidate.pilotId] ||
+                : currentBeforeSend.state.picHoursVerifications?.[candidate.pilotId] ||
                     (candidate.messageKind === 'reminder' ? prior?.reminderSentAt : prior?.notifiedAt)) continue;
             const shortLinkResult = createShortLinksForTargets({
                 state: stateBeforeSend,
@@ -346,16 +378,18 @@ module.exports = async (req, res) => {
 
             const stateNow = stateBeforeSend;
             stateNow.notifiedPilots = stateNow.notifiedPilots || {};
+            const noticeKey = candidate.messageKind === 'silver'
+                ? String(candidate.pilotId) : `${CURRENT_SEASON_ID}:${candidate.pilotId}`;
             if (candidate.messageKind === 'silver') {
-                stateNow.notifiedPilots[String(candidate.pilotId)] = {
-                    ...(stateNow.notifiedPilots[String(candidate.pilotId)] || {}),
+                stateNow.notifiedPilots[noticeKey] = {
+                    ...(stateNow.notifiedPilots[noticeKey] || {}),
                     pilotName: candidate.pilotName,
                     silverNotifiedAt: startedAt,
                     silverWeglideStatus: sendResponse.status
                 };
             } else if (candidate.messageKind === 'reminder') {
-                stateNow.notifiedPilots[String(candidate.pilotId)] = {
-                    ...(stateNow.notifiedPilots[String(candidate.pilotId)] || {}),
+                stateNow.notifiedPilots[noticeKey] = {
+                    ...(stateNow.notifiedPilots[noticeKey] || {}),
                     reminderSentAt: startedAt,
                     reminderWeglideStatus: sendResponse.status,
                     reminderTriggeredVia: pilotIdFilter ? 'one-off-pilotId-filter' : 'top-5-reminder-queue',
@@ -365,8 +399,8 @@ module.exports = async (req, res) => {
                     }))
                 };
             } else {
-                stateNow.notifiedPilots[String(candidate.pilotId)] = {
-                    ...(stateNow.notifiedPilots[String(candidate.pilotId)] || {}),
+                stateNow.notifiedPilots[noticeKey] = {
+                    ...(stateNow.notifiedPilots[noticeKey] || {}),
                     pilotName: candidate.pilotName,
                     ranks: candidate.ranks,
                     defaultContest: candidate.defaultContest,

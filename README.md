@@ -14,10 +14,14 @@ Canadian gliding leaderboard tooling and the Vercel deployment that publishes `s
 ```bash
 npm install
 node fetch_canadian_flights.js
-node fetch_user_profiles.js canadian_flights_2026_details.jsonl canadian_user_profiles.json
-node fetch_user_durations.js canadian_flights_2026_details.jsonl canadian_user_durations.json
+node fetch_user_profiles.js canadian_flights_2027_details.jsonl canadian_user_profiles.json
+node fetch_user_durations.js canadian_flights_2027_details.jsonl canadian_user_durations.json
 node create_canadian_leaderboard_from_jsonl.js
 ```
+
+The default season is 2026–27. The season picker switches between 2026–27 and the archived 2025–26 board. Build the archive with `SEASON_ID=2025-26 node create_canadian_leaderboard_from_jsonl.js`; its artifacts are written under `public/seasons/2025-26/`. Regenerate `season_flight_hours_2025_26.json` with `node build_season_flight_hours.js` after updating the historical flight dataset.
+
+The Under 200 Hours estimate for 2026–27 uses October 1, 2026 as its cutoff. Pilots who verified their October 1, 2025 PIC hours start from that confirmed total plus their 2025–26 WeGlide flight hours; this is still an estimate until the new cutoff is verified. A confirmed 200+ PIC total from 2025–26 stays excluded in 2026–27. New PIC verifications and notifications are keyed by season; existing 2025–26 records remain intact.
 
 ## Deployment Notes
 
@@ -32,8 +36,8 @@ Required production env vars:
 - `UPDATE_TOKEN`
 - `GITHUB_TOKEN` with repository contents and Actions workflow permissions
 - `BLOB_READ_WRITE_TOKEN`
-- `SEASON_START`
-- `SEASON_END`
+
+Season dates are defined in `lib/seasons.js`; legacy `SEASON_START` and `SEASON_END` deployment variables are ignored by the updater.
 
 Optional fallback env vars:
 

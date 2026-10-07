@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
 // Fetch and cache WeGlide user profile data for a set of user IDs
-// - Reads IDs from a JSONL flights file (default: canadian_flights_2026_details.jsonl)
+// - Reads IDs from the current season's JSONL file by default.
 // - Requests users in batches via /v1/user?id_in=...
 // - Writes full profile data: { "<userId>": { total_flight_duration, name, club, ... }, ... }
 
 const fs = require('fs');
 const readline = require('readline');
+const { getSeason } = require('./lib/seasons');
 
-const INPUT_FILE = process.argv[2] || 'canadian_flights_2026_details.jsonl';
+const INPUT_FILE = process.argv[2] || getSeason().dataset;
 const OUTPUT_FILE = process.argv[3] || 'canadian_user_profiles.json';
 const BATCH_SIZE = 100;
 const WEGLIDE_HEADERS = {
@@ -63,12 +64,31 @@ async function fetchUserById(id) {
   return data && typeof data.id === 'number' ? data : null;
 }
 
+function mergeProfile(previous, user) {
+  const merged = { ...(previous || {}) };
+  for (const field of ['total_flight_duration', 'total_free_distance', 'avg_speed', 'flight_count',
+    'avg_glide_speed', 'avg_glide_detour', 'achievement_count']) {
+    if (typeof user[field] === 'number') merged[field] = user[field];
+  }
+  for (const field of ['name', 'gender']) {
+    if (typeof user[field] === 'string' && user[field]) merged[field] = user[field];
+  }
+  for (const field of ['is_junior', 'is_senior']) {
+    if (typeof user[field] === 'boolean') merged[field] = user[field];
+  }
+  if (user.club) merged.club = user.club;
+  return merged;
+}
+
 async function main() {
   console.log(`Reading user IDs from ${INPUT_FILE} ...`);
   const ids = await readUserIdsFromJsonl(INPUT_FILE);
   console.log(`Found ${ids.length} unique user IDs.`);
 
-  const profiles = {};
+  // Profiles contain lifetime totals and are shared across seasons.
+  const profiles = fs.existsSync(OUTPUT_FILE)
+    ? JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'))
+    : {};
   for (let i = 0; i < ids.length; i += BATCH_SIZE) {
     const chunk = ids.slice(i, i + BATCH_SIZE);
     process.stdout.write(`Fetching users ${i + 1}-${Math.min(i + BATCH_SIZE, ids.length)} / ${ids.length} ... `);
@@ -78,20 +98,7 @@ async function main() {
       for (const u of arr) {
         if (u && typeof u.id === 'number') {
           // Store full profile data
-          profiles[u.id] = {
-            total_flight_duration: u.total_flight_duration || 0,
-            total_free_distance: u.total_free_distance || 0,
-            avg_speed: u.avg_speed || 0,
-            flight_count: u.flight_count || 0,
-            avg_glide_speed: u.avg_glide_speed || 0,
-            avg_glide_detour: u.avg_glide_detour || 0,
-            achievement_count: u.achievement_count || 0,
-            name: u.name || '',
-            gender: u.gender || '',
-            is_junior: u.is_junior === true,
-            is_senior: u.is_senior === true,
-            club: u.club || null
-          };
+          profiles[u.id] = mergeProfile(profiles[u.id], u);
           hit++;
         }
       }
@@ -103,20 +110,7 @@ async function main() {
         try {
           const u = await fetchUserById(id);
           if (u && typeof u.id === 'number') {
-            profiles[u.id] = {
-              total_flight_duration: u.total_flight_duration || 0,
-              total_free_distance: u.total_free_distance || 0,
-              avg_speed: u.avg_speed || 0,
-              flight_count: u.flight_count || 0,
-              avg_glide_speed: u.avg_glide_speed || 0,
-              avg_glide_detour: u.avg_glide_detour || 0,
-              achievement_count: u.achievement_count || 0,
-              name: u.name || '',
-              gender: u.gender || '',
-              is_junior: u.is_junior === true,
-              is_senior: u.is_senior === true,
-              club: u.club || null
-            };
+            profiles[u.id] = mergeProfile(profiles[u.id], u);
             hit++;
           }
         } catch {}

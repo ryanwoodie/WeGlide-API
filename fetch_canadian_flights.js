@@ -1,26 +1,29 @@
 #!/usr/bin/env node
 
 /**
- * Fetch Canadian flights from WeGlide API for the 2025-26 season
- * Season: Oct 1, 2025 - Sep 30, 2026
- * Special: Free scoring starts Sep 23, 2025
+ * Fetch Canadian flights from WeGlide API for the active soaring season.
  *
  * Fetches detailed flight data and saves to JSONL format (one JSON object per line)
  */
 
 const fs = require('fs');
 const https = require('https');
+const { getSeason } = require('./lib/seasons');
 
 // Season configuration
-const FREE_SEASON_START = '2025-09-23';
-const REGULAR_SEASON_START = '2025-10-01';
-const SEASON_END = '2025-11-18'; // Today's date
+const season = getSeason(process.env.SEASON_ID);
+const FREE_SEASON_START = season.fetchStart;
+const REGULAR_SEASON_START = season.start;
+const SEASON_END = season.end;
 
 // Configuration
 const COUNTRY_CODE = 'CA';
-const OUTPUT_FILE = 'canadian_flights_2026_details.jsonl';
+const OUTPUT_FILE = season.dataset;
+const TEMP_FILE = `${OUTPUT_FILE}.download`;
 const BATCH_SIZE = 100; // WeGlide allows up to 100 flights per request
 const DELAY_BETWEEN_BATCHES = 1000; // 1 second delay to be nice to the API
+const DETAIL_CONCURRENCY = Number(process.env.DETAIL_CONCURRENCY || 3);
+const DETAIL_BATCH_DELAY_MS = Number(process.env.DETAIL_BATCH_DELAY_MS || 500);
 
 // Helper function to make API requests
 function fetchFromAPI(path) {
@@ -30,8 +33,17 @@ function fetchFromAPI(path) {
             path: path,
             method: 'GET',
             headers: {
-                'accept': 'application/json',
-                'User-Agent': 'SAC-Leaderboard-Fetcher/1.0'
+                'accept': 'application/json, text/plain, */*',
+                'accept-language': 'en-US,en;q=0.9',
+                'origin': 'https://www.weglide.org',
+                'referer': 'https://www.weglide.org/',
+                'sec-ch-ua': '"Google Chrome";v="126", "Chromium";v="126", "Not.A/Brand";v="8"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"macOS"',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-site',
+                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
             }
         };
 
@@ -72,13 +84,17 @@ function delay(ms) {
 
 // Fetch flight detail
 async function fetchFlightDetail(flightId) {
-    try {
-        const detail = await fetchFromAPI(`/v1/flightdetail/${flightId}`);
-        return detail;
-    } catch (error) {
-        console.error(`  ✗ Error fetching detail for flight ${flightId}: ${error.message}`);
-        return null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+            return await fetchFromAPI(`/v1/flightdetail/${flightId}`);
+        } catch (error) {
+            console.error(`  ✗ Flight ${flightId}, attempt ${attempt}: ${error.message}`);
+            // A blank 202 from the AWS WAF is a challenge, not a flight detail.
+            if (/status 202\b/.test(error.message)) throw error;
+            if (attempt < 3) await delay(1000 * attempt);
+        }
     }
+    return null;
 }
 
 // Main fetching function
@@ -130,7 +146,7 @@ async function fetchCanadianFlights() {
 
         } catch (error) {
             console.error(`  ✗ Error fetching batch: ${error.message}`);
-            hasMore = false;
+            throw error;
         }
     }
 
@@ -142,42 +158,45 @@ async function fetchCanadianFlights() {
     console.log('Phase 2: Fetching detailed flight data...');
     console.log('');
 
-    // Clear output file if it exists
-    if (fs.existsSync(OUTPUT_FILE)) {
-        fs.unlinkSync(OUTPUT_FILE);
-    }
-
     let detailsSuccessCount = 0;
     let detailsFailCount = 0;
-
-    for (let i = 0; i < allFlights.length; i++) {
-        const basicFlight = allFlights[i];
-        const flightId = basicFlight.id;
-
-        console.log(`  [${i + 1}/${allFlights.length}] Fetching detail for flight ${flightId}...`);
-
-        const flightDetail = await fetchFlightDetail(flightId);
-
-        if (flightDetail) {
-            // Append to JSONL file (one JSON object per line)
-            fs.appendFileSync(OUTPUT_FILE, JSON.stringify(flightDetail) + '\n');
-            detailsSuccessCount++;
-            console.log(`    ✓ Saved (${flightDetail.user?.name || 'unknown'})`);
-        } else {
-            detailsFailCount++;
+    const cachedDetails = new Map();
+    for (const cacheFile of [OUTPUT_FILE, TEMP_FILE, process.env.EXTRA_CACHE_FILE].filter(Boolean)) {
+        if (!fs.existsSync(cacheFile)) continue;
+        for (const line of fs.readFileSync(cacheFile, 'utf8').split('\n')) {
+            if (!line.trim()) continue;
+            try {
+                const flight = JSON.parse(line);
+                if (flight.id) cachedDetails.set(flight.id, flight);
+            } catch (error) { /* Ignore a damaged cached line. */ }
         }
-
-        // Progress update every 10 flights
-        if ((i + 1) % 10 === 0) {
-            console.log('');
-            console.log(`    Progress: ${i + 1}/${allFlights.length} flights processed`);
-            console.log(`    Success: ${detailsSuccessCount} | Failed: ${detailsFailCount}`);
-            console.log('');
-        }
-
-        // Small delay to avoid overwhelming the API
-        await delay(200);
     }
+    // The previous partial download is now in memory and can be rebuilt in list order.
+    if (fs.existsSync(TEMP_FILE)) fs.unlinkSync(TEMP_FILE);
+
+    for (let i = 0; i < allFlights.length; i += DETAIL_CONCURRENCY) {
+        const batch = allFlights.slice(i, i + DETAIL_CONCURRENCY);
+        const details = await Promise.all(batch.map(flight =>
+            cachedDetails.get(flight.id) || fetchFlightDetail(flight.id)));
+        for (const detail of details) {
+            if (detail) {
+                fs.appendFileSync(TEMP_FILE, JSON.stringify(detail) + '\n');
+                detailsSuccessCount++;
+            } else {
+                detailsFailCount++;
+            }
+        }
+        if ((i + batch.length) % 100 < DETAIL_CONCURRENCY || i + batch.length === allFlights.length) {
+            console.log(`  Progress: ${i + batch.length}/${allFlights.length} | saved: ${detailsSuccessCount} | failed: ${detailsFailCount}`);
+        }
+        await delay(DETAIL_BATCH_DELAY_MS);
+    }
+
+    if (detailsFailCount > 0) {
+        throw new Error(`${detailsFailCount} flight details failed; existing dataset was preserved`);
+    }
+    if (!fs.existsSync(TEMP_FILE)) fs.writeFileSync(TEMP_FILE, '');
+    fs.renameSync(TEMP_FILE, OUTPUT_FILE);
 
     console.log('');
     console.log('='.repeat(60));

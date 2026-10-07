@@ -12,19 +12,23 @@ const {
     saveVerificationState
 } = require('../lib/verification-store');
 const { sendUserMessage } = require('../lib/weglide-message');
+const { getSeason } = require('../lib/seasons');
+const { weglideHeaders } = require('../lib/weglide-headers');
+const { selectSeasonPicVerifications } = require('../lib/season-verifications');
+const ACTIVE_SEASON = getSeason();
 
 // The season dataset is too large for GitHub's Git Data API, so Blob is its
 // canonical runtime store. GitHub remains the source for smaller artifacts.
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN || null;
 const RUNNING_ON_VERCEL = Boolean(process.env.VERCEL);
 const BLOB_FALLBACK_ENABLED = /^(1|true|yes)$/i.test((process.env.ENABLE_BLOB_FALLBACK || '').trim());
-const DATASET_BLOB_KEY = process.env.DATASET_BLOB_KEY || 'canadian_flights_2026_details.jsonl';
+const DATASET_BLOB_KEY = ACTIVE_SEASON.dataset;
 const PROFILES_BLOB_KEY = process.env.PROFILES_BLOB_KEY || 'canadian_user_profiles.json';
 const UPDATE_STATE_KEY = process.env.UPDATE_STATE_KEY || 'canadian_flights_update_state.json';
 const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const BOOTSTRAP_FILES = {
-    [DATASET_BLOB_KEY]: path.join(process.cwd(), 'bootstrap', 'canadian_flights_2026_details.bootstrap'),
+    [DATASET_BLOB_KEY]: path.join(process.cwd(), 'bootstrap', 'canadian_flights_2027_details.bootstrap'),
     [PROFILES_BLOB_KEY]: path.join(process.cwd(), 'bootstrap', 'canadian_user_profiles.bootstrap')
 };
 
@@ -32,18 +36,18 @@ const usingBlobFallback = () => Boolean(BLOB_TOKEN) && BLOB_FALLBACK_ENABLED;
 const usingBlobDatasetPersistence = () => Boolean(BLOB_TOKEN);
 const TMP_DIR = RUNNING_ON_VERCEL ? '/tmp' : process.cwd();
 
-const DATASET_FILE = path.join(TMP_DIR, process.env.CANADIAN_FLIGHTS_FILE || 'canadian_flights_2026_details.jsonl');
+const DATASET_FILE = path.join(TMP_DIR, ACTIVE_SEASON.dataset);
 const PROFILES_FILE = path.join(TMP_DIR, process.env.CANADIAN_PROFILES_FILE || 'canadian_user_profiles.json');
-const COMBINED_HOURS_FILE = path.join(TMP_DIR, process.env.CANADIAN_COMBINED_HOURS_FILE || 'canadian_combined_hours.json');
+const COMBINED_HOURS_FILE = path.join(TMP_DIR, ACTIVE_SEASON.combinedHoursFile);
 const UPDATE_STATE_FILE = path.join(TMP_DIR, UPDATE_STATE_KEY);
-const PILOT_VERIFICATION_FILE = path.join(TMP_DIR, 'pilot_pic_hours_verification.json');
+const PILOT_VERIFICATION_FILE = path.join(TMP_DIR, ACTIVE_SEASON.verificationFile);
 const LOCK_FILE = path.join('/tmp', 'fetch_and_build.lock');
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
 const WEGLIDE_API_BASE = trimEnv(process.env.WEGLIDE_API_BASE, 'https://api.weglide.org');
-const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
-const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
-const SEASON_BASELINE_DATE = trimEnv(process.env.SEASON_BASELINE_DATE, '2025-10-01');
+const SEASON_START = ACTIVE_SEASON.fetchStart;
+const SEASON_END = ACTIVE_SEASON.end;
+const SEASON_BASELINE_DATE = ACTIVE_SEASON.start;
 const MAX_FLIGHTS_PER_RUN = Number(trimEnv(process.env.MAX_FLIGHTS_PER_RUN, 150));
 // WeGlide pagination expects skip to be a multiple of 100, so we page in 100-flight blocks
 const FLIGHT_BATCH_SIZE = 100;
@@ -204,10 +208,11 @@ async function hydrateVerificationCacheForBuild() {
     }
 
     const manualState = sanitizeVerificationState(await loadVerificationState());
+    const manualPic = selectSeasonPicVerifications(manualState, ACTIVE_SEASON.id);
     const mergedState = {
         picHoursVerifications: {
             ...(automaticState.picHoursVerifications || {}),
-            ...(manualState.picHoursVerifications || {})
+            ...manualPic
         },
         dobVerifications: {
             ...(automaticState.dobVerifications || {}),
@@ -219,7 +224,7 @@ async function hydrateVerificationCacheForBuild() {
 
     return {
         automaticPicCount: Object.keys(automaticState.picHoursVerifications || {}).length,
-        manualPicCount: Object.keys(manualState.picHoursVerifications || {}).length,
+        manualPicCount: Object.keys(manualPic).length,
         mergedPicCount: Object.keys(mergedState.picHoursVerifications || {}).length,
         manualDobCount: Object.keys(manualState.dobVerifications || {}).length
     };
@@ -296,12 +301,7 @@ function jsonRequest(url, { method = 'GET', body = null, headers = {} } = {}) {
             hostname: parsedUrl.hostname,
             path: parsedUrl.pathname + parsedUrl.search,
             port: parsedUrl.port || 443,
-            headers: Object.assign({
-                'Accept': 'application/json',
-                'Origin': 'https://www.weglide.org',
-                'Referer': 'https://www.weglide.org/',
-                'User-Agent': process.env.HTTP_USER_AGENT || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-            }, headers)
+            headers: Object.assign(weglideHeaders(), headers)
         };
 
         const req = https.request(requestOptions, (res) => {
@@ -1203,6 +1203,8 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap, combinedH
 
     const db = admin.firestore();
     let uploaded = 0;
+    const combinedCacheCutoff = fs.existsSync(COMBINED_HOURS_FILE)
+        ? JSON.parse(fs.readFileSync(COMBINED_HOURS_FILE, 'utf8')).cutoffDate : null;
 
     for (const profile of newProfiles) {
         if (!profile || typeof profile.id !== 'number') continue;
@@ -1215,9 +1217,9 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap, combinedH
         const olcOnlyHours = combinedHours && typeof combinedHours.olcOnlyHours === 'number'
             ? combinedHours.olcOnlyHours
             : 0;
-        const baselineHours = combinedHours && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
+        const baselineHours = ACTIVE_SEASON.id === '2025-26' && combinedCacheCutoff === SEASON_BASELINE_DATE && typeof combinedHours?.combinedHoursBeforeCutoff === 'number'
             ? combinedHours.combinedHoursBeforeCutoff
-            : Math.max(0, lifetimeHours - seasonHours);
+            : Math.max(0, lifetimeHours - seasonHours) + olcOnlyHours;
         const eligible = baselineHours < 200;
 
         const verificationData = {
@@ -1240,7 +1242,7 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap, combinedH
         };
 
         try {
-            await db.collection('pilot_verifications').doc(String(profile.id)).set(verificationData, { merge: true });
+            await db.collection('pilot_verifications').doc(`${ACTIVE_SEASON.id}:${profile.id}`).set(verificationData, { merge: true });
             uploaded += 1;
         } catch (error) {
             log(`Failed to upload verification for pilot ${profile.id}: ${error.message}`);
@@ -1256,12 +1258,12 @@ const builder = require('../create_canadian_leaderboard_from_jsonl.js');
 
 async function ensureLocalCopiesFromRepo() {
     if (!fs.existsSync(DATASET_FILE)) {
-        const datasetText = await loadPersistentText('canadian_flights_2026_details.jsonl');
+        const datasetText = await loadPersistentText(DATASET_BLOB_KEY);
         if (datasetText) {
             log('Loading dataset from repository/GitHub persistence...');
             fs.writeFileSync(DATASET_FILE, datasetText);
         } else {
-            throw new Error('Dataset file not found in repository; cannot build leaderboard');
+            fs.writeFileSync(DATASET_FILE, '');
         }
     }
 
@@ -1274,7 +1276,7 @@ async function ensureLocalCopiesFromRepo() {
     }
 
     if (!fs.existsSync(COMBINED_HOURS_FILE)) {
-        const combinedHoursText = await loadPersistentText('canadian_combined_hours.json');
+        const combinedHoursText = await loadPersistentText(ACTIVE_SEASON.combinedHoursFile);
         if (combinedHoursText) {
             log('Loading combined hours cache from repository/GitHub persistence...');
             fs.writeFileSync(COMBINED_HOURS_FILE, combinedHoursText);
@@ -1439,6 +1441,7 @@ async function runLeaderboardBuild() {
     
     // Set env vars that the builder expects
     process.env.INPUT_FILE = DATASET_FILE;
+    process.env.SEASON_ID = ACTIVE_SEASON.id;
     process.env.OUTPUT_DIR = TMP_DIR;
     process.env.TEMPLATE_FILE = path.join(__dirname, '../canadian_leaderboard_2025_embedded.html');
     // Also pass the firebase/verification paths if needed (the script resolves them relative to CWD or OUTPUT_DIR?)
@@ -1629,6 +1632,22 @@ async function runFetchAndBuild(options = {}) {
             persistProfiles(profiles);
         }
 
+        // Lifetime duration changes throughout the season. Refresh the cached
+        // profiles used to estimate each pilot's hours at the new cutoff.
+        if (newFlights.length || refreshIds.length) {
+            const refreshedProfiles = await fetchUserProfiles(Object.keys(profiles).map(Number));
+            for (const profile of refreshedProfiles) {
+                if (typeof profile?.id !== 'number') continue;
+                profiles[profile.id] = { ...(profiles[profile.id] || {}),
+                    total_flight_duration: profile.total_flight_duration || 0,
+                    name: profile.name || profiles[profile.id]?.name || '',
+                    club: profile.club || profiles[profile.id]?.club || null
+                };
+            }
+            persistProfiles(profiles);
+            summary.meta.profilesRefreshed = refreshedProfiles.length;
+        }
+
         summary.meta.profilesUpdated = newProfiles.length;
 
         try {
@@ -1681,8 +1700,9 @@ async function runFetchAndBuild(options = {}) {
         ];
         const persistenceArtifacts = [
             { repoPath: 'canadian_user_profiles.json', localPath: PROFILES_FILE },
-            { repoPath: 'canadian_combined_hours.json', localPath: COMBINED_HOURS_FILE },
+            { repoPath: ACTIVE_SEASON.combinedHoursFile, localPath: COMBINED_HOURS_FILE },
             { repoPath: UPDATE_STATE_KEY, localPath: UPDATE_STATE_FILE },
+            { repoPath: ACTIVE_SEASON.verificationFile, localPath: path.join(TMP_DIR, ACTIVE_SEASON.verificationFile) },
             ...publicArtifacts
         ];
 

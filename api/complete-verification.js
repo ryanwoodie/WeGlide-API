@@ -68,8 +68,12 @@ module.exports = async (req, res) => {
                 email: payload.email
             };
         } else {
-            state.picHoursVerifications[payload.pilotId] = {
+            const verificationKey = payload.seasonId === '2026-27'
+                ? `2026-27:${payload.pilotId}`
+                : payload.pilotId;
+            state.picHoursVerifications[verificationKey] = {
                 pilotName: payload.pilotName,
+                cutoffDate: payload.seasonId === '2026-27' ? '2026-10-01' : '2025-10-01',
                 picHours: payload.picHours,
                 verifiedDate,
                 eligible: payload.picHours < 200,

@@ -3,12 +3,15 @@
  */
 
 const { get: getBlob } = require('@vercel/blob');
+const { getSeason } = require('../lib/seasons');
+const { weglideHeaders } = require('../lib/weglide-headers');
+const ACTIVE_SEASON = getSeason();
 // fetch is global in Node 18+
 
 const trimEnv = (val, fallback) => (val && typeof val === 'string') ? val.trim() : fallback;
 const WEGLIDE_API_BASE = trimEnv(process.env.WEGLIDE_API_BASE, 'https://api.weglide.org');
-const SEASON_START = trimEnv(process.env.SEASON_START, '2025-09-23');
-const SEASON_END = trimEnv(process.env.SEASON_END, '2026-09-30');
+const SEASON_START = ACTIVE_SEASON.fetchStart;
+const SEASON_END = ACTIVE_SEASON.end;
 const GITHUB_REPO = process.env.GITHUB_REPO || 'ryanwoodie/WeGlide-API';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const GITHUB_UPDATE_WORKFLOW = process.env.GITHUB_UPDATE_WORKFLOW || 'update-on-flight.yml';
@@ -50,12 +53,7 @@ async function fetchLatestFlight() {
     });
     const url = `${WEGLIDE_API_BASE}/v1/flight?${params.toString()}`;
 
-    const headers = {
-        'Accept': 'application/json',
-        'Origin': 'https://www.weglide.org',
-        'Referer': 'https://www.weglide.org/',
-        'User-Agent': process.env.HTTP_USER_AGENT || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-    };
+    const headers = weglideHeaders();
 
     const response = await fetch(url, { headers });
     if (!response.ok) {

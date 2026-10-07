@@ -6,11 +6,11 @@ const {
     loadVerificationState,
     sanitizeVerificationState
 } = require('../lib/verification-store');
+const { getSeason } = require('../lib/seasons');
+const { selectSeasonPicVerifications } = require('../lib/season-verifications');
 
-const AUTO_VERIFICATION_FILE = 'pilot_pic_hours_verification.json';
-
-function loadAutoVerificationState() {
-    const filePath = path.join(process.cwd(), AUTO_VERIFICATION_FILE);
+function loadAutoVerificationState(season) {
+    const filePath = path.join(process.cwd(), season.verificationFile);
     if (!fs.existsSync(filePath)) {
         return defaultState();
     }
@@ -29,13 +29,15 @@ module.exports = async (req, res) => {
     }
 
     try {
-        const automaticState = loadAutoVerificationState();
+        const season = getSeason(req.query?.season || '2026-27');
+        const automaticState = loadAutoVerificationState(season);
         const manualState = await loadVerificationState();
+        const manualPic = selectSeasonPicVerifications(manualState, season.id);
 
         const merged = {
             picHoursVerifications: {
                 ...(automaticState.picHoursVerifications || {}),
-                ...(manualState.picHoursVerifications || {})
+                ...manualPic
             },
             dobVerifications: {
                 ...(automaticState.dobVerifications || {}),

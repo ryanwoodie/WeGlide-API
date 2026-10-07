@@ -1,22 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
-const {
-    loadVerificationState,
-    sanitizeVerificationState
-} = require('./lib/verification-store');
-
-function getCurrentVerificationCutoffDate() {
-    const now = new Date();
-    const year = now.getUTCMonth() >= 9 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
-    return `${year}-10-01`;
-}
-
-function getCurrentVerificationCutoffLabel() {
-    const now = new Date();
-    const year = now.getUTCMonth() >= 9 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
-    return `October 1st, ${year}`;
-}
+const { loadVerificationState, sanitizeVerificationState } = require('./lib/verification-store');
+const { getSeason } = require('./lib/seasons');
+const { selectSeasonPicVerifications } = require('./lib/season-verifications');
 
 function durationSecondsFromFlight(flight) {
     const takeoffMs = flight?.takeoff_time ? Date.parse(flight.takeoff_time) : NaN;
@@ -602,7 +589,8 @@ function calculateBhcScore(flight) {
 }
 
 async function processCanadianFlights() {
-    const INPUT_FILE = process.env.INPUT_FILE || 'canadian_flights_2026_details.jsonl';
+    const season = getSeason(process.env.SEASON_ID);
+    const INPUT_FILE = process.env.INPUT_FILE || season.dataset;
     const OUTPUT_DIR = process.env.OUTPUT_DIR || '.';
     const TEMPLATE_FILE = process.env.TEMPLATE_FILE || 'canadian_leaderboard_2025_embedded.html';
     const resolvePath = (filename) => path.join(OUTPUT_DIR, filename);
@@ -626,8 +614,23 @@ async function processCanadianFlights() {
     const seenFlightIds = new Set();
     let australianFlights = []; // Store all flight data for detailed tooltips
     let allFlightData = []; // Store all original flight data for statistics
-    let seasonStartDate = null;
-    let seasonEndDate = null;
+    const laterSeasonSeconds = {};
+    if (season.id === '2025-26') {
+        const laterFile = getSeason('2026-27').dataset;
+        if (fs.existsSync(laterFile)) {
+            for (const line of fs.readFileSync(laterFile, 'utf8').split('\n')) {
+                if (!line.trim()) continue;
+                try {
+                    const flight = JSON.parse(line);
+                    const id = flight?.user?.id;
+                    if (id && flight.scoring_date >= '2026-10-01') {
+                        const seconds = Number(flight.total_seconds) || durationSecondsFromFlight(flight) || 0;
+                        laterSeasonSeconds[id] = (laterSeasonSeconds[id] || 0) + seconds;
+                    }
+                } catch (error) { /* Ignore a malformed cached flight. */ }
+            }
+        }
+    }
 
     try {
         const fileStream = fs.createReadStream(INPUT_FILE);
@@ -638,10 +641,11 @@ async function processCanadianFlights() {
 
         for await (const line of rl) {
             if (line.trim().length > 0) {
-                totalProcessed++;
-
                 try {
                     const flight = JSON.parse(line);
+                    const scoringDate = String(flight.scoring_date || flight.date || '').slice(0, 10);
+                    if (scoringDate < season.fetchStart || scoringDate > season.end) continue;
+                    totalProcessed++;
 
                     // Skip duplicate flight rows so a flight is never counted twice.
                     if (flight && flight.id != null) {
@@ -654,19 +658,6 @@ async function processCanadianFlights() {
                     // All flights in this file are Canadian
                     australianCount++;
                     const pilotName = flight.user?.name;
-
-                    // Track season date range
-                    if (flight.scoring_date) {
-                        const scoringDate = new Date(flight.scoring_date + 'T00:00:00Z');
-                        if (!Number.isNaN(scoringDate.getTime())) {
-                            if (!seasonStartDate || scoringDate < seasonStartDate) {
-                                seasonStartDate = scoringDate;
-                            }
-                            if (!seasonEndDate || scoringDate > seasonEndDate) {
-                                seasonEndDate = scoringDate;
-                            }
-                        }
-                    }
 
                     // Store original flight data for statistics
                     allFlightData.push(flight);
@@ -1814,11 +1805,12 @@ async function processCanadianFlights() {
         let pilotDurationsEmbedded = {};
         let pilotProfilesEmbedded = {};
         let pilotCombinedHoursEmbedded = {};
+        let combinedHoursCutoffDate = '';
         let clubMetadataByIdEmbedded = {};
         try {
             const durationsPath = resolvePath('canadian_user_durations.json');
             const profilesPath = resolvePath('canadian_user_profiles.json');
-            const combinedHoursPath = resolvePath('canadian_combined_hours.json');
+            const combinedHoursPath = resolvePath(season.combinedHoursFile);
             const clubMetadataPath = resolvePath('weglide_club_metadata.json');
             let loaded = false;
 
@@ -1844,6 +1836,13 @@ async function processCanadianFlights() {
                         }
                     });
                 }
+                // Profiles are refreshed by the updater; the separate duration cache can lag.
+                Object.keys(pilotProfilesEmbedded).forEach(id => {
+                    const seconds = pilotProfilesEmbedded[id]?.total_flight_duration;
+                    if (typeof seconds === 'number' && seconds > (pilotDurationsEmbedded[id] || 0)) {
+                        pilotDurationsEmbedded[id] = seconds;
+                    }
+                });
 
                 if (pilotProfilesEmbedded && Object.keys(pilotProfilesEmbedded).length > 0) {
                     console.log('ℹ️ Loaded cached profiles (and durations)');
@@ -1857,6 +1856,7 @@ async function processCanadianFlights() {
                     pilotCombinedHoursEmbedded = combinedHoursPayload && combinedHoursPayload.pilots
                         ? combinedHoursPayload.pilots
                         : {};
+                    combinedHoursCutoffDate = combinedHoursPayload.cutoffDate || '';
                     console.log(`ℹ️ Loaded combined-hours cache for ${Object.keys(pilotCombinedHoursEmbedded).length} pilots`);
                 } catch (error) {
                     console.warn('⚠️ Could not parse combined-hours cache:', error.message || error);
@@ -1903,7 +1903,7 @@ async function processCanadianFlights() {
             dobVerifications: {}
         };
         try {
-            const verificationPath = resolvePath('pilot_pic_hours_verification.json');
+            const verificationPath = resolvePath(season.verificationFile);
             if (fs.existsSync(verificationPath)) {
                 pilotVerificationData = JSON.parse(fs.readFileSync(verificationPath, 'utf8'));
                 console.log('ℹ️ Loaded cached verification calculations');
@@ -1918,7 +1918,7 @@ async function processCanadianFlights() {
             pilotVerificationData = {
                 picHoursVerifications: {
                     ...(pilotVerificationData.picHoursVerifications || {}),
-                    ...(manualVerificationState.picHoursVerifications || {})
+                    ...selectSeasonPicVerifications(manualVerificationState, season.id)
                 },
                 dobVerifications: {
                     ...(pilotVerificationData.dobVerifications || {}),
@@ -1964,17 +1964,18 @@ async function processCanadianFlights() {
         const scriptEnd = australianHTML.lastIndexOf('</script>') + 9;
 
         // Build script content with embedded durations
-        const seasonStartIso = seasonStartDate ? seasonStartDate.toISOString().split('T')[0] : '';
-        const seasonEndIso = seasonEndDate ? seasonEndDate.toISOString().split('T')[0] : '';
+        const seasonStartIso = season.fetchStart;
+        const seasonEndIso = season.end;
+        const dataThroughDate = allFlightData.reduce((latest, flight) =>
+            flight.scoring_date > latest ? flight.scoring_date : latest, '');
         const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const now = new Date();
-        const currentSeasonStartYear = now.getUTCMonth() >= 9 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+        const currentSeasonStartYear = Number(season.start.slice(0, 4));
         const currentSeasonEndYear = currentSeasonStartYear + 1;
         const seasonLabel = `Oct 1, ${currentSeasonStartYear} - Sept 30, ${currentSeasonEndYear}`;
-        const freeSeasonLabel = `${seasonLabel}*`;
+        const freeSeasonLabel = season.id === '2025-26' ? `${seasonLabel}*` : seasonLabel;
         const seasonLongLabel = `October 1, ${currentSeasonStartYear} to September 30, ${currentSeasonEndYear}`;
-        const verificationCutoffDate = getCurrentVerificationCutoffDate();
-        const verificationCutoffLabel = getCurrentVerificationCutoffLabel();
+        const verificationCutoffDate = season.start;
+        const verificationCutoffLabel = `October 1st, ${currentSeasonStartYear}`;
 
         const newScriptContent = `<script>
         // Global variables for leaderboard data
@@ -2002,19 +2003,12 @@ async function processCanadianFlights() {
         const SUPPORTS_HOVER_POINTER = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
         const SEASON_START = new Date('${seasonStartIso ? seasonStartIso + 'T00:00:00Z' : ''}');
         const SEASON_END = new Date('${seasonEndIso ? seasonEndIso + 'T23:59:59Z' : ''}');
-        function getCurrentCanadianSeason() {
-            const now = new Date();
-            const currentYear = now.getUTCFullYear();
-            const isOnOrAfterOctober = now.getUTCMonth() >= 9;
-            const seasonStartYear = isOnOrAfterOctober ? currentYear : currentYear - 1;
-            const seasonEndYear = seasonStartYear + 1;
-            return {
-                shortLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear,
-                freeLabel: 'Oct 1, ' + seasonStartYear + ' - Sept 30, ' + seasonEndYear + '*',
-                longLabel: 'October 1, ' + seasonStartYear + ' to September 30, ' + seasonEndYear
-            };
-        }
-        const CURRENT_SEASON = getCurrentCanadianSeason();
+        const SEASON_ID = '${season.id}';
+        const CURRENT_SEASON = {
+            shortLabel: '${seasonLabel}',
+            freeLabel: '${freeSeasonLabel}',
+            longLabel: '${seasonLongLabel}'
+        };
         const SEASON_LABEL = CURRENT_SEASON.shortLabel;
         const FREE_SEASON_LABEL = CURRENT_SEASON.freeLabel;
         const COMBINED_LABEL = '__COMBINED_LABEL__';
@@ -2024,11 +2018,10 @@ async function processCanadianFlights() {
         const SCORING_DESCRIPTION_FREE = '__SCORING_DESCRIPTION_FREE__'
             .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}\\*/g, FREE_SEASON_LABEL)
             .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}/g, SEASON_LABEL);
-        const SCORING_DESCRIPTION_BHC = '<span class="scoring-tooltip" data-tooltip="bhc">Barron Hilton Challenge</span> • Best 1 declared triangle flight • FAI triangles get a 30% bonus • Gray rows are non-IGC recorders • Oct 1, 2025 - Sept 30, 2026'
-            .replace(/Oct 1, \\d{4} - Sept 30, \\d{4}/g, SEASON_LABEL);
+        const SCORING_DESCRIPTION_BHC = '<span class="scoring-tooltip" data-tooltip="bhc">Barron Hilton Challenge</span> • Best 1 declared triangle flight • FAI triangles get a 30% bonus • Gray rows are non-IGC recorders • ${seasonLabel}';
         const SAC_DSC_RULES_TOOLTIP = '__SAC_DSC_RULES_TOOLTIP__';
         const USING_SAC_DSC_VARIANT = COMBINED_LABEL === 'SAC-DSC';
-        const AUTO_PIC_DATA_SOURCES = new Set(['weglide-calculated', 'combined-hours-calculated']);
+        const AUTO_PIC_DATA_SOURCES = new Set(['weglide-calculated', 'combined-hours-calculated', 'weglide-automatic', 'combined-hours-automatic', 'prior-verified-projection']);
 
         function isPicHoursVerifiedEntry(entry) {
             return !!(
@@ -2239,7 +2232,9 @@ Bonus:
 Distance and bonuses optimized/maximized
 for legs/shape flown
 No maximum distance bonus\`,
-            freeseason: \`Sept 23-30 2025 flights are included in Free Contest as one-time exception due to transition from OLC to WeGlide\`
+            freeseason: \`${season.id === '2025-26'
+                ? 'Sept 23-30 2025 flights are included in Free Contest as a one-time exception due to transition from OLC to WeGlide'
+                : seasonLongLabel}\`
         } : {
             task: \`WeGlide Task
 For declared tasks only
@@ -2280,7 +2275,9 @@ Bonuses:
 Distance and bonuses optimized/maximized
 for legs/shape flown
 No maximum distance bonus\`,
-            freeseason: \`Sept 23-30 2025 flights are included in Free Contest as one-time exception due to transition from OLC to WeGlide\`
+            freeseason: \`${season.id === '2025-26'
+                ? 'Sept 23-30 2025 flights are included in Free Contest as a one-time exception due to transition from OLC to WeGlide'
+                : seasonLongLabel}\`
         };
 
         // Pilot tooltip event listeners no longer needed - using inline HTML events like flight tooltips
@@ -2398,6 +2395,8 @@ No maximum distance bonus\`,
 
         // Embedded combined OLC + WeGlide hours, keyed by pilotId
         const pilotCombinedHours = __PILOT_COMBINED_HOURS_PLACEHOLDER__;
+        const LATER_SEASON_SECONDS = ${JSON.stringify(laterSeasonSeconds)};
+        const COMBINED_HOURS_CUTOFF_DATE = '${combinedHoursCutoffDate}';
 
         // Embedded pilot PIC hours verifications
         const pilotVerifications = __PILOT_VERIFICATIONS_PLACEHOLDER__;
@@ -2431,7 +2430,7 @@ No maximum distance bonus\`,
             const hasRoleSplit = typeof combined.weglideCoPilotHours === 'number';
             const displayWeglideHours = hasRoleSplit
                 ? asNumber(combined.weglideHours, weglideHours)
-                : weglideHours;
+                : SEASON_ID === '2026-27' ? Math.max(weglideHours, asNumber(combined.weglideHours, weglideHours)) : weglideHours;
             const olcOnlyHours = asNumber(combined.olcOnlyHours, Math.max(0, asNumber(combined.combinedHours, displayWeglideHours) - displayWeglideHours));
 
             return {
@@ -2441,7 +2440,7 @@ No maximum distance bonus\`,
                 combinedHours: hasRoleSplit
                     ? asNumber(combined.combinedHours, displayWeglideHours)
                     : displayWeglideHours + olcOnlyHours,
-                combinedHoursBeforeCutoff: typeof combined.combinedHoursBeforeCutoff === 'number'
+                combinedHoursBeforeCutoff: COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' && typeof combined.combinedHoursBeforeCutoff === 'number'
                     ? combined.combinedHoursBeforeCutoff
                     : null
             };
@@ -2450,15 +2449,15 @@ No maximum distance bonus\`,
         function getPilotVerificationHoursSummary(pilotId) {
             const hoursSummary = getPilotHoursSummary(pilotId);
             const combined = getPilotCombinedHoursData(pilotId);
-            const weglideHoursBeforeCutoff = combined && typeof combined.weglideHoursBeforeCutoff === 'number'
+            const weglideHoursBeforeCutoff = SEASON_ID === '2025-26' && combined && COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' && typeof combined.weglideHoursBeforeCutoff === 'number'
                 ? combined.weglideHoursBeforeCutoff
-                : Math.max(0, hoursSummary.weglideHours - calculateWeGlideHoursSinceStart(pilotId));
-            const olcOnlyHoursBeforeCutoff = combined && typeof combined.olcOnlyHoursBeforeCutoff === 'number'
-                ? combined.olcOnlyHoursBeforeCutoff
+                : Math.max(0, hoursSummary.weglideHours - calculateWeGlideHoursSinceStart(pilotId) - (LATER_SEASON_SECONDS[pilotId] || 0) / 3600);
+            const olcOnlyHoursBeforeCutoff = combined && typeof (COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' ? combined.olcOnlyHoursBeforeCutoff : combined.olcOnlyHours) === 'number'
+                ? (COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' ? combined.olcOnlyHoursBeforeCutoff : combined.olcOnlyHours)
                 : 0;
-            const combinedHoursBeforeCutoff = typeof hoursSummary.combinedHoursBeforeCutoff === 'number'
+            const combinedHoursBeforeCutoff = SEASON_ID === '2025-26' && typeof hoursSummary.combinedHoursBeforeCutoff === 'number'
                 ? hoursSummary.combinedHoursBeforeCutoff
-                : weglideHoursBeforeCutoff;
+                : weglideHoursBeforeCutoff + olcOnlyHoursBeforeCutoff;
 
             return {
                 weglideHours: weglideHoursBeforeCutoff,
@@ -2471,14 +2470,12 @@ No maximum distance bonus\`,
         }
 
         function getPilotEligibilityHours(pilotId) {
-            const verificationData = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
-            if (verificationData && verificationData.dataSource && !AUTO_PIC_DATA_SOURCES.has(verificationData.dataSource)) {
-                if (verificationData.eligible === false) {
-                    return 200;
-                }
-                if (typeof verificationData.picHours === 'number' && Number.isFinite(verificationData.picHours)) {
-                    return verificationData.picHours;
-                }
+            const verification = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
+            if (verification && verification.dataSource &&
+                (!AUTO_PIC_DATA_SOURCES.has(verification.dataSource) || verification.dataSource === 'prior-verified-projection')) {
+                if (verification.eligible === false || Number(verification.picHours) >= 200) return 200;
+                if (Number.isFinite(Number(verification.picHours))) return Number(verification.picHours);
+
             }
             return getPilotVerificationHoursSummary(pilotId).combinedHours;
         }
@@ -5787,6 +5784,9 @@ No maximum distance bonus\`,
             const hoursSummary = getPilotHoursSummary(pilotId);
             const verificationHoursSummary = getPilotVerificationHoursSummary(pilotId);
             const estimatedOct1Hours = getPilotEligibilityHours(pilotId);
+            const projection = pilotVerifications.picHoursVerifications && pilotVerifications.picHoursVerifications[pilotId];
+            const priorVerifiedCalculation = projection && projection.dataSource === 'prior-verified-projection'
+                ? projection.calculation : null;
 
             const overlay = document.createElement('div');
             overlay.className = 'verification-overlay';
@@ -5796,12 +5796,17 @@ No maximum distance bonus\`,
                     <p><strong>\${pilotName}</strong></p>
                     <p>Please confirm your total Pilot-in-Command hours as of <strong>\${VERIFICATION_CUTOFF_LABEL}</strong>:</p>
 
-                    \${hoursSummary.combinedHours > 0 ? \`
+                    \${hoursSummary.combinedHours > 0 || priorVerifiedCalculation ? \`
                     <div class="weglide-calculation" style="background: rgba(0,123,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
                         <strong>Hours summary:</strong><br>
+                        \${priorVerifiedCalculation ? \`
+                        Verified Oct 1, 2025 PIC hours: \${priorVerifiedCalculation.priorVerifiedHours.toFixed(1)}h<br>
+                        2025–26 WeGlide hours: \${priorVerifiedCalculation.seasonWeGlideHours.toFixed(1)}h<br>
+                        \` : \`
                         Combined hours: \${verificationHoursSummary.combinedHours.toFixed(1)}h<br>
                         WeGlide PIC hours: \${verificationHoursSummary.weglideHours.toFixed(1)}h<br>
                         OLC-only hours: \${verificationHoursSummary.olcOnlyHours.toFixed(1)}h<br>
+                        \`}
                         <strong>Estimated hours: \${estimatedOct1Hours.toFixed(1)}h</strong>
                     </div>
                     \` : ''}
@@ -5860,6 +5865,7 @@ No maximum distance bonus\`,
             try {
                 await requestVerificationEmail({
                     type: 'pic',
+                    seasonId: SEASON_ID,
                     pilotId: pilotId,
                     pilotName: pilotName,
                     picHours: hours,
@@ -5883,8 +5889,9 @@ No maximum distance bonus\`,
             }
 
             try {
-                const response = await fetch(VERIFICATION_STATE_ENDPOINT, {
+                const response = await fetch(VERIFICATION_STATE_ENDPOINT + '?season=' + encodeURIComponent(SEASON_ID), {
                     cache: 'no-store',
+
                     headers: {
                         'Accept': 'application/json'
                     }
@@ -8144,6 +8151,13 @@ No maximum distance bonus\`,
 
         function buildHtmlVariant({ combinedLabel, combinedData, enableDow, combinedDescription, freeDescription, sacDscTooltip }) {
             let html = baseHTML;
+            const seasonSelector = '<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0;color:#fff">' +
+                '<label for="seasonSelect">Soaring season</label>' +
+                '<select id="seasonSelect" aria-label="Soaring season" style="padding:7px 10px;border-radius:6px">' +
+                '<option value="2026-27"' + (season.id === '2026-27' ? ' selected' : '') + '>2026–27</option>' +
+                '<option value="2025-26"' + (season.id === '2025-26' ? ' selected' : '') + '>2025–26</option>' +
+                '</select></div>';
+            html = html.replace('<div class="scoring-toggle contest-toggle">', seasonSelector + '<div class="scoring-toggle contest-toggle">');
             html = html.replace('__PILOT_DURATIONS_PLACEHOLDER__', serializedShared.pilotDurations);
             html = html.replace('__PILOT_COMBINED_HOURS_PLACEHOLDER__', serializedShared.pilotCombinedHours);
             html = html.replace('__PILOT_VERIFICATIONS_PLACEHOLDER__', serializedShared.pilotVerifications);
@@ -8167,6 +8181,12 @@ No maximum distance bonus\`,
             html = html.replace(/__SCORING_DESCRIPTION_FREE__/g, freeDescription);
             html = html.replace(/__SAC_DSC_RULES_TOOLTIP__/g, sacDscTooltip);
             html = html.replace(/__CURRENT_SEASON_LONG__/g, seasonLongLabel);
+            html = html.replace('updateSeasonFooterText();', `updateSeasonFooterText();
+            const seasonSelect = document.getElementById('seasonSelect');
+            if (seasonSelect) seasonSelect.addEventListener('change', () => {
+                const route = window.location.pathname === '/sac-dsc' ? '/sac-dsc' : '/';
+                window.location.href = route + '?season=' + encodeURIComponent(seasonSelect.value);
+            });`);
             return html;
         }
 
@@ -8194,11 +8214,14 @@ No maximum distance bonus\`,
         });
 
         // Write the Canadian SAC leaderboard HTML variants
-        fs.writeFileSync(resolvePath('SAC_leaderboard.html'), combinedHTML);
-        fs.writeFileSync(resolvePath('SAC_leaderboard_sac_dsc.html'), sacDscHTML);
-        fs.mkdirSync(resolvePath('public'), { recursive: true });
-        fs.writeFileSync(resolvePath('public/SAC_leaderboard.html'), combinedHTML);
-        fs.writeFileSync(resolvePath('public/SAC_leaderboard_sac_dsc.html'), sacDscHTML);
+        const publicOutputDir = season.publicDir;
+        if (season.id === '2026-27') {
+            fs.writeFileSync(resolvePath('SAC_leaderboard.html'), combinedHTML);
+            fs.writeFileSync(resolvePath('SAC_leaderboard_sac_dsc.html'), sacDscHTML);
+        }
+        fs.mkdirSync(resolvePath(publicOutputDir), { recursive: true });
+        fs.writeFileSync(resolvePath(`${publicOutputDir}/SAC_leaderboard.html`), combinedHTML);
+        fs.writeFileSync(resolvePath(`${publicOutputDir}/SAC_leaderboard_sac_dsc.html`), sacDscHTML);
 
         // Write the consolidated JSON data for the web component
         const leaderboardData = {
@@ -8229,12 +8252,16 @@ No maximum distance bonus\`,
                 totalTasksDeclared,
                 totalTasksCompleted,
                 seasonLabel,
+                seasonId: season.id,
+                dataThroughDate,
                 freeSeasonLabel,
                 generatedAt: new Date().toISOString()
             }
         };
-        fs.writeFileSync(resolvePath('leaderboard_data.json'), JSON.stringify(leaderboardData, null, 2));
-        fs.writeFileSync(resolvePath('public/leaderboard_data.json'), JSON.stringify(leaderboardData, null, 2));
+        if (season.id === '2026-27') {
+            fs.writeFileSync(resolvePath('leaderboard_data.json'), JSON.stringify(leaderboardData, null, 2));
+        }
+        fs.writeFileSync(resolvePath(`${publicOutputDir}/leaderboard_data.json`), JSON.stringify(leaderboardData, null, 2));
         console.log('✅ Created leaderboard_data.json for API');
 
         console.log('✅ Created SAC_leaderboard.html, SAC_leaderboard_sac_dsc.html, and leaderboard_data.json');
@@ -8289,15 +8316,18 @@ No maximum distance bonus\`,
                 const totalCombinedHours = combinedHours && typeof combinedHours.combinedHours === 'number'
                     ? combinedHours.combinedHours
                     : totalWeGlideHours;
-                const totalWeGlideHoursBeforeCutoff = combinedHours && typeof combinedHours.weglideHoursBeforeCutoff === 'number'
+                const totalWeGlideHoursBeforeCutoff = season.id === '2025-26' && combinedHours && combinedHoursCutoffDate === verificationCutoffDate && typeof combinedHours.weglideHoursBeforeCutoff === 'number'
                     ? combinedHours.weglideHoursBeforeCutoff
-                    : Math.max(0, totalWeGlideHours - hoursSinceStart);
-                const olcOnlyHoursBeforeCutoff = combinedHours && typeof combinedHours.olcOnlyHoursBeforeCutoff === 'number'
-                    ? combinedHours.olcOnlyHoursBeforeCutoff
+                    : Math.max(0, totalWeGlideHours - hoursSinceStart - (laterSeasonSeconds[pilotId] || 0) / 3600);
+                const cachedOlcHours = combinedHoursCutoffDate === verificationCutoffDate
+                    ? combinedHours?.olcOnlyHoursBeforeCutoff
+                    : combinedHours?.olcOnlyHours;
+                const olcOnlyHoursBeforeCutoff = typeof cachedOlcHours === 'number'
+                    ? cachedOlcHours
                     : 0;
-                const estimatedOct1Hours = combinedHours && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
+                const estimatedOct1Hours = season.id === '2025-26' && combinedHours && combinedHoursCutoffDate === verificationCutoffDate && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
                     ? combinedHours.combinedHoursBeforeCutoff
-                    : Math.max(0, totalWeGlideHours - hoursSinceStart);
+                    : totalWeGlideHoursBeforeCutoff + olcOnlyHoursBeforeCutoff;
 
                 if (totalCombinedHours > 0) {
                     calculatedCount++;
@@ -8325,7 +8355,7 @@ No maximum distance bonus\`,
             // Save updated verification data back to file
             if (updatedCount > 0) {
                 try {
-                    fs.writeFileSync(resolvePath('pilot_pic_hours_verification.json'),
+                    fs.writeFileSync(resolvePath(season.verificationFile),
                         JSON.stringify(pilotVerificationData, null, 2));
                     console.log(`✅ Updated ${updatedCount}/${calculatedCount} pilot verifications with combined-hours data`);
 
