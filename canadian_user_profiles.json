@@ -1,6 +1,6 @@
 {
   "2070": {
-    "total_flight_duration": 5050634,
+    "total_flight_duration": 5387175,
     "total_free_distance": 111182.18,
     "avg_speed": 83.75,
     "flight_count": 358,
@@ -101,7 +101,7 @@
     }
   },
   "5582": {
-    "total_flight_duration": 2760160,
+    "total_flight_duration": 2763381,
     "total_free_distance": 51853.49,
     "avg_speed": 71.17,
     "flight_count": 181,
@@ -121,7 +121,7 @@
     "message_enabled": true
   },
   "6074": {
-    "total_flight_duration": 703104,
+    "total_flight_duration": 720724,
     "total_free_distance": 14415.07,
     "avg_speed": 78.01,
     "flight_count": 54,
@@ -142,7 +142,7 @@
     "message_enabled": true
   },
   "6084": {
-    "total_flight_duration": 267737,
+    "total_flight_duration": 281588,
     "total_free_distance": 4122.89,
     "avg_speed": 61.82,
     "flight_count": 34,
@@ -177,7 +177,7 @@
     "message_enabled": true
   },
   "6303": {
-    "total_flight_duration": 484663,
+    "total_flight_duration": 506438,
     "total_free_distance": 7753.54,
     "avg_speed": 63.87,
     "flight_count": 51,
@@ -250,11 +250,12 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     }
   },
   "8848": {
-    "total_flight_duration": 17469067,
+    "total_flight_duration": 17488403,
     "total_free_distance": 325479.11,
     "avg_speed": 71.56,
     "flight_count": 1163,
@@ -297,8 +298,28 @@
     },
     "message_enabled": true
   },
+  "10170": {
+    "total_flight_duration": 289337,
+    "total_free_distance": 4060.21,
+    "avg_speed": 56.46,
+    "flight_count": 20,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 13,
+    "name": "Ireneusz Sek",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1310,
+      "name": "SOSA Gliding Club",
+      "region": "CA-ON",
+      "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
   "10376": {
-    "total_flight_duration": 553503,
+    "total_flight_duration": 587156,
     "total_free_distance": 10096.18,
     "avg_speed": 86.9,
     "flight_count": 42,
@@ -362,7 +383,7 @@
     "message_enabled": false
   },
   "12276": {
-    "total_flight_duration": 234844,
+    "total_flight_duration": 337876,
     "total_free_distance": 2890.14,
     "avg_speed": 48.28,
     "flight_count": 22,
@@ -382,7 +403,7 @@
     "message_enabled": true
   },
   "12836": {
-    "total_flight_duration": 2792789,
+    "total_flight_duration": 2809893,
     "total_free_distance": 61287.66,
     "avg_speed": 90.08,
     "flight_count": 244,
@@ -444,7 +465,7 @@
     "message_enabled": true
   },
   "13284": {
-    "total_flight_duration": 992320,
+    "total_flight_duration": 1000625,
     "total_free_distance": 12974.74,
     "avg_speed": 51.07,
     "flight_count": 168,
@@ -504,7 +525,7 @@
     "message_enabled": true
   },
   "14075": {
-    "total_flight_duration": 557937,
+    "total_flight_duration": 643517,
     "total_free_distance": 8720.68,
     "avg_speed": 62.73,
     "flight_count": 70,
@@ -526,13 +547,13 @@
     "message_enabled": true
   },
   "15888": {
-    "total_flight_duration": 586192,
-    "total_free_distance": 7823.07,
-    "avg_speed": 55.06,
-    "flight_count": 60,
-    "avg_glide_speed": 128.44,
-    "avg_glide_detour": 1.65,
-    "achievement_count": 25,
+    "total_flight_duration": 646013,
+    "total_free_distance": 9006.03,
+    "avg_speed": 58.13,
+    "flight_count": 63,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 26,
     "name": "Daniel Nazarko",
     "gender": "M",
     "is_junior": true,
@@ -568,7 +589,7 @@
     "message_enabled": true
   },
   "16605": {
-    "total_flight_duration": 1450293,
+    "total_flight_duration": 1453003,
     "total_free_distance": 20900.9,
     "avg_speed": 59.45,
     "flight_count": 166,
@@ -653,7 +674,7 @@
     "message_enabled": true
   },
   "18693": {
-    "total_flight_duration": 2297933,
+    "total_flight_duration": 2344977,
     "total_free_distance": 50693.25,
     "avg_speed": 85.22,
     "flight_count": 149,
@@ -694,13 +715,13 @@
     "message_enabled": true
   },
   "20675": {
-    "total_flight_duration": 1129526,
-    "total_free_distance": 20845.8,
-    "avg_speed": 75.03,
-    "flight_count": 88,
-    "avg_glide_speed": 131.03,
-    "avg_glide_detour": 1.24,
-    "achievement_count": 29,
+    "total_flight_duration": 1167858,
+    "total_free_distance": 21830.84,
+    "avg_speed": 76.03,
+    "flight_count": 90,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 31,
     "name": "Pavan K",
     "gender": "M",
     "is_junior": false,
@@ -898,7 +919,7 @@
     "message_enabled": true
   },
   "22077": {
-    "total_flight_duration": 1690498,
+    "total_flight_duration": 1728763,
     "total_free_distance": 24092.31,
     "avg_speed": 56.51,
     "flight_count": 150,
@@ -959,7 +980,7 @@
     "message_enabled": true
   },
   "22232": {
-    "total_flight_duration": 2046216,
+    "total_flight_duration": 2056389,
     "total_free_distance": 28280.64,
     "avg_speed": 55.06,
     "flight_count": 338,
@@ -975,6 +996,26 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
+  "22359": {
+    "total_flight_duration": 21116,
+    "total_free_distance": 451.61,
+    "avg_speed": 78.34,
+    "flight_count": 1,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 13,
+    "name": "David Gossen",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1345,
+      "name": "Toronto Soaring Club",
+      "region": "CA-ON",
+      "url": "http://toronto-soaring.ca"
     },
     "message_enabled": true
   },
@@ -1060,7 +1101,7 @@
     "message_enabled": true
   },
   "23246": {
-    "total_flight_duration": 212442,
+    "total_flight_duration": 262132,
     "total_free_distance": 4349.02,
     "avg_speed": 77.28,
     "flight_count": 16,
@@ -1141,7 +1182,7 @@
     "message_enabled": true
   },
   "23521": {
-    "total_flight_duration": 694634,
+    "total_flight_duration": 706975,
     "total_free_distance": 12353.54,
     "avg_speed": 70.74,
     "flight_count": 82,
@@ -1161,7 +1202,7 @@
     "message_enabled": true
   },
   "23795": {
-    "total_flight_duration": 3020128,
+    "total_flight_duration": 3035373,
     "total_free_distance": 29113.59,
     "avg_speed": 39.44,
     "flight_count": 308,
@@ -1221,7 +1262,7 @@
     "message_enabled": true
   },
   "24793": {
-    "total_flight_duration": 4700447,
+    "total_flight_duration": 4715819,
     "total_free_distance": 90616.66,
     "avg_speed": 73.33,
     "flight_count": 326,
@@ -1301,13 +1342,13 @@
     }
   },
   "25114": {
-    "total_flight_duration": 851650,
-    "total_free_distance": 14755.07,
-    "avg_speed": 67.94,
-    "flight_count": 73,
-    "avg_glide_speed": 135.01,
-    "avg_glide_detour": 1.24,
-    "achievement_count": 28,
+    "total_flight_duration": 899310,
+    "total_free_distance": 15674.68,
+    "avg_speed": 68.28,
+    "flight_count": 75,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 32,
     "name": "Joshua Peace",
     "gender": "M",
     "is_junior": true,
@@ -1401,7 +1442,7 @@
     "message_enabled": true
   },
   "27586": {
-    "total_flight_duration": 492372,
+    "total_flight_duration": 505269,
     "total_free_distance": 9336.62,
     "avg_speed": 73.78,
     "flight_count": 30,
@@ -1481,7 +1522,7 @@
     "message_enabled": true
   },
   "29394": {
-    "total_flight_duration": 670456,
+    "total_flight_duration": 683301,
     "total_free_distance": 9826.06,
     "avg_speed": 58.32,
     "flight_count": 57,
@@ -1663,7 +1704,7 @@
     "message_enabled": true
   },
   "34953": {
-    "total_flight_duration": 424091,
+    "total_flight_duration": 433739,
     "total_free_distance": 8121.91,
     "avg_speed": 72.64,
     "flight_count": 34,
@@ -1725,7 +1766,7 @@
     "message_enabled": true
   },
   "35001": {
-    "total_flight_duration": 531252,
+    "total_flight_duration": 556399,
     "total_free_distance": 8346.4,
     "avg_speed": 63.44,
     "flight_count": 72,
@@ -1745,7 +1786,7 @@
     "message_enabled": true
   },
   "35037": {
-    "total_flight_duration": 193811,
+    "total_flight_duration": 201530,
     "total_free_distance": 1362.5,
     "avg_speed": 28.33,
     "flight_count": 26,
@@ -1847,7 +1888,7 @@
     "message_enabled": true
   },
   "35124": {
-    "total_flight_duration": 785960,
+    "total_flight_duration": 800983,
     "total_free_distance": 8548.92,
     "avg_speed": 43.13,
     "flight_count": 99,
@@ -2007,7 +2048,7 @@
     "message_enabled": true
   },
   "35326": {
-    "total_flight_duration": 1849671,
+    "total_flight_duration": 1864067,
     "total_free_distance": 27155.4,
     "avg_speed": 58.65,
     "flight_count": 161,
@@ -2027,7 +2068,7 @@
     "message_enabled": true
   },
   "35337": {
-    "total_flight_duration": 289166,
+    "total_flight_duration": 301830,
     "total_free_distance": 4065.47,
     "avg_speed": 52.62,
     "flight_count": 23,
@@ -2128,7 +2169,7 @@
     "message_enabled": true
   },
   "35367": {
-    "total_flight_duration": 1207456,
+    "total_flight_duration": 1219430,
     "total_free_distance": 10203.61,
     "avg_speed": 34.68,
     "flight_count": 132,
@@ -2250,7 +2291,7 @@
     "message_enabled": true
   },
   "35420": {
-    "total_flight_duration": 64360,
+    "total_flight_duration": 74369,
     "total_free_distance": 873.79,
     "avg_speed": 51.46,
     "flight_count": 5,
@@ -2327,7 +2368,7 @@
     }
   },
   "35427": {
-    "total_flight_duration": 268396,
+    "total_flight_duration": 272931,
     "total_free_distance": 3134.34,
     "avg_speed": 48.29,
     "flight_count": 75,
@@ -2448,7 +2489,7 @@
     "message_enabled": true
   },
   "35436": {
-    "total_flight_duration": 1329529,
+    "total_flight_duration": 1348224,
     "total_free_distance": 28365.01,
     "avg_speed": 80.46,
     "flight_count": 63,
@@ -2469,7 +2510,7 @@
     "message_enabled": true
   },
   "35437": {
-    "total_flight_duration": 210507,
+    "total_flight_duration": 226017,
     "total_free_distance": 2965.37,
     "avg_speed": 53.4,
     "flight_count": 19,
@@ -2652,7 +2693,7 @@
     }
   },
   "35577": {
-    "total_flight_duration": 1253098,
+    "total_flight_duration": 1262953,
     "total_free_distance": 29151.39,
     "avg_speed": 91.37,
     "flight_count": 102,
@@ -2772,7 +2813,7 @@
     "message_enabled": true
   },
   "35644": {
-    "total_flight_duration": 4678398,
+    "total_flight_duration": 4701216,
     "total_free_distance": 90528.62,
     "avg_speed": 73.31,
     "flight_count": 251,
@@ -3008,7 +3049,8 @@
       "id": 1168,
       "name": "Montreal Soaring Club",
       "region": "CA-ON",
-      "url": "https://montrealsoaring.ca"
+      "url": "https://montrealsoaring.ca",
+      "logo": "club/1168.png"
     }
   },
   "35776": {
@@ -3048,7 +3090,8 @@
       "id": 849,
       "name": "Alberni Valley Soaring Association",
       "region": "CA-BC",
-      "url": "http://www.avsa.ca"
+      "url": "http://www.avsa.ca",
+      "logo": "club/849.png"
     }
   },
   "35809": {
@@ -3133,7 +3176,7 @@
     "message_enabled": true
   },
   "35862": {
-    "total_flight_duration": 42017,
+    "total_flight_duration": 49328,
     "total_free_distance": 319.72,
     "avg_speed": 31.66,
     "flight_count": 17,
@@ -3213,7 +3256,7 @@
     }
   },
   "36013": {
-    "total_flight_duration": 43562,
+    "total_flight_duration": 58711,
     "total_free_distance": 915.55,
     "avg_speed": 84.44,
     "flight_count": 3,
@@ -3296,7 +3339,7 @@
     "message_enabled": true
   },
   "36083": {
-    "total_flight_duration": 41466,
+    "total_flight_duration": 46854,
     "total_free_distance": 322.36,
     "avg_speed": 30.24,
     "flight_count": 8,
@@ -3846,7 +3889,7 @@
     "message_enabled": true
   },
   "39209": {
-    "total_flight_duration": 490594,
+    "total_flight_duration": 508827,
     "total_free_distance": 4957.55,
     "avg_speed": 39.92,
     "flight_count": 46,
@@ -4149,7 +4192,7 @@
     "message_enabled": true
   },
   "40422": {
-    "total_flight_duration": 12902,
+    "total_flight_duration": 15863,
     "total_free_distance": 116.7,
     "avg_speed": 35.03,
     "flight_count": 2,
@@ -4230,7 +4273,7 @@
     "message_enabled": true
   },
   "40715": {
-    "total_flight_duration": 10421,
+    "total_flight_duration": 2409,
     "total_free_distance": 58.18,
     "avg_speed": 26.74,
     "flight_count": 2,
@@ -4321,7 +4364,7 @@
     "message_enabled": true
   },
   "40967": {
-    "total_flight_duration": 66422,
+    "total_flight_duration": 71537,
     "total_free_distance": 538.11,
     "avg_speed": 33.44,
     "flight_count": 26,
@@ -4422,7 +4465,7 @@
     "message_enabled": true
   },
   "41375": {
-    "total_flight_duration": 37764,
+    "total_flight_duration": 45702,
     "total_free_distance": 121.98,
     "avg_speed": 12.09,
     "flight_count": 2,
@@ -4442,7 +4485,7 @@
     "message_enabled": true
   },
   "41454": {
-    "total_flight_duration": 5016,
+    "total_flight_duration": 11820,
     "total_free_distance": 41.83,
     "avg_speed": 31.82,
     "flight_count": 1,
@@ -4462,7 +4505,7 @@
     "message_enabled": true
   },
   "41456": {
-    "total_flight_duration": 31326,
+    "total_flight_duration": 35424,
     "total_free_distance": 407.88,
     "avg_speed": 49.34,
     "flight_count": 3,
@@ -4499,6 +4542,27 @@
       "region": "CA-ON",
       "url": "https://montrealsoaring.ca",
       "logo": "club/1168.png"
+    },
+    "message_enabled": true
+  },
+  "41499": {
+    "total_flight_duration": 36742,
+    "total_free_distance": 721.09,
+    "avg_speed": 91.83,
+    "flight_count": 2,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 15,
+    "name": "Blake Hache",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 965,
+      "name": "Cu Nim Gliding Club",
+      "region": "CA-AB",
+      "url": "https://www.cunim.org",
+      "logo": "club/965.png"
     },
     "message_enabled": true
   },
@@ -4543,7 +4607,7 @@
     "message_enabled": true
   },
   "42065": {
-    "total_flight_duration": 48644,
+    "total_flight_duration": 54400,
     "total_free_distance": 399.03,
     "avg_speed": 38.25,
     "flight_count": 14,
@@ -4563,7 +4627,7 @@
     "message_enabled": true
   },
   "42461": {
-    "total_flight_duration": 14482,
+    "total_flight_duration": 18140,
     "total_free_distance": 145.34,
     "avg_speed": 50.07,
     "flight_count": 15,
@@ -4584,7 +4648,7 @@
     "message_enabled": true
   },
   "42515": {
-    "total_flight_duration": 86582,
+    "total_flight_duration": 93492,
     "total_free_distance": 540.1,
     "avg_speed": 24.99,
     "flight_count": 17,
