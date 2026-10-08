@@ -919,17 +919,17 @@
     "message_enabled": true
   },
   "22077": {
-    "total_flight_duration": 1728763,
-    "total_free_distance": 24092.31,
-    "avg_speed": 56.51,
-    "flight_count": 150,
-    "avg_glide_speed": 120.16,
-    "avg_glide_detour": 1.38,
-    "achievement_count": 31,
+    "total_flight_duration": 1730544,
+    "total_free_distance": 24766.59,
+    "avg_speed": 56.79,
+    "flight_count": 154,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 32,
     "name": "Sasha Pejic",
     "gender": "M",
     "is_junior": false,
-    "is_senior": false,
+    "is_senior": true,
     "club": {
       "id": 965,
       "name": "Cu Nim Gliding Club",
@@ -1057,6 +1057,29 @@
       "name": "SOSA Gliding Club",
       "region": "CA-ON",
       "url": "https://www.sosaglidingclub.com"
+    },
+    "message_enabled": true
+  },
+  "22819": {
+    "total_flight_duration": 478324,
+    "total_free_distance": 6065.66,
+    "avg_speed": 47.96,
+    "flight_count": 40,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 20,
+    "name": "Lawrence Spinetta",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 1006,
+      "name": "Fault Line Flyers",
+      "region": "US-TX",
+      "url": "https://www.faultlineflyers.com",
+      "logo": "club/1006.png",
+      "in_league": "U1",
+      "position": 18
     },
     "message_enabled": true
   },
@@ -3546,10 +3569,10 @@
     "message_enabled": true
   },
   "37303": {
-    "total_flight_duration": 60866,
-    "total_free_distance": 704.51,
-    "avg_speed": 53.16,
-    "flight_count": 11,
+    "total_flight_duration": 62877,
+    "total_free_distance": 731.89,
+    "avg_speed": 54.23,
+    "flight_count": 12,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 1,
@@ -4821,6 +4844,46 @@
       "name": "London Soaring Club",
       "region": "CA-ON",
       "url": "https://www.londonsoaringclub.ca"
+    },
+    "message_enabled": true
+  },
+  "43480": {
+    "total_flight_duration": 8032,
+    "total_free_distance": 142.2,
+    "avg_speed": 77.24,
+    "flight_count": 1,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 3,
+    "name": "Richard Nguyen",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 999,
+      "name": "Edmonton Soaring Club",
+      "region": "CA-AB",
+      "url": "http://www.edmontonsoaringclub.com"
+    },
+    "message_enabled": true
+  },
+  "43488": {
+    "total_flight_duration": 9432,
+    "total_free_distance": 198,
+    "avg_speed": 83.31,
+    "flight_count": 1,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 6,
+    "name": "Andrew Kells",
+    "gender": "M",
+    "is_junior": false,
+    "is_senior": false,
+    "club": {
+      "id": 999,
+      "name": "Edmonton Soaring Club",
+      "region": "CA-AB",
+      "url": "http://www.edmontonsoaringclub.com"
     },
     "message_enabled": true
   }
