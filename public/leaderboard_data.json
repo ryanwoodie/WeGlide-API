@@ -1,13 +1,13 @@
 {
   "pilotDurations": {
-    "2070": 5387175,
+    "2070": 5391179,
     "2074": 1414793,
     "4806": 7167125,
     "5342": 626975,
     "5450": 407130,
     "5582": 2763381,
     "6074": 720724,
-    "6084": 281588,
+    "6084": 288088,
     "6085": 132619,
     "6303": 506438,
     "6366": 898881,
@@ -33,7 +33,7 @@
     "17026": 817822,
     "17989": 1883784,
     "18113": 3143426,
-    "18693": 2344977,
+    "18693": 2368691,
     "20442": 56070,
     "20675": 1167858,
     "20706": 158031,
@@ -49,7 +49,7 @@
     "22081": 379297,
     "22211": 14875,
     "22232": 2056389,
-    "22359": 21116,
+    "22359": 26631,
     "22746": 1294317,
     "22801": 108955,
     "22819": 478324,
@@ -59,7 +59,7 @@
     "23330": 539279,
     "23352": 72174,
     "23363": 142084,
-    "23521": 706975,
+    "23521": 721168,
     "23795": 3035373,
     "23829": 1193895,
     "24720": 155937,
@@ -67,7 +67,7 @@
     "24930": 2557926,
     "25002": 214609,
     "25019": 50289,
-    "25114": 899310,
+    "25114": 903862,
     "25728": 223045,
     "25760": 12108,
     "25782": 387693,
@@ -240,8 +240,8 @@
     "43139": 19222,
     "43244": 2696,
     "43468": 15368,
-    "43480": 8032,
-    "43488": 9432
+    "43480": 11570,
+    "43488": 15364
   },
   "pilotCombinedHours": {
     "779": {
@@ -3985,7 +3985,7 @@
         "pilotName": "David Gossen",
         "picHours": 200,
         "cutoffDate": "2026-10-01",
-        "verifiedDate": "2026-10-07T17:44:40.770Z",
+        "verifiedDate": "2026-10-08T14:16:58.269Z",
         "eligible": false,
         "dataSource": "self-claim-via-direct-message-dismissal"
       },
@@ -4116,13 +4116,13 @@
   },
   "pilotProfiles": {
     "2070": {
-      "total_flight_duration": 5387175,
-      "total_free_distance": 111182.18,
-      "avg_speed": 83.75,
-      "flight_count": 358,
-      "avg_glide_speed": 138.88,
-      "avg_glide_detour": 1.18,
-      "achievement_count": 27,
+      "total_flight_duration": 5391179,
+      "total_free_distance": 118481.28,
+      "avg_speed": 83.72,
+      "flight_count": 385,
+      "avg_glide_speed": 0,
+      "avg_glide_detour": 0,
+      "achievement_count": 35,
       "name": "Christopher Michael Gough",
       "gender": "M",
       "is_junior": false,
@@ -4258,13 +4258,13 @@
       "message_enabled": true
     },
     "6084": {
-      "total_flight_duration": 281588,
-      "total_free_distance": 4122.89,
-      "avg_speed": 61.82,
-      "flight_count": 34,
-      "avg_glide_speed": 124.15,
-      "avg_glide_detour": 1.55,
-      "achievement_count": 10,
+      "total_flight_duration": 288088,
+      "total_free_distance": 4497.05,
+      "avg_speed": 62.61,
+      "flight_count": 36,
+      "avg_glide_speed": 0,
+      "avg_glide_detour": 0,
+      "achievement_count": 11,
       "name": "Tyler Paradis",
       "gender": "D",
       "is_junior": false,
@@ -4790,7 +4790,7 @@
       "message_enabled": true
     },
     "18693": {
-      "total_flight_duration": 2344977,
+      "total_flight_duration": 2368691,
       "total_free_distance": 50693.25,
       "avg_speed": 85.22,
       "flight_count": 149,
@@ -5116,10 +5116,10 @@
       "message_enabled": true
     },
     "22359": {
-      "total_flight_duration": 21116,
-      "total_free_distance": 451.61,
-      "avg_speed": 78.34,
-      "flight_count": 1,
+      "total_flight_duration": 26631,
+      "total_free_distance": 621.54,
+      "avg_speed": 87.84,
+      "flight_count": 2,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 13,
@@ -5321,12 +5321,12 @@
       "message_enabled": true
     },
     "23521": {
-      "total_flight_duration": 706975,
-      "total_free_distance": 12353.54,
-      "avg_speed": 70.74,
-      "flight_count": 82,
-      "avg_glide_speed": 130.94,
-      "avg_glide_detour": 1.37,
+      "total_flight_duration": 721168,
+      "total_free_distance": 12731.1,
+      "avg_speed": 70.21,
+      "flight_count": 85,
+      "avg_glide_speed": 0,
+      "avg_glide_detour": 0,
       "achievement_count": 18,
       "name": "Ray Troppmann",
       "gender": "M",
@@ -5481,10 +5481,10 @@
       }
     },
     "25114": {
-      "total_flight_duration": 899310,
-      "total_free_distance": 15674.68,
-      "avg_speed": 68.28,
-      "flight_count": 75,
+      "total_flight_duration": 903862,
+      "total_free_distance": 15779.2,
+      "avg_speed": 68.46,
+      "flight_count": 76,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 32,
@@ -8964,7 +8964,7 @@
       "message_enabled": true
     },
     "43480": {
-      "total_flight_duration": 8032,
+      "total_flight_duration": 11570,
       "total_free_distance": 142.2,
       "avg_speed": 77.24,
       "flight_count": 1,
@@ -8984,10 +8984,10 @@
       "message_enabled": true
     },
     "43488": {
-      "total_flight_duration": 9432,
-      "total_free_distance": 198,
-      "avg_speed": 83.31,
-      "flight_count": 1,
+      "total_flight_duration": 15364,
+      "total_free_distance": 342.02,
+      "avg_speed": 93.59,
+      "flight_count": 2,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 6,
@@ -9004,12 +9004,12 @@
       "message_enabled": true
     }
   },
-  "flightClubs": "{\"1249044\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249075\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1249612\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249766\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249795\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249833\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249838\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249855\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249856\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249872\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"1249873\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249876\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249878\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249890\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249892\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249893\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249894\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249907\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249915\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249922\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249957\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249963\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249965\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249967\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1249969\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249977\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249981\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249984\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249985\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249986\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249987\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249996\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249999\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1250241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250288\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250303\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250305\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1250335\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250338\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250457\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250643\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250853\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250856\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250863\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250894\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250908\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1250912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1251210\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251240\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251244\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251248\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251262\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251266\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251267\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251270\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251272\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251273\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251274\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251275\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251277\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251279\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251283\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251435\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251443\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251475\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251476\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251526\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251548\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251551\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251552\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251553\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251555\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1251561\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251562\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251701\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251721\":{\"clubId\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"\"},\"1251728\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1251730\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251733\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"}}",
+  "flightClubs": "{\"1249044\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249075\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1249612\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249766\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249795\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249833\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249838\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249855\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249856\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249872\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"1249873\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249876\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249878\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249890\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249892\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249893\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249894\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249907\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249915\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249922\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249957\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249963\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249965\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249967\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1249969\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249977\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249981\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249984\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249985\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249986\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249987\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249996\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249999\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1250241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250288\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250303\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250305\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1250335\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250338\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250457\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250643\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250853\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250856\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250863\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250894\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250908\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1250912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1251210\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251240\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251244\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251248\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251262\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251266\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251267\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251270\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251272\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251273\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251274\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251275\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251277\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251279\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251283\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251435\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251443\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251475\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251476\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251526\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251548\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251551\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251552\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251553\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251555\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1251561\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251562\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251701\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251721\":{\"clubId\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"\"},\"1251728\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1251730\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251733\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251835\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251879\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251880\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251882\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251907\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251916\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251926\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"}}",
   "clubMetadata": "{\"165\":{\"id\":165,\"name\":\"FG Freudenstadt\",\"region\":\"DE-BW\",\"url\":\"http://fg-freudenstadt.de\",\"logo\":\"club/165.png\",\"in_league\":\"BW\",\"lookupMissing\":false},\"762\":{\"id\":762,\"name\":\"Aeroclub Cantons de l'Est\",\"region\":\"CA_ON\",\"url\":\"\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"849\":{\"id\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://www.avsa.ca\",\"logo\":\"club/849.png\",\"in_league\":\"\",\"lookupMissing\":false},\"863\":{\"id\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"CA-QC\",\"url\":\"https://www.avvc.qc.ca\",\"logo\":\"club/863.png\",\"in_league\":\"\",\"lookupMissing\":false},\"907\":{\"id\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"CA-BC\",\"url\":\"https://www.canadianrockiessoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"914\":{\"id\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"CA-AB\",\"url\":\"http://www.cagcsoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"918\":{\"id\":918,\"name\":\"Central Ohio Soaring Association\",\"region\":\"US-OH\",\"url\":\"https://centralohiosoaring.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"947\":{\"id\":947,\"name\":\"CVV de Québec\",\"region\":\"CA-QC\",\"url\":\"https://www.cvvq.net\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"965\":{\"id\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"CA-AB\",\"url\":\"https://www.cunim.org\",\"logo\":\"club/965.png\",\"in_league\":\"\",\"lookupMissing\":false},\"999\":{\"id\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"CA-AB\",\"url\":\"http://www.edmontonsoaringclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1006\":{\"id\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"US-TX\",\"url\":\"https://www.faultlineflyers.com\",\"logo\":\"club/1006.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1029\":{\"id\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.gatineauglidingclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1037\":{\"id\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.greatlakesgliding.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1038\":{\"id\":1038,\"name\":\"Greater Boston Soaring Club\",\"region\":\"US-MA\",\"url\":\"https://soargbsc.com\",\"logo\":\"club/1038.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1124\":{\"id\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"CA-AB\",\"url\":\"https://www.lethbridgesoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1133\":{\"id\":1133,\"name\":\"London Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://www.londonsoaringclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1159\":{\"id\":1159,\"name\":\"Mid-Georgia Soaring Association\",\"region\":\"US-GA\",\"url\":\"https://www.soar-mgsa.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"1168\":{\"id\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://montrealsoaring.ca\",\"logo\":\"club/1168.png\",\"in_league\":\"\",\"lookupMissing\":false},\"1240\":{\"id\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"CA-ON\",\"url\":\"https://rvss.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1259\":{\"id\":1259,\"name\":\"Seattle Glider Council\",\"region\":\"US-WA\",\"url\":\"https://www.seattleglidercouncil.org\",\"logo\":\"club/1259.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1307\":{\"id\":1307,\"name\":\"Soaring Society of Boulder\",\"region\":\"US-CO\",\"url\":\"http://www.soarboulder.org\",\"logo\":\"club/1307.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1310\":{\"id\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.sosaglidingclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1318\":{\"id\":1318,\"name\":\"Spokane Soaring Society\",\"region\":\"US-WA\",\"url\":\"https://spokanesoaring.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"1345\":{\"id\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"CA-ON\",\"url\":\"http://toronto-soaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1363\":{\"id\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://vancouversoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1380\":{\"id\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"AU-QLD\",\"url\":\"https://www.warwickgliding.org\",\"logo\":\"club/1380.png\",\"in_league\":\"AU\",\"lookupMissing\":false},\"1387\":{\"id\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"CA-MB\",\"url\":\"https://www.wgc.mb.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1393\":{\"id\":1393,\"name\":\"York Soaring Association\",\"region\":\"CA-ON\",\"url\":\"https://www.yorksoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1808\":{\"id\":1808,\"name\":\"Prince Albert Gliding and Soaring Club\",\"region\":\"CA-SK\",\"url\":\"https://www.pagsc.ca\",\"logo\":\"club/1808.png\",\"in_league\":\"\",\"lookupMissing\":false}}",
   "aircraftAwards": {
     "bestGliderPilot": "Christopher Michael Gough",
     "bestGliderPilotId": 2070,
-    "bestGliderScore": 1282.25,
+    "bestGliderScore": 1358.67,
     "bestMotorGliderPilot": "Pavan K",
     "bestMotorGliderPilotId": 20675,
     "bestMotorGliderScore": 1006.81
@@ -9018,9 +9018,9 @@
     {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
-      "totalPoints": 1282.25,
-      "totalDistance": 1316.22,
-      "flightCount": 3,
+      "totalPoints": 1358.67,
+      "totalDistance": 1395.81,
+      "flightCount": 4,
       "bestFlights": [
         {
           "id": 1251244,
@@ -9057,6 +9057,23 @@
           "errorReasons": []
         },
         {
+          "id": 1251882,
+          "userId": 2070,
+          "date": "2026-10-08",
+          "distance": 79.59,
+          "speed": 93.76,
+          "points": 76.42,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
           "id": 1250856,
           "userId": 2070,
           "date": "2026-10-04",
@@ -9077,7 +9094,7 @@
       "awards": [
         {
           "type": "glider",
-          "score": 1282.25
+          "score": 1358.67
         }
       ]
     },
@@ -9143,6 +9160,67 @@
       "awards": []
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 1110.8899999999999,
+      "totalDistance": 1024.13,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 497.62,
+          "speed": 75.14,
+          "points": 533.73,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 421.99,
+          "speed": 73.29,
+          "points": 462.79,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 104.52,
+          "speed": 116.03,
+          "points": 114.37,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Pavan K",
       "pilotId": 20675,
       "totalPoints": 1006.81,
@@ -9190,50 +9268,6 @@
           "score": 1006.81
         }
       ]
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 996.52,
-      "totalDistance": 919.61,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 497.62,
-          "speed": 75.14,
-          "points": 533.73,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 421.99,
-          "speed": 73.29,
-          "points": 462.79,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
     },
     {
       "pilot": "Sasha Pejic",
@@ -9341,6 +9375,50 @@
       "awards": []
     },
     {
+      "pilot": "David Gossen",
+      "pilotId": 22359,
+      "totalPoints": 602.36,
+      "totalDistance": 621.54,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251555,
+          "userId": 22359,
+          "date": "2026-10-05",
+          "distance": 451.61,
+          "speed": 78.34,
+          "points": 441.98,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251926,
+          "userId": 22359,
+          "date": "2026-10-08",
+          "distance": 169.93,
+          "speed": 129.64,
+          "points": 160.38,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Christian Hamel",
       "pilotId": 35644,
       "totalPoints": 476.3,
@@ -9395,33 +9473,6 @@
       "awards": []
     },
     {
-      "pilot": "David Gossen",
-      "pilotId": 22359,
-      "totalPoints": 441.98,
-      "totalDistance": 451.61,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251555,
-          "userId": 22359,
-          "date": "2026-10-05",
-          "distance": 451.61,
-          "speed": 78.34,
-          "points": 441.98,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Nick Bonniere",
       "pilotId": 35436,
       "totalPoints": 420.96,
@@ -9442,6 +9493,50 @@
           "aircraftKind": "FG",
           "aircraftName": "LAK-17B FES 21m",
           "dmstIndex": 123,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Tyler Paradis",
+      "pilotId": 6084,
+      "totalPoints": 413.54999999999995,
+      "totalDistance": 374.15999999999997,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251262,
+          "userId": 6084,
+          "date": "2026-10-05",
+          "distance": 282.88,
+          "speed": 78.59,
+          "points": 310.45,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251880,
+          "userId": 6084,
+          "date": "2026-10-08",
+          "distance": 91.28,
+          "speed": 59.38,
+          "points": 103.1,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -9601,6 +9696,50 @@
       "awards": []
     },
     {
+      "pilot": "Andrew Kells",
+      "pilotId": 43488,
+      "totalPoints": 346.04999999999995,
+      "totalDistance": 342.02,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251733,
+          "userId": 43488,
+          "date": "2026-10-06",
+          "distance": 198,
+          "speed": 83.31,
+          "points": 208.64,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251916,
+          "userId": 43488,
+          "date": "2026-10-08",
+          "distance": 144.02,
+          "speed": 112.71,
+          "points": 137.41,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Gabriel Duford",
       "pilotId": 24793,
       "totalPoints": 324.03,
@@ -9621,33 +9760,6 @@
           "aircraftKind": "MG",
           "aircraftName": "ASG 29 Es 18m",
           "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Tyler Paradis",
-      "pilotId": 6084,
-      "totalPoints": 310.45,
-      "totalDistance": 282.88,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251262,
-          "userId": 6084,
-          "date": "2026-10-05",
-          "distance": 282.88,
-          "speed": 78.59,
-          "points": 310.45,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
-          "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
         }
@@ -9699,6 +9811,69 @@
       "awards": []
     },
     {
+      "pilot": "Ray Troppmann",
+      "pilotId": 23521,
+      "totalPoints": 243.22,
+      "totalDistance": 233.17,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251435,
+          "userId": 23521,
+          "date": "2026-10-05",
+          "distance": 170.79,
+          "speed": 50.27,
+          "points": 176.84,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251907,
+          "userId": 23521,
+          "date": "2026-10-08",
+          "distance": 62.38,
+          "speed": 97.72,
+          "points": 66.38,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251835,
+          "userId": 23521,
+          "date": "2026-10-06",
+          "distance": 144.39,
+          "speed": 54.1,
+          "points": 161.39,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Yvon Saucier",
       "pilotId": 39209,
       "totalPoints": 208.8,
@@ -9719,33 +9894,6 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Andrew Kells",
-      "pilotId": 43488,
-      "totalPoints": 208.64,
-      "totalDistance": 198,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251733,
-          "userId": 43488,
-          "date": "2026-10-06",
-          "distance": 198,
-          "speed": 83.31,
-          "points": 208.64,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
-          "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
         }
@@ -9827,33 +9975,6 @@
           "aircraftKind": "GL",
           "aircraftName": "IS 29 D",
           "dmstIndex": 96,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Ray Troppmann",
-      "pilotId": 23521,
-      "totalPoints": 176.84,
-      "totalDistance": 170.79,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251435,
-          "userId": 23521,
-          "date": "2026-10-05",
-          "distance": 170.79,
-          "speed": 50.27,
-          "points": 176.84,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 1000S 20m",
-          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -10437,8 +10558,8 @@
     {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
-      "totalPoints": 277.84,
-      "totalDistance": 611.26,
+      "totalPoints": 283.55999999999995,
+      "totalDistance": 624.2900000000001,
       "flightCount": 3,
       "bestFlights": [
         {
@@ -10476,19 +10597,79 @@
           "errorReasons": []
         },
         {
-          "id": 1250856,
+          "id": 1251882,
           "userId": 2070,
-          "date": "2026-10-04",
-          "distance": 36.44,
-          "speed": 18.22,
-          "points": 16.56,
+          "date": "2026-10-08",
+          "distance": 49.47,
+          "speed": 24.73,
+          "points": 22.28,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
           "contestType": "sprint",
           "aircraftKind": "GL",
-          "aircraftName": "Ventus b 15m",
-          "dmstIndex": 110,
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 257.45,
+      "totalDistance": 514.91,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 247.1,
+          "speed": 123.55,
+          "points": 123.55,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 208.35,
+          "speed": 104.17,
+          "points": 104.17,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 59.46,
+          "speed": 29.73,
+          "points": 29.73,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -10538,49 +10719,6 @@
       ]
     },
     {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 227.72,
-      "totalDistance": 455.45,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 247.1,
-          "speed": 123.55,
-          "points": 123.55,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 208.35,
-          "speed": 104.17,
-          "points": 104.17,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Blake Hache",
       "pilotId": 41499,
       "totalPoints": 189.54000000000002,
@@ -10611,6 +10749,49 @@
           "distance": 156.26,
           "speed": 78.13,
           "points": 70.39,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "David Gossen",
+      "pilotId": 22359,
+      "totalPoints": 179.57,
+      "totalDistance": 396.37,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251555,
+          "userId": 22359,
+          "date": "2026-10-05",
+          "distance": 251.66,
+          "speed": 125.83,
+          "points": 114.39,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251926,
+          "userId": 22359,
+          "date": "2026-10-08",
+          "distance": 144.71,
+          "speed": 72.36,
+          "points": 65.18,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -10684,6 +10865,49 @@
       ]
     },
     {
+      "pilot": "Tyler Paradis",
+      "pilotId": 6084,
+      "totalPoints": 134.56,
+      "totalDistance": 275.6,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251262,
+          "userId": 6084,
+          "date": "2026-10-05",
+          "distance": 218.16,
+          "speed": 109.08,
+          "points": 106.94,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251880,
+          "userId": 6084,
+          "date": "2026-10-08",
+          "distance": 57.44,
+          "speed": 28.72,
+          "points": 27.62,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Kelvin Cole",
       "pilotId": 6303,
       "totalPoints": 117.9,
@@ -10727,45 +10951,19 @@
       ]
     },
     {
-      "pilot": "David Gossen",
-      "pilotId": 22359,
-      "totalPoints": 114.39,
-      "totalDistance": 251.66,
-      "flightCount": 1,
+      "pilot": "Andrew Kells",
+      "pilotId": 43488,
+      "totalPoints": 104.17,
+      "totalDistance": 217.60000000000002,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1251555,
-          "userId": 22359,
-          "date": "2026-10-05",
-          "distance": 251.66,
-          "speed": 125.83,
-          "points": 114.39,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Tyler Paradis",
-      "pilotId": 6084,
-      "totalPoints": 106.94,
-      "totalDistance": 218.16,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251262,
-          "userId": 6084,
-          "date": "2026-10-05",
-          "distance": 218.16,
-          "speed": 109.08,
-          "points": 106.94,
+          "id": 1251733,
+          "userId": 43488,
+          "date": "2026-10-06",
+          "distance": 154.9,
+          "speed": 77.45,
+          "points": 75.93,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -10773,6 +10971,23 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-54-2 Perkoz 20m WL",
           "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251916,
+          "userId": 43488,
+          "date": "2026-10-08",
+          "distance": 62.7,
+          "speed": 31.35,
+          "points": 28.24,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -10986,19 +11201,36 @@
       ]
     },
     {
-      "pilot": "Andrew Kells",
-      "pilotId": 43488,
-      "totalPoints": 75.93,
-      "totalDistance": 154.9,
-      "flightCount": 1,
+      "pilot": "Ray Troppmann",
+      "pilotId": 23521,
+      "totalPoints": 77.82,
+      "totalDistance": 169.98999999999998,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1251733,
-          "userId": 43488,
-          "date": "2026-10-06",
-          "distance": 154.9,
-          "speed": 77.45,
-          "points": 75.93,
+          "id": 1251435,
+          "userId": 23521,
+          "date": "2026-10-05",
+          "distance": 138.51,
+          "speed": 69.25,
+          "points": 62.39,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251907,
+          "userId": 23521,
+          "date": "2026-10-08",
+          "distance": 31.48,
+          "speed": 15.74,
+          "points": 15.43,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -11008,6 +11240,25 @@
           "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
+        },
+        {
+          "id": 1251835,
+          "userId": 23521,
+          "date": "2026-10-06",
+          "distance": 101.01,
+          "speed": 50.51,
+          "points": 45.5,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
         }
       ]
     },
@@ -11110,32 +11361,6 @@
           "aircraftKind": "GL",
           "aircraftName": "PIK-20 B",
           "dmstIndex": 102,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Ray Troppmann",
-      "pilotId": 23521,
-      "totalPoints": 62.39,
-      "totalDistance": 138.51,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251435,
-          "userId": 23521,
-          "date": "2026-10-05",
-          "distance": 138.51,
-          "speed": 69.25,
-          "points": 62.39,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 1000S 20m",
-          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -12418,6 +12643,109 @@
       ]
     },
     {
+      "pilot": "Tyler Paradis",
+      "pilotId": 6084,
+      "totalPoints": 152.37,
+      "totalDistance": 156.43,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251262,
+          "userId": 6084,
+          "date": "2026-10-05",
+          "distance": 103.27,
+          "speed": 39.55,
+          "points": 101.25,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251880,
+          "userId": 6084,
+          "date": "2026-10-08",
+          "distance": 53.16,
+          "speed": 37.41,
+          "points": 51.12,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 145.51,
+      "totalDistance": 145.51,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 83.6,
+          "speed": 12.9,
+          "points": 83.6,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 44.5,
+          "speed": 14.65,
+          "points": 44.5,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 17.41,
+          "speed": 27.53,
+          "points": 17.41,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Blake Hache",
       "pilotId": 41499,
       "totalPoints": 140.91,
@@ -12521,49 +12849,6 @@
       ]
     },
     {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 128.1,
-      "totalDistance": 128.1,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 83.6,
-          "speed": 12.9,
-          "points": 83.6,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 44.5,
-          "speed": 14.65,
-          "points": 44.5,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
       "totalPoints": 117.60000000000001,
@@ -12618,6 +12903,49 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus b 15m",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "David Gossen",
+      "pilotId": 22359,
+      "totalPoints": 115.29,
+      "totalDistance": 126.92999999999999,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251555,
+          "userId": 22359,
+          "date": "2026-10-05",
+          "distance": 115.24,
+          "speed": 20.24,
+          "points": 104.76,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251926,
+          "userId": 22359,
+          "date": "2026-10-08",
+          "distance": 11.69,
+          "speed": 116.9,
+          "points": 10.53,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -12753,32 +13081,6 @@
       ]
     },
     {
-      "pilot": "David Gossen",
-      "pilotId": 22359,
-      "totalPoints": 104.76,
-      "totalDistance": 115.24,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251555,
-          "userId": 22359,
-          "date": "2026-10-05",
-          "distance": 115.24,
-          "speed": 20.24,
-          "points": 104.76,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Jean Lapierre",
       "pilotId": 34953,
       "totalPoints": 103.93,
@@ -12799,32 +13101,6 @@
           "aircraftKind": "GL",
           "aircraftName": "DG 600 18m",
           "dmstIndex": 116,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Tyler Paradis",
-      "pilotId": 6084,
-      "totalPoints": 101.25,
-      "totalDistance": 103.27,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251262,
-          "userId": 6084,
-          "date": "2026-10-05",
-          "distance": 103.27,
-          "speed": 39.55,
-          "points": 101.25,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
-          "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
         }
@@ -12926,6 +13202,68 @@
       ]
     },
     {
+      "pilot": "Ray Troppmann",
+      "pilotId": 23521,
+      "totalPoints": 66.60000000000001,
+      "totalDistance": 73.52,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251435,
+          "userId": 23521,
+          "date": "2026-10-05",
+          "distance": 68.92,
+          "speed": 29.9,
+          "points": 62.09,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251907,
+          "userId": 23521,
+          "date": "2026-10-08",
+          "distance": 4.6,
+          "speed": 34.64,
+          "points": 4.51,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251835,
+          "userId": 23521,
+          "date": "2026-10-06",
+          "distance": 115.83,
+          "speed": 76.33,
+          "points": 104.35,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Gord Lendrum",
       "pilotId": 35124,
       "totalPoints": 66.55,
@@ -12952,32 +13290,6 @@
       ]
     },
     {
-      "pilot": "Ray Troppmann",
-      "pilotId": 23521,
-      "totalPoints": 62.09,
-      "totalDistance": 68.92,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251435,
-          "userId": 23521,
-          "date": "2026-10-05",
-          "distance": 68.92,
-          "speed": 29.9,
-          "points": 62.09,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 1000S 20m",
-          "dmstIndex": 111,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Ben Hornett",
       "pilotId": 6074,
       "totalPoints": 60.95,
@@ -12997,6 +13309,49 @@
           "contestType": "triangle",
           "aircraftKind": "GL",
           "aircraftName": "LS 6",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Andrew Kells",
+      "pilotId": 43488,
+      "totalPoints": 54.26,
+      "totalDistance": 55.87,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251733,
+          "userId": 43488,
+          "date": "2026-10-06",
+          "distance": 49.37,
+          "speed": 50.21,
+          "points": 48.4,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251916,
+          "userId": 43488,
+          "date": "2026-10-08",
+          "distance": 6.5,
+          "speed": 93.98,
+          "points": 5.86,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
           "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
@@ -13127,32 +13482,6 @@
           "contestType": "triangle",
           "aircraftKind": "GL",
           "aircraftName": "PIK-20 B",
-          "dmstIndex": 102,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Andrew Kells",
-      "pilotId": 43488,
-      "totalPoints": 48.4,
-      "totalDistance": 49.37,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251733,
-          "userId": 43488,
-          "date": "2026-10-06",
-          "distance": 49.37,
-          "speed": 50.21,
-          "points": 48.4,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
           "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
@@ -14046,6 +14375,66 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 433.83,
+      "totalDistance": 433.83,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 204.01,
+          "speed": 91.71,
+          "points": 204.01,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 180.56,
+          "speed": 58.33,
+          "points": 180.56,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 49.26,
+          "speed": 78.5,
+          "points": 49.26,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
       "totalPoints": 414.77,
@@ -14100,49 +14489,6 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus b 15m",
           "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 384.57,
-      "totalDistance": 384.57,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 204.01,
-          "speed": 91.71,
-          "points": 204.01,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 180.56,
-          "speed": 58.33,
-          "points": 180.56,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -14356,6 +14702,49 @@
       ]
     },
     {
+      "pilot": "Tyler Paradis",
+      "pilotId": 6084,
+      "totalPoints": 207.96,
+      "totalDistance": 212.96999999999997,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251262,
+          "userId": 6084,
+          "date": "2026-10-05",
+          "distance": 168.89,
+          "speed": 58.08,
+          "points": 165.58,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251880,
+          "userId": 6084,
+          "date": "2026-10-08",
+          "distance": 44.08,
+          "speed": 31.07,
+          "points": 42.38,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Ali Askari",
       "pilotId": 35437,
       "totalPoints": 206.68,
@@ -14454,32 +14843,6 @@
           "aircraftKind": "GL",
           "aircraftName": "LS 6",
           "dmstIndex": 111,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Tyler Paradis",
-      "pilotId": 6084,
-      "totalPoints": 165.58,
-      "totalDistance": 168.89,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251262,
-          "userId": 6084,
-          "date": "2026-10-05",
-          "distance": 168.89,
-          "speed": 58.08,
-          "points": 165.58,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
-          "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
         }
@@ -14663,6 +15026,25 @@
           "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
+        },
+        {
+          "id": 1251835,
+          "userId": 23521,
+          "date": "2026-10-06",
+          "distance": 70.26,
+          "speed": 48,
+          "points": 63.3,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
         }
       ]
     },
@@ -15033,6 +15415,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Andrew Kells",
+      "pilotId": 43488,
+      "totalPoints": 38.3,
+      "totalDistance": 42.51,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1251916,
+          "userId": 43488,
+          "date": "2026-10-08",
+          "distance": 42.51,
+          "speed": 71.75,
+          "points": 38.3,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -15536,6 +15944,32 @@
       ]
     },
     {
+      "pilot": "David Gossen",
+      "pilotId": 22359,
+      "totalPoints": 78.95,
+      "totalDistance": 87.64,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1251926,
+          "userId": 22359,
+          "date": "2026-10-08",
+          "distance": 87.64,
+          "speed": 174.31,
+          "points": 78.95,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Gregory Zak",
       "pilotId": 22232,
       "totalPoints": 54.25,
@@ -15596,6 +16030,32 @@
       ]
     },
     {
+      "pilot": "Ray Troppmann",
+      "pilotId": 23521,
+      "totalPoints": 31.08,
+      "totalDistance": 31.7,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1251907,
+          "userId": 23521,
+          "date": "2026-10-08",
+          "distance": 31.7,
+          "speed": 54.09,
+          "points": 31.08,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Gabriel Trahan desgroseilliers",
       "pilotId": 40967,
       "totalPoints": 26.470000000000002,
@@ -15650,6 +16110,32 @@
           "aircraftKind": "GL",
           "aircraftName": "G 103 Twin Astir RG",
           "dmstIndex": 94,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Christopher Michael Gough",
+      "pilotId": 2070,
+      "totalPoints": 23.66,
+      "totalDistance": 26.26,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1251882,
+          "userId": 2070,
+          "date": "2026-10-08",
+          "distance": 26.26,
+          "speed": 39.1,
+          "points": 23.66,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -24150,6 +24636,704 @@
         "dmstIndex": 100
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1251926,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 164.5,
+        "thermal_avg": 0,
+        "glide_speed": 135.56,
+        "glide_speed_lift": 126.55,
+        "glide_speed_sink": 143.89,
+        "altitude_avg": 4504,
+        "agl_avg": 3350,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.99,
+        "glide_percentage_lift": 0.52,
+        "duration": 4719,
+        "thermal_time": 0,
+        "glide_time": 4682,
+        "wind_speed": 32,
+        "wind_direction": 297,
+        "attempt_count": 1,
+        "attempt_avg": 0.89,
+        "attempt_speed_loss": 1.02,
+        "below_1000_agl": 0,
+        "below_800_agl": 0,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 176.3,
+        "glide_detour": 1.04,
+        "glide_distance": 67.02,
+        "glide_alt_avg": 4501,
+        "end_time": "2026-10-09T00:01:48+00:00",
+        "start_time": "2026-10-08T22:43:09+00:00",
+        "finish_alt": 2524
+      },
+      "taskStats": {
+        "glide_ratio": 162.08,
+        "thermal_avg": 0,
+        "glide_speed": 135.44,
+        "glide_speed_lift": 126.34,
+        "glide_speed_sink": 143.89,
+        "altitude_avg": 4502,
+        "agl_avg": 3348,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.99,
+        "glide_percentage_lift": 0.52,
+        "duration": 4726,
+        "thermal_time": 0,
+        "glide_time": 4689,
+        "wind_speed": 32,
+        "wind_direction": 297,
+        "attempt_count": 1,
+        "attempt_avg": 0.89,
+        "attempt_speed_loss": 1.01,
+        "below_1000_agl": 0,
+        "below_800_agl": 0,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 176.41,
+        "glide_detour": 1.05,
+        "glide_distance": 67.05,
+        "glide_alt_avg": 4499,
+        "end_time": "2026-10-09T00:01:49+00:00",
+        "start_time": "2026-10-08T22:43:03+00:00",
+        "finish_alt": 2522,
+        "task_duration": 4726,
+        "total_duration": 4719
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 167.43,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 150.84,
+        "freePoints": 160.38,
+        "auPoints": 150.84,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 150.83783783783784,
+        "dmstFreeDistance": 167.43,
+        "dmstTaskActualPoints": 150.83783783783784,
+        "dmstTaskPotentialPoints": 150.83783783783784,
+        "dmstTaskDistance": 167.43,
+        "weglideFreeDistance": 169.93,
+        "dmstIndex": 111
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1251916,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 176.71,
+        "thermal_avg": 0,
+        "glide_speed": 139.44,
+        "glide_speed_lift": 138.33,
+        "glide_speed_sink": 140.96,
+        "altitude_avg": 2563,
+        "agl_avg": 508,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.98,
+        "glide_percentage_lift": 0.58,
+        "duration": 4600,
+        "thermal_time": 0,
+        "glide_time": 4503,
+        "wind_speed": 34.92,
+        "wind_direction": 247,
+        "attempt_count": 2,
+        "attempt_avg": -0.33,
+        "attempt_speed_loss": 2.43,
+        "below_1000_agl": 0.9207,
+        "below_800_agl": 0.705,
+        "below_600_agl": 0.6637,
+        "below_400_agl": 0.538,
+        "below_200_agl": 0.1178,
+        "below_100_agl": 0.0159,
+        "track_distance": 174.41,
+        "glide_detour": 1.21,
+        "glide_distance": 8.91,
+        "glide_alt_avg": 2572,
+        "end_time": "2026-10-08T20:45:22+00:00",
+        "start_time": "2026-10-08T19:28:42+00:00",
+        "finish_alt": 1960
+      },
+      "taskStats": {
+        "glide_ratio": 127.58,
+        "thermal_avg": 0,
+        "glide_speed": 139.44,
+        "glide_speed_lift": 138.33,
+        "glide_speed_sink": 140.96,
+        "altitude_avg": 2563,
+        "agl_avg": 508,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.98,
+        "glide_percentage_lift": 0.58,
+        "duration": 4600,
+        "thermal_time": 0,
+        "glide_time": 4503,
+        "wind_speed": 34.92,
+        "wind_direction": 247,
+        "attempt_count": 2,
+        "attempt_avg": -0.33,
+        "attempt_speed_loss": 1.75,
+        "below_1000_agl": 0.9207,
+        "below_800_agl": 0.705,
+        "below_600_agl": 0.6637,
+        "below_400_agl": 0.538,
+        "below_200_agl": 0.1178,
+        "below_100_agl": 0.0159,
+        "track_distance": 174.41,
+        "glide_detour": 1.68,
+        "glide_distance": 8.91,
+        "glide_alt_avg": 2572,
+        "end_time": "2026-10-08T20:45:22+00:00",
+        "start_time": "2026-10-08T19:28:42+00:00",
+        "finish_alt": 1960,
+        "task_duration": 4600,
+        "total_duration": 4600
+      },
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 504.62,
+        "type": "OR",
+        "typeLabel": "Out & Return",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 93.68,
+        "freePoints": 137.41,
+        "auPoints": 93.68,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 93.67567567567568,
+        "dmstFreeDistance": 103.98,
+        "dmstTaskActualPoints": 590.9963963963963,
+        "dmstTaskPotentialPoints": 727.3801801801802,
+        "dmstTaskDistance": 504.62,
+        "weglideFreeDistance": 144.02,
+        "dmstIndex": 111
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1251907,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 44.68,
+        "thermal_avg": 0.82,
+        "glide_speed": 144.8,
+        "glide_speed_lift": 141.44,
+        "glide_speed_sink": 143.84,
+        "altitude_avg": 2301,
+        "agl_avg": 592,
+        "thermal_count": 2,
+        "thermal_gain": 407,
+        "thermal_radius": 200.43,
+        "thermal_start_agl": 556,
+        "thermal_bank": 29.62,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.39,
+        "duration": 2298,
+        "thermal_time": 498,
+        "glide_time": 1619,
+        "wind_speed": 31.45,
+        "wind_direction": 265,
+        "attempt_count": 3,
+        "attempt_avg": -0.06,
+        "attempt_speed_loss": 8.36,
+        "below_1000_agl": 0.8844,
+        "below_800_agl": 0.7814,
+        "below_600_agl": 0.645,
+        "below_400_agl": 0.2394,
+        "below_200_agl": 0.0063,
+        "below_100_agl": 0,
+        "track_distance": 65.12,
+        "glide_detour": 1.04,
+        "glide_distance": 3.35,
+        "glide_alt_avg": 2290,
+        "end_time": "2026-10-08T20:52:41+00:00",
+        "start_time": "2026-10-08T20:14:23+00:00",
+        "finish_alt": 1806
+      },
+      "taskStats": {
+        "glide_ratio": 41.98,
+        "thermal_avg": 0.82,
+        "glide_speed": 144.8,
+        "glide_speed_lift": 141.44,
+        "glide_speed_sink": 143.84,
+        "altitude_avg": 2301,
+        "agl_avg": 592,
+        "thermal_count": 2,
+        "thermal_gain": 407,
+        "thermal_radius": 200.43,
+        "thermal_start_agl": 556,
+        "thermal_bank": 29.62,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.39,
+        "duration": 2298,
+        "thermal_time": 498,
+        "glide_time": 1619,
+        "wind_speed": 31.45,
+        "wind_direction": 265,
+        "attempt_count": 3,
+        "attempt_avg": -0.06,
+        "attempt_speed_loss": 7.85,
+        "below_1000_agl": 0.8844,
+        "below_800_agl": 0.7814,
+        "below_600_agl": 0.645,
+        "below_400_agl": 0.2394,
+        "below_200_agl": 0.0063,
+        "below_100_agl": 0,
+        "track_distance": 65.12,
+        "glide_detour": 1.11,
+        "glide_distance": 3.35,
+        "glide_alt_avg": 2290,
+        "end_time": "2026-10-08T20:52:41+00:00",
+        "start_time": "2026-10-08T20:14:23+00:00",
+        "finish_alt": 1806,
+        "task_duration": 2298,
+        "total_duration": 2298
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 58.61,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 57.46,
+        "freePoints": 66.38,
+        "auPoints": 57.46,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 57.46078431372549,
+        "dmstFreeDistance": 58.61,
+        "dmstTaskActualPoints": 57.46078431372549,
+        "dmstTaskPotentialPoints": 57.46078431372549,
+        "dmstTaskDistance": 58.61,
+        "weglideFreeDistance": 62.38,
+        "dmstIndex": 102
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1251882,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 510.19,
+        "thermal_avg": 0,
+        "glide_speed": 126.68,
+        "glide_speed_lift": 120.57,
+        "glide_speed_sink": 137.04,
+        "altitude_avg": 2789,
+        "agl_avg": 768,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.95,
+        "glide_percentage_lift": 0.62,
+        "duration": 3056,
+        "thermal_time": 0,
+        "glide_time": 2905,
+        "wind_speed": 67.77,
+        "wind_direction": 267,
+        "attempt_count": 4,
+        "attempt_avg": 0.17,
+        "attempt_speed_loss": 4.87,
+        "below_1000_agl": 0.7257,
+        "below_800_agl": 0.5696,
+        "below_600_agl": 0.4435,
+        "below_400_agl": 0.1738,
+        "below_200_agl": 0.0036,
+        "below_100_agl": 0,
+        "track_distance": 102.22,
+        "glide_detour": 1.28,
+        "glide_distance": 6.31,
+        "glide_alt_avg": 2778,
+        "end_time": "2026-10-08T21:06:21+00:00",
+        "start_time": "2026-10-08T20:15:25+00:00",
+        "finish_alt": 2022
+      },
+      "taskStats": {
+        "glide_ratio": 102.4,
+        "thermal_avg": 0,
+        "glide_speed": 126.37,
+        "glide_speed_lift": 120.94,
+        "glide_speed_sink": 134.57,
+        "altitude_avg": 2731,
+        "agl_avg": 753,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.95,
+        "glide_percentage_lift": 0.6,
+        "duration": 3208,
+        "thermal_time": 0,
+        "glide_time": 3057,
+        "wind_speed": 67.77,
+        "wind_direction": 267,
+        "attempt_count": 4,
+        "attempt_avg": 0.17,
+        "attempt_speed_loss": 3.71,
+        "below_1000_agl": 0.7387,
+        "below_800_agl": 0.5865,
+        "below_600_agl": 0.4708,
+        "below_400_agl": 0.1674,
+        "below_200_agl": 0.0034,
+        "below_100_agl": 0,
+        "track_distance": 107.31,
+        "glide_detour": 1.6,
+        "glide_distance": 6.22,
+        "glide_alt_avg": 2718,
+        "end_time": "2026-10-08T21:09:36+00:00",
+        "start_time": "2026-10-08T20:16:08+00:00",
+        "finish_alt": 1571,
+        "task_duration": 3208,
+        "total_duration": 3056
+      },
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 249.25,
+        "type": "FR4",
+        "typeLabel": "Start, 2-3 Turnpoints, Finish",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 60.24,
+        "freePoints": 76.42,
+        "auPoints": 60.24,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 60.24324324324324,
+        "dmstFreeDistance": 66.87,
+        "dmstTaskActualPoints": 224.54954954954954,
+        "dmstTaskPotentialPoints": 291.9144144144144,
+        "dmstTaskDistance": 249.25,
+        "weglideFreeDistance": 79.59,
+        "dmstIndex": 111
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1251880,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 91.83,
+        "thermal_avg": 0,
+        "glide_speed": 111.69,
+        "glide_speed_lift": 92.44,
+        "glide_speed_sink": 135.19,
+        "altitude_avg": 3405,
+        "agl_avg": 1663,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.63,
+        "duration": 5534,
+        "thermal_time": 0,
+        "glide_time": 5534,
+        "wind_speed": 74.7,
+        "wind_direction": 265,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0.24,
+        "below_800_agl": 0.1895,
+        "below_600_agl": 0.1307,
+        "below_400_agl": 0.0463,
+        "below_200_agl": 0.0018,
+        "below_100_agl": 0,
+        "track_distance": 171.7,
+        "glide_detour": 1.88,
+        "glide_distance": 15.96,
+        "glide_alt_avg": 3405,
+        "end_time": "2026-10-08T22:10:47+00:00",
+        "start_time": "2026-10-08T20:38:33+00:00",
+        "finish_alt": 1898
+      },
+      "taskStats": {
+        "glide_ratio": -123.34,
+        "thermal_avg": 0,
+        "glide_speed": 106.04,
+        "glide_speed_lift": 91.26,
+        "glide_speed_sink": 126.23,
+        "altitude_avg": 3447,
+        "agl_avg": 1694,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.67,
+        "duration": 5115,
+        "thermal_time": 0,
+        "glide_time": 5115,
+        "wind_speed": 74.7,
+        "wind_direction": 265,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0.2361,
+        "below_800_agl": 0.187,
+        "below_600_agl": 0.1322,
+        "below_400_agl": 0.0485,
+        "below_200_agl": 0.0019,
+        "below_100_agl": 0,
+        "track_distance": 150.67,
+        "glide_detour": 2.83,
+        "glide_distance": 0.98,
+        "glide_alt_avg": 3448,
+        "end_time": "2026-10-08T22:05:28+00:00",
+        "start_time": "2026-10-08T20:40:13+00:00",
+        "finish_alt": 3099,
+        "task_duration": 5115,
+        "total_duration": 5534
+      },
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 507.32,
+        "type": "FR4",
+        "typeLabel": "Start, 2-3 Turnpoints, Finish",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 71.56,
+        "freePoints": 103.1,
+        "auPoints": 71.56,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 71.56153846153845,
+        "dmstFreeDistance": 53.16,
+        "dmstTaskActualPoints": 487.80769230769226,
+        "dmstTaskPotentialPoints": 634.15,
+        "dmstTaskDistance": 507.32,
+        "weglideFreeDistance": 91.28,
+        "dmstIndex": 104
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1251879,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 102.27,
+        "thermal_avg": 0.4,
+        "glide_speed": 146.95,
+        "glide_speed_lift": 147.24,
+        "glide_speed_sink": 146.64,
+        "altitude_avg": 2353,
+        "agl_avg": 432,
+        "thermal_count": 1,
+        "thermal_gain": 55,
+        "thermal_radius": 176.28,
+        "thermal_start_agl": 676,
+        "thermal_bank": 28.81,
+        "glide_percentage": 0.95,
+        "glide_percentage_lift": 0.51,
+        "duration": 3243,
+        "thermal_time": 138,
+        "glide_time": 3074,
+        "wind_speed": 26.5,
+        "wind_direction": 233,
+        "attempt_count": 1,
+        "attempt_avg": 0.32,
+        "attempt_speed_loss": 1.12,
+        "below_1000_agl": 0.9732,
+        "below_800_agl": 0.91,
+        "below_600_agl": 0.6926,
+        "below_400_agl": 0.5455,
+        "below_200_agl": 0.2544,
+        "below_100_agl": 0.0577,
+        "track_distance": 125.48,
+        "glide_detour": 1.2,
+        "glide_distance": 5.62,
+        "glide_alt_avg": 2378,
+        "end_time": "2026-10-08T21:48:50+00:00",
+        "start_time": "2026-10-08T20:54:47+00:00",
+        "finish_alt": 1728
+      },
+      "taskStats": {
+        "glide_ratio": 84.38,
+        "thermal_avg": 0.4,
+        "glide_speed": 145.75,
+        "glide_speed_lift": 145.77,
+        "glide_speed_sink": 145.72,
+        "altitude_avg": 2342,
+        "agl_avg": 434,
+        "thermal_count": 1,
+        "thermal_gain": 55,
+        "thermal_radius": 176.28,
+        "thermal_start_agl": 676,
+        "thermal_bank": 28.81,
+        "glide_percentage": 0.95,
+        "glide_percentage_lift": 0.52,
+        "duration": 3304,
+        "thermal_time": 138,
+        "glide_time": 3135,
+        "wind_speed": 26.5,
+        "wind_direction": 233,
+        "attempt_count": 1,
+        "attempt_avg": 0.32,
+        "attempt_speed_loss": 0.89,
+        "below_1000_agl": 0.9737,
+        "below_800_agl": 0.9116,
+        "below_600_agl": 0.6982,
+        "below_400_agl": 0.5354,
+        "below_200_agl": 0.2497,
+        "below_100_agl": 0.0566,
+        "track_distance": 126.92,
+        "glide_detour": 1.47,
+        "glide_distance": 5.4,
+        "glide_alt_avg": 2365,
+        "end_time": "2026-10-08T21:49:51+00:00",
+        "start_time": "2026-10-08T20:54:47+00:00",
+        "finish_alt": 1730,
+        "task_duration": 3304,
+        "total_duration": 3243
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 86.07,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 86.07,
+        "freePoints": 114.37,
+        "auPoints": 86.07,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 86.07,
+        "dmstFreeDistance": 86.07,
+        "dmstTaskActualPoints": 86.07,
+        "dmstTaskPotentialPoints": 86.07,
+        "dmstTaskDistance": 86.07,
+        "weglideFreeDistance": 104.52,
+        "dmstIndex": 100
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1251835,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 128.12,
+        "thermal_avg": 1.01,
+        "glide_speed": 114.19,
+        "glide_speed_lift": 103.26,
+        "glide_speed_sink": 130.2,
+        "altitude_avg": 3907,
+        "agl_avg": 2539,
+        "thermal_count": 2,
+        "thermal_gain": 663,
+        "thermal_radius": 188.26,
+        "thermal_start_agl": 862,
+        "thermal_bank": 27.77,
+        "glide_percentage": 0.91,
+        "glide_percentage_lift": 0.6,
+        "duration": 9608,
+        "thermal_time": 654,
+        "glide_time": 8729,
+        "wind_speed": 47.79,
+        "wind_direction": 276,
+        "attempt_count": 5,
+        "attempt_avg": 0.27,
+        "attempt_speed_loss": 1.3,
+        "below_1000_agl": 0.1098,
+        "below_800_agl": 0.0237,
+        "below_600_agl": 0.0036,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 276.89,
+        "glide_detour": 1.92,
+        "glide_distance": 3.12,
+        "glide_alt_avg": 4062,
+        "end_time": "2026-10-07T00:09:25+00:00",
+        "start_time": "2026-10-06T21:29:17+00:00",
+        "finish_alt": 1917
+      },
+      "taskStats": {
+        "glide_ratio": 117.12,
+        "thermal_avg": 0,
+        "glide_speed": 120.04,
+        "glide_speed_lift": 107,
+        "glide_speed_sink": 139.59,
+        "altitude_avg": 4963,
+        "agl_avg": 3554,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.6,
+        "duration": 5463,
+        "thermal_time": 0,
+        "glide_time": 5463,
+        "wind_speed": 37.2,
+        "wind_direction": 270,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0,
+        "below_800_agl": 0,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 182.16,
+        "glide_detour": 1.57,
+        "glide_distance": 1,
+        "glide_alt_avg": 4964,
+        "end_time": "2026-10-07T00:00:48+00:00",
+        "start_time": "2026-10-06T22:29:45+00:00",
+        "finish_alt": 2739,
+        "task_duration": 5463,
+        "total_duration": 9608
+      },
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 504.62,
+        "type": "OR",
+        "typeLabel": "Out & Return",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 146.09,
+        "freePoints": 161.39,
+        "auPoints": 146.09,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 146.09189189189186,
+        "dmstFreeDistance": 115.83,
+        "dmstTaskActualPoints": 590.9963963963963,
+        "dmstTaskPotentialPoints": 727.3801801801802,
+        "dmstTaskDistance": 504.62,
+        "weglideFreeDistance": 144.39,
+        "dmstIndex": 111
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -29632,6 +30816,477 @@
         "name": "Cowley",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1251926,
+      "user": {
+        "id": 22359,
+        "name": "David Gossen"
+      },
+      "date": "2026-10-08",
+      "distance": 169.93,
+      "duration": 5515,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 160.38,
+          "distance": 169.93,
+          "speed": 129.64,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 65.18,
+          "distance": 144.71,
+          "speed": 72.36,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 10.53,
+          "distance": 11.69,
+          "speed": 116.9,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 78.95,
+          "distance": 87.64,
+          "speed": 174.31,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 150.84,
+          "distance": 167.43,
+          "speed": 127.54,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1251916,
+      "user": {
+        "id": 43488,
+        "name": "Andrew Kells"
+      },
+      "date": "2026-10-08",
+      "distance": 144.02,
+      "duration": 5932,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "OR",
+        "from_igcfile": true,
+        "distance": 504.62
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 137.41,
+          "distance": 144.02,
+          "speed": 112.71,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 28.24,
+          "distance": 62.7,
+          "speed": 31.35,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 5.86,
+          "distance": 6.5,
+          "speed": 93.98,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 38.3,
+          "distance": 42.51,
+          "speed": 71.75,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 93.68,
+          "distance": 103.98,
+          "speed": 81.38,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1251907,
+      "user": {
+        "id": 23521,
+        "name": "Ray Troppmann"
+      },
+      "date": "2026-10-08",
+      "distance": 62.38,
+      "duration": 3538,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 66.38,
+          "distance": 62.38,
+          "speed": 97.72,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 15.43,
+          "distance": 31.48,
+          "speed": 15.74,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 4.51,
+          "distance": 4.6,
+          "speed": 34.64,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 31.08,
+          "distance": 31.7,
+          "speed": 54.09,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 57.46,
+          "distance": 58.61,
+          "speed": 91.82,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1251882,
+      "user": {
+        "id": 2070,
+        "name": "Christopher Michael Gough"
+      },
+      "date": "2026-10-08",
+      "distance": 79.59,
+      "duration": 4004,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 249.25
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 76.42,
+          "distance": 79.59,
+          "speed": 93.76,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 22.28,
+          "distance": 49.47,
+          "speed": 24.73,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 9.13,
+          "distance": 10.13,
+          "speed": 27.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 23.66,
+          "distance": 26.26,
+          "speed": 39.1,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 60.24,
+          "distance": 66.87,
+          "speed": 75.04,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1251880,
+      "user": {
+        "id": 6084,
+        "name": "Tyler Paradis"
+      },
+      "date": "2026-10-08",
+      "distance": 91.28,
+      "duration": 6500,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 507.32
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 103.1,
+          "distance": 91.28,
+          "speed": 59.38,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 27.62,
+          "distance": 57.44,
+          "speed": 28.72,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 51.12,
+          "distance": 53.16,
+          "speed": 37.41,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 42.38,
+          "distance": 44.08,
+          "speed": 31.07,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 71.56,
+          "distance": 53.16,
+          "speed": 37.41,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1251879,
+      "user": {
+        "id": 25114,
+        "name": "Joshua Peace"
+      },
+      "date": "2026-10-08",
+      "distance": 104.52,
+      "duration": 4552,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 114.37,
+          "distance": 104.52,
+          "speed": 116.03,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 29.73,
+          "distance": 59.46,
+          "speed": 29.73,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 17.41,
+          "distance": 17.41,
+          "speed": 27.53,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 49.26,
+          "distance": 49.26,
+          "speed": 78.5,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 86.07,
+          "distance": 86.07,
+          "speed": 93.78,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1251835,
+      "user": {
+        "id": 23521,
+        "name": "Ray Troppmann"
+      },
+      "date": "2026-10-06",
+      "distance": 144.39,
+      "duration": 10655,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "OR",
+        "from_igcfile": true,
+        "distance": 504.62
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 161.39,
+          "distance": 144.39,
+          "speed": 54.1,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 45.5,
+          "distance": 101.01,
+          "speed": 50.51,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 104.35,
+          "distance": 115.83,
+          "speed": 76.33,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 63.3,
+          "distance": 70.26,
+          "speed": 48,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 146.09,
+          "distance": 115.83,
+          "speed": 76.33,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -29901,9 +31556,9 @@
     {
       "pilot": "Christopher Michael Gough",
       "pilotId": 2070,
-      "totalPoints": 1282.25,
-      "totalDistance": 1316.22,
-      "flightCount": 3,
+      "totalPoints": 1358.67,
+      "totalDistance": 1395.81,
+      "flightCount": 4,
       "bestFlights": [
         {
           "id": 1251244,
@@ -29936,6 +31591,23 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus b 15m",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251882,
+          "userId": 2070,
+          "date": "2026-10-08",
+          "distance": 79.59,
+          "speed": 93.76,
+          "points": 76.42,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         },
@@ -30019,6 +31691,66 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 1110.8899999999999,
+      "totalDistance": 1024.13,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 497.62,
+          "speed": 75.14,
+          "points": 533.73,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 421.99,
+          "speed": 73.29,
+          "points": 462.79,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 104.52,
+          "speed": 116.03,
+          "points": 114.37,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Pavan K",
       "pilotId": 20675,
       "totalPoints": 1006.81,
@@ -30056,49 +31788,6 @@
           "aircraftKind": "MG",
           "aircraftName": "DG 400 17m",
           "dmstIndex": 109,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 996.52,
-      "totalDistance": 919.61,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 497.62,
-          "speed": 75.14,
-          "points": 533.73,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 421.99,
-          "speed": 73.29,
-          "points": 462.79,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -30225,6 +31914,49 @@
       ]
     },
     {
+      "pilot": "David Gossen",
+      "pilotId": 22359,
+      "totalPoints": 602.36,
+      "totalDistance": 621.54,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251555,
+          "userId": 22359,
+          "date": "2026-10-05",
+          "distance": 451.61,
+          "speed": 78.34,
+          "points": 441.98,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251926,
+          "userId": 22359,
+          "date": "2026-10-08",
+          "distance": 169.93,
+          "speed": 129.64,
+          "points": 160.38,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Christian Hamel",
       "pilotId": 35644,
       "totalPoints": 476.3,
@@ -30271,32 +32003,6 @@
           "aircraftKind": "FG",
           "aircraftName": "LAK-17B FES 21m",
           "dmstIndex": 123,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "David Gossen",
-      "pilotId": 22359,
-      "totalPoints": 441.98,
-      "totalDistance": 451.61,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251555,
-          "userId": 22359,
-          "date": "2026-10-05",
-          "distance": 451.61,
-          "speed": 78.34,
-          "points": 441.98,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         }
@@ -30366,6 +32072,49 @@
           "aircraftKind": "FG",
           "aircraftName": "LAK-17B FES 21m",
           "dmstIndex": 123,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Tyler Paradis",
+      "pilotId": 6084,
+      "totalPoints": 413.54999999999995,
+      "totalDistance": 374.15999999999997,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251262,
+          "userId": 6084,
+          "date": "2026-10-05",
+          "distance": 282.88,
+          "speed": 78.59,
+          "points": 310.45,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251880,
+          "userId": 6084,
+          "date": "2026-10-08",
+          "distance": 91.28,
+          "speed": 59.38,
+          "points": 103.1,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -30493,6 +32242,49 @@
       ]
     },
     {
+      "pilot": "Andrew Kells",
+      "pilotId": 43488,
+      "totalPoints": 346.04999999999995,
+      "totalDistance": 342.02,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251733,
+          "userId": 43488,
+          "date": "2026-10-06",
+          "distance": 198,
+          "speed": 83.31,
+          "points": 208.64,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251916,
+          "userId": 43488,
+          "date": "2026-10-08",
+          "distance": 144.02,
+          "speed": 112.71,
+          "points": 137.41,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Gabriel Duford",
       "pilotId": 24793,
       "totalPoints": 324.03,
@@ -30513,32 +32305,6 @@
           "aircraftKind": "MG",
           "aircraftName": "ASG 29 Es 18m",
           "dmstIndex": 121,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Tyler Paradis",
-      "pilotId": 6084,
-      "totalPoints": 310.45,
-      "totalDistance": 282.88,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251262,
-          "userId": 6084,
-          "date": "2026-10-05",
-          "distance": 282.88,
-          "speed": 78.59,
-          "points": 310.45,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
-          "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
         }
@@ -30601,6 +32367,68 @@
           "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Ray Troppmann",
+      "pilotId": 23521,
+      "totalPoints": 243.22,
+      "totalDistance": 233.17,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251435,
+          "userId": 23521,
+          "date": "2026-10-05",
+          "distance": 170.79,
+          "speed": 50.27,
+          "points": 176.84,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251907,
+          "userId": 23521,
+          "date": "2026-10-08",
+          "distance": 62.38,
+          "speed": 97.72,
+          "points": 66.38,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251835,
+          "userId": 23521,
+          "date": "2026-10-06",
+          "distance": 144.39,
+          "speed": 54.1,
+          "points": 161.39,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
         }
       ]
     },
@@ -30725,32 +32553,6 @@
       ]
     },
     {
-      "pilot": "Andrew Kells",
-      "pilotId": 43488,
-      "totalPoints": 208.64,
-      "totalDistance": 198,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251733,
-          "userId": 43488,
-          "date": "2026-10-06",
-          "distance": 198,
-          "speed": 83.31,
-          "points": 208.64,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
-          "dmstIndex": 102,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Jean Lapierre",
       "pilotId": 34953,
       "totalPoints": 190.96,
@@ -30823,32 +32625,6 @@
           "aircraftKind": "GL",
           "aircraftName": "IS 29 D",
           "dmstIndex": 96,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Ray Troppmann",
-      "pilotId": 23521,
-      "totalPoints": 176.84,
-      "totalDistance": 170.79,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251435,
-          "userId": 23521,
-          "date": "2026-10-05",
-          "distance": 170.79,
-          "speed": 50.27,
-          "points": 176.84,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 1000S 20m",
-          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -31828,6 +33604,66 @@
       ]
     },
     {
+      "pilot": "Christopher Michael Gough",
+      "pilotId": 2070,
+      "totalPoints": 856.38,
+      "totalDistance": 942.63,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251244,
+          "userId": 2070,
+          "date": "2026-10-05",
+          "distance": 464.74,
+          "speed": 80.91,
+          "points": 422.49,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus b 15m",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251548,
+          "userId": 2070,
+          "date": "2026-10-06",
+          "distance": 411.02,
+          "speed": 96.96,
+          "points": 373.65,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "Ventus b 15m",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251882,
+          "userId": 2070,
+          "date": "2026-10-08",
+          "distance": 66.87,
+          "speed": 75.04,
+          "points": 60.24,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Pavan K",
       "pilotId": 20675,
       "totalPoints": 850.1500000000001,
@@ -31871,54 +33707,11 @@
       ]
     },
     {
-      "pilot": "Christopher Michael Gough",
-      "pilotId": 2070,
-      "totalPoints": 796.14,
-      "totalDistance": 875.76,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251244,
-          "userId": 2070,
-          "date": "2026-10-05",
-          "distance": 464.74,
-          "speed": 80.91,
-          "points": 422.49,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus b 15m",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251548,
-          "userId": 2070,
-          "date": "2026-10-06",
-          "distance": 411.02,
-          "speed": 96.96,
-          "points": 373.65,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "Ventus b 15m",
-          "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 740.5899999999999,
-      "totalDistance": 740.5899999999999,
-      "flightCount": 2,
+      "totalPoints": 826.6599999999999,
+      "totalDistance": 826.6599999999999,
+      "flightCount": 3,
       "bestFlights": [
         {
           "id": 1251553,
@@ -31944,6 +33737,23 @@
           "distance": 350.7,
           "speed": 100.69,
           "points": 350.7,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 86.07,
+          "speed": 93.78,
+          "points": 86.07,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -32037,6 +33847,49 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "David Gossen",
+      "pilotId": 22359,
+      "totalPoints": 470.53999999999996,
+      "totalDistance": 519.1,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251555,
+          "userId": 22359,
+          "date": "2026-10-05",
+          "distance": 351.67,
+          "speed": 143.28,
+          "points": 319.7,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251926,
+          "userId": 22359,
+          "date": "2026-10-08",
+          "distance": 167.43,
+          "speed": 127.54,
+          "points": 150.84,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -32173,26 +34026,43 @@
       ]
     },
     {
-      "pilot": "David Gossen",
-      "pilotId": 22359,
-      "totalPoints": 319.7,
-      "totalDistance": 351.67,
-      "flightCount": 1,
+      "pilot": "Tyler Paradis",
+      "pilotId": 6084,
+      "totalPoints": 317.8,
+      "totalDistance": 304.32,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1251555,
-          "userId": 22359,
+          "id": 1251262,
+          "userId": 6084,
           "date": "2026-10-05",
-          "distance": 351.67,
-          "speed": 143.28,
-          "points": 319.7,
+          "distance": 251.16,
+          "speed": 69.78,
+          "points": 246.24,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
           "contestType": "ca",
           "aircraftKind": "GL",
-          "aircraftName": "ASW 20",
-          "dmstIndex": 110,
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251880,
+          "userId": 6084,
+          "date": "2026-10-08",
+          "distance": 53.16,
+          "speed": 37.41,
+          "points": 71.56,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "LS 4",
+          "dmstIndex": 104,
           "invalid": false,
           "errorReasons": []
         }
@@ -32294,6 +34164,49 @@
       ]
     },
     {
+      "pilot": "Andrew Kells",
+      "pilotId": 43488,
+      "totalPoints": 268.37,
+      "totalDistance": 282.16,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1251733,
+          "userId": 43488,
+          "date": "2026-10-06",
+          "distance": 178.18,
+          "speed": 74.97,
+          "points": 174.69,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-54-2 Perkoz 20m WL",
+          "dmstIndex": 102,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251916,
+          "userId": 43488,
+          "date": "2026-10-08",
+          "distance": 103.98,
+          "speed": 81.38,
+          "points": 93.68,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Gabriel Duford",
       "pilotId": 24793,
       "totalPoints": 260.84,
@@ -32320,19 +34233,36 @@
       ]
     },
     {
-      "pilot": "Tyler Paradis",
-      "pilotId": 6084,
-      "totalPoints": 246.24,
-      "totalDistance": 251.16,
-      "flightCount": 1,
+      "pilot": "Ray Troppmann",
+      "pilotId": 23521,
+      "totalPoints": 206.8,
+      "totalDistance": 186.12,
+      "flightCount": 2,
       "bestFlights": [
         {
-          "id": 1251262,
-          "userId": 6084,
+          "id": 1251435,
+          "userId": 23521,
           "date": "2026-10-05",
-          "distance": 251.16,
-          "speed": 69.78,
-          "points": 246.24,
+          "distance": 127.51,
+          "speed": 55.35,
+          "points": 149.34,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251907,
+          "userId": 23521,
+          "date": "2026-10-08",
+          "distance": 58.61,
+          "speed": 91.82,
+          "points": 57.46,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -32342,6 +34272,25 @@
           "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
+        },
+        {
+          "id": 1251835,
+          "userId": 23521,
+          "date": "2026-10-06",
+          "distance": 115.83,
+          "speed": 76.33,
+          "points": 146.09,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "DG 1000S 20m",
+          "dmstIndex": 111,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
         }
       ]
     },
@@ -32415,32 +34364,6 @@
       ]
     },
     {
-      "pilot": "Andrew Kells",
-      "pilotId": 43488,
-      "totalPoints": 174.69,
-      "totalDistance": 178.18,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251733,
-          "userId": 43488,
-          "date": "2026-10-06",
-          "distance": 178.18,
-          "speed": 74.97,
-          "points": 174.69,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "SZD-54-2 Perkoz 20m WL",
-          "dmstIndex": 102,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "David philip",
       "pilotId": 35420,
       "totalPoints": 155.16,
@@ -32487,32 +34410,6 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Ray Troppmann",
-      "pilotId": 23521,
-      "totalPoints": 149.34,
-      "totalDistance": 127.51,
-      "flightCount": 1,
-      "bestFlights": [
-        {
-          "id": 1251435,
-          "userId": 23521,
-          "date": "2026-10-05",
-          "distance": 127.51,
-          "speed": 55.35,
-          "points": 149.34,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "DG 1000S 20m",
-          "dmstIndex": 111,
           "invalid": false,
           "errorReasons": []
         }
@@ -32917,14 +34814,14 @@
   ],
   "meta": {
     "totalPilots": 51,
-    "totalFlights": 82,
-    "totalKms": 13904,
-    "totalTasksDeclared": 39,
+    "totalFlights": 89,
+    "totalKms": 14700,
+    "totalTasksDeclared": 43,
     "totalTasksCompleted": 0,
     "seasonLabel": "Oct 1, 2026 - Sept 30, 2027",
     "seasonId": "2026-27",
-    "dataThroughDate": "2026-10-07",
+    "dataThroughDate": "2026-10-08",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-10-08T09:50:57.571Z"
+    "generatedAt": "2026-10-09T09:55:44.884Z"
   }
 }

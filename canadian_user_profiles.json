@@ -1,12 +1,12 @@
 {
   "2070": {
-    "total_flight_duration": 5387175,
-    "total_free_distance": 111182.18,
-    "avg_speed": 83.75,
-    "flight_count": 358,
-    "avg_glide_speed": 138.88,
-    "avg_glide_detour": 1.18,
-    "achievement_count": 27,
+    "total_flight_duration": 5391179,
+    "total_free_distance": 118481.28,
+    "avg_speed": 83.72,
+    "flight_count": 385,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 35,
     "name": "Christopher Michael Gough",
     "gender": "M",
     "is_junior": false,
@@ -142,13 +142,13 @@
     "message_enabled": true
   },
   "6084": {
-    "total_flight_duration": 281588,
-    "total_free_distance": 4122.89,
-    "avg_speed": 61.82,
-    "flight_count": 34,
-    "avg_glide_speed": 124.15,
-    "avg_glide_detour": 1.55,
-    "achievement_count": 10,
+    "total_flight_duration": 288088,
+    "total_free_distance": 4497.05,
+    "avg_speed": 62.61,
+    "flight_count": 36,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 11,
     "name": "Tyler Paradis",
     "gender": "D",
     "is_junior": false,
@@ -674,7 +674,7 @@
     "message_enabled": true
   },
   "18693": {
-    "total_flight_duration": 2344977,
+    "total_flight_duration": 2368691,
     "total_free_distance": 50693.25,
     "avg_speed": 85.22,
     "flight_count": 149,
@@ -1000,10 +1000,10 @@
     "message_enabled": true
   },
   "22359": {
-    "total_flight_duration": 21116,
-    "total_free_distance": 451.61,
-    "avg_speed": 78.34,
-    "flight_count": 1,
+    "total_flight_duration": 26631,
+    "total_free_distance": 621.54,
+    "avg_speed": 87.84,
+    "flight_count": 2,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 13,
@@ -1205,12 +1205,12 @@
     "message_enabled": true
   },
   "23521": {
-    "total_flight_duration": 706975,
-    "total_free_distance": 12353.54,
-    "avg_speed": 70.74,
-    "flight_count": 82,
-    "avg_glide_speed": 130.94,
-    "avg_glide_detour": 1.37,
+    "total_flight_duration": 721168,
+    "total_free_distance": 12731.1,
+    "avg_speed": 70.21,
+    "flight_count": 85,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 18,
     "name": "Ray Troppmann",
     "gender": "M",
@@ -1365,10 +1365,10 @@
     }
   },
   "25114": {
-    "total_flight_duration": 899310,
-    "total_free_distance": 15674.68,
-    "avg_speed": 68.28,
-    "flight_count": 75,
+    "total_flight_duration": 903862,
+    "total_free_distance": 15779.2,
+    "avg_speed": 68.46,
+    "flight_count": 76,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 32,
@@ -4848,7 +4848,7 @@
     "message_enabled": true
   },
   "43480": {
-    "total_flight_duration": 8032,
+    "total_flight_duration": 11570,
     "total_free_distance": 142.2,
     "avg_speed": 77.24,
     "flight_count": 1,
@@ -4868,10 +4868,10 @@
     "message_enabled": true
   },
   "43488": {
-    "total_flight_duration": 9432,
-    "total_free_distance": 198,
-    "avg_speed": 83.31,
-    "flight_count": 1,
+    "total_flight_duration": 15364,
+    "total_free_distance": 342.02,
+    "avg_speed": 93.59,
+    "flight_count": 2,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 6,
