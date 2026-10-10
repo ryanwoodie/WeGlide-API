@@ -43,12 +43,12 @@
     "21186": 77495,
     "21219": 42811,
     "21317": 433233,
-    "21574": 635356,
+    "21574": 642163,
     "21928": 19945,
     "22077": 1730544,
     "22081": 379297,
     "22211": 14875,
-    "22232": 2056389,
+    "22232": 2060449,
     "22359": 26631,
     "22746": 1294317,
     "22801": 108955,
@@ -67,7 +67,7 @@
     "24930": 2557926,
     "25002": 214609,
     "25019": 50289,
-    "25114": 903862,
+    "25114": 911489,
     "25728": 223045,
     "25760": 12108,
     "25782": 387693,
@@ -78,7 +78,7 @@
     "28158": 14395,
     "29394": 683301,
     "29869": 3886954,
-    "32274": 1036531,
+    "32274": 1373293,
     "32345": 5794906,
     "32470": 71047,
     "32676": 74299,
@@ -86,7 +86,7 @@
     "34532": 60612,
     "34934": 4356150,
     "34953": 433739,
-    "34958": 3204191,
+    "34958": 3215483,
     "34993": 1086180,
     "35001": 556399,
     "35037": 201530,
@@ -101,7 +101,7 @@
     "35204": 152141,
     "35272": 306123,
     "35288": 4241215,
-    "35296": 459862,
+    "35296": 467770,
     "35326": 1864067,
     "35337": 301830,
     "35349": 8956,
@@ -126,7 +126,7 @@
     "35435": 1382348,
     "35436": 1348224,
     "35437": 226017,
-    "35461": 176339,
+    "35461": 182329,
     "35481": 375583,
     "35484": 120975,
     "35496": 3519971,
@@ -167,7 +167,7 @@
     "36033": 178023,
     "36054": 78830,
     "36083": 46854,
-    "36101": 93919,
+    "36101": 108336,
     "36137": 114040,
     "36138": 801963,
     "36602": 275220,
@@ -213,7 +213,7 @@
     "40533": 38832,
     "40714": 32360,
     "40715": 2409,
-    "40731": 75912,
+    "40731": 80682,
     "40752": 92032,
     "40804": 32665,
     "40910": 22094,
@@ -3952,6 +3952,22 @@
   },
   "pilotVerifications": {
     "picHoursVerifications": {
+      "6084": {
+        "pilotName": "Tyler Paradis",
+        "picHours": 200,
+        "cutoffDate": "2026-10-01",
+        "verifiedDate": "2026-10-10T04:59:40.863Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
+      },
+      "6303": {
+        "pilotName": "Kelvin Cole",
+        "picHours": 200,
+        "cutoffDate": "2026-10-01",
+        "verifiedDate": "2026-10-10T00:51:33.891Z",
+        "eligible": false,
+        "dataSource": "self-claim-via-direct-message-dismissal"
+      },
       "15888": {
         "pilotName": "Daniel Nazarko",
         "picHours": 200.1,
@@ -4994,10 +5010,10 @@
       "message_enabled": true
     },
     "21574": {
-      "total_flight_duration": 635356,
-      "total_free_distance": 8838.52,
-      "avg_speed": 64.69,
-      "flight_count": 137,
+      "total_flight_duration": 642163,
+      "total_free_distance": 8960.29,
+      "avg_speed": 64.86,
+      "flight_count": 139,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 21,
@@ -5096,10 +5112,10 @@
       "message_enabled": true
     },
     "22232": {
-      "total_flight_duration": 2056389,
-      "total_free_distance": 28280.64,
-      "avg_speed": 55.06,
-      "flight_count": 338,
+      "total_flight_duration": 2060449,
+      "total_free_distance": 28567.08,
+      "avg_speed": 55.27,
+      "flight_count": 344,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 21,
@@ -5481,10 +5497,10 @@
       }
     },
     "25114": {
-      "total_flight_duration": 903862,
-      "total_free_distance": 15779.2,
-      "avg_speed": 68.46,
-      "flight_count": 76,
+      "total_flight_duration": 911489,
+      "total_free_distance": 15887.01,
+      "avg_speed": 68.41,
+      "flight_count": 77,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 32,
@@ -5701,7 +5717,7 @@
       "message_enabled": true
     },
     "32274": {
-      "total_flight_duration": 1036531,
+      "total_flight_duration": 1373293,
       "total_free_distance": 24971.32,
       "avg_speed": 94.29,
       "flight_count": 61,
@@ -5864,17 +5880,17 @@
       "message_enabled": true
     },
     "34958": {
-      "total_flight_duration": 3204191,
-      "total_free_distance": 57781.09,
-      "avg_speed": 67.72,
-      "flight_count": 273,
+      "total_flight_duration": 3215483,
+      "total_free_distance": 57992.99,
+      "avg_speed": 67.74,
+      "flight_count": 274,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
       "achievement_count": 22,
       "name": "Rafael Bravo",
       "gender": "M",
       "is_junior": false,
-      "is_senior": false,
+      "is_senior": true,
       "club": {
         "id": 1310,
         "name": "SOSA Gliding Club",
@@ -6167,12 +6183,12 @@
       }
     },
     "35296": {
-      "total_flight_duration": 459862,
-      "total_free_distance": 5902.96,
-      "avg_speed": 50.62,
-      "flight_count": 58,
-      "avg_glide_speed": 111.47,
-      "avg_glide_detour": 1.21,
+      "total_flight_duration": 467770,
+      "total_free_distance": 6072.87,
+      "avg_speed": 51.15,
+      "flight_count": 59,
+      "avg_glide_speed": 0,
+      "avg_glide_detour": 0,
       "achievement_count": 9,
       "name": "Joseph Tam",
       "gender": "M",
@@ -6669,13 +6685,13 @@
       "message_enabled": true
     },
     "35461": {
-      "total_flight_duration": 176339,
-      "total_free_distance": 2153.58,
-      "avg_speed": 48.12,
-      "flight_count": 15,
-      "avg_glide_speed": 108.55,
-      "avg_glide_detour": 1.38,
-      "achievement_count": 8,
+      "total_flight_duration": 182329,
+      "total_free_distance": 2243.39,
+      "avg_speed": 48.41,
+      "flight_count": 16,
+      "avg_glide_speed": 0,
+      "avg_glide_detour": 0,
+      "achievement_count": 10,
       "name": "Gregory Wilson",
       "gender": "M",
       "is_junior": true,
@@ -7499,13 +7515,13 @@
       "message_enabled": true
     },
     "36101": {
-      "total_flight_duration": 93919,
-      "total_free_distance": 1182.08,
-      "avg_speed": 70.79,
-      "flight_count": 27,
+      "total_flight_duration": 108336,
+      "total_free_distance": 1374.06,
+      "avg_speed": 71.72,
+      "flight_count": 30,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
-      "achievement_count": 2,
+      "achievement_count": 3,
       "name": "Harrison Breeze",
       "gender": "M",
       "is_junior": false,
@@ -8432,13 +8448,13 @@
       "message_enabled": true
     },
     "40731": {
-      "total_flight_duration": 75912,
-      "total_free_distance": 537.19,
-      "avg_speed": 32.07,
-      "flight_count": 10,
+      "total_flight_duration": 80682,
+      "total_free_distance": 587.73,
+      "avg_speed": 32.81,
+      "flight_count": 11,
       "avg_glide_speed": 0,
       "avg_glide_detour": 0,
-      "achievement_count": 2,
+      "achievement_count": 3,
       "name": "Gulsah Hos",
       "gender": "F",
       "is_junior": false,
@@ -9004,7 +9020,7 @@
       "message_enabled": true
     }
   },
-  "flightClubs": "{\"1249044\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249075\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1249612\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249766\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249795\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249833\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249838\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249855\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249856\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249872\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"1249873\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249876\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249878\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249890\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249892\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249893\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249894\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249907\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249915\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249922\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249957\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249963\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249965\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249967\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1249969\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249977\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249981\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249984\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249985\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249986\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249987\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249996\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249999\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1250241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250288\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250303\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250305\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1250335\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250338\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250457\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250643\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250853\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250856\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250863\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250894\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250908\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1250912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1251210\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251240\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251244\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251248\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251262\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251266\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251267\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251270\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251272\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251273\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251274\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251275\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251277\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251279\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251283\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251435\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251443\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251475\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251476\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251526\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251548\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251551\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251552\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251553\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251555\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1251561\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251562\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251701\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251721\":{\"clubId\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"\"},\"1251728\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1251730\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251733\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251835\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251879\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251880\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251882\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251907\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251916\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251926\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"}}",
+  "flightClubs": "{\"1249044\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249075\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1249612\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249766\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249795\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249833\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249838\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249855\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249856\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249872\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"1249873\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249876\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249878\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249890\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249892\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249893\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249894\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249907\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249915\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249922\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249957\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249963\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249965\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249967\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1249969\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249977\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249981\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249984\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249985\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249986\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249987\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249996\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249999\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1250241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250288\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250303\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250305\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1250335\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250338\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250457\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250643\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250853\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250856\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250863\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250894\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250908\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1250912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1251210\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251240\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251244\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251248\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251262\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251266\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251267\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251270\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251272\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251273\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251274\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251275\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251277\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251279\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251283\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251435\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251443\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251475\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251476\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251526\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251548\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251551\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251552\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251553\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251555\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1251561\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251562\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251701\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251721\":{\"clubId\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"\"},\"1251728\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1251730\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251733\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251835\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251879\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251880\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251882\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251907\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251916\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251926\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1252104\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1252106\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252115\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252127\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1252134\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252171\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252172\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252173\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252182\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252183\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"}}",
   "clubMetadata": "{\"165\":{\"id\":165,\"name\":\"FG Freudenstadt\",\"region\":\"DE-BW\",\"url\":\"http://fg-freudenstadt.de\",\"logo\":\"club/165.png\",\"in_league\":\"BW\",\"lookupMissing\":false},\"762\":{\"id\":762,\"name\":\"Aeroclub Cantons de l'Est\",\"region\":\"CA_ON\",\"url\":\"\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"849\":{\"id\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://www.avsa.ca\",\"logo\":\"club/849.png\",\"in_league\":\"\",\"lookupMissing\":false},\"863\":{\"id\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"CA-QC\",\"url\":\"https://www.avvc.qc.ca\",\"logo\":\"club/863.png\",\"in_league\":\"\",\"lookupMissing\":false},\"907\":{\"id\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"CA-BC\",\"url\":\"https://www.canadianrockiessoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"914\":{\"id\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"CA-AB\",\"url\":\"http://www.cagcsoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"918\":{\"id\":918,\"name\":\"Central Ohio Soaring Association\",\"region\":\"US-OH\",\"url\":\"https://centralohiosoaring.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"947\":{\"id\":947,\"name\":\"CVV de Québec\",\"region\":\"CA-QC\",\"url\":\"https://www.cvvq.net\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"965\":{\"id\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"CA-AB\",\"url\":\"https://www.cunim.org\",\"logo\":\"club/965.png\",\"in_league\":\"\",\"lookupMissing\":false},\"999\":{\"id\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"CA-AB\",\"url\":\"http://www.edmontonsoaringclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1006\":{\"id\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"US-TX\",\"url\":\"https://www.faultlineflyers.com\",\"logo\":\"club/1006.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1029\":{\"id\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.gatineauglidingclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1037\":{\"id\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.greatlakesgliding.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1038\":{\"id\":1038,\"name\":\"Greater Boston Soaring Club\",\"region\":\"US-MA\",\"url\":\"https://soargbsc.com\",\"logo\":\"club/1038.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1124\":{\"id\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"CA-AB\",\"url\":\"https://www.lethbridgesoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1133\":{\"id\":1133,\"name\":\"London Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://www.londonsoaringclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1159\":{\"id\":1159,\"name\":\"Mid-Georgia Soaring Association\",\"region\":\"US-GA\",\"url\":\"https://www.soar-mgsa.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"1168\":{\"id\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://montrealsoaring.ca\",\"logo\":\"club/1168.png\",\"in_league\":\"\",\"lookupMissing\":false},\"1240\":{\"id\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"CA-ON\",\"url\":\"https://rvss.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1259\":{\"id\":1259,\"name\":\"Seattle Glider Council\",\"region\":\"US-WA\",\"url\":\"https://www.seattleglidercouncil.org\",\"logo\":\"club/1259.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1307\":{\"id\":1307,\"name\":\"Soaring Society of Boulder\",\"region\":\"US-CO\",\"url\":\"http://www.soarboulder.org\",\"logo\":\"club/1307.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1310\":{\"id\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.sosaglidingclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1318\":{\"id\":1318,\"name\":\"Spokane Soaring Society\",\"region\":\"US-WA\",\"url\":\"https://spokanesoaring.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"1345\":{\"id\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"CA-ON\",\"url\":\"http://toronto-soaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1363\":{\"id\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://vancouversoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1380\":{\"id\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"AU-QLD\",\"url\":\"https://www.warwickgliding.org\",\"logo\":\"club/1380.png\",\"in_league\":\"AU\",\"lookupMissing\":false},\"1387\":{\"id\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"CA-MB\",\"url\":\"https://www.wgc.mb.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1393\":{\"id\":1393,\"name\":\"York Soaring Association\",\"region\":\"CA-ON\",\"url\":\"https://www.yorksoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1808\":{\"id\":1808,\"name\":\"Prince Albert Gliding and Soaring Club\",\"region\":\"CA-SK\",\"url\":\"https://www.pagsc.ca\",\"logo\":\"club/1808.png\",\"in_league\":\"\",\"lookupMissing\":false}}",
   "aircraftAwards": {
     "bestGliderPilot": "Christopher Michael Gough",
@@ -9099,6 +9115,84 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 1229.2800000000002,
+      "totalDistance": 1131.94,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 497.62,
+          "speed": 75.14,
+          "points": 533.73,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 421.99,
+          "speed": 73.29,
+          "points": 462.79,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252104,
+          "userId": 25114,
+          "date": "2026-10-09",
+          "distance": 107.81,
+          "speed": 60.7,
+          "points": 118.39,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 104.52,
+          "speed": 116.03,
+          "points": 114.37,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Daniel Nazarko",
       "pilotId": 15888,
       "totalPoints": 1228.97,
@@ -9153,67 +9247,6 @@
           "aircraftKind": "GL",
           "aircraftName": "LS 4",
           "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 1110.8899999999999,
-      "totalDistance": 1024.13,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 497.62,
-          "speed": 75.14,
-          "points": 533.73,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 421.99,
-          "speed": 73.29,
-          "points": 462.79,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251879,
-          "userId": 25114,
-          "date": "2026-10-08",
-          "distance": 104.52,
-          "speed": 116.03,
-          "points": 114.37,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -9874,6 +9907,33 @@
       "awards": []
     },
     {
+      "pilot": "Rafael Bravo",
+      "pilotId": 34958,
+      "totalPoints": 231.49,
+      "totalDistance": 211.9,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252115,
+          "userId": 34958,
+          "date": "2026-10-09",
+          "distance": 211.9,
+          "speed": 71.39,
+          "points": 231.49,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Yvon Saucier",
       "pilotId": 39209,
       "totalPoints": 208.8,
@@ -9982,6 +10042,94 @@
       "awards": []
     },
     {
+      "pilot": "Gregory Zak",
+      "pilotId": 22232,
+      "totalPoints": 171.46,
+      "totalDistance": 159.70999999999998,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251275,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 61.3,
+          "speed": 96.87,
+          "points": 61.5,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252106,
+          "userId": 22232,
+          "date": "2026-10-09",
+          "distance": 44.22,
+          "speed": 78.38,
+          "points": 58.09,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251274,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 54.19,
+          "speed": 122.46,
+          "points": 51.87,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Harrison Breeze",
+      "pilotId": 36101,
+      "totalPoints": 169.14,
+      "totalDistance": 125.52,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252173,
+          "userId": 36101,
+          "date": "2026-10-09",
+          "distance": 125.52,
+          "speed": 67.68,
+          "points": 169.14,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
       "pilot": "Mike North",
       "pilotId": 35337,
       "totalPoints": 168.44,
@@ -10002,6 +10150,77 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Warwick Patterson",
+      "pilotId": 21574,
+      "totalPoints": 168.18,
+      "totalDistance": 121.77000000000001,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1252183,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 66.29,
+          "speed": 88,
+          "points": 92.39,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252182,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 55.48,
+          "speed": 72.68,
+          "points": 75.79,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Joseph Tam",
+      "pilotId": 35296,
+      "totalPoints": 168.07,
+      "totalDistance": 169.91,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252134,
+          "userId": 35296,
+          "date": "2026-10-09",
+          "distance": 169.91,
+          "speed": 80.66,
+          "points": 168.07,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LAK-17A 18m",
+          "dmstIndex": 119,
           "invalid": false,
           "errorReasons": []
         }
@@ -10117,50 +10336,6 @@
       "awards": []
     },
     {
-      "pilot": "Gregory Zak",
-      "pilotId": 22232,
-      "totalPoints": 113.37,
-      "totalDistance": 115.49,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251275,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 61.3,
-          "speed": 96.87,
-          "points": 61.5,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251274,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 54.19,
-          "speed": 122.46,
-          "points": 51.87,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ],
-      "awards": []
-    },
-    {
       "pilot": "Mark Luscher",
       "pilotId": 13284,
       "totalPoints": 112.47,
@@ -10181,6 +10356,33 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 104.52,
+      "totalDistance": 89.81,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252127,
+          "userId": 35461,
+          "date": "2026-10-09",
+          "distance": 89.81,
+          "speed": 56.88,
+          "points": 104.52,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-41 Jantar Std.",
+          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -10343,6 +10545,33 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ],
+      "awards": []
+    },
+    {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 63.16,
+      "totalDistance": 50.54,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252087,
+          "userId": 40731,
+          "date": "2026-10-09",
+          "distance": 50.54,
+          "speed": 43.57,
+          "points": 63.16,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -10618,8 +10847,8 @@
     {
       "pilot": "Joshua Peace",
       "pilotId": 25114,
-      "totalPoints": 257.45,
-      "totalDistance": 514.91,
+      "totalPoints": 272.11,
+      "totalDistance": 544.23,
       "flightCount": 3,
       "bestFlights": [
         {
@@ -10657,12 +10886,12 @@
           "errorReasons": []
         },
         {
-          "id": 1251879,
+          "id": 1252104,
           "userId": 25114,
-          "date": "2026-10-08",
-          "distance": 59.46,
-          "speed": 29.73,
-          "points": 29.73,
+          "date": "2026-10-09",
+          "distance": 88.78,
+          "speed": 44.39,
+          "points": 44.39,
           "takeoff": "Cowley",
           "region": "CA-AB",
           "declared": false,
@@ -11341,6 +11570,32 @@
       ]
     },
     {
+      "pilot": "Rafael Bravo",
+      "pilotId": 34958,
+      "totalPoints": 69.01,
+      "totalDistance": 151.83,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252115,
+          "userId": 34958,
+          "date": "2026-10-09",
+          "distance": 151.83,
+          "speed": 75.92,
+          "points": 69.01,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "David philip",
       "pilotId": 35420,
       "totalPoints": 64.75,
@@ -11389,6 +11644,156 @@
           "dmstIndex": 116,
           "invalid": false,
           "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Joseph Tam",
+      "pilotId": 35296,
+      "totalPoints": 55.52,
+      "totalDistance": 132.14,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252134,
+          "userId": 35296,
+          "date": "2026-10-09",
+          "distance": 132.14,
+          "speed": 66.07,
+          "points": 55.52,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "LAK-17A 18m",
+          "dmstIndex": 119,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gregory Zak",
+      "pilotId": 22232,
+      "totalPoints": 49,
+      "totalDistance": 102.32,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1252106,
+          "userId": 22232,
+          "date": "2026-10-09",
+          "distance": 34.16,
+          "speed": 17.08,
+          "points": 18.57,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251275,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 34.58,
+          "speed": 17.29,
+          "points": 15.44,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251273,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 33.58,
+          "speed": 16.79,
+          "points": 14.99,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Harrison Breeze",
+      "pilotId": 36101,
+      "totalPoints": 48.37,
+      "totalDistance": 83.2,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252173,
+          "userId": 36101,
+          "date": "2026-10-09",
+          "distance": 83.2,
+          "speed": 41.6,
+          "points": 48.37,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252171,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 0.87,
+          "speed": 0.43,
+          "points": 0.51,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1252172,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 0.76,
+          "speed": 0.38,
+          "points": 0.44,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
         }
       ]
     },
@@ -11445,66 +11850,6 @@
       ]
     },
     {
-      "pilot": "Gregory Zak",
-      "pilotId": 22232,
-      "totalPoints": 42.879999999999995,
-      "totalDistance": 96.05,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1251275,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 34.58,
-          "speed": 17.29,
-          "points": 15.44,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251273,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 33.58,
-          "speed": 16.79,
-          "points": 14.99,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251274,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 27.89,
-          "speed": 13.95,
-          "points": 12.45,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "sprint",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Yvon Saucier",
       "pilotId": 39209,
       "totalPoints": 41.96,
@@ -11525,6 +11870,49 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Warwick Patterson",
+      "pilotId": 21574,
+      "totalPoints": 41.4,
+      "totalDistance": 71.2,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1252182,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 36.53,
+          "speed": 18.27,
+          "points": 21.24,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252183,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 34.67,
+          "speed": 17.34,
+          "points": 20.16,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
           "invalid": false,
           "errorReasons": []
         }
@@ -11646,6 +12034,32 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 27",
           "dmstIndex": 114,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 36.05,
+      "totalDistance": 72.1,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252127,
+          "userId": 35461,
+          "date": "2026-10-09",
+          "distance": 72.1,
+          "speed": 36.05,
+          "points": 36.05,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-41 Jantar Std.",
+          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -11888,6 +12302,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 17.48,
+      "totalDistance": 32.17,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252087,
+          "userId": 40731,
+          "date": "2026-10-09",
+          "distance": 32.17,
+          "speed": 16.09,
+          "points": 17.48,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -12583,6 +13023,66 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 163.38,
+      "totalDistance": 163.38,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 83.6,
+          "speed": 12.9,
+          "points": 83.6,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 44.5,
+          "speed": 14.65,
+          "points": 44.5,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252104,
+          "userId": 25114,
+          "date": "2026-10-09",
+          "distance": 35.28,
+          "speed": 26.74,
+          "points": 35.28,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Sasha Pejic",
       "pilotId": 22077,
       "totalPoints": 154.05,
@@ -12686,66 +13186,6 @@
       ]
     },
     {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 145.51,
-      "totalDistance": 145.51,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 83.6,
-          "speed": 12.9,
-          "points": 83.6,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 44.5,
-          "speed": 14.65,
-          "points": 44.5,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251879,
-          "userId": 25114,
-          "date": "2026-10-08",
-          "distance": 17.41,
-          "speed": 27.53,
-          "points": 17.41,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Blake Hache",
       "pilotId": 41499,
       "totalPoints": 140.91,
@@ -12843,6 +13283,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-41 Jantar Std.",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Rafael Bravo",
+      "pilotId": 34958,
+      "totalPoints": 129.51,
+      "totalDistance": 142.46,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252115,
+          "userId": 34958,
+          "date": "2026-10-09",
+          "distance": 142.46,
+          "speed": 47.21,
+          "points": 129.51,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         }
@@ -13133,6 +13599,75 @@
       ]
     },
     {
+      "pilot": "Warwick Patterson",
+      "pilotId": 21574,
+      "totalPoints": 88.61,
+      "totalDistance": 76.21000000000001,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1252183,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 43.89,
+          "speed": 81.36,
+          "points": 51.03,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252182,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 32.32,
+          "speed": 77.11,
+          "points": 37.58,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Joseph Tam",
+      "pilotId": 35296,
+      "totalPoints": 84.31,
+      "totalDistance": 100.33,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252134,
+          "userId": 35296,
+          "date": "2026-10-09",
+          "distance": 100.33,
+          "speed": 50.01,
+          "points": 84.31,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "LAK-17A 18m",
+          "dmstIndex": 119,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Pascal Hayet",
       "pilotId": 23795,
       "totalPoints": 79.08,
@@ -13198,6 +13733,70 @@
           "dmstIndex": 102,
           "invalid": false,
           "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Harrison Breeze",
+      "pilotId": 36101,
+      "totalPoints": 77.29,
+      "totalDistance": 66.47,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252173,
+          "userId": 36101,
+          "date": "2026-10-09",
+          "distance": 66.47,
+          "speed": 64.17,
+          "points": 77.29,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252171,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 3.86,
+          "speed": 68.45,
+          "points": 4.49,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1252172,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 3.51,
+          "speed": 102.73,
+          "points": 4.08,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
         }
       ]
     },
@@ -13284,6 +13883,66 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 27",
           "dmstIndex": 114,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gregory Zak",
+      "pilotId": 22232,
+      "totalPoints": 64.96,
+      "totalDistance": 66.08,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1252106,
+          "userId": 22232,
+          "date": "2026-10-09",
+          "distance": 30.74,
+          "speed": 71.91,
+          "points": 33.41,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251275,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 25.26,
+          "speed": 95.92,
+          "points": 22.55,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251274,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 10.08,
+          "speed": 51.18,
+          "points": 9,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -13584,66 +14243,6 @@
       ]
     },
     {
-      "pilot": "Gregory Zak",
-      "pilotId": 22232,
-      "totalPoints": 39.4,
-      "totalDistance": 44.13,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1251275,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 25.26,
-          "speed": 95.92,
-          "points": 22.55,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251274,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 10.08,
-          "speed": 51.18,
-          "points": 9,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1250305,
-          "userId": 22232,
-          "date": "2026-10-03",
-          "distance": 8.79,
-          "speed": 45.86,
-          "points": 7.85,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "triangle",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
       "pilot": "Eric Dombrowski",
       "pilotId": 42065,
       "totalPoints": 35.78,
@@ -13756,6 +14355,32 @@
       ]
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 31.09,
+      "totalDistance": 31.09,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252127,
+          "userId": 35461,
+          "date": "2026-10-09",
+          "distance": 31.09,
+          "speed": 20.93,
+          "points": 31.09,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-41 Jantar Std.",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "François Proulx",
       "pilotId": 35326,
       "totalPoints": 29.32,
@@ -13814,6 +14439,32 @@
           "errorReasons": [
             "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
+        }
+      ]
+    },
+    {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 27.42,
+      "totalDistance": 25.23,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252087,
+          "userId": 40731,
+          "date": "2026-10-09",
+          "distance": 25.23,
+          "speed": 31.47,
+          "points": 27.42,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
         }
       ]
     },
@@ -14901,6 +15552,58 @@
       ]
     },
     {
+      "pilot": "Joseph Tam",
+      "pilotId": 35296,
+      "totalPoints": 125.07,
+      "totalDistance": 148.83,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252134,
+          "userId": 35296,
+          "date": "2026-10-09",
+          "distance": 148.83,
+          "speed": 75.75,
+          "points": 125.07,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "LAK-17A 18m",
+          "dmstIndex": 119,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Rafael Bravo",
+      "pilotId": 34958,
+      "totalPoints": 123.86,
+      "totalDistance": 136.25,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252115,
+          "userId": 34958,
+          "date": "2026-10-09",
+          "distance": 136.25,
+          "speed": 68.1,
+          "points": 123.86,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Tom Weiher",
       "pilotId": 35001,
       "totalPoints": 118.61999999999999,
@@ -15101,6 +15804,92 @@
       ]
     },
     {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 73.53,
+      "totalDistance": 73.53,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252127,
+          "userId": 35461,
+          "date": "2026-10-09",
+          "distance": 73.53,
+          "speed": 66.36,
+          "points": 73.53,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-41 Jantar Std.",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gregory Zak",
+      "pilotId": 22232,
+      "totalPoints": 72.54,
+      "totalDistance": 75.26,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1252106,
+          "userId": 22232,
+          "date": "2026-10-09",
+          "distance": 27.52,
+          "speed": 64.54,
+          "points": 29.91,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251275,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 28.21,
+          "speed": 89.79,
+          "points": 25.19,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1250305,
+          "userId": 22232,
+          "date": "2026-10-03",
+          "distance": 19.53,
+          "speed": 95.66,
+          "points": 17.44,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Mike North",
       "pilotId": 35337,
       "totalPoints": 69.35,
@@ -15121,6 +15910,75 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Warwick Patterson",
+      "pilotId": 21574,
+      "totalPoints": 64.73,
+      "totalDistance": 55.67,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1252183,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 32.98,
+          "speed": 61.2,
+          "points": 38.35,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252182,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 22.69,
+          "speed": 52.19,
+          "points": 26.38,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Harrison Breeze",
+      "pilotId": 36101,
+      "totalPoints": 62.21,
+      "totalDistance": 53.5,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252173,
+          "userId": 36101,
+          "date": "2026-10-09",
+          "distance": 53.5,
+          "speed": 52.57,
+          "points": 62.21,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
           "invalid": false,
           "errorReasons": []
         }
@@ -15303,49 +16161,6 @@
           "aircraftKind": "GL",
           "aircraftName": "PW 5",
           "dmstIndex": 85,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Gregory Zak",
-      "pilotId": 22232,
-      "totalPoints": 42.63,
-      "totalDistance": 47.74,
-      "flightCount": 2,
-      "bestFlights": [
-        {
-          "id": 1251275,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 28.21,
-          "speed": 89.79,
-          "points": 25.19,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1250305,
-          "userId": 22232,
-          "date": "2026-10-03",
-          "distance": 19.53,
-          "speed": 95.66,
-          "points": 17.44,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "out_return",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
           "invalid": false,
           "errorReasons": []
         }
@@ -15579,6 +16394,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-51 Junior",
           "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 29.91,
+      "totalDistance": 27.52,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252087,
+          "userId": 40731,
+          "date": "2026-10-09",
+          "distance": 27.52,
+          "speed": 31.92,
+          "points": 29.91,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -16030,6 +16871,32 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 47.72,
+      "totalDistance": 47.72,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252104,
+          "userId": 25114,
+          "date": "2026-10-09",
+          "distance": 47.72,
+          "speed": 61.82,
+          "points": 47.72,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Ray Troppmann",
       "pilotId": 23521,
       "totalPoints": 31.08,
@@ -16312,6 +17179,53 @@
           "invalid": true,
           "errorReasons": [
             "Hard time constraint (180.0s) between fixes exceeded at 17:06:46, interval without logging is 2793s."
+          ]
+        }
+      ]
+    },
+    {
+      "pilot": "Harrison Breeze",
+      "pilotId": 36101,
+      "totalPoints": 0,
+      "totalDistance": 0,
+      "flightCount": 0,
+      "bestFlights": [
+        {
+          "id": 1252172,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 27.06,
+          "speed": 91.3,
+          "points": 31.47,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1252171,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 24.57,
+          "speed": 75.66,
+          "points": 28.57,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
           ]
         }
       ]
@@ -25334,6 +26248,1095 @@
         "dmstIndex": 111
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1252183,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 56.37,
+        "thermal_avg": 2.57,
+        "glide_speed": 108.86,
+        "glide_speed_lift": 107.99,
+        "glide_speed_sink": 109.5,
+        "altitude_avg": 1316,
+        "agl_avg": 1023,
+        "thermal_count": 1,
+        "thermal_gain": 313,
+        "thermal_radius": 190.15,
+        "thermal_start_agl": 534,
+        "thermal_bank": 20.96,
+        "glide_percentage": 0.93,
+        "glide_percentage_lift": 0.42,
+        "duration": 2712,
+        "thermal_time": 122,
+        "glide_time": 2521,
+        "wind_speed": 7.61,
+        "wind_direction": 252,
+        "attempt_count": 2,
+        "attempt_avg": 0.51,
+        "attempt_speed_loss": 2.29,
+        "below_1000_agl": 0.5181,
+        "below_800_agl": 0.2408,
+        "below_600_agl": 0.1586,
+        "below_400_agl": 0.1335,
+        "below_200_agl": 0.0277,
+        "below_100_agl": 0,
+        "track_distance": 76.23,
+        "glide_detour": 1.15,
+        "glide_distance": 8.85,
+        "glide_alt_avg": 1291,
+        "end_time": "2026-10-09T22:29:21+00:00",
+        "start_time": "2026-10-09T21:44:09+00:00",
+        "finish_alt": 703
+      },
+      "taskStats": {
+        "glide_ratio": 56.2,
+        "thermal_avg": 2.57,
+        "glide_speed": 109.95,
+        "glide_speed_lift": 109.76,
+        "glide_speed_sink": 110.1,
+        "altitude_avg": 1363,
+        "agl_avg": 967,
+        "thermal_count": 1,
+        "thermal_gain": 313,
+        "thermal_radius": 190.15,
+        "thermal_start_agl": 534,
+        "thermal_bank": 20.96,
+        "glide_percentage": 0.9,
+        "glide_percentage_lift": 0.42,
+        "duration": 1942,
+        "thermal_time": 122,
+        "glide_time": 1751,
+        "wind_speed": 7.61,
+        "wind_direction": 252,
+        "attempt_count": 2,
+        "attempt_avg": 0.51,
+        "attempt_speed_loss": 3,
+        "below_1000_agl": 0.5613,
+        "below_800_agl": 0.276,
+        "below_600_agl": 0.2214,
+        "below_400_agl": 0.1864,
+        "below_200_agl": 0.0386,
+        "below_100_agl": 0,
+        "track_distance": 53.48,
+        "glide_detour": 1.22,
+        "glide_distance": 7.45,
+        "glide_alt_avg": 1332,
+        "end_time": "2026-10-09T22:22:57+00:00",
+        "start_time": "2026-10-09T21:50:35+00:00",
+        "finish_alt": 989,
+        "task_duration": 1942,
+        "total_duration": 2712
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 43.89,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 71.45,
+        "freePoints": 92.39,
+        "auPoints": 71.45,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 71.44883720930233,
+        "dmstFreeDistance": 43.89,
+        "dmstTaskActualPoints": 71.44883720930233,
+        "dmstTaskPotentialPoints": 71.44883720930233,
+        "dmstTaskDistance": 43.89,
+        "weglideFreeDistance": 66.29,
+        "dmstIndex": 86
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252182,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 32.75,
+        "thermal_avg": 1.25,
+        "glide_speed": 120.08,
+        "glide_speed_lift": 112.03,
+        "glide_speed_sink": 125.12,
+        "altitude_avg": 1166,
+        "agl_avg": 935,
+        "thermal_count": 4,
+        "thermal_gain": 932,
+        "thermal_radius": 113.03,
+        "thermal_start_agl": 1151,
+        "thermal_bank": 30.56,
+        "glide_percentage": 0.67,
+        "glide_percentage_lift": 0.38,
+        "duration": 2748,
+        "thermal_time": 746,
+        "glide_time": 1853,
+        "wind_speed": 11.14,
+        "wind_direction": 272,
+        "attempt_count": 4,
+        "attempt_avg": -0.17,
+        "attempt_speed_loss": 4.17,
+        "below_1000_agl": 0.3988,
+        "below_800_agl": 0.3028,
+        "below_600_agl": 0.2566,
+        "below_400_agl": 0.1783,
+        "below_200_agl": 0.06,
+        "below_100_agl": 0,
+        "track_distance": 61.81,
+        "glide_detour": 1.11,
+        "glide_distance": 4.07,
+        "glide_alt_avg": 1120,
+        "end_time": "2026-10-09T20:44:44+00:00",
+        "start_time": "2026-10-09T19:58:56+00:00",
+        "finish_alt": 135
+      },
+      "taskStats": {
+        "glide_ratio": 37.31,
+        "thermal_avg": 1.24,
+        "glide_speed": 120.38,
+        "glide_speed_lift": 112.02,
+        "glide_speed_sink": 126.32,
+        "altitude_avg": 1212,
+        "agl_avg": 971,
+        "thermal_count": 4,
+        "thermal_gain": 918,
+        "thermal_radius": 112.23,
+        "thermal_start_agl": 1151,
+        "thermal_bank": 30.73,
+        "glide_percentage": 0.66,
+        "glide_percentage_lift": 0.41,
+        "duration": 2593,
+        "thermal_time": 740,
+        "glide_time": 1704,
+        "wind_speed": 11.14,
+        "wind_direction": 272,
+        "attempt_count": 4,
+        "attempt_avg": -0.17,
+        "attempt_speed_loss": 3.98,
+        "below_1000_agl": 0.3629,
+        "below_800_agl": 0.2634,
+        "below_600_agl": 0.2144,
+        "below_400_agl": 0.1496,
+        "below_200_agl": 0.0497,
+        "below_100_agl": 0,
+        "track_distance": 56.98,
+        "glide_detour": 1.21,
+        "glide_distance": 4.28,
+        "glide_alt_avg": 1186,
+        "end_time": "2026-10-09T20:42:15+00:00",
+        "start_time": "2026-10-09T19:59:02+00:00",
+        "finish_alt": 569,
+        "task_duration": 2593,
+        "total_duration": 2748
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 47.01,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 54.66,
+        "freePoints": 75.79,
+        "auPoints": 54.66,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 54.66279069767442,
+        "dmstFreeDistance": 47.01,
+        "dmstTaskActualPoints": 54.66279069767442,
+        "dmstTaskPotentialPoints": 54.66279069767442,
+        "dmstTaskDistance": 47.01,
+        "weglideFreeDistance": 55.48,
+        "dmstIndex": 86
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252173,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 50.05,
+        "thermal_avg": 1.55,
+        "glide_speed": 97.17,
+        "glide_speed_lift": 96.48,
+        "glide_speed_sink": 97.85,
+        "altitude_avg": 1661,
+        "agl_avg": 1101,
+        "thermal_count": 7,
+        "thermal_gain": 1423,
+        "thermal_radius": 125.58,
+        "thermal_start_agl": 903,
+        "thermal_bank": 30.35,
+        "glide_percentage": 0.84,
+        "glide_percentage_lift": 0.49,
+        "duration": 6677,
+        "thermal_time": 921,
+        "glide_time": 5606,
+        "wind_speed": 13.81,
+        "wind_direction": 272,
+        "attempt_count": 5,
+        "attempt_avg": 0.57,
+        "attempt_speed_loss": 1.55,
+        "below_1000_agl": 0.4168,
+        "below_800_agl": 0.2395,
+        "below_600_agl": 0.1159,
+        "below_400_agl": 0.0689,
+        "below_200_agl": 0.0139,
+        "below_100_agl": 0,
+        "track_distance": 151.32,
+        "glide_detour": 1.21,
+        "glide_distance": 6.72,
+        "glide_alt_avg": 1664,
+        "end_time": "2026-10-10T00:57:46+00:00",
+        "start_time": "2026-10-09T23:06:29+00:00",
+        "finish_alt": 521
+      },
+      "taskStats": {
+        "glide_ratio": 40.61,
+        "thermal_avg": 1.55,
+        "glide_speed": 97.17,
+        "glide_speed_lift": 96.48,
+        "glide_speed_sink": 97.85,
+        "altitude_avg": 1661,
+        "agl_avg": 1101,
+        "thermal_count": 7,
+        "thermal_gain": 1423,
+        "thermal_radius": 125.58,
+        "thermal_start_agl": 903,
+        "thermal_bank": 30.35,
+        "glide_percentage": 0.84,
+        "glide_percentage_lift": 0.49,
+        "duration": 6677,
+        "thermal_time": 921,
+        "glide_time": 5606,
+        "wind_speed": 13.81,
+        "wind_direction": 272,
+        "attempt_count": 5,
+        "attempt_avg": 0.57,
+        "attempt_speed_loss": 1.27,
+        "below_1000_agl": 0.4168,
+        "below_800_agl": 0.2395,
+        "below_600_agl": 0.1159,
+        "below_400_agl": 0.0689,
+        "below_200_agl": 0.0139,
+        "below_100_agl": 0,
+        "track_distance": 151.32,
+        "glide_detour": 1.49,
+        "glide_distance": 6.72,
+        "glide_alt_avg": 1664,
+        "end_time": "2026-10-10T00:57:46+00:00",
+        "start_time": "2026-10-09T23:06:29+00:00",
+        "finish_alt": 521,
+        "task_duration": 6677,
+        "total_duration": 6677
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 101.85,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 118.43,
+        "freePoints": 169.14,
+        "auPoints": 118.43,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 118.43023255813954,
+        "dmstFreeDistance": 101.85,
+        "dmstTaskActualPoints": 118.43023255813954,
+        "dmstTaskPotentialPoints": 118.43023255813954,
+        "dmstTaskDistance": 101.85,
+        "weglideFreeDistance": 125.52,
+        "dmstIndex": 86
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252172,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 33.61,
+        "thermal_avg": 0,
+        "glide_speed": 118.09,
+        "glide_speed_lift": 118.84,
+        "glide_speed_sink": 117.91,
+        "altitude_avg": 1664,
+        "agl_avg": 1391,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.22,
+        "duration": 1067,
+        "thermal_time": 0,
+        "glide_time": 1067,
+        "wind_speed": 18.4,
+        "wind_direction": 263,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0.015,
+        "below_800_agl": 0,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 35,
+        "glide_detour": 1.04,
+        "glide_distance": 24.52,
+        "glide_alt_avg": 1665,
+        "end_time": "2026-10-05T00:57:04+00:00",
+        "start_time": "2026-10-05T00:39:17+00:00",
+        "finish_alt": 1156
+      },
+      "taskStats": {
+        "glide_ratio": 27.09,
+        "thermal_avg": 0,
+        "glide_speed": 119.51,
+        "glide_speed_lift": 120.42,
+        "glide_speed_sink": 119.25,
+        "altitude_avg": 1867,
+        "agl_avg": 1514,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.23,
+        "duration": 1067,
+        "thermal_time": 0,
+        "glide_time": 1067,
+        "wind_speed": 18.4,
+        "wind_direction": 263,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0.015,
+        "below_800_agl": 0,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 35.42,
+        "glide_detour": 1.31,
+        "glide_distance": 26.93,
+        "glide_alt_avg": 1868,
+        "end_time": "2026-10-05T00:53:32+00:00",
+        "start_time": "2026-10-05T00:35:45+00:00",
+        "finish_alt": 1346,
+        "task_duration": 1067,
+        "total_duration": 1067
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 27.06,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 40.9,
+        "freePoints": 40.31,
+        "auPoints": 40.9,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 40.90465116279069,
+        "dmstFreeDistance": 27.06,
+        "dmstTaskActualPoints": 40.90465116279069,
+        "dmstTaskPotentialPoints": 40.90465116279069,
+        "dmstTaskDistance": 27.06,
+        "weglideFreeDistance": 33.61,
+        "dmstIndex": 86
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252171,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 32.85,
+        "thermal_avg": 0,
+        "glide_speed": 110.37,
+        "glide_speed_lift": 108.19,
+        "glide_speed_sink": 111.22,
+        "altitude_avg": 1230,
+        "agl_avg": 821,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.28,
+        "duration": 1111,
+        "thermal_time": 0,
+        "glide_time": 1111,
+        "wind_speed": 10.9,
+        "wind_direction": 247,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0.6553,
+        "below_800_agl": 0.3474,
+        "below_600_agl": 0.1989,
+        "below_400_agl": 0.1449,
+        "below_200_agl": 0.1161,
+        "below_100_agl": 0.0846,
+        "track_distance": 34.06,
+        "glide_detour": 1.04,
+        "glide_distance": 19.53,
+        "glide_alt_avg": 1231,
+        "end_time": "2026-10-04T23:27:15+00:00",
+        "start_time": "2026-10-04T23:08:44+00:00",
+        "finish_alt": 775
+      },
+      "taskStats": {
+        "glide_ratio": 32.22,
+        "thermal_avg": 0,
+        "glide_speed": 110.37,
+        "glide_speed_lift": 108.19,
+        "glide_speed_sink": 111.22,
+        "altitude_avg": 1230,
+        "agl_avg": 821,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.28,
+        "duration": 1111,
+        "thermal_time": 0,
+        "glide_time": 1111,
+        "wind_speed": 10.9,
+        "wind_direction": 247,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0.6553,
+        "below_800_agl": 0.3474,
+        "below_600_agl": 0.1989,
+        "below_400_agl": 0.1449,
+        "below_200_agl": 0.1161,
+        "below_100_agl": 0.0846,
+        "track_distance": 34.06,
+        "glide_detour": 1.06,
+        "glide_distance": 19.53,
+        "glide_alt_avg": 1231,
+        "end_time": "2026-10-04T23:27:15+00:00",
+        "start_time": "2026-10-04T23:08:44+00:00",
+        "finish_alt": 775,
+        "task_duration": 1111,
+        "total_duration": 1111
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 32.22,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 37.47,
+        "freePoints": 39.54,
+        "auPoints": 37.47,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 37.46511627906977,
+        "dmstFreeDistance": 32.22,
+        "dmstTaskActualPoints": 37.46511627906977,
+        "dmstTaskPotentialPoints": 37.46511627906977,
+        "dmstTaskDistance": 32.22,
+        "weglideFreeDistance": 32.85,
+        "dmstIndex": 86
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252134,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 45.95,
+        "thermal_avg": 1.45,
+        "glide_speed": 123.5,
+        "glide_speed_lift": 112.03,
+        "glide_speed_sink": 131.6,
+        "altitude_avg": 1342,
+        "agl_avg": 917,
+        "thermal_count": 13,
+        "thermal_gain": 3259,
+        "thermal_radius": 167.95,
+        "thermal_start_agl": 758,
+        "thermal_bank": 22.2,
+        "glide_percentage": 0.69,
+        "glide_percentage_lift": 0.41,
+        "duration": 7583,
+        "thermal_time": 2246,
+        "glide_time": 5262,
+        "wind_speed": 34.56,
+        "wind_direction": 277,
+        "attempt_count": 1,
+        "attempt_avg": -0.19,
+        "attempt_speed_loss": 0.81,
+        "below_1000_agl": 0.5948,
+        "below_800_agl": 0.3137,
+        "below_600_agl": 0.124,
+        "below_400_agl": 0.0625,
+        "below_200_agl": 0.0041,
+        "below_100_agl": 0,
+        "track_distance": 180.51,
+        "glide_detour": 1.06,
+        "glide_distance": 11.34,
+        "glide_alt_avg": 1337,
+        "end_time": "2026-10-09T19:51:55+00:00",
+        "start_time": "2026-10-09T17:45:32+00:00",
+        "finish_alt": 543
+      },
+      "taskStats": {
+        "glide_ratio": 40.75,
+        "thermal_avg": 1.52,
+        "glide_speed": 125.62,
+        "glide_speed_lift": 114.08,
+        "glide_speed_sink": 133.52,
+        "altitude_avg": 1374,
+        "agl_avg": 944,
+        "thermal_count": 12,
+        "thermal_gain": 3170,
+        "thermal_radius": 168.65,
+        "thermal_start_agl": 768,
+        "thermal_bank": 22.12,
+        "glide_percentage": 0.71,
+        "glide_percentage_lift": 0.41,
+        "duration": 7073,
+        "thermal_time": 2082,
+        "glide_time": 4991,
+        "wind_speed": 33.89,
+        "wind_direction": 278,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 0.5655,
+        "below_800_agl": 0.2642,
+        "below_600_agl": 0.111,
+        "below_400_agl": 0.0451,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 174.16,
+        "glide_detour": 1.17,
+        "glide_distance": 12.93,
+        "glide_alt_avg": 1368,
+        "end_time": "2026-10-09T19:49:20+00:00",
+        "start_time": "2026-10-09T17:51:27+00:00",
+        "finish_alt": 605,
+        "task_duration": 7073,
+        "total_duration": 7583
+      },
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 146.36,
+        "type": "OR",
+        "typeLabel": "Out & Return",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 162.59,
+        "freePoints": 168.07,
+        "auPoints": 162.59,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 162.5873949579832,
+        "dmstFreeDistance": 148.83,
+        "dmstTaskActualPoints": 159.88907563025214,
+        "dmstTaskPotentialPoints": 196.78655462184878,
+        "dmstTaskDistance": 146.36,
+        "weglideFreeDistance": 169.91,
+        "dmstIndex": 119
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252127,
+      "taskAchieved": false,
+      "hasTask": true,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 63.02,
+        "thermal_avg": 0.63,
+        "glide_speed": 78.46,
+        "glide_speed_lift": 74.03,
+        "glide_speed_sink": 84.15,
+        "altitude_avg": 1196,
+        "agl_avg": 687,
+        "thermal_count": 8,
+        "thermal_gain": 923,
+        "thermal_radius": 115.44,
+        "thermal_start_agl": 568,
+        "thermal_bank": 33.25,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.56,
+        "duration": 5684,
+        "thermal_time": 1475,
+        "glide_time": 3961,
+        "wind_speed": 37.09,
+        "wind_direction": 288,
+        "attempt_count": 6,
+        "attempt_avg": -0.12,
+        "attempt_speed_loss": 2.6,
+        "below_1000_agl": 0.9607,
+        "below_800_agl": 0.6466,
+        "below_600_agl": 0.3639,
+        "below_400_agl": 0.1064,
+        "below_200_agl": 0.0359,
+        "below_100_agl": 0.0079,
+        "track_distance": 86.33,
+        "glide_detour": 0.96,
+        "glide_distance": 5.87,
+        "glide_alt_avg": 1223,
+        "end_time": "2026-10-09T17:55:50+00:00",
+        "start_time": "2026-10-09T16:21:06+00:00",
+        "finish_alt": 580
+      },
+      "taskStats": {
+        "glide_ratio": 56.3,
+        "thermal_avg": 0.73,
+        "glide_speed": 81.23,
+        "glide_speed_lift": 75.27,
+        "glide_speed_sink": 88.7,
+        "altitude_avg": 1241,
+        "agl_avg": 748,
+        "thermal_count": 4,
+        "thermal_gain": 446,
+        "thermal_radius": 110.59,
+        "thermal_start_agl": 642,
+        "thermal_bank": 35.68,
+        "glide_percentage": 0.81,
+        "glide_percentage_lift": 0.55,
+        "duration": 3989,
+        "thermal_time": 614,
+        "glide_time": 3245,
+        "wind_speed": 35.22,
+        "wind_direction": 286,
+        "attempt_count": 4,
+        "attempt_avg": -0.35,
+        "attempt_speed_loss": 2.23,
+        "below_1000_agl": 0.944,
+        "below_800_agl": 0.507,
+        "below_600_agl": 0.1986,
+        "below_400_agl": 0.1002,
+        "below_200_agl": 0.0573,
+        "below_100_agl": 0.0173,
+        "track_distance": 73.22,
+        "glide_detour": 1,
+        "glide_distance": 7.89,
+        "glide_alt_avg": 1256,
+        "end_time": "2026-10-09T17:56:14+00:00",
+        "start_time": "2026-10-09T16:49:45+00:00",
+        "finish_alt": 523,
+        "task_duration": 3989,
+        "total_duration": 5684
+      },
+      "taskInfo": {
+        "hasTask": true,
+        "distanceKm": 176,
+        "type": "FR4",
+        "typeLabel": "Start, 2-3 Turnpoints, Finish",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 95.59,
+        "freePoints": 104.52,
+        "auPoints": 95.59,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 95.589,
+        "dmstFreeDistance": 73.53,
+        "dmstTaskActualPoints": 176,
+        "dmstTaskPotentialPoints": 228.8,
+        "dmstTaskDistance": 176,
+        "weglideFreeDistance": 89.81,
+        "dmstIndex": 100
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252115,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 41.23,
+        "thermal_avg": 1.59,
+        "glide_speed": 117.3,
+        "glide_speed_lift": 108.12,
+        "glide_speed_sink": 118.88,
+        "altitude_avg": 1490,
+        "agl_avg": 1115,
+        "thermal_count": 19,
+        "thermal_gain": 4264,
+        "thermal_radius": 126.81,
+        "thermal_start_agl": 1044,
+        "thermal_bank": 30.05,
+        "glide_percentage": 0.72,
+        "glide_percentage_lift": 0.33,
+        "duration": 10686,
+        "thermal_time": 2684,
+        "glide_time": 7660,
+        "wind_speed": 34.59,
+        "wind_direction": 278,
+        "attempt_count": 10,
+        "attempt_avg": -0.32,
+        "attempt_speed_loss": 2.36,
+        "below_1000_agl": 0.2233,
+        "below_800_agl": 0.1377,
+        "below_600_agl": 0.0894,
+        "below_400_agl": 0.0408,
+        "below_200_agl": 0.0069,
+        "below_100_agl": 0.0008,
+        "track_distance": 249.58,
+        "glide_detour": 1.18,
+        "glide_distance": 6.76,
+        "glide_alt_avg": 1521,
+        "end_time": "2026-10-09T20:39:31+00:00",
+        "start_time": "2026-10-09T17:41:25+00:00",
+        "finish_alt": 396
+      },
+      "taskStats": {
+        "glide_ratio": 28.27,
+        "thermal_avg": 1.58,
+        "glide_speed": 117.23,
+        "glide_speed_lift": 107.44,
+        "glide_speed_sink": 118.69,
+        "altitude_avg": 1478,
+        "agl_avg": 1106,
+        "thermal_count": 20,
+        "thermal_gain": 4565,
+        "thermal_radius": 126.09,
+        "thermal_start_agl": 1035,
+        "thermal_bank": 30.24,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.33,
+        "duration": 10863,
+        "thermal_time": 2894,
+        "glide_time": 7627,
+        "wind_speed": 34.54,
+        "wind_direction": 278,
+        "attempt_count": 10,
+        "attempt_avg": -0.32,
+        "attempt_speed_loss": 1.54,
+        "below_1000_agl": 0.2546,
+        "below_800_agl": 0.139,
+        "below_600_agl": 0.0832,
+        "below_400_agl": 0.0368,
+        "below_200_agl": 0.0044,
+        "below_100_agl": 0,
+        "track_distance": 248.36,
+        "glide_detour": 1.74,
+        "glide_distance": 6.5,
+        "glide_alt_avg": 1523,
+        "end_time": "2026-10-09T20:38:36+00:00",
+        "start_time": "2026-10-09T17:37:33+00:00",
+        "finish_alt": 471,
+        "task_duration": 10863,
+        "total_duration": 10686
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 142.46,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 181.31,
+        "freePoints": 231.49,
+        "auPoints": 181.31,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 181.31272727272724,
+        "dmstFreeDistance": 142.46,
+        "dmstTaskActualPoints": 181.31272727272724,
+        "dmstTaskPotentialPoints": 181.31272727272724,
+        "dmstTaskDistance": 142.46,
+        "weglideFreeDistance": 211.9,
+        "dmstIndex": 110
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252106,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 47.4,
+        "thermal_avg": 1.21,
+        "glide_speed": 112.63,
+        "glide_speed_lift": 102.16,
+        "glide_speed_sink": 120.8,
+        "altitude_avg": 1144,
+        "agl_avg": 794,
+        "thermal_count": 2,
+        "thermal_gain": 573,
+        "thermal_radius": 163.91,
+        "thermal_start_agl": 730,
+        "thermal_bank": 20.93,
+        "glide_percentage": 0.73,
+        "glide_percentage_lift": 0.44,
+        "duration": 2031,
+        "thermal_time": 475,
+        "glide_time": 1485,
+        "wind_speed": 34.46,
+        "wind_direction": 267,
+        "attempt_count": 2,
+        "attempt_avg": -1.52,
+        "attempt_speed_loss": 2.84,
+        "below_1000_agl": 0.7198,
+        "below_800_agl": 0.3909,
+        "below_600_agl": 0.2477,
+        "below_400_agl": 0.1009,
+        "below_200_agl": 0.0443,
+        "below_100_agl": 0.0241,
+        "track_distance": 46.46,
+        "glide_detour": 1.05,
+        "glide_distance": 6.67,
+        "glide_alt_avg": 1163,
+        "end_time": "2026-10-09T19:55:14+00:00",
+        "start_time": "2026-10-09T19:21:23+00:00",
+        "finish_alt": 383
+      },
+      "taskStats": {
+        "glide_ratio": 40.24,
+        "thermal_avg": 1.38,
+        "glide_speed": 113.02,
+        "glide_speed_lift": 101.76,
+        "glide_speed_sink": 122.52,
+        "altitude_avg": 1219,
+        "agl_avg": 863,
+        "thermal_count": 2,
+        "thermal_gain": 168,
+        "thermal_radius": 194.95,
+        "thermal_start_agl": 972,
+        "thermal_bank": 18.6,
+        "glide_percentage": 0.89,
+        "glide_percentage_lift": 0.46,
+        "duration": 1539,
+        "thermal_time": 122,
+        "glide_time": 1377,
+        "wind_speed": 34.3,
+        "wind_direction": 268,
+        "attempt_count": 1,
+        "attempt_avg": -2.67,
+        "attempt_speed_loss": 1.92,
+        "below_1000_agl": 0.6303,
+        "below_800_agl": 0.2632,
+        "below_600_agl": 0.1644,
+        "below_400_agl": 0.0812,
+        "below_200_agl": 0.0065,
+        "below_100_agl": 0,
+        "track_distance": 43.23,
+        "glide_detour": 1.41,
+        "glide_distance": 8.6,
+        "glide_alt_avg": 1213,
+        "end_time": "2026-10-09T19:53:54+00:00",
+        "start_time": "2026-10-09T19:28:15+00:00",
+        "finish_alt": 513,
+        "task_duration": 1539,
+        "total_duration": 2031
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 30.74,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 46.78,
+        "freePoints": 58.09,
+        "auPoints": 46.78,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 46.77826086956521,
+        "dmstFreeDistance": 30.74,
+        "dmstTaskActualPoints": 46.77826086956521,
+        "dmstTaskPotentialPoints": 46.77826086956521,
+        "dmstTaskDistance": 30.74,
+        "weglideFreeDistance": 44.22,
+        "dmstIndex": 92
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252104,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 70.14,
+        "thermal_avg": 1.42,
+        "glide_speed": 95.92,
+        "glide_speed_lift": 80.14,
+        "glide_speed_sink": 113.3,
+        "altitude_avg": 3665,
+        "agl_avg": 2530,
+        "thermal_count": 4,
+        "thermal_gain": 866,
+        "thermal_radius": 157.58,
+        "thermal_start_agl": 1643,
+        "thermal_bank": 30.4,
+        "glide_percentage": 0.88,
+        "glide_percentage_lift": 0.52,
+        "duration": 6394,
+        "thermal_time": 610,
+        "glide_time": 5626,
+        "wind_speed": 88.67,
+        "wind_direction": 242,
+        "attempt_count": 4,
+        "attempt_avg": 0.98,
+        "attempt_speed_loss": 1.54,
+        "below_1000_agl": 0.0124,
+        "below_800_agl": 0.0099,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 149.9,
+        "glide_detour": 1.39,
+        "glide_distance": 2.12,
+        "glide_alt_avg": 3801,
+        "end_time": "2026-10-09T20:13:52+00:00",
+        "start_time": "2026-10-09T18:27:18+00:00",
+        "finish_alt": 1692
+      },
+      "taskStats": {
+        "glide_ratio": 64.71,
+        "thermal_avg": 1.42,
+        "glide_speed": 95.93,
+        "glide_speed_lift": 80.14,
+        "glide_speed_sink": 113.36,
+        "altitude_avg": 3666,
+        "agl_avg": 2530,
+        "thermal_count": 4,
+        "thermal_gain": 866,
+        "thermal_radius": 157.58,
+        "thermal_start_agl": 1643,
+        "thermal_bank": 30.4,
+        "glide_percentage": 0.88,
+        "glide_percentage_lift": 0.52,
+        "duration": 6391,
+        "thermal_time": 610,
+        "glide_time": 5623,
+        "wind_speed": 88.67,
+        "wind_direction": 242,
+        "attempt_count": 4,
+        "attempt_avg": 0.98,
+        "attempt_speed_loss": 1.4,
+        "below_1000_agl": 0.0124,
+        "below_800_agl": 0.0099,
+        "below_600_agl": 0,
+        "below_400_agl": 0,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 149.83,
+        "glide_detour": 1.52,
+        "glide_distance": 2.11,
+        "glide_alt_avg": 3802,
+        "end_time": "2026-10-09T20:13:52+00:00",
+        "start_time": "2026-10-09T18:27:21+00:00",
+        "finish_alt": 1692,
+        "task_duration": 6391,
+        "total_duration": 6394
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 98.42,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 98.42,
+        "freePoints": 118.39,
+        "auPoints": 98.42,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 98.42,
+        "dmstFreeDistance": 98.42,
+        "dmstTaskActualPoints": 98.42,
+        "dmstTaskPotentialPoints": 98.42,
+        "dmstTaskDistance": 98.42,
+        "weglideFreeDistance": 107.81,
+        "dmstIndex": 100
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1252087,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 28.06,
+        "thermal_avg": 0.9,
+        "glide_speed": 89.96,
+        "glide_speed_lift": 87.3,
+        "glide_speed_sink": 91.94,
+        "altitude_avg": 1300,
+        "agl_avg": 956,
+        "thermal_count": 8,
+        "thermal_gain": 1343,
+        "thermal_radius": 122.02,
+        "thermal_start_agl": 853,
+        "thermal_bank": 34.25,
+        "glide_percentage": 0.6,
+        "glide_percentage_lift": 0.43,
+        "duration": 4176,
+        "thermal_time": 1487,
+        "glide_time": 2507,
+        "wind_speed": 33.74,
+        "wind_direction": 283,
+        "attempt_count": 4,
+        "attempt_avg": -1.1,
+        "attempt_speed_loss": 1.98,
+        "below_1000_agl": 0.647,
+        "below_800_agl": 0.256,
+        "below_600_agl": 0.0869,
+        "below_400_agl": 0.011,
+        "below_200_agl": 0,
+        "below_100_agl": 0,
+        "track_distance": 62.65,
+        "glide_detour": 1.24,
+        "glide_distance": 2.36,
+        "glide_alt_avg": 1255,
+        "end_time": "2026-10-09T20:01:38+00:00",
+        "start_time": "2026-10-09T18:52:02+00:00",
+        "finish_alt": 658
+      },
+      "taskStats": null,
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": null,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": null,
+        "taskContestLabel": "Task Score",
+        "taskContestPoints": null,
+        "freePoints": 63.16,
+        "auPoints": null,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": null,
+        "dmstFreeDistance": 50.54,
+        "dmstTaskActualPoints": null,
+        "dmstTaskPotentialPoints": null,
+        "dmstTaskDistance": 50.54,
+        "weglideFreeDistance": 50.54,
+        "dmstIndex": 92
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -31287,6 +33290,785 @@
         "name": "Cowley",
         "region": "CA-AB"
       }
+    },
+    {
+      "id": 1252183,
+      "user": {
+        "id": 21574,
+        "name": "Warwick Patterson"
+      },
+      "date": "2026-10-09",
+      "distance": 66.29,
+      "duration": 3721,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 92.39,
+          "distance": 66.29,
+          "speed": 88,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 20.16,
+          "distance": 34.67,
+          "speed": 17.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 51.03,
+          "distance": 43.89,
+          "speed": 81.36,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 38.35,
+          "distance": 32.98,
+          "speed": 61.2,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 71.45,
+          "distance": 43.89,
+          "speed": 81.36,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1252182,
+      "user": {
+        "id": 21574,
+        "name": "Warwick Patterson"
+      },
+      "date": "2026-10-09",
+      "distance": 55.48,
+      "duration": 3086,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 75.79,
+          "distance": 55.48,
+          "speed": 72.68,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 21.24,
+          "distance": 36.53,
+          "speed": 18.27,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 37.58,
+          "distance": 32.32,
+          "speed": 77.11,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 26.38,
+          "distance": 22.69,
+          "speed": 52.19,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 54.66,
+          "distance": 47.01,
+          "speed": 65.27,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1252173,
+      "user": {
+        "id": 36101,
+        "name": "Harrison Breeze"
+      },
+      "date": "2026-10-09",
+      "distance": 125.52,
+      "duration": 7407,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 169.14,
+          "distance": 125.52,
+          "speed": 67.68,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 48.37,
+          "distance": 83.2,
+          "speed": 41.6,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 77.29,
+          "distance": 66.47,
+          "speed": 64.17,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 62.21,
+          "distance": 53.5,
+          "speed": 52.57,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 118.43,
+          "distance": 101.85,
+          "speed": 54.91,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1252172,
+      "user": {
+        "id": 36101,
+        "name": "Harrison Breeze"
+      },
+      "date": "2026-10-04",
+      "distance": 27.06,
+      "duration": 3575,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 40.31,
+          "distance": 33.61,
+          "speed": 113.4,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.44,
+          "distance": 0.76,
+          "speed": 0.38,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 4.08,
+          "distance": 3.51,
+          "speed": 102.73,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 31.47,
+          "distance": 27.06,
+          "speed": 91.3,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 40.9,
+          "distance": 27.06,
+          "speed": 91.3,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1252171,
+      "user": {
+        "id": 36101,
+        "name": "Harrison Breeze"
+      },
+      "date": "2026-10-04",
+      "distance": 32.85,
+      "duration": 3435,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 39.54,
+          "distance": 32.85,
+          "speed": 106.44,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.51,
+          "distance": 0.87,
+          "speed": 0.43,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 4.49,
+          "distance": 3.86,
+          "speed": 68.45,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 28.57,
+          "distance": 24.57,
+          "speed": 75.66,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 37.47,
+          "distance": 32.22,
+          "speed": 104.4,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Port Alberni",
+        "region": "CA-BC"
+      }
+    },
+    {
+      "id": 1252134,
+      "user": {
+        "id": 35296,
+        "name": "Joseph Tam"
+      },
+      "date": "2026-10-09",
+      "distance": 169.91,
+      "duration": 7908,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "OR",
+        "from_igcfile": true,
+        "distance": 146.36
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 168.07,
+          "distance": 169.91,
+          "speed": 80.66,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 55.52,
+          "distance": 132.14,
+          "speed": 66.07,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 84.31,
+          "distance": 100.33,
+          "speed": 50.01,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 125.07,
+          "distance": 148.83,
+          "speed": 75.75,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 162.59,
+          "distance": 148.83,
+          "speed": 75.75,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1252127,
+      "user": {
+        "id": 35461,
+        "name": "Gregory Wilson"
+      },
+      "date": "2026-10-09",
+      "distance": 89.81,
+      "duration": 5990,
+      "taskDeclared": true,
+      "taskCompleted": false,
+      "task": {
+        "kind": "FR4",
+        "from_igcfile": true,
+        "distance": 176
+      },
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 104.52,
+          "distance": 89.81,
+          "speed": 56.88,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 36.05,
+          "distance": 72.1,
+          "speed": 36.05,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 31.09,
+          "distance": 31.09,
+          "speed": 20.93,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 73.53,
+          "distance": 73.53,
+          "speed": 66.36,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 95.59,
+          "distance": 73.53,
+          "speed": 66.36,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Toronto Soaring Club - Conn",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1252115,
+      "user": {
+        "id": 34958,
+        "name": "Rafael Bravo"
+      },
+      "date": "2026-10-09",
+      "distance": 211.9,
+      "duration": 11292,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 231.49,
+          "distance": 211.9,
+          "speed": 71.39,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 69.01,
+          "distance": 151.83,
+          "speed": 75.92,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 129.51,
+          "distance": 142.46,
+          "speed": 47.21,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 123.86,
+          "distance": 136.25,
+          "speed": 68.1,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 181.31,
+          "distance": 142.46,
+          "speed": 47.21,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1252107,
+      "user": {
+        "id": 22232,
+        "name": "Gregory Zak"
+      },
+      "date": "2026-10-09",
+      "distance": 30.9,
+      "duration": 1815,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 34.9,
+          "distance": 30.9,
+          "speed": 73.96,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 6.98,
+          "distance": 12.84,
+          "speed": 6.42,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 4.38,
+          "distance": 4.03,
+          "speed": 113.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 13.64,
+          "distance": 12.55,
+          "speed": 121.78,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 30.79,
+          "distance": 28.33,
+          "speed": 68.73,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1252106,
+      "user": {
+        "id": 22232,
+        "name": "Gregory Zak"
+      },
+      "date": "2026-10-09",
+      "distance": 44.22,
+      "duration": 2245,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 58.09,
+          "distance": 44.22,
+          "speed": 78.38,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 18.57,
+          "distance": 34.16,
+          "speed": 17.08,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 33.41,
+          "distance": 30.74,
+          "speed": 71.91,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 29.91,
+          "distance": 27.52,
+          "speed": 64.54,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 46.78,
+          "distance": 30.74,
+          "speed": 71.91,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
+    },
+    {
+      "id": 1252104,
+      "user": {
+        "id": 25114,
+        "name": "Joshua Peace"
+      },
+      "date": "2026-10-09",
+      "distance": 107.81,
+      "duration": 7627,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 118.39,
+          "distance": 107.81,
+          "speed": 60.7,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 44.39,
+          "distance": 88.78,
+          "speed": 44.39,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 35.28,
+          "distance": 35.28,
+          "speed": 26.74,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 47.72,
+          "distance": 47.72,
+          "speed": 61.82,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 98.42,
+          "distance": 98.42,
+          "speed": 55.44,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Cowley",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1252087,
+      "user": {
+        "id": 40731,
+        "name": "Gulsah Hos"
+      },
+      "date": "2026-10-09",
+      "distance": 50.54,
+      "duration": 4770,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 63.16,
+          "distance": 50.54,
+          "speed": 43.57,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 17.48,
+          "distance": 32.17,
+          "speed": 16.09,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 27.42,
+          "distance": 25.23,
+          "speed": 31.47,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 29.91,
+          "distance": 27.52,
+          "speed": 31.92,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Rockton SOSA On",
+        "region": "CA-ON"
+      }
     }
   ],
   "clubMetadataById": {
@@ -31631,6 +34413,83 @@
       ]
     },
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 1229.2800000000002,
+      "totalDistance": 1131.94,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 497.62,
+          "speed": 75.14,
+          "points": 533.73,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 421.99,
+          "speed": 73.29,
+          "points": 462.79,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252104,
+          "userId": 25114,
+          "date": "2026-10-09",
+          "distance": 107.81,
+          "speed": 60.7,
+          "points": 118.39,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 104.52,
+          "speed": 116.03,
+          "points": 114.37,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Daniel Nazarko",
       "pilotId": 15888,
       "totalPoints": 1228.97,
@@ -31685,66 +34544,6 @@
           "aircraftKind": "GL",
           "aircraftName": "LS 4",
           "dmstIndex": 104,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 1110.8899999999999,
-      "totalDistance": 1024.13,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 497.62,
-          "speed": 75.14,
-          "points": 533.73,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 421.99,
-          "speed": 73.29,
-          "points": 462.79,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251879,
-          "userId": 25114,
-          "date": "2026-10-08",
-          "distance": 104.52,
-          "speed": 116.03,
-          "points": 114.37,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -32371,6 +35170,100 @@
       ]
     },
     {
+      "pilot": "Gregory Zak",
+      "pilotId": 22232,
+      "totalPoints": 261.37,
+      "totalDistance": 255.53999999999996,
+      "flightCount": 5,
+      "bestFlights": [
+        {
+          "id": 1251275,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 61.3,
+          "speed": 96.87,
+          "points": 61.5,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252106,
+          "userId": 22232,
+          "date": "2026-10-09",
+          "distance": 44.22,
+          "speed": 78.38,
+          "points": 58.09,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251274,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 54.19,
+          "speed": 122.46,
+          "points": 51.87,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251273,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 49.64,
+          "speed": 97.02,
+          "points": 46.6,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251272,
+          "userId": 22232,
+          "date": "2026-10-05",
+          "distance": 46.19,
+          "speed": 69.81,
+          "points": 43.31,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "Duo Discus",
+          "dmstIndex": 112,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Ray Troppmann",
       "pilotId": 23521,
       "totalPoints": 243.22,
@@ -32433,94 +35326,26 @@
       ]
     },
     {
-      "pilot": "Gregory Zak",
-      "pilotId": 22232,
-      "totalPoints": 234.28,
-      "totalDistance": 242.13,
-      "flightCount": 5,
+      "pilot": "Rafael Bravo",
+      "pilotId": 34958,
+      "totalPoints": 231.49,
+      "totalDistance": 211.9,
+      "flightCount": 1,
       "bestFlights": [
         {
-          "id": 1251275,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 61.3,
-          "speed": 96.87,
-          "points": 61.5,
+          "id": 1252115,
+          "userId": 34958,
+          "date": "2026-10-09",
+          "distance": 211.9,
+          "speed": 71.39,
+          "points": 231.49,
           "takeoff": "Rockton SOSA On",
           "region": "CA-ON",
           "declared": false,
           "contestType": "free",
           "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251274,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 54.19,
-          "speed": 122.46,
-          "points": 51.87,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251273,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 49.64,
-          "speed": 97.02,
-          "points": 46.6,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251272,
-          "userId": 22232,
-          "date": "2026-10-05",
-          "distance": 46.19,
-          "speed": 69.81,
-          "points": 43.31,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1250305,
-          "userId": 22232,
-          "date": "2026-10-03",
-          "distance": 30.81,
-          "speed": 106.45,
-          "points": 31,
-          "takeoff": "Rockton SOSA On",
-          "region": "CA-ON",
-          "declared": false,
-          "contestType": "free",
-          "aircraftKind": "GL",
-          "aircraftName": "Duo Discus",
-          "dmstIndex": 112,
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
           "invalid": false,
           "errorReasons": []
         }
@@ -32631,6 +35456,70 @@
       ]
     },
     {
+      "pilot": "Harrison Breeze",
+      "pilotId": 36101,
+      "totalPoints": 169.14,
+      "totalDistance": 125.52,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252173,
+          "userId": 36101,
+          "date": "2026-10-09",
+          "distance": 125.52,
+          "speed": 67.68,
+          "points": 169.14,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252172,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 33.61,
+          "speed": 113.4,
+          "points": 40.31,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        },
+        {
+          "id": 1252171,
+          "userId": 36101,
+          "date": "2026-10-04",
+          "distance": 32.85,
+          "speed": 106.44,
+          "points": 39.54,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": true,
+          "errorReasons": [
+            "Contest entry invalidated (e.g. uploaded after deadline)."
+          ]
+        }
+      ]
+    },
+    {
       "pilot": "Mike North",
       "pilotId": 35337,
       "totalPoints": 168.44,
@@ -32651,6 +35540,75 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Warwick Patterson",
+      "pilotId": 21574,
+      "totalPoints": 168.18,
+      "totalDistance": 121.77000000000001,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1252183,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 66.29,
+          "speed": 88,
+          "points": 92.39,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252182,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 55.48,
+          "speed": 72.68,
+          "points": 75.79,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Joseph Tam",
+      "pilotId": 35296,
+      "totalPoints": 168.07,
+      "totalDistance": 169.91,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252134,
+          "userId": 35296,
+          "date": "2026-10-09",
+          "distance": 169.91,
+          "speed": 80.66,
+          "points": 168.07,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "LAK-17A 18m",
+          "dmstIndex": 119,
           "invalid": false,
           "errorReasons": []
         }
@@ -32824,6 +35782,32 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 104.52,
+      "totalDistance": 89.81,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252127,
+          "userId": 35461,
+          "date": "2026-10-09",
+          "distance": 89.81,
+          "speed": 56.88,
+          "points": 104.52,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-41 Jantar Std.",
+          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -33170,6 +36154,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-48 Jantar Std. 2",
           "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gulsah Hos",
+      "pilotId": 40731,
+      "totalPoints": 63.16,
+      "totalDistance": 50.54,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252087,
+          "userId": 40731,
+          "date": "2026-10-09",
+          "distance": 50.54,
+          "speed": 43.57,
+          "points": 63.16,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "ASK 21",
+          "dmstIndex": 92,
           "invalid": false,
           "errorReasons": []
         }
@@ -33544,6 +36554,83 @@
   ],
   "sacDscLeaderboard": [
     {
+      "pilot": "Joshua Peace",
+      "pilotId": 25114,
+      "totalPoints": 925.0799999999999,
+      "totalDistance": 925.0799999999999,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1251553,
+          "userId": 25114,
+          "date": "2026-10-06",
+          "distance": 389.89,
+          "speed": 71.82,
+          "points": 389.89,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251266,
+          "userId": 25114,
+          "date": "2026-10-05",
+          "distance": 350.7,
+          "speed": 100.69,
+          "points": 350.7,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252104,
+          "userId": 25114,
+          "date": "2026-10-09",
+          "distance": 98.42,
+          "speed": 55.44,
+          "points": 98.42,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1251879,
+          "userId": 25114,
+          "date": "2026-10-08",
+          "distance": 86.07,
+          "speed": 93.78,
+          "points": 86.07,
+          "takeoff": "Cowley",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 19",
+          "dmstIndex": 100,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Daniel Nazarko",
       "pilotId": 15888,
       "totalPoints": 875.51,
@@ -33701,66 +36788,6 @@
           "aircraftKind": "MG",
           "aircraftName": "DG 400 17m",
           "dmstIndex": 109,
-          "invalid": false,
-          "errorReasons": []
-        }
-      ]
-    },
-    {
-      "pilot": "Joshua Peace",
-      "pilotId": 25114,
-      "totalPoints": 826.6599999999999,
-      "totalDistance": 826.6599999999999,
-      "flightCount": 3,
-      "bestFlights": [
-        {
-          "id": 1251553,
-          "userId": 25114,
-          "date": "2026-10-06",
-          "distance": 389.89,
-          "speed": 71.82,
-          "points": 389.89,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251266,
-          "userId": 25114,
-          "date": "2026-10-05",
-          "distance": 350.7,
-          "speed": 100.69,
-          "points": 350.7,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
-          "invalid": false,
-          "errorReasons": []
-        },
-        {
-          "id": 1251879,
-          "userId": 25114,
-          "date": "2026-10-08",
-          "distance": 86.07,
-          "speed": 93.78,
-          "points": 86.07,
-          "takeoff": "Cowley",
-          "region": "CA-AB",
-          "declared": false,
-          "contestType": "ca",
-          "aircraftKind": "GL",
-          "aircraftName": "ASW 19",
-          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -34338,6 +37365,32 @@
       ]
     },
     {
+      "pilot": "Rafael Bravo",
+      "pilotId": 34958,
+      "totalPoints": 181.31,
+      "totalDistance": 142.46,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252115,
+          "userId": 34958,
+          "date": "2026-10-09",
+          "distance": 142.46,
+          "speed": 47.21,
+          "points": 181.31,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "ASW 20",
+          "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Jean Lapierre",
       "pilotId": 34953,
       "totalPoints": 179.11,
@@ -34358,6 +37411,32 @@
           "aircraftKind": "GL",
           "aircraftName": "DG 600 18m",
           "dmstIndex": 116,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Joseph Tam",
+      "pilotId": 35296,
+      "totalPoints": 162.59,
+      "totalDistance": 148.83,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252134,
+          "userId": 35296,
+          "date": "2026-10-09",
+          "distance": 148.83,
+          "speed": 75.75,
+          "points": 162.59,
+          "takeoff": "Rockton SOSA On",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "LAK-17A 18m",
+          "dmstIndex": 119,
           "invalid": false,
           "errorReasons": []
         }
@@ -34436,6 +37515,75 @@
           "aircraftKind": "GL",
           "aircraftName": "ASW 20",
           "dmstIndex": 110,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Warwick Patterson",
+      "pilotId": 21574,
+      "totalPoints": 126.11,
+      "totalDistance": 90.9,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1252183,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 43.89,
+          "speed": 81.36,
+          "points": 71.45,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1252182,
+          "userId": 21574,
+          "date": "2026-10-09",
+          "distance": 47.01,
+          "speed": 65.27,
+          "points": 54.66,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Harrison Breeze",
+      "pilotId": 36101,
+      "totalPoints": 118.43,
+      "totalDistance": 101.85,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252173,
+          "userId": 36101,
+          "date": "2026-10-09",
+          "distance": 101.85,
+          "speed": 54.91,
+          "points": 118.43,
+          "takeoff": "Port Alberni",
+          "region": "CA-BC",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "PW 6",
+          "dmstIndex": 86,
           "invalid": false,
           "errorReasons": []
         }
@@ -34540,6 +37688,32 @@
           "aircraftKind": "GL",
           "aircraftName": "SZD-51 Junior",
           "dmstIndex": 90,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Gregory Wilson",
+      "pilotId": 35461,
+      "totalPoints": 95.59,
+      "totalDistance": 73.53,
+      "flightCount": 1,
+      "bestFlights": [
+        {
+          "id": 1252127,
+          "userId": 35461,
+          "date": "2026-10-09",
+          "distance": 73.53,
+          "speed": 66.36,
+          "points": 95.59,
+          "takeoff": "Toronto Soaring Club - Conn",
+          "region": "CA-ON",
+          "declared": false,
+          "contestType": "ca",
+          "aircraftKind": "GL",
+          "aircraftName": "SZD-41 Jantar Std.",
+          "dmstIndex": 100,
           "invalid": false,
           "errorReasons": []
         }
@@ -34813,15 +37987,15 @@
     }
   ],
   "meta": {
-    "totalPilots": 51,
-    "totalFlights": 89,
-    "totalKms": 14700,
-    "totalTasksDeclared": 43,
+    "totalPilots": 57,
+    "totalFlights": 101,
+    "totalKms": 15719,
+    "totalTasksDeclared": 45,
     "totalTasksCompleted": 0,
     "seasonLabel": "Oct 1, 2026 - Sept 30, 2027",
     "seasonId": "2026-27",
-    "dataThroughDate": "2026-10-08",
+    "dataThroughDate": "2026-10-09",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-10-09T09:55:44.884Z"
+    "generatedAt": "2026-10-10T09:19:42.064Z"
   }
 }
