@@ -45,13 +45,15 @@ module.exports = async (req, res) => {
             }
         };
 
-        const dataPath = path.join(process.cwd(), 'public', 'leaderboard_data.json');
+        const dataPath = path.join(process.cwd(), season.publicDir, 'leaderboard_data.json');
         let candidates = [];
         if (fs.existsSync(dataPath)) {
             candidates = JSON.parse(fs.readFileSync(dataPath, 'utf8')).silverCgullLeaderboard || [];
         } else {
             const baseUrl = process.env.PUBLIC_BASE_URL || 'https://sac-leaderboard.vercel.app';
-            const response = await fetch(`${baseUrl}/leaderboard_data.json`, { signal: AbortSignal.timeout(10000) });
+            const publicPath = path.posix.relative('public', season.publicDir);
+            const dataUrl = [baseUrl, publicPath, 'leaderboard_data.json'].filter(Boolean).join('/');
+            const response = await fetch(dataUrl, { signal: AbortSignal.timeout(10000) });
             if (!response.ok) throw new Error('Unable to load Silver candidates');
             candidates = (await response.json()).silverCgullLeaderboard || [];
         }

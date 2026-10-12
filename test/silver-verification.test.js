@@ -186,3 +186,76 @@ test('generated Silver view removes opt-outs and leaves unverified candidates un
         assert.equal(Array.from(ordered).join(','), 'Youngest,Zed,Alpha,Beta');
     }
 });
+
+
+test('verification API ranks Silver pilots using the requested season locally and on Vercel', async () => {
+    const seasons = require('../lib/seasons');
+    const { sanitizeVerificationState } = require('../lib/verification-store');
+    const source = fs.readFileSync(path.join(root, 'api/verification-state.js'), 'utf8');
+    const state = { dobVerifications: {
+        1: { dateOfBirth: '2005-01-01' },
+        2: { dateOfBirth: '2006-01-01' }
+    } };
+    for (const seasonId of ['2025-26', '2026-27']) {
+        for (const localFiles of [true, false]) {
+            const season = seasons.getSeason(seasonId);
+            const dataPath = path.join(root, season.publicDir, 'leaderboard_data.json');
+            const candidateId = seasonId === '2025-26' ? 1 : 2;
+            const data = { silverCgullLeaderboard: [{ userId: candidateId, date: season.end }] };
+            let fetchedUrl;
+            const dependencies = {
+                fs: {
+                    existsSync: file => localFiles && file === dataPath,
+                    readFileSync: () => JSON.stringify(data)
+                },
+                path,
+                '../lib/seasons': seasons,
+                '../lib/season-verifications': { selectSeasonPicVerifications: () => ({}) },
+                '../lib/verification-store': {
+                    defaultState: () => ({}),
+                    loadVerificationState: async () => state,
+                    sanitizeVerificationState
+                }
+            };
+            const sandbox = {
+                module: { exports: {} }, require: name => dependencies[name], console, AbortSignal,
+                process: { cwd: () => root, env: {} },
+                fetch: async url => { fetchedUrl = url; return { ok: true, json: async () => data }; }
+            };
+            vm.runInNewContext(source, sandbox);
+            const res = response();
+            await sandbox.module.exports({ method: 'GET', query: { season: seasonId } }, res);
+            assert.equal(res.statusCode, 200);
+            assert.equal(res.body.dobVerifications[candidateId].awardRank, 1);
+            assert.equal(res.body.dobVerifications[candidateId === 1 ? 2 : 1].awardRank, undefined);
+            assert.equal(JSON.stringify(res.body).includes('dateOfBirth'), false);
+            if (!localFiles) {
+                const prefix = seasonId === '2025-26' ? '/seasons/2025-26' : '';
+                assert.equal(fetchedUrl, `https://sac-leaderboard.vercel.app${prefix}/leaderboard_data.json`);
+            }
+        }
+    }
+});
+
+test('Silver summary separates verified ages from tentative candidates, including missing ranks', () => {
+    const source = fs.readFileSync(path.join(root, 'create_canadian_leaderboard_from_jsonl.js'), 'utf8');
+    const calculate = source.match(/function calculateSilverCGullTrophy\(\) \{[\s\S]*?\n        \}/)[0];
+    const format = source.match(/function formatSilverCGullTrophyWinner\(trophy\) \{[\s\S]*?\n        \}/)[0];
+    const context = {
+        silverCGullLeaderboard: [1, 2, 3, 4, 5].map(userId => ({ userId, pilot: `Pilot ${userId}`, date: '2026-09-01' })),
+        pilotVerifications: { dobVerifications: { 1: { verified: true, awardRank: 2, ageAtAchievement: 20 }, 2: { verified: true, awardRank: 1, ageAtAchievement: 19 }, 3: { verified: true }, 5: { eligible: false } } },
+        isDobVerifiedEntry: entry => !!entry?.verified && entry.eligible !== false,
+        ALLOW_PUBLIC_VERIFICATION_WRITE: false
+    };
+    const result = vm.runInNewContext('`' + calculate + '\n' + format + '`', context);
+    const trophy = vm.runInNewContext(result + '; calculateSilverCGullTrophy()', context);
+    assert.equal(trophy.totalVerified, 3);
+    assert.equal(trophy.totalUnverified, 1);
+    assert.equal(trophy.winner.userId, 2);
+    const html = vm.runInNewContext(result + '; formatSilverCGullTrophyWinner(calculateSilverCGullTrophy())', context);
+    assert.match(html, /3 verified candidates/);
+    assert.match(html, /Tentative candidates \(1\)/);
+    assert.match(html, /Verified leader/);
+    assert.ok(!html.includes('No verified pilots found'));
+    assert.ok(!html.includes('Pilot 5'));
+});

@@ -2,10 +2,11 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { getSeason } = require('./lib/seasons');
+const verificationState = require('./api/verification-state');
 
 const PORT = Number(process.env.PORT || 8765);
 
-http.createServer((req, res) => {
+http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     let season;
     try {
@@ -29,8 +30,14 @@ http.createServer((req, res) => {
         filename = path.join(season.publicDir, 'leaderboard_data.json');
         contentType = 'application/json; charset=utf-8';
     } else if (url.pathname === '/api/verification-state') {
-        filename = season.verificationFile;
-        contentType = 'application/json; charset=utf-8';
+        req.query = { season: season.id };
+        res.status = code => { res.statusCode = code; return res; };
+        res.json = body => {
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+            res.end(JSON.stringify(body));
+        };
+        await verificationState(req, res);
+        return;
     } else {
         res.writeHead(404).end('Not found');
         return;

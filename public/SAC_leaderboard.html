@@ -5116,12 +5116,15 @@ No maximum distance bonus`,
             let youngestVerified = null;
             let youngestAge = Infinity;
             let unverifiedCandidates = [];
+            let verifiedCandidates = [];
 
             silverCGullLeaderboard.forEach(pilot => {
                 const verification = getDOBVerificationStatus(pilot);
 
                 if (verification?.eligible === false) return;
-                if (isDobVerifiedEntry(verification) && Number.isFinite(verification.awardRank)) {
+                if (isDobVerifiedEntry(verification)) {
+                    verifiedCandidates.push(pilot);
+                    if (!Number.isFinite(verification.awardRank)) return;
                     const ageAtAchievement = verification.ageAtAchievement;
 
                     if (verification.awardRank < youngestAge) {
@@ -5138,11 +5141,12 @@ No maximum distance bonus`,
 
             return {
                 winner: youngestVerified,
+                totalVerified: verifiedCandidates.length,
                 unverifiedCandidates: unverifiedCandidates.slice(0, 10), // Limit to 10
                 totalUnverified: unverifiedCandidates.length,
                 explanation: youngestVerified ?
                     `Youngest verified pilot to achieve Silver C badge (age ${youngestVerified.ageAtAchievement})` :
-                    'No verified pilots found'
+                    verifiedCandidates.length ? 'Verified ages awaiting award ranking' : ''
             };
         }
 
@@ -5587,41 +5591,31 @@ No maximum distance bonus`,
         }
 
         function formatSilverCGullTrophyWinner(trophy) {
-            if (!trophy.winner) {
-                let html = '<p class="no-winner">No verified pilots found</p>';
+            let html = '';
+            const verifiedCount = trophy.totalVerified || 0;
+            html += `<p class="verification-status verified">${verifiedCount} verified candidate${verifiedCount === 1 ? '' : 's'}</p>`;
 
-                // Add button to view candidates
+            if (trophy.winner) {
                 html += `
-                    <div style="margin-top: 10px;">
-                        <button class="toggle-btn" onclick="switchScoringMode('silverCGull')" title="View Silver C-Gull candidates">View Candidates</button>
+                    <div class="winner combined-winner">
+                        <div class="winner-info">
+                            <span class="winner-name">🥇 <a href="https://www.weglide.org/user/${trophy.winner.userId || trophy.winner.pilotId}" target="_blank" class="pilot-link">${trophy.winner.pilot}</a></span>
+                            <span class="winner-score">Age ${trophy.winner.ageAtAchievement} on ${new Date(trophy.winner.date).toLocaleDateString(undefined, { timeZone: 'UTC' })}</span>
+                        </div>
+                        <span class="winner-type">Verified leader</span>
+                        <span class="verification-status verified">✓ Age verified</span>
                     </div>
                 `;
-
-                if (trophy.totalUnverified > 0) {
-                    html += `<p style="font-size: 0.8em; color: #cccccc; margin: 8px 0 0 0; font-style: italic;">${trophy.totalUnverified} candidates need date of birth verification</p>`;
-                }
-
-                return html;
+            } else if (verifiedCount > 0) {
+                html += '<p class="no-winner">Verified ages awaiting award ranking</p>';
+            } else if (!trophy.totalUnverified) {
+                html += '<p class="no-winner">No eligible candidates found</p>';
             }
-
-            let html = '';
-
-            // Show verified winner
-            html += `
-                <div class="winner combined-winner">
-                    <div class="winner-info">
-                        <span class="winner-name">🥇 <a href="https://www.weglide.org/user/${trophy.winner.userId || trophy.winner.pilotId}" target="_blank" class="pilot-link">${trophy.winner.pilot}</a></span>
-                        <span class="winner-score">Age ${trophy.winner.ageAtAchievement} on ${new Date(trophy.winner.date).toLocaleDateString()}</span>
-                    </div>
-                    <span class="winner-type">Silver C Achievement</span>
-                    <span class="verification-status verified">✓ DOB Verified</span>
-                </div>
-            `;
 
             // Show unverified candidates if any (limit to 3)
             if (trophy.unverifiedCandidates && trophy.unverifiedCandidates.length > 0) {
                 html += '<div class="unverified-leaders">';
-                html += `<h6 style="margin: 12px 0 6px 0; font-size: 0.75em; color: #ccc; opacity: 0.8;">Candidates need verification (${trophy.totalUnverified} total):</h6>`;
+                html += `<h6 style="margin: 12px 0 6px 0; font-size: 0.75em; color: #ccc; opacity: 0.8;">Tentative candidates (${trophy.totalUnverified}):</h6>`;
 
                 const maxShow = 3;
                 trophy.unverifiedCandidates.slice(0, maxShow).forEach((pilot) => {
@@ -5644,6 +5638,10 @@ No maximum distance bonus`,
                 }
 
                 html += '</div>';
+            }
+
+            if (trophy.totalUnverified > 0) {
+                html += '<p style="font-size: 0.8em; color: #ccc; margin: 8px 0;">Leader may change after age verification.</p>';
             }
 
             // Always add Silver C candidates link
