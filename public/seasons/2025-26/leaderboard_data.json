@@ -8151,7 +8151,6 @@
         "dataSource": "email-verified",
         "eligible": true,
         "verified": true,
-        "ageAtAchievement": 20,
         "awardRank": 2
       },
       "41375": {
@@ -8160,7 +8159,6 @@
         "dataSource": "email-verified",
         "eligible": true,
         "verified": true,
-        "ageAtAchievement": 20,
         "awardRank": 1
       },
       "42674": {
@@ -8169,7 +8167,6 @@
         "dataSource": "email-verified",
         "eligible": true,
         "verified": true,
-        "ageAtAchievement": 22,
         "awardRank": 3
       }
     }

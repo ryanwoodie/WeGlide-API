@@ -165,7 +165,7 @@ test('public DOB records reveal neither birth dates nor email and preserve preci
     const result = publicDobVerifications(entries, [1, 2, 3].map(userId => ({ userId, date: '2026-09-01' })));
     assert.equal(result[2].awardRank, 1);
     assert.equal(result[1].awardRank, 2);
-    assert.equal(result[1].ageAtAchievement, 20);
+    assert.equal('ageAtAchievement' in result[1], false);
     assert.equal(result[3].eligible, false);
     assert.equal(result[3].awardRank, undefined);
     assert.equal(/dateOfBirth|private@example|2005-/.test(JSON.stringify(result)), false);
@@ -257,6 +257,7 @@ test('Silver summary separates verified ages from tentative candidates, includin
     assert.match(html, /3 age-verified candidates/);
     assert.match(html, /Tentative candidates \(1\)/);
     assert.match(html, /Unofficial age-verified leader/);
+    assert.doesNotMatch(html, /Age \d|at achievement/);
     assert.ok(!html.includes('No verified pilots found'));
     assert.ok(!html.includes('Pilot 5'));
 });

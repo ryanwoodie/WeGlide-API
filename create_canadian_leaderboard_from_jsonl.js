@@ -1921,7 +1921,7 @@ async function processCanadianFlights() {
         let silverCGullLeaderboard = [];
         const SILVER_CALENDAR_LEADERBOARDS = ${JSON.stringify(silverCgullLeaderboardsByYear)};
         let silverCalendarYear = ${silverCalendarYear};
-        const SILVER_BADGE_DETAILS = '<strong>Unofficial WeGlide candidate standings.</strong> These may omit badge claims submitted outside WeGlide. Age verification does not confirm an official Silver badge or trophy eligibility. Submit your FAI badge claim through SAC; the SAC badge and trophy coordinators confirm official eligibility and the award recipient. <a href="https://sac.ca/fai-badges/" target="_blank" rel="noopener" class="pilot-link" style="display:block;margin-top:8px;color:#8fc8ff;text-decoration:underline">SAC FAI badge requirements and directions →</a>';
+        const SILVER_BADGE_DETAILS = '<strong>Unofficial WeGlide candidates;</strong> some badge claims may be missing. Official FAI badge filing and SAC confirmation are required. <a href="https://sac.ca/fai-badges/" target="_blank" rel="noopener" class="pilot-link" style="display:block;margin-top:8px;color:#8fc8ff;text-decoration:underline">SAC badge instructions →</a>';
         let fullFlightData = [];
         let detailedFlightData = [];
         let flightClubById = {};
@@ -4314,8 +4314,7 @@ No maximum distance bonus\`,
                     const isUserVerified = isDobVerifiedEntry(verificationData);
 
                     if (isUserVerified) {
-                        verificationBadge = '<div class="verification-badge verified">✓ Age verified' +
-                            (Number.isFinite(verificationData.ageAtAchievement) ? ' - ' + verificationData.ageAtAchievement + ' at achievement' : '') + '</div>';
+                        verificationBadge = '<div class="verification-badge verified">✓ Age verified</div>';
                         rowClass = 'verified-row';
                     } else {
                         verificationButton = ALLOW_PUBLIC_VERIFICATION_WRITE
@@ -4598,14 +4597,10 @@ No maximum distance bonus\`,
                 if (isDobVerifiedEntry(verification)) {
                     verifiedCandidates.push(pilot);
                     if (!Number.isFinite(verification.awardRank)) return;
-                    const ageAtAchievement = verification.ageAtAchievement;
 
                     if (verification.awardRank < youngestAge) {
                         youngestAge = verification.awardRank;
-                        youngestVerified = {
-                            ...pilot,
-                            ageAtAchievement
-                        };
+                        youngestVerified = { ...pilot };
                     }
                 } else {
                     unverifiedCandidates.push(pilot);
@@ -5073,7 +5068,6 @@ No maximum distance bonus\`,
                     <div class="winner combined-winner">
                         <div class="winner-info" style="display:flex;flex-direction:column;gap:4px">
                             <span class="winner-name">🥇 <a href="https://www.weglide.org/user/\${trophy.winner.userId || trophy.winner.pilotId}" target="_blank" class="pilot-link">\${trophy.winner.pilot}</a></span>
-                            <span class="winner-score">Age \${trophy.winner.ageAtAchievement} on \${new Date(trophy.winner.date).toLocaleDateString(undefined, { timeZone: 'UTC' })}</span>
                         </div>
                         <span class="winner-type">Unofficial age-verified leader</span>
                         <span class="verification-status verified">✓ Age verified</span>
@@ -5601,7 +5595,7 @@ No maximum distance bonus\`,
                     <div id="dobFields">
                         <input type="date" id="dobInput" max="2010-12-31" />
                         <label for="dobInput">Date of Birth</label>
-                        <p style="font-size:0.85em;">Your date of birth is used only to determine your age for the Silver C-Gull award. It is not displayed publicly or shared with anyone other than the <strong>SAC Awards coordinator</strong>. Your age at achievement may appear in the standings.</p>
+                        <p style="font-size:0.85em;">Your date of birth is used only to determine your age for the Silver C-Gull award. It is not displayed publicly or shared with anyone other than the <strong>SAC Awards coordinator</strong>. Birth dates and ages are not displayed; candidates are sorted by age at achievement.</p>
                     </div>
                     <div>
                         <input type="email" id="verificationEmail" placeholder="you@example.com" />
