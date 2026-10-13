@@ -3732,7 +3732,7 @@ No maximum distance bonus`,
                 });
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
-                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = silverCalendarYearSelector('silverCandidateYearSelect') + '<br>Calendar year ' + silverCalendarYear + ' · January 1–December 31 · WeGlide-detected Silver achievements · Ranked by verified age<br><span style="display:block;margin-top:8px;font-size:0.9em">' + SILVER_BADGE_DETAILS + '</span>';
+                if (scoringDescriptionEl) scoringDescriptionEl.textContent = '';
 
                 const totalPoints = getLeaderboardPointsTotal(leaderboard);
                 const silverKms = leaderboard.reduce((sum, pilot) => {
