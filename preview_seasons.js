@@ -30,7 +30,7 @@ http.createServer(async (req, res) => {
         filename = path.join(season.publicDir, 'leaderboard_data.json');
         contentType = 'application/json; charset=utf-8';
     } else if (url.pathname === '/api/verification-state') {
-        req.query = { season: season.id };
+        req.query = { season: season.id, silverYear: url.searchParams.get('silverYear') };
         res.status = code => { res.statusCode = code; return res; };
         res.json = body => {
             res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -44,7 +44,11 @@ http.createServer(async (req, res) => {
     }
 
     try {
-        const body = fs.readFileSync(path.join(__dirname, filename));
+        let body = fs.readFileSync(path.join(__dirname, filename));
+        if (url.pathname === '/api/data' && url.searchParams.get('silverOnly') === '1') {
+            const data = JSON.parse(body);
+            body = JSON.stringify({ silverCgullLeaderboardsByYear: data.silverCgullLeaderboardsByYear || {}, silverCalendarYear: data.meta?.silverCalendarYear });
+        }
         res.writeHead(200, { 'Content-Type': contentType }).end(body);
     } catch (error) {
         res.writeHead(404).end('Preview artifact not found');

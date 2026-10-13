@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const { loadVerificationState, sanitizeVerificationState } = require('./lib/verification-store');
-const { getSeason } = require('./lib/seasons');
+const { getSeason, SEASONS } = require('./lib/seasons');
+const { buildSilverCalendarLeaderboards } = require('./lib/silver-calendar');
 const { selectSeasonPicVerifications } = require('./lib/season-verifications');
 
 function durationSecondsFromFlight(flight) {
@@ -1205,94 +1206,25 @@ async function processCanadianFlights() {
         const outReturnLeaderboard = generateLeaderboard(pilotFlightsOutReturn, 3);
         const outLeaderboard = generateLeaderboard(pilotFlightsOut, 3);
 
-        // Function to generate Silver C-Gull Trophy leaderboard (juniors with silver badge)
-        function generateSilverCGullLeaderboard() {
-            const silverBadgeJuniors = [];
-
-            // Re-read the file to find silver badge achievements
-            const fileStream = fs.createReadStream(INPUT_FILE);
-
-            return new Promise((resolve) => {
-                const rl = readline.createInterface({
-                    input: fileStream,
-                    crlfDelay: Infinity
-                });
-
-                rl.on('line', (line) => {
-                    if (line.trim().length > 0) {
-                        try {
-                            const flight = JSON.parse(line);
-
-                            // Check for silver badge achievement in junior pilots
-                            if (flight.junior && flight.achievement && Array.isArray(flight.achievement)) {
-                                const silverBadge = flight.achievement.find(a => a.badge_id === 'silver');
-                                if (silverBadge) {
-                                    // Check if we already have this pilot
-                                    const existingPilot = silverBadgeJuniors.find(p => p.userId === flight.user.id);
-                                    if (!existingPilot) {
-                                        silverBadgeJuniors.push({
-                                            pilot: flight.user.name,
-                                            flightId: flight.id,
-                                            date: flight.scoring_date,
-                                            distance: getBestDistance(flight),
-                                            duration: formatDuration(flight.total_seconds),
-                                            points: getBestPoints(flight),
-                                            takeoff: flight.takeoff_airport?.name || 'Unknown',
-                                            club: flight.club?.name || 'Unknown',
-                                            userId: flight.user.id
-                                        });
-                                    }
-                                }
-                            }
-                        } catch (e) {
-                            // Skip invalid JSON lines
-                        }
-                    }
-                });
-
-                rl.on('close', () => {
-                    // Sort by pilot name
-                    silverBadgeJuniors.sort((a, b) => a.pilot.localeCompare(b.pilot));
-                    resolve(silverBadgeJuniors);
-                });
-            });
+        const silverFlights = [];
+        for (const sourceSeason of Object.values(SEASONS)) {
+            const filename = sourceSeason.id === season.id ? INPUT_FILE
+                : fs.existsSync(resolvePath(sourceSeason.dataset)) ? resolvePath(sourceSeason.dataset) : sourceSeason.dataset;
+            if (!fs.existsSync(filename)) continue;
+            for (const line of fs.readFileSync(filename, 'utf8').split('\n')) {
+                if (!line.trim()) continue;
+                try {
+                    const flight = JSON.parse(line);
+                    if (flight.achievement?.some(badge => badge.badge_id === 'silver')) silverFlights.push(flight);
+                } catch (error) { /* Ignore malformed cached flights. */ }
+            }
         }
-
-        function getBestDistance(flight) {
-            if (!flight.contest || !Array.isArray(flight.contest)) return 'Unknown';
-
-            let bestDistance = 0;
-            flight.contest.forEach(contest => {
-                if (contest.distance && contest.distance > bestDistance) {
-                    bestDistance = contest.distance;
-                }
-            });
-
-            return bestDistance > 0 ? `${bestDistance.toFixed(1)} km` : 'Unknown';
-        }
-
-        function getBestPoints(flight) {
-            if (!flight.contest || !Array.isArray(flight.contest)) return 'Unknown';
-
-            let bestPoints = 0;
-            flight.contest.forEach(contest => {
-                if (contest.points && contest.points > bestPoints) {
-                    bestPoints = contest.points;
-                }
-            });
-
-            return bestPoints > 0 ? `${bestPoints.toFixed(1)} pts` : 'Unknown';
-        }
-
-        function formatDuration(seconds) {
-            if (!seconds) return 'Unknown';
-            const hours = Math.floor(seconds / 3600);
-            const minutes = Math.floor((seconds % 3600) / 60);
-            return `${hours}h ${minutes}m`;
-        }
-
-        // Generate Silver C-Gull leaderboard
-        const silverCGullLeaderboard = await generateSilverCGullLeaderboard();
+        // The first complete calendar year covered by the stored season datasets is 2026.
+        const silverFirstYear = Number(getSeason('2025-26').end.slice(0, 4));
+        const silverLastYear = Math.max(...Object.values(SEASONS).map(source => Number(source.end.slice(0, 4))));
+        const silverCgullLeaderboardsByYear = buildSilverCalendarLeaderboards(silverFlights, silverFirstYear, silverLastYear);
+        const silverCalendarYear = Math.max(silverFirstYear, Math.min(new Date().getUTCFullYear(), silverLastYear));
+        const silverCGullLeaderboard = silverCgullLeaderboardsByYear[silverCalendarYear];
 
         function calculateAircraftAwards(leaderboard) {
             let bestGliderScore = 0;
@@ -1987,6 +1919,9 @@ async function processCanadianFlights() {
         let outReturnLeaderboard = [];
         let outLeaderboard = [];
         let silverCGullLeaderboard = [];
+        const SILVER_CALENDAR_LEADERBOARDS = ${JSON.stringify(silverCgullLeaderboardsByYear)};
+        let silverCalendarYear = ${silverCalendarYear};
+        const SILVER_BADGE_DETAILS = '<strong>Unofficial WeGlide candidate standings.</strong> These may omit badge claims submitted outside WeGlide. Age verification does not confirm an official Silver badge or trophy eligibility. Submit your FAI badge claim through SAC; the SAC badge and trophy coordinators confirm official eligibility and the award recipient. <a href="https://sac.ca/fai-badges/" target="_blank" rel="noopener" class="pilot-link" style="display:block;margin-top:8px;color:#8fc8ff;text-decoration:underline">SAC FAI badge requirements and directions →</a>';
         let fullFlightData = [];
         let detailedFlightData = [];
         let flightClubById = {};
@@ -2040,7 +1975,9 @@ async function processCanadianFlights() {
         function updateSeasonFooterText() {
             const footer = document.getElementById('seasonFooterText');
             if (!footer) return;
-            footer.textContent = 'Data from WeGlide API • Canadian online competition season runs ' + CURRENT_SEASON.longLabel;
+            footer.textContent = currentScoringMode === 'silverCGull'
+                ? 'Unofficial WeGlide Silver C-Gull candidates • Calendar year ' + silverCalendarYear + ' • January 1 to December 31'
+                : 'Data from WeGlide API • Canadian online competition season runs ' + CURRENT_SEASON.longLabel;
         }
 
         function findContestByNames(flight, names, predicate = null) {
@@ -2861,7 +2798,19 @@ No maximum distance bonus\`,
                 triangleLeaderboard = __TRIANGLE_LEADERBOARD__;
                 outReturnLeaderboard = __OUTRETURN_LEADERBOARD__;
                 outLeaderboard = __OUT_LEADERBOARD__;
-                silverCGullLeaderboard = __SILVER_C_GULL_LEADERBOARD__;
+                try {
+                    const response = await fetch('/api/data?silverOnly=1');
+                    if (response.ok) {
+                        const data = await response.json();
+                        Object.assign(SILVER_CALENDAR_LEADERBOARDS, data.silverCgullLeaderboardsByYear || {});
+                    }
+                } catch (error) {
+                    console.warn('Using embedded Silver calendar candidates:', error.message);
+                }
+                const requestedSilverYear = new URLSearchParams(window.location.search).get('silverYear');
+                if (requestedSilverYear && Object.hasOwn(SILVER_CALENDAR_LEADERBOARDS, requestedSilverYear)) silverCalendarYear = Number(requestedSilverYear);
+                silverCGullLeaderboard = SILVER_CALENDAR_LEADERBOARDS[silverCalendarYear];
+                await loadVerificationsFromDatabase();
 
                 // Embedded detailed flight data for tooltips (compressed)
                 detailedFlightData = __DETAILED_FLIGHTS__;
@@ -3236,7 +3185,7 @@ No maximum distance bonus\`,
                 });
             } else if (mode === 'silverCGull') {
                 leaderboard = silverCGullLeaderboard;
-                if (scoringDescriptionEl) scoringDescriptionEl.textContent = 'Junior pilots with Silver Badge achievement • Single qualifying flight • Sorted by last name';
+                if (scoringDescriptionEl) scoringDescriptionEl.innerHTML = silverCalendarYearSelector('silverCandidateYearSelect') + '<br>Calendar year ' + silverCalendarYear + ' · January 1–December 31 · WeGlide-detected Silver achievements · Ranked by verified age<br><span style="display:block;margin-top:8px;font-size:0.9em">' + SILVER_BADGE_DETAILS + '</span>';
 
                 const totalPoints = getLeaderboardPointsTotal(leaderboard);
                 const silverKms = leaderboard.reduce((sum, pilot) => {
@@ -3310,6 +3259,7 @@ No maximum distance bonus\`,
                 if (typeof updateWomenButtonLabel === 'function') updateWomenButtonLabel();
             }
 
+            updateSeasonFooterText();
             updateTaskStats(mode, calculateDisplayedTaskStats(leaderboard));
 
             buildLeaderboard();
@@ -4273,7 +4223,9 @@ No maximum distance bonus\`,
 
             if (visible.length === 0) {
                 const emptyRow = document.createElement('tr');
-                const emptyMessage = clubFilterActive
+                const emptyMessage = isSilverCGull
+                    ? 'No WeGlide Silver candidates found for calendar year ' + silverCalendarYear
+                    : clubFilterActive
                     ? 'No matching flights logged yet for ' + selectedClub
                     : ageCategoryFilterActive
                         ? 'No matching pilots found for the selected age category'
@@ -4666,7 +4618,7 @@ No maximum distance bonus\`,
                 unverifiedCandidates: unverifiedCandidates.slice(0, 10), // Limit to 10
                 totalUnverified: unverifiedCandidates.length,
                 explanation: youngestVerified ?
-                    \`Youngest verified pilot to achieve Silver C badge (age \${youngestVerified.ageAtAchievement})\` :
+                    \`Youngest age-verified WeGlide candidate; official award pending SAC confirmation\` :
                     verifiedCandidates.length ? 'Verified ages awaiting award ranking' : ''
             };
         }
@@ -5114,23 +5066,23 @@ No maximum distance bonus\`,
         function formatSilverCGullTrophyWinner(trophy) {
             let html = '';
             const verifiedCount = trophy.totalVerified || 0;
-            html += \`<p class="verification-status verified">\${verifiedCount} verified candidate\${verifiedCount === 1 ? '' : 's'}</p>\`;
+            html += \`<p class="verification-status verified">\${verifiedCount} age-verified candidate\${verifiedCount === 1 ? '' : 's'}</p>\`;
 
             if (trophy.winner) {
                 html += \`
                     <div class="winner combined-winner">
-                        <div class="winner-info">
+                        <div class="winner-info" style="display:flex;flex-direction:column;gap:4px">
                             <span class="winner-name">🥇 <a href="https://www.weglide.org/user/\${trophy.winner.userId || trophy.winner.pilotId}" target="_blank" class="pilot-link">\${trophy.winner.pilot}</a></span>
                             <span class="winner-score">Age \${trophy.winner.ageAtAchievement} on \${new Date(trophy.winner.date).toLocaleDateString(undefined, { timeZone: 'UTC' })}</span>
                         </div>
-                        <span class="winner-type">Verified leader</span>
+                        <span class="winner-type">Unofficial age-verified leader</span>
                         <span class="verification-status verified">✓ Age verified</span>
                     </div>
                 \`;
             } else if (verifiedCount > 0) {
                 html += '<p class="no-winner">Verified ages awaiting award ranking</p>';
             } else if (!trophy.totalUnverified) {
-                html += '<p class="no-winner">No eligible candidates found</p>';
+                html += '<p class="no-winner">No WeGlide candidates found for this year.</p>';
             }
 
             // Show unverified candidates if any (limit to 3)
@@ -5244,7 +5196,9 @@ No maximum distance bonus\`,
             html += \`
                 <div class="trophy-item">
                     <h4>🏆 Silver C-Gull Trophy</h4>
-                    <p class="trophy-desc">Youngest to Achieve Silver C Badge</p>
+                    <p class="trophy-desc">Unofficial candidates · Calendar year \${silverCalendarYear}</p>
+                    \${silverCalendarYearSelector('silverYearSelect')}
+                    <p style="font-size:0.8em;line-height:1.5">\${SILVER_BADGE_DETAILS}</p>
                     \${formatSilverCGullTrophyWinner(trophies.silverCGull)}
                     <p class="calculation-note">\${trophies.silverCGull.explanation}</p>
                 </div>
@@ -5641,7 +5595,7 @@ No maximum distance bonus\`,
                     <p>To be eligible for the Silver C-Gull trophy (youngest to achieve Silver C), please confirm your date of birth:</p>
                     <label style="display:flex;align-items:flex-start;gap:8px;margin:16px 0;">
                         <input type="checkbox" id="silverDismiss" style="width:auto;" onchange="document.getElementById('dobInput').disabled=this.checked;document.getElementById('dobFields').hidden=this.checked;" />
-                        <span>I received my Silver badge before this season. Remove me from the Silver C-Gull candidate list.</span>
+                        <span>I received my Silver badge before the selected calendar year. Remove me from the Silver C-Gull candidate list.</span>
                     </label>
                     <p>No date of birth is needed for removal. Confirm your request using the link emailed to you.</p>
                     <div id="dobFields">
@@ -5880,6 +5834,24 @@ No maximum distance bonus\`,
             }
         }
 
+        function silverCalendarYearSelector(id) {
+            return '<label for="' + id + '">Calendar year</label> <select id="' + id + '" onchange="changeSilverCalendarYear(this.value)" style="margin:6px;padding:5px;border-radius:4px">' +
+                Object.keys(SILVER_CALENDAR_LEADERBOARDS).map(year => '<option value="' + year + '"' + (Number(year) === silverCalendarYear ? ' selected' : '') + '>' + year + '</option>').join('') + '</select>';
+        }
+
+        async function changeSilverCalendarYear(value) {
+            const year = Number(value);
+            if (!Object.hasOwn(SILVER_CALENDAR_LEADERBOARDS, year)) return;
+            silverCalendarYear = year;
+            silverCGullLeaderboard = SILVER_CALENDAR_LEADERBOARDS[year];
+            if (currentScoringMode === 'silverCGull') leaderboard = silverCGullLeaderboard;
+            const url = new URL(window.location.href);
+            url.searchParams.set('silverYear', year);
+            window.history.replaceState({}, '', url);
+            await loadVerificationsFromDatabase();
+            switchScoringMode('silverCGull');
+        }
+
         async function loadVerificationsFromDatabase() {
             if (!window.location || !/^https?:$/i.test(window.location.protocol)) {
                 console.info('Skipping verification API load outside http/https context.');
@@ -5887,7 +5859,8 @@ No maximum distance bonus\`,
             }
 
             try {
-                const response = await fetch(VERIFICATION_STATE_ENDPOINT + '?season=' + encodeURIComponent(SEASON_ID), {
+                const requestedSilverYear = silverCalendarYear;
+                const response = await fetch(VERIFICATION_STATE_ENDPOINT + '?season=' + encodeURIComponent(SEASON_ID) + '&silverYear=' + silverCalendarYear, {
                     cache: 'no-store',
 
                     headers: {
@@ -5900,6 +5873,7 @@ No maximum distance bonus\`,
                 }
 
                 const remoteData = await response.json();
+                if (requestedSilverYear !== silverCalendarYear) return;
                 pilotVerifications.picHoursVerifications = {
                     ...pilotVerifications.picHoursVerifications,
                     ...(remoteData.picHoursVerifications || {})
@@ -5956,6 +5930,11 @@ No maximum distance bonus\`,
 
         document.addEventListener('DOMContentLoaded', async function() {
             updateSeasonFooterText();
+            const seasonSelect = document.getElementById('seasonSelect');
+            if (seasonSelect) seasonSelect.addEventListener('change', () => {
+                const route = window.location.pathname === '/sac-dsc' ? '/sac-dsc' : '/';
+                window.location.href = route + '?season=' + encodeURIComponent(seasonSelect.value) + '&silverYear=' + silverCalendarYear;
+            });
 
             // Load verification data from database
             await loadVerificationsFromDatabase();
@@ -8179,12 +8158,6 @@ No maximum distance bonus\`,
             html = html.replace(/__SCORING_DESCRIPTION_FREE__/g, freeDescription);
             html = html.replace(/__SAC_DSC_RULES_TOOLTIP__/g, sacDscTooltip);
             html = html.replace(/__CURRENT_SEASON_LONG__/g, seasonLongLabel);
-            html = html.replace('updateSeasonFooterText();', `updateSeasonFooterText();
-            const seasonSelect = document.getElementById('seasonSelect');
-            if (seasonSelect) seasonSelect.addEventListener('change', () => {
-                const route = window.location.pathname === '/sac-dsc' ? '/sac-dsc' : '/';
-                window.location.href = route + '?season=' + encodeURIComponent(seasonSelect.value);
-            });`);
             return html;
         }
 
@@ -8239,6 +8212,7 @@ No maximum distance bonus\`,
             outReturnLeaderboard: JSON.parse(serializedShared.outReturnLeaderboard),
             outLeaderboard: JSON.parse(serializedShared.outLeaderboard),
             silverCgullLeaderboard: JSON.parse(serializedShared.silverCgullLeaderboard),
+            silverCgullLeaderboardsByYear,
             detailedFlights: JSON.parse(serializedShared.detailedFlights),
             minimalFlights: JSON.parse(serializedShared.minimalFlights),
             mixedLeaderboard: mixedLeaderboard, // Add mixed data directly (was combinedData)
@@ -8251,6 +8225,7 @@ No maximum distance bonus\`,
                 totalTasksCompleted,
                 seasonLabel,
                 seasonId: season.id,
+                silverCalendarYear,
                 dataThroughDate,
                 freeSeasonLabel,
                 generatedAt: new Date().toISOString()

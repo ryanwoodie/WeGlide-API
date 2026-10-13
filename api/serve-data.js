@@ -30,7 +30,10 @@ module.exports = async (req, res) => {
         // Serve JSON
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
-        res.status(200).json(jsonData);
+        res.status(200).json(req.query?.silverOnly === '1' ? {
+            silverCgullLeaderboardsByYear: jsonData.silverCgullLeaderboardsByYear || {},
+            silverCalendarYear: jsonData.meta?.silverCalendarYear
+        } : jsonData);
 
     } catch (error) {
         console.error('Error serving data:', error);

@@ -46,3 +46,9 @@ Optional fallback env vars:
 ## Local-Only Material
 
 Scratch files, archived prototypes, AI chat logs, and other working notes belong in ignored paths such as `.local_archive/`, `.claude/`, `.gemini/`, and `.history/`.
+
+### Silver C-Gull calendar candidates
+
+The Silver C-Gull view is an unofficial list of WeGlide-detected Silver achievements, grouped by calendar year (January 1–December 31), independently of the soaring-season selector. Both season pages load the shared calendar candidates from the current data endpoint. Candidates are assigned to the year of their earliest stored WeGlide Silver achievement; repeated detections do not create a new candidate in a later year. The stored season datasets cover full calendar-year history starting in 2026, so 2025 is not offered as a complete year.
+
+Age verification only establishes the order of these candidates. It does not confirm an official FAI badge or trophy eligibility, and the list may omit claims submitted outside WeGlide. Pilots must submit their official badge claim through SAC. The UI links to [SAC FAI badge requirements and directions](https://sac.ca/fai-badges/); SAC badge and trophy coordinators confirm official eligibility and the award recipient. Birth dates remain excluded from public data.

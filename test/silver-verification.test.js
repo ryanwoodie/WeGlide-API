@@ -210,6 +210,7 @@ test('verification API ranks Silver pilots using the requested season locally an
                 },
                 path,
                 '../lib/seasons': seasons,
+                '../lib/silver-calendar': require('../lib/silver-calendar'),
                 '../lib/season-verifications': { selectSeasonPicVerifications: () => ({}) },
                 '../lib/verification-store': {
                     defaultState: () => ({}),
@@ -253,9 +254,9 @@ test('Silver summary separates verified ages from tentative candidates, includin
     assert.equal(trophy.totalUnverified, 1);
     assert.equal(trophy.winner.userId, 2);
     const html = vm.runInNewContext(result + '; formatSilverCGullTrophyWinner(calculateSilverCGullTrophy())', context);
-    assert.match(html, /3 verified candidates/);
+    assert.match(html, /3 age-verified candidates/);
     assert.match(html, /Tentative candidates \(1\)/);
-    assert.match(html, /Verified leader/);
+    assert.match(html, /Unofficial age-verified leader/);
     assert.ok(!html.includes('No verified pilots found'));
     assert.ok(!html.includes('Pilot 5'));
 });

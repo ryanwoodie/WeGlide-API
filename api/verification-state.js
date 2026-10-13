@@ -7,6 +7,7 @@ const {
     sanitizeVerificationState
 } = require('../lib/verification-store');
 const { getSeason } = require('../lib/seasons');
+const { selectSilverCalendarCandidates } = require('../lib/silver-calendar');
 const { selectSeasonPicVerifications } = require('../lib/season-verifications');
 
 function loadAutoVerificationState(season) {
@@ -45,18 +46,20 @@ module.exports = async (req, res) => {
             }
         };
 
-        const dataPath = path.join(process.cwd(), season.publicDir, 'leaderboard_data.json');
-        let candidates = [];
+        const silverSourceSeason = req.query?.silverYear ? getSeason() : season;
+        const dataPath = path.join(process.cwd(), silverSourceSeason.publicDir, 'leaderboard_data.json');
+        let leaderboardData;
         if (fs.existsSync(dataPath)) {
-            candidates = JSON.parse(fs.readFileSync(dataPath, 'utf8')).silverCgullLeaderboard || [];
+            leaderboardData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
         } else {
             const baseUrl = process.env.PUBLIC_BASE_URL || 'https://sac-leaderboard.vercel.app';
-            const publicPath = path.posix.relative('public', season.publicDir);
+            const publicPath = path.posix.relative('public', silverSourceSeason.publicDir);
             const dataUrl = [baseUrl, publicPath, 'leaderboard_data.json'].filter(Boolean).join('/');
             const response = await fetch(dataUrl, { signal: AbortSignal.timeout(10000) });
             if (!response.ok) throw new Error('Unable to load Silver candidates');
-            candidates = (await response.json()).silverCgullLeaderboard || [];
+            leaderboardData = await response.json();
         }
+        const candidates = selectSilverCalendarCandidates(leaderboardData, req.query?.silverYear);
         return res.status(200).json(sanitizeVerificationState(merged, candidates));
     } catch (error) {
         console.error('[verification-state] Error:', error);

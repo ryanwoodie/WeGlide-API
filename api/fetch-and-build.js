@@ -12,7 +12,7 @@ const {
     saveVerificationState
 } = require('../lib/verification-store');
 const { sendUserMessage } = require('../lib/weglide-message');
-const { getSeason } = require('../lib/seasons');
+const { getSeason, SEASONS } = require('../lib/seasons');
 const { weglideHeaders } = require('../lib/weglide-headers');
 const { selectSeasonPicVerifications } = require('../lib/season-verifications');
 const ACTIVE_SEASON = getSeason();
@@ -1257,6 +1257,13 @@ async function uploadPilotVerifications(newProfiles, seasonSecondsMap, combinedH
 const builder = require('../create_canadian_leaderboard_from_jsonl.js');
 
 async function ensureLocalCopiesFromRepo() {
+    // Calendar-year Silver candidates span two soaring-season datasets.
+    for (const season of Object.values(SEASONS)) {
+        if (season.id === ACTIVE_SEASON.id) continue;
+        const filename = path.join(TMP_DIR, season.dataset);
+        const text = await loadPersistentText(season.dataset);
+        if (text) fs.writeFileSync(filename, text);
+    }
     if (!fs.existsSync(DATASET_FILE)) {
         const datasetText = await loadPersistentText(DATASET_BLOB_KEY);
         if (datasetText) {
