@@ -12,6 +12,8 @@ const {
     saveVerificationState
 } = require('../lib/verification-store');
 const { sendUserMessage } = require('../lib/weglide-message');
+const { notifyOlcMatchReviews, combineReviewPayload } = require('../lib/olc-match-review');
+const { sendNotificationEmail } = require('../lib/verification-email');
 const { getSeason, SEASONS } = require('../lib/seasons');
 const { weglideHeaders } = require('../lib/weglide-headers');
 const { selectSeasonPicVerifications } = require('../lib/season-verifications');
@@ -978,6 +980,25 @@ async function applyOlcNameTotalsToProfiles({ profiles, pilotIds }) {
     return summary;
 }
 
+async function reviewUnmatchedOlcPilots(profiles) {
+    try {
+        const currentPayload = loadCombinedHoursPayload();
+        let reviewPayload = currentPayload;
+        if (!Object.keys(currentPayload.olcNameTotals).length) {
+            const snapshotText = await loadPersistentText(getSeason('2025-26').combinedHoursFile);
+            if (snapshotText) reviewPayload = combineReviewPayload(currentPayload, JSON.parse(snapshotText));
+        }
+        return await notifyOlcMatchReviews({
+            profiles: profiles || await loadProfiles(), payload: reviewPayload,
+            loadState: () => loadVerificationState({ requireRemote: true }),
+            saveState: saveVerificationState, sendEmail: sendNotificationEmail
+        });
+    } catch (error) {
+        log('[olc-match-review] failed:', error.message);
+        return { status: 'error', error: error.message };
+    }
+}
+
 async function notifyNoClubPilots({ flightDetails, profiles }) {
     if (!flightDetails.length) {
         return { enabled: NO_CLUB_ALERTS_ENABLED, candidates: 0, sent: [], skipped: true, reason: 'no new flights' };
@@ -1515,6 +1536,7 @@ async function runFetchAndBuild(options = {}) {
         summary.meta.newFlights = newFlights.length;
 
         if (options.newOnly && newFlights.length === 0) {
+            summary.meta.olcMatchReview = await reviewUnmatchedOlcPilots();
             summary.status = 'no_changes';
             summary.message = 'No new flights detected';
             summary.meta.refreshMode = 'new_only';
@@ -1570,6 +1592,7 @@ async function runFetchAndBuild(options = {}) {
         }
 
         if (newFlights.length === 0 && changedIds.length === 0 && refreshSet.size === 0 && !options.forceBuild) {
+            summary.meta.olcMatchReview = await reviewUnmatchedOlcPilots();
             summary.status = 'no_changes';
             summary.message = 'No new or changed flights detected';
             return summary;
@@ -1683,6 +1706,8 @@ async function runFetchAndBuild(options = {}) {
             profiles,
             pilotIds: olcBackfillPilotIds
         });
+
+        summary.meta.olcMatchReview = await reviewUnmatchedOlcPilots(profiles);
 
         const combinedHoursMap = loadCombinedHoursCache();
         summary.meta.combinedHoursCachedPilots = Object.keys(combinedHoursMap).length;
