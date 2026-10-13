@@ -55,8 +55,9 @@ function renderShell(title, bodyHtml) {
 </html>`;
 }
 
-function renderForm({ token, pilotName, picHoursEstimate, errorMessage }) {
-    const seasonStartLabel = getSeasonStartLabel();
+function renderForm({ token, pilotName, picHoursEstimate, seasonId, errorMessage }) {
+    const season = getSeason(seasonId || CURRENT_SEASON_ID);
+    const seasonStartLabel = getSeasonStartLabel(new Date(season.start));
     const errorBlock = errorMessage
         ? `<p style="background:#f8d7da;color:#721c24;padding:10px;border-radius:6px;margin:0 0 16px 0;">${escapeHtml(errorMessage)}</p>`
         : '';
@@ -147,7 +148,8 @@ module.exports = async (req, res) => {
             return res.status(200).send(renderForm({
                 token,
                 pilotName: payload.pilotName,
-                picHoursEstimate: payload.picHoursEstimate
+                picHoursEstimate: payload.picHoursEstimate,
+                seasonId: payload.seasonId
             }));
         } catch (error) {
             console.error('[verify-pic-hours GET] Error:', error);
@@ -173,6 +175,7 @@ module.exports = async (req, res) => {
                     token,
                     pilotName: payload.pilotName,
                     picHoursEstimate: payload.picHoursEstimate,
+                    seasonId: payload.seasonId,
                     errorMessage: 'Please enter a valid number of PIC hours between 0 and 50000.'
                 }));
             }
