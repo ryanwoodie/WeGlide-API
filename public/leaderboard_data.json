@@ -31,7 +31,7 @@
     "15929": 2373559,
     "16605": 1453003,
     "17026": 817822,
-    "17989": 1891210,
+    "17989": 1894413,
     "18113": 3143426,
     "18693": 2398340,
     "20442": 56070,
@@ -220,7 +220,7 @@
     "40967": 74498,
     "41104": 19088,
     "41164": 8076,
-    "41373": 14920,
+    "41373": 17980,
     "41374": 7648,
     "41375": 45702,
     "41454": 11820,
@@ -4770,7 +4770,7 @@
       "message_enabled": true
     },
     "17989": {
-      "total_flight_duration": 1891210,
+      "total_flight_duration": 1894413,
       "total_free_distance": 43291.04,
       "avg_speed": 88.04,
       "flight_count": 136,
@@ -8588,12 +8588,12 @@
       "message_enabled": true
     },
     "41373": {
-      "total_flight_duration": 14920,
-      "total_free_distance": 170.44,
-      "avg_speed": 50,
-      "flight_count": 8,
-      "avg_glide_speed": 92.59,
-      "avg_glide_detour": 1.17,
+      "total_flight_duration": 17980,
+      "total_free_distance": 207.16,
+      "avg_speed": 52.11,
+      "flight_count": 12,
+      "avg_glide_speed": 0,
+      "avg_glide_detour": 0,
       "achievement_count": 4,
       "name": "Caiden Davis",
       "gender": "M",
@@ -9028,7 +9028,7 @@
       "message_enabled": true
     }
   },
-  "flightClubs": "{\"1249044\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249075\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1249612\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249766\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249795\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249833\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249838\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249855\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249856\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249872\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"1249873\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249876\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249878\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249890\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249892\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249893\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249894\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249907\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249915\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249922\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249957\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249963\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249965\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249967\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1249969\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249977\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249981\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249984\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249985\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249986\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249987\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249996\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249999\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1250241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250288\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250303\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250305\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1250335\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250338\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250457\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250643\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250853\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250856\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250863\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250894\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250908\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1250912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1251210\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251240\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251244\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251248\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251262\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251266\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251267\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251270\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251272\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251273\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251274\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251275\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251277\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251279\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251283\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251435\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251443\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251475\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251476\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251526\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251548\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251551\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251552\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251553\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251555\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1251561\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251562\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251701\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251721\":{\"clubId\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"\"},\"1251728\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1251730\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251733\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251835\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251879\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251880\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251882\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251907\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251916\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251926\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1252104\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1252106\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252115\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252127\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1252134\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252171\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252172\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252173\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252182\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252183\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252387\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1252577\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1252579\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1252621\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252646\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252655\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252658\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252662\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252690\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252697\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1252699\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1252711\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252718\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252722\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252726\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252727\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252730\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1252740\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252743\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1253169\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1253240\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1253243\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1253284\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1253362\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1253396\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"}}",
+  "flightClubs": "{\"1249044\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249075\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1249612\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249685\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249766\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249795\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249833\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249838\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249855\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249856\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249872\":{\"clubId\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"\"},\"1249873\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249876\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249878\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249879\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1249890\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249892\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249893\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249894\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249907\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249915\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249922\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249957\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249963\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249965\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249967\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1249969\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249977\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1249981\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249984\":{\"clubId\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"\"},\"1249985\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1249986\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1249987\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1249996\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1249999\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1250241\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250242\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1250288\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250303\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250305\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1250335\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250338\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250457\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250643\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1250853\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1250856\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250863\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250894\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1250908\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1250912\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1251210\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251240\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251244\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251248\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251262\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251266\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251267\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251270\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251272\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251273\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251274\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251275\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251277\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251279\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251283\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251435\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251443\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251475\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251476\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1251526\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251548\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251551\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251552\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251553\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251555\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1251561\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251562\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1251701\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251721\":{\"clubId\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"\"},\"1251728\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1251730\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251733\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251835\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251879\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251880\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251882\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1251907\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251916\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1251926\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1252104\":{\"clubId\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"\"},\"1252106\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252115\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252127\":{\"clubId\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"\"},\"1252134\":{\"clubId\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"\"},\"1252171\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252172\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252173\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252182\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252183\":{\"clubId\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"\"},\"1252387\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1252577\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1252579\":{\"clubId\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"\"},\"1252621\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252646\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252655\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252658\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252662\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252690\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252697\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1252699\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1252711\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252718\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1252722\":{\"clubId\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"\"},\"1252726\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252727\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252730\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1252740\":{\"clubId\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"\"},\"1252743\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1253169\":{\"clubId\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"\"},\"1253240\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1253243\":{\"clubId\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"\"},\"1253284\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1253362\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1253396\":{\"clubId\":947,\"name\":\"CVV de Québec\",\"region\":\"\"},\"1253635\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1253636\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1253637\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"},\"1253638\":{\"clubId\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"\"}}",
   "clubMetadata": "{\"165\":{\"id\":165,\"name\":\"FG Freudenstadt\",\"region\":\"DE-BW\",\"url\":\"http://fg-freudenstadt.de\",\"logo\":\"club/165.png\",\"in_league\":\"BW\",\"lookupMissing\":false},\"762\":{\"id\":762,\"name\":\"Aeroclub Cantons de l'Est\",\"region\":\"CA_ON\",\"url\":\"\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"849\":{\"id\":849,\"name\":\"Alberni Valley Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://www.avsa.ca\",\"logo\":\"club/849.png\",\"in_league\":\"\",\"lookupMissing\":false},\"863\":{\"id\":863,\"name\":\"Association de Vol a Voile Champlain\",\"region\":\"CA-QC\",\"url\":\"https://www.avvc.qc.ca\",\"logo\":\"club/863.png\",\"in_league\":\"\",\"lookupMissing\":false},\"907\":{\"id\":907,\"name\":\"Canadian Rockies Soaring Club\",\"region\":\"CA-BC\",\"url\":\"https://www.canadianrockiessoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"914\":{\"id\":914,\"name\":\"Central Alberta Gliding Club\",\"region\":\"CA-AB\",\"url\":\"http://www.cagcsoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"918\":{\"id\":918,\"name\":\"Central Ohio Soaring Association\",\"region\":\"US-OH\",\"url\":\"https://centralohiosoaring.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"947\":{\"id\":947,\"name\":\"CVV de Québec\",\"region\":\"CA-QC\",\"url\":\"https://www.cvvq.net\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"965\":{\"id\":965,\"name\":\"Cu Nim Gliding Club\",\"region\":\"CA-AB\",\"url\":\"https://www.cunim.org\",\"logo\":\"club/965.png\",\"in_league\":\"\",\"lookupMissing\":false},\"999\":{\"id\":999,\"name\":\"Edmonton Soaring Club\",\"region\":\"CA-AB\",\"url\":\"http://www.edmontonsoaringclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1006\":{\"id\":1006,\"name\":\"Fault Line Flyers\",\"region\":\"US-TX\",\"url\":\"https://www.faultlineflyers.com\",\"logo\":\"club/1006.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1029\":{\"id\":1029,\"name\":\"Gatineau Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.gatineauglidingclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1037\":{\"id\":1037,\"name\":\"Great Lakes Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.greatlakesgliding.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1038\":{\"id\":1038,\"name\":\"Greater Boston Soaring Club\",\"region\":\"US-MA\",\"url\":\"https://soargbsc.com\",\"logo\":\"club/1038.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1124\":{\"id\":1124,\"name\":\"Lethbridge Soaring Club\",\"region\":\"CA-AB\",\"url\":\"https://www.lethbridgesoaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1133\":{\"id\":1133,\"name\":\"London Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://www.londonsoaringclub.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1159\":{\"id\":1159,\"name\":\"Mid-Georgia Soaring Association\",\"region\":\"US-GA\",\"url\":\"https://www.soar-mgsa.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"1168\":{\"id\":1168,\"name\":\"Montreal Soaring Club\",\"region\":\"CA-ON\",\"url\":\"https://montrealsoaring.ca\",\"logo\":\"club/1168.png\",\"in_league\":\"\",\"lookupMissing\":false},\"1240\":{\"id\":1240,\"name\":\"Rideau Valley Soaring\",\"region\":\"CA-ON\",\"url\":\"https://rvss.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1259\":{\"id\":1259,\"name\":\"Seattle Glider Council\",\"region\":\"US-WA\",\"url\":\"https://www.seattleglidercouncil.org\",\"logo\":\"club/1259.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1307\":{\"id\":1307,\"name\":\"Soaring Society of Boulder\",\"region\":\"US-CO\",\"url\":\"http://www.soarboulder.org\",\"logo\":\"club/1307.png\",\"in_league\":\"U1\",\"lookupMissing\":false},\"1310\":{\"id\":1310,\"name\":\"SOSA Gliding Club\",\"region\":\"CA-ON\",\"url\":\"https://www.sosaglidingclub.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1318\":{\"id\":1318,\"name\":\"Spokane Soaring Society\",\"region\":\"US-WA\",\"url\":\"https://spokanesoaring.org\",\"logo\":\"\",\"in_league\":\"U2\",\"lookupMissing\":false},\"1345\":{\"id\":1345,\"name\":\"Toronto Soaring Club\",\"region\":\"CA-ON\",\"url\":\"http://toronto-soaring.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1363\":{\"id\":1363,\"name\":\"Vancouver Soaring Association\",\"region\":\"CA-BC\",\"url\":\"http://vancouversoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1380\":{\"id\":1380,\"name\":\"Warwick Gliding Club\",\"region\":\"AU-QLD\",\"url\":\"https://www.warwickgliding.org\",\"logo\":\"club/1380.png\",\"in_league\":\"AU\",\"lookupMissing\":false},\"1387\":{\"id\":1387,\"name\":\"Winnipeg Gliding Club\",\"region\":\"CA-MB\",\"url\":\"https://www.wgc.mb.ca\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1393\":{\"id\":1393,\"name\":\"York Soaring Association\",\"region\":\"CA-ON\",\"url\":\"https://www.yorksoaring.com\",\"logo\":\"\",\"in_league\":\"\",\"lookupMissing\":false},\"1808\":{\"id\":1808,\"name\":\"Prince Albert Gliding and Soaring Club\",\"region\":\"CA-SK\",\"url\":\"https://www.pagsc.ca\",\"logo\":\"club/1808.png\",\"in_league\":\"\",\"lookupMissing\":false}}",
   "aircraftAwards": {
     "bestGliderPilot": "Christopher Michael Gough",
@@ -13327,6 +13327,66 @@
       ]
     },
     {
+      "pilot": "Caiden Davis",
+      "pilotId": 41373,
+      "totalPoints": 1.39,
+      "totalDistance": 2.2199999999999998,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1253636,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 1.13,
+          "speed": 0.56,
+          "points": 0.71,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253635,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 0.67,
+          "speed": 0.34,
+          "points": 0.42,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253638,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 0.42,
+          "speed": 0.21,
+          "points": 0.26,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "sprint",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Ward Clapham",
       "pilotId": 16605,
       "totalPoints": 0.74,
@@ -15646,6 +15706,66 @@
           "aircraftKind": "GL",
           "aircraftName": "G 103 Twin Astir Trainer FG",
           "dmstIndex": 92,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Caiden Davis",
+      "pilotId": 41373,
+      "totalPoints": 17.98,
+      "totalDistance": 14.39,
+      "flightCount": 3,
+      "bestFlights": [
+        {
+          "id": 1253638,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 5.34,
+          "speed": 63.24,
+          "points": 6.67,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253636,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 4.58,
+          "speed": 59.52,
+          "points": 5.72,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253637,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 4.47,
+          "speed": 50.76,
+          "points": 5.59,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "triangle",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
           "invalid": false,
           "errorReasons": []
         }
@@ -17982,6 +18102,49 @@
       ]
     },
     {
+      "pilot": "Caiden Davis",
+      "pilotId": 41373,
+      "totalPoints": 12.100000000000001,
+      "totalDistance": 9.68,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1253636,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 5.06,
+          "speed": 63.25,
+          "points": 6.32,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253638,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 4.62,
+          "speed": 58.15,
+          "points": 5.78,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out_return",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Gabriel Trahan desgroseilliers",
       "pilotId": 40967,
       "totalPoints": 8.65,
@@ -18687,6 +18850,49 @@
           "aircraftKind": "GL",
           "aircraftName": "Ventus 2c 15m",
           "dmstIndex": 114,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
+      "pilot": "Caiden Davis",
+      "pilotId": 41373,
+      "totalPoints": 10.27,
+      "totalDistance": 8.209999999999999,
+      "flightCount": 2,
+      "bestFlights": [
+        {
+          "id": 1253637,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 4.35,
+          "speed": 31.89,
+          "points": 5.44,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253635,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 3.86,
+          "speed": 38.92,
+          "points": 4.83,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "out",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
           "invalid": false,
           "errorReasons": []
         }
@@ -31420,6 +31626,396 @@
         "dmstIndex": 100
       },
       "bhcInfo": null
+    },
+    {
+      "id": 1253638,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 16.28,
+        "thermal_avg": 0,
+        "glide_speed": 83.29,
+        "glide_speed_lift": 81.56,
+        "glide_speed_sink": 83.93,
+        "altitude_avg": 1311,
+        "agl_avg": 427,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.95,
+        "glide_percentage_lift": 0.29,
+        "duration": 556,
+        "thermal_time": 0,
+        "glide_time": 526,
+        "wind_speed": 31.87,
+        "wind_direction": 188,
+        "attempt_count": 1,
+        "attempt_avg": -1.17,
+        "attempt_speed_loss": 3.71,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.7896,
+        "below_400_agl": 0.4604,
+        "below_200_agl": 0.1223,
+        "below_100_agl": 0.0468,
+        "track_distance": 12.17,
+        "glide_detour": 1.21,
+        "glide_distance": 1.52,
+        "glide_alt_avg": 1311,
+        "end_time": "2026-10-12T20:41:22+00:00",
+        "start_time": "2026-10-12T20:32:06+00:00",
+        "finish_alt": 915
+      },
+      "taskStats": {
+        "glide_ratio": 14.22,
+        "thermal_avg": 0,
+        "glide_speed": 83.51,
+        "glide_speed_lift": 82.02,
+        "glide_speed_sink": 84.17,
+        "altitude_avg": 1304,
+        "agl_avg": 419,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.94,
+        "glide_percentage_lift": 0.28,
+        "duration": 540,
+        "thermal_time": 0,
+        "glide_time": 510,
+        "wind_speed": 31.87,
+        "wind_direction": 188,
+        "attempt_count": 1,
+        "attempt_avg": -1.17,
+        "attempt_speed_loss": 3.41,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.813,
+        "below_400_agl": 0.4741,
+        "below_200_agl": 0.1259,
+        "below_100_agl": 0.0481,
+        "track_distance": 11.83,
+        "glide_detour": 1.36,
+        "glide_distance": 1.56,
+        "glide_alt_avg": 1303,
+        "end_time": "2026-10-12T20:41:22+00:00",
+        "start_time": "2026-10-12T20:32:22+00:00",
+        "finish_alt": 915,
+        "task_duration": 540,
+        "total_duration": 556
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 8.7,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 10.87,
+        "freePoints": 14.58,
+        "auPoints": 10.87,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 10.874999999999998,
+        "dmstFreeDistance": 8.7,
+        "dmstTaskActualPoints": 10.874999999999998,
+        "dmstTaskPotentialPoints": 10.874999999999998,
+        "dmstTaskDistance": 8.7,
+        "weglideFreeDistance": 10.06,
+        "dmstIndex": 80
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1253637,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 18.3,
+        "thermal_avg": 0,
+        "glide_speed": 81.78,
+        "glide_speed_lift": 80.53,
+        "glide_speed_sink": 82.13,
+        "altitude_avg": 1301,
+        "agl_avg": 414,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.24,
+        "duration": 561,
+        "thermal_time": 0,
+        "glide_time": 394,
+        "wind_speed": 45.07,
+        "wind_direction": 184,
+        "attempt_count": 3,
+        "attempt_avg": -0.8,
+        "attempt_speed_loss": 24.83,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.8556,
+        "below_400_agl": 0.4207,
+        "below_200_agl": 0.1676,
+        "below_100_agl": 0.0517,
+        "track_distance": 8.95,
+        "glide_detour": 0.98,
+        "glide_distance": 1.15,
+        "glide_alt_avg": 1253,
+        "end_time": "2026-10-12T20:13:46+00:00",
+        "start_time": "2026-10-12T20:04:25+00:00",
+        "finish_alt": 917
+      },
+      "taskStats": {
+        "glide_ratio": 16.11,
+        "thermal_avg": 0,
+        "glide_speed": 81.78,
+        "glide_speed_lift": 80.53,
+        "glide_speed_sink": 82.13,
+        "altitude_avg": 1301,
+        "agl_avg": 414,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.7,
+        "glide_percentage_lift": 0.24,
+        "duration": 561,
+        "thermal_time": 0,
+        "glide_time": 394,
+        "wind_speed": 45.07,
+        "wind_direction": 184,
+        "attempt_count": 3,
+        "attempt_avg": -0.8,
+        "attempt_speed_loss": 21.87,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.8556,
+        "below_400_agl": 0.4207,
+        "below_200_agl": 0.1676,
+        "below_100_agl": 0.0517,
+        "track_distance": 8.95,
+        "glide_detour": 1.11,
+        "glide_distance": 1.15,
+        "glide_alt_avg": 1253,
+        "end_time": "2026-10-12T20:13:46+00:00",
+        "start_time": "2026-10-12T20:04:25+00:00",
+        "finish_alt": 917,
+        "task_duration": 561,
+        "total_duration": 561
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 8.04,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 10.05,
+        "freePoints": 13.09,
+        "auPoints": 10.05,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 10.049999999999999,
+        "dmstFreeDistance": 8.04,
+        "dmstTaskActualPoints": 10.049999999999999,
+        "dmstTaskPotentialPoints": 10.049999999999999,
+        "dmstTaskDistance": 8.04,
+        "weglideFreeDistance": 9.13,
+        "dmstIndex": 80
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1253636,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 14.83,
+        "thermal_avg": 0,
+        "glide_speed": 86.16,
+        "glide_speed_lift": 95.47,
+        "glide_speed_sink": 83.65,
+        "altitude_avg": 1298,
+        "agl_avg": 406,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.22,
+        "duration": 483,
+        "thermal_time": 0,
+        "glide_time": 483,
+        "wind_speed": 36.6,
+        "wind_direction": 193,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.8468,
+        "below_400_agl": 0.472,
+        "below_200_agl": 0.1822,
+        "below_100_agl": 0.0538,
+        "track_distance": 11.56,
+        "glide_detour": 1.21,
+        "glide_distance": 3.65,
+        "glide_alt_avg": 1299,
+        "end_time": "2026-10-12T19:48:56+00:00",
+        "start_time": "2026-10-12T19:40:53+00:00",
+        "finish_alt": 916
+      },
+      "taskStats": {
+        "glide_ratio": 13.38,
+        "thermal_avg": 0,
+        "glide_speed": 86.16,
+        "glide_speed_lift": 95.47,
+        "glide_speed_sink": 83.65,
+        "altitude_avg": 1298,
+        "agl_avg": 406,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 1,
+        "glide_percentage_lift": 0.22,
+        "duration": 483,
+        "thermal_time": 0,
+        "glide_time": 483,
+        "wind_speed": 36.6,
+        "wind_direction": 193,
+        "attempt_count": 0,
+        "attempt_avg": 0,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.8468,
+        "below_400_agl": 0.472,
+        "below_200_agl": 0.1822,
+        "below_100_agl": 0.0538,
+        "track_distance": 11.56,
+        "glide_detour": 1.35,
+        "glide_distance": 3.65,
+        "glide_alt_avg": 1299,
+        "end_time": "2026-10-12T19:48:56+00:00",
+        "start_time": "2026-10-12T19:40:53+00:00",
+        "finish_alt": 916,
+        "task_duration": 483,
+        "total_duration": 483
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 8.59,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 10.74,
+        "freePoints": 13.62,
+        "auPoints": 10.74,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 10.737499999999999,
+        "dmstFreeDistance": 8.59,
+        "dmstTaskActualPoints": 10.737499999999999,
+        "dmstTaskPotentialPoints": 10.737499999999999,
+        "dmstTaskDistance": 8.59,
+        "weglideFreeDistance": 9.52,
+        "dmstIndex": 80
+      },
+      "bhcInfo": null
+    },
+    {
+      "id": 1253635,
+      "taskAchieved": false,
+      "hasTask": false,
+      "bestContestType": "free",
+      "freeStats": {
+        "glide_ratio": 13.74,
+        "thermal_avg": 0,
+        "glide_speed": 86.15,
+        "glide_speed_lift": 101.8,
+        "glide_speed_sink": 82.61,
+        "altitude_avg": 1284,
+        "agl_avg": 389,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.93,
+        "glide_percentage_lift": 0.19,
+        "duration": 440,
+        "thermal_time": 0,
+        "glide_time": 407,
+        "wind_speed": 40.43,
+        "wind_direction": 193,
+        "attempt_count": 1,
+        "attempt_avg": -1.58,
+        "attempt_speed_loss": 5.31,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.8273,
+        "below_400_agl": 0.5409,
+        "below_200_agl": 0.175,
+        "below_100_agl": 0.0659,
+        "track_distance": 9.74,
+        "glide_detour": 1.22,
+        "glide_distance": 1.83,
+        "glide_alt_avg": 1275,
+        "end_time": "2026-10-12T19:22:52+00:00",
+        "start_time": "2026-10-12T19:15:32+00:00",
+        "finish_alt": 915
+      },
+      "taskStats": {
+        "glide_ratio": 11.96,
+        "thermal_avg": 0,
+        "glide_speed": 86.15,
+        "glide_speed_lift": 101.8,
+        "glide_speed_sink": 82.61,
+        "altitude_avg": 1284,
+        "agl_avg": 389,
+        "thermal_count": 0,
+        "thermal_gain": 0,
+        "glide_percentage": 0.93,
+        "glide_percentage_lift": 0.19,
+        "duration": 440,
+        "thermal_time": 0,
+        "glide_time": 407,
+        "wind_speed": 40.43,
+        "wind_direction": 193,
+        "attempt_count": 1,
+        "attempt_avg": -1.58,
+        "attempt_speed_loss": 4.62,
+        "below_1000_agl": 1,
+        "below_800_agl": 1,
+        "below_600_agl": 0.8273,
+        "below_400_agl": 0.5409,
+        "below_200_agl": 0.175,
+        "below_100_agl": 0.0659,
+        "track_distance": 9.74,
+        "glide_detour": 1.4,
+        "glide_distance": 1.83,
+        "glide_alt_avg": 1275,
+        "end_time": "2026-10-12T19:22:52+00:00",
+        "start_time": "2026-10-12T19:15:32+00:00",
+        "finish_alt": 915,
+        "task_duration": 440,
+        "total_duration": 440
+      },
+      "taskInfo": {
+        "hasTask": false,
+        "distanceKm": 6.97,
+        "type": null,
+        "typeLabel": "No task declared",
+        "completed": false,
+        "taskContestUsed": "ca",
+        "taskContestLabel": "SAC-DSC Task Score (not finished)",
+        "taskContestPoints": 8.71,
+        "freePoints": 11.31,
+        "auPoints": 8.71,
+        "declarationPoints": null,
+        "bestContestType": "free",
+        "dmstFreePoints": 8.712499999999999,
+        "dmstFreeDistance": 6.97,
+        "dmstTaskActualPoints": 8.712499999999999,
+        "dmstTaskPotentialPoints": 8.712499999999999,
+        "dmstTaskDistance": 6.97,
+        "weglideFreeDistance": 8.01,
+        "dmstIndex": 80
+      },
+      "bhcInfo": null
     }
   ],
   "minimalFlights": [
@@ -39805,6 +40401,266 @@
         "name": "Starbuck",
         "region": "CA-MB"
       }
+    },
+    {
+      "id": 1253638,
+      "user": {
+        "id": 41373,
+        "name": "Caiden Davis"
+      },
+      "date": "2026-10-12",
+      "distance": 10.06,
+      "duration": 799,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 14.58,
+          "distance": 10.06,
+          "speed": 65.14,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.26,
+          "distance": 0.42,
+          "speed": 0.21,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 6.67,
+          "distance": 5.34,
+          "speed": 63.24,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 5.78,
+          "distance": 4.62,
+          "speed": 58.15,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 10.87,
+          "distance": 8.7,
+          "speed": 58,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Innisfail",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1253637,
+      "user": {
+        "id": 41373,
+        "name": "Caiden Davis"
+      },
+      "date": "2026-10-12",
+      "distance": 9.13,
+      "duration": 812,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 13.09,
+          "distance": 9.13,
+          "speed": 58.59,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.21,
+          "distance": 0.34,
+          "speed": 0.17,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 5.59,
+          "distance": 4.47,
+          "speed": 50.76,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 5.44,
+          "distance": 4.35,
+          "speed": 31.89,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 10.05,
+          "distance": 8.04,
+          "speed": 51.59,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Innisfail",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1253636,
+      "user": {
+        "id": 41373,
+        "name": "Caiden Davis"
+      },
+      "date": "2026-10-12",
+      "distance": 9.52,
+      "duration": 764,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 13.62,
+          "distance": 9.52,
+          "speed": 70.96,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.71,
+          "distance": 1.13,
+          "speed": 0.56,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 5.72,
+          "distance": 4.58,
+          "speed": 59.52,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out_return",
+          "points": 6.32,
+          "distance": 5.06,
+          "speed": 63.25,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 10.74,
+          "distance": 8.59,
+          "speed": 64.02,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Innisfail",
+        "region": "CA-AB"
+      }
+    },
+    {
+      "id": 1253635,
+      "user": {
+        "id": 41373,
+        "name": "Caiden Davis"
+      },
+      "date": "2026-10-12",
+      "distance": 8.01,
+      "duration": 685,
+      "taskDeclared": false,
+      "taskCompleted": false,
+      "task": null,
+      "task_achieved": false,
+      "contest": [
+        {
+          "name": "free",
+          "points": 11.31,
+          "distance": 8.01,
+          "speed": 65.54,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "sprint",
+          "points": 0.42,
+          "distance": 0.67,
+          "speed": 0.34,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "triangle",
+          "points": 4.34,
+          "distance": 3.47,
+          "speed": 54.55,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "out",
+          "points": 4.83,
+          "distance": 3.86,
+          "speed": 38.92,
+          "score": {
+            "declared": false
+          }
+        },
+        {
+          "name": "ca",
+          "points": 8.71,
+          "distance": 6.97,
+          "speed": 57.03,
+          "score": {
+            "declared": false
+          }
+        }
+      ],
+      "takeoff_airport": {
+        "name": "Innisfail",
+        "region": "CA-AB"
+      }
     }
   ],
   "clubMetadataById": {
@@ -42484,6 +43340,83 @@
       ]
     },
     {
+      "pilot": "Caiden Davis",
+      "pilotId": 41373,
+      "totalPoints": 52.6,
+      "totalDistance": 36.72,
+      "flightCount": 4,
+      "bestFlights": [
+        {
+          "id": 1253638,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 10.06,
+          "speed": 65.14,
+          "points": 14.58,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253636,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 9.52,
+          "speed": 70.96,
+          "points": 13.62,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253637,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 9.13,
+          "speed": 58.59,
+          "points": 13.09,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        },
+        {
+          "id": 1253635,
+          "userId": 41373,
+          "date": "2026-10-12",
+          "distance": 8.01,
+          "speed": 65.54,
+          "points": 11.31,
+          "takeoff": "Innisfail",
+          "region": "CA-AB",
+          "declared": false,
+          "contestType": "free",
+          "aircraftKind": "GL",
+          "aircraftName": "L23 SuperBlanik 18.2m",
+          "dmstIndex": 80,
+          "invalid": false,
+          "errorReasons": []
+        }
+      ]
+    },
+    {
       "pilot": "Marc-André Rathé",
       "pilotId": 35427,
       "totalPoints": 43.85,
@@ -44422,15 +45355,15 @@
     }
   ],
   "meta": {
-    "totalPilots": 62,
-    "totalFlights": 126,
-    "totalKms": 17438,
+    "totalPilots": 63,
+    "totalFlights": 130,
+    "totalKms": 17475,
     "totalTasksDeclared": 52,
     "totalTasksCompleted": 0,
     "seasonLabel": "Oct 1, 2026 - Sept 30, 2027",
     "seasonId": "2026-27",
-    "dataThroughDate": "2026-10-11",
+    "dataThroughDate": "2026-10-12",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-10-12T10:07:43.240Z"
+    "generatedAt": "2026-10-13T10:01:26.424Z"
   }
 }

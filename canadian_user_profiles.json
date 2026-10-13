@@ -630,7 +630,7 @@
     "message_enabled": true
   },
   "17989": {
-    "total_flight_duration": 1891210,
+    "total_flight_duration": 1894413,
     "total_free_distance": 43291.04,
     "avg_speed": 88.04,
     "flight_count": 136,
@@ -4448,12 +4448,12 @@
     "message_enabled": true
   },
   "41373": {
-    "total_flight_duration": 14920,
-    "total_free_distance": 170.44,
-    "avg_speed": 50,
-    "flight_count": 8,
-    "avg_glide_speed": 92.59,
-    "avg_glide_detour": 1.17,
+    "total_flight_duration": 17980,
+    "total_free_distance": 207.16,
+    "avg_speed": 52.11,
+    "flight_count": 12,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 4,
     "name": "Caiden Davis",
     "gender": "M",
