@@ -439,7 +439,7 @@ GROUP BY fp.pilot_id;
 }
 
 async function fetchJson(url) {
-    const response = await fetch(url, { headers: DEFAULT_HEADERS });
+    const response = await fetch(url, { headers: { ...DEFAULT_HEADERS, ...require('./lib/weglide-headers').weglideHeaders() } });
     if (!response.ok) {
         const body = await response.text();
         throw new Error(`HTTP ${response.status} for ${url}: ${body.slice(0, 200)}`);
@@ -820,6 +820,20 @@ WHERE p.pilot_id LIKE 'wg:%';
 }
 
 function loadMatchOverrides(dbPath) {
+    const filename = path.join(__dirname, 'olc_pilot_match_overrides.json');
+    if (fs.existsSync(filename)) {
+        const approved = JSON.parse(fs.readFileSync(filename, 'utf8'));
+        const now = new Date().toISOString();
+        const statements = ['BEGIN;'];
+        for (const [id, entry] of Object.entries(approved)) {
+            if (!/^\d+$/.test(id) || !/^\d+$/.test(String(entry.olcPilotId))) throw new Error('Invalid approved pilot mapping');
+            statements.push(`INSERT INTO pilot_match_overrides (weglide_pilot_id, olc_pilot_id, note, created_at, updated_at)
+                VALUES (${sqlValue('wg:' + id)}, ${sqlValue(String(entry.olcPilotId))}, 'Confirmed by leaderboard operator', ${sqlValue(now)}, ${sqlValue(now)})
+                ON CONFLICT(weglide_pilot_id) DO UPDATE SET olc_pilot_id=excluded.olc_pilot_id, note=excluded.note, updated_at=excluded.updated_at;`);
+        }
+        statements.push('COMMIT;');
+        sqliteExec(dbPath, statements.join('\n'));
+    }
     const rows = sqliteQueryJson(dbPath, `
 SELECT weglide_pilot_id, olc_pilot_id
 FROM pilot_match_overrides;

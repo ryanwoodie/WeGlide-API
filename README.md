@@ -60,3 +60,9 @@ Each update checks cached WeGlide profiles for possible OLC matches, including w
 One digest (up to 20 pilots per update, up to three suggestions each) goes to `sacleaderboard@gmail.com` through the existing Gmail delivery service. It contains WeGlide profile links, both pilot IDs, match reasons, and the OLC snapshot hours and cutoff. The recipient can reply with confirmed ID pairs for manual mapping, or flag incorrect suggestions. Reply processing is manual; there is no email-driven automatic approval.
 
 The original OLC name index is used when the current season cache contains only linked totals. Previously linked IDs are retained for review purposes even when a later export omits them. Notification fingerprints are stored in the encrypted verification state, so unchanged suggestions are not repeatedly emailed. Failed sends remain eligible for retry. This notification state is excluded from the public verification API.
+
+### Confirmed OLC identity mappings
+
+Operator-confirmed WeGlide/OLC ID pairs are stored in `olc_pilot_match_overrides.json`. The SQLite synchronization script imports these pairs into `pilot_match_overrides` on rebuild, so they survive future name changes and matching-table rebuilds. The five initial pairs were confirmed on October 13, 2026, and their WeGlide profiles and flights were refreshed against the existing OLC snapshot for the October 1, 2025 and October 1, 2026 cutoffs. Only those five entries were added to each season cache; pilot-submitted PIC verifications retain priority.
+
+Confirmed matches use their calculated pre-cutoff hours for eligibility, keeping the baseline fixed as later flights are logged. The identity-review email heuristic skips already linked pairs.

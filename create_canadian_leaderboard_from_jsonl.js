@@ -2386,13 +2386,13 @@ No maximum distance bonus\`,
         function getPilotVerificationHoursSummary(pilotId) {
             const hoursSummary = getPilotHoursSummary(pilotId);
             const combined = getPilotCombinedHoursData(pilotId);
-            const weglideHoursBeforeCutoff = SEASON_ID === '2025-26' && combined && COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' && typeof combined.weglideHoursBeforeCutoff === 'number'
+            const weglideHoursBeforeCutoff = (SEASON_ID === '2025-26' || combined?.matchKind === 'override') && combined && COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' && typeof combined.weglideHoursBeforeCutoff === 'number'
                 ? combined.weglideHoursBeforeCutoff
                 : Math.max(0, hoursSummary.weglideHours - calculateWeGlideHoursSinceStart(pilotId) - (LATER_SEASON_SECONDS[pilotId] || 0) / 3600);
             const olcOnlyHoursBeforeCutoff = combined && typeof (COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' ? combined.olcOnlyHoursBeforeCutoff : combined.olcOnlyHours) === 'number'
                 ? (COMBINED_HOURS_CUTOFF_DATE === '${verificationCutoffDate}' ? combined.olcOnlyHoursBeforeCutoff : combined.olcOnlyHours)
                 : 0;
-            const combinedHoursBeforeCutoff = SEASON_ID === '2025-26' && typeof hoursSummary.combinedHoursBeforeCutoff === 'number'
+            const combinedHoursBeforeCutoff = (SEASON_ID === '2025-26' || combined?.matchKind === 'override') && typeof hoursSummary.combinedHoursBeforeCutoff === 'number'
                 ? hoursSummary.combinedHoursBeforeCutoff
                 : weglideHoursBeforeCutoff + olcOnlyHoursBeforeCutoff;
 
@@ -8283,7 +8283,7 @@ No maximum distance bonus\`,
                 const totalCombinedHours = combinedHours && typeof combinedHours.combinedHours === 'number'
                     ? combinedHours.combinedHours
                     : totalWeGlideHours;
-                const totalWeGlideHoursBeforeCutoff = season.id === '2025-26' && combinedHours && combinedHoursCutoffDate === verificationCutoffDate && typeof combinedHours.weglideHoursBeforeCutoff === 'number'
+                const totalWeGlideHoursBeforeCutoff = (season.id === '2025-26' || combinedHours?.matchKind === 'override') && combinedHours && combinedHoursCutoffDate === verificationCutoffDate && typeof combinedHours.weglideHoursBeforeCutoff === 'number'
                     ? combinedHours.weglideHoursBeforeCutoff
                     : Math.max(0, totalWeGlideHours - hoursSinceStart - (laterSeasonSeconds[pilotId] || 0) / 3600);
                 const cachedOlcHours = combinedHoursCutoffDate === verificationCutoffDate
@@ -8292,7 +8292,7 @@ No maximum distance bonus\`,
                 const olcOnlyHoursBeforeCutoff = typeof cachedOlcHours === 'number'
                     ? cachedOlcHours
                     : 0;
-                const estimatedOct1Hours = season.id === '2025-26' && combinedHours && combinedHoursCutoffDate === verificationCutoffDate && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
+                const estimatedOct1Hours = (season.id === '2025-26' || combinedHours?.matchKind === 'override') && combinedHours && combinedHoursCutoffDate === verificationCutoffDate && typeof combinedHours.combinedHoursBeforeCutoff === 'number'
                     ? combinedHours.combinedHoursBeforeCutoff
                     : totalWeGlideHoursBeforeCutoff + olcOnlyHoursBeforeCutoff;
 

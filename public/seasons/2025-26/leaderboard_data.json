@@ -4899,6 +4899,91 @@
       "combinedHoursBeforeCutoff": 9.48,
       "eligibleUnder200": true,
       "dataSource": "olc-name-totals"
+    },
+    "38629": {
+      "pilotId": 38629,
+      "weglidePilotId": "wg:38629",
+      "olcPilotId": "45025",
+      "pilotName": "Gonda-Bastian Sinagowitz",
+      "matchKind": "override",
+      "weglideHours": 47.03,
+      "weglideCoPilotHours": 0,
+      "olcHours": 545.16,
+      "olcOnlyHours": 545.16,
+      "combinedHours": 592.19,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 545.16,
+      "combinedHoursBeforeCutoff": 545.16,
+      "eligibleUnder200": false
+    },
+    "41886": {
+      "pilotId": 41886,
+      "weglidePilotId": "wg:41886",
+      "olcPilotId": "60478",
+      "pilotName": "Norman Bruce Aleman",
+      "matchKind": "override",
+      "weglideHours": 0,
+      "weglideCoPilotHours": 0,
+      "olcHours": 8.02,
+      "olcOnlyHours": 8.02,
+      "combinedHours": 8.02,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 8.02,
+      "combinedHoursBeforeCutoff": 8.02,
+      "eligibleUnder200": true
+    },
+    "38955": {
+      "pilotId": 38955,
+      "weglidePilotId": "wg:38955",
+      "olcPilotId": "35922",
+      "pilotName": "Jeff Runciman",
+      "matchKind": "override",
+      "weglideHours": 92.91,
+      "weglideCoPilotHours": 0,
+      "olcHours": 84.23,
+      "olcOnlyHours": 2.34,
+      "combinedHours": 95.25,
+      "weglideHoursBeforeCutoff": 89.15,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 2.34,
+      "combinedHoursBeforeCutoff": 91.48,
+      "eligibleUnder200": true
+    },
+    "40449": {
+      "pilotId": 40449,
+      "weglidePilotId": "wg:40449",
+      "olcPilotId": "64998",
+      "pilotName": "Alexander Ackerman",
+      "matchKind": "override",
+      "weglideHours": 19.52,
+      "weglideCoPilotHours": 1.23,
+      "olcHours": 211.48,
+      "olcOnlyHours": 211.48,
+      "combinedHours": 231,
+      "weglideHoursBeforeCutoff": 0,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 211.48,
+      "combinedHoursBeforeCutoff": 211.48,
+      "eligibleUnder200": false
+    },
+    "39194": {
+      "pilotId": 39194,
+      "weglidePilotId": "wg:39194",
+      "olcPilotId": "71865",
+      "pilotName": "Philippe Leonard Stang",
+      "matchKind": "override",
+      "weglideHours": 208.23,
+      "weglideCoPilotHours": 0,
+      "olcHours": 202.61,
+      "olcOnlyHours": 4.08,
+      "combinedHours": 212.31,
+      "weglideHoursBeforeCutoff": 198.53,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 4.08,
+      "combinedHoursBeforeCutoff": 202.61,
+      "eligibleUnder200": false
     }
   },
   "pilotVerifications": {
@@ -7545,18 +7630,11 @@
       },
       "38629": {
         "pilotName": "Gonda-Bastian Sinagowitz",
-        "picHours": 0,
-        "verifiedDate": "2026-10-07T01:15:38.622Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 0,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 47,
-          "estimatedOct1Hours": 0
-        }
+        "picHours": 1500,
+        "cutoffDate": "2025-10-01",
+        "verifiedDate": "2026-10-13T17:17:30.071Z",
+        "eligible": false,
+        "dataSource": "self-submitted-via-direct-message"
       },
       "38767": {
         "pilotName": "Reginald Braithwaite",
@@ -7605,17 +7683,17 @@
       },
       "38955": {
         "pilotName": "Jeff Runciman",
-        "picHours": 89.1,
-        "verifiedDate": "2026-10-07T01:15:38.629Z",
-        "dataSource": "weglide-calculated",
+        "picHours": 91.5,
+        "verifiedDate": "2026-10-13T18:59:21.772Z",
+        "dataSource": "combined-hours-calculated",
         "eligible": true,
         "calculation": {
           "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 89.1,
-          "totalWeGlideHours": 89.1,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 3.8,
-          "estimatedOct1Hours": 89.1
+          "totalCombinedHours": 95.25,
+          "totalWeGlideHours": 92.91,
+          "olcOnlyHours": 2.34,
+          "hoursSinceOct1": 3.76,
+          "estimatedOct1Hours": 91.5
         }
       },
       "38969": {
@@ -7650,17 +7728,17 @@
       },
       "39194": {
         "pilotName": "Philippe Leonard Stang",
-        "picHours": 197.7,
-        "verifiedDate": "2026-10-07T01:15:38.626Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
+        "picHours": 202.6,
+        "verifiedDate": "2026-10-13T18:59:21.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
         "calculation": {
           "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 197.7,
-          "totalWeGlideHours": 197.7,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 10.5,
-          "estimatedOct1Hours": 197.7
+          "totalCombinedHours": 212.31,
+          "totalWeGlideHours": 208.23,
+          "olcOnlyHours": 4.08,
+          "hoursSinceOct1": 9.7,
+          "estimatedOct1Hours": 202.6
         }
       },
       "39209": {
@@ -7905,17 +7983,17 @@
       },
       "40449": {
         "pilotName": "Alexander Ackerman",
-        "picHours": 1.2,
-        "verifiedDate": "2026-10-07T01:15:38.624Z",
-        "dataSource": "weglide-calculated",
-        "eligible": true,
+        "picHours": 211.5,
+        "verifiedDate": "2026-10-13T18:59:21.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": false,
         "calculation": {
           "cutoffDate": "2025-10-01",
-          "totalCombinedHours": 1.2,
-          "totalWeGlideHours": 1.2,
-          "olcOnlyHours": 0,
-          "hoursSinceOct1": 19.5,
-          "estimatedOct1Hours": 1.2
+          "totalCombinedHours": 231,
+          "totalWeGlideHours": 19.52,
+          "olcOnlyHours": 211.48,
+          "hoursSinceOct1": 19.52,
+          "estimatedOct1Hours": 211.5
         }
       },
       "40533": {
@@ -8141,6 +8219,21 @@
           "olcOnlyHours": 0,
           "hoursSinceOct1": 8.2,
           "estimatedOct1Hours": 0
+        }
+      },
+      "41886": {
+        "pilotName": "Norman Bruce Aleman",
+        "picHours": 8,
+        "verifiedDate": "2026-10-13T18:59:21.773Z",
+        "dataSource": "combined-hours-calculated",
+        "eligible": true,
+        "calculation": {
+          "cutoffDate": "2025-10-01",
+          "totalCombinedHours": 8.02,
+          "totalWeGlideHours": 0,
+          "olcOnlyHours": 8.02,
+          "hoursSinceOct1": 0,
+          "estimatedOct1Hours": 8
         }
       }
     },

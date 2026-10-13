@@ -970,6 +970,74 @@
         "hoursSinceOct1": 4.3,
         "estimatedOct1Hours": 0
       }
+    },
+    "38629": {
+      "pilotName": "Gonda-Bastian Sinagowitz",
+      "picHours": 1500,
+      "cutoffDate": "2025-10-01",
+      "verifiedDate": "2026-10-13T17:17:30.071Z",
+      "eligible": false,
+      "dataSource": "self-submitted-via-direct-message"
+    },
+    "38955": {
+      "pilotName": "Jeff Runciman",
+      "picHours": 95.3,
+      "verifiedDate": "2026-10-13T18:59:21.774Z",
+      "dataSource": "combined-hours-calculated",
+      "eligible": true,
+      "calculation": {
+        "cutoffDate": "2026-10-01",
+        "totalCombinedHours": 95.25,
+        "totalWeGlideHours": 92.91,
+        "olcOnlyHours": 2.34,
+        "hoursSinceOct1": 0,
+        "estimatedOct1Hours": 95.3
+      }
+    },
+    "39194": {
+      "pilotName": "Philippe Leonard Stang",
+      "picHours": 212.3,
+      "verifiedDate": "2026-10-13T18:59:21.774Z",
+      "dataSource": "combined-hours-calculated",
+      "eligible": false,
+      "calculation": {
+        "cutoffDate": "2026-10-01",
+        "totalCombinedHours": 212.31,
+        "totalWeGlideHours": 208.23,
+        "olcOnlyHours": 4.08,
+        "hoursSinceOct1": 0,
+        "estimatedOct1Hours": 212.3
+      }
+    },
+    "40449": {
+      "pilotName": "Alexander Ackerman",
+      "picHours": 231,
+      "verifiedDate": "2026-10-13T18:59:21.774Z",
+      "dataSource": "combined-hours-calculated",
+      "eligible": false,
+      "calculation": {
+        "cutoffDate": "2026-10-01",
+        "totalCombinedHours": 231,
+        "totalWeGlideHours": 19.52,
+        "olcOnlyHours": 211.48,
+        "hoursSinceOct1": 0,
+        "estimatedOct1Hours": 231
+      }
+    },
+    "41886": {
+      "pilotName": "Norman Bruce Aleman",
+      "picHours": 8,
+      "verifiedDate": "2026-10-13T18:59:21.775Z",
+      "dataSource": "combined-hours-calculated",
+      "eligible": true,
+      "calculation": {
+        "cutoffDate": "2026-10-01",
+        "totalCombinedHours": 8.02,
+        "totalWeGlideHours": 0,
+        "olcOnlyHours": 8.02,
+        "hoursSinceOct1": 0,
+        "estimatedOct1Hours": 8
+      }
     }
   },
   "dobVerifications": {
