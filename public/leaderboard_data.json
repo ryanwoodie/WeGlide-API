@@ -3919,6 +3919,23 @@
       "combinedHoursBeforeCutoff": 469.4,
       "eligibleUnder200": false
     },
+    "38629": {
+      "pilotId": 38629,
+      "weglidePilotId": "wg:38629",
+      "olcPilotId": "45025",
+      "pilotName": "Gonda-Bastian Sinagowitz",
+      "matchKind": "override",
+      "weglideHours": 47.03,
+      "weglideCoPilotHours": 0,
+      "olcHours": 545.16,
+      "olcOnlyHours": 545.16,
+      "combinedHours": 592.19,
+      "weglideHoursBeforeCutoff": 47.03,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 545.16,
+      "combinedHoursBeforeCutoff": 592.19,
+      "eligibleUnder200": false
+    },
     "38767": {
       "pilotId": 38767,
       "weglidePilotId": "wg:38767",
@@ -3949,40 +3966,6 @@
       "combinedHoursBeforeCutoff": 9.2,
       "eligibleUnder200": true
     },
-    "38629": {
-      "pilotId": 38629,
-      "weglidePilotId": "wg:38629",
-      "olcPilotId": "45025",
-      "pilotName": "Gonda-Bastian Sinagowitz",
-      "matchKind": "override",
-      "weglideHours": 47.03,
-      "weglideCoPilotHours": 0,
-      "olcHours": 545.16,
-      "olcOnlyHours": 545.16,
-      "combinedHours": 592.19,
-      "weglideHoursBeforeCutoff": 47.03,
-      "weglideCoPilotHoursBeforeCutoff": 0,
-      "olcOnlyHoursBeforeCutoff": 545.16,
-      "combinedHoursBeforeCutoff": 592.19,
-      "eligibleUnder200": false
-    },
-    "41886": {
-      "pilotId": 41886,
-      "weglidePilotId": "wg:41886",
-      "olcPilotId": "60478",
-      "pilotName": "Norman Bruce Aleman",
-      "matchKind": "override",
-      "weglideHours": 0,
-      "weglideCoPilotHours": 0,
-      "olcHours": 8.02,
-      "olcOnlyHours": 8.02,
-      "combinedHours": 8.02,
-      "weglideHoursBeforeCutoff": 0,
-      "weglideCoPilotHoursBeforeCutoff": 0,
-      "olcOnlyHoursBeforeCutoff": 8.02,
-      "combinedHoursBeforeCutoff": 8.02,
-      "eligibleUnder200": true
-    },
     "38955": {
       "pilotId": 38955,
       "weglidePilotId": "wg:38955",
@@ -3999,6 +3982,23 @@
       "olcOnlyHoursBeforeCutoff": 2.34,
       "combinedHoursBeforeCutoff": 95.25,
       "eligibleUnder200": true
+    },
+    "39194": {
+      "pilotId": 39194,
+      "weglidePilotId": "wg:39194",
+      "olcPilotId": "71865",
+      "pilotName": "Philippe Leonard Stang",
+      "matchKind": "override",
+      "weglideHours": 208.23,
+      "weglideCoPilotHours": 0,
+      "olcHours": 202.61,
+      "olcOnlyHours": 4.08,
+      "combinedHours": 212.31,
+      "weglideHoursBeforeCutoff": 208.23,
+      "weglideCoPilotHoursBeforeCutoff": 0,
+      "olcOnlyHoursBeforeCutoff": 4.08,
+      "combinedHoursBeforeCutoff": 212.31,
+      "eligibleUnder200": false
     },
     "40449": {
       "pilotId": 40449,
@@ -4017,22 +4017,22 @@
       "combinedHoursBeforeCutoff": 231,
       "eligibleUnder200": false
     },
-    "39194": {
-      "pilotId": 39194,
-      "weglidePilotId": "wg:39194",
-      "olcPilotId": "71865",
-      "pilotName": "Philippe Leonard Stang",
+    "41886": {
+      "pilotId": 41886,
+      "weglidePilotId": "wg:41886",
+      "olcPilotId": "60478",
+      "pilotName": "Norman Bruce Aleman",
       "matchKind": "override",
-      "weglideHours": 208.23,
+      "weglideHours": 0,
       "weglideCoPilotHours": 0,
-      "olcHours": 202.61,
-      "olcOnlyHours": 4.08,
-      "combinedHours": 212.31,
-      "weglideHoursBeforeCutoff": 208.23,
+      "olcHours": 8.02,
+      "olcOnlyHours": 8.02,
+      "combinedHours": 8.02,
+      "weglideHoursBeforeCutoff": 0,
       "weglideCoPilotHoursBeforeCutoff": 0,
-      "olcOnlyHoursBeforeCutoff": 4.08,
-      "combinedHoursBeforeCutoff": 212.31,
-      "eligibleUnder200": false
+      "olcOnlyHoursBeforeCutoff": 8.02,
+      "combinedHoursBeforeCutoff": 8.02,
+      "eligibleUnder200": true
     }
   },
   "pilotVerifications": {
@@ -4205,66 +4205,6 @@
         "verifiedDate": "2026-10-13T17:17:30.071Z",
         "eligible": false,
         "dataSource": "self-submitted-via-direct-message"
-      },
-      "41886": {
-        "pilotName": "Norman Bruce Aleman",
-        "picHours": 8,
-        "verifiedDate": "2026-10-13T18:59:21.775Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2026-10-01",
-          "totalCombinedHours": 8.02,
-          "totalWeGlideHours": 0,
-          "olcOnlyHours": 8.02,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 8
-        }
-      },
-      "38955": {
-        "pilotName": "Jeff Runciman",
-        "picHours": 95.3,
-        "verifiedDate": "2026-10-13T18:59:21.774Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": true,
-        "calculation": {
-          "cutoffDate": "2026-10-01",
-          "totalCombinedHours": 95.25,
-          "totalWeGlideHours": 92.91,
-          "olcOnlyHours": 2.34,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 95.3
-        }
-      },
-      "40449": {
-        "pilotName": "Alexander Ackerman",
-        "picHours": 231,
-        "verifiedDate": "2026-10-13T18:59:21.774Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2026-10-01",
-          "totalCombinedHours": 231,
-          "totalWeGlideHours": 19.52,
-          "olcOnlyHours": 211.48,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 231
-        }
-      },
-      "39194": {
-        "pilotName": "Philippe Leonard Stang",
-        "picHours": 212.3,
-        "verifiedDate": "2026-10-13T18:59:21.774Z",
-        "dataSource": "combined-hours-calculated",
-        "eligible": false,
-        "calculation": {
-          "cutoffDate": "2026-10-01",
-          "totalCombinedHours": 212.31,
-          "totalWeGlideHours": 208.23,
-          "olcOnlyHours": 4.08,
-          "hoursSinceOct1": 0,
-          "estimatedOct1Hours": 212.3
-        }
       }
     },
     "dobVerifications": {
@@ -5308,10 +5248,11 @@
       "is_junior": false,
       "is_senior": false,
       "club": {
-        "id": 1345,
-        "name": "Toronto Soaring Club",
-        "region": "CA-ON",
-        "url": "http://toronto-soaring.ca"
+        "id": 965,
+        "name": "Cu Nim Gliding Club",
+        "region": "CA-AB",
+        "url": "https://www.cunim.org",
+        "logo": "club/965.png"
       },
       "message_enabled": true
     },
@@ -41127,6 +41068,55 @@
       "lookupMissing": false
     }
   },
+  "silverCgullLeaderboardsByYear": {
+    "2026": [
+      {
+        "pilot": "Aidan OBrien",
+        "userId": 40038,
+        "flightId": 1231135,
+        "date": "2026-09-07",
+        "distance": "182.8 km",
+        "points": "211.3 pts",
+        "duration": "5h 15m",
+        "takeoff": "Toronto Soaring Club - Conn",
+        "club": "Toronto Soaring Club"
+      },
+      {
+        "pilot": "Ali Askari",
+        "userId": 35437,
+        "flightId": 1237644,
+        "date": "2026-09-14",
+        "distance": "316.6 km",
+        "points": "395.7 pts",
+        "duration": "5h 3m",
+        "takeoff": "Toronto Soaring Club - Conn",
+        "club": "Toronto Soaring Club"
+      },
+      {
+        "pilot": "Ethan Specht",
+        "userId": 42674,
+        "flightId": 1215876,
+        "date": "2026-08-20",
+        "distance": "210.6 km",
+        "points": "247.5 pts",
+        "duration": "5h 34m",
+        "takeoff": "Lucan",
+        "club": "London Soaring Club"
+      },
+      {
+        "pilot": "Fiona Ashouri",
+        "userId": 41375,
+        "flightId": 1170776,
+        "date": "2026-07-23",
+        "distance": "54.7 km",
+        "points": "69.5 pts",
+        "duration": "5h 12m",
+        "takeoff": "Toronto Soaring Club - Conn",
+        "club": "Toronto Soaring Club"
+      }
+    ],
+    "2027": []
+  },
   "mixedLeaderboard": [
     {
       "pilot": "Christopher Michael Gough",
@@ -45563,58 +45553,9 @@
     "totalTasksCompleted": 0,
     "seasonLabel": "Oct 1, 2026 - Sept 30, 2027",
     "seasonId": "2026-27",
+    "silverCalendarYear": 2026,
     "dataThroughDate": "2026-10-12",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-10-13T10:01:26.424Z",
-    "silverCalendarYear": 2026
-  },
-  "silverCgullLeaderboardsByYear": {
-    "2026": [
-      {
-        "pilot": "Aidan OBrien",
-        "userId": 40038,
-        "flightId": 1231135,
-        "date": "2026-09-07",
-        "distance": "182.8 km",
-        "points": "211.3 pts",
-        "duration": "5h 15m",
-        "takeoff": "Toronto Soaring Club - Conn",
-        "club": "Toronto Soaring Club"
-      },
-      {
-        "pilot": "Ali Askari",
-        "userId": 35437,
-        "flightId": 1237644,
-        "date": "2026-09-14",
-        "distance": "316.6 km",
-        "points": "395.7 pts",
-        "duration": "5h 3m",
-        "takeoff": "Toronto Soaring Club - Conn",
-        "club": "Toronto Soaring Club"
-      },
-      {
-        "pilot": "Ethan Specht",
-        "userId": 42674,
-        "flightId": 1215876,
-        "date": "2026-08-20",
-        "distance": "210.6 km",
-        "points": "247.5 pts",
-        "duration": "5h 34m",
-        "takeoff": "Lucan",
-        "club": "London Soaring Club"
-      },
-      {
-        "pilot": "Fiona Ashouri",
-        "userId": 41375,
-        "flightId": 1170776,
-        "date": "2026-07-23",
-        "distance": "54.7 km",
-        "points": "69.5 pts",
-        "duration": "5h 12m",
-        "takeoff": "Toronto Soaring Club - Conn",
-        "club": "Toronto Soaring Club"
-      }
-    ],
-    "2027": []
+    "generatedAt": "2026-10-14T08:19:47.588Z"
   }
 }

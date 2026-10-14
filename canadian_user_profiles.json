@@ -1012,10 +1012,11 @@
     "is_junior": false,
     "is_senior": false,
     "club": {
-      "id": 1345,
-      "name": "Toronto Soaring Club",
-      "region": "CA-ON",
-      "url": "http://toronto-soaring.ca"
+      "id": 965,
+      "name": "Cu Nim Gliding Club",
+      "region": "CA-AB",
+      "url": "https://www.cunim.org",
+      "logo": "club/965.png"
     },
     "message_enabled": true
   },
