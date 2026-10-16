@@ -630,7 +630,7 @@
     "message_enabled": true
   },
   "17989": {
-    "total_flight_duration": 1894413,
+    "total_flight_duration": 1906655,
     "total_free_distance": 43291.04,
     "avg_speed": 88.04,
     "flight_count": 136,
@@ -674,7 +674,7 @@
     "message_enabled": true
   },
   "18693": {
-    "total_flight_duration": 2398340,
+    "total_flight_duration": 2420353,
     "total_free_distance": 50693.25,
     "avg_speed": 85.22,
     "flight_count": 149,
@@ -3017,12 +3017,12 @@
     "message_enabled": true
   },
   "35759": {
-    "total_flight_duration": 110768,
-    "total_free_distance": 1192.1,
-    "avg_speed": 43.74,
-    "flight_count": 13,
-    "avg_glide_speed": 104.78,
-    "avg_glide_detour": 1.88,
+    "total_flight_duration": 121820,
+    "total_free_distance": 1308.38,
+    "avg_speed": 43.84,
+    "flight_count": 14,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 1,
     "name": "Patrick Kessler",
     "gender": "M",
