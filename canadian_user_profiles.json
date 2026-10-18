@@ -403,7 +403,7 @@
     "message_enabled": true
   },
   "12836": {
-    "total_flight_duration": 2809893,
+    "total_flight_duration": 2821590,
     "total_free_distance": 61287.66,
     "avg_speed": 90.08,
     "flight_count": 244,
@@ -1286,12 +1286,12 @@
     "message_enabled": true
   },
   "24793": {
-    "total_flight_duration": 4715819,
-    "total_free_distance": 90616.66,
-    "avg_speed": 73.33,
-    "flight_count": 326,
-    "avg_glide_speed": 125.87,
-    "avg_glide_detour": 1.19,
+    "total_flight_duration": 4732622,
+    "total_free_distance": 91329.06,
+    "avg_speed": 73.39,
+    "flight_count": 328,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 27,
     "name": "Gabriel Duford",
     "gender": "M",
@@ -1466,13 +1466,13 @@
     "message_enabled": true
   },
   "27586": {
-    "total_flight_duration": 505269,
-    "total_free_distance": 9336.62,
-    "avg_speed": 73.78,
-    "flight_count": 30,
+    "total_flight_duration": 517030,
+    "total_free_distance": 9621.83,
+    "avg_speed": 72.32,
+    "flight_count": 32,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
-    "achievement_count": 9,
+    "achievement_count": 10,
     "name": "Mark A. Schneider",
     "gender": "M",
     "is_junior": false,
@@ -1932,10 +1932,10 @@
     "message_enabled": true
   },
   "35140": {
-    "total_flight_duration": 122923,
-    "total_free_distance": 965.17,
-    "avg_speed": 31.5,
-    "flight_count": 27,
+    "total_flight_duration": 128743,
+    "total_free_distance": 1006.91,
+    "avg_speed": 31.57,
+    "flight_count": 29,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 5,
@@ -2513,10 +2513,10 @@
     "message_enabled": true
   },
   "35436": {
-    "total_flight_duration": 1348224,
-    "total_free_distance": 28365.01,
-    "avg_speed": 80.46,
-    "flight_count": 63,
+    "total_flight_duration": 1360677,
+    "total_free_distance": 28998.33,
+    "avg_speed": 80.32,
+    "flight_count": 65,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 21,
@@ -3017,10 +3017,10 @@
     "message_enabled": true
   },
   "35759": {
-    "total_flight_duration": 121820,
-    "total_free_distance": 1308.38,
-    "avg_speed": 43.84,
-    "flight_count": 14,
+    "total_flight_duration": 125256,
+    "total_free_distance": 1355.52,
+    "avg_speed": 44.19,
+    "flight_count": 15,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 1,
@@ -4388,10 +4388,10 @@
     "message_enabled": true
   },
   "40967": {
-    "total_flight_duration": 74498,
-    "total_free_distance": 617.28,
-    "avg_speed": 35.01,
-    "flight_count": 31,
+    "total_flight_duration": 75548,
+    "total_free_distance": 628.69,
+    "avg_speed": 35.26,
+    "flight_count": 32,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 2,
