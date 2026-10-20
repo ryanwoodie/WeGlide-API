@@ -972,10 +972,11 @@
     "is_junior": false,
     "is_senior": false,
     "club": {
-      "id": 1124,
-      "name": "Lethbridge Soaring Club",
+      "id": 965,
+      "name": "Cu Nim Gliding Club",
       "region": "CA-AB",
-      "url": "https://www.lethbridgesoaring.ca"
+      "url": "https://www.cunim.org",
+      "logo": "club/965.png"
     },
     "message_enabled": true
   },
@@ -1972,10 +1973,10 @@
     "message_enabled": true
   },
   "35175": {
-    "total_flight_duration": 56224,
-    "total_free_distance": 560.94,
-    "avg_speed": 41.1,
-    "flight_count": 11,
+    "total_flight_duration": 60626,
+    "total_free_distance": 637.93,
+    "avg_speed": 43.22,
+    "flight_count": 12,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 4,
