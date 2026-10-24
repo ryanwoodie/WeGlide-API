@@ -403,7 +403,7 @@
     "message_enabled": true
   },
   "12836": {
-    "total_flight_duration": 2821590,
+    "total_flight_duration": 2832789,
     "total_free_distance": 61287.66,
     "avg_speed": 90.08,
     "flight_count": 244,
@@ -981,10 +981,10 @@
     "message_enabled": true
   },
   "22232": {
-    "total_flight_duration": 2060449,
-    "total_free_distance": 28567.08,
-    "avg_speed": 55.27,
-    "flight_count": 344,
+    "total_flight_duration": 2063549,
+    "total_free_distance": 28641.63,
+    "avg_speed": 55.34,
+    "flight_count": 345,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 21,
@@ -1750,10 +1750,10 @@
     "message_enabled": true
   },
   "34958": {
-    "total_flight_duration": 3215483,
-    "total_free_distance": 57992.99,
+    "total_flight_duration": 3217754,
+    "total_free_distance": 58036.43,
     "avg_speed": 67.74,
-    "flight_count": 274,
+    "flight_count": 275,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 22,
@@ -2034,12 +2034,12 @@
     "message_enabled": true
   },
   "35288": {
-    "total_flight_duration": 4241215,
-    "total_free_distance": 61433.72,
-    "avg_speed": 56.79,
-    "flight_count": 404,
-    "avg_glide_speed": 119.63,
-    "avg_glide_detour": 1.52,
+    "total_flight_duration": 4259404,
+    "total_free_distance": 61623.51,
+    "avg_speed": 56.76,
+    "flight_count": 407,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 20,
     "name": "Frank Pilz",
     "gender": "M",
@@ -2050,7 +2050,8 @@
       "name": "Vancouver Soaring Association",
       "region": "CA-BC",
       "url": "http://vancouversoaring.com"
-    }
+    },
+    "message_enabled": true
   },
   "35296": {
     "total_flight_duration": 467770,
@@ -2393,12 +2394,12 @@
     }
   },
   "35427": {
-    "total_flight_duration": 272931,
-    "total_free_distance": 3134.34,
-    "avg_speed": 48.29,
-    "flight_count": 75,
-    "avg_glide_speed": 108.3,
-    "avg_glide_detour": 1.25,
+    "total_flight_duration": 277697,
+    "total_free_distance": 3232.63,
+    "avg_speed": 48.13,
+    "flight_count": 78,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 10,
     "name": "Marc-André Rathé",
     "gender": "M",
