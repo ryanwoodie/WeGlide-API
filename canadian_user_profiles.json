@@ -2195,10 +2195,10 @@
     "message_enabled": true
   },
   "35367": {
-    "total_flight_duration": 1228239,
-    "total_free_distance": 10386.75,
-    "avg_speed": 34.67,
-    "flight_count": 135,
+    "total_flight_duration": 1229603,
+    "total_free_distance": 10410.71,
+    "avg_speed": 34.72,
+    "flight_count": 136,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 7,
@@ -4258,12 +4258,12 @@
     "message_enabled": true
   },
   "40533": {
-    "total_flight_duration": 38832,
-    "total_free_distance": 441.41,
-    "avg_speed": 45.28,
-    "flight_count": 7,
-    "avg_glide_speed": 113.21,
-    "avg_glide_detour": 1.09,
+    "total_flight_duration": 44100,
+    "total_free_distance": 491.39,
+    "avg_speed": 44.4,
+    "flight_count": 10,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 0,
     "name": "Jean Lortie",
     "gender": "M",
