@@ -361,6 +361,28 @@
     },
     "message_enabled": true
   },
+  "12104": {
+    "total_flight_duration": 90374,
+    "total_free_distance": 1871.32,
+    "avg_speed": 86.39,
+    "flight_count": 5,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
+    "achievement_count": 11,
+    "name": "Svenja Fink",
+    "gender": "F",
+    "is_junior": true,
+    "is_senior": false,
+    "club": {
+      "id": 1514,
+      "name": "LSV Backnang-Heiningen",
+      "region": "DE-BW",
+      "url": "https://www.edsh.de",
+      "logo": "club/1514.png",
+      "in_league": "BW"
+    },
+    "message_enabled": true
+  },
   "12230": {
     "total_flight_duration": 53319,
     "total_free_distance": 387.46,
