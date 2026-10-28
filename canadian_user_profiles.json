@@ -2258,12 +2258,12 @@
     "message_enabled": true
   },
   "35385": {
-    "total_flight_duration": 3553357,
-    "total_free_distance": 49797,
-    "avg_speed": 53.12,
-    "flight_count": 268,
-    "avg_glide_speed": 110.67,
-    "avg_glide_detour": 1.24,
+    "total_flight_duration": 3562638,
+    "total_free_distance": 49920.62,
+    "avg_speed": 53.11,
+    "flight_count": 269,
+    "avg_glide_speed": 0,
+    "avg_glide_detour": 0,
     "achievement_count": 14,
     "name": "Gustavo Tanoni",
     "gender": "M",
@@ -2416,10 +2416,10 @@
     }
   },
   "35427": {
-    "total_flight_duration": 277697,
-    "total_free_distance": 3232.63,
-    "avg_speed": 48.13,
-    "flight_count": 78,
+    "total_flight_duration": 287227,
+    "total_free_distance": 3324.58,
+    "avg_speed": 48.2,
+    "flight_count": 79,
     "avg_glide_speed": 0,
     "avg_glide_detour": 0,
     "achievement_count": 10,
