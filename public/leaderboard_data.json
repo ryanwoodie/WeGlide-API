@@ -49,7 +49,7 @@
     "22077": 1730544,
     "22081": 379297,
     "22211": 14875,
-    "22232": 2063549,
+    "22232": 2067090,
     "22359": 26631,
     "22746": 1294317,
     "22801": 108955,
@@ -5264,7 +5264,7 @@
       "message_enabled": true
     },
     "22232": {
-      "total_flight_duration": 2063549,
+      "total_flight_duration": 2067090,
       "total_free_distance": 28641.63,
       "avg_speed": 55.34,
       "flight_count": 345,
@@ -53831,6 +53831,6 @@
     "silverCalendarYear": 2026,
     "dataThroughDate": "2026-10-31",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-11-04T10:19:54.978Z"
+    "generatedAt": "2026-11-05T10:13:26.281Z"
   }
 }
