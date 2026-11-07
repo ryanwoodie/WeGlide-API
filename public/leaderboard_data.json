@@ -30,7 +30,7 @@
     "14075": 643517,
     "15888": 646013,
     "15929": 2373559,
-    "16605": 1453003,
+    "16605": 1567211,
     "17026": 824614,
     "17989": 1906655,
     "18113": 3143426,
@@ -4872,7 +4872,7 @@
       "message_enabled": true
     },
     "16605": {
-      "total_flight_duration": 1453003,
+      "total_flight_duration": 1567211,
       "total_free_distance": 20900.9,
       "avg_speed": 59.45,
       "flight_count": 166,
@@ -53831,6 +53831,6 @@
     "silverCalendarYear": 2026,
     "dataThroughDate": "2026-10-31",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-11-06T10:17:00.920Z"
+    "generatedAt": "2026-11-07T09:32:14.778Z"
   }
 }
