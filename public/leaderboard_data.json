@@ -17,7 +17,7 @@
     "9871": 374266,
     "10170": 289337,
     "10376": 587156,
-    "10764": 476647,
+    "10764": 486685,
     "12104": 90374,
     "12230": 53319,
     "12276": 337876,
@@ -30,7 +30,7 @@
     "14075": 643517,
     "15888": 646013,
     "15929": 2373559,
-    "16605": 1567211,
+    "16605": 1569774,
     "17026": 824614,
     "17989": 1906655,
     "18113": 3143426,
@@ -4601,7 +4601,7 @@
       "message_enabled": true
     },
     "10764": {
-      "total_flight_duration": 476647,
+      "total_flight_duration": 486685,
       "total_free_distance": 6388.36,
       "avg_speed": 52.55,
       "flight_count": 76,
@@ -4872,7 +4872,7 @@
       "message_enabled": true
     },
     "16605": {
-      "total_flight_duration": 1567211,
+      "total_flight_duration": 1569774,
       "total_free_distance": 20900.9,
       "avg_speed": 59.45,
       "flight_count": 166,
@@ -53831,6 +53831,6 @@
     "silverCalendarYear": 2026,
     "dataThroughDate": "2026-10-31",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-11-07T09:32:14.778Z"
+    "generatedAt": "2026-11-08T11:06:36.819Z"
   }
 }
