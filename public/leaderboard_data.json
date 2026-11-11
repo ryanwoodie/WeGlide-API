@@ -17,7 +17,7 @@
     "9871": 374266,
     "10170": 289337,
     "10376": 587156,
-    "10764": 486685,
+    "10764": 492022,
     "12104": 90374,
     "12230": 53319,
     "12276": 337876,
@@ -4601,7 +4601,7 @@
       "message_enabled": true
     },
     "10764": {
-      "total_flight_duration": 486685,
+      "total_flight_duration": 492022,
       "total_free_distance": 6388.36,
       "avg_speed": 52.55,
       "flight_count": 76,
@@ -53831,6 +53831,6 @@
     "silverCalendarYear": 2026,
     "dataThroughDate": "2026-10-31",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-11-10T10:41:42.420Z"
+    "generatedAt": "2026-11-11T10:11:26.180Z"
   }
 }
