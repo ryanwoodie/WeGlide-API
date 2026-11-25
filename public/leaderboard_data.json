@@ -130,12 +130,12 @@
     "35461": 182329,
     "35481": 375583,
     "35484": 120975,
-    "35496": 3568230,
+    "35496": 3581629,
     "35497": 12112,
     "35546": 1291147,
     "35558": 4090653,
     "35573": 491188,
-    "35577": 1273392,
+    "35577": 1302164,
     "35578": 70414,
     "35587": 28084,
     "35605": 14008,
@@ -6899,7 +6899,7 @@
       "message_enabled": true
     },
     "35496": {
-      "total_flight_duration": 3568230,
+      "total_flight_duration": 3581629,
       "total_free_distance": 62325.36,
       "avg_speed": 68.51,
       "flight_count": 291,
@@ -7002,7 +7002,7 @@
       }
     },
     "35577": {
-      "total_flight_duration": 1273392,
+      "total_flight_duration": 1302164,
       "total_free_distance": 29436.61,
       "avg_speed": 90.85,
       "flight_count": 104,
@@ -54420,6 +54420,6 @@
     "silverCalendarYear": 2026,
     "dataThroughDate": "2026-11-15",
     "freeSeasonLabel": "Oct 1, 2026 - Sept 30, 2027",
-    "generatedAt": "2026-11-24T13:11:47.196Z"
+    "generatedAt": "2026-11-25T12:00:05.428Z"
   }
 }
